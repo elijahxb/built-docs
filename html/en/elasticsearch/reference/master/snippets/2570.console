@@ -1,4 +1,15 @@
-DELETE /_security/oauth2/token
+GET my-index-000001/_validate/query
 {
-  "realm_name" : "saml1"
+  "query" : {
+    "bool" : {
+      "must" : {
+        "query_string" : {
+          "query" : "*:*"
+        }
+      },
+      "filter" : {
+        "term" : { "user.id" : "kimchy" }
+      }
+    }
+  }
 }

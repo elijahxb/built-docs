@@ -20,9 +20,8 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="index.html">Machine Learning in the Elastic Stack [master]</a></span>
-»
-<span class="breadcrumb-node">Time functions</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -34,11 +33,11 @@ Not what you want? See the
 </div>
 <div class="appendix exclude">
 <div class="titlepage"><div><div>
-<h1 class="title"><a id="ml-time-functions"></a>Appendix P: Time functions<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ml/anomaly-detection/functions/ml-time-functions.asciidoc">edit</a></h1>
+<h1 class="title"><a id="ml-time-functions"></a>Appendix P: Time functions<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ml/anomaly-detection/functions/ml-time-functions.asciidoc">edit</a></h1>
 </div></div></div>
 <p>The time functions detect events that happen at unusual times, either of the day
-or of the week. These functions can be used to find unusual patterns of behavior,
-typically associated with suspicious user activity.</p>
+or of the week. These functions can be used to find unusual patterns of
+behavior, typically associated with suspicious user activity.</p>
 <p>The machine learning features include the following time functions:</p>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -56,7 +55,7 @@ typically associated with suspicious user activity.</p>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
 <li class="listitem">
-NOTE: You cannot create forecasts for anomaly detection jobs that contain time
+You cannot create forecasts for anomaly detection jobs that contain time
 functions.
 </li>
 <li class="listitem">
@@ -88,7 +87,7 @@ step change in behavior and the new times will be learned quickly.
 </div>
 </div>
 </div>
-<h2><a id="ml-time-of-day"></a>Time_of_day<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ml/anomaly-detection/functions/ml-time-functions.asciidoc">edit</a></h2>
+<h2><a id="ml-time-of-day"></a>Time_of_day<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ml/anomaly-detection/functions/ml-time-functions.asciidoc">edit</a></h2>
 <p>The <code class="literal">time_of_day</code> function detects when events occur that are outside normal
 usage patterns. For example, it detects unusual activity in the middle of the
 night.</p>
@@ -122,9 +121,19 @@ function is more appropriate.</p>
 models when events occur throughout a day for each process. It detects when an
 event occurs for a process that is at an unusual time in the day compared to
 its past behavior.</p>
-<h2><a id="ml-time-of-week"></a>Time_of_week<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ml/anomaly-detection/functions/ml-time-functions.asciidoc">edit</a></h2>
+<h2><a id="ml-time-of-week"></a>Time_of_week<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ml/anomaly-detection/functions/ml-time-functions.asciidoc">edit</a></h2>
 <p>The <code class="literal">time_of_week</code> function detects when events occur that are outside normal
 usage patterns. For example, it detects login events on the weekend.</p>
+<div class="important admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>The <code class="literal">time_of_week</code> function models time in epoch seconds modulo the
+  duration of a week in seconds. It means that the <code class="literal">typical</code> and <code class="literal">actual</code> values
+  are seconds after a whole number of weeks since 1/1/1970 in UTC which is a
+  Thursday. For example, a value of <code class="literal">475</code> is 475 seconds after midnight on
+  Thursday in UTC.</p>
+</div>
+</div>
 <p>This function supports the following properties:</p>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">

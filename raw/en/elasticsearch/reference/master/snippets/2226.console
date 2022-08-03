@@ -1,6 +1,10 @@
-PUT /publications/_mapping
+PUT /_index_template/template_1
 {
-  "properties": {
-    "title":  { "type": "text"}
+  "index_patterns" : ["te*"],
+  "priority" : 1,
+  "template": {
+    "settings" : {
+      "number_of_shards" : 2
+    }
   }
 }

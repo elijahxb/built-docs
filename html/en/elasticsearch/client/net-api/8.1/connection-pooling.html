@@ -6,11 +6,12 @@
 <title>Connection pools | Elasticsearch .NET Client [8.1] | Elastic</title>
 <link rel="home" href="index.html" title="Elasticsearch .NET Client [8.1]"/>
 <link rel="up" href="connecting-nest-hl.html" title="Connecting"/>
-<link rel="prev" href="configuration-options.html" title="Configuration options"/>
+<link rel="prev" href="connecting-nest-hl.html" title="Connecting"/>
 <link rel="next" href="modifying-default-connection.html" title="Modifying the default connection"/>
 <meta name="DC.type" content="Learn/Docs/Clients/.Net/8.1"/>
 <meta name="DC.subject" content="Clients"/>
 <meta name="DC.identifier" content="8.1"/>
+<meta name="robots" content="noindex,nofollow"/>
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -56,7 +57,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,42 +88,34 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
-                  
+                  <div class="page_header">
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch .NET Client [8.1]</a></span>
-»
-<span class="breadcrumb-link"><a href="nest.html">NEST - High level client</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch .NET Client [8.1]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="nest.html">NEST - High level client</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="connecting-nest-hl.html">Connecting</a></span>
-»
-<span class="breadcrumb-node">Connection pools</span>
 </div>
 <div class="navheader">
 <span class="prev">
-<a href="configuration-options.html">« Configuration options</a>
+<a href="connecting-nest-hl.html">« Connecting</a>
 </span>
 <span class="next">
 <a href="modifying-default-connection.html">Modifying the default connection »</a>
@@ -130,7 +123,7 @@
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="connection-pooling"></a>Connection pools<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/client-concepts/connection-pooling/building-blocks/connection-pooling.asciidoc">edit</a></h2>
+<h2 class="title"><a id="connection-pooling"></a>Connection pools<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/client-concepts/connection-pooling/building-blocks/connection-pooling.asciidoc">edit</a></h2>
 </div></div></div>
 <p>Connection pooling is the internal mechanism that takes care of registering what nodes there are in the cluster and which
 NEST can use to issue client calls on.</p>
@@ -171,7 +164,7 @@ application.</p>
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="single-node-connection-pool"></a>SingleNodeConnectionPool<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/client-concepts/connection-pooling/building-blocks/connection-pooling.asciidoc">edit</a></h3>
+<h3 class="title"><a id="single-node-connection-pool"></a>SingleNodeConnectionPool<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/client-concepts/connection-pooling/building-blocks/connection-pooling.asciidoc">edit</a></h3>
 </div></div></div>
 <p>The simplest of all connection pools and the default if no connection pool is explicitly passed to the <code class="literal">ConnectionSettings</code> constructor.
 It takes a single <code class="literal">Uri</code> and uses that to connect to Elasticsearch for all the calls. Single node connection pool doesn&#8217;t opt in to
@@ -194,7 +187,7 @@ internally a <code class="literal">SingleNodeConnectionPool</code> is used</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="cloud-connection-pool"></a>CloudConnectionPool<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/client-concepts/connection-pooling/building-blocks/connection-pooling.asciidoc">edit</a></h3>
+<h3 class="title"><a id="cloud-connection-pool"></a>CloudConnectionPool<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/client-concepts/connection-pooling/building-blocks/connection-pooling.asciidoc">edit</a></h3>
 </div></div></div>
 <p>A specialized subclass of <code class="literal">SingleNodeConnectionPool</code> that accepts a Cloud Id and credentials.
 When used the client will also pick Elastic Cloud optimized defaults for the connection settings.</p>
@@ -238,7 +231,7 @@ reseeding (<a class="xref" href="sniffing-behaviour.html" title="Sniffing behavi
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="static-connection-pool"></a>StaticConnectionPool<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/client-concepts/connection-pooling/building-blocks/connection-pooling.asciidoc">edit</a></h3>
+<h3 class="title"><a id="static-connection-pool"></a>StaticConnectionPool<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/client-concepts/connection-pooling/building-blocks/connection-pooling.asciidoc">edit</a></h3>
 </div></div></div>
 <p>The static connection pool is great if you have a known small sized cluster and do no want to enable
 sniffing to find out the cluster topology.</p>
@@ -264,7 +257,7 @@ client = new ElasticClient(new ConnectionSettings(pool));</pre>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="sniffing-connection-pool"></a>SniffingConnectionPool<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/client-concepts/connection-pooling/building-blocks/connection-pooling.asciidoc">edit</a></h3>
+<h3 class="title"><a id="sniffing-connection-pool"></a>SniffingConnectionPool<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/client-concepts/connection-pooling/building-blocks/connection-pooling.asciidoc">edit</a></h3>
 </div></div></div>
 <p>A pool derived from <code class="literal">StaticConnectionPool</code>, a sniffing connection pool allows itself to be reseeded at run time.
 It comes with the very minor overhead of a <code class="literal">ReaderWriterLockSlim</code> to ensure thread safety.</p>
@@ -291,7 +284,7 @@ client = new ElasticClient(new ConnectionSettings(pool));</pre>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="sticky-connection-pool"></a>StickyConnectionPool<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/client-concepts/connection-pooling/building-blocks/connection-pooling.asciidoc">edit</a></h3>
+<h3 class="title"><a id="sticky-connection-pool"></a>StickyConnectionPool<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/client-concepts/connection-pooling/building-blocks/connection-pooling.asciidoc">edit</a></h3>
 </div></div></div>
 <p>A type of connection pool that returns the first live node to issue a request against, such that the node is <em>sticky</em> between requests.
 It uses <a href="https://msdn.microsoft.com/en-us/library/system.threading.interlocked(v=vs.110).aspx" class="ulink" target="_top"><code class="literal">System.Threading.Interlocked</code></a>
@@ -317,7 +310,7 @@ client = new ElasticClient(new ConnectionSettings(pool));</pre>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="sticky-sniffing-connection-pool"></a>Sticky Sniffing Connection Pool<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/client-concepts/connection-pooling/building-blocks/connection-pooling.asciidoc">edit</a></h3>
+<h3 class="title"><a id="sticky-sniffing-connection-pool"></a>Sticky Sniffing Connection Pool<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/client-concepts/connection-pooling/building-blocks/connection-pooling.asciidoc">edit</a></h3>
 </div></div></div>
 <p>A type of connection pool that returns the first live node to issue a request against, such that the node is <em>sticky</em> between requests.
 This implementation supports sniffing and sorting so that each instance of your application can favour a node. For example,
@@ -351,7 +344,7 @@ var client = new ElasticClient(new ConnectionSettings(pool));</pre>
 </div>
 <div class="navfooter">
 <span class="prev">
-<a href="configuration-options.html">« Configuration options</a>
+<a href="connecting-nest-hl.html">« Connecting</a>
 </span>
 <span class="next">
 <a href="modifying-default-connection.html">Modifying the default connection »</a>
@@ -361,15 +354,37 @@ var client = new ElasticClient(new ConnectionSettings(pool));</pre>
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

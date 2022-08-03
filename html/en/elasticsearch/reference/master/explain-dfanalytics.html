@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,27 +87,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 You are looking at preliminary documentation for a future release.
@@ -116,13 +107,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="rest-apis.html">REST APIs</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="rest-apis.html">REST APIs</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="ml-df-analytics-apis.html">Machine learning data frame analytics APIs</a></span>
-»
-<span class="breadcrumb-node">Explain data frame analytics API</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -134,13 +122,13 @@ Not what you want? See the
 </div>
 <div class="section xpack">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="explain-dfanalytics"></a>Explain data frame analytics API<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ml/df-analytics/apis/explain-dfanalytics.asciidoc">edit</a></h2>
+<h2 class="title"><a id="explain-dfanalytics"></a>Explain data frame analytics API<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ml/df-analytics/apis/explain-dfanalytics.asciidoc">edit</a></h2>
 </div></div></div>
 
 <p>Explains a data frame analytics config.</p>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="ml-explain-dfanalytics-request"></a>Request<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ml/df-analytics/apis/explain-dfanalytics.asciidoc">edit</a></h3>
+<h3 class="title"><a id="ml-explain-dfanalytics-request"></a>Request<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ml/df-analytics/apis/explain-dfanalytics.asciidoc">edit</a></h3>
 </div></div></div>
 <p><code class="literal">GET _ml/data_frame/analytics/_explain</code><br></p>
 <p><code class="literal">POST _ml/data_frame/analytics/_explain</code><br></p>
@@ -150,7 +138,7 @@ Not what you want? See the
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="ml-explain-dfanalytics-prereq"></a>Prerequisites<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ml/df-analytics/apis/explain-dfanalytics.asciidoc">edit</a></h3>
+<h3 class="title"><a id="ml-explain-dfanalytics-prereq"></a>Prerequisites<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ml/df-analytics/apis/explain-dfanalytics.asciidoc">edit</a></h3>
 </div></div></div>
 <p>Requires the following privileges:</p>
 <div class="ulist itemizedlist">
@@ -168,7 +156,7 @@ source indices: <code class="literal">read</code>, <code class="literal">view_in
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="ml-explain-dfanalytics-desc"></a>Description<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ml/df-analytics/apis/explain-dfanalytics.asciidoc">edit</a></h3>
+<h3 class="title"><a id="ml-explain-dfanalytics-desc"></a>Description<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ml/df-analytics/apis/explain-dfanalytics.asciidoc">edit</a></h3>
 </div></div></div>
 <p>This API provides explanations for a data frame analytics config that either
 exists already or one that has not been created yet.
@@ -190,7 +178,7 @@ they are not included in the explanation.</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="ml-explain-dfanalytics-path-params"></a>Path parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ml/df-analytics/apis/explain-dfanalytics.asciidoc">edit</a></h3>
+<h3 class="title"><a id="ml-explain-dfanalytics-path-params"></a>Path parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ml/df-analytics/apis/explain-dfanalytics.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="variablelist">
 <dl class="variablelist">
@@ -209,7 +197,7 @@ Identifier for the data frame analytics job.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="ml-explain-dfanalytics-request-body"></a>Request body<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ml/df-analytics/apis/explain-dfanalytics.asciidoc">edit</a></h3>
+<h3 class="title"><a id="ml-explain-dfanalytics-request-body"></a>Request body<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ml/df-analytics/apis/explain-dfanalytics.asciidoc">edit</a></h3>
 </div></div></div>
 <p>A data frame analytics config as described in <a class="xref" href="put-dfanalytics.html" title="Create data frame analytics jobs API">Create data frame analytics jobs</a>.
 Note that <code class="literal">id</code> and <code class="literal">dest</code> don&#8217;t need to be provided in the context of this API.</p>
@@ -217,7 +205,7 @@ Note that <code class="literal">id</code> and <code class="literal">dest</code> 
 
 <div class="section child_attributes">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="ml-explain-dfanalytics-results"></a>Response body<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ml/df-analytics/apis/explain-dfanalytics.asciidoc">edit</a></h3>
+<h3 class="title"><a id="ml-explain-dfanalytics-results"></a>Response body<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ml/df-analytics/apis/explain-dfanalytics.asciidoc">edit</a></h3>
 </div></div></div>
 <p>The API returns a response that contains the following:</p>
 <div class="variablelist">
@@ -338,7 +326,7 @@ data frame analytics should happen in memory (i.e. without overflowing to disk).
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="ml-explain-dfanalytics-example"></a>Examples<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ml/df-analytics/apis/explain-dfanalytics.asciidoc">edit</a></h3>
+<h3 class="title"><a id="ml-explain-dfanalytics-example"></a>Examples<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ml/df-analytics/apis/explain-dfanalytics.asciidoc">edit</a></h3>
 </div></div></div>
 <a id="8aa17bd25a3f2d634e5253b4b72fec4c"></a>
 <div class="pre_wrapper lang-console">
@@ -354,7 +342,7 @@ data frame analytics should happen in memory (i.e. without overflowing to disk).
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/2345.console"></div>
+<div class="console_widget" data-snippet="snippets/2462.console"></div>
 <p>The API returns the following results:</p>
 <a id="fdfac19398a52c398d60bcdd3d4f7c9d"></a>
 <div class="pre_wrapper lang-console-result">
@@ -410,15 +398,37 @@ data frame analytics should happen in memory (i.e. without overflowing to disk).
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

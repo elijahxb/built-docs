@@ -1,5 +1,14 @@
-POST /_security/oauth2/token
+POST music/_search?pretty
 {
-  "grant_type": "refresh_token",
-  "refresh_token": "vLBPvmAB6KvwvJZr27cS"
+  "suggest": {
+    "song-suggest": {
+      "prefix": "nor",
+      "completion": {
+        "field": "suggest",
+        "fuzzy": {
+          "fuzziness": 2
+        }
+      }
+    }
+  }
 }

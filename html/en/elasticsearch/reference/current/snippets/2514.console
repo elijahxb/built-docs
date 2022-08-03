@@ -1,1 +1,13 @@
-DELETE /_security/role_mapping/mapping1
+PUT music
+{
+  "mappings": {
+    "properties": {
+      "suggest": {
+        "type": "completion"
+      },
+      "title": {
+        "type": "keyword"
+      }
+    }
+  }
+}

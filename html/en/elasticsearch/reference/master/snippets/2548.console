@@ -1,1 +1,4 @@
-POST /_security/service/elastic/fleet-server/credential/token/token1
+PUT music/_doc/1?refresh
+{
+  "suggest" : [ "Nevermind", "Nirvana" ]
+}

@@ -1,5 +1,4 @@
-GET /analyze_sample/_analyze
+POST test/_update/1
 {
-  "normalizer" : "my_normalizer",
-  "text" : "BaR"
+  "script": "ctx._source['my-object'].remove('my-subfield')"
 }

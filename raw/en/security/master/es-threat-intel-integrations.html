@@ -5,7 +5,7 @@
 <title>Enable threat intelligence integrations | Elastic Security Solution [master] | Elastic</title>
 <link rel="home" href="index.html" title="Elastic Security Solution [master]"/>
 <link rel="up" href="getting-started.html" title="Get started with Elastic Security"/>
-<link rel="prev" href="endpoint-diagnostic-data.html" title="Turn off Endpoint Security diagnostic data"/>
+<link rel="prev" href="endpoint-diagnostic-data.html" title="Turn off diagnostic data for Endpoint and Cloud Security"/>
 <link rel="next" href="advanced-settings.html" title="Configure advanced settings"/>
 <meta name="DC.type" content="Learn/Docs/Security/Guide/master"/>
 <meta name="DC.subject" content="Security"/>
@@ -18,15 +18,13 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elastic Security Solution [master]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Security Solution [master]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="getting-started.html">Get started with Elastic Security</a></span>
-»
-<span class="breadcrumb-node">Enable threat intelligence integrations</span>
 </div>
 <div class="navheader">
 <span class="prev">
-<a href="endpoint-diagnostic-data.html">« Turn off Endpoint Security diagnostic data</a>
+<a href="endpoint-diagnostic-data.html">« Turn off diagnostic data for Endpoint and Cloud Security</a>
 </span>
 <span class="next">
 <a href="advanced-settings.html">Configure advanced settings »</a>
@@ -41,13 +39,13 @@ Not what you want? See the
 <div class="note admon">
 <div class="icon"></div>
 <div class="admon_content">
-<p>To learn more about alerts with threat intelligence, visit <a class="xref" href="alerts-ui-manage.html#view-alert-details" title="View alert details">View alert details</a>.</p>
+<p>To learn more about alerts with threat intelligence, visit <a class="xref" href="view-alert-details.html" title="View detection alert details">View alert details</a>.</p>
 </div>
 </div>
 <p>You can connect to threat intelligence sources using an <a class="xref" href="es-threat-intel-integrations.html#agent-ti-integration" title="Add an Elastic Agent integration">Elastic Agent integration</a>, the <a class="xref" href="es-threat-intel-integrations.html#ti-mod-integration" title="Add a Filebeat Threat Intel module integration">Threat Intel module</a>, or a <a class="xref" href="es-threat-intel-integrations.html#custom-ti-integration" title="Add a custom integration">custom integration</a>.</p>
 <div class="imageblock screenshot">
 <div class="content">
-<img src="images/threat-intelligence-view.png" alt="threat intelligence view" width="90%][height=90%][Shows the Threat Intelligence view on the Overview page">
+<img src="images/threat-intelligence-view.png" alt="threat intelligence view" width="65%][height=65%][Shows the Threat Intelligence view on the Overview page">
 </div>
 </div>
 <p>There are a few scenarios when data won&#8217;t display in the Threat Intelligence view:</p>
@@ -88,10 +86,13 @@ Anomali
 Cybersixgill
 </li>
 <li class="listitem">
-ThreatQuotient
+MISP
 </li>
 <li class="listitem">
-MISP
+Recorded Future
+</li>
+<li class="listitem">
+ThreatQuotient
 </li>
 </ul>
 </div>
@@ -102,13 +103,7 @@ MISP
 Select an Elastic Agent integration, then complete the installation steps.
 </li>
 <li class="listitem">
-<p>Return to the Threat Intelligence view on the Overview page. Refresh the page if indicator data isn&#8217;t displaying.</p>
-<div class="note admon">
-<div class="icon"></div>
-<div class="admon_content">
-<p>The message about disabled threat intelligence sources disappears when you enable all available Elastic Security integrations.</p>
-</div>
-</div>
+Return to the Threat Intelligence view on the Overview page. Refresh the page if indicator data isn&#8217;t displaying.
 </li>
 </ol>
 </div>
@@ -153,7 +148,7 @@ Set up a way to <a class="xref" href="ingest-data.html" title="Ingest data to El
 <div class="note admon">
 <div class="icon"></div>
 <div class="admon_content">
-<p>Threat intelligence indices aren’t required to be ECS compatible. However, we strongly recommend compatibility if you’d like your alerts to be enriched with relevant threat indicator information. You can find a list of ECS-compliant threat intelligence fields at <a href="/guide/en/ecs/8.3/ecs-threat.html" class="ulink" target="_top">Threat Fields</a>.</p>
+<p>Threat intelligence indices aren’t required to be ECS compatible. However, we strongly recommend compatibility if you’d like your alerts to be enriched with relevant threat indicator information. You can find a list of ECS-compliant threat intelligence fields at <a href="/guide/en/ecs/8.5/ecs-threat.html" class="ulink" target="_top">Threat Fields</a>.</p>
 </div>
 </div>
 </li>
@@ -171,7 +166,7 @@ Set up a way to <a class="xref" href="ingest-data.html" title="Ingest data to El
 </div>
 <div class="navfooter">
 <span class="prev">
-<a href="endpoint-diagnostic-data.html">« Turn off Endpoint Security diagnostic data</a>
+<a href="endpoint-diagnostic-data.html">« Turn off diagnostic data for Endpoint and Cloud Security</a>
 </span>
 <span class="next">
 <a href="advanced-settings.html">Configure advanced settings »</a>

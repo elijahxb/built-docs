@@ -1,4 +1,10 @@
-PUT my-index-000001/_settings
+GET /_security/_query/api_key
 {
-  "index.merge.policy.max_merge_at_once_explicit": null
+  "query": {
+    "term": {
+      "name": {
+        "value": "application-key-1"
+      }
+    }
+  }
 }

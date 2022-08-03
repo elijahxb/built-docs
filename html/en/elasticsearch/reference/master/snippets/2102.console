@@ -1,6 +1,27 @@
-PUT /test
+PUT test
 {
-  "settings": {
-    "index.write.wait_for_active_shards": "2"
+  "mappings": {
+    "dynamic": false,  
+    "properties": {
+      "text": {"type": "text"}
+    }
+  }
+}
+
+POST test/_doc?refresh
+{
+  "text": "words words",
+  "flag": "bar"
+}
+POST test/_doc?refresh
+{
+  "text": "words words",
+  "flag": "foo"
+}
+PUT test/_mapping  
+{
+  "properties": {
+    "text": {"type": "text"},
+    "flag": {"type": "text", "analyzer": "keyword"}
   }
 }

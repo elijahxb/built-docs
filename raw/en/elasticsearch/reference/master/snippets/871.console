@@ -1,12 +1,15 @@
 GET /_search
 {
   "query": {
-    "bool" : {
-      "should": [
-        { "term": { "message": "quick" }},
-        { "term": { "message": "brown" }},
-        { "prefix": { "message": "f"}}
-      ]
+    "function_score": {
+      "query": {
+        "match": { "message": "elasticsearch" }
+      },
+      "script_score": {
+        "script": {
+          "source": "Math.log(2 + doc['my-int'].value)"
+        }
+      }
     }
   }
 }

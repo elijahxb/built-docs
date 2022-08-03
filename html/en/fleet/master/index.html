@@ -54,7 +54,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -85,27 +85,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   
 <div class="page_header">
@@ -122,6 +113,9 @@ Not what you want? See the
 </div>
 <div class="book" lang="en">
 <div class="titlepage">
+<div class="breadcrumbs" id="title-page-breadcrumb">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+</div>
 <div>
 <div><h1 class="title"><a id="id-1"></a>Fleet and Elastic Agent Guide</h1></div>
 </div>
@@ -131,7 +125,7 @@ Not what you want? See the
 <div id="content">
 <!--START_TOC-->
 <div class="toc">
-<ul class="toc"><li id="book_title"><span>Fleet and Elastic Agent Guide: <select id="live_versions"><option value="master" selected>master</option><option value="8.1">8.1 (current)</option><option value="7.17">7.17</option><option value="other">other versions</option></select><span id="other_versions">other versions: <select><option value="master" selected>master</option><option value="8.2">8.2</option><option value="8.1">8.1 (current)</option><option value="8.0">8.0</option><option value="7.17">7.17</option><option value="7.16">7.16</option><option value="7.15">7.15</option><option value="7.14">7.14</option><option value="7.13">7.13</option><option value="7.12">7.12</option><option value="7.11">7.11</option><option value="7.10">7.10</option><option value="7.9">7.9</option><option value="7.8">7.8</option></select></span></li><li><span class="chapter"><a href="fleet-overview.html">Fleet and Elastic Agent overview</a></span>
+<ul class="toc"><li id="book_title"><span>Fleet and Elastic Agent Guide: <select id="live_versions"><option value="master" selected>master</option><option value="8.3">8.3 (current)</option><option value="7.17">7.17</option><option value="other">other versions</option></select><span id="other_versions">other versions: <select><option value="master" selected>master</option><option value="8.3">8.3 (current)</option><option value="8.2">8.2</option><option value="8.1">8.1</option><option value="8.0">8.0</option><option value="7.17">7.17</option><option value="7.16">7.16</option><option value="7.15">7.15</option><option value="7.14">7.14</option><option value="7.13">7.13</option><option value="7.12">7.12</option><option value="7.11">7.11</option><option value="7.10">7.10</option><option value="7.9">7.9</option><option value="7.8">7.8</option></select></span></li><li><span class="chapter"><a href="fleet-overview.html">Fleet and Elastic Agent overview</a></span>
 </li>
 <li><span class="chapter"><a href="beats-agent-comparison.html">Beats and Elastic Agent capabilities</a></span>
 </li>
@@ -139,23 +133,15 @@ Not what you want? See the
 </li>
 <li><span class="chapter"><a href="migrate-beats-to-agent.html">Migrate from Beats to Elastic Agent</a></span>
 </li>
-<li><span class="chapter"><a href="integrations.html">Manage Elastic Agent integrations</a></span>
+<li><span class="chapter"><a href="fleet-server.html">Set up Fleet Server</a></span>
 <ul>
-<li><span class="section"><a href="add-integration-to-policy.html">Add an Elastic Agent integration to a policy</a></span>
+<li><span class="section"><a href="add-a-fleet-server.html">Add a Fleet Server</a></span>
 </li>
-<li><span class="section"><a href="view-integration-policies.html">View Elastic Agent integration policies</a></span>
+<li><span class="section"><a href="deployment-models.html">Fleet Server deployment models</a></span>
 </li>
-<li><span class="section"><a href="edit-or-delete-integration-policy.html">Edit or delete an Elastic Agent integration policy</a></span>
+<li><span class="section"><a href="fleet-server-scalability.html">Fleet Server scalability</a></span>
 </li>
-<li><span class="section"><a href="install-uninstall-integration-assets.html">Install and uninstall Elastic Agent integration assets</a></span>
-</li>
-<li><span class="section"><a href="view-integration-assets.html">View Elastic Agent integration assets</a></span>
-</li>
-<li><span class="section"><a href="upgrade-integration.html">Upgrade an Elastic Agent integration</a></span>
-</li>
-<li><span class="section"><a href="uninstall-integration.html">Uninstall an Elastic Agent integration</a></span>
-</li>
-<li><span class="section"><a href="air-gapped.html">Air-gapped environments</a></span>
+<li><span class="section"><a href="fleet-server-monitoring.html">Monitor a self-managed Fleet Server</a></span>
 </li>
 </ul>
 </li>
@@ -191,29 +177,17 @@ Not what you want? See the
 </li>
 </ul>
 </li>
-<li><span class="chapter"><a href="secure.html">Secure Elastic Agent connections</a></span>
+<li><span class="chapter"><a href="secure.html">Secure connections</a></span>
 <ul>
 <li><span class="section"><a href="secure-connections.html">Configure SSL/TLS for self-managed Fleet Servers</a></span>
 </li>
-<li><span class="section"><a href="secure-logstash-connections.html">Configure SSL/TLS for Logstash</a></span>
+<li><span class="section"><a href="secure-logstash-connections.html">Configure SSL/TLS for the Logstash output</a></span>
 </li>
 </ul>
 </li>
-<li><span class="chapter"><a href="manage-agents-in-fleet.html">Centrally manage Elastic Agents in Fleet</a></span>
+<li><span class="chapter"><a href="manage-agents-in-fleet.html">Manage Elastic Agents in Fleet</a></span>
 <ul>
 <li><span class="section"><a href="fleet-settings.html">Fleet UI settings</a></span>
-</li>
-<li><span class="section"><a href="fleet-server.html">Fleet Server</a></span>
-<ul>
-<li><span class="section"><a href="add-a-fleet-server.html">Add a Fleet Server</a></span>
-</li>
-<li><span class="section"><a href="deployment-models.html">Fleet Server deployment models</a></span>
-</li>
-<li><span class="section"><a href="fleet-server-scalability.html">Fleet Server scalability</a></span>
-</li>
-<li><span class="section"><a href="fleet-server-monitoring.html">Monitor a self-managed Fleet Server</a></span>
-</li>
-</ul>
 </li>
 <li><span class="section"><a href="manage-agents.html">Elastic Agents</a></span>
 <ul>
@@ -222,6 +196,8 @@ Not what you want? See the
 <li><span class="section"><a href="set-enrollment-timeout.html">Set unenrollment timeout</a></span>
 </li>
 <li><span class="section"><a href="upgrade-elastic-agent.html">Upgrade Elastic Agents</a></span>
+</li>
+<li><span class="section"><a href="filter-agent-list-by-tags.html">Filter list of Agents by tags</a></span>
 </li>
 <li><span class="section"><a href="view-elastic-agent-status.html">View Elastic Agent status</a></span>
 </li>
@@ -243,7 +219,29 @@ Not what you want? See the
 </li>
 </ul>
 </li>
-<li><span class="chapter"><a href="elastic-agent-configuration.html">Elastic Agent standalone configuration</a></span>
+<li><span class="chapter"><a href="integrations.html">Manage integrations</a></span>
+<ul>
+<li><span class="section"><a href="package-signatures.html">Package signatures</a></span>
+</li>
+<li><span class="section"><a href="add-integration-to-policy.html">Add an Elastic Agent integration to a policy</a></span>
+</li>
+<li><span class="section"><a href="view-integration-policies.html">View Elastic Agent integration policies</a></span>
+</li>
+<li><span class="section"><a href="edit-or-delete-integration-policy.html">Edit or delete an Elastic Agent integration policy</a></span>
+</li>
+<li><span class="section"><a href="install-uninstall-integration-assets.html">Install and uninstall Elastic Agent integration assets</a></span>
+</li>
+<li><span class="section"><a href="view-integration-assets.html">View Elastic Agent integration assets</a></span>
+</li>
+<li><span class="section"><a href="upgrade-integration.html">Upgrade an Elastic Agent integration</a></span>
+</li>
+<li><span class="section"><a href="uninstall-integration.html">Uninstall an Elastic Agent integration</a></span>
+</li>
+<li><span class="section"><a href="air-gapped.html">Air-gapped environments</a></span>
+</li>
+</ul>
+</li>
+<li><span class="chapter"><a href="elastic-agent-configuration.html">Configure standalone Elastic Agents</a></span>
 <ul>
 <li><span class="section"><a href="create-standalone-agent-policy.html">Create a standalone Elastic Agent policy</a></span>
 </li>
@@ -291,11 +289,11 @@ Not what you want? See the
 </li>
 <li><span class="section"><a href="elastic-agent-monitoring-configuration.html">Monitoring</a></span>
 </li>
-<li><span class="section"><a href="elastic-agent-reference-yaml.html">Reference yaml</a></span>
+<li><span class="section"><a href="elastic-agent-reference-yaml.html">Reference YAML</a></span>
 </li>
 </ul>
 </li>
-<li><span class="chapter"><a href="elastic-agent-cmd-options.html">Elastic Agent command reference</a></span>
+<li><span class="chapter"><a href="elastic-agent-cmd-options.html">Command reference</a></span>
 </li>
 <li><span class="chapter"><a href="troubleshooting-intro.html">Troubleshoot</a></span>
 <ul>
@@ -307,13 +305,13 @@ Not what you want? See the
 </li>
 <li><span class="chapter"><a href="release-notes.html">Release notes</a></span>
 <ul>
-<li><span class="section"><a href="release-notes-8.1.3.html">Fleet and Elastic Agent 8.1.3</a></span>
+<li><span class="section"><a href="release-notes-8.3.3.html">Fleet and Elastic Agent 8.3.3</a></span>
 </li>
-<li><span class="section"><a href="release-notes-8.1.2.html">Fleet and Elastic Agent 8.1.2</a></span>
+<li><span class="section"><a href="release-notes-8.3.2.html">Fleet and Elastic Agent 8.3.2</a></span>
 </li>
-<li><span class="section"><a href="release-notes-8.1.1.html">Fleet and Elastic Agent 8.1.1</a></span>
+<li><span class="section"><a href="release-notes-8.3.1.html">Fleet and Elastic Agent 8.3.1</a></span>
 </li>
-<li><span class="section"><a href="release-notes-8.1.0.html">Fleet and Elastic Agent 8.1.0</a></span>
+<li><span class="section"><a href="release-notes-8.3.0.html">Fleet and Elastic Agent 8.3.0</a></span>
 </li>
 
 </ul>
@@ -321,6 +319,7 @@ Not what you want? See the
 </ul>
 </div>
 <!--END_TOC-->
+
 
 
 
@@ -345,15 +344,37 @@ Not what you want? See the
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

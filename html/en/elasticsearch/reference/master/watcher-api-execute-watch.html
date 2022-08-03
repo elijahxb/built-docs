@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,27 +87,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 You are looking at preliminary documentation for a future release.
@@ -116,13 +107,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="rest-apis.html">REST APIs</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="rest-apis.html">REST APIs</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="watcher-api.html">Watcher APIs</a></span>
-»
-<span class="breadcrumb-node">Execute watch API</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -134,13 +122,13 @@ Not what you want? See the
 </div>
 <div class="section xpack">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="watcher-api-execute-watch"></a>Execute watch API<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/x-pack/docs/en/rest-api/watcher/execute-watch.asciidoc">edit</a></h2>
+<h2 class="title"><a id="watcher-api-execute-watch"></a>Execute watch API<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/x-pack/docs/en/rest-api/watcher/execute-watch.asciidoc">edit</a></h2>
 </div></div></div>
 
 <p>Forces the execution of a stored watch.</p>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="watcher-api-execute-watch-request"></a>Request<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/x-pack/docs/en/rest-api/watcher/execute-watch.asciidoc">edit</a></h3>
+<h3 class="title"><a id="watcher-api-execute-watch-request"></a>Request<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/x-pack/docs/en/rest-api/watcher/execute-watch.asciidoc">edit</a></h3>
 </div></div></div>
 <p><code class="literal">POST _watcher/watch/&lt;watch_id&gt;/_execute</code><br></p>
 <p><code class="literal">POST _watcher/watch/_execute</code></p>
@@ -148,7 +136,7 @@ Not what you want? See the
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="watcher-api-execute-watch-prereqs"></a>Prerequisites<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/x-pack/docs/en/rest-api/watcher/execute-watch.asciidoc">edit</a></h3>
+<h3 class="title"><a id="watcher-api-execute-watch-prereqs"></a>Prerequisites<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/x-pack/docs/en/rest-api/watcher/execute-watch.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -162,7 +150,7 @@ information, see <a class="xref" href="security-privileges.html" title="Security
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="watcher-api-execute-watch-desc"></a>Description<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/x-pack/docs/en/rest-api/watcher/execute-watch.asciidoc">edit</a></h3>
+<h3 class="title"><a id="watcher-api-execute-watch-desc"></a>Description<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/x-pack/docs/en/rest-api/watcher/execute-watch.asciidoc">edit</a></h3>
 </div></div></div>
 <p>This API can be used to force execution of the watch outside of its triggering
 logic or to simulate the watch execution for debugging purposes.</p>
@@ -173,7 +161,7 @@ the watch condition and control whether a watch record would be written to the
 watch history after execution.</p>
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="watcher-api-execute-inline-watch"></a>Inline watch execution<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/x-pack/docs/en/rest-api/watcher/execute-watch.asciidoc">edit</a></h4>
+<h4 class="title"><a id="watcher-api-execute-inline-watch"></a>Inline watch execution<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/x-pack/docs/en/rest-api/watcher/execute-watch.asciidoc">edit</a></h4>
 </div></div></div>
 <p>You can use the Execute API to execute watches that are not yet registered by
 specifying the watch definition inline. This serves as great tool for testing
@@ -184,7 +172,7 @@ and debugging your watches prior to adding them to Watcher.</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="watcher-api-execute-watch-path-params"></a>Path parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/x-pack/docs/en/rest-api/watcher/execute-watch.asciidoc">edit</a></h3>
+<h3 class="title"><a id="watcher-api-execute-watch-path-params"></a>Path parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/x-pack/docs/en/rest-api/watcher/execute-watch.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="variablelist">
 <dl class="variablelist">
@@ -202,7 +190,7 @@ and debugging your watches prior to adding them to Watcher.</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="watcher-api-execute-watch-query-params"></a>Query parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/x-pack/docs/en/rest-api/watcher/execute-watch.asciidoc">edit</a></h3>
+<h3 class="title"><a id="watcher-api-execute-watch-query-params"></a>Query parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/x-pack/docs/en/rest-api/watcher/execute-watch.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="variablelist">
 <dl class="variablelist">
@@ -221,7 +209,7 @@ value is <code class="literal">false</code>.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="watcher-api-execute-watch-request-body"></a>Request body<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/x-pack/docs/en/rest-api/watcher/execute-watch.asciidoc">edit</a></h3>
+<h3 class="title"><a id="watcher-api-execute-watch-request-body"></a>Request body<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/x-pack/docs/en/rest-api/watcher/execute-watch.asciidoc">edit</a></h3>
 </div></div></div>
 <p>This API supports the following fields:</p>
 <div class="informaltable">
@@ -294,7 +282,7 @@ value is <code class="literal">false</code>.
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="watcher-api-execute-watch-action-mode"></a>Action execution modes<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/x-pack/docs/en/rest-api/watcher/execute-watch.asciidoc">edit</a></h4>
+<h4 class="title"><a id="watcher-api-execute-watch-action-mode"></a>Action execution modes<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/x-pack/docs/en/rest-api/watcher/execute-watch.asciidoc">edit</a></h4>
 </div></div></div>
 <p>Action modes define how actions are handled during the watch execution. There
 are five possible modes an action can be associated with:</p>
@@ -351,7 +339,7 @@ are five possible modes an action can be associated with:</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="watcher-api-execute-watch-security"></a>Security integration<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/x-pack/docs/en/rest-api/watcher/execute-watch.asciidoc">edit</a></h4>
+<h4 class="title"><a id="watcher-api-execute-watch-security"></a>Security integration<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/x-pack/docs/en/rest-api/watcher/execute-watch.asciidoc">edit</a></h4>
 </div></div></div>
 <p>When Elasticsearch security features are enabled on your cluster, watches
 are executed with the privileges of the user that stored the watches. If your
@@ -366,39 +354,39 @@ the watch.</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="watcher-api-execute-watch-example"></a>Examples<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/x-pack/docs/en/rest-api/watcher/execute-watch.asciidoc">edit</a></h3>
+<h3 class="title"><a id="watcher-api-execute-watch-example"></a>Examples<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/x-pack/docs/en/rest-api/watcher/execute-watch.asciidoc">edit</a></h3>
 </div></div></div>
 <p>The following example executes the <code class="literal">my_watch</code> watch:</p>
 <a id="01dc7bdc223bd651574ed2d3954a5b1c"></a>
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">POST _watcher/watch/my_watch/_execute</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/2666.console"></div>
+<div class="console_widget" data-snippet="snippets/2790.console"></div>
 <p>The following example shows a comprehensive example of executing the <code class="literal">my-watch</code> watch:</p>
 <a id="f6eff830fb0fad200ebfb1e3e46f6f0e"></a>
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">POST _watcher/watch/my_watch/_execute
 {
-  "trigger_data" : { <a id="CO711-1"></a><i class="conum" data-value="1"></i>
+  "trigger_data" : { <a id="CO759-1"></a><i class="conum" data-value="1"></i>
      "triggered_time" : "now",
      "scheduled_time" : "now"
   },
-  "alternative_input" : { <a id="CO711-2"></a><i class="conum" data-value="2"></i>
+  "alternative_input" : { <a id="CO759-2"></a><i class="conum" data-value="2"></i>
     "foo" : "bar"
   },
-  "ignore_condition" : true, <a id="CO711-3"></a><i class="conum" data-value="3"></i>
+  "ignore_condition" : true, <a id="CO759-3"></a><i class="conum" data-value="3"></i>
   "action_modes" : {
-    "my-action" : "force_simulate" <a id="CO711-4"></a><i class="conum" data-value="4"></i>
+    "my-action" : "force_simulate" <a id="CO759-4"></a><i class="conum" data-value="4"></i>
   },
-  "record_execution" : true <a id="CO711-5"></a><i class="conum" data-value="5"></i>
+  "record_execution" : true <a id="CO759-5"></a><i class="conum" data-value="5"></i>
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/2667.console"></div>
+<div class="console_widget" data-snippet="snippets/2791.console"></div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO711-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO759-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>The triggered and schedule times are provided.</p>
@@ -406,7 +394,7 @@ the watch.</p>
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO711-2"><i class="conum" data-value="2"></i></a></p>
+<p><a href="#CO759-2"><i class="conum" data-value="2"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>The input as defined by the watch is ignored and instead the provided input
@@ -415,7 +403,7 @@ is used as the execution payload.</p>
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO711-3"><i class="conum" data-value="3"></i></a></p>
+<p><a href="#CO759-3"><i class="conum" data-value="3"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>The condition as defined by the watch is ignored and is assumed to
@@ -424,7 +412,7 @@ evaluate to <code class="literal">true</code>.</p>
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO711-4"><i class="conum" data-value="4"></i></a></p>
+<p><a href="#CO759-4"><i class="conum" data-value="4"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Forces the simulation of <code class="literal">my-action</code>. Forcing the simulation means that
@@ -434,7 +422,7 @@ being executed normally.</p>
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO711-5"><i class="conum" data-value="5"></i></a></p>
+<p><a href="#CO759-5"><i class="conum" data-value="5"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>The execution of the watch creates a watch record in the watch history,
@@ -447,8 +435,8 @@ and the throttling state of the watch is potentially updated accordingly.</p>
 <a id="09ef6a65db6a67fbe3a41f066009641e"></a>
 <div class="pre_wrapper lang-console-result">
 <pre class="programlisting prettyprint lang-console-result">{
-  "_id": "my_watch_0-2015-06-02T23:17:55.124Z", <a id="CO712-1"></a><i class="conum" data-value="1"></i>
-  "watch_record": { <a id="CO712-2"></a><i class="conum" data-value="2"></i>
+  "_id": "my_watch_0-2015-06-02T23:17:55.124Z", <a id="CO760-1"></a><i class="conum" data-value="1"></i>
+  "watch_record": { <a id="CO760-2"></a><i class="conum" data-value="2"></i>
     "@timestamp": "2015-06-02T23:17:55.124Z",
     "watch_id": "my_watch",
     "node": "my_node",
@@ -499,7 +487,7 @@ and the throttling state of the watch is potentially updated accordingly.</p>
     "condition": {
       "always": {}
     },
-    "result": { <a id="CO712-3"></a><i class="conum" data-value="3"></i>
+    "result": { <a id="CO760-3"></a><i class="conum" data-value="3"></i>
       "execution_time": "2015-06-02T23:17:55.124Z",
       "execution_duration": 12608,
       "input": {
@@ -531,7 +519,7 @@ and the throttling state of the watch is potentially updated accordingly.</p>
         }
       ]
     },
-    "user": "test_admin" <a id="CO712-4"></a><i class="conum" data-value="4"></i>
+    "user": "test_admin" <a id="CO760-4"></a><i class="conum" data-value="4"></i>
   }
 }</pre>
 </div>
@@ -539,7 +527,7 @@ and the throttling state of the watch is potentially updated accordingly.</p>
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO712-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO760-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>The id of the watch record as it would be stored in the <code class="literal">.watcher-history</code> index.</p>
@@ -547,7 +535,7 @@ and the throttling state of the watch is potentially updated accordingly.</p>
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO712-2"><i class="conum" data-value="2"></i></a></p>
+<p><a href="#CO760-2"><i class="conum" data-value="2"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>The watch record document as it would be stored in the <code class="literal">.watcher-history</code> index.</p>
@@ -555,7 +543,7 @@ and the throttling state of the watch is potentially updated accordingly.</p>
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO712-3"><i class="conum" data-value="3"></i></a></p>
+<p><a href="#CO760-3"><i class="conum" data-value="3"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>The watch execution results.</p>
@@ -563,7 +551,7 @@ and the throttling state of the watch is potentially updated accordingly.</p>
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO712-4"><i class="conum" data-value="4"></i></a></p>
+<p><a href="#CO760-4"><i class="conum" data-value="4"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>The user used to execute the watch.</p>
@@ -583,7 +571,7 @@ name with the action id:</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/2668.console"></div>
+<div class="console_widget" data-snippet="snippets/2792.console"></div>
 <p>You can also associate a single execution mode with all the actions in the watch
 using <code class="literal">_all</code> as the action id:</p>
 <a id="9cf6c7012a4f2bb562bc256aa28c3409"></a>
@@ -595,7 +583,7 @@ using <code class="literal">_all</code> as the action id:</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/2669.console"></div>
+<div class="console_widget" data-snippet="snippets/2793.console"></div>
 <p>The following example shows how to execute a watch inline:</p>
 <a id="9cd37d0ccbc66ad47ddb626564b27cc8"></a>
 <div class="pre_wrapper lang-console">
@@ -628,7 +616,7 @@ using <code class="literal">_all</code> as the action id:</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/2670.console"></div>
+<div class="console_widget" data-snippet="snippets/2794.console"></div>
 <p>All other settings for this API still apply when inlining a watch. In the
 following snippet, while the inline watch defines a <code class="literal">compare</code> condition,
 during the execution this condition will be ignored:</p>
@@ -664,7 +652,7 @@ during the execution this condition will be ignored:</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/2671.console"></div>
+<div class="console_widget" data-snippet="snippets/2795.console"></div>
 </div>
 
 </div>
@@ -680,15 +668,37 @@ during the execution this condition will be ignored:</p>
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

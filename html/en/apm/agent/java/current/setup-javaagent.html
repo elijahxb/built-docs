@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,36 +87,25 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">APM Java Agent Reference [1.x]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">APM Java Agent Reference [1.x]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="setup.html">Set up the Agent</a></span>
-»
-<span class="breadcrumb-node">Manual setup with <code class="literal">-javaagent</code> flag</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -130,6 +119,26 @@
 <div class="titlepage"><div><div>
 <h2 class="title"><a id="setup-javaagent"></a>Manual setup with <code class="literal">-javaagent</code> flag<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-java/edit/1.x/docs/setup-javaagent.asciidoc">edit</a></h2>
 </div></div></div>
+<p>Using the <code class="literal">-javaagent</code> option is the most common way to set up java agents on a JVM, it has the following properties:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+No application code changes required.
+</li>
+<li class="listitem">
+Requires to change JVM arguments, which implies a restart of the whole JVM.
+</li>
+<li class="listitem">
+For application servers, the JVM arguments modification requires changing application server configuration
+</li>
+<li class="listitem">
+Agent artifact is an extra binary to manage alongside the JVM or application server.
+</li>
+<li class="listitem">
+Ensures that that the application is fully instrumented before it starts.
+</li>
+</ul>
+</div>
 <h4><a id="setup-javaagent-download"></a>Download the Java agent<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-java/edit/1.x/docs/setup-javaagent.asciidoc">edit</a></h4>
 <p>The first step in getting started with the Elastic APM Java agent is to download the latest release of the agent jar file from
 <a href="https://search.maven.org/search?q=g:co.elastic.apm%20AND%20a:elastic-apm-agent" class="ulink" target="_top">maven central</a>.</p>
@@ -278,10 +287,11 @@ set JAVA_OPTIONS=%JAVA_OPTIONS% -Delastic.apm.server_url=http://localhost:8200</
 <p>The Elastic Java APM Agent Framework is now part of the Cloud Foundry Java Buildpack as of <a href="https://github.com/cloudfoundry/java-buildpack/releases/tag/v4.19" class="ulink" target="_top">Release v4.19</a>.</p>
 <p>A user provided Elastic APM service must have a name or tag with <code class="literal">elastic-apm</code> in it so that the Elastic APM Agent Framework will automatically configure the application to work with the service.</p>
 <p>Create a user provided service:</p>
-<p><code class="literal">cf cups my-elastic-apm-service -p '{"server_url":"https://my-apm-server:8200","secret_token":"my-secret-token"}'</code></p>
+<p><code class="literal">cf cups my-elastic-apm-service -p '{"server_url":"my-apm-server-url","secret_token":"my-apm-server-secret-token"}'</code></p>
+<p>Both <code class="literal">my-apm-server-url</code> and <code class="literal">my-apm-server-secret-token</code> are respectively <code class="literal">server_url</code> and <code class="literal">secret_token</code> from service-key of your Elasticsearch server.</p>
 <p>Bind the application to the service:</p>
 <p><code class="literal">cf bind-service my-application my-elastic-apm-service</code></p>
-<p>or use the <code class="literal">services</code> block in the application manifest file.</p>
+<p>and restage the application or use the <code class="literal">services</code> block in the application manifest file.</p>
 <p>For more details on the Elastic Java APM Agent Framework for Cloud Foundry see <a href="https://github.com/cloudfoundry/java-buildpack/blob/main/docs/framework-elastic_apm_agent.md" class="ulink" target="_top">here</a>.</p>
 <p><strong>manifest.yml.</strong></p>
 <div class="pre_wrapper lang-yml">
@@ -305,15 +315,37 @@ set JAVA_OPTIONS=%JAVA_OPTIONS% -Delastic.apm.server_url=http://localhost:8200</
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

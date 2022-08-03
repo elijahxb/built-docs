@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,27 +87,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 A newer version is available. For the latest information, see the
@@ -115,11 +106,9 @@ A newer version is available. For the latest information, see the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elastic Cloud Enterprise Reference [2.7]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Cloud Enterprise Reference [2.7]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="ece-stack-getting-started.html">Getting started with deployments</a></span>
-»
-<span class="breadcrumb-node">Work with Elasticsearch</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -196,7 +185,7 @@ https://ELASTICSEARCH_URL/INDEX_NAME/_search</pre>
 <div class="pre_wrapper lang-term">
 <pre class="programlisting prettyprint lang-term">curl -u USER:PASSWORD https://ELASTICSEARCH_URL/my_index/_doc/_search?q=title:T*</pre>
 </div>
-<p>For an explanation of the allowed parameters, see <a href="/guide/en/elasticsearch/reference/8.1/search-uri-request.html" class="ulink" target="_top">URI Search</a>.</p>
+<p>For an explanation of the allowed parameters, see <a href="/guide/en/elasticsearch/reference/8.3/search-uri-request.html" class="ulink" target="_top">URI Search</a>.</p>
 <p>To make Elasticsearch return a more human readable JSON response, add <code class="literal">?pretty=true</code> to the request:</p>
 <div class="pre_wrapper lang-term">
 <pre class="programlisting prettyprint lang-term">curl -u USER:PASSWORD https://ELASTICSEARCH_URL/my_index/_doc/_search?pretty=true -H 'Content-Type: application/json' -d '{
@@ -206,7 +195,7 @@ https://ELASTICSEARCH_URL/INDEX_NAME/_search</pre>
 }'</pre>
 </div>
 <p>For performance reasons, <code class="literal">?pretty=true</code> is not recommended in production. You can verify the performance difference yourself by checking the <code class="literal">took</code> field in the JSON response which tells you how long Elasticsearch took to evaluate the search in milliseconds. When we tested these examples ourselves, the difference was <code class="literal">"took" : 4</code> against <code class="literal">"took" : 18</code>, a substantial difference.</p>
-<p>For a full explanation of how the request body is structured, see <a href="/guide/en/elasticsearch/reference/8.1/search-request-body.html" class="ulink" target="_top">Elasticsearch Request Body documentation</a>. You can also execute multiple queries in one request with the <a href="/guide/en/elasticsearch/reference/8.1/search-multi-search.html" class="ulink" target="_top">Multi Search API</a>.</p>
+<p>For a full explanation of how the request body is structured, see <a href="/guide/en/elasticsearch/reference/8.3/search-request-body.html" class="ulink" target="_top">Elasticsearch Request Body documentation</a>. You can also execute multiple queries in one request with the <a href="/guide/en/elasticsearch/reference/8.3/search-multi-search.html" class="ulink" target="_top">Multi Search API</a>.</p>
 <h3><a id="ece_deleting"></a>Deleting<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-47/docs/shared/ec-ce-working-with-elasticsearch.asciidoc">edit</a></h3>
 <p>You delete documents from Elasticsearch by sending <code class="literal">DELETE</code> requests.</p>
 <p>To delete a single document by ID from an earlier example:</p>
@@ -231,15 +220,37 @@ https://ELASTICSEARCH_URL/INDEX_NAME/_search</pre>
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

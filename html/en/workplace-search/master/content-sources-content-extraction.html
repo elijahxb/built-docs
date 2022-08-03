@@ -57,7 +57,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -88,27 +88,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 You are looking at preliminary documentation for a future release.
@@ -117,11 +108,9 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Workplace Search Guide [master]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Workplace Search Guide [master]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="workplace-search-content-sources.html">Content Sources Overview</a></span>
-»
-<span class="breadcrumb-node">Content extraction</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -159,14 +148,34 @@ The resulting text will be truncated if it exceeds <span class="strong strong"><
 <li class="listitem">
 Content extraction from binary formats (e.g., images, audio, videos) is currently not supported.
 </li>
+<li class="listitem">
+Thumbnail extraction is automatically disabled when <span class="strong strong"><strong>less than 2GB</strong></span> of Heap is available.
+For maximum performance and stability, ensure that Enterprise Search has <span class="strong strong"><strong>at least 4GB</strong></span> of Heap.
+</li>
 </ul>
+</div>
+<h5><a id="content-sources-content-extraction-limits-toggle-assets"></a>Disabling thumbnail or full-text extraction<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/enterprise-search-pubs/edit/main/workplace-search-docs/guides/content-sources/content-extraction.asciidoc">edit</a></h5>
+<p>You have the option to toggle off extracting thumbnails and/or full-text from files, if you need to save RAM.
+However, these toggle options are only available <span class="strong strong"><strong>after</strong></span> you create the content source.
+When you create a content source this triggers a full sync immediately, including thumbnail and full-text extraction.</p>
+<p>If you want to avoid <em>any</em> thumbnail or full-text extraction you need to switch the toggle immediately after creating the content source.
+This ensures that the toggle is registered during the initial, metadata-only phase of the first full sync.</p>
+<div class="tip admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>Enabling/disabling thumbnail extraction or full-text syncs does not interrupt or restart jobs.
+These settings changes are only picked up for new jobs.</p>
+<p>The toggle disables/enables any <span class="strong strong"><strong>subsequent</strong></span> thumbnail or full-text extraction.
+Existing thumbnail or full-text data will not be removed.</p>
+</div>
 </div>
 <h4><a id="content-sources-content-extraction-file-types"></a>File types<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/enterprise-search-pubs/edit/main/workplace-search-docs/guides/content-sources/content-extraction.asciidoc">edit</a></h4>
 <p>Media, or MIME types, are an internet standard for describing file formats.</p>
 <p>Per <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types" class="ulink" target="_blank" rel="noopener">this guide</a>, the <span class="strong strong"><strong><em>type</em></strong></span> represents the general category into which the data type falls, such as <code class="literal">video</code> or <code class="literal">text</code>.
 The <span class="strong strong"><strong><em>subtype</em></strong></span> identifies the exact kind of data the type represents.</p>
 <p>Workplace Search analyzes the file to determine its type, since file extensions are not reliable. Workplace Search leverages the industry standard open-source <a href="https://tika.apache.org/index.html" class="ulink" target="_blank" rel="noopener">Apache Tika</a> toolkit for detecting and extracting text and metadata.
-The Elasticsearch <a href="/guide/en/elasticsearch/plugins/master/ingest-attachment.html" class="ulink" target="_blank" rel="noopener">ingest attachment plugin</a> also uses Apache Tika and can return a number of <a href="/guide/en/elasticsearch/plugins/master/ingest-attachment-fields.html" class="ulink" target="_blank" rel="noopener">metadata fields</a>.</p>
+The Elasticsearch <a href="/guide/en/elasticsearch/reference/master/attachment.html" class="ulink" target="_blank" rel="noopener">ingest attachment plugin</a> also uses Apache Tika and can return a number of
+<a href="/guide/en/elasticsearch/reference/master/attachment.html#attachment-fields" class="ulink" target="_blank" rel="noopener">metadata fields</a>.</p>
 <div class="tip admon">
 <div class="icon"></div>
 <div class="admon_content">
@@ -302,7 +311,24 @@ This process can be hit and miss, depending on the quality of the image and the 
 </div>
 <h4><a id="content-sources-content-extraction-binary"></a>Content extraction from binary formats<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/enterprise-search-pubs/edit/main/workplace-search-docs/guides/content-sources/content-extraction.asciidoc">edit</a></h4>
 <p>Searching binary formats (e.g., images, audio, videos) is currently not supported.
-You can use a 3rd party content extractor and add the content via a       <a href="/guide/en/workplace-search/master/workplace-search-custom-api-sources.html" class="ulink" target="_blank" rel="noopener">custom source</a>.</p>
+You can use a 3rd party content extractor and add the content via a <a href="/guide/en/workplace-search/master/workplace-search-custom-api-sources.html" class="ulink" target="_blank" rel="noopener">custom source</a>.</p>
+<h4><a id="content-sources-content-extraction-post-processing"></a>Content post-processing<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/enterprise-search-pubs/edit/main/workplace-search-docs/guides/content-sources/content-extraction.asciidoc">edit</a></h4>
+<p>Since 8.3.0, Workplace Search has used an <a href="/guide/en/elasticsearch/reference/master/ingest.html" class="ulink" target="_top">Elasticsearch ingest pipeline</a>
+to power post-processing of all documents.
+This pipeline is named <code class="literal">ent_search_connector</code>, and is automatically created when Enterprise Search first starts.
+As a final step in the Full and Incremental sync jobs, every document extracted by these connectors will be sent through
+this ingest pipeline in order to clean up and compress the content of the <code class="literal">body</code> field.
+This primarily involves removing unicode replacement characters (�), and collapsing large sections of whitespace.
+This helps to ensure a more meaningful end-user display of your documents in your search experience.
+You can <a href="/guide/en/elasticsearch/reference/master/ingest.html#create-manage-ingest-pipelines" class="ulink" target="_top">view and update</a> this pipeline in Kibana or with Elasticsearch APIs.</p>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>If you make changes to the default <code class="literal">ent_search_connector</code> ingest pipeline, it will not be overwritten when you upgrade Enterprise Search.</p>
+<p>Therefore, we recommend comparing the default <code class="literal">ent_search_connector</code> pipeline that comes with the newer version — to determine if you need to
+incorporate the latest changes into your customized pipeline.</p>
+</div>
+</div>
 </div>
 <div class="navfooter">
 <span class="prev">
@@ -316,15 +342,37 @@ You can use a 3rd party content extractor and add the content via a       <a hre
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

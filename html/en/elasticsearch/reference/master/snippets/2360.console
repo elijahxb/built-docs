@@ -1,4 +1,13 @@
-POST _ml/trained_models/model2/deployment/_infer
+POST _ilm/move/my-index-000001
 {
-	"docs": [{"text_field": "Hi my name is Josh and I live in Berlin"}]
+  "current_step": {
+    "phase": "new",
+    "action": "complete",
+    "name": "complete"
+  },
+  "next_step": {
+    "phase": "warm",
+    "action": "forcemerge",
+    "name": "forcemerge"
+  }
 }

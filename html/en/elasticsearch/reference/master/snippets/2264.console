@@ -1,1 +1,1 @@
-GET /_xpack?categories=build,features
+GET publications/_mapping/field/a*

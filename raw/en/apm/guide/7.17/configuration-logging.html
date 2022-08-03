@@ -17,13 +17,10 @@ A newer version is available. For the latest information, see the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">APM User Guide [7.17]</a></span>
-»
-<span class="breadcrumb-link"><a href="overview.html">Legacy APM Server Reference</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">APM User Guide [7.17]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="overview.html">Legacy APM Server Reference</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="configuring-howto-apm-server.html">Configure APM Server</a></span>
-»
-<span class="breadcrumb-node">Configure logging</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -41,7 +38,7 @@ A newer version is available. For the latest information, see the
 <div class="important admon">
 <div class="icon"></div>
 <div class="admon_content">
-<p>This documentation refers to configuring the standalone (legacy) APM Server. This method of running APM Server will be deprecated and removed in a future release. Please consider <a class="xref" href="upgrade-to-apm-integration.html" title="Upgrade to the Elastic APM integration">upgrading to Fleet and the APM integration</a>.</p>
+<p>This documentation refers to configuring the standalone (legacy) APM Server. This method of running APM Server will be deprecated and removed in a future release. Please consider <a class="xref" href="upgrade-to-apm-integration.html" title="Switch to the Elastic APM integration">upgrading to Fleet and the APM integration</a>.</p>
 </div>
 </div>
 <p>The <code class="literal">logging</code> section of the <code class="literal">apm-server.yml</code> config file contains options
@@ -55,7 +52,7 @@ logging.files:
   path: /var/log/apm-server
   name: apm-server
   keepfiles: 7
-  permissions: 0644</pre>
+  permissions: 0640</pre>
 </div>
 <div class="tip admon">
 <div class="icon"></div>
@@ -197,18 +194,16 @@ to be in the range of 2 to 1024 files.</p>
 0600. The <code class="literal">permissions</code> option must be a valid Unix-style file permissions mask
 expressed in octal notation. In Go, numbers in octal notation must start with
 <em>0</em>.</p>
+<p>The most permissive mask allowed is 0640. If a higher permissions mask is
+specified via this setting, it will be subject to an umask of 0027.</p>
 <p>Examples:</p>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
 <li class="listitem">
-0644: give read and write access to the file owner, and read access to all others.
+0640: give read and write access to the file owner, and read access to members of the group associated with the file.
 </li>
 <li class="listitem">
 0600: give read and write access to the file owner, and no access to all others.
-</li>
-<li class="listitem">
-0664: give read and write access to the file owner and members of the group
-associated with the file, as well as read access to all other users.
 </li>
 </ul>
 </div>

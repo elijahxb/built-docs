@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Default instance configurations | Elastic Cloud Enterprise Reference [3.2] | Elastic</title>
+<link rel="home" href="index.html" title="Elastic Cloud Enterprise Reference [3.2]"/>
+<link rel="up" href="ece-configuring-ece-templates.html" title="Configure deployment templates"/>
+<link rel="prev" href="ece-ce-add-support-for-integrations-server.html" title="Updating custom templates to support Integrations Server"/>
+<link rel="next" href="ece-include-additional-kibana-plugin.html" title="Include additional Kibana plugins"/>
+<meta name="DC.type" content="Learn/Docs/CloudEnterprise/Reference/3.2"/>
+<meta name="DC.subject" content="ECE"/>
+<meta name="DC.identifier" content="3.2"/>
+</head>
+<body><div class="page_header">
+A newer version is available. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Cloud Enterprise Reference [3.2]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="ece-configuring-ece.html">Configuring your installation</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="ece-configuring-ece-templates.html">Configure deployment templates</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="ece-ce-add-support-for-integrations-server.html">« Updating custom templates to support Integrations Server</a>
+</span>
+<span class="next">
+<a href="ece-include-additional-kibana-plugin.html">Include additional Kibana plugins »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="ece-configuring-ece-instance-configurations-default"></a>Default instance configurations<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/cloud-enterprise/ce-configuring-ece-deployment-templates.asciidoc">edit</a></h2>
+</div></div></div>
+<p>Elastic Cloud Enterprise ships with a number of default instance configurations:</p>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+<col class="col_3"/>
+<col class="col_4"/>
+<col class="col_5"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Instance configuration</th>
+<th align="left" valign="top">Instance types / node types</th>
+<th align="left" valign="top">Default size</th>
+<th align="left" valign="top">Memory sizes</th>
+<th align="left" valign="top">Memory to storage multiplier</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">apm</code></p></td>
+<td align="left" valign="top"><p>APM</p></td>
+<td align="left" valign="top"><p>512 MB</p></td>
+<td align="left" valign="top"><p>512, 1, 2, 4, 8</p></td>
+<td align="left" valign="top"><p>4</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><code class="literal">appsearch</code></p></td>
+<td align="left" valign="top"><p>Application server, Worker</p></td>
+<td align="left" valign="top"><p>4 GB</p></td>
+<td align="left" valign="top"><p>2, 4, 8</p></td>
+<td align="left" valign="top"><p>2</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><code class="literal">ccs.default</code></p></td>
+<td align="left" valign="top"><p>Data, Master, Coordinating</p></td>
+<td align="left" valign="top"><p>1 GB</p></td>
+<td align="left" valign="top"><p>1, 2, 4, 8, 16, 32, 64</p></td>
+<td align="left" valign="top"><p>4</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><code class="literal">coordinating</code></p></td>
+<td align="left" valign="top"><p>Coordinating</p></td>
+<td align="left" valign="top"><p>1 GB</p></td>
+<td align="left" valign="top"><p>1, 2, 4, 8</p></td>
+<td align="left" valign="top"><p>2</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><code class="literal">data.default</code></p></td>
+<td align="left" valign="top"><p>Data, Master, Coordinating</p></td>
+<td align="left" valign="top"><p>4 GB</p></td>
+<td align="left" valign="top"><p>1, 2, 4, 8, 16, 32, 64</p></td>
+<td align="left" valign="top"><p>32</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><code class="literal">data.frozen</code></p></td>
+<td align="left" valign="top"><p>Data</p></td>
+<td align="left" valign="top"><p>4 GB</p></td>
+<td align="left" valign="top"><p>4, 8, 16, 32, 64</p></td>
+<td align="left" valign="top"><p>80</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><code class="literal">data.highstorage</code></p></td>
+<td align="left" valign="top"><p>Data, Master, Coordinating</p></td>
+<td align="left" valign="top"><p>2 GB</p></td>
+<td align="left" valign="top"><p>1, 2, 4, 8, 16, 32, 64</p></td>
+<td align="left" valign="top"><p>64</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><code class="literal">enterprise.search</code></p></td>
+<td align="left" valign="top"><p>Application server, Connector, Worker</p></td>
+<td align="left" valign="top"><p>4 GB</p></td>
+<td align="left" valign="top"><p>2, 4, 8</p></td>
+<td align="left" valign="top"><p>2</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><code class="literal">integrations.server</code></p></td>
+<td align="left" valign="top"><p>Integrations Server</p></td>
+<td align="left" valign="top"><p>512 MB</p></td>
+<td align="left" valign="top"><p>512, 1, 2, 4, 8</p></td>
+<td align="left" valign="top"><p>4</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><code class="literal">kibana</code></p></td>
+<td align="left" valign="top"><p>Kibana</p></td>
+<td align="left" valign="top"><p>1 GB</p></td>
+<td align="left" valign="top"><p>1, 2, 4, 8</p></td>
+<td align="left" valign="top"><p>4</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><code class="literal">master</code></p></td>
+<td align="left" valign="top"><p>Master</p></td>
+<td align="left" valign="top"><p>1 GB</p></td>
+<td align="left" valign="top"><p>1, 2, 4, 8, 16, 32, 64</p></td>
+<td align="left" valign="top"><p>4</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><code class="literal">ml</code></p></td>
+<td align="left" valign="top"><p>Machine Learning</p></td>
+<td align="left" valign="top"><p>1 GB</p></td>
+<td align="left" valign="top"><p>1, 2, 4, 8, 16, 32, 64</p></td>
+<td align="left" valign="top"><p>4</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="ece-ce-add-support-for-integrations-server.html">« Updating custom templates to support Integrations Server</a>
+</span>
+<span class="next">
+<a href="ece-include-additional-kibana-plugin.html">Include additional Kibana plugins »</a>
+</span>
+</div>
+</div>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains('stemblock')) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+</body>
+</html>

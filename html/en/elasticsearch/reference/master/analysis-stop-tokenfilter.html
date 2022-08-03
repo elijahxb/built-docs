@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,27 +87,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 You are looking at preliminary documentation for a future release.
@@ -116,13 +107,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="analysis.html">Text analysis</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="analysis.html">Text analysis</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="analysis-tokenfilters.html">Token filter reference</a></span>
-»
-<span class="breadcrumb-node">Stop token filter</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -134,7 +122,7 @@ Not what you want? See the
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="analysis-stop-tokenfilter"></a>Stop token filter<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/analysis/tokenfilters/stop-tokenfilter.asciidoc">edit</a></h2>
+<h2 class="title"><a id="analysis-stop-tokenfilter"></a>Stop token filter<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/analysis/tokenfilters/stop-tokenfilter.asciidoc">edit</a></h2>
 </div></div></div>
 
 <p>Removes <a href="https://en.wikipedia.org/wiki/Stop_words" class="ulink" target="_top">stop words</a> from a token
@@ -148,10 +136,10 @@ default:</p>
 <a class="xref" href="analysis-stop-tokenfilter.html#analysis-stop-tokenfilter-stop-words-by-lang" title="Stop words by language">stop word lists for several
 languages</a>. You can also specify your own stop words as an array or file.</p>
 <p>The <code class="literal">stop</code> filter uses Lucene&#8217;s
-<a href="https://lucene.apache.org/core/9_1_0/analysis/common/org/apache/lucene/analysis/StopFilter.html" class="ulink" target="_top">StopFilter</a>.</p>
+<a href="https://lucene.apache.org/core/9_3_0/analysis/common/org/apache/lucene/analysis/core/StopFilter.html" class="ulink" target="_top">StopFilter</a>.</p>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="analysis-stop-tokenfilter-analyze-ex"></a>Example<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/analysis/tokenfilters/stop-tokenfilter.asciidoc">edit</a></h3>
+<h3 class="title"><a id="analysis-stop-tokenfilter-analyze-ex"></a>Example<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/analysis/tokenfilters/stop-tokenfilter.asciidoc">edit</a></h3>
 </div></div></div>
 <p>The following analyze API request uses the <code class="literal">stop</code> filter to remove the stop words
 <code class="literal">a</code> and <code class="literal">the</code> from <code class="literal">a quick fox jumps over the lazy dog</code>:</p>
@@ -164,7 +152,7 @@ languages</a>. You can also specify your own stop words as an array or file.</p>
   "text": "a quick fox jumps over the lazy dog"
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/531.console"></div>
+<div class="console_widget" data-snippet="snippets/534.console"></div>
 <p>The filter produces the following tokens:</p>
 <div class="pre_wrapper lang-text">
 <pre class="programlisting prettyprint lang-text">[ quick, fox, jumps, over, lazy, dog ]</pre>
@@ -173,7 +161,7 @@ languages</a>. You can also specify your own stop words as an array or file.</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="analysis-stop-tokenfilter-analyzer-ex"></a>Add to an analyzer<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/analysis/tokenfilters/stop-tokenfilter.asciidoc">edit</a></h3>
+<h3 class="title"><a id="analysis-stop-tokenfilter-analyzer-ex"></a>Add to an analyzer<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/analysis/tokenfilters/stop-tokenfilter.asciidoc">edit</a></h3>
 </div></div></div>
 <p>The following <a class="xref" href="indices-create-index.html" title="Create index API">create index API</a> request uses the <code class="literal">stop</code>
 filter to configure a new <a class="xref" href="analysis-custom-analyzer.html" title="Create a custom analyzer">custom analyzer</a>.</p>
@@ -193,12 +181,12 @@ filter to configure a new <a class="xref" href="analysis-custom-analyzer.html" t
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/532.console"></div>
+<div class="console_widget" data-snippet="snippets/535.console"></div>
 </div>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="analysis-stop-tokenfilter-configure-parms"></a>Configurable parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/analysis/tokenfilters/stop-tokenfilter.asciidoc">edit</a></h3>
+<h3 class="title"><a id="analysis-stop-tokenfilter-configure-parms"></a>Configurable parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/analysis/tokenfilters/stop-tokenfilter.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="variablelist">
 <dl class="variablelist">
@@ -260,7 +248,7 @@ words.</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="analysis-stop-tokenfilter-customize"></a>Customize<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/analysis/tokenfilters/stop-tokenfilter.asciidoc">edit</a></h3>
+<h3 class="title"><a id="analysis-stop-tokenfilter-customize"></a>Customize<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/analysis/tokenfilters/stop-tokenfilter.asciidoc">edit</a></h3>
 </div></div></div>
 <p>To customize the <code class="literal">stop</code> filter, duplicate it to create the basis
 for a new custom token filter. You can modify the filter using its configurable
@@ -290,7 +278,7 @@ words list:</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/533.console"></div>
+<div class="console_widget" data-snippet="snippets/536.console"></div>
 <p>You can also specify your own list of stop words. For example, the following
 request creates a custom case-sensitive <code class="literal">stop</code> filter that removes only the stop
 words <code class="literal">and</code>, <code class="literal">is</code>, and <code class="literal">the</code>:</p>
@@ -317,12 +305,12 @@ words <code class="literal">and</code>, <code class="literal">is</code>, and <co
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/534.console"></div>
+<div class="console_widget" data-snippet="snippets/537.console"></div>
 </div>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="analysis-stop-tokenfilter-stop-words-by-lang"></a>Stop words by language<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/analysis/tokenfilters/stop-tokenfilter.asciidoc">edit</a></h3>
+<h3 class="title"><a id="analysis-stop-tokenfilter-stop-words-by-lang"></a>Stop words by language<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/analysis/tokenfilters/stop-tokenfilter.asciidoc">edit</a></h3>
 </div></div></div>
 <p>The following list contains supported language values for the <code class="literal">stopwords</code>
 parameter and a link to their predefined stop words in Lucene.</p>
@@ -796,15 +784,37 @@ parameter and a link to their predefined stop words in Lucene.</p>
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

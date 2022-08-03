@@ -1,6 +1,8 @@
-PUT _cluster/settings
+PUT test-000001
 {
-  "persistent": {
-    "xpack.monitoring.collection.enabled": true
+  "aliases": {
+    "test-alias":{
+      "is_write_index": true
+    }
   }
 }

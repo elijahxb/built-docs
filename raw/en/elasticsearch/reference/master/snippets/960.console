@@ -1,13 +1,18 @@
 GET /_search
 {
   "query": {
-    "has_parent": {
-      "parent_type": "parent",
-      "score": true,
-      "query": {
-        "function_score": {
-          "script_score": {
-            "script": "_score * doc['view_count'].value"
+    "bool": {
+      "must": {
+        "match_all": {}
+      },
+      "filter": {
+        "geo_polygon": {
+          "person.location": {
+            "points": [
+              "40, -70",
+              "30, -80",
+              "20, -90"
+            ]
           }
         }
       }

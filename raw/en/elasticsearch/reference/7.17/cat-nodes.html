@@ -17,13 +17,10 @@ A newer version is available. For the latest information, see the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [7.17]</a></span>
-»
-<span class="breadcrumb-link"><a href="rest-apis.html">REST APIs</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [7.17]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="rest-apis.html">REST APIs</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="cat.html">Compact and aligned text (CAT) APIs</a></span>
-»
-<span class="breadcrumb-node">cat nodes API</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -226,7 +223,7 @@ Bound http address, such as <code class="literal">127.0.0.1:9200</code>.
 </span>
 </dt>
 <dd>
-Elasticsearch version, such as 7.17.2.
+Elasticsearch version, such as 7.17.5.
 </dd>
 <dt>
 <span class="term">
@@ -898,7 +895,7 @@ that are <span class="strong strong"><strong>not</strong></span> loaded into mem
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">GET /_cat/nodes?v=true</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1849.console"></div>
+<div class="console_widget" data-snippet="snippets/1851.console"></div>
 <p>The API returns the following response:</p>
 <div class="pre_wrapper lang-txt">
 <pre class="programlisting prettyprint lang-txt">ip        heap.percent ram.percent cpu load_1m load_5m load_15m node.role master name
@@ -919,11 +916,11 @@ monitoring an entire cluster, particularly large ones.</p>
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">GET /_cat/nodes?v=true&amp;h=id,ip,port,v,m</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1850.console"></div>
+<div class="console_widget" data-snippet="snippets/1852.console"></div>
 <p>The API returns the following response:</p>
 <div class="pre_wrapper lang-txt">
 <pre class="programlisting prettyprint lang-txt">id   ip        port  v         m
-veJR 127.0.0.1 59938 7.17.2 *</pre>
+veJR 127.0.0.1 59938 7.17.5 *</pre>
 </div>
 </div>
 

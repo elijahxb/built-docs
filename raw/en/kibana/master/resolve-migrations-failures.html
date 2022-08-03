@@ -20,13 +20,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Kibana Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="setup.html">Set up</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Kibana Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="setup.html">Set up</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="upgrade.html">Upgrade Kibana</a></span>
-»
-<span class="breadcrumb-node">Resolve migration failures</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -45,8 +42,8 @@ with the new version.</p>
 <h4><a id="_saved_object_migration_failures"></a>Saved object migration failures<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/setup/upgrade/resolving-migration-failures.asciidoc">edit</a></h4>
 <p>If Kibana unexpectedly terminates while migrating a saved object index, Kibana automatically attempts to
 perform the migration again when the process restarts. Do not delete any saved objects indices to
-to fix a failed migration. Unlike previous versions, Kibana 7.12.0 and
-later does not require deleting indices to release a failed migration lock.</p>
+fix a failed migration. Unlike previous versions, Kibana 7.12.0 and later does not require deleting
+indices to release a failed migration lock.</p>
 <p>If upgrade migrations fail repeatedly, refer to
 <a class="xref" href="upgrade.html#preventing-migration-failures" title="Preparing for migration">preparing for migration</a>.
 When you address the root cause for the migration failure,
@@ -103,20 +100,35 @@ For a successful upgrade migration, you must fix or delete corrupt documents.</p
 </li>
 </ol>
 </div>
+<p>You can configure Kibana to automatically discard all corrupt objects and transform errors that occur during a migration. When setting the configuration option <code class="literal">migrations.discardCorruptObjects</code>, Kibana will delete the conflicting objects and proceed with the migration.
+ For instance, for an upgrade to 8.4.0, you can define the following setting in kibana.yml:</p>
+<div class="pre_wrapper lang-yaml">
+<pre class="programlisting prettyprint lang-yaml">migrations.discardCorruptObjects: "8.4.0"</pre>
+</div>
+<p><span class="strong strong"><strong>WARNING:</strong></span> Enabling the flag above will cause the system to discard all corrupt objects, as well as those causing transform errors. Thus, it is HIGHLY recommended that you carefully review the list of conflicting objects in the logs.</p>
 <h4><a id="unknown-saved-object-types"></a>Documents for unknown saved objects<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/setup/upgrade/resolving-migration-failures.asciidoc">edit</a></h4>
 <p>Migrations will fail if saved objects belong to an unknown
-saved object type. Unknown saved objects are typically caused by
-to the Elasticsearch index, or by disabling a plugin that had previously
-created a saved object.</p>
+saved object type. Unknown saved objects are typically caused by performing manual modifications
+to the Elasticsearch index (no longer allowed in 8.x), or by disabling a plugin that had previously created a saved object.</p>
 <p>We recommend using the <a href="/guide/en/kibana/7.17/upgrade-assistant.html" class="ulink" target="_top">Upgrade Assistant</a>
 to discover and remedy any unknown saved object types. Kibana version 7.17.0 deployments containing unknown saved
 object types will also log the following warning message:</p>
 <div class="pre_wrapper lang-sh">
-<pre class="programlisting prettyprint lang-sh">CHECK_UNKNOWN_DOCUMENTS Upgrades will fail for 8.0+ because documents were found for unknown saved object types. To ensure that upgrades will succeed in the future, either re-enable plugins or delete these documents from the ".kibana_7.17.0_001" index after the current upgrade completes.</pre>
+<pre class="programlisting prettyprint lang-sh">CHECK_UNKNOWN_DOCUMENTS Upgrades will fail for 8.0+ because documents were found for unknown saved object types. To ensure that future upgrades will succeed, either re-enable plugins or delete these documents from the ".kibana_7.17.0_001" index after the current upgrade completes.</pre>
 </div>
 <p>If you fail to remedy this, your upgrade to 8.0+ will fail with a message like:</p>
 <div class="pre_wrapper lang-sh">
-<pre class="programlisting prettyprint lang-sh">Unable to complete saved object migrations for the [.kibana] index: Migration failed because documents were found for unknown saved object types. To proceed with the migration, please delete these documents from the ".kibana_7.17.0_001" index.</pre>
+<pre class="programlisting prettyprint lang-sh">Unable to complete saved object migrations for the [.kibana] index: Migration failed because some documents were found which use unknown saved object types:
+- "firstDocId" (type "someType")
+- "secondtDocId" (type "someType")
+- "thirdDocId" (type "someOtherType")
+
+To proceed with the migration you can configure Kibana to discard unknown saved objects for this migration.</pre>
+</div>
+<p>To proceed with the migration, re-enable any plugins that previously created these saved objects. Alternatively, carefully review the list of unknown saved objects in the Kibana log entry. If the corresponding disabled plugins and their associated saved objects will no longer be used, they can be deleted by setting the configuration option <code class="literal">migrations.discardUnknownObjects</code> to the version you are upgrading to.
+For instance, for an upgrade to 8.4.0, you can define the following setting in kibana.yml:</p>
+<div class="pre_wrapper lang-yaml">
+<pre class="programlisting prettyprint lang-yaml">migrations.discardUnknownObjects: "8.4.0"</pre>
 </div>
 <h4><a id="_incompatible_settings_or_mappings"></a>Incompatible settings or mappings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/setup/upgrade/resolving-migration-failures.asciidoc">edit</a></h4>
 <p>Matching index templates that specify <code class="literal">settings.refresh_interval</code> or
@@ -128,6 +140,61 @@ This can happen when index templates are defined manually.</p>
 with the configuration setting <code class="literal">xpack.tasks.index: ".tasks"</code>,
 upgrade migrations fail. In Kibana 7.5.1 and later, the incompatible configuration
 setting prevents upgrade migrations from starting.</p>
+<h4><a id="_repeated_time_out_requests_that_eventually_fail"></a>Repeated time-out requests that eventually fail<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/setup/upgrade/resolving-migration-failures.asciidoc">edit</a></h4>
+<p>Migrations get stuck in a loop of retry attempts waiting for index yellow status that&#8217;s never reached.
+In the CLONE_TEMP_TO_TARGET or CREATE_REINDEX_TEMP steps, you might see a log entry similar to:</p>
+<div class="pre_wrapper lang-sh">
+<pre class="programlisting prettyprint lang-sh">"Action failed with [index_not_yellow_timeout] Timeout waiting for the status of the [.kibana_8.1.0_001] index to become "yellow". Retrying attempt 1 in 2 seconds."</pre>
+</div>
+<p>The process is waiting for a yellow index status. There are two known causes:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Cluster hits the low watermark for disk usage
+</li>
+<li class="listitem">
+Cluster has <a class="xref" href="resolve-migrations-failures.html#routing-allocation-disabled" title="Routing allocation disabled or restricted">routing allocation disabled</a>
+</li>
+</ul>
+</div>
+<p>Before retrying the migration, inspect the output of the <code class="literal">_cluster/allocation/explain?index=${targetIndex}</code> API to identify why the index isn&#8217;t yellow:</p>
+<div class="pre_wrapper lang-sh">
+<pre class="programlisting prettyprint lang-sh">GET _cluster/allocation/explain
+{
+  "index": ".kibana_8.1.0_001",
+  "shard": 0,
+  "primary": true,
+}</pre>
+</div>
+<p>If the cluster exceeded the low watermark for disk usage, the output should contain a message similar to this:</p>
+<div class="pre_wrapper lang-sh">
+<pre class="programlisting prettyprint lang-sh">"The node is above the low watermark cluster setting [cluster.routing.allocation.disk.watermark.low=85%], using more disk space than the maximum allowed [85.0%], actual free: [11.692661332965082%]"</pre>
+</div>
+<p>Refer to the Elasticsearch guide for how to <a href="/guide/en/elasticsearch/reference/master/disk-usage-exceeded.html" class="ulink" target="_top">fix common cluster issues</a>.</p>
+<p>If routing allocation is the issue, the <code class="literal">_cluster/allocation/explain</code> API will return an entry similar to this:</p>
+<div class="pre_wrapper lang-sh">
+<pre class="programlisting prettyprint lang-sh">"allocate_explanation" : "cannot allocate because allocation is not permitted to any of the nodes"</pre>
+</div>
+<h4><a id="routing-allocation-disabled"></a>Routing allocation disabled or restricted<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/setup/upgrade/resolving-migration-failures.asciidoc">edit</a></h4>
+<p>Upgrade migrations fail because routing allocation is disabled or restricted (<code class="literal">cluster.routing.allocation.enable: none/primaries/new_primaries</code>), which causes Kibana to log errors such as:</p>
+<div class="pre_wrapper lang-sh">
+<pre class="programlisting prettyprint lang-sh">Unable to complete saved object migrations for the [.kibana] index: [incompatible_cluster_routing_allocation] The elasticsearch cluster has cluster routing allocation incorrectly set for migrations to continue. To proceed, please remove the cluster routing allocation settings with PUT /_cluster/settings {"transient": {"cluster.routing.allocation.enable": null}, "persistent": {"cluster.routing.allocation.enable": null}}</pre>
+</div>
+<p>To get around the issue, remove the transient and persisted routing allocation settings:</p>
+<div class="pre_wrapper lang-sh">
+<pre class="programlisting prettyprint lang-sh">PUT /_cluster/settings
+{
+  "transient": {
+    "cluster.routing.allocation.enable": null
+  },
+  "persistent": {
+    "cluster.routing.allocation.enable": null
+  }
+}</pre>
+</div>
+<h4><a id="cluster-shard-limit-exceeded"></a>Elasticsearch cluster shard limit exceeded<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/setup/upgrade/resolving-migration-failures.asciidoc">edit</a></h4>
+<p>When upgrading, Kibana creates new indices requiring a small number of new shards. If the amount of open Elasticsearch shards approaches or exceeds the Elasticsearch <code class="literal">cluster.max_shards_per_node</code> setting, Kibana is unable to complete the upgrade. Ensure that Kibana is able to add at least 10 more shards by removing indices to clear up resources, or by increasing the <code class="literal">cluster.max_shards_per_node</code> setting.</p>
+<p>For more information, refer to the documentation on <a href="/guide/en/elasticsearch/reference/master/allocation-total-shards.html" class="ulink" target="_top">total shards per node</a>.</p>
 </div>
 <div class="navfooter">
 <span class="prev">

@@ -1,8 +1,17 @@
-PUT /my_source_index/_settings
+PUT _template/template_1
 {
-  "settings": {
-    "index.number_of_replicas": 0,                               
-    "index.routing.allocation.require._name": "shrink_node_name",
-    "index.blocks.write": true                                   
+  "index_patterns" : ["te*"],
+  "settings" : {
+    "number_of_shards" : 1
+  },
+  "aliases" : {
+    "alias1" : {},
+    "alias2" : {
+      "filter" : {
+        "term" : {"user.id" : "kimchy" }
+      },
+      "routing" : "shard-1"
+    },
+    "{index}-alias" : {}
   }
 }

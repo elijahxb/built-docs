@@ -1,13 +1,11 @@
-POST /_security/role_mapping/mapping5
+GET sensor-1,sensor_rollup/_rollup_search
 {
-  "role_templates": [
-    {
-      "template": { "source": "{{#tojson}}groups{{/tojson}}" },
-      "format" : "json"
+  "size": 0,
+  "aggregations": {
+    "max_temperature": {
+      "max": {
+        "field": "temperature"
+      }
     }
-  ],
-  "rules": {
-    "field" : { "realm.name" : "saml1" }
-  },
-  "enabled": true
+  }
 }

@@ -18,13 +18,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="rest-apis.html">REST APIs</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="rest-apis.html">REST APIs</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="ml-ad-apis.html">Machine learning anomaly detection APIs</a></span>
-»
-<span class="breadcrumb-node">Update anomaly detection jobs API</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -36,20 +33,20 @@ Not what you want? See the
 </div>
 <div class="section xpack">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="ml-update-job"></a>Update anomaly detection jobs API<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ml/anomaly-detection/apis/update-job.asciidoc">edit</a></h2>
+<h2 class="title"><a id="ml-update-job"></a>Update anomaly detection jobs API<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ml/anomaly-detection/apis/update-job.asciidoc">edit</a></h2>
 </div></div></div>
 
 <p>Updates certain properties of an anomaly detection job.</p>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="ml-update-job-request"></a>Request<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ml/anomaly-detection/apis/update-job.asciidoc">edit</a></h3>
+<h3 class="title"><a id="ml-update-job-request"></a>Request<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ml/anomaly-detection/apis/update-job.asciidoc">edit</a></h3>
 </div></div></div>
 <p><code class="literal">POST _ml/anomaly_detectors/&lt;job_id&gt;/_update</code></p>
 </div>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="ml-update-job-prereqs"></a>Prerequisites<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ml/anomaly-detection/apis/update-job.asciidoc">edit</a></h3>
+<h3 class="title"><a id="ml-update-job-prereqs"></a>Prerequisites<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ml/anomaly-detection/apis/update-job.asciidoc">edit</a></h3>
 </div></div></div>
 <p>Requires the <code class="literal">manage_ml</code> cluster privilege. This privilege is included in the
 <code class="literal">machine_learning_admin</code> built-in role.</p>
@@ -57,7 +54,7 @@ Not what you want? See the
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="ml-update-job-path-parms"></a>Path parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ml/anomaly-detection/apis/update-job.asciidoc">edit</a></h3>
+<h3 class="title"><a id="ml-update-job-path-parms"></a>Path parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ml/anomaly-detection/apis/update-job.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="variablelist">
 <dl class="variablelist">
@@ -76,7 +73,7 @@ Identifier for the anomaly detection job.
 
 <div class="section child_attributes">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="ml-update-job-request-body"></a>Request body<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ml/anomaly-detection/apis/update-job.asciidoc">edit</a></h3>
+<h3 class="title"><a id="ml-update-job-request-body"></a>Request body<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ml/anomaly-detection/apis/update-job.asciidoc">edit</a></h3>
 </div></div></div>
 <p>The following properties can be updated after the job is created:</p>
 <div class="variablelist">
@@ -661,7 +658,7 @@ results. Annotations added by users are retained forever.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="ml-update-job-example"></a>Examples<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ml/anomaly-detection/apis/update-job.asciidoc">edit</a></h3>
+<h3 class="title"><a id="ml-update-job-example"></a>Examples<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ml/anomaly-detection/apis/update-job.asciidoc">edit</a></h3>
 </div></div></div>
 <a id="421e68e2b9789f0e8c08760d9e685d1c"></a>
 <div class="pre_wrapper lang-console">
@@ -682,20 +679,35 @@ results. Annotations added by users are retained forever.
   "results_retention_days": 60
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/2329.console"></div>
+<div class="console_widget" data-snippet="snippets/2446.console"></div>
 <p>When the anomaly detection job is updated, you receive a summary of the job
 configuration information, including the updated property values. For example:</p>
 <div class="pre_wrapper lang-js">
 <pre class="programlisting prettyprint lang-js">{
   "job_id" : "low_request_rate",
   "job_type" : "anomaly_detector",
-  "job_version" : "8.0.0",
+  "job_version" : "8.4.0",
+  "create_time" : 1656105950893,
+  "finished_time" : 1656105965744,
+  "model_snapshot_id" : "1656105964",
+  "custom_settings" : {
+    "created_by" : "ml-module-sample",
+    "custom_urls" : [
+      {
+        "url_name" : "Raw data",
+        "url_value" : "discover#/?_g=(time:(from:'$earliest$',mode:absolute,to:'$latest$'))&amp;_a=(index:'90943e30-9a47-11e8-b64d-95841ca0b247')"
+      },
+      {
+        "url_name" : "Data dashboard",
+        "url_value" : "dashboards#/view/edf84fe0-e1a0-11e7-b6d5-4dc382ef7f5b?_g=(time:(from:'$earliest$',mode:absolute,to:'$latest$'))&amp;_a=(filters:!(),query:(language:kuery,query:''))"
+      }
+    ]
+  },
   "groups" : [
     "kibana_sample_data",
     "kibana_sample_web_logs"
   ],
   "description" : "An updated job",
-  "create_time" : 1576623023709,
   "analysis_config" : {
     "bucket_span" : "1h",
     "summary_count_field_name" : "doc_count",
@@ -706,9 +718,28 @@ configuration information, including the updated property values. For example:</
         "detector_index" : 0
       }
     ],
-    "influencers" : [ ]
+    "influencers" : [ ],
+    "model_prune_window" : "30d"
   },
-  ...
+  "analysis_limits" : {
+    "model_memory_limit" : "11mb",
+    "categorization_examples_limit" : 4
+  },
+  "data_description" : {
+    "time_field" : "timestamp",
+    "time_format" : "epoch_ms"
+  },
+  "model_plot_config" : {
+    "enabled" : true,
+    "annotations_enabled" : true
+  },
+  "renormalization_window_days" : 30,
+  "background_persist_interval" : "2h",
+  "model_snapshot_retention_days" : 7,
+  "daily_model_snapshot_retention_after_days" : 1,
+  "results_retention_days" : 60,
+  "results_index_name" : "custom-low_request_rate",
+  "allow_lazy_open" : false
 }</pre>
 </div>
 </div>

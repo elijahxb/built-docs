@@ -13,17 +13,15 @@
 <meta name="robots" content="noindex,nofollow"/>
 </head>
 <body><div class="page_header">
-You are looking at preliminary documentation for a future release.
-Not what you want? See the
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
 <a href="../current/index.html">current release documentation</a>.
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Fleet and Elastic Agent Guide [8.2]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Fleet and Elastic Agent Guide [8.2]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="elastic-agent-configuration.html">Elastic Agent standalone configuration</a></span>
-»
-<span class="breadcrumb-node">Debug standalone Elastic Agents</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -102,12 +100,12 @@ agent.logging.files:
 <p>Profiling data produced by the <code class="literal">/debug/pprof/</code> endpoints can be useful for
 debugging, but presents a security risk. Do not expose these endpoints if the
 monitoring endpoint is accessible over a network. (By default, the monitoring
-endpoint is bound to a local unix socket or Windows npipe and not accessible
+endpoint is bound to a local Unix socket or Windows npipe and not accessible
 over a network.)</p>
 <p>To expose the <code class="literal">/debug/pprof/</code> endpoints, set <code class="literal">agent.monitoring.pprof: true</code> in
 the <code class="literal">elastic-agent.yml</code> file. For more information about monitoring settings,
 refer to <a class="xref" href="elastic-agent-monitoring-configuration.html" title="Configure monitoring for standalone Elastic Agents">Monitoring</a>.</p>
-<p>After exposing the endpoints, you can access the http handler bound to a socket
+<p>After exposing the endpoints, you can access the HTTP handler bound to a socket
 for Beats or the Elastic Agent. For example:</p>
 <div class="pre_wrapper lang-shell">
 <pre class="programlisting prettyprint lang-shell">sudo curl --unix-socket /Library/Elastic/Agent/data/tmp/default/filebeat/filebeat.sock http://socket/ | json_pp</pre>
@@ -216,7 +214,7 @@ filebeat:
     meta:
       package:
         name: system
-        version: 8.2.0
+        version: 8.2.3
     multiline:
       match: after
       pattern: ^\s
@@ -240,7 +238,7 @@ filebeat:
         fields:
           id: 3c4a8f14-561a-449f-8935-7485cd494bac
           snapshot: false
-          version: 8.2.0
+          version: 8.2.3
         target: elastic_agent
     - add_fields:
         fields:
@@ -279,7 +277,7 @@ filebeat:
         fields:
           id: 3c4a8f14-561a-449f-8935-7485cd494bac
           snapshot: false
-          version: 8.2.0
+          version: 8.2.3
         target: elastic_agent
     - add_fields:
         fields:

@@ -11,6 +11,7 @@
 <meta name="DC.type" content="Learn/Docs/Kibana/Reference/8.1"/>
 <meta name="DC.subject" content="Kibana"/>
 <meta name="DC.identifier" content="8.1"/>
+<meta name="robots" content="noindex,nofollow"/>
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -56,7 +57,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,34 +88,28 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
-                  
+                  <div class="page_header">
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
 <div id="content">
 <div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="index.html">Kibana Guide [8.1]</a></span>
-»
-<span class="breadcrumb-node">Kibana concepts</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -126,7 +121,7 @@
 </div>
 <div class="chapter">
 <div class="titlepage"><div><div>
-<h1 class="title"><a id="kibana-concepts-analysts"></a>Kibana concepts<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/concepts/index.asciidoc">edit</a></h1>
+<h1 class="title"><a id="kibana-concepts-analysts"></a>Kibana concepts<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/concepts/index.asciidoc">edit</a></h1>
 </div></div></div>
 <p><span class="strong strong"><strong><em>Learn the shared concepts for analyzing and visualizing your data</em></strong></span></p>
 <p>As an analyst, you will use a combination of Kibana apps to analyze and
@@ -135,7 +130,7 @@ visualize your data. Kibana contains both general-purpose apps and apps for the
 <a href="/guide/en/observability/8.1/observability-introduction.html" class="ulink" target="_top"><span class="strong strong"><strong>Elastic Observability</strong></span></a>,
 and <a href="/guide/en/security/8.1/es-overview.html" class="ulink" target="_top"><span class="strong strong"><strong>Elastic Security</strong></span></a> solutions.
 These apps share a common set of concepts.</p>
-<h3><a id="_three_things_to_know_about_elasticsearch"></a>Three things to know about Elasticsearch<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/concepts/index.asciidoc">edit</a></h3>
+<h3><a id="_three_things_to_know_about_elasticsearch"></a>Three things to know about Elasticsearch<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/concepts/index.asciidoc">edit</a></h3>
 <p>You don&#8217;t need to know everything about Elasticsearch to use Kibana, but the most important concepts follow:</p>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -155,11 +150,11 @@ with the <span class="strong strong"><strong>date histogram</strong></span>, to 
 </li>
 </ul>
 </div>
-<h3><a id="_finding_your_apps_and_objects"></a>Finding your apps and objects<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/concepts/index.asciidoc">edit</a></h3>
+<h3><a id="_finding_your_apps_and_objects"></a>Finding your apps and objects<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/concepts/index.asciidoc">edit</a></h3>
 <p>Kibana offers a <a class="xref" href="introduction.html#kibana-navigation-search" title="Find apps and objects">global search bar</a> on every page that you can use to find any app or saved object.
 Open the search bar using the keyboard shortcut Ctrl+/ on Windows and Linux, Command+/ on MacOS.</p>
 <p class="screenshot"><span class="image"><img src="concepts/images/global-search.png" alt="Global search showing matches to apps and saved objects for the word visualize"></span></p>
-<h3><a id="_accessing_data_with_data_views"></a>Accessing data with data views<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/concepts/index.asciidoc">edit</a></h3>
+<h3><a id="_accessing_data_with_data_views"></a>Accessing data with data views<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/concepts/index.asciidoc">edit</a></h3>
 <p>Kibana requires a data view to tell it which Elasticsearch data you want to access,
 and whether the data is time-based. A data view can point to one or more Elasticsearch
 data streams, indices, or index aliases by name.</p>
@@ -171,7 +166,7 @@ that accesses the Kibana API.</p>
 For example, you can tell Kibana to display <code class="literal">event.duration</code> in seconds.
 Kibana has <a class="xref" href="managing-data-views.html#managing-fields" title="Format data fields">field formatters</a> for strings,
 dates, geopoints, and numbers.</p>
-<h3><a id="kibana-concepts-searching-your-data"></a>Searching your data<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/concepts/index.asciidoc">edit</a></h3>
+<h3><a id="kibana-concepts-searching-your-data"></a>Searching your data<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/concepts/index.asciidoc">edit</a></h3>
 <p>Kibana provides you several ways to build search queries,
 which will reduce the number of document matches that you get from Elasticsearch.
 Each app in Kibana provides a time filter, and most apps also include semi-structured search and extra filters.</p>
@@ -182,7 +177,7 @@ save query icon
 semi-structured search to save or load a previously saved query.
 The saved query will always contain the semi-structured search query,
 and can optionally contain the time filter and extra filters.</p>
-<h4><a id="_time_filter"></a>Time filter<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/concepts/index.asciidoc">edit</a></h4>
+<h4><a id="_time_filter"></a>Time filter<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/concepts/index.asciidoc">edit</a></h4>
 <p>The <a class="xref" href="set-time-filter.html" title="Set the time range">global time filter</a> limits the time range of data displayed.
 In most cases, the time filter applies to the time field in the data view,
 but some apps allow you to use a different time field.</p>
@@ -190,7 +185,7 @@ but some apps allow you to use a different time field.</p>
 resubmit your searches. You can also click <span class="strong strong"><strong>Refresh</strong></span> to resubmit the search.
 This might be useful if you use Kibana to monitor the underlying data.</p>
 <p class="screenshot"><span class="image"><img src="concepts/images/refresh-every.png" alt="section of time filter where you can configure a refresh rate" width="75%"></span></p>
-<h4><a id="semi-structured-search"></a>Semi-structured search<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/concepts/index.asciidoc">edit</a></h4>
+<h4><a id="semi-structured-search"></a>Semi-structured search<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/concepts/index.asciidoc">edit</a></h4>
 <p>Combine free text search with field-based search using the Kibana Query Language (KQL).
 Type a search term to match across all fields, or start typing a field name to
 get suggestions for field names and operators that you can use to build a structured query.
@@ -226,17 +221,17 @@ The semi-structured search will filter documents for matches, and only return ma
 </tbody>
 </table>
 </div>
-<h4><a id="autocomplete-suggestions"></a>Suggestions for autocomplete<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/concepts/index.asciidoc">edit</a></h4>
+<h4><a id="autocomplete-suggestions"></a>Suggestions for autocomplete<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/concepts/index.asciidoc">edit</a></h4>
 <p>Beginning in 7.14, Kibana uses the <a href="/guide/en/elasticsearch/reference/8.1/search-terms-enum.html" class="ulink" target="_top">terms enum API</a> for autocomplete. Kibana returns results faster, but suggestions are approximate, sorted alphabetically, and can be outside the selected time range, even if <code class="literal">autocomplete:useTimeFilter</code> is enabled (as the terms enum API applies time filtering on an index-level, rather than document-level).</p>
 <p>Previously, Kibana used the <a href="/guide/en/elasticsearch/reference/8.1/search-aggregations-bucket-terms-aggregation.html" class="ulink" target="_top">terms aggregation API</a>, which is slower, but suggestions included all values that matched your query, and optionally, your time range, and were sorted by popularity. To revert to using the terms aggregation API, go to <a class="xref" href="advanced-options.html" title="Advanced Settings">Advanced Settings</a>, and set <code class="literal">autocomplete:valueSuggestionMethod</code> to <code class="literal">terms_agg</code>.</p>
-<h4><a id="_additional_filters_with_and"></a>Additional filters with AND<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/concepts/index.asciidoc">edit</a></h4>
+<h4><a id="_additional_filters_with_and"></a>Additional filters with AND<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/concepts/index.asciidoc">edit</a></h4>
 <p>Structured filters are a more interactive way to create Elasticsearch queries,
 and are commonly used when building dashboards that are shared by multiple analysts.
 Each filter can be disabled, inverted, or pinned across all apps.
 Each of the structured
 filters is combined with AND logic on the rest of the query.</p>
 <p class="screenshot"><span class="image"><img src="concepts/images/add-filter-popup.png" alt="Add filter popup"></span></p>
-<h3><a id="_saving_objects"></a>Saving objects<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/concepts/index.asciidoc">edit</a></h3>
+<h3><a id="_saving_objects"></a>Saving objects<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/concepts/index.asciidoc">edit</a></h3>
 <p>Kibana lets you save objects for your own future use or for sharing with others.
 Each <a class="xref" href="managing-saved-objects.html" title="Saved Objects">saved object</a> type has different abilities. For example, you can save
 your search queries made with <span class="strong strong"><strong>Discover</strong></span>, which lets you:</p>
@@ -261,7 +256,7 @@ Embed the <span class="strong strong"><strong>Discover</strong></span> search re
 </div>
 <p>For organization, every saved object can have a name, <a class="xref" href="introduction.html#kibana-navigation-search" title="Find apps and objects">tags</a>, and type.
 Use the global search to quickly open a saved object.</p>
-<h3><a id="_whats_next"></a>What&#8217;s next?<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/concepts/index.asciidoc">edit</a></h3>
+<h3><a id="_whats_next"></a>What&#8217;s next?<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/concepts/index.asciidoc">edit</a></h3>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
 <li class="listitem">
@@ -290,15 +285,37 @@ Go to <a class="xref" href="discover.html" title="Discover">Discover</a> for ins
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

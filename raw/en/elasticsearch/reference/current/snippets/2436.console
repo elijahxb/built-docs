@@ -1,18 +1,1 @@
-PUT place/_doc/1
-{
-  "suggest": {
-    "input": "timmy's",
-    "contexts": {
-      "location": [
-        {
-          "lat": 43.6624803,
-          "lon": -79.3863353
-        },
-        {
-          "lat": 43.6624718,
-          "lon": -79.3873227
-        }
-      ]
-    }
-  }
-}
+PUT _ml/trained_models/flight-delay-prediction-1574775339910/model_aliases/flight_delay_model

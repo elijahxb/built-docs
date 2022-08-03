@@ -1,6 +1,7 @@
-POST bug_reports/_search
+POST /example/_doc
 {
-  "query": {
-    "term": {"labels": "urgent"}
+  "location" : {
+    "type" : "Point",
+    "coordinates" : [-77.03653, 38.897676]
   }
 }

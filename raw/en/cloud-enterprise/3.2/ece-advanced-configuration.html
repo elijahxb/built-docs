@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Advanced cluster configuration | Elastic Cloud Enterprise Reference [3.2] | Elastic</title>
+<link rel="home" href="index.html" title="Elastic Cloud Enterprise Reference [3.2]"/>
+<link rel="up" href="ece-change-deployment.html" title="Change your deployment configuration"/>
+<link rel="prev" href="ece-add-custom-bundle-plugin.html" title="Add custom bundles and plugins to your deployment"/>
+<link rel="next" href="ece-deployment-sso.html" title="Configure SSO for deployments"/>
+<meta name="DC.type" content="Learn/Docs/CloudEnterprise/Reference/3.2"/>
+<meta name="DC.subject" content="ECE"/>
+<meta name="DC.identifier" content="3.2"/>
+</head>
+<body><div class="page_header">
+A newer version is available. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Cloud Enterprise Reference [3.2]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="ece-administering-deployments.html">Administering deployments</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="ece-change-deployment.html">Change your deployment configuration</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="ece-add-custom-bundle-plugin.html">« Add custom bundles and plugins to your deployment</a>
+</span>
+<span class="next">
+<a href="ece-deployment-sso.html">Configure SSO for deployments »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="ece-advanced-configuration"></a>Advanced cluster configuration<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/cloud-enterprise/ce-administering-deployments.asciidoc">edit</a></h2>
+</div></div></div>
+<p>Most configuration changes can be made safely from other parts of the Cloud UI. You should use the <span class="strong strong"><strong>Advanced cluster configuration</strong></span> page to make changes only if the functionality is not available elsewhere and if you know what you are doing or are being directed by someone from Elastic.</p>
+<p>To edit the cluster configuration directly:</p>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+<a class="xref" href="ece-login.html" title="Log into the Cloud UI">Log into the Cloud UI</a>.
+</li>
+<li class="listitem">
+<p>On the <span class="strong strong"><strong>Deployments</strong></span> page, select your deployment.</p>
+<p>Narrow the list by name, ID, or choose from several other filters. To further define the list, use a combination of filters.</p>
+</li>
+<li class="listitem">
+From your deployment menu, go to the <span class="strong strong"><strong>Edit</strong></span> page then go to the bottom of the page and select <span class="strong strong"><strong>advanced Elasticsearch configuration</strong></span>.
+</li>
+<li class="listitem">
+<p>Edit the configuration:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+The contents of the <span class="strong strong"><strong>Deployment configuration</strong></span> section describe your current configuration, such as the current capacity, the node count, the installed Elasticsearch version, and so forth. You can manually edit the configuration.
+</li>
+<li class="listitem">
+The <span class="strong strong"><strong>Elasticsearch cluster data</strong></span> section describes additional parts of your cluster, such as its name, whether snapshots are enabled, security information, and whether Kibana is enabled.
+</li>
+</ul>
+</div>
+</li>
+<li class="listitem">
+Select <span class="strong strong"><strong>Save</strong></span> for the sections that you modified to apply the new configuration. You should receive a message that your new configuration is successful.
+</li>
+</ol>
+</div>
+<div class="caution admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>You can break things when editing the cluster deployment configuration. Use this functionality only if you know what you are doing or if you are being directed by someone from Elastic.</p>
+</div>
+</div>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="ece-add-custom-bundle-plugin.html">« Add custom bundles and plugins to your deployment</a>
+</span>
+<span class="next">
+<a href="ece-deployment-sso.html">Configure SSO for deployments »</a>
+</span>
+</div>
+</div>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains('stemblock')) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+</body>
+</html>

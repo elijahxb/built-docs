@@ -1,11 +1,1 @@
-PUT api/actions/connector/61787f53-4eee-4741-8df6-8fe84fa616f7
-{
-  "config": {
-    "apiUrl": "https://dev357417.service-now.com",
-        },
-  "name": "SN API",
-  "secrets": {
-    "password": "stongpassword123!",
-    "username": "admin"
-  }
-}
+DELETE api/exception_lists/items?item_id=1342081d-66ad-4b03-b554-131195ce404b&namespace_type=agnostic

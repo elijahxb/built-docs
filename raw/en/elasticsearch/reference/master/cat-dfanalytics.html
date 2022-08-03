@@ -18,13 +18,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="rest-apis.html">REST APIs</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="rest-apis.html">REST APIs</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="cat.html">Compact and aligned text (CAT) APIs</a></span>
-»
-<span class="breadcrumb-node">cat data frame analytics API</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -36,7 +33,7 @@ Not what you want? See the
 </div>
 <div class="section xpack">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="cat-dfanalytics"></a>cat data frame analytics API<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/cat/dataframeanalytics.asciidoc">edit</a></h2>
+<h2 class="title"><a id="cat-dfanalytics"></a>cat data frame analytics API<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/cat/dataframeanalytics.asciidoc">edit</a></h2>
 </div></div></div>
 
 <div class="important admon">
@@ -51,7 +48,7 @@ consumption, use the
 <p>Returns configuration and usage information about data frame analytics jobs.</p>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="cat-dfanalytics-request"></a>Request<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/cat/dataframeanalytics.asciidoc">edit</a></h3>
+<h3 class="title"><a id="cat-dfanalytics-request"></a>Request<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/cat/dataframeanalytics.asciidoc">edit</a></h3>
 </div></div></div>
 <p><code class="literal">GET /_cat/ml/data_frame/analytics/&lt;data_frame_analytics_id&gt;</code><br></p>
 <p><code class="literal">GET /_cat/ml/data_frame/analytics</code></p>
@@ -59,7 +56,7 @@ consumption, use the
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="cat-dfanalytics-prereqs"></a>Prerequisites<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/cat/dataframeanalytics.asciidoc">edit</a></h3>
+<h3 class="title"><a id="cat-dfanalytics-prereqs"></a>Prerequisites<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/cat/dataframeanalytics.asciidoc">edit</a></h3>
 </div></div></div>
 <p>If the Elasticsearch security features are enabled, you must have the following
 privileges:</p>
@@ -75,7 +72,7 @@ cluster: <code class="literal">monitor_ml</code>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="cat-dfanalytics-path-params"></a>Path parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/cat/dataframeanalytics.asciidoc">edit</a></h3>
+<h3 class="title"><a id="cat-dfanalytics-path-params"></a>Path parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/cat/dataframeanalytics.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="variablelist">
 <dl class="variablelist">
@@ -95,7 +92,7 @@ returns information for the first hundred data frame analytics jobs.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="cat-dfanalytics-query-params"></a>Query parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/cat/dataframeanalytics.asciidoc">edit</a></h3>
+<h3 class="title"><a id="cat-dfanalytics-query-params"></a>Query parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/cat/dataframeanalytics.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="variablelist">
 <dl class="variablelist">
@@ -302,13 +299,13 @@ Defaults to <code class="literal">false</code>.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="cat-dfanalytics-example"></a>Examples<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/cat/dataframeanalytics.asciidoc">edit</a></h3>
+<h3 class="title"><a id="cat-dfanalytics-example"></a>Examples<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/cat/dataframeanalytics.asciidoc">edit</a></h3>
 </div></div></div>
 <a id="4c712bd5637892a11f16b8975a0a98ed"></a>
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">GET _cat/ml/data_frame/analytics?v=true</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1802.console"></div>
+<div class="console_widget" data-snippet="snippets/1913.console"></div>
 <a id="821d07ed9a229f9d5cc34651124da6e8"></a>
 <div class="pre_wrapper lang-console-result">
 <pre class="programlisting prettyprint lang-console-result">id               create_time              type             state

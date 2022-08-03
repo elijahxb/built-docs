@@ -1,8 +1,9 @@
-POST _ml/datafeeds/datafeed-total-requests/_update
+PUT /my-index-000001/_mapping
 {
-  "query": {
-    "term": {
-      "level": "error"
+  "properties": {
+    "user_id": {
+      "type": "alias",
+      "path": "user_identifier"
     }
   }
 }

@@ -1,1 +1,1 @@
-DELETE _ml/_delete_expired_data?timeout=1h
+GET /index1,index2/_stats

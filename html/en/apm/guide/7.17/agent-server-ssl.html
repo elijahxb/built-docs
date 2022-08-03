@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,27 +87,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 A newer version is available. For the latest information, see the
@@ -115,15 +106,11 @@ A newer version is available. For the latest information, see the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">APM User Guide [7.17]</a></span>
-»
-<span class="breadcrumb-link"><a href="overview.html">Legacy APM Server Reference</a></span>
-»
-<span class="breadcrumb-link"><a href="configuring-howto-apm-server.html">Configure APM Server</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">APM User Guide [7.17]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="overview.html">Legacy APM Server Reference</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="configuring-howto-apm-server.html">Configure APM Server</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="configuration-ssl-landing.html">SSL/TLS settings</a></span>
-»
-<span class="breadcrumb-node">SSL input settings</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -140,7 +127,7 @@ A newer version is available. For the latest information, see the
 <div class="important admon">
 <div class="icon"></div>
 <div class="admon_content">
-<p>This documentation refers to configuring the standalone (legacy) APM Server. This method of running APM Server will be deprecated and removed in a future release. Please consider <a class="xref" href="upgrade-to-apm-integration.html" title="Upgrade to the Elastic APM integration">upgrading to Fleet and the APM integration</a>.
+<p>This documentation refers to configuring the standalone (legacy) APM Server. This method of running APM Server will be deprecated and removed in a future release. Please consider <a class="xref" href="upgrade-to-apm-integration.html" title="Switch to the Elastic APM integration">upgrading to Fleet and the APM integration</a>.
 If you&#8217;ve already upgraded, please see <a class="xref" href="secure-agent-communication.html" title="Secure communication with APM agents"><em>Secure communication with APM agents</em></a> instead.</p>
 </div>
 </div>
@@ -319,15 +306,17 @@ Cipher suites using SHA-1, SHA-256 or SHA-384.
 <p>The list of root certificates for verifying client certificates.
 If <code class="literal">certificate_authorities</code> is empty or not set, the trusted certificate authorities of the host system are used.
 If <code class="literal">certificate_authorities</code> is set, <code class="literal">client_authentication</code> will be automatically set to <code class="literal">required</code>.
-Sending client certificates is currently only supported by the RUM agent through the browser
-and by the Jaeger agent.</p>
+Sending client certificates is currently only supported by the RUM agent through the browser,
+the Java agent (see <a href="/guide/en/apm/agent/java/1.x/ssl-configuration.html" class="ulink" target="_top">Agent certificate authentication</a>),
+and the Jaeger agent.</p>
 <h5><a id="_client_authentication"></a><code class="literal">client_authentication</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-server/edit/7.17/docs/legacy/ssl-input-settings.asciidoc">edit</a></h5>
 <p>This configures what types of client authentication are supported. The valid options
 are <code class="literal">none</code>, <code class="literal">optional</code>, and <code class="literal">required</code>. The default is <code class="literal">none</code>.
 If <code class="literal">certificate_authorities</code> has been specified, this setting will automatically change to <code class="literal">required</code>.
 This option only needs to be configured when the agent is expected to provide a client certificate.
-Sending client certificates is currently only supported by the RUM agent through the browser
-and by the Jaeger agent.</p>
+Sending client certificates is currently only supported by the RUM agent through the browser,
+the Java agent (see <a href="/guide/en/apm/agent/java/1.x/ssl-configuration.html" class="ulink" target="_top">Agent certificate authentication</a>),
+and the Jaeger agent.</p>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
 <li class="listitem">
@@ -354,15 +343,37 @@ and by the Jaeger agent.</p>
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

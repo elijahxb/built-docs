@@ -1,9 +1,4 @@
-POST _render/template
+POST _ml/datafeeds/datafeed-low_request_rate/_stop
 {
-  "id": "my-search-template",
-  "params": {
-    "query_string": "hello world",
-    "from": 20,
-    "size": 10
-  }
+  "timeout": "30s"
 }

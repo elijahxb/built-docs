@@ -18,13 +18,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="mapping.html">Mapping</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="mapping.html">Mapping</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="mapping-params.html">Mapping parameters</a></span>
-»
-<span class="breadcrumb-node"><code class="literal">format</code></span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -36,7 +33,7 @@ Not what you want? See the
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="mapping-date-format"></a><code class="literal">format</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/mapping/params/format.asciidoc">edit</a></h2>
+<h2 class="title"><a id="mapping-date-format"></a><code class="literal">format</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/mapping/params/format.asciidoc">edit</a></h2>
 </div></div></div>
 <p>In JSON documents, dates are represented as strings. Elasticsearch uses a set
 of preconfigured formats to recognize and parse these strings into a long
@@ -90,13 +87,13 @@ fmt.Println(res, err)</pre>
   }
 }</pre>
 </div>
-<div class="console_widget has-ruby has-go" data-snippet="snippets/315.console"></div>
+<div class="console_widget has-ruby has-go" data-snippet="snippets/316.console"></div>
 <p>Many APIs which support date values also support <a class="xref" href="common-options.html#date-math" title="Date Math">date math</a>
 expressions, such as <code class="literal">now-1m/d</code>&#8201;&#8212;&#8201;the current time, minus one month, rounded
 down to the nearest day.</p>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="custom-date-formats"></a>Custom date formats<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/mapping/params/format.asciidoc">edit</a></h3>
+<h3 class="title"><a id="custom-date-formats"></a>Custom date formats<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/mapping/params/format.asciidoc">edit</a></h3>
 </div></div></div>
 <p>Completely customizable date formats are supported. The syntax for these is explained
 <a href="https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html" class="ulink" target="_top">DateTimeFormatter docs</a>.</p>
@@ -104,10 +101,10 @@ down to the nearest day.</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="built-in-date-formats"></a>Built In Formats<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/mapping/params/format.asciidoc">edit</a></h3>
+<h3 class="title"><a id="built-in-date-formats"></a>Built In Formats<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/mapping/params/format.asciidoc">edit</a></h3>
 </div></div></div>
 <p>Most of the below formats have a <code class="literal">strict</code> companion format, which means that
-year, month and day parts of the week must use respectively 4, 2 and 2 digits
+year, month and day parts of the month must use respectively 4, 2 and 2 digits
 exactly, potentially prepending zeros. For instance a date like <code class="literal">5/11/1</code> would
 be considered invalid and would need to be rewritten to <code class="literal">2005/11/01</code> to be
 accepted by the date parser.</p>

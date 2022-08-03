@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Elastic Cloud Enterprise 2.2.2 | Elastic Cloud Enterprise Reference [3.2] | Elastic</title>
+<link rel="home" href="index.html" title="Elastic Cloud Enterprise Reference [3.2]"/>
+<link rel="up" href="ece-release-notes.html" title="Release notes"/>
+<link rel="prev" href="ece-release-notes-2.2.3.html" title="Elastic Cloud Enterprise 2.2.3"/>
+<link rel="next" href="ece-release-notes-2.2.1.html" title="Elastic Cloud Enterprise 2.2.1"/>
+<meta name="DC.type" content="Learn/Docs/CloudEnterprise/Reference/3.2"/>
+<meta name="DC.subject" content="ECE"/>
+<meta name="DC.identifier" content="3.2"/>
+</head>
+<body><div class="page_header">
+A newer version is available. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Cloud Enterprise Reference [3.2]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="ece-release-notes.html">Release notes</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="ece-release-notes-2.2.3.html">« Elastic Cloud Enterprise 2.2.3</a>
+</span>
+<span class="next">
+<a href="ece-release-notes-2.2.1.html">Elastic Cloud Enterprise 2.2.1 »</a>
+</span>
+</div>
+<div class="chapter">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="ece-release-notes-2.2.2"></a>Elastic Cloud Enterprise 2.2.2<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/cloud-enterprise/ce-release-notes-up-to-2.7.0.asciidoc">edit</a></h2>
+</div></div></div>
+<p>New for Elastic Cloud Enterprise 2.2.2:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<span class="strong strong"><strong>Support for 6.8 and 7.1.</strong></span> To use the latest features and improved usability, upgrade to the Elastic Stack 6.8 or 7.1. Check <a class="xref" href="ece-upgrade-deployment.html" title="Upgrade versions">Upgrade versions</a>.
+</li>
+</ul>
+</div>
+<h3><a id="ece_known_problems_or_limitations"></a>Known problems or limitations<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/cloud-enterprise/ce-release-notes-up-to-2.7.0.asciidoc">edit</a></h3>
+<p>The following known problem exists for ECE 2.2.2 and higher:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Plans for Elasticsearch versions 7.7.0 and 7.7.1 can fail unexpectedly with an error that indicates that there was a bad request while performing the constructor&#8217;s step <code class="literal">validate-enough-disk-space</code>.
+The underlying problem is <a href="https://github.com/elastic/elasticsearch/issues/56739" class="ulink" target="_top">an Elasticsearch bug</a> that causes <code class="literal">GET /_nodes/stats</code> to fail under certain infrequent conditions.
+If this problem occurs, try manually restarting all nodes of the cluster.
+If restarting doesn&#8217;t solve the problem, the recommended action is to edit the cluster plan on the <a class="xref" href="ece-advanced-configuration.html" title="Advanced cluster configuration">advanced cluster configuration page</a> and set the <code class="literal">override_failsafe</code> option to <code class="literal">true</code>.
+</li>
+</ul>
+</div>
+<p>For example:</p>
+<div class="pre_wrapper lang-sh">
+<pre class="programlisting prettyprint lang-sh">     "transient" : {
+        "cluster_settings_json" : {},
+        "plan_configuration" : {
+           "override_failsafe" : true,
+           "skip_data_migration": false</pre>
+</div>
+<p>Note that the <code class="literal">skip_data_migration</code> should be set to <code class="literal">false</code>.</p>
+<p>We also recommend upgrading to version 7.8 or higher, in which this bug has already been addressed.</p>
+<p><em>Release date: May 20, 2019</em></p>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="ece-release-notes-2.2.3.html">« Elastic Cloud Enterprise 2.2.3</a>
+</span>
+<span class="next">
+<a href="ece-release-notes-2.2.1.html">Elastic Cloud Enterprise 2.2.1 »</a>
+</span>
+</div>
+</div>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains('stemblock')) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+</body>
+</html>

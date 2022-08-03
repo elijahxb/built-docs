@@ -1,8 +1,1 @@
-PUT /_security/role_mapping/oidc-example
-{
-  "roles": [ "example_role" ],
-  "enabled": true,
-  "rules": {
-    "field": { "realm.name": "oidc1" }
-  }
-}
+GET _cat/shards?v=true&h=index,shard,prirep,state,node,unassigned.reason&s=state

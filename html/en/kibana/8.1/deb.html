@@ -11,6 +11,7 @@
 <meta name="DC.type" content="Learn/Docs/Kibana/Reference/8.1"/>
 <meta name="DC.subject" content="Kibana"/>
 <meta name="DC.identifier" content="8.1"/>
+<meta name="robots" content="noindex,nofollow"/>
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -56,7 +57,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,38 +88,30 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
-                  
+                  <div class="page_header">
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Kibana Guide [8.1]</a></span>
-»
-<span class="breadcrumb-link"><a href="setup.html">Set up</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Kibana Guide [8.1]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="setup.html">Set up</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="install.html">Install Kibana</a></span>
-»
-<span class="breadcrumb-node">Install Kibana with Debian package</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -130,7 +123,7 @@
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="deb"></a>Install Kibana with Debian package<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/setup/install/deb.asciidoc">edit</a></h2>
+<h2 class="title"><a id="deb"></a>Install Kibana with Debian package<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/setup/install/deb.asciidoc">edit</a></h2>
 </div></div></div>
 
 <p>The Debian package for Kibana can be <a class="xref" href="deb.html#install-deb" title="Download and install the Debian package manually">downloaded from our website</a>
@@ -143,7 +136,7 @@ Kibana on any Debian-based system such as Debian and Ubuntu.</p>
 be found on the <a href="/downloads/past-releases" class="ulink" target="_top">Past Releases page</a>.</p>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="deb-key"></a>Import the Elastic PGP key<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/setup/install/deb.asciidoc">edit</a></h3>
+<h3 class="title"><a id="deb-key"></a>Import the Elastic PGP key<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/setup/install/deb.asciidoc">edit</a></h3>
 </div></div></div>
 <p>We sign all of our packages with the Elastic Signing Key (PGP key
 <a href="https://pgp.mit.edu/pks/lookup?op=vindex&amp;search=0xD27D666CD88E42B4" class="ulink" target="_top">D88E42B4</a>,
@@ -152,13 +145,13 @@ available from <a href="https://pgp.mit.edu" class="ulink" target="_top">https:/
 
 <p>Download and install the public signing key:</p>
 <div class="pre_wrapper lang-sh">
-<pre class="programlisting prettyprint lang-sh">wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -</pre>
+<pre class="programlisting prettyprint lang-sh">wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo gpg --dearmor -o /usr/share/keyrings/elasticsearch-keyring.gpg</pre>
 </div>
 </div>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="deb-repo"></a>Install from the APT repository<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/setup/install/deb.asciidoc">edit</a></h3>
+<h3 class="title"><a id="deb-repo"></a>Install from the APT repository<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/setup/install/deb.asciidoc">edit</a></h3>
 </div></div></div>
 <p>You may need to install the <code class="literal">apt-transport-https</code> package on Debian before proceeding:</p>
 <div class="pre_wrapper lang-sh">
@@ -166,7 +159,7 @@ available from <a href="https://pgp.mit.edu" class="ulink" target="_top">https:/
 </div>
 <p>Save the repository definition to  <code class="literal">/etc/apt/sources.list.d/elastic-8.x.list</code>:</p>
 <div class="pre_wrapper lang-sh">
-<pre class="programlisting prettyprint lang-sh">echo "deb https://artifacts.elastic.co/packages/8.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-8.x.list</pre>
+<pre class="programlisting prettyprint lang-sh">echo "deb [signed-by=/usr/share/keyrings/elasticsearch-keyring.gpg] https://artifacts.elastic.co/packages/8.x/apt stable main" | sudo tee /etc/apt/sources.list.d/elastic-8.x.list</pre>
 </div>
 <div class="warning admon">
 <div class="icon"></div>
@@ -198,13 +191,13 @@ installation should work as expected.</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="install-deb"></a>Download and install the Debian package manually<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/setup/install/deb.asciidoc">edit</a></h3>
+<h3 class="title"><a id="install-deb"></a>Download and install the Debian package manually<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/setup/install/deb.asciidoc">edit</a></h3>
 </div></div></div>
-<p>The Debian package for Kibana v8.1.2 can be downloaded from the website and installed as follows:</p>
+<p>The Debian package for Kibana v8.1.3 can be downloaded from the website and installed as follows:</p>
 <div class="pre_wrapper lang-sh">
-<pre class="programlisting prettyprint lang-sh">wget https://artifacts.elastic.co/downloads/kibana/kibana-8.1.2-amd64.deb
-shasum -a 512 kibana-8.1.2-amd64.deb <a id="CO3-1"></a><i class="conum" data-value="1"></i>
-sudo dpkg -i kibana-8.1.2-amd64.deb</pre>
+<pre class="programlisting prettyprint lang-sh">wget https://artifacts.elastic.co/downloads/kibana/kibana-8.1.3-amd64.deb
+shasum -a 512 kibana-8.1.3-amd64.deb <a id="CO3-1"></a><i class="conum" data-value="1"></i>
+sudo dpkg -i kibana-8.1.3-amd64.deb</pre>
 </div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
@@ -214,7 +207,7 @@ sudo dpkg -i kibana-8.1.2-amd64.deb</pre>
 </td>
 <td align="left" valign="top">
 <p>Compare the SHA produced by <code class="literal">shasum</code> with the
-<a href="https://artifacts.elastic.co/downloads/kibana/kibana-8.1.2-amd64.deb.sha512" class="ulink" target="_top">published SHA</a>.</p>
+<a href="https://artifacts.elastic.co/downloads/kibana/kibana-8.1.3-amd64.deb.sha512" class="ulink" target="_top">published SHA</a>.</p>
 </td>
 </tr>
 </table>
@@ -223,7 +216,7 @@ sudo dpkg -i kibana-8.1.2-amd64.deb</pre>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="deb-enroll"></a>Start Elasticsearch and generate an enrollment token for Kibana<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/setup/install/deb.asciidoc">edit</a></h3>
+<h3 class="title"><a id="deb-enroll"></a>Start Elasticsearch and generate an enrollment token for Kibana<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/setup/install/deb.asciidoc">edit</a></h3>
 </div></div></div>
 
 <p>When you start Elasticsearch for the first time, the following security configuration
@@ -249,7 +242,7 @@ Certificates and keys for TLS are generated for the transport and HTTP layer, an
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="deb-running-systemd"></a>Run Kibana with <code class="literal">systemd</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/setup/install/systemd.asciidoc">edit</a></h3>
+<h3 class="title"><a id="deb-running-systemd"></a>Run Kibana with <code class="literal">systemd</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/setup/install/systemd.asciidoc">edit</a></h3>
 </div></div></div>
 <p>To configure Kibana to start automatically when the system starts,
 run the following commands:</p>
@@ -269,7 +262,7 @@ successfully or not. Log information can be accessed via
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="deb-configuring"></a>Configure Kibana via the config file<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/setup/install/deb.asciidoc">edit</a></h3>
+<h3 class="title"><a id="deb-configuring"></a>Configure Kibana via the config file<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/setup/install/deb.asciidoc">edit</a></h3>
 </div></div></div>
 <p>Kibana loads its configuration from the <code class="literal">/etc/kibana/kibana.yml</code>
 file by default.  The format of this config file is explained in
@@ -278,7 +271,7 @@ file by default.  The format of this config file is explained in
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="deb-layout"></a>Directory layout of Debian package<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/setup/install/deb.asciidoc">edit</a></h3>
+<h3 class="title"><a id="deb-layout"></a>Directory layout of Debian package<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/setup/install/deb.asciidoc">edit</a></h3>
 </div></div></div>
 <p>The Debian package places config files, logs, and the data directory in the appropriate
 locations for a Debian-based system:</p>
@@ -354,15 +347,37 @@ locations for a Debian-based system:</p>
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

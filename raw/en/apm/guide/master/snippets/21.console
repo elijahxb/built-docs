@@ -1,1 +1,1 @@
-GET _cat/templates/apm*
+GET _cat/indices/apm*

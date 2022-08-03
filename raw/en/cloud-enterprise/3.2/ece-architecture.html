@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Service-oriented architecture | Elastic Cloud Enterprise Reference [3.2] | Elastic</title>
+<link rel="home" href="index.html" title="Elastic Cloud Enterprise Reference [3.2]"/>
+<link rel="up" href="Elastic-Cloud-Enterprise-overview.html" title="Introducing Elastic Cloud Enterprise"/>
+<link rel="prev" href="Elastic-Cloud-Enterprise-overview.html" title="Introducing Elastic Cloud Enterprise"/>
+<link rel="next" href="ece-containerization.html" title="Services as Docker containers"/>
+<meta name="DC.type" content="Learn/Docs/CloudEnterprise/Reference/3.2"/>
+<meta name="DC.subject" content="ECE"/>
+<meta name="DC.identifier" content="3.2"/>
+</head>
+<body><div class="page_header">
+A newer version is available. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Cloud Enterprise Reference [3.2]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="Elastic-Cloud-Enterprise-overview.html">Introducing Elastic Cloud Enterprise</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="Elastic-Cloud-Enterprise-overview.html">« Introducing Elastic Cloud Enterprise</a>
+</span>
+<span class="next">
+<a href="ece-containerization.html">Services as Docker containers »</a>
+</span>
+</div>
+<div class="chapter">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="ece-architecture"></a>Service-oriented architecture<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/cloud-enterprise/ce-architecture.asciidoc">edit</a></h2>
+</div></div></div>
+<p>Elastic Cloud Enterprise has a service-oriented architecture that lets you:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Scale each service separately, with different reliability and performance requirements.
+</li>
+<li class="listitem">
+Access services through the API.
+</li>
+<li class="listitem">
+Deploy each service independently in its own Docker container.
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ece-architecture.png" alt="Elastic Cloud Enterprise high level architecture">
+</div>
+</div>
+<h3><a id="ece_control_plane"></a>Control plane<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/cloud-enterprise/ce-architecture.asciidoc">edit</a></h3>
+<p>The <em>control plane</em> of ECE include the following management services:</p>
+<p><span class="strong strong"><strong>ZooKeeper</strong></span></p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<a href="http://zookeeper.apache.org/" class="ulink" target="_top">ZooKeeper</a> is a distributed, strongly consistent data store.
+</li>
+<li class="listitem">
+Holds essential information for ECE components: Proxy routing tables, memory capacity advertised by the allocators, changes committed through Admin Console, and so on.
+</li>
+<li class="listitem">
+Acts as a message bus for communication between the services.
+</li>
+<li class="listitem">
+Talks to ECE components using STunnel.
+</li>
+<li class="listitem">
+Stores the state of the ECE installation and the state of all deployments running in ECE.
+</li>
+</ul>
+</div>
+<p><span class="strong strong"><strong>Director</strong></span></p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Manages the ZK data store and signs the CSRs (certificate signing requests) for internal clients that want to communicate with ZooKeeper.
+</li>
+<li class="listitem">
+Maintains the stunnels used by ZooKeeper for communication and establishes quorum when new ZooKeeper nodes are created.
+</li>
+</ul>
+</div>
+<p><span class="strong strong"><strong>Constructor</strong></span></p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Works like a scheduler that monitors requests from the Admin console.
+</li>
+<li class="listitem">
+Determines what needs to be changed, and writes the changes to ZooKeeper nodes monitored by the allocators.
+</li>
+<li class="listitem">
+Assigns cluster nodes to allocators.
+</li>
+<li class="listitem">
+Maximizes the utilization of underlying allocators to reduce the need to spin up extra hardware for new deployments.
+</li>
+<li class="listitem">
+Places cluster nodes and instances within different availability zones to ensure that the deployment can survive any downtime of a whole zone. You can designate these availability zones when you install ECE.
+</li>
+</ul>
+</div>
+<p><span class="strong strong"><strong>Cloud UI and API</strong></span></p>
+<p>Provide web and API access for administrators to manage and monitor the ECE installation.</p>
+<h3><a id="ece_proxies"></a>Proxies<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/cloud-enterprise/ce-architecture.asciidoc">edit</a></h3>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Handle user requests, mapping deployment IDs that are passed in request URLs for the container to the actual Elasticsearch cluster nodes and other instances. The association of deployment IDs to a container is stored in ZooKeeper, cached by the proxies. In the event of ZooKeeper downtime, the platform can still service the requests to existing deployments by using the cache.
+</li>
+<li class="listitem">
+Keep track of the state and availability of zones, if you have a highly available Elasticsearch cluster. If one of the zones goes down, the proxy will not route any requests there.
+</li>
+<li class="listitem">
+Help with no-downtime scaling and upgrades. Before performing an upgrade, a snapshot is taken, and data is migrated to the new nodes. When the migration is complete, a proxy switches the traffic to the new nodes and disconnects the old ones.
+</li>
+<li class="listitem">
+Multiple proxies are usually configured behind a load balancer to ensure that the system remains available.
+</li>
+</ul>
+</div>
+<h3><a id="ece-architecture-allocators"></a>Allocators<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/cloud-enterprise/ce-architecture.asciidoc">edit</a></h3>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Run on all the machines that host Elasticsearch nodes and Kibana instances.
+</li>
+<li class="listitem">
+<p>Control the lifecycle of cluster nodes by:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Creating new containers and starting Elasticsearch nodes when requested
+</li>
+<li class="listitem">
+Restarting a node if it becomes unresponsive
+</li>
+<li class="listitem">
+Removing a node if it is no longer needed
+</li>
+</ul>
+</div>
+</li>
+<li class="listitem">
+Advertise the memory capacity of the underlying host machine to ZooKeeper so that the Constructor can make an informed decision on where to deploy.
+</li>
+</ul>
+</div>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="Elastic-Cloud-Enterprise-overview.html">« Introducing Elastic Cloud Enterprise</a>
+</span>
+<span class="next">
+<a href="ece-containerization.html">Services as Docker containers »</a>
+</span>
+</div>
+</div>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains('stemblock')) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+</body>
+</html>

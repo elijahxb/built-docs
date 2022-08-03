@@ -58,7 +58,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -89,27 +89,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 You are looking at preliminary documentation for a future release.
@@ -118,13 +109,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Kibana Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="api.html">REST API</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Kibana Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="api.html">REST API</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="cases-api.html">Cases APIs</a></span>
-»
-<span class="breadcrumb-node">Get case activity API</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -139,7 +127,7 @@ Not what you want? See the
 <h2 class="title"><a id="cases-api-get-case-activity"></a>Get case activity API<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/api/cases/cases-api-get-case-activity.asciidoc">edit</a></h2>
 </div></div></div>
 
-<p>Returns all user activity for the specified case.</p>
+<p>Returns all user activity for a case.</p>
 <div class="warning admon">
 <div class="icon"></div>
 <div class="admon_content">
@@ -156,12 +144,12 @@ Not what you want? See the
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_prerequisite_7"></a>Prerequisite<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/api/cases/cases-api-get-case-activity.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_prerequisites_25"></a>Prerequisites<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/api/cases/cases-api-get-case-activity.asciidoc">edit</a></h3>
 </div></div></div>
 <p>You must have <code class="literal">read</code> privileges for the <span class="strong strong"><strong>Cases</strong></span> feature in the <span class="strong strong"><strong>Management</strong></span>,
 <span class="strong strong"><strong>Observability</strong></span>, or <span class="strong strong"><strong>Security</strong></span> section of the
 <a class="xref" href="kibana-privileges.html#kibana-feature-privileges" title="Feature privileges">Kibana feature privileges</a>, depending on the
-<code class="literal">owner</code> of the cases you&#8217;re seeking.</p>
+<code class="literal">owner</code> of the case you&#8217;re seeking.</p>
 </div>
 
 <div class="section">
@@ -190,9 +178,11 @@ default space is used.
 </dd>
 </dl>
 </div>
+</div>
+
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="_response_code_7"></a>Response code<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/api/cases/cases-api-get-case-activity.asciidoc">edit</a></h4>
+<h3 class="title"><a id="_response_codes_8"></a>Response codes<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/api/cases/cases-api-get-case-activity.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="variablelist">
 <dl class="variablelist">
@@ -210,377 +200,68 @@ Indicates a successful call.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="_example_31"></a>Example<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/api/cases/cases-api-get-case-activity.asciidoc">edit</a></h4>
+<h3 class="title"><a id="_examples_19"></a>Examples<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/api/cases/cases-api-get-case-activity.asciidoc">edit</a></h3>
 </div></div></div>
-<p>Gets all activity for case ID <code class="literal">a18b38a0-71b0-11ea-a0b2-c51ea50a58e2</code>:</p>
+<p>Gets all activity for case ID <code class="literal">22df07d0-03b1-11ed-920c-974bfa104448</code>:</p>
 <div class="pre_wrapper lang-kibana">
-<pre class="programlisting prettyprint lang-kibana">GET api/cases/a18b38a0-71b0-11ea-a0b2-c51ea50a58e2/user_actions</pre>
+<pre class="programlisting prettyprint lang-kibana">GET api/cases/22df07d0-03b1-11ed-920c-974bfa104448/user_actions</pre>
 </div>
-<div class="kibana_widget" data-snippet="snippets/146.kibana"></div>
+<div class="kibana_widget" data-snippet="snippets/161.kibana"></div>
 <p>The API returns a JSON object with all the activity for the case. For example:</p>
 <div class="pre_wrapper lang-json">
 <pre class="programlisting prettyprint lang-json">[
-    {
-      "action": "create",
-      "action_id": "5275af50-5e7d-11ec-9ee9-cd64f0b77b3c",
-      "case_id": "5257a000-5e7d-11ec-9ee9-cd64f0b77b3c",
-      "comment_id": null,
-      "created_at": "2021-12-16T14:34:48.709Z",
-      "created_by": {
-        "email": "",
-        "full_name": "",
-        "username": "elastic"
-      },
-      "owner": "securitySolution",
-      "payload": {
-        "connector": {
-          "fields": null,
-          "id": "none",
-          "name": "none",
-          "type": ".none"
-        },
-        "description": "migrating user actions",
-        "settings": {
-          "syncAlerts": true
-        },
-        "status": "open",
-        "tags": [
-          "user",
-          "actions"
-        ],
-        "title": "User actions",
-        "owner": "securitySolution"
-      },
-      "sub_case_id": "",
-      "type": "create_case"
+  {
+    "created_at":"2022-07-14T20:11:24.947Z",
+    "created_by":{
+      "username":"elastic",
+      "email":null,
+      "full_name":null
     },
-    {
-      "action": "create",
-      "action_id": "72e73240-5e7d-11ec-9ee9-cd64f0b77b3c",
-      "case_id": "5257a000-5e7d-11ec-9ee9-cd64f0b77b3c",
-      "comment_id": "72a03e30-5e7d-11ec-9ee9-cd64f0b77b3c",
-      "created_at": "2021-12-16T14:35:42.872Z",
-      "created_by": {
-        "email": "",
-        "full_name": "",
-        "username": "elastic"
+    "owner":"cases",
+    "action":"create",
+    "payload":{
+      "description":"A case description",
+      "title":"Case title 1",
+      "tags":["tag 1"],
+      "connector":{
+        "name":"none",
+        "type":".none",
+        "fields":null,
+        "id":"none"
       },
-      "owner": "securitySolution",
-      "payload": {
-        "comment": {
-          "comment": "a comment",
-          "owner": "securitySolution",
-          "type": "user"
-        }
-      },
-      "sub_case_id": "",
-      "type": "comment"
+      "settings":{"syncAlerts":true},
+      "owner":"cases",
+      "severity":"low",
+      "status":"open"
     },
-    {
-      "action": "update",
-      "action_id": "7685b5c0-5e7d-11ec-9ee9-cd64f0b77b3c",
-      "case_id": "5257a000-5e7d-11ec-9ee9-cd64f0b77b3c",
-      "comment_id": null,
-      "created_at": "2021-12-16T14:35:48.826Z",
-      "created_by": {
-        "email": "",
-        "full_name": "",
-        "username": "elastic"
-      },
-      "owner": "securitySolution",
-      "payload": {
-        "title": "User actions!"
-      },
-      "sub_case_id": "",
-      "type": "title"
+    "type":"create_case",
+    "action_id":"22fd3e30-03b1-11ed-920c-974bfa104448",
+    "case_id":"22df07d0-03b1-11ed-920c-974bfa104448",
+    "comment_id":null
+  },
+  {
+    "created_at":"2022-07-14T20:12:53.354Z",
+    "created_by":{
+      "username":"elastic",
+      "email":null,
+      "full_name":null
     },
-    {
-      "action": "update",
-      "action_id": "7a2d8810-5e7d-11ec-9ee9-cd64f0b77b3c",
-      "case_id": "5257a000-5e7d-11ec-9ee9-cd64f0b77b3c",
-      "comment_id": null,
-      "created_at": "2021-12-16T14:35:55.421Z",
-      "created_by": {
-        "email": "",
-        "full_name": "",
-        "username": "elastic"
-      },
-      "owner": "securitySolution",
-      "payload": {
-        "description": "migrating user actions and update!"
-      },
-      "sub_case_id": "",
-      "type": "description"
+    "owner":"cases",
+    "action":"create",
+    "payload":{
+      "comment":{
+        "type":"user",
+        "owner":"cases",
+        "comment":"A new comment"
+      }
     },
-    {
-      "action": "update",
-      "action_id": "7f942160-5e7d-11ec-9ee9-cd64f0b77b3c",
-      "case_id": "5257a000-5e7d-11ec-9ee9-cd64f0b77b3c",
-      "comment_id": "72a03e30-5e7d-11ec-9ee9-cd64f0b77b3c",
-      "created_at": "2021-12-16T14:36:04.120Z",
-      "created_by": {
-        "email": "",
-        "full_name": "",
-        "username": "elastic"
-      },
-      "owner": "securitySolution",
-      "payload": {
-        "comment": {
-          "comment": "a comment updated!",
-          "owner": "securitySolution",
-          "type": "user"
-        }
-      },
-      "sub_case_id": "",
-      "type": "comment"
-    },
-    {
-      "action": "add",
-      "action_id": "8591a380-5e7d-11ec-9ee9-cd64f0b77b3c",
-      "case_id": "5257a000-5e7d-11ec-9ee9-cd64f0b77b3c",
-      "comment_id": null,
-      "created_at": "2021-12-16T14:36:13.840Z",
-      "created_by": {
-        "email": "",
-        "full_name": "",
-        "username": "elastic"
-      },
-      "owner": "securitySolution",
-      "payload": {
-        "tags": [
-          "migration"
-        ]
-      },
-      "sub_case_id": "",
-      "type": "tags"
-    },
-    {
-      "action": "delete",
-      "action_id": "8591a381-5e7d-11ec-9ee9-cd64f0b77b3c",
-      "case_id": "5257a000-5e7d-11ec-9ee9-cd64f0b77b3c",
-      "comment_id": null,
-      "created_at": "2021-12-16T14:36:13.840Z",
-      "created_by": {
-        "email": "",
-        "full_name": "",
-        "username": "elastic"
-      },
-      "owner": "securitySolution",
-      "payload": {
-        "tags": [
-          "user"
-        ]
-      },
-      "sub_case_id": "",
-      "type": "tags"
-    },
-    {
-      "action": "update",
-      "action_id": "87fadb50-5e7d-11ec-9ee9-cd64f0b77b3c",
-      "case_id": "5257a000-5e7d-11ec-9ee9-cd64f0b77b3c",
-      "comment_id": null,
-      "created_at": "2021-12-16T14:36:17.764Z",
-      "created_by": {
-        "email": "",
-        "full_name": "",
-        "username": "elastic"
-      },
-      "owner": "securitySolution",
-      "payload": {
-        "settings": {
-          "syncAlerts": false
-        }
-      },
-      "sub_case_id": "",
-      "type": "settings"
-    },
-    {
-      "action": "update",
-      "action_id": "89ca4420-5e7d-11ec-9ee9-cd64f0b77b3c",
-      "case_id": "5257a000-5e7d-11ec-9ee9-cd64f0b77b3c",
-      "comment_id": null,
-      "created_at": "2021-12-16T14:36:21.509Z",
-      "created_by": {
-        "email": "",
-        "full_name": "",
-        "username": "elastic"
-      },
-      "owner": "securitySolution",
-      "payload": {
-        "status": "in-progress"
-      },
-      "sub_case_id": "",
-      "type": "status"
-    },
-    {
-      "action": "update",
-      "action_id": "9060aae0-5e7d-11ec-9ee9-cd64f0b77b3c",
-      "case_id": "5257a000-5e7d-11ec-9ee9-cd64f0b77b3c",
-      "comment_id": null,
-      "created_at": "2021-12-16T14:36:32.716Z",
-      "created_by": {
-        "email": "",
-        "full_name": "",
-        "username": "elastic"
-      },
-      "owner": "securitySolution",
-      "payload": {
-        "connector": {
-          "fields": {
-            "issueType": "10001",
-            "parent": null,
-            "priority": "High"
-          },
-          "id": "6773fba0-5e7d-11ec-9ee9-cd64f0b77b3c",
-          "name": "Jira",
-          "type": ".jira"
-        }
-      },
-      "sub_case_id": "",
-      "type": "connector"
-    },
-    {
-      "action": "push_to_service",
-      "action_id": "988579d0-5e7d-11ec-9ee9-cd64f0b77b3c",
-      "case_id": "5257a000-5e7d-11ec-9ee9-cd64f0b77b3c",
-      "comment_id": null,
-      "created_at": "2021-12-16T14:36:46.443Z",
-      "created_by": {
-        "email": "",
-        "full_name": "",
-        "username": "elastic"
-      },
-      "owner": "securitySolution",
-      "payload": {
-        "externalService": {
-          "connector_id": "6773fba0-5e7d-11ec-9ee9-cd64f0b77b3c",
-          "connector_name": "Jira",
-          "external_id": "26225",
-          "external_title": "CASES-229",
-          "external_url": "https://example.com/browse/CASES-229",
-          "pushed_at": "2021-12-16T14:36:46.443Z",
-          "pushed_by": {
-            "email": "",
-            "full_name": "",
-            "username": "elastic"
-          }
-        }
-      },
-      "sub_case_id": "",
-      "type": "pushed"
-    },
-    {
-      "action": "update",
-      "action_id": "bcb76020-5e7d-11ec-9ee9-cd64f0b77b3c",
-      "case_id": "5257a000-5e7d-11ec-9ee9-cd64f0b77b3c",
-      "comment_id": null,
-      "created_at": "2021-12-16T14:37:46.863Z",
-      "created_by": {
-        "email": "",
-        "full_name": "",
-        "username": "elastic"
-      },
-      "owner": "securitySolution",
-      "payload": {
-        "connector": {
-          "fields": {
-            "incidentTypes": [
-              "17",
-              "4"
-            ],
-            "severityCode": "5"
-          },
-          "id": "b3214df0-5e7d-11ec-9ee9-cd64f0b77b3c",
-          "name": "IBM",
-          "type": ".resilient"
-        }
-      },
-      "sub_case_id": "",
-      "type": "connector"
-    },
-    {
-      "action": "push_to_service",
-      "action_id": "c0338e90-5e7d-11ec-9ee9-cd64f0b77b3c",
-      "case_id": "5257a000-5e7d-11ec-9ee9-cd64f0b77b3c",
-      "comment_id": null,
-      "created_at": "2021-12-16T14:37:53.016Z",
-      "created_by": {
-        "email": "",
-        "full_name": "",
-        "username": "elastic"
-      },
-      "owner": "securitySolution",
-      "payload": {
-        "externalService": {
-          "connector_id": "b3214df0-5e7d-11ec-9ee9-cd64f0b77b3c",
-          "connector_name": "IBM",
-          "external_id": "17574",
-          "external_title": "17574",
-          "external_url": "https://example.com/#incidents/17574",
-          "pushed_at": "2021-12-16T14:37:53.016Z",
-          "pushed_by": {
-            "email": "",
-            "full_name": "",
-            "username": "elastic"
-          }
-        }
-      },
-      "sub_case_id": "",
-      "type": "pushed"
-    },
-    {
-      "action": "update",
-      "action_id": "c5b6d7a0-5e7d-11ec-9ee9-cd64f0b77b3c",
-      "case_id": "5257a000-5e7d-11ec-9ee9-cd64f0b77b3c",
-      "comment_id": null,
-      "created_at": "2021-12-16T14:38:01.895Z",
-      "created_by": {
-        "email": "",
-        "full_name": "",
-        "username": "elastic"
-      },
-      "owner": "securitySolution",
-      "payload": {
-        "connector": {
-          "fields": {
-            "issueType": "10001",
-            "parent": null,
-            "priority": "Lowest"
-          },
-          "id": "6773fba0-5e7d-11ec-9ee9-cd64f0b77b3c",
-          "name": "Jira",
-          "type": ".jira"
-        }
-      },
-      "sub_case_id": "",
-      "type": "connector"
-    },
-    {
-      "action": "create",
-      "action_id": "ca8f61c0-5e7d-11ec-9ee9-cd64f0b77b3c",
-      "case_id": "5257a000-5e7d-11ec-9ee9-cd64f0b77b3c",
-      "comment_id": "ca1d17f0-5e7d-11ec-9ee9-cd64f0b77b3c",
-      "created_at": "2021-12-16T14:38:09.649Z",
-      "created_by": {
-        "email": "",
-        "full_name": "",
-        "username": "elastic"
-      },
-      "owner": "securitySolution",
-      "payload": {
-        "comment": {
-          "comment": "and another comment!",
-          "owner": "securitySolution",
-          "type": "user"
-        }
-      },
-      "sub_case_id": "",
-      "type": "comment"
-    }
-  ]</pre>
+    "type":"comment",
+    "action_id":"57af14a0-03b1-11ed-920c-974bfa104448",
+    "case_id":"22df07d0-03b1-11ed-920c-974bfa104448",
+    "comment_id":"578608d0-03b1-11ed-920c-974bfa104448"
+  }
+]</pre>
 </div>
-</div>
-
 </div>
 
 </div>
@@ -596,15 +277,37 @@ Indicates a successful call.
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

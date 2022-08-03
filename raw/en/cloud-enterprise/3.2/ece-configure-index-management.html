@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Configure index management | Elastic Cloud Enterprise Reference [3.2] | Elastic</title>
+<link rel="home" href="index.html" title="Elastic Cloud Enterprise Reference [3.2]"/>
+<link rel="up" href="ece-create-deployment.html" title="Create your deployment"/>
+<link rel="prev" href="ece-customize-deployment.html" title="Customize your deployment"/>
+<link rel="next" href="ece-access-kibana.html" title="Access Kibana"/>
+<meta name="DC.type" content="Learn/Docs/CloudEnterprise/Reference/3.2"/>
+<meta name="DC.subject" content="ECE"/>
+<meta name="DC.identifier" content="3.2"/>
+</head>
+<body><div class="page_header">
+A newer version is available. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Cloud Enterprise Reference [3.2]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="ece-stack-getting-started.html">Getting started with deployments</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="ece-create-deployment.html">Create your deployment</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="ece-customize-deployment.html">« Customize your deployment</a>
+</span>
+<span class="next">
+<a href="ece-access-kibana.html">Access Kibana »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="ece-configure-index-management"></a>Configure index management<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/shared/ec-ce-getting-started-configure-index-management.asciidoc">edit</a></h2>
+</div></div></div>
+<div class="important admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>Index curation is deprecated. For Elastic Stack version 6.7 and later, any deployments using index curation will be prompted to migrate to ILM.</p>
+</div>
+</div>
+<p>The index lifecycle management (ILM) feature of the Elastic Stack provides an integrated and streamlined way to manage time-based data, making it easier to follow best practices for managing your indices. Compared to index curation, migrating to ILM gives you more fine-grained control over the lifecycle of each index.</p>
+<p>For existing hot-warm deployments that are currently using index curation, there are a couple of options for migrating to index lifecycle management (ILM). You can:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Use the migration process in the console to change an existing deployment to ILM.
+</li>
+<li class="listitem">
+Take a snapshot and restore your data to a new Elastic Stack 6.7+ deployment that has ILM enabled.
+</li>
+<li class="listitem">
+<a href="/guide/en/elasticsearch/reference/8.3/set-up-lifecycle-policy.html" class="ulink" target="_top">Create your index lifecyle policy</a>
+</li>
+<li class="listitem">
+<a href="/guide/en/elasticsearch/reference/8.3/index-lifecycle-management.html" class="ulink" target="_top">Managing the index lifecycle</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="ece-customize-deployment.html">« Customize your deployment</a>
+</span>
+<span class="next">
+<a href="ece-access-kibana.html">Access Kibana »</a>
+</span>
+</div>
+</div>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains('stemblock')) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+</body>
+</html>

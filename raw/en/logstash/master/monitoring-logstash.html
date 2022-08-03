@@ -18,9 +18,8 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="index.html">Logstash Reference [master]</a></span>
-»
-<span class="breadcrumb-node">Monitoring Logstash with APIs</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -94,7 +93,7 @@ the host and version.</p>
 <div class="pre_wrapper lang-js">
 <pre class="programlisting prettyprint lang-js">{
    "host": "skywalker",
-   "version": "8.2.0",
+   "version": "8.4.0",
    "http_address": "127.0.0.1:9600"
 }</pre>
 </div>
@@ -117,12 +116,12 @@ Connecting clients receive this certificate, allowing them to authenticate the L
 <p>You can also require HTTP Basic authentication by setting <code class="literal">api.auth.type: basic</code> in the <code class="literal">logstash.yml</code>, and providing the relevant credentials <code class="literal">api.auth.basic.username</code> and <code class="literal">api.auth.basic.password</code>:</p>
 <pre class="screen">api.auth.type: basic
 api.auth.basic.username: "logstash"
-api.auth.basic.password: "stashy"</pre>
+api.auth.basic.password: "s3cUreP4$$w0rD"</pre>
 <div class="note admon">
 <div class="icon"></div>
 <div class="admon_content">
 <p>Usage of Keystore or Environment or variable replacements is encouraged for password-type fields to avoid storing them in plain text.
-      For example, specifying the value <code class="literal">"${HTTP_PASS}"</code> will resolve to the value stored in the <a class="xref" href="keystore.html" title="Secrets keystore for secure settings">secure keystore&#8217;s</a> <code class="literal">HTTP_PASS</code> variable if present or the same variable from the <a class="xref" href="environment-variables.html" title="Using environment variables in the configuration">environment</a>)</p>
+      For example, specifying the value <code class="literal">"${HTTP_PASS}"</code> will resolve to the value stored in the <a class="xref" href="keystore.html" title="Secrets keystore for secure settings">secure keystore&#8217;s</a> <code class="literal">HTTP_PASS</code> variable if present or the same variable from the <a class="xref" href="environment-variables.html" title="Using environment variables">environment</a>)</p>
 </div>
 </div>
 <h4><a id="monitoring-common-options"></a>Common options<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/logstash/edit/main/docs/static/monitoring/monitoring-apis.asciidoc">edit</a></h4>
@@ -134,7 +133,7 @@ will be pretty formatted (use it for debugging only!).</p>
 <div class="note admon">
 <div class="icon"></div>
 <div class="admon_content">
-<p>For Logstash 8.2.0, the <code class="literal">human</code> option is supported for the <a class="xref" href="hot-threads-api.html" title="Hot Threads API">Hot Threads API</a>
+<p>For Logstash 8.4.0, the <code class="literal">human</code> option is supported for the <a class="xref" href="hot-threads-api.html" title="Hot Threads API">Hot Threads API</a>
 only. When you specify <code class="literal">human=true</code>, the results are returned in plain text instead of
 JSON format. The default is false.</p>
 </div>

@@ -10,17 +10,19 @@
 <meta name="DC.type" content="Learn/Docs/Elasticsearch/Reference/8.1"/>
 <meta name="DC.subject" content="Elasticsearch"/>
 <meta name="DC.identifier" content="8.1"/>
+<meta name="robots" content="noindex,nofollow"/>
 </head>
-<body>
+<body><div class="page_header">
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.1]</a></span>
-»
-<span class="breadcrumb-link"><a href="search-aggregations.html">Aggregations</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.1]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="search-aggregations.html">Aggregations</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="search-aggregations-pipeline.html">Pipeline aggregations</a></span>
-»
-<span class="breadcrumb-node">Cumulative cardinality aggregation</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -32,7 +34,7 @@
 </div>
 <div class="section xpack">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="search-aggregations-pipeline-cumulative-cardinality-aggregation"></a>Cumulative cardinality aggregation<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/aggregations/pipeline/cumulative-cardinality-aggregation.asciidoc">edit</a></h2>
+<h2 class="title"><a id="search-aggregations-pipeline-cumulative-cardinality-aggregation"></a>Cumulative cardinality aggregation<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/aggregations/pipeline/cumulative-cardinality-aggregation.asciidoc">edit</a></h2>
 </div></div></div>
 
 <p>A parent pipeline aggregation which calculates the Cumulative Cardinality in a parent histogram (or date_histogram)
@@ -44,7 +46,7 @@ differentiate between "new" or "repeat" visitors. The Cumulative Cardinality agg
 how many of each day&#8217;s unique visitors are "new".</p>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_syntax_9"></a>Syntax<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/aggregations/pipeline/cumulative-cardinality-aggregation.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_syntax_9"></a>Syntax<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/aggregations/pipeline/cumulative-cardinality-aggregation.asciidoc">edit</a></h3>
 </div></div></div>
 <p>A <code class="literal">cumulative_cardinality</code> aggregation looks like this in isolation:</p>
 <div class="pre_wrapper lang-js">
@@ -83,7 +85,9 @@ how many of each day&#8217;s unique visitors are "new".</p>
 </tr>
 <tr>
 <td align="left" valign="top"><p><code class="literal">format</code></p></td>
-<td align="left" valign="top"><p>format to apply to the output value of this aggregation</p></td>
+<td align="left" valign="top"><p><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/text/DecimalFormat.html" class="ulink" target="_top">DecimalFormat pattern</a> for the
+output value. If specified, the formatted value is returned in the aggregation&#8217;s
+<code class="literal">value_as_string</code> property</p></td>
 <td align="left" valign="top"><p>Optional</p></td>
 <td align="left" valign="top"><p><code class="literal">null</code></p></td>
 </tr>
@@ -119,7 +123,7 @@ how many of each day&#8217;s unique visitors are "new".</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1316.console"></div>
+<div class="console_widget" data-snippet="snippets/1318.console"></div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
@@ -189,7 +193,7 @@ one of three users is completely new.</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_incremental_cumulative_cardinality"></a>Incremental cumulative cardinality<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/aggregations/pipeline/cumulative-cardinality-aggregation.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_incremental_cumulative_cardinality"></a>Incremental cumulative cardinality<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/aggregations/pipeline/cumulative-cardinality-aggregation.asciidoc">edit</a></h3>
 </div></div></div>
 <p>The <code class="literal">cumulative_cardinality</code> agg will show you the total, distinct count since the beginning of the time period
 being queried. Sometimes, however, it is useful to see the "incremental" count. Meaning, how many new users
@@ -227,7 +231,7 @@ are added each day, rather than the total cumulative count.</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1317.console"></div>
+<div class="console_widget" data-snippet="snippets/1319.console"></div>
 <p>And the following may be the response:</p>
 <a id="de7cfdf9934fbb000486b00a8d40fa63"></a>
 <div class="pre_wrapper lang-console-result">

@@ -1,1 +1,1 @@
-POST /_security/api_key/yVGMr3QByxdh1MSaicYx/_clear_cache
+POST /my-index-000001/_pit?keep_alive=1m

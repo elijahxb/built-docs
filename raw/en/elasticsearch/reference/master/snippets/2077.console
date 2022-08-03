@@ -1,5 +1,4 @@
-GET /analyze_sample/_analyze
+POST test/_update/1
 {
-  "field" : "obj1.field1",
-  "text" : "this is a test"
+  "script" : "ctx._source.remove('new_field')"
 }

@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,27 +87,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 You are looking at preliminary documentation for a future release.
@@ -116,13 +107,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elastic Security Solution [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="detection-engine-overview.html">Detections and alerts</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Security Solution [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="detection-engine-overview.html">Detections and alerts</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="prebuilt-rules.html">Prebuilt rule reference</a></span>
-»
-<span class="breadcrumb-node">Suspicious Portable Executable Encoded in Powershell Script</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -136,7 +124,7 @@ Not what you want? See the
 <div class="titlepage"><div><div>
 <h2 class="title"><a id="suspicious-portable-executable-encoded-in-powershell-script"></a>Suspicious Portable Executable Encoded in Powershell Script<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/main/docs/detections/prebuilt-rules/rule-details/suspicious-portable-executable-encoded-in-powershell-script.asciidoc">edit</a></h2>
 </div></div></div>
-<p>Detects the presence of portable executables (PE) in a PowerShell script by looking for its encoded header. Attackers embed PEs into PowerShell scripts for injecting them into the memory, avoiding defenses by not writing to disk.</p>
+<p>Detects the presence of a portable executable (PE) in a PowerShell script by looking for its encoded header. Attackers embed PEs into PowerShell scripts to inject them into memory, avoiding defences by not writing to disk.</p>
 <p><span class="strong strong"><strong>Rule type</strong></span>: query</p>
 <p><span class="strong strong"><strong>Rule indices</strong></span>:</p>
 <div class="ulist itemizedlist">
@@ -182,46 +170,72 @@ Execution
 </li>
 </ul>
 </div>
-<p><span class="strong strong"><strong>Version</strong></span>: 4 (<a class="xref" href="suspicious-portable-executable-encoded-in-powershell-script.html#suspicious-portable-executable-encoded-in-powershell-script-history" title="Rule version history">version history</a>)</p>
+<p><span class="strong strong"><strong>Version</strong></span>: 6 (<a class="xref" href="suspicious-portable-executable-encoded-in-powershell-script.html#suspicious-portable-executable-encoded-in-powershell-script-history" title="Rule version history">version history</a>)</p>
 <p><span class="strong strong"><strong>Added (Elastic Stack release)</strong></span>: 7.16.0</p>
-<p><span class="strong strong"><strong>Last modified (Elastic Stack release)</strong></span>: 8.1.0</p>
+<p><span class="strong strong"><strong>Last modified (Elastic Stack release)</strong></span>: 8.3.0</p>
 <p><span class="strong strong"><strong>Rule authors</strong></span>: Elastic</p>
 <p><span class="strong strong"><strong>Rule license</strong></span>: Elastic License v2</p>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_investigation_guide_223"></a>Investigation guide<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/main/docs/detections/prebuilt-rules/rule-details/suspicious-portable-executable-encoded-in-powershell-script.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_investigation_guide_389"></a>Investigation guide<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/main/docs/detections/prebuilt-rules/rule-details/suspicious-portable-executable-encoded-in-powershell-script.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="pre_wrapper lang-markdown">
-<pre class="programlisting prettyprint lang-markdown">## Triage and analysis.
+<pre class="programlisting prettyprint lang-markdown">## Triage and analysis
 
 ### Investigating Suspicious Portable Executable Encoded in Powershell Script
 
-PowerShell is one of the main tools used by system administrators for automation, report routines, and other tasks.
+PowerShell is one of the main tools system administrators use for automation, report routines, and other tasks. This
+makes it available for use in various environments, and creates an attractive way for attackers to execute code.
 
 Attackers can abuse PowerShell in-memory capabilities to inject executables into memory without touching the disk,
-bypassing antivirus software. These executables are generally base64 encoded.
+bypassing file-based security protections. These executables are generally base64 encoded.
 
-#### Possible investigation steps:
+#### Possible investigation steps
 
-- Examine script content that triggered the detection.
-- Investigate script execution chain (parent process tree).
-- Inspect any file or network events from the suspicious PowerShell host process instance.
-- If the action is suspicious for the user, check for any other activities done by the user in the last 48 hours.
+- Examine the script content that triggered the detection; look for suspicious DLL imports, collection or exfiltration
+capabilities, suspicious functions, encoded or compressed data, and other potentially malicious characteristics.
+- Investigate the script execution chain (parent process tree) for unknown processes. Examine their executable files for
+prevalence, whether they are located in expected locations, and if they are signed with valid digital signatures.
+- Investigate other alerts associated with the user/host during the past 48 hours.
+- Evaluate whether the user needs to use PowerShell to complete tasks.
+- Retrieve the script and determine if it is malicious:
+  - Use a private sandboxed malware analysis system to perform analysis.
+    - Observe and collect information about the following activities:
+      - Attempts to contact external domains and addresses.
+      - File and registry access, modification, and creation activities.
+      - Service creation and launch activities.
+      - Scheduled tasks creation.
+  - Use the PowerShell Get-FileHash cmdlet to get the files' SHA-256 hash values.
+    - Search for the existence and reputation of the hashes in resources like VirusTotal, Hybrid-Analysis, CISCO Talos, Any.run, etc.
 
-### False Positive Analysis
+### False positive analysis
 
-- Verify whether the script content is malicious/harmful.
+- This activity is unlikely to happen legitimately. Benign true positives (B-TPs) can be added as exceptions if necessary.
 
-### Related Rules
+### Related rules
 
-- PowerShell Reflection Assembly Load - e26f042e-c590-4e82-8e05-41e81bd822ad
+- Suspicious .NET Reflection via PowerShell - e26f042e-c590-4e82-8e05-41e81bd822ad
 - PowerShell Suspicious Payload Encoded and Compressed - 81fe9dc6-a2d7-4192-a2d8-eed98afc766a
 - PowerShell PSReflect Script - 56f2e9b5-4803-4e44-a0a4-a52dc79d57fe
 
-### Response and Remediation
+### Response and remediation
 
-- Immediate response should be taken to validate, investigate, and potentially contain the activity to prevent further
-post-compromise behavior.
+- Initiate the incident response process based on the outcome of the triage.
+- Isolate the involved hosts to prevent further post-compromise behavior.
+- If the triage identified malware, search the environment for additional compromised hosts.
+  - Implement temporary network rules, procedures, and segmentation to contain the malware.
+  - Stop suspicious processes.
+  - Immediately block the identified indicators of compromise (IoCs).
+  - Inspect the affected systems for additional malware backdoors like reverse shells, reverse proxies, or droppers that
+  attackers could use to reinfect the system.
+- Remove and block malicious artifacts identified during triage.
+- Reimage the host operating system or restore the compromised files to clean versions.
+- Restrict PowerShell usage outside of IT and engineering business units using GPOs, AppLocker, Intune, or similar software.
+- Run a full antimalware scan. This may reveal additional artifacts left in the system, persistence mechanisms, and
+malware components.
+- Determine the initial vector abused by the attacker and take action to prevent reinfection through the same vector.
+- Using the incident response data, update logging and audit policies to improve the mean time to detect (MTTD) and the
+mean time to respond (MTTR).
 
 ## Config
 
@@ -245,7 +259,7 @@ reg add "hklm\SOFTWARE\Policies\Microsoft\Windows\PowerShell\ScriptBlockLogging"
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_rule_query_513"></a>Rule query<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/main/docs/detections/prebuilt-rules/rule-details/suspicious-portable-executable-encoded-in-powershell-script.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_rule_query_532"></a>Rule query<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/main/docs/detections/prebuilt-rules/rule-details/suspicious-portable-executable-encoded-in-powershell-script.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="pre_wrapper lang-js">
 <pre class="programlisting prettyprint lang-js">event.category:process and powershell.file.script_block_text : (
@@ -255,7 +269,7 @@ TVqQAAMAAAAEAAAA )</pre>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_threat_mapping_457"></a>Threat mapping<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/main/docs/detections/prebuilt-rules/rule-details/suspicious-portable-executable-encoded-in-powershell-script.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_threat_mapping_478"></a>Threat mapping<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/main/docs/detections/prebuilt-rules/rule-details/suspicious-portable-executable-encoded-in-powershell-script.asciidoc">edit</a></h3>
 </div></div></div>
 <p><span class="strong strong"><strong>Framework</strong></span>: MITRE ATT&amp;CK<sup>TM</sup></p>
 <div class="ulist itemizedlist">
@@ -302,6 +316,34 @@ Reference URL: <a href="https://attack.mitre.org/techniques/T1059/" class="ulink
 </div></div></div>
 <div class="variablelist">
 <dl class="variablelist">
+<dt>
+<span class="term">
+Version 6 (8.3.0 release)
+</span>
+</dt>
+<dd>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Formatting only
+</li>
+</ul>
+</div>
+</dd>
+<dt>
+<span class="term">
+Version 5 (8.2.0 release)
+</span>
+</dt>
+<dd>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Formatting only
+</li>
+</ul>
+</div>
+</dd>
 <dt>
 <span class="term">
 Version 4 (8.1.0 release)
@@ -351,15 +393,37 @@ TVqQAAMAAAAEAAAA )</pre>
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

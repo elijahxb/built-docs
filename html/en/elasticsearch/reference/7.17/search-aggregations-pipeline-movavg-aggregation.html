@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,27 +87,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 A newer version is available. For the latest information, see the
@@ -115,13 +106,10 @@ A newer version is available. For the latest information, see the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [7.17]</a></span>
-»
-<span class="breadcrumb-link"><a href="search-aggregations.html">Aggregations</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [7.17]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="search-aggregations.html">Aggregations</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="search-aggregations-pipeline.html">Pipeline aggregations</a></span>
-»
-<span class="breadcrumb-node">Moving average aggregation</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -264,7 +252,7 @@ embedded like any other metric aggregation:</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1364.console"></div>
+<div class="console_widget" data-snippet="snippets/1366.console"></div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
@@ -386,7 +374,7 @@ the values from a <code class="literal">simple</code> moving average tend to "la
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1365.console"></div>
+<div class="console_widget" data-snippet="snippets/1367.console"></div>
 <p>A <code class="literal">simple</code> model has no special settings to configure</p>
 <p>The window size can change the behavior of the moving average.  For example, a small window (<code class="literal">"window": 10</code>) will closely
 track the data and only smooth out small scale fluctuations:</p>
@@ -441,7 +429,7 @@ the "lag" behind the data&#8217;s mean, since older points have less influence.<
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1366.console"></div>
+<div class="console_widget" data-snippet="snippets/1368.console"></div>
 <p>A <code class="literal">linear</code> model has no special settings to configure</p>
 <p>Like the <code class="literal">simple</code> model, window size can change the behavior of the moving average.  For example, a small window (<code class="literal">"window": 10</code>)
 will closely track the data and only smooth out small scale fluctuations:</p>
@@ -502,7 +490,7 @@ moving average.  This tends to make the moving average track the data more close
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1367.console"></div>
+<div class="console_widget" data-snippet="snippets/1369.console"></div>
 <div id="single_0.2alpha" class="imageblock">
 <div class="content">
 <img src="images/pipeline_movavg/single_0.2alpha.png" alt="single 0.2alpha">
@@ -561,7 +549,7 @@ smoothed data).  The trend value is also exponentially weighted.</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1368.console"></div>
+<div class="console_widget" data-snippet="snippets/1370.console"></div>
 <p>In practice, the <code class="literal">alpha</code> value behaves very similarly in <code class="literal">holt</code> as <code class="literal">ewma</code>: small values produce more smoothing
 and more lag, while larger values produce closer tracking and less lag.  The value of <code class="literal">beta</code> is often difficult
 to see.  Small values emphasize long-term trends (such as a constant linear trend in the whole series), while larger
@@ -655,7 +643,7 @@ The default value of <code class="literal">period</code> is <code class="literal
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1369.console"></div>
+<div class="console_widget" data-snippet="snippets/1371.console"></div>
 <div id="holt_winters_add" class="imageblock">
 <div class="content">
 <img src="images/pipeline_movavg/triple.png" alt="triple">
@@ -717,7 +705,7 @@ you can disable this behavior with <code class="literal">pad: false</code></p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1370.console"></div>
+<div class="console_widget" data-snippet="snippets/1372.console"></div>
 </div>
 
 </div>
@@ -764,7 +752,7 @@ as your buckets:</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1371.console"></div>
+<div class="console_widget" data-snippet="snippets/1373.console"></div>
 <p>The <code class="literal">simple</code>, <code class="literal">linear</code> and <code class="literal">ewma</code> models all produce "flat" predictions: they essentially converge on the mean
 of the last value in the series, producing a flat:</p>
 <div id="simple_prediction" class="imageblock">
@@ -845,7 +833,7 @@ models.</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1372.console"></div>
+<div class="console_widget" data-snippet="snippets/1374.console"></div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
@@ -887,15 +875,37 @@ poorer fitting moving averages at the beginning of the series.</p>
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

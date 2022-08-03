@@ -1,11 +1,12 @@
 GET /_search
 {
-  "query": {
-    "function_score": {
-      "query": { "match_all": {} },
-      "boost": "5",
-      "random_score": {},
-      "boost_mode": "multiply"
-    }
+  "track_scores": true,
+  "sort" : [
+    { "post_date" : {"order" : "desc"} },
+    { "name" : "desc" },
+    { "age" : "desc" }
+  ],
+  "query" : {
+    "term" : { "user" : "kimchy" }
   }
 }

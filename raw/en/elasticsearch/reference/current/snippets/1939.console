@@ -1,8 +1,8 @@
-POST /my-index-000001/_delete_by_query
+POST _nodes/reload_secure_settings
 {
-  "query": {
-    "match": {
-      "user.id": "elkbee"
-    }
-  }
+  "secure_settings_password":"keystore-password"
+}
+POST _nodes/nodeId1,nodeId2/reload_secure_settings
+{
+  "secure_settings_password":"keystore-password"
 }

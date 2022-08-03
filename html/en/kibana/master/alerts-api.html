@@ -8,7 +8,7 @@
 <title>Deprecated 7.x APIs | Kibana Guide [master] | Elastic</title>
 <link rel="home" href="index.html" title="Kibana Guide [master]"/>
 <link rel="up" href="alerting-apis.html" title="Alerting APIs"/>
-<link rel="prev" href="get-alerting-framework-health-api.html" title="Get Alerting framework health API"/>
+<link rel="prev" href="unmute-alert-api.html" title="Unmute alert API"/>
 <link rel="next" href="actions-and-connectors-api.html" title="Action and connector APIs"/>
 <meta name="DC.type" content="Learn/Docs/Kibana/Reference/master"/>
 <meta name="DC.subject" content="Kibana"/>
@@ -58,7 +58,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -89,27 +89,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 You are looking at preliminary documentation for a future release.
@@ -118,17 +109,14 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Kibana Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="api.html">REST API</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Kibana Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="api.html">REST API</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="alerting-apis.html">Alerting APIs</a></span>
-»
-<span class="breadcrumb-node">Deprecated 7.x APIs</span>
 </div>
 <div class="navheader">
 <span class="prev">
-<a href="get-alerting-framework-health-api.html">« Get Alerting framework health API</a>
+<a href="unmute-alert-api.html">« Unmute alert API</a>
 </span>
 <span class="next">
 <a href="actions-and-connectors-api.html">Action and connector APIs »</a>
@@ -138,7 +126,7 @@ Not what you want? See the
 <div class="titlepage"><div><div>
 <h2 class="title"><a id="alerts-api"></a>Deprecated 7.x APIs<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/api/alerting/legacy/index.asciidoc">edit</a></h2>
 </div></div></div>
-<p>These APIs are deprecated and will be removed as of 8.0.</p>
+<p>These APIs are deprecated and will be removed in a future release.</p>
 <div class="section">
 <div class="titlepage"><div><div>
 <h3 class="title"><a id="alerts-api-create"></a>Legacy create alert API<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/api/alerting/legacy/create.asciidoc">edit</a></h3>
@@ -395,7 +383,7 @@ Indicates a successful call.
    "name":"my alert"
 }'</pre>
 </div>
-<div class="kibana_widget" data-snippet="snippets/109.kibana"></div>
+<div class="kibana_widget" data-snippet="snippets/122.kibana"></div>
 <p>The API returns the following:</p>
 <div class="pre_wrapper lang-sh">
 <pre class="programlisting prettyprint lang-sh">{
@@ -531,13 +519,13 @@ Indicates a successful call.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="_example_15"></a>Example<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/api/alerting/legacy/delete.asciidoc">edit</a></h4>
+<h4 class="title"><a id="_example_12"></a>Example<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/api/alerting/legacy/delete.asciidoc">edit</a></h4>
 </div></div></div>
 <p>Delete an alert with ID:</p>
 <div class="pre_wrapper lang-kibana">
 <pre class="programlisting prettyprint lang-kibana">$ curl -X DELETE api/alerts/alert/41893910-6bca-11eb-9e0d-85d233e3ee35</pre>
 </div>
-<div class="kibana_widget" data-snippet="snippets/110.kibana"></div>
+<div class="kibana_widget" data-snippet="snippets/123.kibana"></div>
 </div>
 
 </div>
@@ -609,13 +597,13 @@ Indicates a successful call.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="_example_16"></a>Example<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/api/alerting/legacy/disable.asciidoc">edit</a></h4>
+<h4 class="title"><a id="_example_13"></a>Example<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/api/alerting/legacy/disable.asciidoc">edit</a></h4>
 </div></div></div>
 <p>Disable an alert with ID:</p>
 <div class="pre_wrapper lang-kibana">
 <pre class="programlisting prettyprint lang-kibana">$ curl -X POST api/alerts/alert/41893910-6bca-11eb-9e0d-85d233e3ee35/_disable</pre>
 </div>
-<div class="kibana_widget" data-snippet="snippets/111.kibana"></div>
+<div class="kibana_widget" data-snippet="snippets/124.kibana"></div>
 </div>
 
 </div>
@@ -687,13 +675,13 @@ Indicates a successful call.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="_example_17"></a>Example<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/api/alerting/legacy/enable.asciidoc">edit</a></h4>
+<h4 class="title"><a id="_example_14"></a>Example<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/api/alerting/legacy/enable.asciidoc">edit</a></h4>
 </div></div></div>
 <p>Enable an alert with ID:</p>
 <div class="pre_wrapper lang-kibana">
 <pre class="programlisting prettyprint lang-kibana">$ curl -X POST api/alerts/alert/41893910-6bca-11eb-9e0d-85d233e3ee35/_enable</pre>
 </div>
-<div class="kibana_widget" data-snippet="snippets/112.kibana"></div>
+<div class="kibana_widget" data-snippet="snippets/125.kibana"></div>
 </div>
 
 </div>
@@ -862,13 +850,13 @@ Indicates a successful call.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="_examples_7"></a>Examples<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/api/alerting/legacy/find.asciidoc">edit</a></h4>
+<h4 class="title"><a id="_examples_10"></a>Examples<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/api/alerting/legacy/find.asciidoc">edit</a></h4>
 </div></div></div>
 <p>Find alerts with names that start with <code class="literal">my</code>:</p>
 <div class="pre_wrapper lang-kibana">
 <pre class="programlisting prettyprint lang-kibana">$ curl -X GET api/alerts/_find?search_fields=name&amp;search=my*</pre>
 </div>
-<div class="kibana_widget" data-snippet="snippets/113.kibana"></div>
+<div class="kibana_widget" data-snippet="snippets/126.kibana"></div>
 <p>The API returns the following:</p>
 <div class="pre_wrapper lang-sh">
 <pre class="programlisting prettyprint lang-sh">{
@@ -913,7 +901,7 @@ query parameter for each value:</p>
 <div class="pre_wrapper lang-kibana">
 <pre class="programlisting prettyprint lang-kibana">$ curl -X GET api/alerts/_find?fields=id&amp;fields=name</pre>
 </div>
-<div class="kibana_widget" data-snippet="snippets/114.kibana"></div>
+<div class="kibana_widget" data-snippet="snippets/127.kibana"></div>
 </div>
 
 </div>
@@ -991,7 +979,7 @@ Indicates a successful call.
 <div class="pre_wrapper lang-kibana">
 <pre class="programlisting prettyprint lang-kibana">$ curl -X GET api/alerts/alert/41893910-6bca-11eb-9e0d-85d233e3ee35</pre>
 </div>
-<div class="kibana_widget" data-snippet="snippets/115.kibana"></div>
+<div class="kibana_widget" data-snippet="snippets/128.kibana"></div>
 <p>The API returns the following:</p>
 <div class="pre_wrapper lang-sh">
 <pre class="programlisting prettyprint lang-sh">{
@@ -1037,7 +1025,7 @@ Indicates a successful call.
 <div class="icon"></div>
 <div class="admon_content">
 <h3>Deprecated in 7.13.0.</h3>
-<p>Use <a class="xref" href="get-alerting-framework-health-api.html" title="Get Alerting framework health API">Get Alerting framework health</a> instead.</p>
+<p>Use <a class="xref" href="get-alerting-framework-health-api.html" title="Get alerting framework health API">Get alerting framework health</a> instead.</p>
 </div>
 </div>
 <p>Retrieve the health status of the Alerting framework.</p>
@@ -1093,7 +1081,7 @@ Indicates a successful call.
 <div class="pre_wrapper lang-kibana">
 <pre class="programlisting prettyprint lang-kibana">$ curl -X GET api/alerts/_health</pre>
 </div>
-<div class="kibana_widget" data-snippet="snippets/116.kibana"></div>
+<div class="kibana_widget" data-snippet="snippets/129.kibana"></div>
 <p>The API returns the following:</p>
 <div class="pre_wrapper lang-sh">
 <pre class="programlisting prettyprint lang-sh">{
@@ -1174,7 +1162,7 @@ Indicates a successful call.
 <div class="icon"></div>
 <div class="admon_content">
 <h3>Deprecated in 7.13.0.</h3>
-<p>Use <a class="xref" href="list-rule-types-api.html" title="List rule types API">List rule types</a> instead.</p>
+<p>Use <a class="xref" href="list-rule-types-api.html" title="Get rule types API">Get rule types</a> instead.</p>
 </div>
 </div>
 <p>Retrieve a list of all alert types.</p>
@@ -1229,7 +1217,7 @@ Indicates a successful call.
 <div class="pre_wrapper lang-kibana">
 <pre class="programlisting prettyprint lang-kibana">$ curl -X GET api/alerts/list_alert_types</pre>
 </div>
-<div class="kibana_widget" data-snippet="snippets/117.kibana"></div>
+<div class="kibana_widget" data-snippet="snippets/130.kibana"></div>
 <p>The API returns the following:</p>
 <div class="pre_wrapper lang-sh">
 <pre class="programlisting prettyprint lang-sh">[
@@ -1425,13 +1413,13 @@ Indicates a successful call.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="_example_18"></a>Example<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/api/alerting/legacy/mute.asciidoc">edit</a></h4>
+<h4 class="title"><a id="_example_15"></a>Example<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/api/alerting/legacy/mute.asciidoc">edit</a></h4>
 </div></div></div>
 <p>Mute alert instance with ID:</p>
 <div class="pre_wrapper lang-kibana">
 <pre class="programlisting prettyprint lang-kibana">$ curl -X POST api/alerts/alert/41893910-6bca-11eb-9e0d-85d233e3ee35/alert_instance/dceeb5d0-6b41-11eb-802b-85b0c1bc8ba2/_mute</pre>
 </div>
-<div class="kibana_widget" data-snippet="snippets/118.kibana"></div>
+<div class="kibana_widget" data-snippet="snippets/131.kibana"></div>
 </div>
 
 </div>
@@ -1503,13 +1491,13 @@ Indicates a successful call.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="_example_19"></a>Example<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/api/alerting/legacy/mute_all.asciidoc">edit</a></h4>
+<h4 class="title"><a id="_example_16"></a>Example<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/api/alerting/legacy/mute_all.asciidoc">edit</a></h4>
 </div></div></div>
 <p>Mute all alert instances with ID:</p>
 <div class="pre_wrapper lang-kibana">
 <pre class="programlisting prettyprint lang-kibana">$ curl -X POST api/alerts/alert/41893910-6bca-11eb-9e0d-85d233e3ee35/_mute_all</pre>
 </div>
-<div class="kibana_widget" data-snippet="snippets/119.kibana"></div>
+<div class="kibana_widget" data-snippet="snippets/132.kibana"></div>
 </div>
 
 </div>
@@ -1589,13 +1577,13 @@ Indicates a successful call.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="_example_20"></a>Example<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/api/alerting/legacy/unmute.asciidoc">edit</a></h4>
+<h4 class="title"><a id="_example_17"></a>Example<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/api/alerting/legacy/unmute.asciidoc">edit</a></h4>
 </div></div></div>
 <p>Unmute alert instance with ID:</p>
 <div class="pre_wrapper lang-kibana">
 <pre class="programlisting prettyprint lang-kibana">$ curl -X POST api/alerts/alert/41893910-6bca-11eb-9e0d-85d233e3ee35/alert_instance/dceeb5d0-6b41-11eb-802b-85b0c1bc8ba2/_unmute</pre>
 </div>
-<div class="kibana_widget" data-snippet="snippets/120.kibana"></div>
+<div class="kibana_widget" data-snippet="snippets/133.kibana"></div>
 </div>
 
 </div>
@@ -1667,13 +1655,13 @@ Indicates a successful call.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="_example_21"></a>Example<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/api/alerting/legacy/unmute_all.asciidoc">edit</a></h4>
+<h4 class="title"><a id="_example_18"></a>Example<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/api/alerting/legacy/unmute_all.asciidoc">edit</a></h4>
 </div></div></div>
 <p>Unmute all alert instances with ID:</p>
 <div class="pre_wrapper lang-kibana">
 <pre class="programlisting prettyprint lang-kibana">$ curl -X POST api/alerts/alert/41893910-6bca-11eb-9e0d-85d233e3ee35/_unmute_all</pre>
 </div>
-<div class="kibana_widget" data-snippet="snippets/121.kibana"></div>
+<div class="kibana_widget" data-snippet="snippets/134.kibana"></div>
 </div>
 
 </div>
@@ -1883,7 +1871,7 @@ Indicates a successful call.
   "throttle": null,
 }</pre>
 </div>
-<div class="kibana_widget" data-snippet="snippets/122.kibana"></div>
+<div class="kibana_widget" data-snippet="snippets/135.kibana"></div>
 <p>The API returns the following:</p>
 <div class="pre_wrapper lang-sh">
 <pre class="programlisting prettyprint lang-sh">{
@@ -1923,7 +1911,7 @@ Indicates a successful call.
 </div>
 <div class="navfooter">
 <span class="prev">
-<a href="get-alerting-framework-health-api.html">« Get Alerting framework health API</a>
+<a href="unmute-alert-api.html">« Unmute alert API</a>
 </span>
 <span class="next">
 <a href="actions-and-connectors-api.html">Action and connector APIs »</a>
@@ -1933,15 +1921,37 @@ Indicates a successful call.
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

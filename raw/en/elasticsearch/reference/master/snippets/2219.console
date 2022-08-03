@@ -1,6 +1,6 @@
-PUT /my-index-000001/_settings
+PUT /test
 {
-  "index" : {
-    "refresh_interval" : null
+  "settings": {
+    "index.write.wait_for_active_shards": "2"
   }
 }

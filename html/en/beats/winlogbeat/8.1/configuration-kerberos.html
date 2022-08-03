@@ -11,6 +11,7 @@
 <meta name="DC.type" content="Learn/Docs/Winlogbeat/Reference/8.1"/>
 <meta name="DC.subject" content="Winlogbeat"/>
 <meta name="DC.identifier" content="8.1"/>
+<meta name="robots" content="noindex,nofollow"/>
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -56,7 +57,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,36 +88,29 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
-                  
+                  <div class="page_header">
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Winlogbeat Reference [8.1]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Winlogbeat Reference [8.1]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="configuring-howto-winlogbeat.html">Configure Winlogbeat</a></span>
-»
-<span class="breadcrumb-node">Configure Kerberos</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -128,7 +122,7 @@
 </div>
 <div class="chapter">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="configuration-kerberos"></a>Configure Kerberos<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/shared-kerberos-config.asciidoc">edit</a></h2>
+<h2 class="title"><a id="configuration-kerberos"></a>Configure Kerberos<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/shared-kerberos-config.asciidoc">edit</a></h2>
 </div></div></div>
 
 <p>You can specify Kerberos options with any output or input that supports Kerberos, like Elasticsearch.</p>
@@ -166,9 +160,9 @@ output.elasticsearch.kerberos.realm: "ELASTIC.CO"</pre>
 </div>
 <p>The service principal name for the Elasticsearch instance is contructed from these options. Based on this configuration
 it is going to be <code class="literal">HTTP/my-elasticsearch.elastic.co@ELASTIC.CO</code>.</p>
-<h3><a id="_configuration_options_9"></a>Configuration options<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/shared-kerberos-config.asciidoc">edit</a></h3>
+<h3><a id="_configuration_options_9"></a>Configuration options<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/shared-kerberos-config.asciidoc">edit</a></h3>
 <p>You can specify the following options in the <code class="literal">kerberos</code> section of the <code class="literal">winlogbeat.yml</code> config file:</p>
-<h4><a id="_enabled_7"></a><code class="literal">enabled</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/shared-kerberos-config.asciidoc">edit</a></h4>
+<h4><a id="_enabled_7"></a><code class="literal">enabled</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/shared-kerberos-config.asciidoc">edit</a></h4>
 <p>The <code class="literal">enabled</code> setting can be used to enable the kerberos configuration by setting
 it to <code class="literal">false</code>. The default value is <code class="literal">true</code>.</p>
 <div class="note admon">
@@ -178,27 +172,27 @@ it to <code class="literal">false</code>. The default value is <code class="lite
 <code class="literal">kerberos</code> section is missing.</p>
 </div>
 </div>
-<h4><a id="_auth_type"></a><code class="literal">auth_type</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/shared-kerberos-config.asciidoc">edit</a></h4>
+<h4><a id="_auth_type"></a><code class="literal">auth_type</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/shared-kerberos-config.asciidoc">edit</a></h4>
 <p>There are two options to authenticate with Kerberos KDC: <code class="literal">password</code> and <code class="literal">keytab</code>.</p>
 <p><code class="literal">password</code> expects the principal name and its password. When choosing <code class="literal">keytab</code>, you
 have to specify a principal name and a path to a keytab. The keytab must contain
 the keys of the selected principal. Otherwise, authentication will fail.</p>
-<h4><a id="_config_path"></a><code class="literal">config_path</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/shared-kerberos-config.asciidoc">edit</a></h4>
+<h4><a id="_config_path"></a><code class="literal">config_path</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/shared-kerberos-config.asciidoc">edit</a></h4>
 <p>You need to set the path to the <code class="literal">krb5.conf</code>, so Winlogbeat can find the Kerberos KDC to
 retrieve a ticket.</p>
-<h4><a id="_username_3"></a><code class="literal">username</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/shared-kerberos-config.asciidoc">edit</a></h4>
+<h4><a id="_username_3"></a><code class="literal">username</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/shared-kerberos-config.asciidoc">edit</a></h4>
 <p>Name of the principal used to connect to the output.</p>
-<h4><a id="_password_4"></a><code class="literal">password</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/shared-kerberos-config.asciidoc">edit</a></h4>
+<h4><a id="_password_4"></a><code class="literal">password</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/shared-kerberos-config.asciidoc">edit</a></h4>
 <p>If you configured <code class="literal">password</code> for <code class="literal">auth_type</code>, you have to provide a password
 for the selected principal.</p>
-<h4><a id="_keytab"></a><code class="literal">keytab</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/shared-kerberos-config.asciidoc">edit</a></h4>
+<h4><a id="_keytab"></a><code class="literal">keytab</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/shared-kerberos-config.asciidoc">edit</a></h4>
 <p>If you configured <code class="literal">keytab</code> for <code class="literal">auth_type</code>, you have to provide the path to the
 keytab of the selected principal.</p>
-<h4><a id="_service_name"></a><code class="literal">service_name</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/shared-kerberos-config.asciidoc">edit</a></h4>
+<h4><a id="_service_name"></a><code class="literal">service_name</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/shared-kerberos-config.asciidoc">edit</a></h4>
 <p>This option can only be configured for Kafka. It is the name of the Kafka service, usually <code class="literal">kafka</code>.</p>
-<h4><a id="_realm"></a><code class="literal">realm</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/shared-kerberos-config.asciidoc">edit</a></h4>
+<h4><a id="_realm"></a><code class="literal">realm</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/shared-kerberos-config.asciidoc">edit</a></h4>
 <p>Name of the realm where the output resides.</p>
-<h4><a id="_enable_krb5_fast"></a><code class="literal">enable_krb5_fast</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/shared-kerberos-config.asciidoc">edit</a></h4>
+<h4><a id="_enable_krb5_fast"></a><code class="literal">enable_krb5_fast</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/shared-kerberos-config.asciidoc">edit</a></h4>
 <p>Enable Kerberos FAST authentication. This may conflict with some Active Directory installations. The default is <code class="literal">false</code>.</p>
 </div>
 <div class="navfooter">
@@ -213,15 +207,37 @@ keytab of the selected principal.</p>
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

@@ -1,10 +1,5 @@
-POST my-index-000001/_delete_by_query?routing=1
-{
-  "query": {
-    "range" : {
-        "age" : {
-           "gte" : 10
-        }
-    }
-  }
-}
+# All groups with all stats
+GET /_nodes/stats?groups=_all
+
+# Some groups from just the indices stats
+GET /_nodes/stats/indices?groups=foo,bar

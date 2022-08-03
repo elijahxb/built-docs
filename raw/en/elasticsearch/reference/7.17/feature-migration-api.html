@@ -17,13 +17,10 @@ A newer version is available. For the latest information, see the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [7.17]</a></span>
-»
-<span class="breadcrumb-link"><a href="rest-apis.html">REST APIs</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [7.17]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="rest-apis.html">REST APIs</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="migration-api.html">Migration APIs</a></span>
-»
-<span class="breadcrumb-node">Feature migration APIs</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -44,7 +41,7 @@ A newer version is available. For the latest information, see the
 <p>These APIs are designed for indirect use by Kibana&#8217;s <span class="strong strong"><strong>Upgrade Assistant</strong></span>.
 We strongly recommend you use the <span class="strong strong"><strong>Upgrade Assistant</strong></span> to upgrade from
 7.17 to 8.0 and later versions. For upgrade instructions, refer to
-<a href="/guide/en/elastic-stack/7.17/upgrading-elastic-stack.html" class="ulink" target="_top">Upgrading to Elastic 7.17.2</a>.</p>
+<a href="/guide/en/elastic-stack/7.17/upgrading-elastic-stack.html" class="ulink" target="_top">Upgrading to Elastic 7.17.5</a>.</p>
 </div>
 </div>
 <p>Version upgrades sometimes require changes to how features store configuration
@@ -57,8 +54,8 @@ process.</p>
 <div class="titlepage"><div><div>
 <h3 class="title"><a id="feature-migration-api-request"></a>Request<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/7.17/docs/reference/migration/apis/feature-migration.asciidoc">edit</a></h3>
 </div></div></div>
-<p><code class="literal">GET /migration/system_features</code></p>
-<p><code class="literal">POST /migration/system_features</code></p>
+<p><code class="literal">GET /_migration/system_features</code></p>
+<p><code class="literal">POST /_migration/system_features</code></p>
 </div>
 
 <div class="section">
@@ -94,7 +91,7 @@ response indicates the status of any features that need to be migrated.</p>
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">GET /_migration/system_features</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/2397.console"></div>
+<div class="console_widget" data-snippet="snippets/2399.console"></div>
 <p>Example response:</p>
 <div class="pre_wrapper lang-console-result">
 <pre class="programlisting prettyprint lang-console-result">{
@@ -181,7 +178,7 @@ migrated.</p>
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">POST /_migration/system_features</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/2398.console"></div>
+<div class="console_widget" data-snippet="snippets/2400.console"></div>
 <p>Example response:</p>
 <div class="pre_wrapper lang-console-result">
 <pre class="programlisting prettyprint lang-console-result">{

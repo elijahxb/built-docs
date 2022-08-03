@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Applying a new deployment configuration: Upgrade | Elastic Cloud Enterprise Reference [3.2] | Elastic</title>
+<link rel="home" href="index.html" title="Elastic Cloud Enterprise Reference [3.2]"/>
+<link rel="up" href="ece-restful-api-examples.html" title="API examples"/>
+<link rel="prev" href="ece-restful-api-examples-progress-checking.html" title="Updating a deployment: Checking on progress"/>
+<link rel="next" href="ece-restful-api-examples-add-enterprise-search.html" title="Enable more stack features: Add Enterprise Search to a deployment"/>
+<meta name="DC.type" content="Learn/Docs/CloudEnterprise/Reference/3.2"/>
+<meta name="DC.subject" content="ECE"/>
+<meta name="DC.identifier" content="3.2"/>
+</head>
+<body><div class="page_header">
+A newer version is available. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Cloud Enterprise Reference [3.2]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="ece-restful-api.html">RESTful API</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="ece-restful-api-examples.html">API examples</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="ece-restful-api-examples-progress-checking.html">« Updating a deployment: Checking on progress</a>
+</span>
+<span class="next">
+<a href="ece-restful-api-examples-add-enterprise-search.html">Enable more stack features: Add Enterprise Search to a deployment »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="ece-restful-api-examples-upgrade"></a>Applying a new deployment configuration: Upgrade<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/cloud-enterprise/ce-api-examples.asciidoc">edit</a></h2>
+</div></div></div>
+<p>One of the many useful aspects of an API is that you can automate changes across a large number of deployments. Let’s say you have many deployments that are at a specific version of the Elastic Stack that need to be upgraded to a later release. You can either manually change the version of each deployment through the Cloud UI, or you can automate finding all the deployments at the specific version level and then upgrade them through a script.</p>
+<h4><a id="ece_before_you_begin_27"></a>Before you begin<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/cloud-enterprise/ce-api-examples-before-you-begin.asciidoc">edit</a></h4>
+<p>This example requires a deployment with an Elasticsearch cluster to work with that is not being used for anything important. If you don&#8217;t already have one, you can follow <a class="xref" href="ece-restful-api-examples-create-deployment.html" title="Create a first Deployment: Elasticsearch and Kibana">our <code class="literal">My First Deployment</code> example</a> to create one.</p>
+<p>Each version of ECE ships with some versions of the Elastic Stack, but you can add new versions as they become available. If you need to add a new version before trying out this example, check <a class="xref" href="ece-manage-elastic-stack.html" title="Manage Elastic Stack versions">Manage Elastic Stack versions</a>, and then create a new deployment using the selected version. If you&#8217;re using environment variables, remember to set <code class="literal">$DEPLOYMENT_ID</code> to the ID of your new deployment.</p>
+<p>You can search for deployments that are at a specific version through the RESTful API or you can iterate over the JSON output from the API to get the list you need, similar to what Step 1 shows.</p>
+<h4><a id="ece_steps_4"></a>Steps<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/cloud-enterprise/ce-api-examples.asciidoc">edit</a></h4>
+<p>To upgrade a deployment:</p>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+<p>Use the <code class="literal">_search</code> endpoint to get a list of the deployments which have Elasticsearch resources that need upgrading. Here, we query for deployments on Elastic Stack version 7.12.1, and we find a deployment <code class="literal">Upgrade Deployment</code>. To test try this example, you can use the API or the UI to create a deployment on a previous stack version, and then search for it as shown:</p>
+<div class="pre_wrapper lang-sh">
+<pre class="programlisting prettyprint lang-sh">curl -k -X POST -H "Authorization: ApiKey $ECE_API_KEY" https://$COORDINATOR_HOST:12443/api/v1/deployments/_search -H 'content-type: application/json' -d '{
+"query": {
+    "nested" : {
+        "path" : "resources.elasticsearch",
+        "query" : {
+            "bool" : {
+                "must" : [{
+                    "match" : {"resources.elasticsearch.info.plan_info.current.plan.elasticsearch.version" : { "query" : "7.12.1"}}
+                }]
+            }
+        }
+    }
+ },
+ "size": 100,
+ "sort": [{"metadata.last_modified": { "order": "desc"}}]
+}
+'</pre>
+</div>
+<div class="pre_wrapper lang-text">
+<pre class="programlisting prettyprint lang-text">{
+  "return_count" : 1,
+  "match_count" : 1,
+  "deployments" : [
+    {
+      "id" : "DEPLOYMENT_ID",
+      "name" : "Upgrade Deployment",
+      "healthy" : true,
+      "resources" : {
+
+    ...
+
+          "elasticsearch": {
+            "version": "7.12.1"
+          },
+
+    ...
+
+}</pre>
+</div>
+<p>Just for reference, here is the same deployment in the UI:</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/ece-api-examples003.png" alt="The Upgrade Deployment card in the ECE UI" width="showing the deployment version as 7.12.1">
+</div>
+</div>
+</li>
+<li class="listitem">
+<p>For each of the deployments that you want to upgrade, make a PUT request updating the <code class="literal">version</code> setting (in this case <code class="literal">version</code> is updated to <code class="literal">7.14.0</code>). Note that both the <code class="literal">elasticsearch</code> and <code class="literal">kibana</code> resources are present in the request:</p>
+<div class="pre_wrapper lang-sh">
+<pre class="programlisting prettyprint lang-sh">curl -k -X PUT -H "Authorization: ApiKey $ECE_API_KEY" https://$COORDINATOR_HOST:12443/api/v1/deployments/$DEPLOYMENT_ID -H 'content-type: application/json' -d '
+{
+  "prune_orphans": false,
+  "resources": {
+    "elasticsearch": [
+      {
+        "region": "ece-region",
+        "ref_id": "main-elasticsearch",
+        "plan": {
+          "cluster_topology": [
+            {
+              "id": "hot_content",
+              "node_roles": [
+                "data_hot",
+                "data_content",
+                "master",
+                "ingest",
+                "remote_cluster_client",
+                "transform"
+              ],
+              "zone_count": 1,
+              "elasticsearch": {
+                "enabled_built_in_plugins": [],
+                "node_attributes": {
+                  "data": "hot"
+                }
+              },
+              "instance_configuration_id": "data.default",
+              "size": {
+                "value": 4096,
+                "resource": "memory"
+              }
+            },
+            {
+              "id": "warm",
+              "node_roles": [
+                "data_warm",
+                "remote_cluster_client"
+              ],
+              "zone_count": 1,
+              "elasticsearch": {
+                "enabled_built_in_plugins": [],
+                "node_attributes": {
+                  "data": "warm"
+                }
+              },
+              "instance_configuration_id": "data.highstorage",
+              "size": {
+                "value": 0,
+                "resource": "memory"
+              }
+            },
+            {
+              "id": "cold",
+              "node_roles": [
+                "data_cold",
+                "remote_cluster_client"
+              ],
+              "zone_count": 1,
+              "elasticsearch": {
+                "enabled_built_in_plugins": [],
+                "node_attributes": {
+                  "data": "cold"
+                }
+              },
+              "instance_configuration_id": "data.highstorage",
+              "size": {
+                "value": 0,
+                "resource": "memory"
+              }
+            },
+            {
+              "id": "coordinating",
+              "node_roles": [
+                "ingest",
+                "remote_cluster_client"
+              ],
+              "zone_count": 1,
+              "elasticsearch": {
+                "enabled_built_in_plugins": []
+              },
+              "instance_configuration_id": "coordinating",
+              "size": {
+                "value": 0,
+                "resource": "memory"
+              }
+            },
+            {
+              "id": "master",
+              "node_roles": [
+                "master",
+                "remote_cluster_client"
+              ],
+              "zone_count": 1,
+              "elasticsearch": {
+                "enabled_built_in_plugins": []
+              },
+              "instance_configuration_id": "master",
+              "size": {
+                "value": 0,
+                "resource": "memory"
+              }
+            },
+            {
+              "id": "ml",
+              "node_roles": [
+                "ml",
+                "remote_cluster_client"
+              ],
+              "zone_count": 1,
+              "elasticsearch": {
+                "enabled_built_in_plugins": []
+              },
+              "instance_configuration_id": "ml",
+              "size": {
+                "value": 0,
+                "resource": "memory"
+              }
+            }
+          ],
+          "elasticsearch": {
+            "version": "7.14.0"
+          },
+          "deployment_template": {
+            "id": "default"
+          },
+          "autoscaling_enabled": false
+        }
+      }
+    ],
+    "kibana": [
+      {
+        "ref_id": "main-kibana",
+        "elasticsearch_cluster_ref_id": "main-elasticsearch",
+        "region": "ece-region",
+        "plan": {
+          "zone_count": 1,
+          "cluster_topology": [
+            {
+              "instance_configuration_id": "kibana",
+              "size": {
+                "value": 1024,
+                "resource": "memory"
+              },
+              "zone_count": 1
+            }
+          ],
+          "kibana": {
+            "version": "7.14.0"
+          }
+        }
+      }
+    ]
+  }
+}
+'</pre>
+</div>
+<div class="variablelist">
+<dl class="variablelist">
+<dt>
+<span class="term">
+<code class="literal">DEPLOYMENT_ID</code>
+</span>
+</dt>
+<dd>
+The deployment ID for the deployment that you want to upgrade.
+</dd>
+</dl>
+</div>
+</li>
+<li class="listitem">
+<p>After the upgrade operation completes, the Elasticsearch and Kibana resource will be at version 7.14.0. You can confirm that by running:</p>
+<div class="pre_wrapper lang-json">
+<pre class="programlisting prettyprint lang-json">curl -k -X GET -H "Authorization: ApiKey $ECE_API_KEY" https://$COORDINATOR_HOST:12443/api/v1/deployments/$DEPLOYMENT_ID</pre>
+</div>
+<div class="pre_wrapper lang-json">
+<pre class="programlisting prettyprint lang-json">        "elasticsearch" : {
+          "version" : "7.14.0"
+        },
+        ...
+        "kibana" : {
+          "version" : "7.14.0",
+        }</pre>
+</div>
+<p>You can also confirm the change in the UI:</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/ece-api-examples004.png" alt="The Upgrade Deployment card in the ECE UI" width="showing the deployment is now at version 7.14.0">
+</div>
+</div>
+</li>
+<li class="listitem">
+<p>Optional: Repeat Step 1 to verify that there are no more deployments with Elasticsearch resources at the old version that need to be upgraded:</p>
+<div class="pre_wrapper lang-json">
+<pre class="programlisting prettyprint lang-json">{
+  "return_count": 0,
+  "match_count": 0,
+  "deployments": []
+}</pre>
+</div>
+</li>
+</ol>
+</div>
+<p>We recommend keeping all of the components in your deployments at the same version. For that reason, our upgrade example includes both enabled resources: <code class="literal">elasticsearch</code> and <code class="literal">kibana</code>. If a deployment includes other resources, such as APM &amp; Fleet or Enterprise Search, they should also be part of the upgrade request.</p>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="ece-restful-api-examples-progress-checking.html">« Updating a deployment: Checking on progress</a>
+</span>
+<span class="next">
+<a href="ece-restful-api-examples-add-enterprise-search.html">Enable more stack features: Add Enterprise Search to a deployment »</a>
+</span>
+</div>
+</div>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains('stemblock')) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+</body>
+</html>

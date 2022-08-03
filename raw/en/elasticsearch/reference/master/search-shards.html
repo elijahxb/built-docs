@@ -18,13 +18,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="rest-apis.html">REST APIs</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="rest-apis.html">REST APIs</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="search.html">Search APIs</a></span>
-»
-<span class="breadcrumb-node">Search shards API</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -36,7 +33,7 @@ Not what you want? See the
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="search-shards"></a>Search shards API<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/search/search-shards.asciidoc">edit</a></h2>
+<h2 class="title"><a id="search-shards"></a>Search shards API<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/search/search-shards.asciidoc">edit</a></h2>
 </div></div></div>
 
 <p>Returns the indices and shards that a search request would be executed against.</p>
@@ -44,17 +41,17 @@ Not what you want? See the
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">GET /my-index-000001/_search_shards</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/2417.console"></div>
+<div class="console_widget" data-snippet="snippets/2534.console"></div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="search-shards-api-request"></a>Request<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/search/search-shards.asciidoc">edit</a></h3>
+<h3 class="title"><a id="search-shards-api-request"></a>Request<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/search/search-shards.asciidoc">edit</a></h3>
 </div></div></div>
 <p><code class="literal">GET /&lt;target&gt;/_search_shards</code></p>
 </div>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="search-shards-api-prereqs"></a>Prerequisites<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/search/search-shards.asciidoc">edit</a></h3>
+<h3 class="title"><a id="search-shards-api-prereqs"></a>Prerequisites<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/search/search-shards.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -69,7 +66,7 @@ for the target data stream, index, or alias.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="search-shards-api-desc"></a>Description<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/search/search-shards.asciidoc">edit</a></h3>
+<h3 class="title"><a id="search-shards-api-desc"></a>Description<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/search/search-shards.asciidoc">edit</a></h3>
 </div></div></div>
 <p>The search shards api returns the indices and shards that a search request would
 be executed against. This can give useful feedback for working out issues or
@@ -79,7 +76,7 @@ are used, the filter is returned as part of the <code class="literal">indices</c
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="search-shards-api-path-params"></a>Path parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/search/search-shards.asciidoc">edit</a></h3>
+<h3 class="title"><a id="search-shards-api-path-params"></a>Path parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/search/search-shards.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="variablelist">
 <dl class="variablelist">
@@ -99,7 +96,7 @@ this parameter or use <code class="literal">*</code> or <code class="literal">_a
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="search-shards-api-query-params"></a>Query parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/search/search-shards.asciidoc">edit</a></h3>
+<h3 class="title"><a id="search-shards-api-query-params"></a>Query parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/search/search-shards.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="variablelist">
 <dl class="variablelist">
@@ -221,13 +218,13 @@ Custom value used to route operations to a specific shard.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="search-shards-api-example"></a>Examples<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/search/search-shards.asciidoc">edit</a></h3>
+<h3 class="title"><a id="search-shards-api-example"></a>Examples<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/search/search-shards.asciidoc">edit</a></h3>
 </div></div></div>
 <a id="e8c348cabe15dfe58ab4c3cc13a963fe"></a>
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">GET /my-index-000001/_search_shards</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/2418.console"></div>
+<div class="console_widget" data-snippet="snippets/2535.console"></div>
 <p>The API returns the following result:</p>
 <a id="5e462310447ec7b41ca2656f5d25518a"></a>
 <div class="pre_wrapper lang-console-result">
@@ -300,7 +297,7 @@ Custom value used to route operations to a specific shard.
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">GET /my-index-000001/_search_shards?routing=foo,bar</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/2419.console"></div>
+<div class="console_widget" data-snippet="snippets/2536.console"></div>
 <p>The API returns the following result:</p>
 <a id="64d7d4843331832e68fac3d672669e44"></a>
 <div class="pre_wrapper lang-console-result">

@@ -11,6 +11,7 @@
 <meta name="DC.type" content="Learn/Docs/Clients/.Net/8.1"/>
 <meta name="DC.subject" content="Clients"/>
 <meta name="DC.identifier" content="8.1"/>
+<meta name="robots" content="noindex,nofollow"/>
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -56,7 +57,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,38 +88,30 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
-                  
+                  <div class="page_header">
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch .NET Client [8.1]</a></span>
-»
-<span class="breadcrumb-link"><a href="nest.html">NEST - High level client</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch .NET Client [8.1]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="nest.html">NEST - High level client</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="nest-conventions.html">Conventions</a></span>
-»
-<span class="breadcrumb-node">Field inference</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -130,14 +123,14 @@
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="field-inference"></a>Field inference<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/client-concepts/high-level/inference/field-inference.asciidoc">edit</a></h2>
+<h2 class="title"><a id="field-inference"></a>Field inference<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/client-concepts/high-level/inference/field-inference.asciidoc">edit</a></h2>
 </div></div></div>
 <p>Several places in the Elasticsearch API expect the path to a field from your original source document, as a string value.
 NEST allows you to use C# expressions to strongly type these field path strings.</p>
 <p>These expressions are assigned to a type called <code class="literal">Field</code>, and there are several ways to create an instance of one</p>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_constructor"></a>Constructor<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/client-concepts/high-level/inference/field-inference.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_constructor"></a>Constructor<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/client-concepts/high-level/inference/field-inference.asciidoc">edit</a></h3>
 </div></div></div>
 <p>Using the constructor directly is possible <em>but</em> can get rather involved when resolving from a member access lambda expression</p>
 <div class="pre_wrapper lang-csharp">
@@ -197,7 +190,7 @@ fieldStringWithBoostTwo.Should().Be(fieldStringWithBoostTwo); <a id="CO90-1"></a
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="field-name-with-boost"></a>Field Names with Boost<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/client-concepts/high-level/inference/field-inference.asciidoc">edit</a></h3>
+<h3 class="title"><a id="field-name-with-boost"></a>Field Names with Boost<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/client-concepts/high-level/inference/field-inference.asciidoc">edit</a></h3>
 </div></div></div>
 <p>When specifying a <code class="literal">Field</code> name, the name can include a boost value; NEST will split the name and boost
 value and set the <code class="literal">Boost</code> property; a boost value as part of the string takes precedence over a boost
@@ -230,7 +223,7 @@ fieldStringCreate.Boost.Should().Be(2);</pre>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_implicit_conversion_2"></a>Implicit Conversion<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/client-concepts/high-level/inference/field-inference.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_implicit_conversion_2"></a>Implicit Conversion<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/client-concepts/high-level/inference/field-inference.asciidoc">edit</a></h3>
 </div></div></div>
 <p>As well as using the constructor, you can also implicitly convert <code class="literal">string</code>, <code class="literal">PropertyInfo</code> and member access lambda expressions to a <code class="literal">Field</code>.
 For expressions however, this is <em>still</em> rather involved as the expression first needs to be assigned to a variable that explicitly specifies
@@ -252,7 +245,7 @@ Expect("name")
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="nest-infer"></a>Using Nest.Infer methods<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/client-concepts/high-level/inference/field-inference.asciidoc">edit</a></h3>
+<h3 class="title"><a id="nest-infer"></a>Using Nest.Infer methods<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/client-concepts/high-level/inference/field-inference.asciidoc">edit</a></h3>
 </div></div></div>
 <p>To ease creating a <code class="literal">Field</code> instance from expressions, there is a static <code class="literal">Infer</code> class you can use</p>
 <div class="tip admon">
@@ -295,7 +288,7 @@ Expect("name^2.1")
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="camel-casing"></a>Field name casing<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/client-concepts/high-level/inference/field-inference.asciidoc">edit</a></h3>
+<h3 class="title"><a id="camel-casing"></a>Field name casing<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/client-concepts/high-level/inference/field-inference.asciidoc">edit</a></h3>
 </div></div></div>
 <p>By default, NEST <a href="https://en.wikipedia.org/wiki/Camel_case" class="ulink" target="_top">camelcases</a> <span class="strong strong"><strong>all</strong></span> field names to better align with typical
 JavaScript and JSON conventions</p>
@@ -320,7 +313,7 @@ setup.Expect("Name").WhenSerializing(Field&lt;Project&gt;(p =&gt; p.Name));</pre
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_complex_field_name_expressions"></a>Complex field name expressions<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/client-concepts/high-level/inference/field-inference.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_complex_field_name_expressions"></a>Complex field name expressions<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/client-concepts/high-level/inference/field-inference.asciidoc">edit</a></h3>
 </div></div></div>
 <p>You can follow your property expression to any depth. Here we are traversing to the <code class="literal">LeadDeveloper</code> <code class="literal">FirstName</code></p>
 <div class="pre_wrapper lang-csharp">
@@ -429,7 +422,7 @@ Expect("metadata.hardcoded.raw.evendeeper").WhenSerializing(multiSuffixFieldExpr
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="member-expressions-only"></a>Member Expressions only<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/client-concepts/high-level/inference/field-inference.asciidoc">edit</a></h3>
+<h3 class="title"><a id="member-expressions-only"></a>Member Expressions only<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/client-concepts/high-level/inference/field-inference.asciidoc">edit</a></h3>
 </div></div></div>
 <p>The expression passed to Field should only be a MemberExpression
 <a href="https://docs.microsoft.com/en-us/dotnet/api/system.linq.expressions.memberexpression?view=netframework-4.7.2" class="ulink" target="_top">https://docs.microsoft.com/en-us/dotnet/api/system.linq.expressions.memberexpression?view=netframework-4.7.2</a></p>
@@ -440,7 +433,7 @@ Expect("metadata.hardcoded.raw.evendeeper").WhenSerializing(multiSuffixFieldExpr
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="field-name-attribute"></a>Attribute based naming<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/client-concepts/high-level/inference/field-inference.asciidoc">edit</a></h3>
+<h3 class="title"><a id="field-name-attribute"></a>Attribute based naming<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/client-concepts/high-level/inference/field-inference.asciidoc">edit</a></h3>
 </div></div></div>
 <p>Using NEST&#8217;s property attributes you can specify a new name for the properties</p>
 <div class="pre_wrapper lang-csharp">
@@ -456,7 +449,7 @@ Expect("naam").WhenSerializing(Field&lt;BuiltIn&gt;(p =&gt; p.Name));</pre>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="data-member-field-attribute"></a>DataMember attributes<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/client-concepts/high-level/inference/field-inference.asciidoc">edit</a></h3>
+<h3 class="title"><a id="data-member-field-attribute"></a>DataMember attributes<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/client-concepts/high-level/inference/field-inference.asciidoc">edit</a></h3>
 </div></div></div>
 <p>If a property has a <code class="literal">System.Runtime.Serialization.DataMemberAttribute</code> applied, this can be used to resolve
 a field value for a property</p>
@@ -473,7 +466,7 @@ Expect("nameFromDataMember").WhenSerializing(Field&lt;DataMember&gt;(p =&gt; p.N
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="serializer-specific-field-attribute"></a>Serializer specific attributes<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/client-concepts/high-level/inference/field-inference.asciidoc">edit</a></h3>
+<h3 class="title"><a id="serializer-specific-field-attribute"></a>Serializer specific attributes<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/client-concepts/high-level/inference/field-inference.asciidoc">edit</a></h3>
 </div></div></div>
 <p>NEST can also use a serializer specific attribute to resolve a field value for a property.
 In this example, the <a href="https://www.nuget.org/packages/NEST.JsonNetSerializer" class="ulink" target="_top"><code class="literal">JsonNetSerializer</code></a> is hooked up as the
@@ -507,7 +500,7 @@ Expect(new
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="field-inference-caching"></a>Field Inference Caching<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/client-concepts/high-level/inference/field-inference.asciidoc">edit</a></h3>
+<h3 class="title"><a id="field-inference-caching"></a>Field Inference Caching<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/client-concepts/high-level/inference/field-inference.asciidoc">edit</a></h3>
 </div></div></div>
 <p>Resolution of field names is cached <em>per</em> <code class="literal">ConnectionSettings</code> instance. To demonstrate,
 take the following simple POCOs</p>
@@ -561,7 +554,7 @@ fieldNameOnB.Should().Be("c.name");</pre>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="field-inference-precedence"></a>Inference Precedence<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/client-concepts/high-level/inference/field-inference.asciidoc">edit</a></h3>
+<h3 class="title"><a id="field-inference-precedence"></a>Inference Precedence<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/client-concepts/high-level/inference/field-inference.asciidoc">edit</a></h3>
 </div></div></div>
 <p>To wrap up, the precedence in which field names are inferred is:</p>
 <div class="olist orderedlist">
@@ -760,7 +753,7 @@ usingSettings.Expect("DEFAULTFIELDNAMEINFERRER").ForField(Field&lt;Precedence&gt
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="inherited-field-inference"></a>Overriding inherited field inference<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/client-concepts/high-level/inference/field-inference.asciidoc">edit</a></h3>
+<h3 class="title"><a id="inherited-field-inference"></a>Overriding inherited field inference<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/client-concepts/high-level/inference/field-inference.asciidoc">edit</a></h3>
 </div></div></div>
 <p>Properties inherited from a base type can be ignored and renamed using <code class="literal">DefaultMappingFor&lt;T&gt;</code> for
 a given type, on Connection Settings.</p>
@@ -836,15 +829,37 @@ usingSettings.Expect("gexo.country_iso_code").ForField(Field&lt;SourceModel&gt;(
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

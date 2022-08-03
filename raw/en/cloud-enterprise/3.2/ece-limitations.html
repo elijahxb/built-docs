@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Limitations and known problems | Elastic Cloud Enterprise Reference [3.2] | Elastic</title>
+<link rel="home" href="index.html" title="Elastic Cloud Enterprise Reference [3.2]"/>
+<link rel="up" href="ece-about_this_product.html" title="About this product"/>
+<link rel="prev" href="ece-dependencies.html" title="Third-party software dependencies"/>
+<link rel="next" href="stubs.html" title="Documentation Stubs"/>
+<meta name="DC.type" content="Learn/Docs/CloudEnterprise/Reference/3.2"/>
+<meta name="DC.subject" content="ECE"/>
+<meta name="DC.identifier" content="3.2"/>
+</head>
+<body><div class="page_header">
+A newer version is available. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Cloud Enterprise Reference [3.2]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="ece-about_this_product.html">About this product</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="ece-dependencies.html">« Third-party software dependencies</a>
+</span>
+<span class="next">
+<a href="stubs.html">Documentation Stubs »</a>
+</span>
+</div>
+<div class="chapter">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="ece-limitations"></a>Limitations and known problems<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/cloud-enterprise/ce-limitations-known-problems.asciidoc">edit</a></h2>
+</div></div></div>
+<p>The following limitations and known problems apply to the 3.2.1 release of ECE, or to earlier releases as noted.</p>
+<p>For troubleshooting help, you can also refer to the list of <a class="xref" href="ece-issues.html" title="Common issues">Common issues</a>.</p>
+<h3><a id="ece_installation_and_configuration"></a>Installation and configuration<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/cloud-enterprise/ce-limitations-known-problems.asciidoc">edit</a></h3>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+When you install Elastic Cloud Enterprise on a new host and assign it the allocator role from the command line with the <code class="literal">--roles "allocator"</code> parameter during installation, new deployments might not get created on the allocator. To resolve this issue, check <a class="xref" href="ece-issues.html#ece-issues-allocator-usage" title="Allocators not being used">Allocators Are Not Being Used</a>.
+</li>
+<li class="listitem">
+Some change management tools that auto-reload firewall rules can cause networking issues. Specifically, Docker networking can fail on new containers after restarting the <code class="literal">iptables</code> service. To avoid networking failures, disable the automatic reloading of firewall rules.
+</li>
+<li class="listitem">
+On RHEL and CentOS, the firewalld service is not compatible with Docker and interferes with the installation of ECE. You must disable firewalld before installing or reinstalling ECE.
+</li>
+</ul>
+</div>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+When you use OverlayFS with Kernel-LT 4.4.156 and later, there is a known
+regression that prevents Elastic Cloud Enterprise from completing the installation. This regression is fixed with Kernel-LT 4.9.
+</li>
+<li class="listitem">
+If you install ECE on AWS, you likely need to <a class="xref" href="ece-issues.html#ece-aws-private-ip" title="Cloud UI, Elasticsearch, and Kibana endpoint URLs inaccessible on AWS">modify the cluster endpoint</a>, as the public hostname resolves to a different IP address externally than it does internally on the cluster.
+</li>
+<li class="listitem">
+ECE is unable to support VMotion functionality in VMWare. To use ECE, you must disable VMotion.
+</li>
+<li class="listitem">
+When you use virtualization resources, make sure that you avoid resource overallocation.
+</li>
+<li class="listitem">
+Due to a <a href="https://github.com/elastic/elasticsearch/issues/56739" class="ulink" target="_top">known Elasticsearch bug</a>, plans for Elasticsearch versions 7.7.0 and 7.7.1 can fail unexpectedly with an error that indicates that there was a bad request while performing the constructor&#8217;s step <code class="literal">validate-enough-disk-space</code>. To resolve this, first try manually restarting all nodes of the cluster. If restarting doesn&#8217;t resolve the problem, you can edit the cluster plan to set the <code class="literal">override_failsafe</code> option to <code class="literal">true</code>. We also recommend upgrading to version 7.8 or higher, which resolves this bug. For more details, check the <a class="xref" href="ece-release-notes-2.2.2.html" title="Elastic Cloud Enterprise 2.2.2">version 2.2.2 release notes</a>.
+</li>
+</ul>
+</div>
+<h3><a id="ece_security_2"></a>Security<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/cloud-enterprise/ce-limitations-known-problems.asciidoc">edit</a></h3>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<p>Changing the generated password for the <code class="literal">admin</code> user on the administration console deployment that backs the Cloud UI is not supported. This is the <code class="literal">admin</code> user on the <code class="literal">admin-console-elasticsearch</code> deployment that gets created during the ECE installation.</p>
+<div class="warning admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>Do not change the generated password for the <code class="literal">admin</code> user on the administration console deployment or you risk losing administrative access to your installation.</p>
+</div>
+</div>
+</li>
+<li class="listitem">
+<p>When configuring Elastic Cloud Enterprise role-based access control:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Trying to use an invalid SAML provider can cause the security deployment to bootloop. The deployment falls back to the previous configuration, but if there are any issues between the UI and the actual configuration, remove or update the SAML provider profile. If the problem persists, review the deployment activity and logs.
+</li>
+<li class="listitem">
+PEM and PKCS11 formatted certificates are not supported.
+</li>
+</ul>
+</div>
+</li>
+<li class="listitem">
+In versions 2.6 and later, some or all platform certificates get generated with a 398 day expiration. Installations running these versions must have their certificates rotated manually before expiry. For details, check <a href="https://ela.st/ece-certificate-rotation" class="ulink" target="_top">our KB article</a>.
+</li>
+</ul>
+</div>
+<p>Some additional limitations apply when securing your installation. To learn more, check <a class="xref" href="ece-securing-ece.html" title="Securing your installation">Secure Elastic Cloud Enterprise</a>.</p>
+<h3><a id="ece_deployments"></a>Deployments<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/cloud-enterprise/ce-limitations-known-problems.asciidoc">edit</a></h3>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Pending plan changes for your deployment in the Cloud UI that exceed the available capacity will fail as expected, but might then require you to manually recover from the failure. (To recover, locate the details for the plan attempt and copy the diff; manually edit the diff to revert to the original plan and apply the modified plan into the <span class="strong strong"><strong>Advanced cluster configuration</strong></span> panel.)
+</li>
+<li class="listitem">
+ECE has a maximum limit of 320 seconds, so we recommend optimizing long-running queries in Elasticsearch.
+</li>
+</ul>
+</div>
+<h3><a id="ece_deployment_templates"></a>Deployment templates<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/cloud-enterprise/ce-limitations-known-problems.asciidoc">edit</a></h3>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+In ECE 2.13, a known issue can prevent custom deployment templates from being created through the UI, when selecting instance configurations different from the default ones. This results in an error related to autoscaling displayed in the UI when you try to create the template. If you are affected by this issue, you can contact <a href="mailto:support@elastic.co" class="ulink" target="_top">support@elastic.co</a>.
+</li>
+</ul>
+</div>
+<h3><a id="ece_upgrading"></a>Upgrading<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/cloud-enterprise/ce-limitations-known-problems.asciidoc">edit</a></h3>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+A known issue can prevent direct rolling upgrades from Elasticsearch version 5.6.10 to version 6.3.0. As a workaround, we have removed version 6.3.0 from the Cloud UI for new cluster deployments and for upgrading existing ones. If you are affected by this issue, check <a href="https://elastic.my.salesforce.com/articles/Support_Article/Rolling-upgrades-to-6-3-0-from-5-x-fails-with-java-lang-IllegalStateException-commit-doesn-t-contain-history-uuid?popup=false&amp;id=kA0610000005JFG" class="ulink" target="_top">Rolling upgrades from 5.6.x to 6.3.0 fails with "java.lang.IllegalStateException: commit doesn&#8217;t contain history uuid"</a> in our Elastic Support Portal. If these steps do not work or you do not have access to the Support Portal, you can contact <a href="mailto:support@elastic.co" class="ulink" target="_top">support@elastic.co</a>.
+</li>
+<li class="listitem">
+If upgrading from a version earlier than 2.1.0 to a version between &gt;2.1.0 and &#8656;2.3.1, a known problem will fail the upgrade. If your upgrade path matches these versions, check <a class="xref" href="ece-upgrade.html#ece-upgrade-version-caution" title="Important: Check if you can upgrade directly">Before upgrading check your upgrade path</a>.
+</li>
+<li class="listitem">
+When upgrading to 2.4.0, make sure that nothing listens on your proxy node over port 9000. If a Minio repository runs on the same ECE node, you&#8217;ll need to change the default listening port. If there is a port conflict, proxy fails and won&#8217;t boot.
+</li>
+<li class="listitem">
+Starting with ECE version 2.6.0, deployment upgrades initiated from the UI can fail if there is no healthy instance of Kibana available. As a workaround, you can perform an advanced edit on the cluster to upgrade the cluster version. In the cluster configuration, each occurrence of <code class="literal">elasticsearch.version</code> can be updated to the version that you choose. For details, check <a class="xref" href="ece-advanced-configuration.html" title="Advanced cluster configuration">Advanced cluster configuration</a>.
+</li>
+<li class="listitem">
+When upgrading to ECE version 2.7.0 the automatic upgrade of the <code class="literal">admin-console-elasticsearch</code> cluster may fail, particularly on older installations of ECE that started with a 5.x cluster. If this happens, it is safe to leave the cluster at the latest 6.x Elasticsearch version until the automatic upgrade is fixed in the next version of ECE. Note that the <code class="literal">logging-and-metrics</code> cluster should also remain on 6.x, only the <code class="literal">security</code> cluster should be upgraded to the latest 7.x Elasticsearch version using the <a class="xref" href="update-security-deployment.html" title="Update security deployment">dedicated API</a>.
+</li>
+<li class="listitem">
+When upgrading from version 2.9.x (2.9.0, 2.9.1, 2.9.2) to a version between 2.10.0 and 2.11.0, you might get an error that indicates deployment aliases cannot be set <a class="xref" href="ece-configuring-deployment-aliases.html" title="Enable custom endpoint aliases">in the console</a>. As a workaround, you can fix it using the <a class="xref" href="create-config-store-option.html" title="Create Config Store Option">dedicated API</a> by setting the value of <code class="literal">config_option_id</code> to <code class="literal">enable-deployment-alias</code> and the value of request body to <code class="literal">{ "value": "false" }</code>.
+</li>
+</ul>
+</div>
+<h3><a id="ece-restrictions-transport-client"></a>Transport client<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/cloud-enterprise/ce-limitations-known-problems.asciidoc">edit</a></h3>
+<p>The transport client is not considered thread safe in a cloud environment. We recommend that you use the Java REST client instead. This restriction relates to the fact that your deployments hosted on Elastic Cloud Enterprise are behind proxies, which prevent the transport client from communicating directly with Elasticsearch clusters.</p>
+<p>The transport client does not work with Elasticsearch clusters at version 7.6 and later that are managed by ECE. The transport client continues to work with Elasticsearch clusters at version 7.5 and earlier. Note that the transport client was deprecated with Elasticsearch version 7.0 and will be removed with 8.0.</p>
+<h3><a id="ece-restrictions-fleet"></a>Fleet<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/cloud-enterprise/ce-limitations-known-problems.asciidoc">edit</a></h3>
+<p>In ECE version 2.10 with the original Elastic Stack pack version 7.14, if downloaded from the Elastic website before August 10, 2021, Fleet does not work when enabled in a deployment. To support Fleet, you can <a class="xref" href="ece-manage-elastic-stack.html" title="Manage Elastic Stack versions">get and re-upload a fresh copy</a> of the version 7.14 Elastic Stack pack to overwrite the original one. If you have existing version 7.14 deployments, then restart Fleet/APM after re-uploading the Elastic Stack pack to enable Fleet. This issue will be addressed in later stack packs and ECE versions.</p>
+<h3><a id="ece-restrictions-integrations-server"></a>Integrations Server<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/cloud-enterprise/ce-limitations-known-problems.asciidoc">edit</a></h3>
+<p>A bug in Elastic Stack versions 8.1 and later may lead to a full disk for Elastic APM users with tail-based sampling enabled. A fix has been merged and will be released in a future version.</p>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="ece-dependencies.html">« Third-party software dependencies</a>
+</span>
+<span class="next">
+<a href="stubs.html">Documentation Stubs »</a>
+</span>
+</div>
+</div>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains('stemblock')) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+</body>
+</html>

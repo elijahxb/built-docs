@@ -1,60 +1,32 @@
-PUT my-index
+PUT /my_locations
 {
   "mappings": {
     "properties": {
-      "comments": {
-        "type": "nested"
+      "location": {
+        "type": "geo_point"
       }
     }
   }
 }
 
-PUT my-index/_doc/1?refresh
+PUT /my_locations/_doc/1?refresh
 {
-  "comments": [
-    {
-      "author": "kimchy"
-    }
-  ]
+  "location" : "POINT(4.912350 52.374081)",
+  "city": "Amsterdam",
+  "name": "NEMO Science Museum"
 }
 
-PUT my-index/_doc/2?refresh
+PUT /my_locations/_doc/2?refresh
 {
-  "comments": [
-    {
-      "author": "kimchy"
-    },
-    {
-      "author": "nik9000"
-    }
-  ]
+  "location" : "POINT(4.405200 51.222900)",
+  "city": "Antwerp",
+  "name": "Letterenhuis"
 }
 
-PUT my-index/_doc/3?refresh
+PUT /my_locations/_doc/3?refresh
 {
-  "comments": [
-    {
-      "author": "nik9000"
-    }
-  ]
+  "location" : "POINT(2.336389 48.861111)",
+  "city": "Paris",
+  "name": "Musée du Louvre"
 }
 
-POST my-index/_search
-{
-  "query": {
-    "nested": {
-      "path": "comments",
-      "query": {
-        "bool": {
-          "must_not": [
-            {
-              "term": {
-                "comments.author": "nik9000"
-              }
-            }
-          ]
-        }
-      }
-    }
-  }
-}

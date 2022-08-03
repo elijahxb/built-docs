@@ -1,13 +1,8 @@
-POST /_security/role/test_role6
+PUT /_security/role_mapping/users
 {
-  "indices" : [
-    {
-      "names" : [ "*" ],
-      "privileges" : [ "read" ],
-      "field_security" : {
-        "except": [ "customer.handle" ],
-        "grant" : [ "customer.*" ]
-      }
-    }
-  ]
+  "roles" : [ "user" ],
+  "rules" : { "field" : {
+    "dn" : "cn=John Doe,ou=example,o=com"
+  } },
+  "enabled": true
 }

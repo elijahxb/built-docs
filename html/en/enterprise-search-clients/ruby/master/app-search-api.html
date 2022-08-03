@@ -3,9 +3,9 @@
   <head>
     
 <meta charset="UTF-8">
-<title>App Search API | enterprise-search-ruby [master] | Elastic</title>
-<link rel="home" href="index.html" title="enterprise-search-ruby [master]"/>
-<link rel="up" href="index.html" title="enterprise-search-ruby [master]"/>
+<title>App Search API | Enterprise Search Ruby client [master] | Elastic</title>
+<link rel="home" href="index.html" title="Enterprise Search Ruby client [master]"/>
+<link rel="up" href="index.html" title="Enterprise Search Ruby client [master]"/>
 <link rel="prev" href="enterprise-search-api.html" title="Enterprise Search API"/>
 <link rel="next" href="workplace-search-api.html" title="Workplace Search API"/>
 <meta name="DC.type" content="Learn/Docs/Enterprise Search Clients/Ruby/master"/>
@@ -57,7 +57,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -88,27 +88,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 You are looking at preliminary documentation for a future release.
@@ -117,9 +108,8 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">enterprise-search-ruby [master]</a></span>
-»
-<span class="breadcrumb-node">App Search API</span>
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Enterprise Search Ruby client [master]</a></span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -140,7 +130,7 @@ Not what you want? See the
 </div></div></div>
 <div class="pre_wrapper lang-rb">
 <pre class="programlisting prettyprint lang-rb"># Create an engine
-client.create_engine(name: 'videogames')
+client.create_engine(body: { name: 'videogames' })
 
 # List all engines
 client.list_engines
@@ -164,7 +154,7 @@ body = {
   type: 'meta',
   source_engines: [ 'books', 'videogames' ]
 }
-client.create_engine(name: engine_name, body: body)
+client.create_engine(body: body)
 
 # Add a source engine to a meta engine:
 client.add_meta_engine_source(meta_engine_name, source_engines: ['engine1', 'engine2'])
@@ -264,11 +254,13 @@ client.delete_synonym_set(engine_name, synonym_set_id: id)</pre>
 <div class="pre_wrapper lang-rb">
 <pre class="programlisting prettyprint lang-rb"># Create a curation
 client.create_curation(
-         engine_name,
-         queries: ['query1'],
-         promoted: ['doc-id1'],
-         hidden: ['doc-id2']
-       )
+  engine_name,
+  body: {
+    queries: ['query1'],
+    promoted: ['doc-id1'],
+    hidden: ['doc-id2']
+  }
+)
 
 # Retrieve a curation by id:
 client.curation(engine_name, curation_id: 'cur-id')
@@ -276,10 +268,14 @@ client.curation(engine_name, curation_id: 'cur-id')
 # Update an existing curation:
 client.put_curation(
   engine_name,
-  curation_id: 'cur-id',
-  queries: ['query1'],
-  promoted: ['doc-id2'],
-  hidden: ['doc-id1']
+  {
+    curation_id: 'cur-id',
+    body: {
+      queries: ['query1'],
+      promoted: ['doc-id2'],
+      hidden: ['doc-id1']
+    }
+  }
 )
 
 # List existing curations:
@@ -324,14 +320,6 @@ client.delete_api_key(api_key_name: name)</pre>
 <div class="titlepage"><div><div>
 <h2 class="title"><a id="_web_crawler"></a>Web Crawler<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/enterprise-search-ruby/edit/main/docs/guide/app-search-api.asciidoc">edit</a></h2>
 </div></div></div>
-<div class="caution admon">
-<div class="icon"></div>
-<div class="admon_content">
-<p>The Elastic Enterprise Search web crawler API is a <span class="strong strong"><strong>beta</strong></span> feature.
-Beta features are subject to change and are not covered by the support SLA of general release (GA) features.
-Elastic plans to promote this feature to GA in a future release.</p>
-</div>
-</div>
 <p>See <a href="/guide/en/app-search/current/web-crawler-api-reference.html" class="ulink" target="_top">Web Crawler API reference</a> for more information.</p>
 <div class="pre_wrapper lang-rb">
 <pre class="programlisting prettyprint lang-rb"># Create a crawler domain
@@ -340,6 +328,9 @@ client.create_crawler_domain(engine_name, body: body)
 
 # Get crawler domain information
 client.crawler_domain(engine_name, domain_id: domain_id)
+
+# List crawler domains
+client.list_crawler_domains(engine_name)
 
 # Update a crawler domain
 body = { name: 'https://www.wikipedia.org' }
@@ -450,6 +441,65 @@ client.delete_crawler_active_crawl_request(engine_name)</pre>
 
 <div class="section">
 <div class="titlepage"><div><div>
+<h2 class="title"><a id="_adaptive_relevance_suggestions"></a>Adaptive Relevance Suggestions<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/enterprise-search-ruby/edit/main/docs/guide/app-search-api.asciidoc">edit</a></h2>
+</div></div></div>
+<div class="pre_wrapper lang-rb">
+<pre class="programlisting prettyprint lang-rb"># Update an adaptive relevance suggestion
+body = [{ query: 'forest', type: 'curation', status: 'applied' }]
+client.put_adaptive_relevance_suggestions(engine_name, body: body)
+
+# Retrieve an adaptive relevance suggestion
+client.adaptive_relevance_suggestions(engine_name, search_suggestion_query: 'test')
+
+# List adaptive relevance suggestions
+client.list_adaptive_relevance_suggestions(engine_name)</pre>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="_adaptive_relevance_settings"></a>Adaptive Relevance Settings<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/enterprise-search-ruby/edit/main/docs/guide/app-search-api.asciidoc">edit</a></h2>
+</div></div></div>
+<div class="pre_wrapper lang-rb">
+<pre class="programlisting prettyprint lang-rb"># Show the settings for an engine
+client.adaptive_relevance_settings(engine_name)
+
+# Update relevance settings
+ body = {
+        curation: { enabled: true }
+      }
+client.put_adaptive_relevance_settings(engine_name, body: body)
+
+# Refresh adaptive relevance update process
+client.refresh_adaptive_relevance_update_process(engine_name, adaptive_relevance_suggestion_type: 'curation')</pre>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="_elasticsearch_search"></a>Elasticsearch Search<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/enterprise-search-ruby/edit/main/docs/guide/app-search-api.asciidoc">edit</a></h2>
+</div></div></div>
+<p>Utilize the API to passthrough and execute raw Elasticsearch queries against the indices that power Enterprise Search engines.</p>
+<div class="pre_wrapper lang-rb">
+<pre class="programlisting prettyprint lang-rb">es_request = { body: { query: { bool: { must: { term: { title: 'test' } } } } } }
+client.search_es_search(engine_name, body: { request: es_request })</pre>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="_search_explain"></a>Search Explain<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/enterprise-search-ruby/edit/main/docs/guide/app-search-api.asciidoc">edit</a></h2>
+</div></div></div>
+<p>Submit a search and retrieve an Elasticsearch query.</p>
+<div class="pre_wrapper lang-rb">
+<pre class="programlisting prettyprint lang-rb">response = client.search_explain(engine_name, body: { query: 'test' })
+response.body['query_string']
+# =&gt; "GET enterprise-search-engine-app-search-explain/_search"</pre>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
 <h2 class="title"><a id="_other_api_endpoints"></a>Other API Endpoints<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/enterprise-search-ruby/edit/main/docs/guide/app-search-api.asciidoc">edit</a></h2>
 </div></div></div>
 <div class="pre_wrapper lang-rb">
@@ -502,15 +552,37 @@ client.query_suggestion(engine_name, query: 'incomplete_query')</pre>
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

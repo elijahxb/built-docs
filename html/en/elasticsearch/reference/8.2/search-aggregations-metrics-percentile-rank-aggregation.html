@@ -57,7 +57,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -88,42 +88,30 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
-You are looking at preliminary documentation for a future release.
-Not what you want? See the
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
 <a href="../current/index.html">current release documentation</a>.
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.2]</a></span>
-»
-<span class="breadcrumb-link"><a href="search-aggregations.html">Aggregations</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.2]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="search-aggregations.html">Aggregations</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="search-aggregations-metrics.html">Metrics aggregations</a></span>
-»
-<span class="breadcrumb-node">Percentile ranks aggregation</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -163,19 +151,19 @@ it is said to be at the 95th percentile rank.</p>
   "aggs": {
     "load_time_ranks": {
       "percentile_ranks": {
-        "field": "load_time",   <a id="CO284-1"></a><i class="conum" data-value="1"></i>
+        "field": "load_time",   <a id="CO288-1"></a><i class="conum" data-value="1"></i>
         "values": [ 500, 600 ]
       }
     }
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1252.console"></div>
+<div class="console_widget" data-snippet="snippets/1254.console"></div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO284-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO288-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>The field <code class="literal">load_time</code> must be a numeric field</p>
@@ -222,7 +210,7 @@ hitting the 95% load time target</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1253.console"></div>
+<div class="console_widget" data-snippet="snippets/1255.console"></div>
 <p>Response:</p>
 <a id="d812a51ceb3c0a3c8d8b14664a4c6038"></a>
 <div class="pre_wrapper lang-console-result">
@@ -280,7 +268,7 @@ are in milliseconds but we want percentiles calculated in seconds:</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1254.console"></div>
+<div class="console_widget" data-snippet="snippets/1256.console"></div>
 </div>
 
 <div class="section">
@@ -304,20 +292,20 @@ microseconds) in a histogram set to 3 significant digits, it will maintain a val
       "percentile_ranks": {
         "field": "load_time",
         "values": [ 500, 600 ],
-        "hdr": {                                  <a id="CO285-1"></a><i class="conum" data-value="1"></i>
-          "number_of_significant_value_digits": 3 <a id="CO285-2"></a><i class="conum" data-value="2"></i>
+        "hdr": {                                  <a id="CO289-1"></a><i class="conum" data-value="1"></i>
+          "number_of_significant_value_digits": 3 <a id="CO289-2"></a><i class="conum" data-value="2"></i>
         }
       }
     }
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1255.console"></div>
+<div class="console_widget" data-snippet="snippets/1257.console"></div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO285-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO289-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p><code class="literal">hdr</code> object indicates that HDR Histogram should be used to calculate the percentiles and specific settings for this algorithm can be specified inside the object</p>
@@ -325,7 +313,7 @@ microseconds) in a histogram set to 3 significant digits, it will maintain a val
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO285-2"><i class="conum" data-value="2"></i></a></p>
+<p><a href="#CO289-2"><i class="conum" data-value="2"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p><code class="literal">number_of_significant_value_digits</code> specifies the resolution of values for the histogram in number of significant digits</p>
@@ -354,18 +342,18 @@ had a value.</p>
       "percentile_ranks": {
         "field": "load_time",
         "values": [ 500, 600 ],
-        "missing": 10           <a id="CO286-1"></a><i class="conum" data-value="1"></i>
+        "missing": 10           <a id="CO290-1"></a><i class="conum" data-value="1"></i>
       }
     }
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1256.console"></div>
+<div class="console_widget" data-snippet="snippets/1258.console"></div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO286-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO290-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Documents without a value in the <code class="literal">load_time</code> field will fall into the same bucket as documents that have the value <code class="literal">10</code>.</p>
@@ -388,15 +376,37 @@ had a value.</p>
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

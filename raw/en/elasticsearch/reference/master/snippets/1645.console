@@ -1,4 +1,4 @@
-POST /_security/oidc/prepare
+POST /_security/user/user1/_password
 {
-  "realm" : "oidc1"
+  "password" : "new-test-password"
 }

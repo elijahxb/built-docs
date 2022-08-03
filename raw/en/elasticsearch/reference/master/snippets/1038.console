@@ -1,8 +1,13 @@
-GET my-index-000001/_search?pretty
+GET /_search
 {
   "query": {
-    "match": {
-      "full_text": "Quick Brown Foxes!"
+    "script_score": {
+      "query": {
+        "match": { "message": "elasticsearch" }
+      },
+      "script": {
+        "source": "doc['my-int'].value / 10 "
+      }
     }
   }
 }

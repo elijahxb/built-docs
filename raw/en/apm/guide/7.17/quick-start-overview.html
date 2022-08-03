@@ -17,13 +17,10 @@ A newer version is available. For the latest information, see the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">APM User Guide [7.17]</a></span>
-»
-<span class="breadcrumb-link"><a href="legacy-apm-overview.html">Legacy APM Overview</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">APM User Guide [7.17]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="legacy-apm-overview.html">Legacy APM Overview</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="install-and-run.html">Quick start guide</a></span>
-»
-<span class="breadcrumb-node">Quick start development environment</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -55,7 +52,7 @@ and APM Server up and running in Docker.</p>
 <pre class="programlisting prettyprint lang-yaml">version: '2.2'
 services:
   apm-server:
-    image: docker.elastic.co/apm/apm-server:7.17.2
+    image: docker.elastic.co/apm/apm-server:7.17.5
     depends_on:
       elasticsearch:
         condition: service_healthy
@@ -81,7 +78,7 @@ services:
       test: curl --write-out 'HTTP %{http_code}' --fail --silent --output /dev/null http://localhost:8200/
 
   elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.17.2
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.17.5
     environment:
     - bootstrap.memory_lock=true
     - cluster.name=docker-cluster
@@ -104,7 +101,7 @@ services:
       test: curl -s http://localhost:9200/_cluster/health | grep -vq '"status":"red"'
 
   kibana:
-    image: docker.elastic.co/kibana/kibana:7.17.2
+    image: docker.elastic.co/kibana/kibana:7.17.5
     depends_on:
       elasticsearch:
         condition: service_healthy

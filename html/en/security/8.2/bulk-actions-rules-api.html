@@ -57,7 +57,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -88,42 +88,30 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
-You are looking at preliminary documentation for a future release.
-Not what you want? See the
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
 <a href="../current/index.html">current release documentation</a>.
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elastic Security Solution [8.2]</a></span>
-»
-<span class="breadcrumb-link"><a href="security-apis.html">Elastic Security APIs</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Security Solution [8.2]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="security-apis.html">Elastic Security APIs</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="rule-api-overview.html">Detections API</a></span>
-»
-<span class="breadcrumb-node">Bulk rule actions</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -146,6 +134,12 @@ Not what you want? See the
 </div>
 <hr>
 <h4><a id="bulk-actions-rules-api-create"></a>Bulk create<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/security-docs/edit/8.2/docs/detections/api/rules/rules-api-bulk-actions.asciidoc">edit</a></h4>
+<div class="important admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>This API has been deprecated since version 8.2, and is scheduled for end of life in Q4 2023. Please use the <a class="xref" href="bulk-actions-rules-api.html#bulk-actions-rules-api-action" title="Bulk action">bulk action API</a> instead.</p>
+</div>
+</div>
 <div class="warning admon">
 <div class="icon"></div>
 <div class="admon_content">
@@ -203,7 +197,7 @@ Not what you want? See the
   }
 ]</pre>
 </div>
-<div class="kibana_widget" data-snippet="snippets/20.kibana"></div>
+<div class="kibana_widget" data-snippet="snippets/13.kibana"></div>
 <h5><a id="_response_code_6"></a>Response code<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/security-docs/edit/8.2/docs/detections/api/rules/rules-api-bulk-actions.asciidoc">edit</a></h5>
 <div class="variablelist">
 <dl class="variablelist">
@@ -222,6 +216,12 @@ Indicates a successful call.
 generated for all rules that did not include a <code class="literal">rule_id</code> field.</p>
 <hr>
 <h4><a id="bulk-actions-rules-api-delete"></a>Bulk delete<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/security-docs/edit/8.2/docs/detections/api/rules/rules-api-bulk-actions.asciidoc">edit</a></h4>
+<div class="important admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>This API has been deprecated since version 8.2, and is scheduled for end of life in Q4 2023. Please use the <a class="xref" href="bulk-actions-rules-api.html#bulk-actions-rules-api-action" title="Bulk action">bulk action API</a> instead.</p>
+</div>
+</div>
 <p>Deletes multiple rules.</p>
 <h5><a id="_request_url_7"></a>Request URL<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/security-docs/edit/8.2/docs/detections/api/rules/rules-api-bulk-actions.asciidoc">edit</a></h5>
 <p><code class="literal">DELETE  &lt;kibana host&gt;:&lt;port&gt;/api/detection_engine/rules/_bulk_delete</code></p>
@@ -239,7 +239,7 @@ generated for all rules that did not include a <code class="literal">rule_id</co
   }
 ]</pre>
 </div>
-<div class="kibana_widget" data-snippet="snippets/21.kibana"></div>
+<div class="kibana_widget" data-snippet="snippets/14.kibana"></div>
 <h5><a id="_response_code_7"></a>Response code<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/security-docs/edit/8.2/docs/detections/api/rules/rules-api-bulk-actions.asciidoc">edit</a></h5>
 <div class="variablelist">
 <dl class="variablelist">
@@ -257,6 +257,12 @@ Indicates a successful call.
 <p>A JSON array containing the deleted rules.</p>
 <hr>
 <h4><a id="bulk-actions-rules-api-update"></a>Bulk update<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/security-docs/edit/8.2/docs/detections/api/rules/rules-api-bulk-actions.asciidoc">edit</a></h4>
+<div class="important admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>This API has been deprecated since version 8.2, and is scheduled for end of life in Q4 2023. Please use the <a class="xref" href="bulk-actions-rules-api.html#bulk-actions-rules-api-action" title="Bulk action">bulk action API</a> instead.</p>
+</div>
+</div>
 <div class="warning admon">
 <div class="icon"></div>
 <div class="admon_content">
@@ -330,7 +336,7 @@ fields).</p>
   }
 ]</pre>
 </div>
-<div class="kibana_widget" data-snippet="snippets/22.kibana"></div>
+<div class="kibana_widget" data-snippet="snippets/15.kibana"></div>
 <h5><a id="_response_code_8"></a>Response code<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/security-docs/edit/8.2/docs/detections/api/rules/rules-api-bulk-actions.asciidoc">edit</a></h5>
 <div class="variablelist">
 <dl class="variablelist">
@@ -495,7 +501,7 @@ to apply.</p>
   "action": "enable"
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/23.console"></div>
+<div class="console_widget" data-snippet="snippets/16.console"></div>
 <h5><a id="_response_code_9"></a>Response code<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/security-docs/edit/8.2/docs/detections/api/rules/rules-api-bulk-actions.asciidoc">edit</a></h5>
 <div class="variablelist">
 <dl class="variablelist">
@@ -529,12 +535,7 @@ Indicates a successful call.
                   "Elastic",
                   "Network",
                   "Threat Detection",
-                  "ML",
-                  "777",
-                  "888",
-                  "nine-nine-seven",
-                  "test",
-                  "test-2"
+                  "ML"
                ],
                "interval":"15m",
                "enabled":true,
@@ -578,7 +579,20 @@ Indicates a successful call.
                "throttle":"no_actions",
                "actions":[
 
-               ]
+               ],
+               "execution_summary": {                 <a id="CO9-1"></a><i class="conum" data-value="1"></i>
+                 "last_execution": {
+                   "date": "2022-03-23T16:06:12.787Z",
+                   "status": "partial failure",
+                   "status_order": 20,
+                   "message": "This rule attempted to query data from Elasticsearch indices listed in the \"Index pattern\" section of the rule definition, but no matching index was found.",
+                   "metrics": {
+                       "total_search_duration_ms": 135,
+                       "total_indexing_duration_ms": 15,
+                       "execution_gap_duration_s": 0,
+                   }
+                 }
+               }
             }
          ],
          "created":[
@@ -596,6 +610,23 @@ Indicates a successful call.
    }
 }</pre>
 </div>
+<div class="calloutlist">
+<table border="0" summary="Callout list">
+<tr>
+<td align="left" valign="top" width="5%">
+<p><a href="#CO9-1"><i class="conum" data-value="1"></i></a></p>
+</td>
+<td align="left" valign="top">
+<p><span class="Admonishment Admonishment--dev">
+[<span class="Admonishment-title u-mono">dev</span>]
+<span class="Admonishment-detail">
+This functionality is in development and may be changed or removed completely in a future release. These features are unsupported and not subject to the support SLA of official GA features.
+</span>
+</span> <code class="literal">execution_summary</code> is under development and its schema may change.</p>
+</td>
+</tr>
+</table>
+</div>
 <p>For an <code class="literal">export</code> action, an <code class="literal">.ndjson</code> file containing exported rules.</p>
 <p><span class="strong strong"><strong>Example 2, Partial failure</strong></span></p>
 <p>The following request adds tags <code class="literal">tag-1</code> and <code class="literal">tag-2</code> to the rules that have the IDs sent in the payload:</p>
@@ -610,7 +641,7 @@ Indicates a successful call.
   "edit": [{ action: "add_tags", value:["tag-1", "tag-2"] }]
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/24.console"></div>
+<div class="console_widget" data-snippet="snippets/17.console"></div>
 <h5><a id="_response_code_10"></a>Response code<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/security-docs/edit/8.2/docs/detections/api/rules/rules-api-bulk-actions.asciidoc">edit</a></h5>
 <div class="variablelist">
 <dl class="variablelist">
@@ -659,10 +690,7 @@ Indicates partial bulk action failure.
                         "Windows",
                         "APM",
                         "macOS",
-                        "Linux",
-                        "777",
-                        "888",
-                        "nine-nine-seven"
+                        "Linux"
                     ],
                     "interval": "5m",
                     "enabled": true,
@@ -733,7 +761,20 @@ Indicates partial bulk action failure.
                     ],
                     "query": "event.kind:alert and not event.module:(endgame or endpoint)\n",
                     "throttle": "no_actions",
-                    "actions": []
+                    "actions": [],
+                    "execution_summary": {                 <a id="CO10-1"></a><i class="conum" data-value="1"></i>
+                    "last_execution": {
+                      "date": "2022-03-23T16:06:12.787Z",
+                      "status": "partial failure",
+                      "status_order": 20,
+                      "message": "This rule attempted to query data from Elasticsearch indices listed in the \"Index pattern\" section of the rule definition, but no matching index was found.",
+                      "metrics": {
+                          "total_search_duration_ms": 135,
+                          "total_indexing_duration_ms": 15,
+                          "execution_gap_duration_s": 0,
+                      }
+                    }
+                  }
                 }
             ],
             "created": [],
@@ -746,6 +787,23 @@ Indicates partial bulk action failure.
         }
     }
 }</pre>
+</div>
+<div class="calloutlist">
+<table border="0" summary="Callout list">
+<tr>
+<td align="left" valign="top" width="5%">
+<p><a href="#CO10-1"><i class="conum" data-value="1"></i></a></p>
+</td>
+<td align="left" valign="top">
+<p><span class="Admonishment Admonishment--dev">
+[<span class="Admonishment-title u-mono">dev</span>]
+<span class="Admonishment-detail">
+This functionality is in development and may be changed or removed completely in a future release. These features are unsupported and not subject to the support SLA of official GA features.
+</span>
+</span> <code class="literal">execution_summary</code> is under development and its schema may change.</p>
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="navfooter">
@@ -760,15 +818,37 @@ Indicates partial bulk action failure.
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

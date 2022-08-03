@@ -1,1 +1,4 @@
-GET _watcher/stats
+POST /_security/oidc/prepare
+{
+  "realm" : "oidc1"
+}

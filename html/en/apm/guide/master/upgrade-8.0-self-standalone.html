@@ -3,11 +3,11 @@
   <head>
     
 <meta charset="UTF-8">
-<title>Upgrade a self-installation of APM Server standalone to 8.2.0 | APM User Guide [master] | Elastic</title>
+<title>Upgrade a self-installation of APM Server standalone to 8.4.0 | APM User Guide [master] | Elastic</title>
 <link rel="home" href="index.html" title="APM User Guide [master]"/>
-<link rel="up" href="upgrading-to-8.x.html" title="Upgrade to version 8.2.0"/>
-<link rel="prev" href="upgrading-to-8.x.html" title="Upgrade to version 8.2.0"/>
-<link rel="next" href="upgrade-8.0-self-integration.html" title="Upgrade a self-installation of the APM integration to 8.2.0"/>
+<link rel="up" href="upgrading-to-8.x.html" title="Upgrade to version 8.4.0"/>
+<link rel="prev" href="upgrading-to-8.x.html" title="Upgrade to version 8.4.0"/>
+<link rel="next" href="upgrade-8.0-self-integration.html" title="Upgrade a self-installation of the APM integration to 8.4.0"/>
 <meta name="DC.type" content="Learn/Docs/APM Guide/master"/>
 <meta name="DC.subject" content="APM"/>
 <meta name="DC.identifier" content="master"/>
@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,27 +87,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 You are looking at preliminary documentation for a future release.
@@ -116,25 +107,22 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">APM User Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="upgrade.html">Upgrade</a></span>
-»
-<span class="breadcrumb-link"><a href="upgrading-to-8.x.html">Upgrade to version 8.2.0</a></span>
-»
-<span class="breadcrumb-node">Upgrade a self-installation of APM Server standalone to 8.2.0</span>
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">APM User Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="upgrade.html">Upgrade</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="upgrading-to-8.x.html">Upgrade to version 8.4.0</a></span>
 </div>
 <div class="navheader">
 <span class="prev">
-<a href="upgrading-to-8.x.html">« Upgrade to version 8.2.0</a>
+<a href="upgrading-to-8.x.html">« Upgrade to version 8.4.0</a>
 </span>
 <span class="next">
-<a href="upgrade-8.0-self-integration.html">Upgrade a self-installation of the APM integration to 8.2.0 »</a>
+<a href="upgrade-8.0-self-integration.html">Upgrade a self-installation of the APM integration to 8.4.0 »</a>
 </span>
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="upgrade-8.0-self-standalone"></a>Upgrade a self-installation of APM Server standalone to 8.2.0<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-server/edit/main/docs/upgrading-to-8.x.asciidoc">edit</a></h3>
+<h3 class="title"><a id="upgrade-8.0-self-standalone"></a>Upgrade a self-installation of APM Server standalone to 8.4.0<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-server/edit/main/docs/upgrading-to-8.x.asciidoc">edit</a></h3>
 </div></div></div>
 
 <p>This upgrade guide is for the standalone (legacy) method of running APM Server.
@@ -145,7 +133,7 @@ Only use this guide if both of the following are true:</p>
 You have a self-installation of the Elastic Stack, i.e. you&#8217;re not using Elastic Cloud.
 </li>
 <li class="listitem">
-You&#8217;re running the APM Server binary, i.e. you haven&#8217;t upgraded to the Elastic APM integration.
+You&#8217;re running the APM Server binary, i.e. you haven&#8217;t switched to the Elastic APM integration.
 </li>
 </ul>
 </div>
@@ -153,7 +141,7 @@ You&#8217;re running the APM Server binary, i.e. you haven&#8217;t upgraded to t
 <div class="olist orderedlist">
 <ol class="orderedlist">
 <li class="listitem">
-<p>Prior to upgrading to version 8.2.0, Elasticsearch, Kibana,
+<p>Prior to upgrading to version 8.4.0, Elasticsearch, Kibana,
 and APM Server must be upgraded to version 7.17.</p>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -178,13 +166,13 @@ and Observability <a href="/guide/en/observability/master/whats-new.html" class=
 <div class="olist orderedlist">
 <ol class="orderedlist">
 <li class="listitem">
-<p><span class="strong strong"><strong>Upgrade the Elastic Stack to version 8.2.0</strong></span></p>
+<p><span class="strong strong"><strong>Upgrade the Elastic Stack to version 8.4.0</strong></span></p>
 <p>The Elastic Stack (Elasticsearch and Kibana) must be upgraded before APM Server.
 See the <a href="/guide/en/elastic-stack/master/upgrading-elastic-stack.html" class="ulink" target="_top">Elastic Stack Installation and Upgrade Guide</a> for guidance.</p>
 </li>
 <li class="listitem">
 <p><span class="strong strong"><strong>Install the APM integration via the Fleet UI</strong></span></p>
-<p>Starting in version 8.0.0, Fleet uses to the APM integration to set up and manage APM index templates,
+<p>Starting in version 8.0.0, Fleet uses the APM integration to set up and manage APM index templates,
 ILM policies, and ingest pipelines. APM Server will only send data to Elasticsearch <em>after</em> the APM integration has been installed.</p>
 <div class="note admon">
 <div class="icon"></div>
@@ -215,12 +203,12 @@ Click <span class="strong strong"><strong>Add Elastic Agent later</strong></span
 </div>
 </li>
 <li class="listitem">
-<p><span class="strong strong"><strong>Install the 8.2.0 APM Server release</strong></span></p>
+<p><span class="strong strong"><strong>Install the 8.4.0 APM Server release</strong></span></p>
 <p>See <a class="xref" href="installing.html" title="Step 1: Install">install</a> to find the command that works with your system.</p>
 <div class="warning admon">
 <div class="icon"></div>
 <div class="admon_content">
-<p>If you install version 8.2.0 of APM Server before installing the APM integration, you will see error logs similar to the following. You must go back and install the APM integration before data can be ingested into Elasticsearch.</p>
+<p>If you install version 8.4.0 of APM Server before installing the APM integration, you will see error logs similar to the following. You must go back and install the APM integration before data can be ingested into Elasticsearch.</p>
 <div class="pre_wrapper lang-json">
 <pre class="programlisting prettyprint lang-json">...
 {"log.level":"error","@timestamp":"2022-01-19T10:45:34.923+0800","log.logger":"beater","log.origin":{"file.name":"beater/waitready.go","file.line":62},"message":"precondition 'apm integration installed' failed: error querying Elasticsearch for integration index templates: unexpected HTTP status: 404 Not Found ({\"error\":{\"root_cause\":[{\"type\":\"resource_not_found_exception\",\"reason\":\"index template matching [traces-apm.sampled] not found\"}],\"type\":\"resource_not_found_exception\",\"reason\":\"index template matching [traces-apm.sampled] not found\"},\"status\":404}): to remediate, please install the apm integration: https://ela.st/apm-integration-quickstart","service.name":"apm-server","ecs.version":"1.6.0"}
@@ -248,32 +236,54 @@ and <a class="xref" href="configuring-howto-apm-server.html" title="Configure AP
 <li class="listitem">
 <p><span class="strong strong"><strong>(Optional) Upgrade to the APM integration</strong></span></p>
 <p>Got time for one more upgrade?
-See <a class="xref" href="upgrade-to-apm-integration.html" title="Upgrade to the Elastic APM integration">Upgrade to the Elastic APM integration</a>.</p>
+See <a class="xref" href="upgrade-to-apm-integration.html" title="Switch to the Elastic APM integration">Switch to the Elastic APM integration</a>.</p>
 </li>
 </ol>
 </div>
 </div>
 <div class="navfooter">
 <span class="prev">
-<a href="upgrading-to-8.x.html">« Upgrade to version 8.2.0</a>
+<a href="upgrading-to-8.x.html">« Upgrade to version 8.4.0</a>
 </span>
 <span class="next">
-<a href="upgrade-8.0-self-integration.html">Upgrade a self-installation of the APM integration to 8.2.0 »</a>
+<a href="upgrade-8.0-self-integration.html">Upgrade a self-installation of the APM integration to 8.4.0 »</a>
 </span>
 </div>
 </div>
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

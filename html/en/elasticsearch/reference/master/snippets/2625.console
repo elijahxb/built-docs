@@ -1,16 +1,19 @@
-PUT /_slm/policy/daily-snapshots
+POST /_security/role_mapping/mapping4
 {
-  "schedule": "0 30 1 * * ?",
-  "name": "<daily-snap-{now/d}>",
-  "repository": "my_repository",
-  "config": {
-    "indices": ["data-*", "important"],
-    "ignore_unavailable": false,
-    "include_global_state": false
-  },
-  "retention": {
-    "expire_after": "30d",
-    "min_count": 5,
-    "max_count": 50
+  "roles": [ "superuser" ],
+  "enabled": true,
+  "rules": {
+    "any": [
+      {
+        "field": {
+          "username": "esadmin"
+        }
+      },
+      {
+        "field": {
+          "groups": "cn=admins,dc=example,dc=com"
+        }
+      }
+    ]
   }
 }

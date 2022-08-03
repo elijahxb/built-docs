@@ -13,19 +13,16 @@
 <meta name="robots" content="noindex,nofollow"/>
 </head>
 <body><div class="page_header">
-You are looking at preliminary documentation for a future release.
-Not what you want? See the
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
 <a href="../current/index.html">current release documentation</a>.
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">APM User Guide [8.2]</a></span>
-»
-<span class="breadcrumb-link"><a href="overview.html">Legacy APM Server Reference</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">APM User Guide [8.2]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="overview.html">Legacy APM Server Reference</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="howto-guides.html">How-to guides</a></span>
-»
-<span class="breadcrumb-node">Jaeger integration</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -43,7 +40,7 @@ Not what you want? See the
 <div class="important admon">
 <div class="icon"></div>
 <div class="admon_content">
-<p>This documentation refers to the standalone (legacy) method of running APM Server. This method of running APM Server will be deprecated and removed in a future release. Please consider <a class="xref" href="upgrade-to-apm-integration.html" title="Upgrade to the Elastic APM integration">upgrading to the Elastic APM integration</a>.
+<p>This documentation refers to the standalone (legacy) method of running APM Server. This method of running APM Server will be deprecated and removed in a future release. Please consider <a class="xref" href="upgrade-to-apm-integration.html" title="Switch to the Elastic APM integration">upgrading to the Elastic APM integration</a>.
 If you&#8217;ve already upgraded, please see <a class="xref" href="jaeger-integration.html" title="Jaeger integration">Integrate with Jaeger</a> instead.</p>
 </div>
 </div>
@@ -211,7 +208,7 @@ This means sample rates can be configured on the fly, on a per-service and per-e
        aria-labelledby="jaeger-self-managed-sampling"
        hidden="">
 <p>APM Agent central configuration requires the <a class="xref" href="setup-kibana-endpoint.html" title="Configure the Kibana endpoint">Kibana endpoint</a> to be configured.
-To enable the kibana endpoint, set <a class="xref" href="setup-kibana-endpoint.html#kibana-enabled" title="apm-server.kibana.enabled"><code class="literal">apm-server.kibana.enabled</code></a> to <code class="literal">true</code>,
+To enable the Kibana endpoint, set <a class="xref" href="setup-kibana-endpoint.html#kibana-enabled" title="apm-server.kibana.enabled"><code class="literal">apm-server.kibana.enabled</code></a> to <code class="literal">true</code>,
 and point <a class="xref" href="setup-kibana-endpoint.html#kibana-host" title="apm-server.kibana.host"><code class="literal">apm-server.kibana.host</code></a> at the Kibana host that APM Server will communicate with.</p>
 <p>Once configured,
 visit the <a href="/guide/en/kibana/8.2/agent-configuration.html" class="ulink" target="_top">Agent configuration</a> page in the APM app to add a new sampling rate.</p>

@@ -17,13 +17,10 @@ A newer version is available. For the latest information, see the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elastic Cloud on Kubernetes [1.6]</a></span>
-»
-<span class="breadcrumb-link"><a href="k8s-orchestrating-elastic-stack-applications.html">Orchestrating Elastic Stack applications</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Cloud on Kubernetes [1.6]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="k8s-orchestrating-elastic-stack-applications.html">Orchestrating Elastic Stack applications</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="k8s-securing-stack.html">Secure the Elastic Stack</a></span>
-»
-<span class="breadcrumb-node">Users and roles</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -73,7 +70,7 @@ kind: Elasticsearch
 metadata:
   name: elasticsearch-sample
 spec:
-  version: 8.1.2
+  version: 8.3.3
   auth:
     fileRealm:
     - secretName: my-filerealm-secret-1
@@ -123,7 +120,7 @@ touch filerealm/users filerealm/users_roles
 # create user 'myuser' with role 'monitoring_user'
 docker run \
     -v $(pwd)/filerealm:/usr/share/elasticsearch/config \
-    docker.elastic.co/elasticsearch/elasticsearch:8.1.2 \
+    docker.elastic.co/elasticsearch/elasticsearch:8.3.3 \
     bin/elasticsearch-users useradd myuser -p mypassword -r monitoring_user
 
 # create a Kubernetes secret with the file realm content
@@ -147,7 +144,7 @@ kind: Elasticsearch
 metadata:
   name: elasticsearch-sample
 spec:
-  version: 8.1.2
+  version: 8.3.3
   auth:
     roles:
     - secretName: my-roles-secret-1

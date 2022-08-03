@@ -10,17 +10,19 @@
 <meta name="DC.type" content="Learn/Docs/Clients/.Net/8.1"/>
 <meta name="DC.subject" content="Clients"/>
 <meta name="DC.identifier" content="8.1"/>
+<meta name="robots" content="noindex,nofollow"/>
 </head>
-<body>
+<body><div class="page_header">
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch .NET Client [8.1]</a></span>
-»
-<span class="breadcrumb-link"><a href="api-conventions.html">API Conventions</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch .NET Client [8.1]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="api-conventions.html">API Conventions</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="thrown-exceptions.html">Exceptions</a></span>
-»
-<span class="breadcrumb-node">Unrecoverable exceptions</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -32,7 +34,7 @@
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="unrecoverable-exceptions"></a>Unrecoverable exceptions<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/client-concepts/connection-pooling/exceptions/unrecoverable-exceptions.asciidoc">edit</a></h2>
+<h2 class="title"><a id="unrecoverable-exceptions"></a>Unrecoverable exceptions<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/client-concepts/connection-pooling/exceptions/unrecoverable-exceptions.asciidoc">edit</a></h2>
 </div></div></div>
 <p>Unrecoverable exceptions are <em>expected</em> exceptions that are grounds to exit the client pipeline immediately.</p>
 <div class="note admon">
@@ -50,7 +52,7 @@ but by exiting the pipeline.</p>
 </div>
 <p>By default, the client won&#8217;t throw on any <code class="literal">TransportException</code> but instead return an invalid response
 that can be detected by checking the <code class="literal">.IsValid</code> property on the response. You can change this behaviour with
-by using <code class="literal">ThrowExceptions()</code> on <a class="xref" href="configuration-options.html" title="Configuration options"><code class="literal">ConnectionSettings</code></a>.</p>
+by using <code class="literal">ThrowExceptions()</code> on <a class="xref" href="configuration.html" title="Configuration"><code class="literal">ConnectionSettings</code></a>.</p>
 <div class="pre_wrapper lang-csharp">
 <pre class="programlisting prettyprint lang-csharp">var failures = Enum.GetValues(typeof(PipelineFailure)).Cast&lt;PipelineFailure&gt;();
 foreach (var failure in failures)

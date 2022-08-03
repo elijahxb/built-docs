@@ -1,7 +1,13 @@
-POST /library/_doc?refresh
-{"title": "Book #1", "rating": 200.1}
-POST /library/_doc?refresh
-{"title": "Book #2", "rating": 1.7}
-POST /library/_doc?refresh
-{"title": "Book #3", "rating": 0.1}
-GET /_search?filter_path=hits.hits._source&_source=title&sort=rating:desc
+PUT _cluster/settings
+{
+  "persistent": {
+    "cluster.routing.allocation.disk.watermark.low": "90%",
+    "cluster.routing.allocation.disk.watermark.high": "95%",
+    "cluster.routing.allocation.disk.watermark.flood_stage": "97%"
+  }
+}
+
+PUT */_settings?expand_wildcards=all
+{
+  "index.blocks.read_only_allow_delete": null
+}

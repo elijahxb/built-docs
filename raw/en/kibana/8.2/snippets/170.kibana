@@ -1,5 +1,5 @@
-GET /api/upgrade_assistant/add_query_default_field/myIndex
+PATCH api/cases/configure/3297a0f0-b5ec-11ec-b141-0fdb20a7f9a9
 {
-  "fieldTypes": ["text", "keyword"],
-  "otherFields": ["myField.*"]
+  "closure_type": "close-by-pushing",
+  "version": "WzIwMiwxXQ=="
 }

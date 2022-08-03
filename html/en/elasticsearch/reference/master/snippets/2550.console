@@ -1,4 +1,13 @@
-POST /_security/oauth2/token
+POST music/_search
 {
-  "grant_type" : "client_credentials"
+  "_source": "suggest",    
+  "suggest": {
+    "song-suggest": {
+      "prefix": "nir",
+      "completion": {
+        "field": "suggest",
+        "size": 5          
+      }
+    }
+  }
 }

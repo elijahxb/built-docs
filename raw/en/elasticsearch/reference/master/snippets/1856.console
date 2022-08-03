@@ -1,1 +1,1 @@
-GET /_nodes/ingest
+POST _slm/start

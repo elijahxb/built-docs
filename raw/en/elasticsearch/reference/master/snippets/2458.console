@@ -1,5 +1,23 @@
-POST stackoverflow/_terms_enum
+POST _ml/data_frame/_evaluate
 {
-    "field" : "tags",
-    "string" : "kiba"
+  "index": "student_performance_mathematics_reg",
+  "query": {
+    "term": {
+      "ml.is_training": {
+        "value": true
+      }
+    }
+  },
+  "evaluation": {
+    "regression": {
+      "actual_field": "G3",
+      "predicted_field": "ml.G3_prediction",
+      "metrics": {
+        "r_squared": {},
+        "mse": {},
+        "msle": {},
+        "huber": {}
+      }
+    }
+  }
 }

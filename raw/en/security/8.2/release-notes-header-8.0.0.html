@@ -13,17 +13,15 @@
 <meta name="robots" content="noindex,nofollow"/>
 </head>
 <body><div class="page_header">
-You are looking at preliminary documentation for a future release.
-Not what you want? See the
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
 <a href="../current/index.html">current release documentation</a>.
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elastic Security Solution [8.2]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Security Solution [8.2]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="release-notes.html">Release notes</a></span>
-»
-<span class="breadcrumb-node">8.0</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -167,6 +165,8 @@ Save the file and re-import it.
 </li>
 </ol>
 </div>
+<p><span class="strong strong"><strong>Network connection issues might occur if Elastic Endpoint is used with network traffic tools</strong></span></p>
+<p>On macOS versions before 12.4, if Elastic Endpoint is used with other products that monitor or manage network traffic (such as antivirus programs, firewalls, or VPNs), users might experience network connection issues. To resolve this issue, upgrade to macOS 12.4 or later.</p>
 <h4><a id="breaking-changes-8.0.0"></a>Breaking Changes<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/security-docs/edit/8.2/docs/release-notes/8.0.asciidoc">edit</a></h4>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -321,7 +321,7 @@ Allows you to modify the default threat indicator path for the Threat Intel File
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">GET /api/detection_engine/rules/_find?per_page=10000&amp;filter=alert.attributes.enabled:true</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/148.console"></div>
+<div class="console_widget" data-snippet="snippets/125.console"></div>
 <p>After upgrading, follow these steps to re-enable your rules from the Rules page:</p>
 <div class="olist orderedlist">
 <ol class="orderedlist">

@@ -1,14 +1,17 @@
-POST _ml/data_frame/_evaluate
+# Create the two indices
+PUT /my-index-000001
+PUT /my-index-000002
+
+# Update both mappings
+PUT /my-index-000001,my-index-000002/_mapping
 {
-   "index": "animal_classification",
-   "evaluation": {
-      "classification": {
-         "actual_field": "animal_class",
-         "metrics": {
-            "auc_roc" : {
-              "class_name": "dog"
-            }
-         }
+  "properties": {
+    "user": {
+      "properties": {
+        "name": {
+          "type": "keyword"
+        }
       }
-   }
+    }
+  }
 }

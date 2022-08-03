@@ -1,11 +1,10 @@
-PUT my-index-000001/_mapping
+GET my-index-000001/_search
 {
-  "runtime": {
-    "measures.start": {
-      "type": "long"
-    },
-    "measures.end": {
-      "type": "long"
+  "size": 1,
+  "query": {
+    "match": {
+      "client_ip": "211.11.9.0"
     }
-  }
+  },
+  "fields" : ["*"]
 }

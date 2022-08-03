@@ -20,13 +20,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Kibana Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="development.html">Developer guide</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Kibana Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="development.html">Developer guide</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="kibana-architecture.html">Architecture</a></span>
-»
-<span class="breadcrumb-node">Patterns</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -82,7 +79,7 @@ available to the plugin itself and all dependent plugins. For example,
 the plugin creates a custom Elasticsearch client and wants to use it via
 the request handler context:</p>
 <div class="pre_wrapper lang-typescript">
-<pre class="programlisting prettyprint lang-typescript">import type { CoreSetup, RequestHandlerContext, IScopedClusterClient } from 'kibana/server';
+<pre class="programlisting prettyprint lang-typescript">import type { CoreSetup, RequestHandlerContext, IScopedClusterClient } from '@kbn/core/server';
 
 interface MyRequestHandlerContext extends RequestHandlerContext {
  myPlugin: {

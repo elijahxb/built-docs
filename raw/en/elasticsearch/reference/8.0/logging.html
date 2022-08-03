@@ -19,13 +19,10 @@ will be released for this version. For the latest information, see the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.0]</a></span>
-»
-<span class="breadcrumb-link"><a href="setup.html">Set up Elasticsearch</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.0]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="setup.html">Set up Elasticsearch</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="settings.html">Configuring Elasticsearch</a></span>
-»
-<span class="breadcrumb-node">Logging</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -487,10 +484,22 @@ version. Deprecation log messages at the <code class="literal">WARN</code> level
 critical feature was used, it won&#8217;t be removed in next major version, but might
 be removed in the future.</p>
 <p>To stop writing deprecation log messages, set <code class="literal">logger.deprecation.level</code>
-to <code class="literal">OFF</code>:</p>
+to <code class="literal">OFF</code> in <code class="literal">log4j2.properties</code> :</p>
 <div class="pre_wrapper lang-properties">
 <pre class="programlisting prettyprint lang-properties">logger.deprecation.level = OFF</pre>
 </div>
+<p>Alternatively, you can change the logging level dynamically:</p>
+<a id="8e286a205a1f84f888a6d99f2620c80e"></a>
+<div class="pre_wrapper lang-console">
+<pre class="programlisting prettyprint lang-console">PUT /_cluster/settings
+{
+  "persistent": {
+    "logger.org.elasticsearch.deprecation": "OFF"
+  }
+}</pre>
+</div>
+<div class="console_widget" data-snippet="snippets/23.console"></div>
+<p>Refer to <a class="xref" href="logging.html#configuring-logging-levels" title="Configuring logging levels">Configuring logging levels</a>.</p>
 <p>You can identify what is triggering deprecated functionality if <code class="literal">X-Opaque-Id</code> was used as an HTTP header.
 The user ID is included in the <code class="literal">X-Opaque-ID</code> field in deprecation JSON logs.</p>
 <div class="pre_wrapper lang-js">

@@ -1,18 +1,7 @@
-PUT movies
+POST /_security/user/analyst_user?refresh=true
 {
-  "mappings": {
-    "properties": {
-      "name_and_plot": {
-        "type": "text"
-      },
-      "name": {
-        "type": "text",
-        "copy_to": "name_and_plot"
-      },
-      "plot": {
-        "type": "text",
-        "copy_to": "name_and_plot"
-      }
-    }
-  }
+  "password": "l0nger-r4nd0mer-p@ssw0rd",
+  "roles": [ "my_analyst_role" ],
+  "full_name": "Monday Jaffe",
+  "metadata": { "innovation" : 8}
 }

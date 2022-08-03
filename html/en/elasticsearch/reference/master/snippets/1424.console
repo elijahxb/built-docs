@@ -1,12 +1,1 @@
-PUT my-index/_mappings
-{
-  "runtime": {
-    "http.response": {
-      "type": "long",
-      "script": """
-        String response=dissect('%{clientip} %{ident} %{auth} [%{@timestamp}] "%{verb} %{request} HTTP/%{httpversion}" %{response} %{size}').extract(doc["message"].value)?.response;
-        if (response != null) emit(Integer.parseInt(response));
-      """
-    }
-  }
-}
+GET _sql/async/FmdMX2pIang3UWhLRU5QS0lqdlppYncaMUpYQ05oSkpTc3kwZ21EdC1tbFJXQToxOTI=?keep_alive=5d&wait_for_completion_timeout=2s&format=json

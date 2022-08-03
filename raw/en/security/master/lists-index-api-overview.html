@@ -18,13 +18,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elastic Security Solution [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="security-apis.html">Elastic Security APIs</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Security Solution [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="security-apis.html">Elastic Security APIs</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="exceptions-api-overview.html">Exceptions API</a></span>
-»
-<span class="breadcrumb-node">Lists index endpoint</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -43,12 +40,6 @@ and <code class="literal">.items</code> system indices in the relevant
 <a href="/guide/en/kibana/master/xpack-spaces.html" class="ulink" target="_top">Kibana space</a>.</p>
 <p>For information about the permissions and privileges required to create
 <code class="literal">.lists</code> and <code class="literal">.items</code> indices, see <a class="xref" href="detections-permissions-section.html#enable-detections-ui" title="Enable and access detections">Enable and access detections</a>.</p>
-<div class="note admon">
-<div class="icon"></div>
-<div class="admon_content">
-<p>Console supports only Elasticsearch APIs. Console doesn&#8217;t allow interactions with Kibana APIs. You must use <code class="literal">curl</code> or another HTTP tool instead. For more information, refer to <a href="/guide/en/kibana/master/console-kibana.html" class="ulink" target="_top">Run Elasticsearch API requests</a>.</p>
-</div>
-</div>
 <h3><a id="_create_index_2"></a>Create index<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/main/docs/detections/api/exceptions/lists-index-api-overview.asciidoc">edit</a></h3>
 <p>Creates <code class="literal">.lists</code> and <code class="literal">.items</code> indices. The indices naming convention is
 <code class="literal">.lists-&lt;space name&gt;</code> and <code class="literal">.items-&lt;space name&gt;</code>.</p>
@@ -59,8 +50,8 @@ and <code class="literal">.items</code> system indices in the relevant
 <div class="pre_wrapper lang-kibana">
 <pre class="programlisting prettyprint lang-kibana">POST api/lists/index</pre>
 </div>
-<div class="kibana_widget" data-snippet="snippets/55.kibana"></div>
-<h4><a id="_response_code_33"></a>Response code<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/main/docs/detections/api/exceptions/lists-index-api-overview.asciidoc">edit</a></h4>
+<div class="kibana_widget" data-snippet="snippets/49.kibana"></div>
+<h4><a id="_response_code_34"></a>Response code<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/main/docs/detections/api/exceptions/lists-index-api-overview.asciidoc">edit</a></h4>
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -82,8 +73,8 @@ Indicates a successful call.
 <div class="pre_wrapper lang-kibana">
 <pre class="programlisting prettyprint lang-kibana">GET api/lists/index</pre>
 </div>
-<div class="kibana_widget" data-snippet="snippets/56.kibana"></div>
-<h4><a id="_response_code_34"></a>Response code<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/main/docs/detections/api/exceptions/lists-index-api-overview.asciidoc">edit</a></h4>
+<div class="kibana_widget" data-snippet="snippets/50.kibana"></div>
+<h4><a id="_response_code_35"></a>Response code<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/main/docs/detections/api/exceptions/lists-index-api-overview.asciidoc">edit</a></h4>
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -128,8 +119,8 @@ Indicates no index exists.
 <div class="pre_wrapper lang-kibana">
 <pre class="programlisting prettyprint lang-kibana">DELETE api/lists/index</pre>
 </div>
-<div class="kibana_widget" data-snippet="snippets/57.kibana"></div>
-<h4><a id="_response_code_35"></a>Response code<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/main/docs/detections/api/exceptions/lists-index-api-overview.asciidoc">edit</a></h4>
+<div class="kibana_widget" data-snippet="snippets/51.kibana"></div>
+<h4><a id="_response_code_36"></a>Response code<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/main/docs/detections/api/exceptions/lists-index-api-overview.asciidoc">edit</a></h4>
 <div class="variablelist">
 <dl class="variablelist">
 <dt>

@@ -15,19 +15,16 @@
 <meta name="robots" content="noindex,nofollow"/>
 </head>
 <body><div class="page_header">
-You are looking at preliminary documentation for a future release.
-Not what you want? See the
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
 <a href="../current/index.html">current release documentation</a>.
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Kibana Guide [8.2]</a></span>
-»
-<span class="breadcrumb-link"><a href="api.html">REST API</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Kibana Guide [8.2]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="api.html">REST API</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="cases-api.html">Cases APIs</a></span>
-»
-<span class="breadcrumb-node">Update cases API</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -53,7 +50,7 @@ Not what you want? See the
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_prerequisite_13"></a>Prerequisite<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.2/docs/api/cases/cases-api-update.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_prerequisites_24"></a>Prerequisites<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.2/docs/api/cases/cases-api-update.asciidoc">edit</a></h3>
 </div></div></div>
 <p>You must have <code class="literal">all</code> privileges for the <span class="strong strong"><strong>Cases</strong></span> feature in the <span class="strong strong"><strong>Management</strong></span>,
 <span class="strong strong"><strong>Observability</strong></span>, or <span class="strong strong"><strong>Security</strong></span> section of the
@@ -303,7 +300,7 @@ field, specify <code class="literal">null</code> as its value.</p>
 </dt>
 <dd>
 (Required, string) The identifier for the connector. To remove the connector,
-use <code class="literal">none</code>.
+use <code class="literal">none</code>. To retrieve connector IDs, use <a class="xref" href="cases-api-find-connectors.html" title="Find connectors API">Find connectors</a>).
 </dd>
 <dt>
 <span class="term">
@@ -417,7 +414,7 @@ and <code class="literal">open</code>.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_response_code_14"></a>Response code<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.2/docs/api/cases/cases-api-update.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_response_codes_17"></a>Response codes<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.2/docs/api/cases/cases-api-update.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="variablelist">
 <dl class="variablelist">
@@ -435,7 +432,7 @@ Indicates a successful call.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_example_41"></a>Example<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.2/docs/api/cases/cases-api-update.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_examples_25"></a>Examples<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.2/docs/api/cases/cases-api-update.asciidoc">edit</a></h3>
 </div></div></div>
 <p>Update the description, tags, and connector of case ID
 <code class="literal">a18b38a0-71b0-11ea-a0b2-c51ea50a58e2</code>:</p>
@@ -472,7 +469,7 @@ Indicates a successful call.
   ]
 }</pre>
 </div>
-<div class="kibana_widget" data-snippet="snippets/155.kibana"></div>
+<div class="kibana_widget" data-snippet="snippets/167.kibana"></div>
 <p>The API returns the updated case with a new <code class="literal">version</code> value. For example:</p>
 <div class="pre_wrapper lang-json">
 <pre class="programlisting prettyprint lang-json">[

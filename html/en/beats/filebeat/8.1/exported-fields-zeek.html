@@ -11,6 +11,7 @@
 <meta name="DC.type" content="Learn/Docs/Filebeat/Reference/8.1"/>
 <meta name="DC.subject" content="Filebeat"/>
 <meta name="DC.identifier" content="8.1"/>
+<meta name="robots" content="noindex,nofollow"/>
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -56,7 +57,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,36 +88,29 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
-                  
+                  <div class="page_header">
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Filebeat Reference [8.1]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Filebeat Reference [8.1]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="exported-fields.html">Exported fields</a></span>
-»
-<span class="breadcrumb-node">Zeek fields</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -128,10 +122,10 @@
 </div>
 <div class="chapter">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="exported-fields-zeek"></a>Zeek fields<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h2>
+<h2 class="title"><a id="exported-fields-zeek"></a>Zeek fields<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h2>
 </div></div></div>
 <p>Module for handling logs produced by Zeek/Bro</p>
-<h3><a id="_zeek"></a>zeek<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_zeek"></a>zeek<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
 <p>Fields from Zeek/Bro logs after normalization</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -146,7 +140,7 @@
 </dd>
 </dl>
 </div>
-<h3><a id="_capture_loss"></a>capture_loss<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_capture_loss"></a>capture_loss<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
 <p>Fields exported by the Zeek capture_loss log</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -197,7 +191,7 @@
 </dd>
 </dl>
 </div>
-<h3><a id="_connection"></a>connection<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_connection"></a>connection<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
 <p>Fields exported by the Zeek Connection log</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -293,7 +287,7 @@
 </dd>
 </dl>
 </div>
-<h3><a id="_dce_rpc"></a>dce_rpc<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_dce_rpc"></a>dce_rpc<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
 <p>Fields exported by the Zeek DCE_RPC log</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -335,7 +329,7 @@
 </dd>
 </dl>
 </div>
-<h3><a id="_dhcp"></a>dhcp<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_dhcp"></a>dhcp<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
 <p>Fields exported by the Zeek DHCP log</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -387,7 +381,7 @@ message to the last, in seconds.</p>
 </dd>
 </dl>
 </div>
-<h3><a id="_address"></a>address<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_address"></a>address<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
 <p>Addresses seen in this DHCP exchange.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -537,7 +531,7 @@ to them correctly no matter where they are physically connected.</p>
 </dd>
 </dl>
 </div>
-<h3><a id="_dnp3"></a>dnp3<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_dnp3"></a>dnp3<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
 <p>Fields exported by the Zeek DNP3 log</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -570,7 +564,7 @@ to them correctly no matter where they are physically connected.</p>
 </dd>
 </dl>
 </div>
-<h3><a id="_dns_2"></a>dns<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_dns_2"></a>dns<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
 <p>Fields exported by the Zeek DNS log</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -759,7 +753,7 @@ server supports recursive queries.</p>
 </dd>
 </dl>
 </div>
-<h3><a id="_dpd"></a>dpd<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_dpd"></a>dpd<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
 <p>Fields exported by the Zeek DPD log</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -793,7 +787,7 @@ A chunk of the payload that most likely resulted in the protocol violation.</p>
 </dd>
 </dl>
 </div>
-<h3><a id="_files"></a>files<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_files"></a>files<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
 <p>Fields exported by the Zeek Files log.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -1033,7 +1027,7 @@ the file analysis.</p>
 </dd>
 </dl>
 </div>
-<h3><a id="_ftp"></a>ftp<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_ftp"></a>ftp<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
 <p>Fields exported by the Zeek FTP log</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -1121,7 +1115,7 @@ File unique ID.</p>
 </dd>
 </dl>
 </div>
-<h3><a id="_data_channel"></a>data_channel<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_data_channel"></a>data_channel<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
 <p>Expected FTP data channel.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -1172,7 +1166,7 @@ File unique ID.</p>
 </dd>
 </dl>
 </div>
-<h3><a id="_cmdarg"></a>cmdarg<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_cmdarg"></a>cmdarg<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
 <p>Command that is currently waiting for a response.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -1242,7 +1236,7 @@ Last authentication/security mechanism that was used.</p>
 </dd>
 </dl>
 </div>
-<h3><a id="_http_3"></a>http<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_http_3"></a>http<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
 <p>Fields exported by the Zeek HTTP log</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -1422,7 +1416,7 @@ are included here, just the header names.</p>
 </dd>
 </dl>
 </div>
-<h3><a id="_intel"></a>intel<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_intel"></a>intel<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
 <p>Fields exported by the Zeek Intel log.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -1554,7 +1548,7 @@ are included here, just the header names.</p>
 </dd>
 </dl>
 </div>
-<h3><a id="_irc"></a>irc<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_irc"></a>irc<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
 <p>Fields exported by the Zeek IRC log</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -1645,7 +1639,7 @@ File unique ID.</p>
 </dd>
 </dl>
 </div>
-<h3><a id="_kerberos_3"></a>kerberos<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_kerberos_3"></a>kerberos<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
 <p>Fields exported by the Zeek Kerberos log</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -1831,7 +1825,7 @@ File unique ID.</p>
 </dd>
 </dl>
 </div>
-<h3><a id="_modbus"></a>modbus<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_modbus"></a>modbus<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
 <p>Fields exported by the Zeek modbus log.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -1865,7 +1859,7 @@ Modbus track address.</p>
 </dd>
 </dl>
 </div>
-<h3><a id="_mysql_2"></a>mysql<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_mysql_2"></a>mysql<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
 <p>Fields exported by the Zeek MySQL log.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -1916,7 +1910,7 @@ Modbus track address.</p>
 </dd>
 </dl>
 </div>
-<h3><a id="_notice"></a>notice<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_notice"></a>notice<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
 <p>Fields exported by the Zeek Notice log.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -2146,7 +2140,7 @@ has been delayed for the specified time duration.</p>
 </dd>
 </dl>
 </div>
-<h3><a id="_ntlm"></a>ntlm<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_ntlm"></a>ntlm<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
 <p>Fields exported by the Zeek NTLM log.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -2215,7 +2209,7 @@ has been delayed for the specified time duration.</p>
 </dd>
 </dl>
 </div>
-<h3><a id="_ntp"></a>ntp<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_ntp"></a>ntp<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
 <p>Fields exported by the Zeek NTP log.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -2338,7 +2332,7 @@ has been delayed for the specified time duration.</p>
 </dd>
 </dl>
 </div>
-<h3><a id="_ocsp"></a>ocsp<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_ocsp"></a>ocsp<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
 <p>Fields exported by the Zeek OCSP log
 Online Certificate Status Protocol (OCSP). Only created if policy script is loaded.</p>
 <div class="variablelist">
@@ -2435,7 +2429,7 @@ Online Certificate Status Protocol (OCSP). Only created if policy script is load
 </dd>
 </dl>
 </div>
-<h3><a id="_pe_2"></a>pe<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_pe_2"></a>pe<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
 <p>Fields exported by the Zeek pe log.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -2594,7 +2588,7 @@ Online Certificate Status Protocol (OCSP). Only created if policy script is load
 </dd>
 </dl>
 </div>
-<h3><a id="_radius"></a>radius<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_radius"></a>radius<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
 <p>Fields exported by the Zeek Radius log.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -2681,7 +2675,7 @@ Online Certificate Status Protocol (OCSP). Only created if policy script is load
 </dd>
 </dl>
 </div>
-<h3><a id="_rdp"></a>rdp<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_rdp"></a>rdp<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
 <p>Fields exported by the Zeek RDP log.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -2841,7 +2835,7 @@ Flag the connection if it was seen over SSL.</p>
 </dd>
 </dl>
 </div>
-<h3><a id="_rfb"></a>rfb<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_rfb"></a>rfb<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
 <p>Fields exported by the Zeek RFB log.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -2937,7 +2931,7 @@ Flag the connection if it was seen over SSL.</p>
 </dd>
 </dl>
 </div>
-<h3><a id="_signature"></a>signature<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_signature"></a>signature<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
 <p>Fields exported by the Zeek Signature log.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -2997,7 +2991,7 @@ Flag the connection if it was seen over SSL.</p>
 </dd>
 </dl>
 </div>
-<h3><a id="_sip"></a>sip<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_sip"></a>sip<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
 <p>Fields exported by the Zeek SIP log.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -3192,7 +3186,7 @@ Flag the connection if it was seen over SSL.</p>
 </dd>
 </dl>
 </div>
-<h3><a id="_smb_cmd"></a>smb_cmd<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_smb_cmd"></a>smb_cmd<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
 <p>Fields exported by the Zeek smb_cmd log.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -3279,7 +3273,7 @@ Flag the connection if it was seen over SSL.</p>
 </dd>
 </dl>
 </div>
-<h3><a id="_file_3"></a>file<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_file_3"></a>file<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
 <p>If the command referenced a file, store it here.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -3350,7 +3344,7 @@ Dialects offered by the client.</p>
 </dd>
 </dl>
 </div>
-<h3><a id="_smb_files"></a>smb_files<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_smb_files"></a>smb_files<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
 <p>Fields exported by the Zeek SMB Files log.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -3410,7 +3404,7 @@ Dialects offered by the client.</p>
 </dd>
 </dl>
 </div>
-<h3><a id="_times"></a>times<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_times"></a>times<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
 <p>Timestamps of the file.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -3461,7 +3455,7 @@ Dialects offered by the client.</p>
 </dd>
 </dl>
 </div>
-<h3><a id="_smb_mapping"></a>smb_mapping<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_smb_mapping"></a>smb_mapping<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
 <p>Fields exported by the Zeek SMB_Mapping log.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -3504,7 +3498,7 @@ will be deduced and included as well.</p>
 </dd>
 </dl>
 </div>
-<h3><a id="_smtp"></a>smtp<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_smtp"></a>smtp<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
 <p>Fields exported by the Zeek SMTP log.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -3718,7 +3712,7 @@ An ordered vector of file unique IDs seen attached to the message.</p>
 </dd>
 </dl>
 </div>
-<h3><a id="_snmp"></a>snmp<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_snmp"></a>snmp<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
 <p>Fields exported by the Zeek SNMP log.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -3805,7 +3799,7 @@ An ordered vector of file unique IDs seen attached to the message.</p>
 </dd>
 </dl>
 </div>
-<h3><a id="_socks"></a>socks<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_socks"></a>socks<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
 <p>Fields exported by the Zeek SOCKS log.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -3892,7 +3886,7 @@ An ordered vector of file unique IDs seen attached to the message.</p>
 </dd>
 </dl>
 </div>
-<h3><a id="_ssh"></a>ssh<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_ssh"></a>ssh<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
 <p>Fields exported by the Zeek SSH log.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -3945,7 +3939,7 @@ opposite situation.</p>
 </dd>
 </dl>
 </div>
-<h3><a id="_algorithm"></a>algorithm<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_algorithm"></a>algorithm<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
 <p>Cipher algorithms used in this session.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -4017,7 +4011,7 @@ servers require two-factor auth (e.g. password AND pubkey).</p>
 </dd>
 </dl>
 </div>
-<h3><a id="_ssl_7"></a>ssl<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_ssl_7"></a>ssl<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
 <p>Fields exported by the Zeek SSL log.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -4133,7 +4127,7 @@ that the client was requesting.</p>
 </dd>
 </dl>
 </div>
-<h3><a id="_issuer"></a>issuer<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_issuer"></a>issuer<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
 <p>Subject of the signer of the X.509 certificate offered by the server.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -4193,7 +4187,7 @@ that the client was requesting.</p>
 </dd>
 </dl>
 </div>
-<h3><a id="_subject"></a>subject<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_subject"></a>subject<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
 <p>Subject of the X.509 certificate offered by the server.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -4271,7 +4265,7 @@ that the client was requesting.</p>
 </dd>
 </dl>
 </div>
-<h3><a id="_issuer_2"></a>issuer<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_issuer_2"></a>issuer<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
 <p>Subject of the signer of the X.509 certificate offered by the client.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -4331,7 +4325,7 @@ that the client was requesting.</p>
 </dd>
 </dl>
 </div>
-<h3><a id="_subject_2"></a>subject<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_subject_2"></a>subject<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
 <p>Subject of the X.509 certificate offered by the client.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -4391,7 +4385,7 @@ that the client was requesting.</p>
 </dd>
 </dl>
 </div>
-<h3><a id="_stats_2"></a>stats<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_stats_2"></a>stats<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
 <p>Fields exported by the Zeek stats log.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -4622,7 +4616,7 @@ that the client was requesting.</p>
 </dd>
 </dl>
 </div>
-<h3><a id="_syslog_2"></a>syslog<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_syslog_2"></a>syslog<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
 <p>Fields exported by the Zeek syslog log.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -4655,7 +4649,7 @@ that the client was requesting.</p>
 </dd>
 </dl>
 </div>
-<h3><a id="_tunnel"></a>tunnel<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_tunnel"></a>tunnel<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
 <p>Fields exported by the Zeek SSH log.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -4679,7 +4673,7 @@ that the client was requesting.</p>
 </dd>
 </dl>
 </div>
-<h3><a id="_weird"></a>weird<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_weird"></a>weird<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
 <p>Fields exported by the Zeek Weird log.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -4730,7 +4724,7 @@ that the client was requesting.</p>
 </dd>
 </dl>
 </div>
-<h3><a id="_x509_2"></a>x509<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_x509_2"></a>x509<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
 <p>Fields exported by the Zeek x509 log.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -4745,7 +4739,7 @@ that the client was requesting.</p>
 </dd>
 </dl>
 </div>
-<h3><a id="_certificate_2"></a>certificate<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_certificate_2"></a>certificate<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
 <p>Basic information about the certificate.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -4769,7 +4763,7 @@ that the client was requesting.</p>
 </dd>
 </dl>
 </div>
-<h3><a id="_subject_3"></a>subject<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_subject_3"></a>subject<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
 <p>Subject.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -4829,7 +4823,7 @@ that the client was requesting.</p>
 </dd>
 </dl>
 </div>
-<h3><a id="_issuer_3"></a>issuer<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_issuer_3"></a>issuer<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
 <p>Issuer.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -4898,7 +4892,7 @@ that the client was requesting.</p>
 </dd>
 </dl>
 </div>
-<h3><a id="_valid"></a>valid<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_valid"></a>valid<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
 <p>Certificate validity timestamps</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -4976,7 +4970,7 @@ that the client was requesting.</p>
 </dd>
 </dl>
 </div>
-<h3><a id="_san"></a>san<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_san"></a>san<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
 <p>Subject alternative name extension of the certificate.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -5027,7 +5021,7 @@ that the client was requesting.</p>
 </dd>
 </dl>
 </div>
-<h3><a id="_basic_constraints"></a>basic_constraints<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_basic_constraints"></a>basic_constraints<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/fields.asciidoc">edit</a></h3>
 <p>Basic constraints extension of the certificate.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -5074,15 +5068,37 @@ Logging of certificate is suppressed if set to F.</p>
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

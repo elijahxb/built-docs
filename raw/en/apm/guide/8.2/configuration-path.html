@@ -13,19 +13,16 @@
 <meta name="robots" content="noindex,nofollow"/>
 </head>
 <body><div class="page_header">
-You are looking at preliminary documentation for a future release.
-Not what you want? See the
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
 <a href="../current/index.html">current release documentation</a>.
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">APM User Guide [8.2]</a></span>
-»
-<span class="breadcrumb-link"><a href="overview.html">Legacy APM Server Reference</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">APM User Guide [8.2]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="overview.html">Legacy APM Server Reference</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="configuring-howto-apm-server.html">Configure APM Server</a></span>
-»
-<span class="breadcrumb-node">Configure project paths</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -43,7 +40,7 @@ Not what you want? See the
 <div class="important admon">
 <div class="icon"></div>
 <div class="admon_content">
-<p>This documentation refers to configuring the standalone (legacy) APM Server. This method of running APM Server will be deprecated and removed in a future release. Please consider <a class="xref" href="upgrade-to-apm-integration.html" title="Upgrade to the Elastic APM integration">upgrading to Fleet and the APM integration</a>.</p>
+<p>This documentation refers to configuring the standalone (legacy) APM Server. This method of running APM Server will be deprecated and removed in a future release. Please consider <a class="xref" href="upgrade-to-apm-integration.html" title="Switch to the Elastic APM integration">upgrading to Fleet and the APM integration</a>.</p>
 </div>
 </div>
 <p>The <code class="literal">path</code> section of the <code class="literal">apm-server.yml</code> config file contains configuration
@@ -104,7 +101,7 @@ for the logs path is a <code class="literal">logs</code> subdirectory inside the
 <pre class="programlisting prettyprint lang-yaml">path.logs: /var/log/beats</pre>
 </div>
 <h5><a id="_system_hostfs"></a><code class="literal">system.hostfs</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/apm-server/edit/8.2/docs/legacy/copied-from-beats/docs/shared-path-config.asciidoc">edit</a></h5>
-<p>Specifies the mount point of the host&#8217;s filesystem for use in monitoring a host.
+<p>Specifies the mount point of the host&#8217;s file system for use in monitoring a host.
 This can either be set in the config, or with the <code class="literal">--system.hostfs</code> CLI flag. This is used for cgroup self-monitoring.</p>
 <p>Example:</p>
 <div class="pre_wrapper lang-yaml">

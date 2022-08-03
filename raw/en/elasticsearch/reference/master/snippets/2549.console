@@ -1,1 +1,11 @@
-GET /_security/service/elastic/fleet-server/credential
+POST music/_search?pretty
+{
+  "suggest": {
+    "song-suggest": {
+      "prefix": "nir",       
+      "completion": {        
+          "field": "suggest" 
+      }
+    }
+  }
+}

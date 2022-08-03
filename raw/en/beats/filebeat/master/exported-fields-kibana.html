@@ -18,11 +18,9 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Filebeat Reference [master]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Filebeat Reference [master]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="exported-fields.html">Exported fields</a></span>
-»
-<span class="breadcrumb-node">kibana fields</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -34,10 +32,10 @@ Not what you want? See the
 </div>
 <div class="chapter">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="exported-fields-kibana"></a>kibana fields<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/filebeat/docs/fields.asciidoc">edit</a></h2>
+<h2 class="title"><a id="exported-fields-kibana"></a>kibana fields</h2>
 </div></div></div>
 <p>kibana Module</p>
-<h3><a id="_kibana"></a>kibana<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/filebeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_kibana"></a>kibana</h3>
 <p>Module for parsing Kibana logs.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -143,7 +141,7 @@ Not what you want? See the
 </dd>
 </dl>
 </div>
-<h3><a id="_log_6"></a>log<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/filebeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_log_6"></a>log</h3>
 <p>Kibana log lines.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -175,66 +173,19 @@ Not what you want? See the
 </dd>
 <dt>
 <span class="term">
-<span class="strong strong"><strong><code class="literal">kibana.log.kibana.log.meta.req.headers.referer</code></strong></span>
+<span class="strong strong"><strong><code class="literal">kibana.log.meta.req.headers</code></strong></span>
 </span>
 </dt>
 <dd>
-<p>type: alias</p>
-<p>alias to: http.request.referrer</p>
+<p>type: flattened</p>
 </dd>
 <dt>
 <span class="term">
-<span class="strong strong"><strong><code class="literal">kibana.log.kibana.log.meta.req.referer</code></strong></span>
+<span class="strong strong"><strong><code class="literal">kibana.log.meta.res.headers</code></strong></span>
 </span>
 </dt>
 <dd>
-<p>type: alias</p>
-<p>alias to: http.request.referrer</p>
-</dd>
-<dt>
-<span class="term">
-<span class="strong strong"><strong><code class="literal">kibana.log.kibana.log.meta.req.headers.user-agent</code></strong></span>
-</span>
-</dt>
-<dd>
-<p>type: alias</p>
-<p>alias to: user_agent.original</p>
-</dd>
-<dt>
-<span class="term">
-<span class="strong strong"><strong><code class="literal">kibana.log.kibana.log.meta.req.remoteAddress</code></strong></span>
-</span>
-</dt>
-<dd>
-<p>type: alias</p>
-<p>alias to: source.address</p>
-</dd>
-<dt>
-<span class="term">
-<span class="strong strong"><strong><code class="literal">kibana.log.kibana.log.meta.req.url</code></strong></span>
-</span>
-</dt>
-<dd>
-<p>type: alias</p>
-<p>alias to: url.original</p>
-</dd>
-<dt>
-<span class="term">
-<span class="strong strong"><strong><code class="literal">kibana.log.kibana.log.meta.statusCode</code></strong></span>
-</span>
-</dt>
-<dd>
-<p>type: alias</p>
-<p>alias to: http.response.status_code</p>
-</dd>
-<dt>
-<span class="term">
-<span class="strong strong"><strong><code class="literal">kibana.log.kibana.log.meta.method</code></strong></span>
-</span>
-</dt>
-<dd>
-<p>type: alias</p>
-<p>alias to: http.request.method</p>
+<p>type: flattened</p>
 </dd>
 </dl>
 </div>

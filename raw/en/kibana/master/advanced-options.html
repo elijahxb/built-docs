@@ -20,11 +20,9 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Kibana Guide [master]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Kibana Guide [master]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="management.html">Stack Management</a></span>
-»
-<span class="breadcrumb-node">Advanced Settings</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -268,8 +266,8 @@ from suggesting values for fields.
 <td valign="top">
 <p>
 When set to <code class="literal">terms_enum</code>, autocomplete uses the terms enum API for value suggestions. Kibana returns results faster, but suggestions are approximate, sorted alphabetically, and can be outside the selected time range.
-When set to <code class="literal">terms_agg</code>, Kibana uses a terms aggregation for value suggestions, which is slower, but suggestions include all values that optionally match your time range and are sorted by popularity.
-<a class="xref" href="kibana-concepts-analysts.html#kibana-concepts-searching-your-data" title="Searching your data">Learn more</a>.
+When set to <code class="literal">terms_agg</code>, Kibana uses a terms aggregation for value suggestions, which is
+slower, but suggestions include all values that optionally match your time range and are sorted by popularity.
 </p>
 </td>
 </tr>
@@ -281,7 +279,8 @@ When set to <code class="literal">terms_agg</code>, Kibana uses a terms aggregat
 </td>
 <td valign="top">
 <p>
-Disable this property to get autocomplete suggestions from your full dataset, rather than from the current time range. <a class="xref" href="kibana-concepts-analysts.html#kibana-concepts-searching-your-data" title="Searching your data">Learn more</a>.
+Disable this property to get autocomplete suggestions from
+your full dataset, rather than from the current time range.
 </p>
 </td>
 </tr>
@@ -674,7 +673,7 @@ When enabled, provides access to the experimental <span class="strong strong"><s
 <td valign="top">
 <p>
 When enabled, the panels that appear below the fold are loaded when they become visible on the dashboard.
-<em>Below the fold</em> refers to panels that are not immediately visible when you open a dashboard, but become visible as you scroll. For additional information, refer to <a class="xref" href="dashboard-troubleshooting.html#defer-loading-panels-below-the-fold" title="Improve dashboard loading time">Improve dashboard loading time</a>.
+<em>Below the fold</em> refers to panels that are not immediately visible when you open a dashboard, but become visible as you scroll. For additional information, refer to <a class="xref" href="dashboard-troubleshooting.html" title="Improve dashboard loading time">Improve dashboard loading time</a>.
 </p>
 </td>
 </tr>
@@ -922,6 +921,18 @@ Specifies the number of rows to display in the <span class="strong strong"><stro
 <tr>
 <td valign="top">
 <p>
+<a id="discover-sampleRowsPerPage"></a><code class="literal">discover:sampleRowsPerPage</code>
+</p>
+</td>
+<td valign="top">
+<p>
+Specifies the number of rows to display per page in the <span class="strong strong"><strong>Discover</strong></span> table.
+</p>
+</td>
+</tr>
+<tr>
+<td valign="top">
+<p>
 <a id="discover-searchFieldsFromSource"></a><code class="literal">discover:searchFieldsFromSource</code>
 </p>
 </td>
@@ -979,6 +990,18 @@ The default sort direction for time-based data views.
 <td valign="top">
 <p>
 Hides the "Time" column in <span class="strong strong"><strong>Discover</strong></span> and in all saved searches on dashboards.
+</p>
+</td>
+</tr>
+<tr>
+<td valign="top">
+<p>
+<a id="discover:enableSql"></a><code class="literal">discover:enableSql</code>
+</p>
+</td>
+<td valign="top">
+<p>
+When enabled, allows SQL queries for search.
 </p>
 </td>
 </tr>
@@ -1069,7 +1092,7 @@ must contain <code class="literal">from</code> and <code class="literal">to</cod
 <td valign="top">
 <p>
 A custom banner intended for temporary notices to all users. Supports
-<a href="https://help.github.com/en/articles/basic-writing-and-formatting-syntax" class="ulink" target="_top">Markdown</a>.
+<a href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax" class="ulink" target="_top">Markdown</a>.
 </p>
 </td>
 </tr>
@@ -1151,12 +1174,70 @@ When enabled, displays the <span class="strong strong"><strong>Overview</strong>
 <tr>
 <td valign="top">
 <p>
+<a id="observability-apm-optimized-sort"></a><code class="literal">observability:apmServiceInventoryOptimizedSorting</code>
+</p>
+</td>
+<td valign="top">
+<p>
+<span class="Admonishment Admonishment--preview">
+[<span class="Admonishment-title u-mono">preview</span>]
+<span class="Admonishment-detail">
+This functionality is in technical preview and may be changed or removed in a future release. Elastic will apply best effort to fix any issues, but features in technical preview are not subject to the support SLA of official GA features.
+</span>
+</span> Sorts services without anomaly detection rules on the APM Service inventory page by service name.
+</p>
+</td>
+</tr>
+<tr>
+<td valign="top">
+<p>
+<a id="observability-apm-enable-comparison"></a><code class="literal">observability:enableComparisonByDefault</code>
+</p>
+</td>
+<td valign="top">
+<p>
+Enables the comparison feature in the APM app.
+</p>
+</td>
+</tr>
+<tr>
+<td valign="top">
+<p>
+<a id="observability-apm-enable-infra-view"></a><code class="literal">observability:enableInfrastructureView</code>
+</p>
+</td>
+<td valign="top">
+<p>
+Enables the Infrastructure view in the APM app.
+</p>
+</td>
+</tr>
+<tr>
+<td valign="top">
+<p>
 <a id="observability-enable-inspect-es-queries"></a><code class="literal">observability:enableInspectEsQueries</code>
 </p>
 </td>
 <td valign="top">
 <p>
 When enabled, allows you to inspect Elasticsearch queries in API responses.
+</p>
+</td>
+</tr>
+<tr>
+<td valign="top">
+<p>
+<a id="observability-apm-enable-service-groups"></a><code class="literal">observability:enableServiceGroups</code>
+</p>
+</td>
+<td valign="top">
+<p>
+<span class="Admonishment Admonishment--preview">
+[<span class="Admonishment-title u-mono">preview</span>]
+<span class="Admonishment-detail">
+This functionality is in technical preview and may be changed or removed in a future release. Elastic will apply best effort to fix any issues, but features in technical preview are not subject to the support SLA of official GA features.
+</span>
+</span> When enabled, allows users to create Service Groups from the APM Service Inventory page.
 </p>
 </td>
 </tr>
@@ -1341,6 +1422,19 @@ A comma-delimited list of Threat Intelligence indices from which the Elastic Sec
 <tr>
 <td valign="top">
 <p>
+<a id="securitysolution-enableCcsWarning"></a><code class="literal">securitySolution:enableCcsWarning</code>
+</p>
+</td>
+<td valign="top">
+<p>
+Enables
+privilege check warnings in rules for CCS indices.
+</p>
+</td>
+</tr>
+<tr>
+<td valign="top">
+<p>
 <a id="securitysolution-enablenewsfeed"></a><code class="literal">securitySolution:enableNewsFeed</code>
 </p>
 </td>
@@ -1397,7 +1491,19 @@ The default refresh interval for the Security time filter, in milliseconds.
 </td>
 <td valign="top">
 <p>
-The default period of time in the Security time filter.
+Enables auto refresh on the rules and monitoring tables, in milliseconds.
+</p>
+</td>
+</tr>
+<tr>
+<td valign="top">
+<p>
+<a id="securitySolution-showRelatedIntegrations"></a><code class="literal">securitySolution:showRelatedIntegrations</code>
+</p>
+</td>
+<td valign="top">
+<p>
+Shows related integrations on the rules and monitoring tables.
 </p>
 </td>
 </tr>
@@ -1460,15 +1566,6 @@ The smallest interval to calculate when using "auto".
 <dd>
 Used for calculating automatic intervals in visualizations, this is the number
 of buckets to try to represent.
-</dd>
-<dt>
-<span class="term">
-<a id="timelion-legacyChartsLibrary"></a><code class="literal">timelion:legacyChartsLibrary</code>
-</span>
-</dt>
-<dd>
-<span class="strong strong"><strong>The legacy timelion charts are deprecated and will not be supported as of 8.4.</strong></span>
-Enables the legacy charts library for timelion charts in Visualize.
 </dd>
 </dl>
 </div>

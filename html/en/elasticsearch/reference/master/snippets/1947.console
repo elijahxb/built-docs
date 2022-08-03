@@ -1,9 +1,6 @@
-POST my-index-000001/_delete_by_query
+GET _cluster/allocation/explain
 {
-  "query": {
-    "term": {
-      "user.id": "kimchy"
-    }
-  },
-  "max_docs": 1
+  "index": "my-index-000001",
+  "shard": 0,
+  "primary": true
 }

@@ -18,11 +18,9 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elastic Cloud on Kubernetes [master]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Cloud on Kubernetes [master]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="k8s-operating-eck.html">Operating ECK</a></span>
-»
-<span class="breadcrumb-node">Configure ECK</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -61,6 +59,11 @@ Not what you want? See the
 <td align="left" valign="middle"><p><code class="literal">ca-cert-validity</code></p></td>
 <td align="left" valign="middle"><p><code class="literal">8760h</code></p></td>
 <td align="left" valign="middle"><p>Duration representing the validity period of a generated CA certificate.</p></td>
+</tr>
+<tr>
+<td align="left" valign="middle"><p><code class="literal">ca-dir</code></p></td>
+<td align="left" valign="middle"><p><code class="literal">""</code></p></td>
+<td align="left" valign="middle"><p>Path to a directory containing a CA certificate (tls.crt) and its associated private key (tls.key) to be used for all managed resources. Effectively disables the CA rotation and validity options.</p></td>
 </tr>
 <tr>
 <td align="left" valign="middle"><p><code class="literal">cert-rotate-before</code></p></td>
@@ -165,7 +168,7 @@ Not what you want? See the
 <tr>
 <td align="left" valign="middle"><p><code class="literal">set-default-security-context</code></p></td>
 <td align="left" valign="middle"><p><code class="literal">true</code></p></td>
-<td align="left" valign="middle"><p>Enables adding a default Pod Security Context to Elasticsearch Pods in Elasticsearch <code class="literal">8.0.0</code> and above. <code class="literal">fsGroup</code> is set to <code class="literal">1000</code> by default to match Elasticsearch container default UID. This behavior might not be appropriate for OpenShift and PSP-secured Kubernetes clusters, so it can be disabled.</p></td>
+<td align="left" valign="middle"><p>Enables adding a default Pod Security Context to Elasticsearch Pods in Elasticsearch <code class="literal">8.0.0</code> and later. <code class="literal">fsGroup</code> is set to <code class="literal">1000</code> by default to match Elasticsearch container default UID. This behavior might not be appropriate for OpenShift and PSP-secured Kubernetes clusters, so it can be disabled.</p></td>
 </tr>
 <tr>
 <td align="left" valign="middle"><p><code class="literal">ubi-only</code></p></td>
@@ -249,7 +252,7 @@ namespaces: [ns1, ns2, ns3]</pre>
 <div class="pre_wrapper lang-sh">
 <pre class="programlisting prettyprint lang-sh">LOG_VERBOSITY=2 METRICS_PORT=6060 NAMESPACES="ns1,ns2,ns3" ./elastic-operator manager</pre>
 </div>
-<p>If you use a combination of all or some of the methods listed above, the descending order of precedence in case of a conflict is as follows:</p>
+<p>If you use a combination of all or some of the these methods, the descending order of precedence in case of a conflict is as follows:</p>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
 <li class="listitem">
@@ -265,7 +268,7 @@ File
 </div>
 <p>You can edit the <code class="literal">elastic-operator</code> ConfigMap to change the operator configuration. Unless the <code class="literal">--disable-config-watch</code> flag is set, the operator should restart automatically to apply the new changes. Alternatively, you can edit the <code class="literal">elastic-operator</code> StatefulSet and add flags to the <code class="literal">args</code> section&#8201;&#8212;&#8201;which will trigger an automatic restart of the operator pod by the StatefulSet controller.</p>
 <h3><a id="k8s-operator-config-olm"></a>Configure ECK under Operator Lifecycle Manager<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/cloud-on-k8s/edit/main/docs/operating-eck/operator-config.asciidoc">edit</a></h3>
-<p>If you use <a href="https://github.com/operator-framework/operator-lifecycle-manager" class="ulink" target="_top">Operator Lifecycle Manager (OLM)</a> to install and run ECK, follow the steps below to configure the operator.</p>
+<p>If you use <a href="https://github.com/operator-framework/operator-lifecycle-manager" class="ulink" target="_top">Operator Lifecycle Manager (OLM)</a> to install and run ECK, follow these steps to configure the operator:</p>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
 <li class="listitem">
@@ -302,7 +305,7 @@ spec:
   name: elastic-cloud-eck
   source: elastic-operators
   sourceNamespace: openshift-marketplace
-  startingCSV: elastic-cloud-eck.v2.1.0
+  startingCSV: elastic-cloud-eck.v2.3.0
   config:
     volumes:
       - name: config

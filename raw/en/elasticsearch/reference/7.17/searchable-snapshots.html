@@ -17,11 +17,9 @@ A newer version is available. For the latest information, see the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [7.17]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [7.17]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="snapshot-restore.html">Snapshot and restore</a></span>
-»
-<span class="breadcrumb-node">Searchable snapshots</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -176,8 +174,9 @@ Partially mounted index
 <dd>
 <p>
 Uses a local cache containing only recently searched parts of the snapshotted
-index&#8217;s data. This cache has a fixed size and is shared across nodes in the
-frozen tier. ILM uses this option in the <code class="literal">frozen</code> phase.
+index&#8217;s data. This cache has a fixed size and is shared across shards of partially
+mounted indices allocated on the same data node. ILM uses this option in the
+<code class="literal">frozen</code> phase.
 </p>
 <p>If a search requires data that is not in the cache, Elasticsearch fetches the missing
 data from the snapshot repository. Searches that require these fetches are
@@ -361,6 +360,9 @@ can use separate repositories for regular snapshots and searchable snapshots.</p
 which identifies its original index snapshot. It does not contain any data from
 the original index. The restore of a backup will fail to restore any
 searchable snapshot indices whose original index snapshot is unavailable.</p>
+<p>Because searchable snapshot indices are not regular indices, it is not possible to
+use a <a class="xref" href="snapshots-register-repository.html#snapshots-source-only-repository" title="Source-only repository">source-only repository</a> to take
+snapshots of searchable snapshot indices.</p>
 <h3><a id="searchable-snapshots-reliability"></a>Reliability of searchable snapshots<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/7.17/docs/reference/searchable-snapshots/index.asciidoc">edit</a></h3>
 <p>The sole copy of the data in a searchable snapshot index is the underlying snapshot,
 stored in the repository. If the repository fails or corrupts the contents of

@@ -1,8 +1,17 @@
-PUT logs-my_app-default/_settings
+PUT _ilm/policy/my_policy
 {
-  "index": {
-    "lifecycle": {
-      "name": "new-lifecycle-policy"
+  "policy": {
+    "phases": {
+      "warm": {
+        "actions": {
+          "allocate" : {
+            "number_of_replicas": 1,
+            "require" : {
+              "box_type": "cold"
+            }
+        }
+        }
+      }
     }
   }
 }

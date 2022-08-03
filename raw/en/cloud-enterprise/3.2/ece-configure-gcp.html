@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Google Cloud Platform (GCP) | Elastic Cloud Enterprise Reference [3.2] | Elastic</title>
+<link rel="home" href="index.html" title="Elastic Cloud Enterprise Reference [3.2]"/>
+<link rel="up" href="ece-install-public.html" title="Install ECE on a public cloud"/>
+<link rel="prev" href="ece-configure-ami.html" title="Amazon Machine Images (AMIs)"/>
+<link rel="next" href="ece-configure-azure.html" title="Microsoft Azure virtual machines"/>
+<meta name="DC.type" content="Learn/Docs/CloudEnterprise/Reference/3.2"/>
+<meta name="DC.subject" content="ECE"/>
+<meta name="DC.identifier" content="3.2"/>
+</head>
+<body><div class="page_header">
+A newer version is available. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Cloud Enterprise Reference [3.2]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="ece-installing.html">Installing Elastic Cloud Enterprise</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="ece-install-public.html">Install ECE on a public cloud</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="ece-configure-ami.html">« Amazon Machine Images (AMIs)</a>
+</span>
+<span class="next">
+<a href="ece-configure-azure.html">Microsoft Azure virtual machines »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="ece-configure-gcp"></a>Google Cloud Platform (GCP)<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/cloud-enterprise/ce-configuring-gcp.asciidoc">edit</a></h2>
+</div></div></div>
+<p>The following steps describe how to create an instance group with virtual machines on Google Compute Engine in preparation for installing Elastic Cloud Enterprise.</p>
+<p>To learn more about the concepts used in this section, check <a href="https://cloud.google.com/docs/" class="ulink" target="_top">Google Cloud Platform Documentation</a>.</p>
+<p>To set up your GCP instance group with virtual machines:</p>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+Log into the <a href="https://console.cloud.google.com" class="ulink" target="_top">Google Cloud Platform console</a>.
+</li>
+<li class="listitem">
+<p>Create an instance template:</p>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+Under <span class="strong strong"><strong>Instance Templates</strong></span>, select <span class="strong strong"><strong>CREATE INSTANCE TEMPLATE</strong></span> and name your template.
+</li>
+<li class="listitem">
+Select a machine type, one of the supported Linux distributions as the boot disk, and specify enough storage. Make sure that the template meets the <a class="xref" href="ece-prereqs.html" title="Preparing your installation">prerequisites</a> for Elastic Cloud Enterprise.
+</li>
+<li class="listitem">
+Set the Firewall to allow both HTTP and HTTPS access.
+</li>
+<li class="listitem">
+On the <span class="strong strong"><strong>Networking</strong></span> tab, set IP forwarding to on.
+</li>
+<li class="listitem">
+On the <span class="strong strong"><strong>SSH keys</strong></span> tab, add your public SSH key.
+</li>
+<li class="listitem">
+Select <span class="strong strong"><strong>Create</strong></span>:
+</li>
+</ol>
+</div>
+</li>
+<li class="listitem">
+<p>Add a firewall rule:</p>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+Under <span class="strong strong"><strong>Instance Templates</strong></span>, select the name of the new template and under <span class="strong strong"><strong>Network</strong></span>, select <span class="strong strong"><strong>default</strong></span>.
+</li>
+<li class="listitem">
+<p>Select <span class="strong strong"><strong>Add firewall rule</strong></span>, then <span class="strong strong"><strong>Allow from any source (0.0.0.0/0)</strong></span>. Enter the following allowed protocols and ports:</p>
+<pre class="screen">tcp:7000; tcp:12375; tcp:12400; tcp:12443;
+tcp:22191-22195; tcp:12191-12301; tcp:12898-12908;
+tcp:13898-13908; tcp:2112; tcp:18000-20000;
+tcp:9200; tcp:9243; tcp:9300; tcp:9343; tcp:9400;</pre>
+</li>
+<li class="listitem">
+Select <span class="strong strong"><strong>Create</strong></span>:
+</li>
+<li class="listitem">
+NOTE: While these firewall rules make it easy for you to get started with your deployment, we recommend locking down your production infrastructure. Firewall rules need to be adapted to your environment. While all of the ports of the preceding list need to be open for internal communication, only ports 12443 (ECE Cloud UI) and 9243 (Elasticsearch) need to be exposed to the outside world.
+</li>
+</ol>
+</div>
+</li>
+<li class="listitem">
+<p>Create an instance group:</p>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+Return to the <span class="strong strong"><strong>Compute Engine</strong></span> panel through the <span class="strong strong"><strong>Products &amp; services</strong></span> menu.
+</li>
+<li class="listitem">
+Select the <span class="strong strong"><strong>Instance groups</strong></span> panel, then <span class="strong strong"><strong>Create instance group</strong></span>, and name your group.
+</li>
+<li class="listitem">
+Under <span class="strong strong"><strong>Location</strong></span>, select <span class="strong strong"><strong>Multi-zone</strong></span> and select a region.
+</li>
+<li class="listitem">
+<p>Select <span class="strong strong"><strong>Specify port name mapping</strong></span> and add port 9243, which is the port used by Kibana and Elasticsearch for HTTPS access.</p>
+<div class="tip admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>If you are using a load balancer or firewall, consider adding port 443. To add a port, select <span class="strong strong"><strong>Add item</strong></span>. On each host in the Elastic Cloud Enterprise cluster, run <code class="literal">sudo iptables -A PREROUTING -t nat -p tcp --dport 443 -j REDIRECT --to-ports 9243</code>.</p>
+</div>
+</div>
+</li>
+<li class="listitem">
+Select the instance template you created earlier.
+</li>
+<li class="listitem">
+Specify the number of instances to create. For high availability, select at least three instances. These instances are placed into separate zones. Check the <a class="xref" href="ece-install-cloud.html" title="Install ECE">various deployment options</a> for how many instances you might need to bring up a production Elastic Cloud Enterprise installation.
+</li>
+<li class="listitem">
+<p>Select <span class="strong strong"><strong>Create</strong></span>:</p>
+<p>Creating the instance group can take a few minutes. After the instances have been created, they appear under <span class="strong strong"><strong>VM instances</strong></span>.</p>
+</li>
+</ol>
+</div>
+</li>
+<li class="listitem">
+<p>Add a disk to use with XFS to each instance:</p>
+<div class="important admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>We recommend that you add disks with a minimum of 100GB of storage each to avoid performance bottlenecks due to GCP IOPS provisioning. To learn more about how increasing your persistent disk size on GCP also increases IOPS and throughput, check <a href="https://cloud.google.com/compute/docs/disks/performance#ssd-pd-performance" class="ulink" target="_top">Optimizing Persistent Disk and Local SSD Performance</a>. If you use XFS, you must use XFS on all allocators.</p>
+</div>
+</div>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+Under <span class="strong strong"><strong>VM instances</strong></span>, select one of the instances and choose <span class="strong strong"><strong>EDIT</strong></span>.
+</li>
+<li class="listitem">
+Under <span class="strong strong"><strong>Additional disk</strong></span>, select to add an item and then select the <span class="strong strong"><strong>Name</strong></span> dropdown to create a new disk.
+</li>
+<li class="listitem">
+Name your disk. If you plan to use the configuration script in a subsequent step, make sure that the additional disks are named <code class="literal">esdata-1</code>, <code class="literal">esdata-2</code>, and so forth.
+</li>
+<li class="listitem">
+Specify the storage type you need for your type of workload.
+</li>
+<li class="listitem">
+Create a blank disk by selecting <span class="strong strong"><strong>None (blank disk)</strong></span> for the source type.
+</li>
+<li class="listitem">
+Select <span class="strong strong"><strong>Create</strong></span> to create the new disks.
+</li>
+<li class="listitem">
+<p>Select <span class="strong strong"><strong>Save</strong></span> to add the new disk to your instance.</p>
+<div class="tip admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>Don&#8217;t forget to save your updated instance after adding the disk to make sure it is available for use. You will set up XFS when you configure the instances.</p>
+</div>
+</div>
+</li>
+<li class="listitem">
+Repeat these steps until you have added disks to all instances.
+</li>
+</ol>
+</div>
+</li>
+<li class="listitem">
+<a class="xref" href="ece-configure-os-cloud.html" title="Configure your operating system">Configure the new instances</a> with a user ID that has sudo permission.
+</li>
+</ol>
+</div>
+<p>When your Google Compute Engine virtual machines are up and running, you can connect to them and <a class="xref" href="ece-install-cloud.html" title="Install ECE">install Elastic Cloud Enterprise</a>. Afterwards, add your load balancer. To learn more about load balancing that is available with GCP, check <a href="https://cloud.google.com/load-balancing/" class="ulink" target="_top">Google Cloud Load Balancing</a>.</p>
+<h4><a id="ece-configure-gcp-lb"></a>GCP load balancer<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/cloud-enterprise/ce-configuring-gcp.asciidoc">edit</a></h4>
+<p>The following steps show you how to configure HTTPS load balancing for your instance group on GCP. Elastic Cloud Enterprise is designed to be used in conjunction with at least one load balancer.</p>
+<p>To learn more about how HTTPS load balancing works on GCP, check <a href="https://cloud.google.com/load-balancing/" class="ulink" target="_top">Google Cloud Load Balancing</a> and <a href="https://cloud.google.com/compute/docs/load-balancing/http/cross-region-example" class="ulink" target="_top">Creating Cross-Region Load Balancing</a>.</p>
+<p>These steps require that you already have a signed SSL certificate that you can use with a wildcard DNS certificate.</p>
+<p>To set up a load balancer with GCP:</p>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+Log into the <a href="https://console.cloud.google.com" class="ulink" target="_top">Google Cloud Platform console</a>.
+</li>
+<li class="listitem">
+Go to the <span class="strong strong"><strong>Networking</strong></span> panel through the <span class="strong strong"><strong>Products &amp; services</strong></span> menu and select <span class="strong strong"><strong>Load balancing</strong></span>.
+</li>
+<li class="listitem">
+Select <span class="strong strong"><strong>Create load balancer</strong></span> and select <span class="strong strong"><strong>Start configuration</strong></span> under <span class="strong strong"><strong>HTTP(S) Load Balancing</strong></span>.
+</li>
+<li class="listitem">
+Name your new load balancer.
+</li>
+<li class="listitem">
+<p>Configure the backend service:</p>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+Select <span class="strong strong"><strong>Backend Configuration</strong></span> and then select <span class="strong strong"><strong>Create a new backend service</strong></span>.
+</li>
+<li class="listitem">
+Name the new service and under <span class="strong strong"><strong>New Backend</strong></span> select the instance group you created earlier.
+</li>
+<li class="listitem">
+When prompted, select <span class="strong strong"><strong>USE EXISTING PORT NAME</strong></span>.
+</li>
+<li class="listitem">
+Under <span class="strong strong"><strong>Health Check</strong></span>, select the dropdown menu to create a health check:
+</li>
+<li class="listitem">
+Set the port to 9200 and leave the other fields at their defaults.
+</li>
+<li class="listitem">
+Select <span class="strong strong"><strong>Save and continue</strong></span>.
+</li>
+</ol>
+</div>
+</li>
+<li class="listitem">
+<p>Set the host and path rules:</p>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+Under <span class="strong strong"><strong>Backends</strong></span>, select the backend you just configured.
+</li>
+</ol>
+</div>
+</li>
+<li class="listitem">
+<p>Configure the frontend:</p>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+Select <span class="strong strong"><strong>Frontend Configuration</strong></span>, set the protocol to <span class="strong strong"><strong>HTTTPS</strong></span>, and for the IP select to <span class="strong strong"><strong>Create IP address</strong></span>.
+</li>
+<li class="listitem">
+When prompted, name the new static IP address and select <span class="strong strong"><strong>RESERVE</strong></span>.
+</li>
+<li class="listitem">
+Under <span class="strong strong"><strong>Certificate</strong></span>, select <span class="strong strong"><strong>Create a new certificate</strong></span>.
+</li>
+<li class="listitem">
+Name the new certificate and upload your wild card certificate details, then select <span class="strong strong"><strong>Create</strong></span>.
+</li>
+</ol>
+</div>
+</li>
+<li class="listitem">
+<p>Select <span class="strong strong"><strong>Create</strong></span> to create the new load balancer:</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/ece-gcp-lb.png" alt="Load balancing configured on GCP">
+</div>
+</div>
+<p>Creating the load balancer takes a few moments.</p>
+</li>
+</ol>
+</div>
+<p>Next steps: If you use a <a class="xref" href="ece-wildcard-dns.html" title="Wildcard DNS record">wildcard DNS record</a>, update the record to point to the IP address of the load balancer. The IP address can be found on the <span class="strong strong"><strong>Load balancing</strong></span> tab when you select the load balancer you just created.</p>
+<div class="tip admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>With a load balancer, connecting to your Elasticsearch and Kibana endpoints might require you to omit the port number from the endpoint URL. For example, if the endpoint shown for Elasticsearch is <code class="literal">https://32807b51a8f34832935d52393.mydomain.com:9243</code>, you might need to connect to the cluster at <code class="literal">https://32807b51a8f34832935d52393.mydomain.com</code> instead.</p>
+</div>
+</div>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="ece-configure-ami.html">« Amazon Machine Images (AMIs)</a>
+</span>
+<span class="next">
+<a href="ece-configure-azure.html">Microsoft Azure virtual machines »</a>
+</span>
+</div>
+</div>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains('stemblock')) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+</body>
+</html>

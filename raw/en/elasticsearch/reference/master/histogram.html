@@ -18,13 +18,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="mapping.html">Mapping</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="mapping.html">Mapping</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="mapping-types.html">Field data types</a></span>
-»
-<span class="breadcrumb-node">Histogram field type</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -36,7 +33,7 @@ Not what you want? See the
 </div>
 <div class="section xpack">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="histogram"></a>Histogram field type<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/mapping/types/histogram.asciidoc">edit</a></h2>
+<h2 class="title"><a id="histogram"></a>Histogram field type<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/mapping/types/histogram.asciidoc">edit</a></h2>
 </div></div></div>
 
 <p>A field to store pre-aggregated numerical data representing a histogram.
@@ -71,9 +68,9 @@ per document. Nested arrays are not supported.
 </div>
 </div>
 </div>
-<div class="section">
+<div class="section child_attributes">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="histogram-params"></a>Parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/mapping/types/histogram.asciidoc">edit</a></h3>
+<h3 class="title"><a id="histogram-params"></a>Parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/mapping/types/histogram.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="variablelist">
 <dl class="variablelist">
@@ -83,20 +80,40 @@ per document. Nested arrays are not supported.
 </span>
 </dt>
 <dd>
-<p><span class="Admonishment Admonishment--preview">
+<p>
+<span class="Admonishment Admonishment--preview">
 [<span class="Admonishment-title u-mono">preview</span>]
 <span class="Admonishment-detail">
 This functionality is in technical preview and may be changed or removed in a future release. Elastic will apply best effort to fix any issues, but features in technical preview are not subject to the support SLA of official GA features.
 </span>
-</span>
-(Optional, string)</p>
-<details>
-<summary class="title">For internal use by Elastic only.</summary>
+</span> (Optional, string)
+Marks the field as a <a class="xref" href="tsds.html#time-series-metric" title="Metrics">time series metric</a>. The value is the
+metric type. You can&#8217;t update this parameter for existing fields.
+</p>
+<details open>
+<summary class="title">Valid <code class="literal">time_series_metric</code> values for <code class="literal">histogram</code> fields</summary>
 <div class="content">
-<p>Marks the field as a time series metric. The value is the metric type. Defaults
-to <code class="literal">null</code> (Not a time series metric).</p>
-<p>For <code class="literal">histogram</code> fields, this parameter accepts <code class="literal">histogram</code>. You can&#8217;t update
-this parameter for existing fields.</p>
+<div class="variablelist">
+<dl class="variablelist">
+<dt>
+<span class="term">
+<code class="literal">histogram</code>
+</span>
+</dt>
+<dd>
+A pair of numeric arrays that measure the distribution of values
+across predefined buckets. For example, server response times by percentile.
+</dd>
+<dt>
+<span class="term">
+<code class="literal">null</code> (Default)
+</span>
+</dt>
+<dd>
+Not a time series metric.
+</dd>
+</dl>
+</div>
 </div>
 </details>
 </dd>
@@ -106,7 +123,7 @@ this parameter for existing fields.</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="histogram-uses"></a>Uses<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/mapping/types/histogram.asciidoc">edit</a></h3>
+<h3 class="title"><a id="histogram-uses"></a>Uses<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/mapping/types/histogram.asciidoc">edit</a></h3>
 </div></div></div>
 <p><code class="literal">histogram</code> fields are primarily intended for use with aggregations. To make it
 more readily accessible for aggregations, <code class="literal">histogram</code> field data is stored as a
@@ -155,7 +172,7 @@ following aggregations and queries:</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="mapping-types-histogram-building-histogram"></a>Building a histogram<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/mapping/types/histogram.asciidoc">edit</a></h3>
+<h3 class="title"><a id="mapping-types-histogram-building-histogram"></a>Building a histogram<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/mapping/types/histogram.asciidoc">edit</a></h3>
 </div></div></div>
 <p>When using a histogram as part of an aggregation, the accuracy of the results will depend on how the
 histogram was constructed. It is important to consider the percentiles aggregation mode that will be used
@@ -183,7 +200,7 @@ index data in that manner (e.g. centroids for T-Digest or intervals for HDRHisto
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="histogram-ex"></a>Examples<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/mapping/types/histogram.asciidoc">edit</a></h3>
+<h3 class="title"><a id="histogram-ex"></a>Examples<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/mapping/types/histogram.asciidoc">edit</a></h3>
 </div></div></div>
 <p>The following <a class="xref" href="indices-create-index.html" title="Create index API">create index</a> API request creates a new index with two field mappings:</p>
 <div class="ulist itemizedlist">
@@ -212,7 +229,7 @@ index data in that manner (e.g. centroids for T-Digest or intervals for HDRHisto
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/198.console"></div>
+<div class="console_widget" data-snippet="snippets/191.console"></div>
 <p>The following <a class="xref" href="docs-index_.html" title="Index API">index</a> API requests store pre-aggregated for
 two histograms: <code class="literal">histogram_1</code> and <code class="literal">histogram_2</code>.</p>
 <a id="858fde15fb0a0340873b123043f8c3b4"></a>
@@ -235,7 +252,7 @@ PUT my-index-000001/_doc/2
    }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/199.console"></div>
+<div class="console_widget" data-snippet="snippets/192.console"></div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>

@@ -18,13 +18,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">APM User Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="overview.html">Legacy APM Server Reference</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">APM User Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="overview.html">Legacy APM Server Reference</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="monitoring.html">Monitor APM Server</a></span>
-»
-<span class="breadcrumb-node">Use Metricbeat to send monitoring data</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -42,7 +39,7 @@ Not what you want? See the
 <div class="important admon">
 <div class="icon"></div>
 <div class="admon_content">
-<p>This documentation refers to monitoring the standalone (legacy) APM Server. This method of running APM Server will be deprecated and removed in a future release. Please consider <a class="xref" href="upgrade-to-apm-integration.html" title="Upgrade to the Elastic APM integration">upgrading to Fleet and the APM integration</a>.</p>
+<p>This documentation refers to monitoring the standalone (legacy) APM Server. This method of running APM Server will be deprecated and removed in a future release. Please consider <a class="xref" href="upgrade-to-apm-integration.html" title="Switch to the Elastic APM integration">upgrading to Fleet and the APM integration</a>.</p>
 </div>
 </div>
 <p>In 7.3 and later, you can use Metricbeat to collect data about APM Server
@@ -95,7 +92,7 @@ for each shipper on a different port number:</p>
 </div>
 </li>
 <li class="listitem">
-<p>Configure cluster uuid (optional).<br></p>
+<p>Configure cluster UUID (optional).<br></p>
 <p>To see the Beats monitoring section in Kibana if you have a cluster, you need to associate the APM Server with cluster UUID:</p>
 <div class="pre_wrapper lang-yaml">
 <pre class="programlisting prettyprint lang-yaml">monitoring.cluster_uuid: "cluster-uuid"</pre>
@@ -197,11 +194,11 @@ configuration file (<code class="literal">metricbeat.yml</code>):</p>
 <div class="pre_wrapper lang-yaml">
 <pre class="programlisting prettyprint lang-yaml">output.elasticsearch:
   # Array of hosts to connect to.
-  hosts: ["http://es-mon-1:9200", "http://es-mon2:9200"] <a id="CO85-1"></a><i class="conum" data-value="1"></i>
+  hosts: ["http://es-mon-1:9200", "http://es-mon2:9200"] <a id="CO84-1"></a><i class="conum" data-value="1"></i>
 
   # Optional protocol and basic auth credentials.
   #protocol: "https"
-  #api_key:  "id:api_key" <a id="CO85-2"></a><i class="conum" data-value="2"></i>
+  #api_key:  "id:api_key" <a id="CO84-2"></a><i class="conum" data-value="2"></i>
   #username: "elastic"
   #password: "changeme"</pre>
 </div>
@@ -209,7 +206,7 @@ configuration file (<code class="literal">metricbeat.yml</code>):</p>
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO85-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO84-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>In this example, the data is stored on a monitoring cluster with nodes
@@ -218,7 +215,7 @@ configuration file (<code class="literal">metricbeat.yml</code>):</p>
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO85-2"><i class="conum" data-value="2"></i></a></p>
+<p><a href="#CO84-2"><i class="conum" data-value="2"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Specify one of <code class="literal">api_key</code> or <code class="literal">username</code>/<code class="literal">password</code>.</p>

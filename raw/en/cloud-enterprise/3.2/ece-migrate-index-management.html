@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Migrate to index lifecycle management | Elastic Cloud Enterprise Reference [3.2] | Elastic</title>
+<link rel="home" href="index.html" title="Elastic Cloud Enterprise Reference [3.2]"/>
+<link rel="up" href="ece-administering-deployments.html" title="Administering deployments"/>
+<link rel="prev" href="ece-delete-deployment.html" title="Delete a deployment"/>
+<link rel="next" href="ece-disable-data-tier.html" title="Disable a data tier"/>
+<meta name="DC.type" content="Learn/Docs/CloudEnterprise/Reference/3.2"/>
+<meta name="DC.subject" content="ECE"/>
+<meta name="DC.identifier" content="3.2"/>
+</head>
+<body><div class="page_header">
+A newer version is available. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Cloud Enterprise Reference [3.2]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="ece-administering-deployments.html">Administering deployments</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="ece-delete-deployment.html">« Delete a deployment</a>
+</span>
+<span class="next">
+<a href="ece-disable-data-tier.html">Disable a data tier »</a>
+</span>
+</div>
+<div class="chapter">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="ece-migrate-index-management"></a>Migrate to index lifecycle management<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/shared/ec-ce-migrate-ilm.asciidoc">edit</a></h2>
+</div></div></div>
+<div class="important admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>Index curation is deprecated. For Elastic Stack version 6.7 and later, any deployments using index curation will be prompted to migrate to ILM.</p>
+</div>
+</div>
+<p>The index lifecycle management (ILM) feature of the Elastic Stack provides an integrated and streamlined way to manage time-based data, making it easier to follow best practices for managing your indices. Compared to index curation, migrating to ILM gives you more fine-grained control over the lifecycle of each index.</p>
+<p>For existing hot-warm deployments that are currently using index curation, there are a couple of options for migrating to index lifecycle management (ILM). You can:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Use the migration process in the console to change an existing deployment to ILM.
+</li>
+<li class="listitem">
+Take a snapshot and restore your data to a new Elastic Stack 6.7+ deployment that has ILM enabled.
+</li>
+</ul>
+</div>
+<p>To learn more about configuring index lifecycle management for Elastic Cloud Enterprise or about all of the features that are available with ILM, see:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<a href="/guide/en/elasticsearch/reference/8.3/set-up-lifecycle-policy.html" class="ulink" target="_top">Create your index lifecyle policy</a>
+</li>
+<li class="listitem">
+<a href="/guide/en/elasticsearch/reference/8.3/index-lifecycle-management.html" class="ulink" target="_top">Managing the index lifecycle</a>
+</li>
+</ul>
+</div>
+<p>To configure ILM Migration in the console:</p>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+<a class="xref" href="ece-login.html" title="Log into the Cloud UI">Log into the Cloud UI</a>.
+</li>
+<li class="listitem">
+<p>From the <span class="strong strong"><strong>Deployments</strong></span> page, select your deployment.</p>
+<p>Narrow the list by name, ID, or choose from several other filters. To further define the list, use a combination of filters.</p>
+</li>
+<li class="listitem">
+Near the top of the deployment overview, you should get a message to migrate from index curation to index lifecycle management (ILM) along with a <span class="strong strong"><strong>Start migration</strong></span> button.
+</li>
+<li class="listitem">
+Select which index curation pattern you wish to migrate.
+</li>
+<li class="listitem">
+Set the ILM policy name for each data view (formerly <em>index pattern</em>).
+</li>
+</ol>
+</div>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>Beginning with Elastic Stack version 8.0, Kibana <em>index patterns</em> have been renamed to <em>data views</em>. To learn more, check the Kibana <a href="/guide/en/kibana/8.0/whats-new.html#index-pattern-rename" class="ulink" target="_top">What&#8217;s new in 8.0</a> page.</p>
+</div>
+</div>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+<p>Set the shard allocation attribute for the data view.</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+You can set different node attributes per data view to allow for more in-depth configuration in Kibana, or
+</li>
+<li class="listitem">
+You may choose to add one node attribute that applies to all data views.
+</li>
+<li class="listitem">
+If you do not wish to migrate a certain data view to ILM, you can deselect the checkbox in the associated row.
+</li>
+<li class="listitem">
+You may also wish to migrate to ILM without carrying over any of your current data views by deselecting all patterns. This means that those data views will no longer be curated, and you will have the option to set up new ILM policies in Kibana.
+</li>
+</ul>
+</div>
+</li>
+<li class="listitem">
+Select <span class="strong strong"><strong>Migrate</strong></span>.
+</li>
+</ol>
+</div>
+<p>After you get the notification that confirms that migration was completed successfully, you can view your ILM policies in Kibana.</p>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="ece-delete-deployment.html">« Delete a deployment</a>
+</span>
+<span class="next">
+<a href="ece-disable-data-tier.html">Disable a data tier »</a>
+</span>
+</div>
+</div>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains('stemblock')) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+</body>
+</html>

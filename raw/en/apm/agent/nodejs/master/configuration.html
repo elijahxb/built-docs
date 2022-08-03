@@ -5,7 +5,7 @@
 <title>Configuration options | APM Node.js Agent Reference [master] | Elastic</title>
 <link rel="home" href="index.html" title="APM Node.js Agent Reference [master]"/>
 <link rel="up" href="advanced-setup.html" title="Configuration"/>
-<link rel="prev" href="es-modules.html" title="ES Modules support"/>
+<link rel="prev" href="configuring-the-agent.html" title="Configuring the agent"/>
 <link rel="next" href="custom-transactions.html" title="Custom transactions"/>
 <meta name="DC.type" content="Learn/Docs/APM Node.js Agent/Reference/master"/>
 <meta name="DC.subject" content="APM"/>
@@ -18,15 +18,13 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">APM Node.js Agent Reference [master]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">APM Node.js Agent Reference [master]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="advanced-setup.html">Configuration</a></span>
-»
-<span class="breadcrumb-node">Configuration options</span>
 </div>
 <div class="navheader">
 <span class="prev">
-<a href="es-modules.html">« ES Modules support</a>
+<a href="configuring-the-agent.html">« Configuring the agent</a>
 </span>
 <span class="next">
 <a href="custom-transactions.html">Custom transactions »</a>
@@ -71,7 +69,12 @@ Allowed characters: <code class="literal">a-z</code>, <code class="literal">A-Z<
 from "package.json"&#8201;&#8212;&#8201;looking up from the current working directory. The name
 will be normalized to the allowed characters. If the name cannot be inferred
 from package.json, then a fallback value of "unknown-nodejs-service" is used.</p>
-<h4><a id="service-node-name"></a><code class="literal">serviceNodeName</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-nodejs/edit/main/docs/configuration.asciidoc">edit</a></h4>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="service-node-name"></a><code class="literal">serviceNodeName</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-nodejs/edit/main/docs/configuration.asciidoc">edit</a></h3>
+</div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
 <li class="listitem">
@@ -121,7 +124,7 @@ and finally <code class="literal">host.name</code> if necessary.</p>
 </ul>
 </div>
 <p>The API key optionally expected by the APM Server. This is an alternative to <code class="literal">secretToken</code>.</p>
-<p>This base64-encoded string is used to ensure that only your agents can send data to your APM server. You must have created the API key using the APM server command line tool. Please see the <a href="/guide/en/apm/guide/8.1/api-key.html" class="ulink" target="_top">APM server documentation</a> for details on how to do that.</p>
+<p>This base64-encoded string is used to ensure that only your agents can send data to your APM server. You must have created the API key using the APM server command line tool. Please see the <a href="/guide/en/apm/guide/8.3/api-key.html" class="ulink" target="_top">APM server documentation</a> for details on how to do that.</p>
 <div class="note admon">
 <div class="icon"></div>
 <div class="admon_content">
@@ -275,7 +278,7 @@ If you want to overwrite this,
 use this option.</p>
 <p>Environments allow you to easily filter data on a global level in the APM app.
 It&#8217;s important to be consistent when naming environments across agents.
-See <a href="/guide/en/kibana/8.1/filters.html#environment-selector" class="ulink" target="_top">environment selector</a> in the APM app for more information.</p>
+See <a href="/guide/en/kibana/8.3/filters.html#environment-selector" class="ulink" target="_top">environment selector</a> in the APM app for more information.</p>
 <div class="note admon">
 <div class="icon"></div>
 <div class="admon_content">
@@ -404,8 +407,56 @@ If set to <code class="literal">true</code>, the client will poll the APM Server
 <div class="icon"></div>
 <div class="admon_content">
 <p>This feature requires APM Server v7.3 or later and that the APM Server is configured with <code class="literal">kibana.enabled: true</code>.
-More information is available in <a href="/guide/en/kibana/8.1/agent-configuration.html" class="ulink" target="_top">APM Agent configuration</a>.</p>
+More information is available in <a href="/guide/en/kibana/8.3/agent-configuration.html" class="ulink" target="_top">APM Agent configuration</a>.</p>
 </div>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="context-manager"></a><code class="literal">contextManager</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-nodejs/edit/main/docs/configuration.asciidoc">edit</a></h3>
+</div></div></div>
+<p><span class="small">Added in: v3.37.0</span></p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<span class="strong strong"><strong>Type:</strong></span> String
+</li>
+<li class="listitem">
+<span class="strong strong"><strong>Env:</strong></span> <code class="literal">ELASTIC_APM_CONTEXT_MANAGER</code>
+</li>
+</ul>
+</div>
+<p>This configuration option provides a way to override the APM agent&#8217;s default
+technique for tracking Node.js asynchronous tasks; sometimes referred to as "run
+context", "async context", or just "context". Most users should not need to
+change this setting. This setting replaces the older
+<a class="xref" href="configuration.html#async-hooks" title="asyncHooks"><code class="literal">asyncHooks</code></a> configuration option.</p>
+<p>To effectively trace an application, the APM agent needs to track the logical
+thread of control through asynchronous tasks. The preferred mechanism for this
+is <a href="https://nodejs.org/api/async_context.html#class-asynclocalstorage" class="ulink" target="_top"><code class="literal">AsyncLocalStorage</code></a>,
+usable in Node.js versions &gt;=14.5 and &gt;=12.19. In older versions of Node, the APM
+agent will fallback to using
+<a href="https://nodejs.org/api/async_hooks.html" class="ulink" target="_top"><code class="literal">async_hooks</code></a>, which can have a higher
+performance overhead, especially in Promise-heavy applications. Finally, the APM
+agent supports a limited tracking mechanism (named "patch") that monkey-patches
+much of the core Node.js API to attempt to follow asynchronous calls. The
+"patch" mechanism is limited in usage and coverage (for example, it cannot
+track <code class="literal">async/await</code> usage), is <span class="strong strong"><strong>deprecated</strong></span> and will be removed in a future
+major version.</p>
+<p>Supported values for <code class="literal">contextManager</code> are:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<code class="literal">"asynclocalstorage"</code> - Use the <code class="literal">AsyncLocalStorage</code> mechanism, if able. Otherwise it will fallback to using <code class="literal">async_hooks</code>.
+</li>
+<li class="listitem">
+<code class="literal">"asynchooks"</code> - Use the <code class="literal">async_hooks</code> mechanism. (Using this value will restore the agent behavior from before v3.37.0.)
+</li>
+<li class="listitem">
+<code class="literal">"patch"</code> - Use the limited monkey-patching mechanism. Note that this mechanism is now <span class="strong strong"><strong>deprecated</strong></span>. (Using this value is the equivalent of using <code class="literal">asyncHooks: false</code> in agent versions before v3.37.0.)
+</li>
+</ul>
 </div>
 </div>
 
@@ -413,24 +464,20 @@ More information is available in <a href="/guide/en/kibana/8.1/agent-configurati
 <div class="titlepage"><div><div>
 <h3 class="title"><a id="async-hooks"></a><code class="literal">asyncHooks</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-nodejs/edit/main/docs/configuration.asciidoc">edit</a></h3>
 </div></div></div>
+<p><span class="small">Deprecated in: v3.37.0, use <a class="xref" href="configuration.html#context-manager" title="contextManager"><code class="literal">contextManager</code></a></span></p>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
 <li class="listitem">
 <span class="strong strong"><strong>Type:</strong></span> Boolean
 </li>
 <li class="listitem">
-<span class="strong strong"><strong>Default:</strong></span> <code class="literal">true</code>
-</li>
-<li class="listitem">
 <span class="strong strong"><strong>Env:</strong></span> <code class="literal">ELASTIC_APM_ASYNC_HOOKS</code>
 </li>
 </ul>
 </div>
-<p>A boolean specifying if the agent should use the experimental <a href="https://nodejs.org/api/async_hooks.html" class="ulink" target="_top">Async Hooks</a> API found in Node.js version 8.2.0 and above.
-This setting has no effect when running a Node.js version older than 8.2.0.</p>
-<p>If you experience any issues related to using Async Hooks,
-please <a href="https://github.com/elastic/apm-agent-nodejs/issues" class="ulink" target="_top">open an issue</a>.</p>
-<p>Note that not all core Node.js API&#8217;s can be instrumented without the use of Async Hooks if running Node.js 8 or above.</p>
+<p>This option is <span class="strong strong"><strong>deprecated</strong></span>&#8201;&#8212;&#8201;use <a class="xref" href="configuration.html#context-manager" title="contextManager"><code class="literal">contextManager</code></a> instead.</p>
+<p>The equivalent to <code class="literal">asyncHooks: false</code> is <code class="literal">contextManager: 'patch'</code>.
+The equivalent to <code class="literal">asyncHooks: true</code> is to leave both <code class="literal">asyncHooks</code> and <code class="literal">contextManager</code> empty, for the default behavior.</p>
 </div>
 
 <div class="section">
@@ -1248,7 +1295,7 @@ value takes precedence for these error message fields.
 </ul>
 </div>
 <p>Note that tracing data is limited at the upstream APM server to
-<a href="/guide/en/apm/guide/8.1/configuration-process.html#max_event_size" class="ulink" target="_top"><code class="literal">max_event_size</code></a>,
+<a href="/guide/en/apm/guide/8.3/configuration-process.html#max_event_size" class="ulink" target="_top"><code class="literal">max_event_size</code></a>,
 which defaults to 300kB. If you configure <code class="literal">longFieldMaxLength</code> too large, it
 could result in transactions, spans, or errors that are rejected by APM server.</p>
 </div>
@@ -1438,7 +1485,7 @@ option. That will likely result in healthy requests being aborted prematurely.</
 <span class="strong strong"><strong>Default:</strong></span> <code class="literal">['password', 'passwd', 'pwd', 'secret', '*key', '*token*', '*session*', '*credit*', '*card*', '*auth*', 'set-cookie', 'pw', 'pass', 'connect.sid']</code>
 </li>
 <li class="listitem">
-<span class="strong strong"><strong>Env:</strong></span> <code class="literal">ELASTIC_SANITIZE_FIELD_NAMES</code>
+<span class="strong strong"><strong>Env:</strong></span> <code class="literal">ELASTIC_APM_SANITIZE_FIELD_NAMES</code>
 </li>
 <li class="listitem">
 <a class="xref" href="configuring-the-agent.html#dynamic-configuration" title="Dynamic configuration"><span class="image"><img src="./images/dynamic-config.svg" alt="dynamic config"></span> </a> <span class="strong strong"><strong>Central config name:</strong></span> <code class="literal">sanitize_field_names</code>
@@ -1754,7 +1801,7 @@ given as the first argument to the <a class="xref" href="agent-api.html#apm-star
 that if <code class="literal">metricsInterval: 0</code>, then breakdown metrics will not be reported.</p>
 <p>Breakdown metrics (<a class="xref" href="metrics.html#metrics-span.self_time.sum" title="span.self_time.sum"><code class="literal">span.self_time.*</code></a>) record
 the self-time spent in each unique type of span. This data drives the
-<a href="/guide/en/kibana/8.1/service-overview.html#service-span-duration" class="ulink" target="_top">Time spent by span type</a>
+<a href="/guide/en/kibana/8.3/service-overview.html#service-span-duration" class="ulink" target="_top">Time spent by span type</a>
 chart in the APM app.</p>
 </div>
 
@@ -1811,7 +1858,7 @@ chart in the APM app.</p>
 <span class="strong strong"><strong>Default:</strong></span> <code class="literal">[]</code>
 </li>
 <li class="listitem">
-<span class="strong strong"><strong>Env:</strong></span> <code class="literal">ELASTIC_IGNORE_MESSAGE_QUEUES</code>
+<span class="strong strong"><strong>Env:</strong></span> <code class="literal">ELASTIC_APM_IGNORE_MESSAGE_QUEUES</code>
 </li>
 <li class="listitem">
 <a class="xref" href="configuring-the-agent.html#dynamic-configuration" title="Dynamic configuration"><span class="image"><img src="./images/dynamic-config.svg" alt="dynamic config"></span> </a> <span class="strong strong"><strong>Central config name:</strong></span> <code class="literal">ignore_message_queues</code>
@@ -1840,6 +1887,69 @@ may make wildcard searches case-sensitive by using the <code class="literal">(?-
 
 <div class="section">
 <div class="titlepage"><div><div>
+<h3 class="title"><a id="trace-continuation-strategy"></a><code class="literal">traceContinuationStrategy</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-nodejs/edit/main/docs/configuration.asciidoc">edit</a></h3>
+</div></div></div>
+<p><span class="small">Added in: v3.34.0</span></p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<span class="strong strong"><strong>Type:</strong></span> String
+</li>
+<li class="listitem">
+<span class="strong strong"><strong>Default:</strong></span> <code class="literal">'continue'</code>
+</li>
+<li class="listitem">
+<span class="strong strong"><strong>Env:</strong></span> <code class="literal">ELASTIC_APM_TRACE_CONTINUATION_STRATEGY</code>
+</li>
+<li class="listitem">
+<a class="xref" href="configuring-the-agent.html#dynamic-configuration" title="Dynamic configuration"><span class="image"><img src="./images/dynamic-config.svg" alt="dynamic config"></span> </a> <span class="strong strong"><strong>Central config name:</strong></span> <code class="literal">trace_continuation_strategy</code>
+</li>
+</ul>
+</div>
+<p>This option allows some control on how the APM agent handles W3C trace-context
+headers on incoming requests. By default, the <code class="literal">traceparent</code> and <code class="literal">tracestate</code>
+headers are used per W3C spec for distributed tracing. However, in certain cases
+it can be helpful to <span class="strong strong"><strong>not</strong></span> use the incoming <code class="literal">traceparent</code> header. Some example
+use cases:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+An Elastic-monitored service is receiving requests with <code class="literal">traceparent</code> headers
+from <span class="strong strong"><strong>unmonitored</strong></span> services.
+</li>
+<li class="listitem">
+An Elastic-monitored service is publicly exposed, and does not want tracing
+data (trace-ids, sampling decisions) to possibly be spoofed by user requests.
+</li>
+</ul>
+</div>
+<p>Valid values are:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<code class="literal">'continue'</code> - The default behavior. An incoming <code class="literal">traceparent</code> value is used
+to continue the trace and determine the sampling decision.
+</li>
+<li class="listitem">
+<code class="literal">'restart'</code> - Always ignores the <code class="literal">traceparent</code> header of incoming
+requests. A new trace-id will be generated and the sampling decision will be
+made based on <a class="xref" href="configuration.html#transaction-sample-rate" title="transactionSampleRate"><code class="literal">transactionSampleRate</code></a>. A <span class="strong strong"><strong>span
+link</strong></span> will be made to the incoming traceparent.
+</li>
+<li class="listitem">
+<code class="literal">'restart_external'</code> - If an incoming request includes the <code class="literal">es</code> vendor flag
+in <code class="literal">tracestate</code>, then any <em>traceparent</em> will be considered internal and
+will be handled as described for <em>continue</em> above. Otherwise, any <em>traceparent</em>
+is considered external and will be handled as described for <em>restart</em> above.
+</li>
+</ul>
+</div>
+<p>Starting with Elastic Observability 8.2, span links will be visible in trace
+views.</p>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
 <h3 class="title"><a id="span-compression-enabled"></a><code class="literal">spanCompressionEnabled</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-nodejs/edit/main/docs/configuration.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="ulist itemizedlist">
@@ -1848,14 +1958,14 @@ may make wildcard searches case-sensitive by using the <code class="literal">(?-
 <span class="strong strong"><strong>Type:</strong></span> Boolean
 </li>
 <li class="listitem">
-<span class="strong strong"><strong>Default:</strong></span> <code class="literal">false</code>
+<span class="strong strong"><strong>Default:</strong></span> <code class="literal">true</code>
 </li>
 <li class="listitem">
 <span class="strong strong"><strong>Env:</strong></span> <code class="literal">ELASTIC_APM_SPAN_COMPRESSION_ENABLED</code>
 </li>
 </ul>
 </div>
-<p>Setting this option to true will enable span compression feature. Span compression reduces the collection, processing, and storage overhead, and removes clutter from the UI. The tradeoff is that some information such as DB statements of all the compressed spans will not be collected.</p>
+<p>Setting this option to false will disable the span compression feature. Span compression reduces the collection, processing, and storage overhead, and removes clutter from the UI. The tradeoff is that some information, such as DB statements of all the compressed spans, will not be collected.</p>
 <p>Example usage:</p>
 <div class="pre_wrapper lang-js">
 <pre class="programlisting prettyprint lang-js">require('elastic-apm-node').start({
@@ -1917,10 +2027,76 @@ may make wildcard searches case-sensitive by using the <code class="literal">(?-
 </div>
 </div>
 
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="opentelemetry-bridge-enabled"></a><code class="literal">opentelemetryBridgeEnabled</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-nodejs/edit/main/docs/configuration.asciidoc">edit</a></h3>
+</div></div></div>
+<p><span class="small">Added in: v3.34.0 as experimental</span></p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<span class="strong strong"><strong>Type:</strong></span> Boolean
+</li>
+<li class="listitem">
+<span class="strong strong"><strong>Default:</strong></span> <code class="literal">false</code>
+</li>
+<li class="listitem">
+<span class="strong strong"><strong>Env:</strong></span> <code class="literal">ELASTIC_APM_OPENTELEMETRY_BRIDGE_ENABLED</code>
+</li>
+</ul>
+</div>
+<p>Setting this option to true will enable the <a class="xref" href="opentelemetry-bridge.html" title="OpenTelemetry bridge">OpenTelemetry Bridge</a>. Briefly, the OpenTelemetry Bridge allows one to use the vendor-neutral
+<a href="https://opentelemetry.io/docs/instrumentation/js/api/" class="ulink" target="_top">OpenTelemetry Tracing API</a>
+(<a href="https://www.npmjs.com/package/@opentelemetry/api" class="ulink" target="_top"><code class="literal">@opentelemetry/api</code></a>) to
+manually instrument your code, and have the Elastic Node.js APM agent handle
+those API calls.</p>
+<p>Example usage:</p>
+<div class="pre_wrapper lang-js">
+<pre class="programlisting prettyprint lang-js">require('elastic-apm-node').start({
+  opentelemetryBridgeEnabled: true
+})</pre>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="exit-span-min-duration"></a><code class="literal">exitSpanMinDuration</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-nodejs/edit/main/docs/configuration.asciidoc">edit</a></h3>
+</div></div></div>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<span class="strong strong"><strong>Type:</strong></span> String
+</li>
+<li class="listitem">
+<span class="strong strong"><strong>Default:</strong></span> <code class="literal">0ms</code>
+</li>
+<li class="listitem">
+<span class="strong strong"><strong>Env:</strong></span> <code class="literal">ELASTIC_APM_EXIT_SPAN_MIN_DURATION</code>
+</li>
+<li class="listitem">
+<a class="xref" href="configuring-the-agent.html#dynamic-configuration" title="Dynamic configuration"><span class="image"><img src="./images/dynamic-config.svg" alt="dynamic config"></span> </a> <span class="strong strong"><strong>Central config name:</strong></span> <code class="literal">exit_span_min_duration</code>
+</li>
+</ul>
+</div>
+<p>Sets the minimum duration of exit spans. If an exit span&#8217;s duration is less than
+this threshold the agent will attempt to drop the span and not send it.</p>
+<p>In some cases exit spans will not be discarded. Spans that propagate the trace
+context to downstream services, such as outgoing HTTP requests, will not be
+discarded. However, external calls that don&#8217;t propagate context, such as calls
+to a database, can be discarded using this threshold.</p>
+<p>Additionally, spans that lead to an error will not be discarded.</p>
+<p>Example usage:</p>
+<div class="pre_wrapper lang-js">
+<pre class="programlisting prettyprint lang-js">require('elastic-apm-node').start({
+  exitSpanMinDuration: '10ms'
+})</pre>
+</div>
+</div>
+
 </div>
 <div class="navfooter">
 <span class="prev">
-<a href="es-modules.html">« ES Modules support</a>
+<a href="configuring-the-agent.html">« Configuring the agent</a>
 </span>
 <span class="next">
 <a href="custom-transactions.html">Custom transactions »</a>

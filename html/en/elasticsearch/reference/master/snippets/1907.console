@@ -1,1 +1,1 @@
-PUT /_data_stream/my-data-stream
+GET _cat/templates?v=true&s=order:desc,index_patterns

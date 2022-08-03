@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,27 +87,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 You are looking at preliminary documentation for a future release.
@@ -116,13 +107,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="ingest.html">Ingest pipelines</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="ingest.html">Ingest pipelines</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="processors.html">Ingest processor reference</a></span>
-»
-<span class="breadcrumb-node">Circle processor</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -134,13 +122,13 @@ Not what you want? See the
 </div>
 <div class="section xpack">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="ingest-circle-processor"></a>Circle processor<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ingest/processors/circle.asciidoc">edit</a></h2>
+<h2 class="title"><a id="ingest-circle-processor"></a>Circle processor<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ingest/processors/circle.asciidoc">edit</a></h2>
 </div></div></div>
 
 <p>Converts circle definitions of shapes to regular polygons which approximate them.</p>
 <div class="table">
 <a id="circle-processor-options"></a>
-<p class="title"><strong>Table 5. Circle Processor Options</strong></p>
+<p class="title"><strong>Table 6. Circle Processor Options</strong></p>
 <div class="table-contents">
 <table border="1" cellpadding="4px" summary="Circle Processor Options">
 <colgroup>
@@ -250,7 +238,7 @@ PUT _ingest/pipeline/polygonize_circles
   ]
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/667.console"></div>
+<div class="console_widget" data-snippet="snippets/683.console"></div>
 <p>Using the above pipeline, we can attempt to index a document into the <code class="literal">circles</code> index.
 The circle can be represented as either a WKT circle or a GeoJSON circle. The resulting
 polygon will be represented and indexed using the same format as the input circle. WKT will
@@ -263,7 +251,7 @@ be translated to a WKT polygon, and GeoJSON circles will be translated to GeoJSO
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_example_circle_defined_in_well_known_text"></a>Example: Circle defined in Well Known Text<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ingest/processors/circle.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_example_circle_defined_in_well_known_text"></a>Example: Circle defined in Well Known Text<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ingest/processors/circle.asciidoc">edit</a></h3>
 </div></div></div>
 <p>In this example a circle defined in WKT format is indexed</p>
 <a id="b0b1ae9582599f501f3b3ed8a42ea2af"></a>
@@ -275,7 +263,7 @@ be translated to a WKT polygon, and GeoJSON circles will be translated to GeoJSO
 
 GET circles/_doc/1</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/668.console"></div>
+<div class="console_widget" data-snippet="snippets/684.console"></div>
 <p>The response from the above index request:</p>
 <a id="0cec3cd5ad68774be62c362e10bab293"></a>
 <div class="pre_wrapper lang-console-result">
@@ -295,7 +283,7 @@ GET circles/_doc/1</pre>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_example_circle_defined_in_geojson"></a>Example: Circle defined in GeoJSON<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ingest/processors/circle.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_example_circle_defined_in_geojson"></a>Example: Circle defined in GeoJSON<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ingest/processors/circle.asciidoc">edit</a></h3>
 </div></div></div>
 <p>In this example a circle defined in GeoJSON format is indexed</p>
 <a id="415b46bc2b7a7b4dcf9a73ac67ea20e9"></a>
@@ -311,7 +299,7 @@ GET circles/_doc/1</pre>
 
 GET circles/_doc/2</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/669.console"></div>
+<div class="console_widget" data-snippet="snippets/685.console"></div>
 <p>The response from the above index request:</p>
 <a id="0c8975f6497b2f06e68077b613427d41"></a>
 <div class="pre_wrapper lang-console-result">
@@ -343,7 +331,7 @@ GET circles/_doc/2</pre>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="circle-processor-notes"></a>Notes on Accuracy<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ingest/processors/circle.asciidoc">edit</a></h3>
+<h3 class="title"><a id="circle-processor-notes"></a>Notes on Accuracy<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ingest/processors/circle.asciidoc">edit</a></h3>
 </div></div></div>
 <p>Accuracy of the polygon that represents the circle is defined as <code class="literal">error_distance</code>. The smaller this
 difference is, the closer to a perfect circle the polygon is.</p>
@@ -352,7 +340,7 @@ of the polygon given different inputs.</p>
 <p>The minimum number of sides is <code class="literal">4</code> and the maximum is <code class="literal">1000</code>.</p>
 <div class="table">
 <a id="circle-processor-accuracy"></a>
-<p class="title"><strong>Table 6. Circle Processor Accuracy</strong></p>
+<p class="title"><strong>Table 7. Circle Processor Accuracy</strong></p>
 <div class="table-contents">
 <table border="1" cellpadding="4px" summary="Circle Processor Accuracy">
 <colgroup>
@@ -417,15 +405,37 @@ of the polygon given different inputs.</p>
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

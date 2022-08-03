@@ -11,6 +11,7 @@
 <meta name="DC.type" content="Learn/Docs/APM Guide/8.1"/>
 <meta name="DC.subject" content="APM"/>
 <meta name="DC.identifier" content="8.1"/>
+<meta name="robots" content="noindex,nofollow"/>
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -56,7 +57,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,38 +88,30 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
-                  
+                  <div class="page_header">
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">APM User Guide [8.1]</a></span>
-»
-<span class="breadcrumb-link"><a href="legacy-apm-overview.html">Legacy APM Overview</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">APM User Guide [8.1]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="legacy-apm-overview.html">Legacy APM Overview</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="apm-data-model.html">Data Model</a></span>
-»
-<span class="breadcrumb-node">Metadata</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -130,18 +123,18 @@
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="metadata"></a>Metadata<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-server/edit/8.1/docs/legacy/guide/apm-data-model.asciidoc">edit</a></h2>
+<h2 class="title"><a id="metadata"></a>Metadata<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/apm-server/edit/8.1/docs/legacy/guide/apm-data-model.asciidoc">edit</a></h2>
 </div></div></div>
 <div class="important admon">
 <div class="icon"></div>
 <div class="admon_content">
-<p>This documentation refers to the standalone (legacy) method of running APM Server. This method of running APM Server will be deprecated and removed in a future release. Please consider <a class="xref" href="upgrade-to-apm-integration.html" title="Upgrade to the Elastic APM integration">upgrading to the Elastic APM integration</a>.
+<p>This documentation refers to the standalone (legacy) method of running APM Server. This method of running APM Server will be deprecated and removed in a future release. Please consider <a class="xref" href="upgrade-to-apm-integration.html" title="Switch to the Elastic APM integration">upgrading to the Elastic APM integration</a>.
 If you&#8217;ve already upgraded, see <a class="xref" href="data-model.html" title="Data Model"><em>Data Model</em></a>.</p>
 </div>
 </div>
 <p>Metadata can enrich your events and make application performance monitoring even more useful.
 Let&#8217;s explore the different types of metadata that Elastic APM offers.</p>
-<h4><a id="labels-fields"></a>Labels<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-server/edit/8.1/docs/legacy/guide/apm-data-model.asciidoc">edit</a></h4>
+<h4><a id="labels-fields"></a>Labels<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/apm-server/edit/8.1/docs/legacy/guide/apm-data-model.asciidoc">edit</a></h4>
 <p>Labels add <span class="strong strong"><strong>indexed</strong></span> information to transactions, spans, and errors.
 Indexed means the data is searchable and aggregatable in Elasticsearch.
 Add additional key-value pairs to define multiple labels.</p>
@@ -173,7 +166,7 @@ Defining too many unique fields in an index is a condition that can lead to a
 <a href="/guide/en/elasticsearch/reference/8.1/mapping.html#mapping-limit-settings" class="ulink" target="_top">mapping explosion</a>.</p>
 </div>
 </div>
-<h5><a id="_agent_api_reference_4"></a>Agent API reference<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-server/edit/8.1/docs/legacy/guide/apm-data-model.asciidoc">edit</a></h5>
+<h5><a id="_agent_api_reference_4"></a>Agent API reference<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/apm-server/edit/8.1/docs/legacy/guide/apm-data-model.asciidoc">edit</a></h5>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
 <li class="listitem">
@@ -198,11 +191,11 @@ Python: <a href="/guide/en/apm/agent/python/6.x/api.html#api-label" class="ulink
 Ruby:  <a href="/guide/en/apm/agent/ruby/4.x/api.html#api-agent-set-label" class="ulink" target="_top"><code class="literal">set_label</code></a>
 </li>
 <li class="listitem">
-Rum: <a href="/guide/en/apm/agent/rum-js/4.x/agent-api.html#apm-add-labels" class="ulink" target="_top"><code class="literal">addLabels</code></a>
+Rum: <a href="/guide/en/apm/agent/rum-js/5.x/agent-api.html#apm-add-labels" class="ulink" target="_top"><code class="literal">addLabels</code></a>
 </li>
 </ul>
 </div>
-<h4><a id="custom-fields"></a>Custom context<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-server/edit/8.1/docs/legacy/guide/apm-data-model.asciidoc">edit</a></h4>
+<h4><a id="custom-fields"></a>Custom context<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/apm-server/edit/8.1/docs/legacy/guide/apm-data-model.asciidoc">edit</a></h4>
 <p>Custom context adds <span class="strong strong"><strong>non-indexed</strong></span>,
 custom contextual information to transactions and errors.
 Non-indexed means the data is not searchable or aggregatable in Elasticsearch,
@@ -233,7 +226,7 @@ Applies to: <a class="xref" href="transactions.html" title="Transactions">Transa
 <p>Setting a circular object, a large object, or a non JSON serializable object can lead to errors.</p>
 </div>
 </div>
-<h5><a id="_agent_api_reference_5"></a>Agent API reference<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-server/edit/8.1/docs/legacy/guide/apm-data-model.asciidoc">edit</a></h5>
+<h5><a id="_agent_api_reference_5"></a>Agent API reference<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/apm-server/edit/8.1/docs/legacy/guide/apm-data-model.asciidoc">edit</a></h5>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
 <li class="listitem">
@@ -261,11 +254,11 @@ Python: <a href="/guide/en/apm/agent/python/6.x/api.html#api-set-custom-context"
 Ruby: <a href="/guide/en/apm/agent/ruby/4.x/api.html#api-agent-set-custom-context" class="ulink" target="_top"><code class="literal">set_custom_context</code></a>
 </li>
 <li class="listitem">
-Rum: <a href="/guide/en/apm/agent/rum-js/4.x/agent-api.html#apm-set-custom-context" class="ulink" target="_top"><code class="literal">setCustomContext</code></a>
+Rum: <a href="/guide/en/apm/agent/rum-js/5.x/agent-api.html#apm-set-custom-context" class="ulink" target="_top"><code class="literal">setCustomContext</code></a>
 </li>
 </ul>
 </div>
-<h4><a id="user-fields"></a>User context<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-server/edit/8.1/docs/legacy/guide/apm-data-model.asciidoc">edit</a></h4>
+<h4><a id="user-fields"></a>User context<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/apm-server/edit/8.1/docs/legacy/guide/apm-data-model.asciidoc">edit</a></h4>
 <p>User context adds <span class="strong strong"><strong>indexed</strong></span> user information to transactions and errors.
 Indexed means the data is searchable and aggregatable in Elasticsearch.</p>
 <div class="ulist itemizedlist">
@@ -284,7 +277,7 @@ Applies to: <a class="xref" href="transactions.html" title="Transactions">Transa
 </li>
 </ul>
 </div>
-<h5><a id="_agent_api_reference_6"></a>Agent API reference<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-server/edit/8.1/docs/legacy/guide/apm-data-model.asciidoc">edit</a></h5>
+<h5><a id="_agent_api_reference_6"></a>Agent API reference<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/apm-server/edit/8.1/docs/legacy/guide/apm-data-model.asciidoc">edit</a></h5>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
 <li class="listitem">
@@ -313,7 +306,7 @@ Python: <a href="/guide/en/apm/agent/python/6.x/api.html#api-set-user-context" c
 Ruby: <a href="/guide/en/apm/agent/ruby/4.x/api.html#api-agent-set-user" class="ulink" target="_top"><code class="literal">set_user</code></a>
 </li>
 <li class="listitem">
-Rum: <a href="/guide/en/apm/agent/rum-js/4.x/agent-api.html#apm-set-user-context" class="ulink" target="_top"><code class="literal">setUserContext</code></a>
+Rum: <a href="/guide/en/apm/agent/rum-js/5.x/agent-api.html#apm-set-user-context" class="ulink" target="_top"><code class="literal">setUserContext</code></a>
 </li>
 </ul>
 </div>
@@ -330,15 +323,37 @@ Rum: <a href="/guide/en/apm/agent/rum-js/4.x/agent-api.html#apm-set-user-context
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

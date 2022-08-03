@@ -1,4 +1,13 @@
-POST _ml/anomaly_detectors/low_request_rate/_open
+PUT /my-index-000001/_mapping
 {
-  "timeout": "35m"
+  "properties": {
+    "city": {
+      "type": "text",
+      "fields": {
+        "raw": {
+          "type": "keyword"
+        }
+      }
+    }
+  }
 }

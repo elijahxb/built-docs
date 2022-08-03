@@ -19,11 +19,9 @@ will be released for this version. For the latest information, see the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.0]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.0]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="rest-apis.html">REST APIs</a></span>
-»
-<span class="breadcrumb-node">API conventions</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -532,7 +530,7 @@ request path, special characters must be URI encoded. For example:</p>
 <pre class="programlisting prettyprint lang-console"># PUT /&lt;my-index-{now/d}&gt;
 PUT /%3Cmy-index-%7Bnow%2Fd%7D%3E</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1756.console"></div>
+<div class="console_widget" data-snippet="snippets/1757.console"></div>
 <div class="note admon">
 <div class="icon"></div>
 <div class="admon_content">
@@ -791,7 +789,7 @@ GET /%3Clogstash-%7Bnow%2Fd-2d%7D%3E%2C%3Clogstash-%7Bnow%2Fd-1d%7D%3E%2C%3Clogs
   }
 }</pre>
 </div>
-<div class="console_widget has-php has-csharp has-python has-ruby has-go has-js" data-snippet="snippets/1757.console"></div>
+<div class="console_widget has-php has-csharp has-python has-ruby has-go has-js" data-snippet="snippets/1758.console"></div>
 <h3><a id="api-multi-index"></a>Multi-target syntax<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.0/docs/reference/api-conventions.asciidoc">edit</a></h3>
 <p>Most APIs that accept a <code class="literal">&lt;data-stream&gt;</code>, <code class="literal">&lt;index&gt;</code>, or <code class="literal">&lt;target&gt;</code> request path
 parameter also support <em>multi-target syntax</em>.</p>

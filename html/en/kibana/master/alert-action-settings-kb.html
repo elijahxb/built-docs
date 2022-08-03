@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,27 +87,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 You are looking at preliminary documentation for a future release.
@@ -116,13 +107,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Kibana Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="setup.html">Set up</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Kibana Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="setup.html">Set up</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="settings.html">Configure Kibana</a></span>
-»
-<span class="breadcrumb-node">Alerting and action settings in Kibana</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -252,7 +240,7 @@ connect to services.
 URLs can use both the <code class="literal">ssl</code> and <code class="literal">smtp</code> options.</p>
 <p>No other URL values should be part of this URL, including paths,
 query strings, and authentication information.  When an http or smtp request
-is made as part of executing an action, only the protocol, hostname, and
+is made as part of running an action, only the protocol, hostname, and
 port of the URL for that request are used to look up these configuration
 values.</p>
 </dd>
@@ -315,6 +303,24 @@ The contents of a PEM-encoded certificate file, or multiple files appended
 into a single string.  This configuration can be used for environments where
 the files cannot be made available.
 </dd>
+<dt>
+<span class="term">
+<a id="action-config-email-domain-allowlist"></a> <code class="literal">xpack.actions.email.domain_allowlist</code>  <span class="image"><a class="image" href="https://www.elastic.co/cloud/elasticsearch-service/signup?baymax=docs-body&amp;elektra=docs"><img src="https://doc-icons.s3.us-east-2.amazonaws.com/logo_cloud.svg" alt="logo cloud" title="Supported on Elasticsearch Service"></a></span>
+</span>
+</dt>
+<dd>
+A list of allowed email domains which can be used with the email connector. When this setting is not used, all email domains are allowed. When this setting is used, if any email is attempted to be sent that (a) includes an addressee with an email domain that is not in the allowlist, or (b) includes a from address domain that is not in the allowlist, it will fail with a message indicating the email is not allowed.
+</dd>
+</dl>
+</div>
+<div class="warning admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>This feature is available in Kibana 7.17.4 and 8.3.0 onwards but is not supported in Kibana 8.0, 8.1 or 8.2. As such, this setting should be removed before upgrading from 7.17 to 8.0, 8.1 or 8.2. It is possible to configure the settings in 7.17.4 and then upgrade to 8.3.0 directly.</p>
+</div>
+</div>
+<div class="variablelist">
+<dl class="variablelist">
 <dt>
 <span class="term">
 <code class="literal">xpack.actions.enabledActionTypes</code> <span class="image"><a class="image" href="https://www.elastic.co/cloud/elasticsearch-service/signup?baymax=docs-body&amp;elektra=docs"><img src="https://doc-icons.s3.us-east-2.amazonaws.com/logo_cloud.svg" alt="logo cloud" title="Supported on Elasticsearch Service"></a></span>
@@ -443,23 +449,27 @@ Specifies the time allowed for requests to external resources. Requests that tak
 <dl class="variablelist">
 <dt>
 <span class="term">
-<code class="literal">xpack.alerting.maxEphemeralActionsPerAlert</code>
+<code class="literal">xpack.alerting.maxEphemeralActionsPerAlert</code> <span class="image"><a class="image" href="https://www.elastic.co/cloud/elasticsearch-service/signup?baymax=docs-body&amp;elektra=docs"><img src="https://doc-icons.s3.us-east-2.amazonaws.com/logo_cloud.svg" alt="logo cloud" title="Supported on Elasticsearch Service"></a></span>
 </span>
 </dt>
 <dd>
-Sets the number of actions that will be executed ephemerally. To use this, enable ephemeral tasks in task manager first with <a class="xref" href="task-manager-settings-kb.html#task-manager-settings" title="Task Manager settings"><code class="literal">xpack.task_manager.ephemeral_tasks.enabled</code></a>
+Sets the number of actions that will run ephemerally. To use this, enable
+ephemeral tasks in task manager first with
+<a class="xref" href="task-manager-settings-kb.html#task-manager-settings" title="Task Manager settings"><code class="literal">xpack.task_manager.ephemeral_tasks.enabled</code></a>
 </dd>
 <dt>
 <span class="term">
-<code class="literal">xpack.alerting.cancelAlertsOnRuleTimeout</code>
+<code class="literal">xpack.alerting.cancelAlertsOnRuleTimeout</code> <span class="image"><a class="image" href="https://www.elastic.co/cloud/elasticsearch-service/signup?baymax=docs-body&amp;elektra=docs"><img src="https://doc-icons.s3.us-east-2.amazonaws.com/logo_cloud.svg" alt="logo cloud" title="Supported on Elasticsearch Service"></a></span>
 </span>
 </dt>
 <dd>
-Specifies whether to skip writing alerts and scheduling actions if rule execution is cancelled due to timeout. Default: <code class="literal">true</code>. This setting can be overridden by individual rule types.
+Specifies whether to skip writing alerts and scheduling actions if rule
+processing was cancelled due to a timeout. Default: <code class="literal">true</code>. This setting can be
+overridden by individual rule types.
 </dd>
 <dt>
 <span class="term">
-<code class="literal">xpack.alerting.rules.minimumScheduleInterval.value</code>
+<code class="literal">xpack.alerting.rules.minimumScheduleInterval.value</code> <span class="image"><a class="image" href="https://www.elastic.co/cloud/elasticsearch-service/signup?baymax=docs-body&amp;elektra=docs"><img src="https://doc-icons.s3.us-east-2.amazonaws.com/logo_cloud.svg" alt="logo cloud" title="Supported on Elasticsearch Service"></a></span>
 </span>
 </dt>
 <dd>
@@ -467,11 +477,11 @@ Specifies whether to skip writing alerts and scheduling actions if rule executio
 Specifies the minimum schedule interval for rules. This minimum is applied to all rules created or updated after you set this value. The time is formatted as:
 </p>
 <p><code class="literal">&lt;count&gt;[s,m,h,d]</code></p>
-<p>For example, <code class="literal">20m</code>, <code class="literal">24h</code>, <code class="literal">7d</code>. Default: <code class="literal">1m</code>.</p>
+<p>For example, <code class="literal">20m</code>, <code class="literal">24h</code>, <code class="literal">7d</code>. This duration cannot exceed <code class="literal">1d</code>. Default: <code class="literal">1m</code>.</p>
 </dd>
 <dt>
 <span class="term">
-<code class="literal">xpack.alerting.rules.minimumScheduleInterval.enforce</code>
+<code class="literal">xpack.alerting.rules.minimumScheduleInterval.enforce</code> <span class="image"><a class="image" href="https://www.elastic.co/cloud/elasticsearch-service/signup?baymax=docs-body&amp;elektra=docs"><img src="https://doc-icons.s3.us-east-2.amazonaws.com/logo_cloud.svg" alt="logo cloud" title="Supported on Elasticsearch Service"></a></span>
 </span>
 </dt>
 <dd>
@@ -479,15 +489,15 @@ Specifies the behavior when a new or changed rule has a schedule interval less t
 </dd>
 <dt>
 <span class="term">
-<code class="literal">xpack.alerting.rules.run.actions.max</code>
+<code class="literal">xpack.alerting.rules.run.actions.max</code> <span class="image"><a class="image" href="https://www.elastic.co/cloud/elasticsearch-service/signup?baymax=docs-body&amp;elektra=docs"><img src="https://doc-icons.s3.us-east-2.amazonaws.com/logo_cloud.svg" alt="logo cloud" title="Supported on Elasticsearch Service"></a></span>
 </span>
 </dt>
 <dd>
-Specifies the maximum number of actions that a rule can trigger each time detection checks run.
+Specifies the maximum number of actions that a rule can generate each time detection checks run.
 </dd>
 <dt>
 <span class="term">
-<code class="literal">xpack.alerting.rules.run.timeout</code>
+<code class="literal">xpack.alerting.rules.run.timeout</code> <span class="image"><a class="image" href="https://www.elastic.co/cloud/elasticsearch-service/signup?baymax=docs-body&amp;elektra=docs"><img src="https://doc-icons.s3.us-east-2.amazonaws.com/logo_cloud.svg" alt="logo cloud" title="Supported on Elasticsearch Service"></a></span>
 </span>
 </dt>
 <dd>
@@ -499,7 +509,7 @@ Specifies the default timeout for tasks associated with all types of rules. The 
 </dd>
 <dt>
 <span class="term">
-<code class="literal">xpack.alerting.rules.run.ruleTypeOverrides</code>
+<code class="literal">xpack.alerting.rules.run.ruleTypeOverrides</code> <span class="image"><a class="image" href="https://www.elastic.co/cloud/elasticsearch-service/signup?baymax=docs-body&amp;elektra=docs"><img src="https://doc-icons.s3.us-east-2.amazonaws.com/logo_cloud.svg" alt="logo cloud" title="Supported on Elasticsearch Service"></a></span>
 </span>
 </dt>
 <dd>
@@ -507,13 +517,38 @@ Specifies the default timeout for tasks associated with all types of rules. The 
 Overrides the configs under <code class="literal">xpack.alerting.rules.run</code> for the rule type with the given ID. List the rule identifier and its settings in an array of objects.
 </p>
 <p>For example:</p>
-<pre class="screen">xpack.alerting.rules.run:
+</dd>
+</dl>
+</div>
+<div class="pre_wrapper lang-yaml">
+<pre class="programlisting prettyprint lang-yaml">xpack.alerting.rules.run:
     timeout: '5m'
     ruleTypeOverrides:
         - id: '.index-threshold'
           timeout: '15m'</pre>
+</div>
+<div class="variablelist">
+<dl class="variablelist">
+<dt>
+<span class="term">
+<code class="literal">xpack.alerting.rules.run.actions.connectorTypeOverrides</code> <span class="image"><a class="image" href="https://www.elastic.co/cloud/elasticsearch-service/signup?baymax=docs-body&amp;elektra=docs"><img src="https://doc-icons.s3.us-east-2.amazonaws.com/logo_cloud.svg" alt="logo cloud" title="Supported on Elasticsearch Service"></a></span>
+</span>
+</dt>
+<dd>
+<p>
+Overrides the configs under <code class="literal">xpack.alerting.rules.run.actions</code> for the connector type with the given ID. List the connector type identifier and its settings in an array of objects.
+</p>
+<p>For example:</p>
 </dd>
 </dl>
+</div>
+<div class="pre_wrapper lang-yaml">
+<pre class="programlisting prettyprint lang-yaml">xpack.alerting.rules.run:
+    actions:
+        max: 10
+        connectorTypeOverrides:
+            - id: '.server-log'
+              max: 5</pre>
 </div>
 </div>
 <div class="navfooter">
@@ -528,15 +563,37 @@ Overrides the configs under <code class="literal">xpack.alerting.rules.run</code
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

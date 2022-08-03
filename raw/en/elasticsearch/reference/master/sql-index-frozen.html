@@ -18,13 +18,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="xpack-sql.html">SQL</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="xpack-sql.html">SQL</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="sql-spec.html">SQL Language</a></span>
-»
-<span class="breadcrumb-node">Frozen Indices</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -36,7 +33,7 @@ Not what you want? See the
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="sql-index-frozen"></a>Frozen Indices<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/sql/language/indices.asciidoc">edit</a></h2>
+<h2 class="title"><a id="sql-index-frozen"></a>Frozen Indices<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/sql/language/indices.asciidoc">edit</a></h2>
 </div></div></div>
 <p>By default, Elasticsearch SQL doesn&#8217;t search <a class="xref" href="unfreeze-index-api.html" title="Unfreeze index API">frozen indices</a>. To
 search frozen indices, use one of the following features:</p>
@@ -65,10 +62,10 @@ Explicitly perform the inclusion through the dedicated <code class="literal">FRO
 
  catalog       |     name      | type     |     kind
 ---------------+---------------+----------+---------------
-integTest      |archive        |TABLE     |FROZEN INDEX
-integTest      |emp            |TABLE     |INDEX
-integTest      |employees      |VIEW      |ALIAS
-integTest      |library        |TABLE     |INDEX</pre>
+javaRestTest      |archive        |TABLE     |FROZEN INDEX
+javaRestTest      |emp            |TABLE     |INDEX
+javaRestTest      |employees      |VIEW      |ALIAS
+javaRestTest      |library        |TABLE     |INDEX</pre>
 </div>
 <div class="pre_wrapper lang-sql">
 <pre class="programlisting prettyprint lang-sql">SELECT * FROM FROZEN archive LIMIT 1;

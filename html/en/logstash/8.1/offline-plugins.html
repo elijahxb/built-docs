@@ -11,6 +11,7 @@
 <meta name="DC.type" content="Learn/Docs/Logstash/Reference/8.1"/>
 <meta name="DC.subject" content="Logstash"/>
 <meta name="DC.identifier" content="8.1"/>
+<meta name="robots" content="noindex,nofollow"/>
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -56,7 +57,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,36 +88,29 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
-                  
+                  <div class="page_header">
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Logstash Reference [8.1]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Logstash Reference [8.1]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="working-with-plugins.html">Working with plugins</a></span>
-»
-<span class="breadcrumb-node">Offline Plugin Management</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -128,14 +122,14 @@
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="offline-plugins"></a>Offline Plugin Management<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/logstash/edit/8.1/docs/static/offline-plugins.asciidoc">edit</a></h2>
+<h2 class="title"><a id="offline-plugins"></a>Offline Plugin Management<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/logstash/edit/8.1/docs/static/offline-plugins.asciidoc">edit</a></h2>
 </div></div></div>
 <p>The Logstash <a class="xref" href="working-with-plugins.html" title="Working with plugins">plugin manager</a> provides support for preparing offline plugin packs that you can
 use to install Logstash plugins on systems that don&#8217;t have Internet access.</p>
 <p>This procedure requires a staging machine running Logstash that has access to a public or
 <a class="xref" href="private-rubygem.html" title="Private Gem Repositories">private Rubygems</a> server. The staging machine downloads and packages all the files and dependencies
 required for offline installation.</p>
-<h3><a id="building-offline-packs"></a>Building Offline Plugin Packs<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/logstash/edit/8.1/docs/static/offline-plugins.asciidoc">edit</a></h3>
+<h3><a id="building-offline-packs"></a>Building Offline Plugin Packs<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/logstash/edit/8.1/docs/static/offline-plugins.asciidoc">edit</a></h3>
 <p>An <em>offline plugin pack</em> is a compressed file that contains all the plugins your offline Logstash installation requires,
 along with the dependencies for those plugins.</p>
 <p>To build an offline plugin pack:</p>
@@ -155,7 +149,7 @@ access the Internet.
 <ul class="itemizedlist">
 <li class="listitem">
 <code class="literal">OUTPUT</code> specifies the zip file where the compressed plugin pack will be written. The default file is
-<code class="literal">/LOGSTASH_HOME/logstash-offline-plugins-8.1.2.zip</code>. If you are using 5.2.x and 5.3.0, this location should be a zip file whose contents will be overwritten.
+<code class="literal">/LOGSTASH_HOME/logstash-offline-plugins-8.1.3.zip</code>. If you are using 5.2.x and 5.3.0, this location should be a zip file whose contents will be overwritten.
 </li>
 <li class="listitem">
 <code class="literal">[PLUGINS]</code> specifies one or more plugins that you want to include in the pack.
@@ -208,7 +202,7 @@ bin/logstash-plugin prepare-offline-pack logstash-filter-* logstash-input-beats 
 <p>Downloading all dependencies for the specified plugins may take some time, depending on the plugins listed.</p>
 </div>
 </div>
-<h3><a id="installing-offline-packs"></a>Installing Offline Plugin Packs<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/logstash/edit/8.1/docs/static/offline-plugins.asciidoc">edit</a></h3>
+<h3><a id="installing-offline-packs"></a>Installing Offline Plugin Packs<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/logstash/edit/8.1/docs/static/offline-plugins.asciidoc">edit</a></h3>
 <p>To install an offline plugin pack:</p>
 <div class="olist orderedlist">
 <ol class="orderedlist">
@@ -220,18 +214,18 @@ Move the compressed bundle to the machine where you want to install the plugins.
 the offline plugin pack.</p>
 <p><strong>Windows example:</strong></p>
 <div class="pre_wrapper lang-sh">
-<pre class="programlisting prettyprint lang-sh">bin/logstash-plugin install file:///c:/path/to/logstash-offline-plugins-8.1.2.zip</pre>
+<pre class="programlisting prettyprint lang-sh">bin/logstash-plugin install file:///c:/path/to/logstash-offline-plugins-8.1.3.zip</pre>
 </div>
 <p><strong>Linux example:</strong></p>
 <div class="pre_wrapper lang-sh">
-<pre class="programlisting prettyprint lang-sh">bin/logstash-plugin install file:///path/to/logstash-offline-plugins-8.1.2.zip</pre>
+<pre class="programlisting prettyprint lang-sh">bin/logstash-plugin install file:///path/to/logstash-offline-plugins-8.1.3.zip</pre>
 </div>
 <p>This command expects a file URI, so make sure you use forward slashes and
 specify the full path to the pack.</p>
 </li>
 </ol>
 </div>
-<h3><a id="updating-offline-packs"></a>Updating Offline Plugins<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/logstash/edit/8.1/docs/static/offline-plugins.asciidoc">edit</a></h3>
+<h3><a id="updating-offline-packs"></a>Updating Offline Plugins<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/logstash/edit/8.1/docs/static/offline-plugins.asciidoc">edit</a></h3>
 <p>To update offline plugins, you update the plugins on the staging server and then use the same process that you followed to
 build and install the plugin pack:</p>
 <div class="olist orderedlist">
@@ -260,15 +254,37 @@ Install the new version of the plugin pack. See <a class="xref" href="offline-pl
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

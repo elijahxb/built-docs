@@ -5,7 +5,7 @@
 <title>Elasticsearch version 8.2.0 | Elasticsearch Guide [8.2] | Elastic</title>
 <link rel="home" href="index.html" title="Elasticsearch Guide [8.2]"/>
 <link rel="up" href="es-release-notes.html" title="Release notes"/>
-<link rel="prev" href="es-release-notes.html" title="Release notes"/>
+<link rel="prev" href="release-notes-8.2.1.html" title="Elasticsearch version 8.2.1"/>
 <link rel="next" href="release-notes-8.1.3.html" title="Elasticsearch version 8.1.3"/>
 <meta name="DC.type" content="Learn/Docs/Elasticsearch/Reference/8.2"/>
 <meta name="DC.subject" content="Elasticsearch"/>
@@ -13,21 +13,19 @@
 <meta name="robots" content="noindex,nofollow"/>
 </head>
 <body><div class="page_header">
-You are looking at preliminary documentation for a future release.
-Not what you want? See the
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
 <a href="../current/index.html">current release documentation</a>.
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.2]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.2]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="es-release-notes.html">Release notes</a></span>
-»
-<span class="breadcrumb-node">Elasticsearch version 8.2.0</span>
 </div>
 <div class="navheader">
 <span class="prev">
-<a href="es-release-notes.html">« Release notes</a>
+<a href="release-notes-8.2.1.html">« Elasticsearch version 8.2.1</a>
 </span>
 <span class="next">
 <a href="release-notes-8.1.3.html">Elasticsearch version 8.1.3 »</a>
@@ -37,12 +35,6 @@ Not what you want? See the
 <div class="titlepage"><div><div>
 <h2 class="title"><a id="release-notes-8.2.0"></a>Elasticsearch version 8.2.0<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.2/docs/reference/release-notes/8.2.0.asciidoc">edit</a></h2>
 </div></div></div>
-<div class="note admon">
-<div class="icon"></div>
-<div class="admon_content">
-<p>Coming in 8.2.0.</p>
-</div>
-</div>
 <h3><a id="bug-8.2.0"></a>Bug fixes<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.2/docs/reference/release-notes/8.2.0.asciidoc">edit</a></h3>
 <div class="variablelist">
 <dl class="variablelist">
@@ -56,6 +48,9 @@ Aggregations
 <ul class="itemizedlist">
 <li class="listitem">
 Don&#8217;t apply the rewrite-as-range optimization if field is multivalued <a href="https://github.com/elastic/elasticsearch/pull/84535" class="ulink" target="_top">#84535</a> (issue: <a href="https://github.com/elastic/elasticsearch/issues/82903" class="ulink" target="_top">#82903</a>)
+</li>
+<li class="listitem">
+Fix <code class="literal">AdaptingAggregator</code> <code class="literal">toString</code> method <a href="https://github.com/elastic/elasticsearch/pull/86042" class="ulink" target="_top">#86042</a>
 </li>
 <li class="listitem">
 Fix: nested top metrics sort on keyword field <a href="https://github.com/elastic/elasticsearch/pull/85058" class="ulink" target="_top">#85058</a>
@@ -96,6 +91,9 @@ Ensure API key can only see itself with <code class="literal">QueryApiKey</code>
 </li>
 <li class="listitem">
 Fix ownership of refresh tokens <a href="https://github.com/elastic/elasticsearch/pull/85010" class="ulink" target="_top">#85010</a>
+</li>
+<li class="listitem">
+Grant <code class="literal">kibana_system</code> role read access to APM data streams <a href="https://github.com/elastic/elasticsearch/pull/85744" class="ulink" target="_top">#85744</a>
 </li>
 <li class="listitem">
 Handle role descriptor retrieval for internal users <a href="https://github.com/elastic/elasticsearch/pull/85049" class="ulink" target="_top">#85049</a>
@@ -212,6 +210,9 @@ Fix <code class="literal">NullPointerException</code> in <code class="literal">S
 </li>
 <li class="listitem">
 Prevent <code class="literal">ThreadContext</code> header leak when sending response <a href="https://github.com/elastic/elasticsearch/pull/68649" class="ulink" target="_top">#68649</a> (issue: <a href="https://github.com/elastic/elasticsearch/issues/68278" class="ulink" target="_top">#68278</a>)
+</li>
+<li class="listitem">
+Relax data path deprecations from critical to warn <a href="https://github.com/elastic/elasticsearch/pull/85952" class="ulink" target="_top">#85952</a>
 </li>
 <li class="listitem">
 Require and preserve content type for filtered rest requests <a href="https://github.com/elastic/elasticsearch/pull/84914" class="ulink" target="_top">#84914</a> (issue: <a href="https://github.com/elastic/elasticsearch/issues/84784" class="ulink" target="_top">#84784</a>)
@@ -435,6 +436,9 @@ Increase store ref before analyzing disk usage <a href="https://github.com/elast
 Limit concurrent shard requests in disk usage API <a href="https://github.com/elastic/elasticsearch/pull/84900" class="ulink" target="_top">#84900</a> (issue: <a href="https://github.com/elastic/elasticsearch/issues/84779" class="ulink" target="_top">#84779</a>)
 </li>
 <li class="listitem">
+Rewrite <code class="literal">match_all</code> inside <code class="literal">must_not</code> <a href="https://github.com/elastic/elasticsearch/pull/85999" class="ulink" target="_top">#85999</a>
+</li>
+<li class="listitem">
 <code class="literal">DotExpandingXContentParser</code> to expose the original token location <a href="https://github.com/elastic/elasticsearch/pull/84970" class="ulink" target="_top">#84970</a>
 </li>
 <li class="listitem">
@@ -451,6 +455,9 @@ Security
 <dd>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
+<li class="listitem">
+<code class="literal">Authentication.token</code> now uses version from the existing authentication <a href="https://github.com/elastic/elasticsearch/pull/85978" class="ulink" target="_top">#85978</a>
+</li>
 <li class="listitem">
 Ensure tokens represent effective user&#8217;s identity in all cases <a href="https://github.com/elastic/elasticsearch/pull/84263" class="ulink" target="_top">#84263</a>
 </li>
@@ -1363,7 +1370,7 @@ Upgrade to lucene 9.1.0-snapshot-5b522487ba8 <a href="https://github.com/elastic
 </div>
 <div class="navfooter">
 <span class="prev">
-<a href="es-release-notes.html">« Release notes</a>
+<a href="release-notes-8.2.1.html">« Elasticsearch version 8.2.1</a>
 </span>
 <span class="next">
 <a href="release-notes-8.1.3.html">Elasticsearch version 8.1.3 »</a>

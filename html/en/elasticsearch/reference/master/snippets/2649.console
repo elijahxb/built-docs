@@ -1,1 +1,1 @@
-POST _transform/ecommerce_transform/_reset
+GET /_security/api_key?realm_name=native1

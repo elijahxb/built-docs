@@ -18,11 +18,9 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elastic Cloud on Kubernetes [master]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Cloud on Kubernetes [master]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="release-highlights.html">Release highlights</a></span>
-»
-<span class="breadcrumb-node">1.4.1 release highlights</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -68,7 +66,7 @@ spec:
           - name: agent-data
             mountPath: /usr/share/elastic-agent/data/elastic-agent-9b2fec/run</pre>
 </div>
-<p>The <code class="literal">mountPath</code> differs from version to version as it contains the hash of the version control system reference which was used to build Elastic Agent. You can find out which path to use by either inspecting the Docker image or by running a command against the container, as shown below:</p>
+<p>The <code class="literal">mountPath</code> differs from version to version as it contains the hash of the version control system reference which was used to build Elastic Agent. You can find out which path to use by either inspecting the Docker image, or by running a command against the container:</p>
 <div class="pre_wrapper lang-sh">
 <pre class="programlisting prettyprint lang-sh">docker run -ti --entrypoint bash docker.elastic.co/beats/elastic-agent:7.11.1 -c "ls /usr/share/elastic-agent/data"</pre>
 </div>

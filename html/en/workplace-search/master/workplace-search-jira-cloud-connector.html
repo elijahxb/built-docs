@@ -57,7 +57,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -88,27 +88,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 You are looking at preliminary documentation for a future release.
@@ -117,11 +108,9 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Workplace Search Guide [master]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Workplace Search Guide [master]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="workplace-search-content-sources.html">Content Sources Overview</a></span>
-»
-<span class="breadcrumb-node">Connecting Jira Cloud</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -178,6 +167,15 @@ This is due to additional, <a href="https://community.developer.atlassian.com/t/
 </tbody>
 </table>
 </div>
+<div class="sidebar">
+<div class="titlepage"><div><div>
+<p class="title"><strong>Check the Elastic discussion forums for the latest information about your content source</strong></p>
+</div></div></div>
+<p>Workplace Search allows you to index third-party content sources.
+Sometimes these apps will make unanticipated API changes that impact your content syncing and require an action.
+We can&#8217;t always keep up in real time in this documentation!</p>
+<p>Visit the <a href="https://discuss.elastic.co//c/enterprise-search/workplace-search" class="ulink" target="_blank" rel="noopener">Workplace Search discussion forum</a> to read the latest information and check for known issues.</p>
+</div>
 <h3><a id="jira-cloud-configuration"></a>Configuring the Jira Cloud Connector<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/enterprise-search-pubs/edit/main/workplace-search-docs/guides/content-sources/jira-cloud.asciidoc">edit</a></h3>
 <p>Configuring the Jira Cloud connector is the first step prior to connecting the Jira Cloud service to Workplace Search, and requires that you create an <span class="strong strong"><strong>OAuth App</strong></span> from the Jira Cloud platform. <span class="strong strong"><strong>To get started, first log in to Atlassian&#8217;s <a href="https://developer.atlassian.com/console/myapps/" class="ulink" target="_top">Developer Portal</a>:</strong></span></p>
 <hr>
@@ -186,7 +184,7 @@ This is due to additional, <a href="https://community.developer.atlassian.com/t/
 <div class="content">
 <img src="images/guides/jira/jira-1.png" alt="">
 </div>
-<div class="title">Figure 53. Connecting Jira</div>
+<div class="title">Figure 59. Connecting Jira</div>
 </div>
 <hr>
 <p><span class="strong strong"><strong>Step 2.</strong></span> Provide a name, agree to the terms, and click <span class="strong strong"><strong>Create</strong></span>:</p>
@@ -194,7 +192,7 @@ This is due to additional, <a href="https://community.developer.atlassian.com/t/
 <div class="content">
 <img src="images/guides/jira/jira-2.png" alt="">
 </div>
-<div class="title">Figure 54. Connecting Jira</div>
+<div class="title">Figure 60. Connecting Jira</div>
 </div>
 <hr>
 <p><span class="strong strong"><strong>Step 3.</strong></span> Click <span class="strong strong"><strong>Settings</strong></span> in the sidebar, add a description and image, and <span class="strong strong"><strong>Save changes</strong></span>.</p>
@@ -206,7 +204,7 @@ This is due to additional, <a href="https://community.developer.atlassian.com/t/
 <div class="content">
 <img src="images/guides/jira/jira-3.png" alt="">
 </div>
-<div class="title">Figure 55. Connecting Jira</div>
+<div class="title">Figure 61. Connecting Jira</div>
 </div>
 <hr>
 <p><span class="strong strong"><strong>Step 6.</strong></span> Use the <span class="strong strong"><strong>Callback URL</strong></span> form to enter the <a href="/guide/en/enterprise-search/master/endpoints-ref.html#workplace-search-oauth-redirect-url" class="ulink" target="_blank" rel="noopener">Workplace Search OAuth redirect URL</a> for your deployment.</p>
@@ -214,7 +212,7 @@ This is due to additional, <a href="https://community.developer.atlassian.com/t/
 <div class="content">
 <img src="images/guides/jira/jira-4.png" alt="">
 </div>
-<div class="title">Figure 56. Connecting Jira</div>
+<div class="title">Figure 62. Connecting Jira</div>
 </div>
 <hr>
 <p><span class="strong strong"><strong>Step 7.</strong></span> A prompt appears. Click the <span class="strong strong"><strong>Add APIs</strong></span> hyperlink.</p>
@@ -222,7 +220,7 @@ This is due to additional, <a href="https://community.developer.atlassian.com/t/
 <div class="content">
 <img src="images/guides/jira/jira-5.png" alt="">
 </div>
-<div class="title">Figure 57. Connecting Jira</div>
+<div class="title">Figure 63. Connecting Jira</div>
 </div>
 <hr>
 <p><span class="strong strong"><strong>Step 8.</strong></span> Click <span class="strong strong"><strong>Permissions</strong></span>, find Jira platform REST API and click <span class="strong strong"><strong>Add</strong></span>, then <span class="strong strong"><strong>Configure</strong></span>:</p>
@@ -230,7 +228,7 @@ This is due to additional, <a href="https://community.developer.atlassian.com/t/
 <div class="content">
 <img src="images/guides/jira/jira-6.png" alt="">
 </div>
-<div class="title">Figure 58. Connecting Jira</div>
+<div class="title">Figure 64. Connecting Jira</div>
 </div>
 <hr>
 <p><span class="strong strong"><strong>Step 9.</strong></span> We must enable a series of permissions. <span class="strong strong"><strong>Add</strong></span> the following and save:</p>
@@ -440,15 +438,37 @@ This will ensure the right people see the right documents.</p>
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

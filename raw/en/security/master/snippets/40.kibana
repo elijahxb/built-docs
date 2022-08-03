@@ -1,12 +1,1 @@
-POST api/exception_lists
-{
-  "description": "Excludes Linux trusted processes",
-  "name": "Linux process exceptions",
-  "list_id": "trusted-linux-processes",
-  "type": "detection",
-  "namespace_type": "single",
-  "tags": [
-    "linux",
-    "processes"
-  ]
-}
+GET api/exception_lists/_find?page=1&per_page=2&sort_field=name&sort_order=desc

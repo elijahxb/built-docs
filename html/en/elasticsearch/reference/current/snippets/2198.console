@@ -1,8 +1,5 @@
-POST my-write-alias/_rollover
+PUT /_index_template/template_1
 {
-  "conditions": {
-    "max_age": "7d",
-    "max_docs": 1000,
-    "max_primary_shard_size": "50gb"
-  }
+  "index_patterns": ["logs-*"],
+  "data_stream": { }
 }

@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,27 +87,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 You are looking at preliminary documentation for a future release.
@@ -116,11 +107,9 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elastic Cloud on Kubernetes [master]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Cloud on Kubernetes [master]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="k8s-operating-eck.html">Operating ECK</a></span>
-»
-<span class="breadcrumb-node">Upgrade ECK</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -136,10 +125,10 @@ Not what you want? See the
 </div></div></div>
 <p>This page provides instructions on how to upgrade the ECK operator.</p>
 <p>For Elastic Stack upgrade, check <a class="xref" href="k8s-upgrading-stack.html" title="Upgrade the Elastic Stack version">Upgrade the Elastic Stack version</a>.</p>
-<h3><a id="k8s-ga-upgrade"></a>Upgrade to ECK 2.1.0<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/cloud-on-k8s/edit/main/docs/operating-eck/upgrading-eck.asciidoc">edit</a></h3>
-<p>ECK reached general availability (GA) status with the <a href="/blog/elastic-cloud-on-kubernetes-ECK-is-now-generally-available" class="ulink" target="_top">release of version 1.0.0</a>. The latest available GA version is 2.1.0. It is compatible with the previous GA releases (1.0.x and higher) and the beta release (1.0.0-beta1), and can be upgraded in-place (<a class="xref" href="k8s-upgrading-eck.html#k8s-upgrade-instructions" title="Upgrade instructions">with a few exceptions</a>) by applying the new set of deployment manifests. Previous alpha releases, up to and including version 0.9.0, are not compatible with the GA and beta releases and <a href="/guide/en/cloud-on-k8s/1.0-beta/k8s-upgrading-eck.html" class="ulink" target="_top">require extra work to upgrade</a>.</p>
-<p>Before upgrading, refer to the <a class="xref" href="release-notes-2.1.0.html" title="Elastic Cloud on Kubernetes version 2.1.0">release notes</a> to make sure that the release does not contain any breaking changes that could affect you. The <a class="xref" href="release-highlights-2.1.0.html" title="2.1.0 release highlights">release highlights document</a> provides more details and possible workarounds for any breaking changes or known issues in each release.</p>
-<p>Note that the release notes and highlights only list the changes since the last release. If you are skipping over any intermediate versions during the upgrade&#8201;&#8212;&#8201;such as going directly from 1.0.0-beta1 to 2.1.0&#8201;&#8212;&#8201;review the release notes and highlights of each of the skipped releases to fully understand all the breaking changes you might encounter during and after the upgrade.</p>
+<h3><a id="k8s-ga-upgrade"></a>Upgrade to ECK 2.3.0<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/cloud-on-k8s/edit/main/docs/operating-eck/upgrading-eck.asciidoc">edit</a></h3>
+<p>ECK reached general availability (GA) status with the <a href="/blog/elastic-cloud-on-kubernetes-ECK-is-now-generally-available" class="ulink" target="_top">release of version 1.0.0</a>. The latest available GA version is 2.3.0. It is compatible with the previous GA releases (1.0.x and higher) and the beta release (1.0.0-beta1), and can be upgraded in-place (<a class="xref" href="k8s-upgrading-eck.html#k8s-upgrade-instructions" title="Upgrade instructions">with a few exceptions</a>) by applying the new set of deployment manifests. Previous alpha releases, up to and including version 0.9.0, are not compatible with the GA and beta releases and <a href="/guide/en/cloud-on-k8s/1.0-beta/k8s-upgrading-eck.html" class="ulink" target="_top">require extra work to upgrade</a>.</p>
+<p>Before upgrading, refer to the <a class="xref" href="release-notes-2.3.0.html" title="Elastic Cloud on Kubernetes version 2.3.0">release notes</a> to make sure that the release does not contain any breaking changes that could affect you. The <a class="xref" href="release-highlights-2.3.0.html" title="2.3.0 release highlights">release highlights document</a> provides more details and possible workarounds for any breaking changes or known issues in each release.</p>
+<p>Note that the release notes and highlights only list the changes since the last release. If you are skipping over any intermediate versions during the upgrade&#8201;&#8212;&#8201;such as going directly from 1.0.0-beta1 to 2.3.0&#8201;&#8212;&#8201;review the release notes and highlights of each of the skipped releases to fully understand all the breaking changes you might encounter during and after the upgrade.</p>
 <h3><a id="k8s-upgrade-instructions"></a>Upgrade instructions<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/cloud-on-k8s/edit/main/docs/operating-eck/upgrading-eck.asciidoc">edit</a></h3>
 <div class="caution admon">
 <div class="icon"></div>
@@ -151,20 +140,20 @@ Not what you want? See the
 <p>Release 1.7.0 moves the <a href="https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/" class="ulink" target="_top">CustomResourceDefinitions</a> (CRD) used by ECK to the v1 version. If you upgrade from a previous version of ECK, the new version of the CRDs replaces the existing CRDs. If you cannot remove the current ECK installation because you have production workloads that must not be deleted, the following approach is recommended.</p>
 <p><strong>If you are installing using the YAML manifests: replace existing CRDs.</strong></p>
 <div class="pre_wrapper lang-shell">
-<pre class="programlisting prettyprint lang-shell">kubectl replace -f https://download.elastic.co/downloads/eck/2.1.0/crds.yaml</pre>
+<pre class="programlisting prettyprint lang-shell">kubectl replace -f https://download.elastic.co/downloads/eck/2.3.0/crds.yaml</pre>
 </div>
 <div class="note admon">
 <div class="icon"></div>
 <div class="admon_content">
 <p>If you skipped a release in which new CRDs where introduced, you will get an error message similar to <code class="literal">Error from server (NotFound): error when replacing "config/crds.yaml": customresourcedefinitions.apiextensions.k8s.io ... not found</code>. To add the missing CRDs run</p>
 <div class="pre_wrapper lang-shell">
-<pre class="programlisting prettyprint lang-shell">kubectl create -f https://download.elastic.co/downloads/eck/2.1.0/crds.yaml</pre>
+<pre class="programlisting prettyprint lang-shell">kubectl create -f https://download.elastic.co/downloads/eck/2.3.0/crds.yaml</pre>
 </div>
 </div>
 </div>
 <p>Then upgrade the remaining objects with the operator manifest:</p>
 <div class="pre_wrapper lang-shell">
-<pre class="programlisting prettyprint lang-shell">kubectl apply -f https://download.elastic.co/downloads/eck/2.1.0/operator.yaml</pre>
+<pre class="programlisting prettyprint lang-shell">kubectl apply -f https://download.elastic.co/downloads/eck/2.3.0/operator.yaml</pre>
 </div>
 <p><strong>If you are using Helm: force upgrade the CRD chart to move to the v1 CRDs.</strong></p>
 <div class="pre_wrapper lang-shell">
@@ -188,6 +177,12 @@ Not what you want? See the
 </li>
 <li class="listitem">
 2.0
+</li>
+<li class="listitem">
+2.1
+</li>
+<li class="listitem">
+2.2
 </li>
 </ul>
 </div>
@@ -246,7 +241,7 @@ kubectl annotate elasticsearch quickstart $RM_ANNOTATION</pre>
 <div class="note admon">
 <div class="icon"></div>
 <div class="admon_content">
-<p>The ECK source repository contains a <a href="https://github.com/elastic/cloud-on-k8s/tree/2.1/hack/annotator" class="ulink" target="_top">shell script</a> to assist with mass addition/deletion of annotations.</p>
+<p>The ECK source repository contains a <a href="https://github.com/elastic/cloud-on-k8s/tree/2.3/hack/annotator" class="ulink" target="_top">shell script</a> to assist with mass addition/deletion of annotations.</p>
 </div>
 </div>
 </div>
@@ -262,15 +257,37 @@ kubectl annotate elasticsearch quickstart $RM_ANNOTATION</pre>
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

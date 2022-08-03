@@ -20,13 +20,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Kibana Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="development.html">Developer guide</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Kibana Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="development.html">Developer guide</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="kibana-architecture.html">Architecture</a></span>
-»
-<span class="breadcrumb-node">Kibana Plugin API</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -95,7 +92,7 @@ receive <a href="https://github.com/elastic/kibana/blob/master/docs/development/
 It should return an instance of its plugin class for
 Kibana to load.</p>
 <div class="pre_wrapper lang-typescript">
-<pre class="programlisting prettyprint lang-typescript">import type { PluginInitializerContext } from 'kibana/server';
+<pre class="programlisting prettyprint lang-typescript">import type { PluginInitializerContext } from '@kbn/core/server';
 import { MyPlugin } from './plugin';
 
 export function plugin(initializerContext: PluginInitializerContext) {
@@ -108,7 +105,7 @@ file from the entry point, but <em>all plugins at Elastic</em> should be
 consistent in this way. See all <a href="https://github.com/elastic/kibana/blob/master/src/core/CONVENTIONS.md" class="ulink" target="_top">conventions
 for first-party Elastic plugins</a>.</p>
 <div class="pre_wrapper lang-typescript">
-<pre class="programlisting prettyprint lang-typescript">import type { Plugin, PluginInitializerContext, CoreSetup, CoreStart } from 'kibana/server';
+<pre class="programlisting prettyprint lang-typescript">import type { Plugin, PluginInitializerContext, CoreSetup, CoreStart } from '@kbn/core/server';
 
 export class MyPlugin implements Plugin {
   constructor(initializerContext: PluginInitializerContext) {}
@@ -130,7 +127,7 @@ export class MyPlugin implements Plugin {
 this plugin. <a href="https://github.com/elastic/kibana/blob/master/docs/development/core/server/kibana-plugin-core-server.plugininitializercontext.md" class="ulink" target="_top">It is identical</a> in almost every way to the client-side
 entry-point:</p>
 <div class="pre_wrapper lang-typescript">
-<pre class="programlisting prettyprint lang-typescript">import type { PluginInitializerContext } from 'kibana/server';
+<pre class="programlisting prettyprint lang-typescript">import type { PluginInitializerContext } from '@kbn/core/server';
 import { MyPlugin } from './plugin';
 
 export function plugin(initializerContext: PluginInitializerContext) {
@@ -140,7 +137,7 @@ export function plugin(initializerContext: PluginInitializerContext) {
 <p><span class="strong strong"><strong>[5] <code class="literal">server/plugin.ts</code></strong></span> is the server-side plugin definition. The
 shape of this plugin is the same as it’s client-side counter-part:</p>
 <div class="pre_wrapper lang-typescript">
-<pre class="programlisting prettyprint lang-typescript">import type { Plugin, PluginInitializerContext, CoreSetup, CoreStart } from 'kibana/server';
+<pre class="programlisting prettyprint lang-typescript">import type { Plugin, PluginInitializerContext, CoreSetup, CoreStart } from '@kbn/core/server';
 
 export class MyPlugin implements Plugin {
   constructor(initializerContext: PluginInitializerContext) {}
@@ -233,7 +230,7 @@ plugin. For example, the core <code class="literal">http</code> service exposes 
 <code class="literal">createRouter</code> to all plugin <code class="literal">setup</code> functions. To use this function to register
 an HTTP route handler, a plugin just accesses it off of the first argument:</p>
 <div class="pre_wrapper lang-typescript">
-<pre class="programlisting prettyprint lang-typescript">import type { CoreSetup } from 'kibana/server';
+<pre class="programlisting prettyprint lang-typescript">import type { CoreSetup } from '@kbn/core/server';
 
 export class MyPlugin {
   public setup(core: CoreSetup) {
@@ -305,12 +302,12 @@ wishing to allow other plugins to integrate with it are also highly
 encouraged to expose types for their plugin interfaces.</p>
 <p><span class="strong strong"><strong>foobar plugin.ts:</strong></span></p>
 <div class="pre_wrapper lang-typescript">
-<pre class="programlisting prettyprint lang-typescript">import type { Plugin } from 'kibana/server';
-export interface FoobarPluginSetup { <a id="CO58-1"></a><i class="conum" data-value="1"></i>
+<pre class="programlisting prettyprint lang-typescript">import type { Plugin } from '@kbn/core/server';
+export interface FoobarPluginSetup { <a id="CO74-1"></a><i class="conum" data-value="1"></i>
   getFoo(): string;
 }
 
-export interface FoobarPluginStart { <a id="CO58-2"></a><i class="conum" data-value="1"></i>
+export interface FoobarPluginStart { <a id="CO74-2"></a><i class="conum" data-value="1"></i>
   getBar(): string;
 }
 
@@ -336,7 +333,7 @@ export class MyPlugin implements Plugin&lt;FoobarPluginSetup, FoobarPluginStart&
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO58-1"><i class="conum" data-value="1"></i></a><a href="#CO58-2"></a></p>
+<p><a href="#CO74-1"><i class="conum" data-value="1"></i></a><a href="#CO74-2"></a></p>
 </td>
 <td align="left" valign="top">
 <p>We highly encourage plugin authors to explicitly declare public interfaces for their plugins.</p>
@@ -361,10 +358,10 @@ plugin as a dependency in it&#8217;s <a href="https://github.com/elastic/kibana/
 are then available via the second argument of <code class="literal">setup</code> and/or <code class="literal">start</code>:</p>
 <p><span class="strong strong"><strong>demo plugin.ts:</strong></span></p>
 <div class="pre_wrapper lang-typescript">
-<pre class="programlisting prettyprint lang-typescript">import type { CoreSetup, CoreStart } from 'kibana/server';
+<pre class="programlisting prettyprint lang-typescript">import type { CoreSetup, CoreStart } from '@kbn/core/server';
 import type { FoobarPluginSetup, FoobarPluginStart } from '../../foobar/server';
 
-interface DemoSetupPlugins { <a id="CO59-1"></a><i class="conum" data-value="1"></i>
+interface DemoSetupPlugins { <a id="CO75-1"></a><i class="conum" data-value="1"></i>
   foobar: FoobarPluginSetup;
 }
 
@@ -373,13 +370,13 @@ interface DemoStartPlugins {
 }
 
 export class AnotherPlugin {
-  public setup(core: CoreSetup, plugins: DemoSetupPlugins) { <a id="CO59-2"></a><i class="conum" data-value="2"></i>
+  public setup(core: CoreSetup, plugins: DemoSetupPlugins) { <a id="CO75-2"></a><i class="conum" data-value="2"></i>
     const { foobar } = plugins;
     foobar.getFoo(); // 'foo'
     foobar.getBar(); // throws because getBar does not exist
   }
 
-  public start(core: CoreStart, plugins: DemoStartPlugins) { <a id="CO59-3"></a><i class="conum" data-value="3"></i>
+  public start(core: CoreStart, plugins: DemoStartPlugins) { <a id="CO75-3"></a><i class="conum" data-value="3"></i>
     const { foobar } = plugins;
     foobar.getFoo(); // throws because getFoo does not exist
     foobar.getBar(); // 'bar'
@@ -392,7 +389,7 @@ export class AnotherPlugin {
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO59-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO75-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>The interface for plugin&#8217;s dependencies must be manually composed. You can
@@ -402,7 +399,7 @@ interface where the property name is the plugin&#8217;s ID.</p>
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO59-2"><i class="conum" data-value="2"></i></a></p>
+<p><a href="#CO75-2"><i class="conum" data-value="2"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>These manually constructed types should then be used to specify the type of
@@ -411,7 +408,7 @@ the second argument to the plugin.</p>
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO59-3"><i class="conum" data-value="3"></i></a></p>
+<p><a href="#CO75-3"><i class="conum" data-value="3"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Notice that the type for the setup and start lifecycles are different. Plugin lifecycle

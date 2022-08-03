@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,34 +87,24 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   
 <div id="content">
 <div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="index.html">APM Node.js Agent Reference [3.x]</a></span>
-»
-<span class="breadcrumb-node">Supported technologies</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -135,18 +125,8 @@ Versions of Node.js past their end-of-life date are not supported.</p>
 <img src="./images/node_release_schedule.svg" alt="Node.js release schedule">
 </div>
 </div>
-<div class="note admon">
-<div class="icon"></div>
-<div class="admon_content">
-<p>The agent makes use of the experimental Node.js core API <a href="https://nodejs.org/api/async_hooks.html" class="ulink" target="_top">Async Hooks</a>.
-If you experience any issues related to using Async Hooks,
-you can always disable the use of this API by setting the <a class="xref" href="configuration.html#async-hooks" title="asyncHooks"><code class="literal">asyncHooks</code></a> config option to <code class="literal">false</code>.
-Note however,
-that not all core Node.js API&#8217;s can be instrumented without the use of Async Hooks.</p>
-</div>
-</div>
 <h3><a id="elastic-stack-compatibility"></a>Elastic Stack Compatibility<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-nodejs/edit/3.x/docs/supported-technologies.asciidoc">edit</a></h3>
-<p>This agent is compatible with <a href="/guide/en/apm/guide/8.1" class="ulink" target="_top">APM Server</a> v6.5 and above.
+<p>This agent is compatible with <a href="/guide/en/apm/guide/8.3" class="ulink" target="_top">APM Server</a> v6.5 and above.
 For support for previous releases of the APM Server,
 use version <a href="/guide/en/apm/agent/nodejs/1.x" class="ulink" target="_top">1.x</a> of the agent.</p>
 <h3><a id="compatibility-frameworks"></a>Frameworks<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-nodejs/edit/3.x/docs/supported-technologies.asciidoc">edit</a></h3>
@@ -172,11 +152,11 @@ we automate a few things for the most popular Node.js modules.</p>
 </tr>
 <tr>
 <td align="left" valign="top"><p><a class="xref" href="hapi.html" title="Get started with hapi">hapi</a></p></td>
-<td align="left" valign="top"><p>&gt;=9.0.0 &lt;19.0.0</p></td>
+<td align="left" valign="top"><p>&gt;=9.0.0 &lt;19.0.0; Deprecated. No longer tested.</p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p><a class="xref" href="hapi.html" title="Get started with hapi">@hapi/hapi</a></p></td>
-<td align="left" valign="top"><p>&gt;=17.9.0 &#8656;20.0.0</p></td>
+<td align="left" valign="top"><p>&gt;=17.9.0 &lt;21.0.0</p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p><a class="xref" href="koa.html" title="Get started with Koa">Koa</a> via koa-router or @koa/router</p></td>
@@ -193,7 +173,7 @@ router information for full support. We currently support the most popular Koa r
 </tr>
 <tr>
 <td align="left" valign="top"><p><a class="xref" href="fastify.html" title="Get started with Fastify">Fastify</a></p></td>
-<td align="left" valign="top"><p>&gt;=1.0.0; see also <a href="https://www.fastify.io/docs/latest/LTS/" class="ulink" target="_top">Fastify&#8217;s own LTS documentation</a></p></td>
+<td align="left" valign="top"><p>&gt;=1.0.0; see also <a href="https://www.fastify.io/docs/latest/Reference/LTS/" class="ulink" target="_top">Fastify&#8217;s own LTS documentation</a></p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p><a class="xref" href="lambda.html" title="Monitoring AWS Lambda Node.js Functions">AWS Lambda</a></p></td>
@@ -272,7 +252,7 @@ These modules override that behavior to give better insights into specialized HT
 </tr>
 <tr>
 <td align="left" valign="top"><p><a href="https://www.npmjs.com/package/graphql" class="ulink" target="_top">graphql</a></p></td>
-<td align="left" valign="top"><p>&gt;=0.7.0 &lt;16.0.0</p></td>
+<td align="left" valign="top"><p>&gt;=0.7.0 &lt;17</p></td>
 <td align="left" valign="top"><p>Will instrument all queries</p></td>
 </tr>
 <tr>
@@ -283,7 +263,7 @@ These modules override that behavior to give better insights into specialized HT
 <tr>
 <td align="left" valign="top"><p><a href="https://www.npmjs.com/package/jade" class="ulink" target="_top">jade</a></p></td>
 <td align="left" valign="top"><p>&gt;=0.5.6</p></td>
-<td align="left" valign="top"><p>Will instrument compile and render calls</p></td>
+<td align="left" valign="top"><p>Will instrument compile and render calls; Deprecated. No longer tested. Use pug.</p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p><a href="https://www.npmjs.com/package/pug" class="ulink" target="_top">pug</a></p></td>
@@ -292,7 +272,7 @@ These modules override that behavior to give better insights into specialized HT
 </tr>
 <tr>
 <td align="left" valign="top"><p><a href="https://www.npmjs.com/package/ioredis" class="ulink" target="_top">ioredis</a></p></td>
-<td align="left" valign="top"><p>&gt;=2.0.0 &lt;5.0.0</p></td>
+<td align="left" valign="top"><p>&gt;=2.0.0 &lt;6.0.0</p></td>
 <td align="left" valign="top"><p>Will instrument all queries</p></td>
 </tr>
 <tr>
@@ -349,7 +329,7 @@ so those should be supported as well.</p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p><a href="https://www.npmjs.com/package/tedious" class="ulink" target="_top">tedious</a></p></td>
-<td align="left" valign="top"><p>&gt;=1.9 &lt;10.0.0</p></td>
+<td align="left" valign="top"><p>&gt;=1.9 &lt;15.0.0</p></td>
 <td align="left" valign="top"><p>(Excluding v4.0.0.) Will instrument all queries</p></td>
 </tr>
 <tr>
@@ -388,7 +368,7 @@ please create a new topic in the <a href="https://discuss.elastic.co/c/apm" clas
 <tbody>
 <tr>
 <td align="left" valign="top"><p><a href="https://www.npmjs.com/package/knex" class="ulink" target="_top">knex</a></p></td>
-<td align="left" valign="top"><p>&gt;=0.9.0 &lt;0.22.0</p></td>
+<td align="left" valign="top"><p>&gt;=0.9.0 &lt;1.0.0</p></td>
 </tr>
 </tbody>
 </table>
@@ -449,15 +429,37 @@ by a lot of database modules like for instance "pg"</p></td>
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

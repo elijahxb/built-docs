@@ -1,8 +1,1 @@
-POST test/_search?filter_path=hits.total
-{
-  "query": {
-    "match": {
-      "flag": "foo"
-    }
-  }
-}
+DELETE /_ccr/auto_follow/my_auto_follow_pattern

@@ -1,1 +1,6 @@
-GET _cat/ml/data_frame/analytics?v=true
+PUT _cluster/settings
+{
+  "persistent": {
+    "cluster.routing.allocation.disk.watermark.low": "30gb"
+  }
+}

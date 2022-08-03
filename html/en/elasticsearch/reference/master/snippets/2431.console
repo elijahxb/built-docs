@@ -1,4 +1,6 @@
-PUT music/_doc/1?refresh
+GET _ml/anomaly_detectors/job-*/results/overall_buckets
 {
-  "suggest" : [ "Nevermind", "Nirvana" ]
+  "top_n": 2,
+  "overall_score": 50.0,
+  "start": "1403532000000"
 }

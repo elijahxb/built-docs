@@ -1,21 +1,7 @@
-PUT _template/template_1
-{
-  "index_patterns": ["te*", "bar*"],
-  "settings": {
-    "number_of_shards": 1
-  },
-  "mappings": {
-    "_source": {
-      "enabled": false
-    },
-    "properties": {
-      "host_name": {
-        "type": "keyword"
-      },
-      "created_at": {
-        "type": "date",
-        "format": "EEE MMM dd HH:mm:ss Z yyyy"
-      }
-    }
-  }
-}
+POST /_bulk?filter_path=items.*.error
+{ "update": {"_id": "5", "_index": "index1"} }
+{ "doc": {"my_field": "baz"} }
+{ "update": {"_id": "6", "_index": "index1"} }
+{ "doc": {"my_field": "baz"} }
+{ "update": {"_id": "7", "_index": "index1"} }
+{ "doc": {"my_field": "baz"} }

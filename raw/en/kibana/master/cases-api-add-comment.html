@@ -20,13 +20,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Kibana Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="api.html">REST API</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Kibana Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="api.html">REST API</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="cases-api.html">Cases APIs</a></span>
-»
-<span class="breadcrumb-node">Add comment to case API</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -41,7 +38,7 @@ Not what you want? See the
 <h2 class="title"><a id="cases-api-add-comment"></a>Add comment to case API<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/api/cases/cases-api-add-comment.asciidoc">edit</a></h2>
 </div></div></div>
 
-<p>Adds a comment to a case.</p>
+<p>Adds a comment or alert to a case.</p>
 <div class="section">
 <div class="titlepage"><div><div>
 <h3 class="title"><a id="_request"></a>Request<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/api/cases/cases-api-add-comment.asciidoc">edit</a></h3>
@@ -52,7 +49,7 @@ Not what you want? See the
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_prerequisite"></a>Prerequisite<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/api/cases/cases-api-add-comment.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_prerequisites_18"></a>Prerequisites<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/api/cases/cases-api-add-comment.asciidoc">edit</a></h3>
 </div></div></div>
 <p>You must have <code class="literal">all</code> privileges for the <span class="strong strong"><strong>Cases</strong></span> feature in the <span class="strong strong"><strong>Management</strong></span>,
 <span class="strong strong"><strong>Observability</strong></span>, or <span class="strong strong"><strong>Security</strong></span> section of the
@@ -100,8 +97,8 @@ default space is used.
 </span>
 </dt>
 <dd>
-(Required*, string) The alert identifier. It is required only when <code class="literal">type</code> is
-<code class="literal">alert</code>. <span class="Admonishment Admonishment--preview">
+(Required*, string or array of strings) The alert identifier. It is required
+only when <code class="literal">type</code> is <code class="literal">alert</code>. If it is an array, <code class="literal">index</code> must also be an array. <span class="Admonishment Admonishment--preview">
 [<span class="Admonishment-title u-mono">preview</span>]
 <span class="Admonishment-detail">
 This functionality is in technical preview and may be changed or removed in a future release. Elastic will apply best effort to fix any issues, but features in technical preview are not subject to the support SLA of official GA features.
@@ -122,8 +119,8 @@ This functionality is in technical preview and may be changed or removed in a fu
 </span>
 </dt>
 <dd>
-(Required*, string) The alert index. It is required only when <code class="literal">type</code> is <code class="literal">alert</code>.
-<span class="Admonishment Admonishment--preview">
+(Required*, string or array of strings) The alert index. It is required only
+when <code class="literal">type</code> is <code class="literal">alert</code>. If it is an array, <code class="literal">alertId</code> must also be an array. <span class="Admonishment Admonishment--preview">
 [<span class="Admonishment-title u-mono">preview</span>]
 <span class="Admonishment-detail">
 This functionality is in technical preview and may be changed or removed in a future release. Elastic will apply best effort to fix any issues, but features in technical preview are not subject to the support SLA of official GA features.
@@ -204,7 +201,7 @@ This functionality is in technical preview and may be changed or removed in a fu
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_response_code"></a>Response code<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/api/cases/cases-api-add-comment.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_response_codes"></a>Response codes<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/api/cases/cases-api-add-comment.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="variablelist">
 <dl class="variablelist">
@@ -222,18 +219,18 @@ Indicates a successful call.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_example_24"></a>Example<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/api/cases/cases-api-add-comment.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_examples_12"></a>Examples<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/api/cases/cases-api-add-comment.asciidoc">edit</a></h3>
 </div></div></div>
 <p>Add a comment to case ID <code class="literal">293f1bc0-74f6-11ea-b83a-553aecdb28b6</code>:</p>
 <div class="pre_wrapper lang-kibana">
 <pre class="programlisting prettyprint lang-kibana">POST api/cases/293f1bc0-74f6-11ea-b83a-553aecdb28b6/comments
 {
   "type": "user",
-  "comment": "That is nothing - Ethan Hunt answered a targeted social media campaign promoting phishy pension schemes to IMF operatives.",
+  "comment": "A new comment.",
   "owner": "cases"
 }</pre>
 </div>
-<div class="kibana_widget" data-snippet="snippets/137.kibana"></div>
+<div class="kibana_widget" data-snippet="snippets/152.kibana"></div>
 <p>The API returns details about the case and its comments. For example:</p>
 <div class="pre_wrapper lang-json">
 <pre class="programlisting prettyprint lang-json">{
@@ -241,46 +238,48 @@ Indicates a successful call.
     {
       "id": "8af6ac20-74f6-11ea-b83a-553aecdb28b6",
       "version": "WzIwNDMxLDFd",
-      "type":"user",
-      "owner":"cases",
-      "comment":"That is nothing - Ethan Hunt answered a targeted social media campaign promoting phishy pension schemes to IMF operatives.",
-      "created_at":"2022-03-24T00:49:47.716Z",
+      "type": "user",
+      "owner": "cases",
+      "comment": "A new comment.",
+      "created_at": "2022-03-24T00:49:47.716Z",
       "created_by": {
-        "email": "moneypenny@hms.gov.uk",
-        "full_name": "Ms Moneypenny",
-        "username": "moneypenny"
+        "email": null,
+        "full_name": null,
+        "username": "elastic"
       },
-      "pushed_at":null,
-      "pushed_by":null,
-      "updated_at":null,
-      "updated_by":null
+      "pushed_at": null,
+      "pushed_by": null,
+      "updated_at": null,
+      "updated_by": null
     }
   ],
-  "totalAlerts":0,
-  "id":"293f1bc0-74f6-11ea-b83a-553aecdb28b6",
-  "version":"WzIzMzgsMV0=",
-  "totalComment":1,
-  "title": "This case will self-destruct in 5 seconds",
-  "tags": ["phishing","social engineering"],
-  "description": "James Bond clicked on a highly suspicious email banner advertising cheap holidays for underpaid civil servants.",
+  "totalAlerts": 0,
+  "id": "293f1bc0-74f6-11ea-b83a-553aecdb28b6",
+  "version": "WzIzMzgsMV0=",
+  "totalComment": 1,
+  "title": "Case title 1",
+  "tags": ["tag 1"],
+  "description": "A case description.",
   "settings": {
-    "syncAlerts":false
+    "syncAlerts": false
   },
   "owner": "cases",
+  "duration": null,
+  "severity": "low",
   "closed_at": null,
   "closed_by": null,
   "created_at": "2022-03-24T00:37:03.906Z",
   "created_by": {
-    "email": "ahunley@imf.usa.gov",
-    "full_name": "Alan Hunley",
-    "username": "ahunley"
+    "email": null,
+    "full_name": null,
+    "username": "elastic"
   },
   "status": "open",
   "updated_at": "2022-03-24T00:49:47.716Z",
   "updated_by": {
-    "email": "moneypenny@hms.gov.uk",
-    "full_name": "Ms Moneypenny",
-    "username": "moneypenny"
+    "email": null,
+    "full_name": null,
+    "username": "elastic"
   },
   "connector": {
     "id": "none",
@@ -295,17 +294,17 @@ Indicates a successful call.
 <div class="pre_wrapper lang-kibana">
 <pre class="programlisting prettyprint lang-kibana">POST api/cases/293f1bc0-74f6-11ea-b83a-553aecdb28b6/comments
 {
-"alertId": "6b24c4dc44bc720cfc92797f3d61fff952f2b2627db1fb4f8cc49f4530c4ff42",
-"index": ".internal.alerts-security.alerts-default-000001",
-"type": "alert",
-"owner": "cases",
-"rule": {
-  "id":"94d80550-aaf4-11ec-985f-97e55adae8b9",
-  "name":"security_rule"
+  "alertId": "6b24c4dc44bc720cfc92797f3d61fff952f2b2627db1fb4f8cc49f4530c4ff42",
+  "index": ".internal.alerts-security.alerts-default-000001",
+  "type": "alert",
+  "owner": "cases",
+  "rule": {
+    "id":"94d80550-aaf4-11ec-985f-97e55adae8b9",
+    "name":"security_rule"
   }
 }</pre>
 </div>
-<div class="kibana_widget" data-snippet="snippets/138.kibana"></div>
+<div class="kibana_widget" data-snippet="snippets/153.kibana"></div>
 </div>
 
 </div>

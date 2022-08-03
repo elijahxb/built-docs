@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+<meta charset="UTF-8">
+<title>Enable logging and monitoring | Elastic Cloud Enterprise Reference [3.2] | Elastic</title>
+<link rel="home" href="index.html" title="Elastic Cloud Enterprise Reference [3.2]"/>
+<link rel="up" href="ece-administering-deployments.html" title="Administering deployments"/>
+<link rel="prev" href="ece-integrations-server-apm-switch.html" title="Switch from APM to Integrations Server payload"/>
+<link rel="next" href="ece-restrictions-monitoring.html" title="Restrictions and limitations"/>
+<meta name="DC.type" content="Learn/Docs/CloudEnterprise/Reference/3.2"/>
+<meta name="DC.subject" content="ECE"/>
+<meta name="DC.identifier" content="3.2"/>
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.optimizely.com/js/18132920325.js"></script>
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/android-chrome-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="apple-mobile-web-app-title" content="Elastic">
+    <meta name="application-name" content="Elastic">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="naver-site-verification" content="936882c1853b701b3cef3721758d80535413dbfd" />
+    <meta name="yandex-verification" content="d8a47e95d0972434" />
+    <meta name="localized" content="true" />
+    <meta name="st:robots" content="follow,index" />
+    <meta property="og:image" content="https://www.elastic.co/static/images/elastic-logo-200.png" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon-precomposed" sizes="64x64" href="/favicon_64x64_16bit.png">
+    <link rel="apple-touch-icon-precomposed" sizes="32x32" href="/favicon_32x32.png">
+    <link rel="apple-touch-icon-precomposed" sizes="16x16" href="/favicon_16x16.png">
+    <!-- Give IE8 a fighting chance -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="/guide/static/styles.css" />
+  </head>
+
+  <!--© 2015-2022 Elasticsearch B.V. -->
+  <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
+  <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
+
+  <body>
+    <!-- Google Tag Manager -->
+    <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src= '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f); })(window,document,'script','dataLayer','GTM-58RLH5');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-12395217-16"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-12395217-16');
+    </script>
+
+    <!--BEGIN QUALTRICS WEBSITE FEEDBACK SNIPPET-->
+    <script type='text/javascript'>
+      (function(){var g=function(e,h,f,g){
+      this.get=function(a){for(var a=a+"=",c=document.cookie.split(";"),b=0,e=c.length;b<e;b++){for(var d=c[b];" "==d.charAt(0);)d=d.substring(1,d.length);if(0==d.indexOf(a))return d.substring(a.length,d.length)}return null};
+      this.set=function(a,c){var b="",b=new Date;b.setTime(b.getTime()+6048E5);b="; expires="+b.toGMTString();document.cookie=a+"="+c+b+"; path=/; "};
+      this.check=function(){var a=this.get(f);if(a)a=a.split(":");else if(100!=e)"v"==h&&(e=Math.random()>=e/100?0:100),a=[h,e,0],this.set(f,a.join(":"));else return!0;var c=a[1];if(100==c)return!0;switch(a[0]){case "v":return!1;case "r":return c=a[2]%Math.floor(100/c),a[2]++,this.set(f,a.join(":")),!c}return!0};
+      this.go=function(){if(this.check()){var a=document.createElement("script");a.type="text/javascript";a.src=g;document.body&&document.body.appendChild(a)}};
+      this.start=function(){var a=this;window.addEventListener?window.addEventListener("load",function(){a.go()},!1):window.attachEvent&&window.attachEvent("onload",function(){a.go()})}};
+      try{(new g(100,"r","QSI_S_ZN_emkP0oSe9Qrn7kF","https://znemkp0ose9qrn7kf-elastic.siteintercept.qualtrics.com/WRSiteInterceptEngine/?Q_ZID=ZN_emkP0oSe9Qrn7kF")).start()}catch(i){}})();
+    </script><div id='ZN_emkP0oSe9Qrn7kF'><!--DO NOT REMOVE-CONTENTS PLACED HERE--></div>
+    <!--END WEBSITE FEEDBACK SNIPPET-->
+
+    <div id='elastic-nav' style="display:none;"></div>
+    <script src='https://www.elastic.co/elastic-nav.js'></script>
+
+    <div class="main-container">
+      <section id="content" >
+        <div class="content-wrapper">
+
+          <section id="guide" lang="en">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
+                  <!-- start body -->
+                  <div class="page_header">
+A newer version is available. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Cloud Enterprise Reference [3.2]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="ece-administering-deployments.html">Administering deployments</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="ece-integrations-server-apm-switch.html">« Switch from APM to Integrations Server payload</a>
+</span>
+<span class="next">
+<a href="ece-restrictions-monitoring.html">Restrictions and limitations »</a>
+</span>
+</div>
+<div class="chapter">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="ece-enable-logging-and-monitoring"></a>Enable logging and monitoring<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/shared/ec-ce-enable-logging-and-monitoring.asciidoc">edit</a></h2>
+</div></div></div>
+<p>The deployment logging and monitoring feature lets you monitor your deployment in <a href="/guide/en/kibana/8.3/introduction.html" class="ulink" target="_top">Kibana</a> by shipping logs and metrics to a monitoring deployment. You can:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+View your deployment&#8217;s health and performance in real time and analyze past cluster, index, and node metrics.
+</li>
+<li class="listitem">
+View your deployment&#8217;s logs to debug issues, discover slow queries, surface deprecations, and analyze access to your deployment.
+</li>
+</ul>
+</div>
+<p>Monitoring consists of two components:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+A monitoring and logging agent that is installed on each node in your deployment. The agents collect and index metrics to Elasticsearch, either on the same deployment or by sending logs and metrics to an external monitoring deployment. Elastic Cloud Enterprise manages the installation and configuration of the monitoring agent for you, and you should not modify any of the settings.
+</li>
+<li class="listitem">
+The stack monitoring application in Kibana that visualizes the monitoring metrics through a dashboard and the logs application that allows you to search and analyze deployment logs.
+</li>
+</ul>
+</div>
+<p>The steps in this section cover only the enablement of the monitoring and logging features in Elastic Cloud Enterprise. For more information on how to use the monitoring features, refer to the following documentation:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+For version 7.0 and later - <a href="/guide/en/elasticsearch/reference/8.3/monitor-elasticsearch-cluster.html" class="ulink" target="_top">Monitor a cluster</a>
+</li>
+</ul>
+</div>
+<h3><a id="ece-logging-and-monitoring-limitations"></a>Before you begin<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/shared/ec-ce-enable-logging-and-monitoring.asciidoc">edit</a></h3>
+<p>Some limitations apply when you use monitoring on Elastic Cloud Enterprise. To learn more, check the monitoring <a class="xref" href="ece-restrictions-monitoring.html" title="Restrictions and limitations">restrictions and limitations</a>.</p>
+<h3><a id="ece-logging-and-monitoring-production"></a>Monitoring for production use<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/shared/ec-ce-enable-logging-and-monitoring.asciidoc">edit</a></h3>
+<p>For production use, you should send your deployment logs and metrics to a dedicated monitoring deployment. Monitoring indexes logs and metrics into Elasticsearch and these indexes consume storage, memory, and CPU cycles like any other index. By using a separate monitoring deployment, you avoid affecting your other production deployments and can view the logs and metrics even when a production deployment is unavailable.</p>
+<p>How many monitoring deployments you use depends on your requirements:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+You can ship logs and metrics for many deployments to a single monitoring deployment, if your business requirements permit it.
+</li>
+<li class="listitem">
+Although monitoring will work with a deployment running a single node, you need a minimum of three monitoring nodes to make monitoring highly available.
+</li>
+<li class="listitem">
+<p>You might need to create dedicated monitoring deployments for isolation purposes in some cases. For example:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+If you have many deployments and some of them are much larger than others, creating separate monitoring deployments prevents a large deployment from potentially affecting monitoring performance for smaller deployments.
+</li>
+<li class="listitem">
+If you need to silo Elasticsearch data for different business departments. Deployments that have been configured to ship logs and metrics to a target monitoring deployment have access to indexing data and can manage monitoring index templates, which is addressed by creating separate monitoring deployments.
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<p>Logs and metrics that get sent to a dedicated monitoring Elasticsearch deployment <a class="xref" href="ece-enable-logging-and-monitoring.html#ece-logging-and-monitoring-retention" title="Retention of monitoring daily indices">may not be cleaned up automatically</a> and might require some additional steps to remove excess data periodically.</p>
+<h3><a id="ece-logging-and-monitoring-retention"></a>Retention of monitoring daily indices<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/shared/ec-ce-enable-logging-and-monitoring.asciidoc">edit</a></h3>
+<h4><a id="ece-logging-and-monitoring-retention-8"></a>Stack versions 8.0 and above<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/shared/ec-ce-enable-logging-and-monitoring.asciidoc">edit</a></h4>
+<p>When you enable monitoring in Elastic Cloud Enterprise, your monitoring indices are retained
+for a certain period by default. After the retention period has passed,
+the monitoring indices are deleted automatically. The retention period
+is configured in the <code class="literal">.monitoring-8-ilm-policy</code> index lifecycle policy.
+To view or edit the policy open Kibana
+<span class="strong strong"><strong>Stack management &gt; Data &gt; Index Lifecycle Policies</strong></span>.</p>
+<h4><a id="ece-logging-and-monitoring-retention-7"></a>Stack versions 7.x<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/shared/ec-ce-enable-logging-and-monitoring.asciidoc">edit</a></h4>
+<p>When you enable monitoring in Elastic Cloud Enterprise, your monitoring indices are retained for a certain period by default. After the retention period has passed, the monitoring indices are deleted automatically. Monitoring data is retained for three days by default or as specified by the <a class="xref" href="ece-add-user-settings.html#xpack-monitoring-history-duration"><code class="literal">xpack.monitoring.history.duration</code> user setting</a>.</p>
+<p>To retain monitoring indices as is without deleting them automatically, you must disable the <a href="/guide/en/elasticsearch/reference/8.3/local-exporter.html#local-exporter-cleaner" class="ulink" target="_top">cleaner service</a> by adding a disabled local exporter in your cluster settings.</p>
+<p>For example</p>
+<div class="pre_wrapper lang-sh">
+<pre class="programlisting prettyprint lang-sh">PUT /_cluster/settings
+{
+    "persistent": {
+        "xpack.monitoring.exporters.__no-default-local__": {
+            "type": "local",
+            "enabled": false
+        }
+    }
+}</pre>
+</div>
+<h3><a id="ece-logging-and-monitoring-log-retention"></a>Retention of logging indices<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/shared/ec-ce-enable-logging-and-monitoring.asciidoc">edit</a></h3>
+<p>Log retention is determined by the version of the monitoring deployment.</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+For versions 7.0 and later: An ILM policy is pre-configured to manage log retention. The policy can be adjusted according to your requirements.
+</li>
+</ul>
+</div>
+<h3><a id="ece-enable-logging-and-monitoring-steps"></a>Enable logging and monitoring<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/shared/ec-ce-enable-logging-and-monitoring.asciidoc">edit</a></h3>
+<p>Elastic Cloud Enterprise manages the installation and configuration of the monitoring agent for you. When you enable monitoring on a deployment, you are configuring where the monitoring agent for your current deployment should send its logs and metrics.</p>
+<p>To enable monitoring on your deployment:</p>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+<a class="xref" href="ece-login.html" title="Log into the Cloud UI">Log into the Cloud UI</a>.
+</li>
+<li class="listitem">
+<p>On the deployments page, select your deployment.</p>
+<p>Narrow the list by name, ID, or choose from several other filters. To further define the list, use a combination of filters.</p>
+</li>
+<li class="listitem">
+From your deployment menu, go to the <span class="strong strong"><strong>Logs and metrics</strong></span> page.
+</li>
+<li class="listitem">
+Select <span class="strong strong"><strong>Enable</strong></span>.
+</li>
+<li class="listitem">
+<p>Choose where to send your logs and metrics. Select <span class="strong strong"><strong>Save</strong></span>.</p>
+<p>If a deployment is not listed, make sure that it is running a compatible version. The monitoring deployment and production deployment must be on the same major version, cloud provider, and region.</p>
+<div class="tip admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>Remember to send logs and metrics for production deployments to a dedicated monitoring deployment, so that your production deployments are not impacted by the overhead of indexing and storing monitoring data. A dedicated monitoring deployment also gives you more control over the retention period for monitoring data.</p>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>Enabling logs and monitoring may trigger a plan change on your deployment. You can monitor the plan change progress from the deployment&#8217;s <span class="strong strong"><strong>Activity</strong></span> page.</p>
+</div>
+</div>
+<h3><a id="ece-access-kibana-monitoring"></a>Access the monitoring application in Kibana<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/shared/ec-ce-enable-logging-and-monitoring.asciidoc">edit</a></h3>
+<p>With monitoring enabled for your deployment, you can access the <a href="/guide/en/kibana/8.3/observability.html" class="ulink" target="_top">logs</a> and <a href="/guide/en/kibana/8.3/xpack-monitoring.html" class="ulink" target="_top">stack monitoring</a> through Kibana.</p>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+<a class="xref" href="ece-login.html" title="Log into the Cloud UI">Log into the Cloud UI</a>.
+</li>
+<li class="listitem">
+<p>On the deployments page, select your deployment.</p>
+<p>Narrow the list by name, ID, or choose from several other filters. To further define the list, use a combination of filters.</p>
+</li>
+<li class="listitem">
+From your deployment menu, go to the <span class="strong strong"><strong>Logs and Metrics</strong></span> page.
+</li>
+<li class="listitem">
+Select the corresponding <span class="strong strong"><strong>View</strong></span> button to check the logs or metrics data.
+</li>
+</ol>
+</div>
+<p>Alternatively, you can access logs and metrics directly on the Kibana <span class="strong strong"><strong>Logs</strong></span> and <span class="strong strong"><strong>Stack Monitoring</strong></span> pages in the target monitoring deployment. You can also create an <code class="literal">elastic-cloud-logs-*</code> data view (formerly <em>index pattern</em>) to view your deployment&#8217;s logs in the Kibana <span class="strong strong"><strong>Discover</strong></span> tab. Several fields are available for you to view logs based on key details, such as the source deployment:</p>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+<col class="col_3"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Field</th>
+<th align="left" valign="top">Description</th>
+<th align="left" valign="top">Example value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">service.id</code></p></td>
+<td align="left" valign="top"><p>The ID of the deployment that generated the log</p></td>
+<td align="left" valign="top"><p><code class="literal">6ff525333d2844539663f3b1da6c04b6</code></p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><code class="literal">service.name</code></p></td>
+<td align="left" valign="top"><p>The name of the deployment that generated the log</p></td>
+<td align="left" valign="top"><p><code class="literal">My Production Deployment</code></p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><code class="literal">cloud.availability_zone</code></p></td>
+<td align="left" valign="top"><p>The availability zone in which the instance that generated the log is deployed</p></td>
+<td align="left" valign="top"><p><code class="literal">ap-northeast-1d</code></p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><code class="literal">service.node.name</code></p></td>
+<td align="left" valign="top"><p>The ID of the instance that generated the log</p></td>
+<td align="left" valign="top"><p><code class="literal">instance-0000000008</code></p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><code class="literal">service.type</code></p></td>
+<td align="left" valign="top"><p>The type of instance that generated the log</p></td>
+<td align="left" valign="top"><p><code class="literal">elasticsearch</code></p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><code class="literal">service.version</code></p></td>
+<td align="left" valign="top"><p>The version of the stack resource that generated the log</p></td>
+<td align="left" valign="top"><p><code class="literal">7.10.2</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3><a id="ece-extra-logging-features"></a>Logging features<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/shared/ec-ce-enable-logging-and-monitoring.asciidoc">edit</a></h3>
+<p>When shipping logs to a monitoring deployment there are more logging features available to you. These features include:</p>
+<h4><a id="ece-extra-logging-features-elasticsearch"></a>For Elasticsearch:<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/shared/ec-ce-enable-logging-and-monitoring.asciidoc">edit</a></h4>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<a href="/guide/en/elasticsearch/reference/8.3/enable-audit-logging.html" class="ulink" target="_top">Audit logging</a> - logs security-related events on your deployment
+</li>
+<li class="listitem">
+<a href="/guide/en/elasticsearch/reference/8.3/index-modules-slowlog.html" class="ulink" target="_top">Slow query and index logging</a> - helps find and debug slow queries and indexing
+</li>
+<li class="listitem">
+Verbose logging - helps debug stack issues by increasing component logs
+</li>
+</ul>
+</div>
+<p>After you&#8217;ve enabled log delivery on your deployment, you can <a class="xref" href="ece-add-user-settings.html" title="Add Elasticsearch user settings">add the Elasticsearch user settings</a> to enable these features.</p>
+<h4><a id="ece-extra-logging-features-kibana"></a>For Kibana:<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/shared/ec-ce-enable-logging-and-monitoring.asciidoc">edit</a></h4>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<a href="/guide/en/elasticsearch/reference/8.3/enable-audit-logging.html" class="ulink" target="_top">Audit logging</a> - logs security-related events on your deployment
+</li>
+</ul>
+</div>
+<p>After you&#8217;ve enabled log delivery on your deployment, you can <a class="xref" href="ece-manage-kibana-settings.html" title="Add Kibana user settings">add the Kibana user settings</a> to enable this feature.</p>
+<h3><a id="ece-extra-logging-features-enterprise-search"></a>Other components<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/shared/ec-ce-enable-logging-and-monitoring.asciidoc">edit</a></h3>
+<p>Enabling log collection also supports collecting and indexing the following types of logs from other components in your deployments:</p>
+<p><span class="strong strong"><strong>Enterprise Search</strong></span></p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+connectors.log*
+</li>
+<li class="listitem">
+crawler.log*
+</li>
+<li class="listitem">
+filebeat*
+</li>
+<li class="listitem">
+app-server.log*
+</li>
+<li class="listitem">
+system.log*
+</li>
+<li class="listitem">
+worker.log*
+</li>
+<li class="listitem">
+kibana.log*
+</li>
+</ul>
+</div>
+<p><span class="strong strong"><strong>App Search</strong></span></p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+app-search*.log
+</li>
+</ul>
+</div>
+<p><span class="strong strong"><strong>APM</strong></span></p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+apm*.log*
+</li>
+</ul>
+</div>
+<p><span class="strong strong"><strong>Fleet and Elastic Agent</strong></span></p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+fleet-server-json.log-*
+</li>
+<li class="listitem">
+elastic-agent-json.log-*
+</li>
+</ul>
+</div>
+<p>The ˆ*ˆ indicates that we also index the archived files of each type of log.</p>
+<p>Check the respective product documentation for more information about the logging capabilities of each product.</p>
+<h2><a id="ece-extra-metrics-features"></a>Metrics features<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/shared/ec-ce-enable-logging-and-monitoring.asciidoc">edit</a></h2>
+<p>With logging and monitoring enabled for a deployment, metrics are collected for Elasticsearch, Kibana, Enterprise Search, and APM with Fleet Server.</p>
+<h4><a id="ece-enable-audit-logs"></a>Enabling Elasticsearch/Kibana audit logs on your deployment<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/shared/ec-ce-enable-logging-and-monitoring.asciidoc">edit</a></h4>
+<p>Audit logs are useful for tracking security events on your Elasticsearch and/or Kibana clusters. To enable Elasticsearch audit logs on your deployment:</p>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+<a class="xref" href="ece-login.html" title="Log into the Cloud UI">Log into the Cloud UI</a>.
+</li>
+<li class="listitem">
+<p>On the deployments page, select your deployment.</p>
+<p>Narrow the list by name, ID, or choose from several other filters. To further define the list, use a combination of filters.</p>
+</li>
+<li class="listitem">
+From your deployment menu, go to the <span class="strong strong"><strong>Edit</strong></span> page.
+</li>
+<li class="listitem">
+To enable audit logs in Elasticsearch, in the <span class="strong strong"><strong>Elasticsearch</strong></span> section select <span class="strong strong"><strong>Edit user settings and plugins</strong></span>. For deployments with existing user settings, you may have to expand the <span class="strong strong"><strong>Edit elasticsearch.yml</strong></span> caret for each node instead.
+</li>
+<li class="listitem">
+To enable audit logs in Kibana, in the <span class="strong strong"><strong>Kibana</strong></span> section select <span class="strong strong"><strong>Edit user settings</strong></span>. For deployments with existing user settings, you may have to expand the <span class="strong strong"><strong>Edit kibana.yml</strong></span> caret instead.
+</li>
+<li class="listitem">
+Add <code class="literal">xpack.security.audit.enabled: true</code> to the user settings.
+</li>
+<li class="listitem">
+Select <span class="strong strong"><strong>Save changes</strong></span>.
+</li>
+</ol>
+</div>
+<p>A plan change will run on your deployment. When it finishes, audit logs will be delivered to your monitoring deployment.</p>
+
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="ece-integrations-server-apm-switch.html">« Switch from APM to Integrations Server payload</a>
+</span>
+<span class="next">
+<a href="ece-restrictions-monitoring.html">Restrictions and limitations »</a>
+</span>
+</div>
+</div>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains('stemblock')) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+
+                  <!-- end body -->
+                </div>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+        </div>
+
+
+<div id='elastic-footer'></div>
+<script src='https://www.elastic.co/elastic-footer.js'></script>
+<!-- Footer Section end-->
+
+      </section>
+    </div>
+
+<script src="/guide/static/jquery.js"></script>
+<script type="text/javascript" src="/guide/static/docs.js"></script>
+<script type="text/javascript">
+  window.initial_state = {"alternatives":{"console":{"php":{"hasAny":false},"go":{"hasAny":false},"ruby":{"hasAny":false},"java":{"hasAny":false},"javascript":{"hasAny":false},"python":{"hasAny":false},"csharp":{"hasAny":false}}}}</script>
+  </body>
+</html>

@@ -1,15 +1,6 @@
-POST /my-index-000001/_mtermvectors
+PUT my-index-000001/_doc/1?version=2&version_type=external
 {
-   "docs": [
-      {
-         "_id": "2",
-         "fields": [
-            "message"
-         ],
-         "term_statistics": true
-      },
-      {
-         "_id": "1"
-      }
-   ]
+  "user": {
+    "id": "elkbee"
+  }
 }

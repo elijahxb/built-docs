@@ -18,13 +18,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="setup.html">Set up Elasticsearch</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="setup.html">Set up Elasticsearch</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="remote-clusters.html">Remote clusters</a></span>
-»
-<span class="breadcrumb-node">Connect to remote clusters</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -36,7 +33,7 @@ Not what you want? See the
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="remote-clusters-connect"></a>Connect to remote clusters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/modules/cluster/remote-clusters-connect.asciidoc">edit</a></h2>
+<h2 class="title"><a id="remote-clusters-connect"></a>Connect to remote clusters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/modules/cluster/remote-clusters-connect.asciidoc">edit</a></h2>
 </div></div></div>
 <p>Your local cluster uses the <a class="xref" href="modules-network.html" title="Networking">transport interface</a> to establish
 communication with remote clusters. The coordinating nodes in the local cluster
@@ -91,7 +88,7 @@ remote cluster and is used to distinguish between local and remote indices.</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/52.console"></div>
+<div class="console_widget" data-snippet="snippets/42.console"></div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
@@ -119,7 +116,7 @@ the local cluster is successfully connected to the remote cluster:</p>
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">GET /_remote/info</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/53.console"></div>
+<div class="console_widget" data-snippet="snippets/43.console"></div>
 <p>The API response indicates that the local cluster is connected to the remote
 cluster with the cluster alias <code class="literal">cluster_one</code>:</p>
 <a id="bae5994a9b4d17e61cfbbd756b9da703"></a>
@@ -162,7 +159,7 @@ no nodes are available.</p>
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="configure-remote-clusters-dynamic"></a>Dynamically configure remote clusters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/modules/cluster/remote-clusters-connect.asciidoc">edit</a></h3>
+<h3 class="title"><a id="configure-remote-clusters-dynamic"></a>Dynamically configure remote clusters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/modules/cluster/remote-clusters-connect.asciidoc">edit</a></h3>
 </div></div></div>
 <p>Use the <a class="xref" href="cluster-update-settings.html" title="Cluster update settings API">cluster update settings API</a> to dynamically
 configure remote settings on every node in the cluster. The following request
@@ -203,7 +200,7 @@ different modes.</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/54.console"></div>
+<div class="console_widget" data-snippet="snippets/44.console"></div>
 <p>You can dynamically update settings for a remote cluster after the initial configuration. The following request updates the
 compression settings for <code class="literal">cluster_two</code>, and the compression and ping schedule
 settings for <code class="literal">cluster_three</code>.</p>
@@ -234,7 +231,7 @@ fail.</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/55.console"></div>
+<div class="console_widget" data-snippet="snippets/45.console"></div>
 <p>You can delete a remote cluster from the cluster settings by passing <code class="literal">null</code>
 values for each remote cluster setting. The following request removes
 <code class="literal">cluster_two</code> from the cluster settings, leaving <code class="literal">cluster_one</code> and
@@ -257,12 +254,12 @@ values for each remote cluster setting. The following request removes
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/56.console"></div>
+<div class="console_widget" data-snippet="snippets/46.console"></div>
 </div>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="configure-remote-clusters-static"></a>Statically configure remote clusters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/modules/cluster/remote-clusters-connect.asciidoc">edit</a></h3>
+<h3 class="title"><a id="configure-remote-clusters-static"></a>Statically configure remote clusters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/modules/cluster/remote-clusters-connect.asciidoc">edit</a></h3>
 </div></div></div>
 <p>If you specify settings in <code class="literal">elasticsearch.yml</code>, only the nodes with
 those settings can connect to the remote cluster and serve remote cluster

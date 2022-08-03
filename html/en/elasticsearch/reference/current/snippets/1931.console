@@ -1,15 +1,6 @@
-PUT my-index-000001
+PUT /_cluster/settings?flat_settings=true
 {
-   "mappings": {
-       "properties": {
-          "counter": {
-             "type": "integer",
-             "store": false
-          },
-          "tags": {
-             "type": "keyword",
-             "store": true
-          }
-       }
-   }
+  "transient" : {
+    "indices.recovery.max_bytes_per_sec" : "20mb"
+  }
 }

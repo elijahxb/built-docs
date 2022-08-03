@@ -1,5 +1,1 @@
-# All groups with all stats
-GET /_nodes/stats?groups=_all
-
-# Some groups from just the indices stats
-GET /_nodes/stats/indices?groups=foo,bar
+GET kibana_sample_data_flights,.ds-my-data-stream-2022.06.17-000001?features=settings&flat_settings

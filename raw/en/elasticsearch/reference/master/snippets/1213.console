@@ -1,29 +1,65 @@
-PUT range_index
+GET /_search
 {
-  "settings": {
-    "number_of_shards": 2
+  "query": {
+    "bool": {
+      "filter": [
+        {
+          "term": {
+            "event.outcome": "failure"
+          }
+        },
+        {
+          "range": {
+            "@timestamp": {
+              "gte": "2021-02-01",
+              "lt": "2021-02-04"
+            }
+          }
+        },
+        {
+          "term": {
+            "service.name": {
+              "value": "frontend-node"
+            }
+          }
+        }
+      ]
+    }
   },
-  "mappings": {
-    "properties": {
-      "expected_attendees": {
-        "type": "integer_range"
-      },
-      "time_frame": {
-        "type": "date_range",
-        "format": "yyyy-MM-dd||epoch_millis"
+  "aggs": {
+    "failure_p_value": {
+      "significant_terms": {
+        "field": "user_agent.version",
+        "background_filter": {
+          "bool": {
+            "must_not": [
+              {
+                "term": {
+                  "event.outcome": "failure"
+                }
+              }
+            ],
+            "filter": [
+              {
+                "range": {
+                  "@timestamp": {
+                    "gte": "2021-02-01",
+                    "lt": "2021-02-04"
+                  }
+                }
+              },
+              {
+                "term": {
+                  "service.name": {
+                    "value": "frontend-node"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "p_value": {"background_is_superset": false, "normalize_above": 1000}
       }
     }
-  }
-}
-
-PUT range_index/_doc/1?refresh
-{
-  "expected_attendees" : {
-    "gte" : 10,
-    "lte" : 20
-  },
-  "time_frame" : {
-    "gte" : "2019-10-28",
-    "lte" : "2019-11-04"
   }
 }

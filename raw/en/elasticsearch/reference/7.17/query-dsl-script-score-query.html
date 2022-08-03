@@ -17,13 +17,10 @@ A newer version is available. For the latest information, see the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [7.17]</a></span>
-»
-<span class="breadcrumb-link"><a href="query-dsl.html">Query DSL</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [7.17]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="query-dsl.html">Query DSL</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="specialized-queries.html">Specialized queries</a></span>
-»
-<span class="breadcrumb-node">Script score query</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -61,7 +58,7 @@ documents.</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1051.console"></div>
+<div class="console_widget" data-snippet="snippets/1053.console"></div>
 </div>
 
 <div class="section">
@@ -374,9 +371,10 @@ If you want to boost documents closer to a date or geographic point, use the
 <div class="titlepage"><div><div>
 <h4 class="title"><a id="script-score-function-score-transition"></a>Transition from the function score query<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/7.17/docs/reference/query-dsl/script-score-query.asciidoc">edit</a></h4>
 </div></div></div>
-<p>We are deprecating the <a class="xref" href="query-dsl-function-score-query.html" title="Function score query"><code class="literal">function_score</code></a>
-query. We recommend using the <code class="literal">script_score</code> query instead.</p>
-<p>You can implement the following functions from the <code class="literal">function_score</code> query using
+<p>We recommend using the <code class="literal">script_score</code> query instead of
+<a class="xref" href="query-dsl-function-score-query.html" title="Function score query"><code class="literal">function_score</code></a> query for the simplicity
+of the <code class="literal">script_score</code> query.</p>
+<p>You can implement the following functions of the <code class="literal">function_score</code> query using
 the <code class="literal">script_score</code> query:</p>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -595,7 +593,7 @@ PUT my-index-000001/_doc/2
 
 POST my-index-000001/_refresh</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1052.console"></div>
+<div class="console_widget" data-snippet="snippets/1054.console"></div>
 <p>The <code class="literal">cosineSimilarity</code> function calculates the measure of
 cosine similarity between a given query vector and document vectors.</p>
 <div class="pre_wrapper lang-console">
@@ -622,7 +620,7 @@ cosine similarity between a given query vector and document vectors.</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1053.console"></div>
+<div class="console_widget" data-snippet="snippets/1055.console"></div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
@@ -687,7 +685,7 @@ dot product between a given query vector and document vectors.</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1054.console"></div>
+<div class="console_widget" data-snippet="snippets/1056.console"></div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
@@ -727,7 +725,7 @@ document vectors.</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1055.console"></div>
+<div class="console_widget" data-snippet="snippets/1057.console"></div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
@@ -774,7 +772,7 @@ document vectors.</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1056.console"></div>
+<div class="console_widget" data-snippet="snippets/1058.console"></div>
 <div class="note admon">
 <div class="icon"></div>
 <div class="admon_content">
@@ -837,7 +835,7 @@ two functions:</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1057.console"></div>
+<div class="console_widget" data-snippet="snippets/1059.console"></div>
 </div>
 
 <div class="section">
@@ -868,7 +866,7 @@ of documents into it.</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1058.console"></div>
+<div class="console_widget" data-snippet="snippets/1060.console"></div>
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">PUT my_sparse_index/_doc/1
 {
@@ -884,7 +882,7 @@ PUT my_sparse_index/_doc/2
 
 POST my_sparse_index/_refresh</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1059.console"></div>
+<div class="console_widget" data-snippet="snippets/1061.console"></div>
 <p>The <code class="literal">cosineSimilaritySparse</code> function calculates cosine similarity
 between a given query vector and document vectors.</p>
 <div class="pre_wrapper lang-console">
@@ -911,7 +909,7 @@ between a given query vector and document vectors.</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1060.console"></div>
+<div class="console_widget" data-snippet="snippets/1062.console"></div>
 <p>The <code class="literal">dotProductSparse</code> function calculates dot product
 between a given query vector and document vectors.</p>
 <div class="pre_wrapper lang-console">
@@ -941,7 +939,7 @@ between a given query vector and document vectors.</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1061.console"></div>
+<div class="console_widget" data-snippet="snippets/1063.console"></div>
 <p>The <code class="literal">l1normSparse</code> function calculates L<sup>1</sup> distance
 between a given query vector and document vectors.</p>
 <div class="pre_wrapper lang-console">
@@ -968,7 +966,7 @@ between a given query vector and document vectors.</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1062.console"></div>
+<div class="console_widget" data-snippet="snippets/1064.console"></div>
 <p>The <code class="literal">l2normSparse</code> function calculates L<sup>2</sup> distance
 between a given query vector and document vectors.</p>
 <div class="pre_wrapper lang-console">
@@ -995,7 +993,7 @@ between a given query vector and document vectors.</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1063.console"></div>
+<div class="console_widget" data-snippet="snippets/1065.console"></div>
 </div>
 
 <div class="section">
@@ -1025,7 +1023,7 @@ between a given query vector and document vectors.</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1064.console"></div>
+<div class="console_widget" data-snippet="snippets/1066.console"></div>
 <p>Note that the <code class="literal">explanation</code> will be null when using in a normal <code class="literal">_search</code> request, so having a conditional guard is best practice.</p>
 </div>
 

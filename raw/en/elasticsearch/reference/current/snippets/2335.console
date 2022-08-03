@@ -1,10 +1,20 @@
-POST _ml/data_frame/_evaluate
+PUT /_ingest/pipeline/my-pipeline-id
 {
-  "index": "my_analytics_dest_index",
-  "evaluation": {
-    "outlier_detection": {
-      "actual_field": "is_outlier",
-      "predicted_probability_field": "ml.outlier_score"
+  "description" : "My optional pipeline description",
+  "processors" : [
+    {
+      "set" : {
+        "description" : "My optional processor description",
+        "field": "my-keyword-field",
+        "value": "foo"
+      }
+    }
+  ],
+  "_meta": {
+    "reason": "set my-keyword-field to foo",
+    "serialization": {
+      "class": "MyPipeline",
+      "id": 10
     }
   }
 }

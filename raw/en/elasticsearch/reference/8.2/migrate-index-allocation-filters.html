@@ -13,17 +13,15 @@
 <meta name="robots" content="noindex,nofollow"/>
 </head>
 <body><div class="page_header">
-You are looking at preliminary documentation for a future release.
-Not what you want? See the
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
 <a href="../current/index.html">current release documentation</a>.
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.2]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.2]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="data-management.html">Data management</a></span>
-»
-<span class="breadcrumb-node">Migrate index allocation filters to node roles</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -58,7 +56,7 @@ control shard allocation for other purposes.</p>
 deployments, you need to manually update your configuration, ILM policies, and
 indices to switch to node roles.</p>
 <h3><a id="cloud-migrate-to-node-roles"></a>Automatically migrate to node roles on Elasticsearch Service or Elastic Cloud Enterprise<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.2/docs/reference/data-management/migrate-index-allocation-filters.asciidoc">edit</a></h3>
-<p>If you are using node attributes on Elasticsearch Service or Elastic Cloud Enterprise, you will be
+<p>If you are using node attributes from the default deployment template in Elasticsearch Service or Elastic Cloud Enterprise, you will be
 prompted to switch to node roles when you:</p>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -165,7 +163,7 @@ that set the hot shard allocation attribute on all indices.</p>
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">DELETE _template/.cloud-hot-warm-allocation-0</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1487.console"></div>
+<div class="console_widget" data-snippet="snippets/1489.console"></div>
 <p>If you&#8217;re using a custom index template, update it to remove the <a class="xref" href="shard-allocation-filtering.html" title="Index-level shard allocation filtering">attribute-based allocation filters</a> you used to assign new indices to the hot tier.</p>
 <p>To completely avoid the issues that raise when mixing the tier preference and
 custom attribute routing setting we also recommend updating all the legacy,
@@ -198,7 +196,7 @@ and set the <code class="literal">_tier_preference</code> to <code class="litera
   "index.routing.allocation.include._tier_preference": "data_hot"
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1488.console"></div>
+<div class="console_widget" data-snippet="snippets/1490.console"></div>
 <p>For indices that have already transitioned out of the hot phase,
 the tier preference should include the appropriate fallback tiers
 to ensure index shards can be allocated if the preferred tier
@@ -213,7 +211,7 @@ already in the warm phase.</p>
   "index.routing.allocation.include._tier_preference": "data_warm,data_hot"
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1489.console"></div>
+<div class="console_widget" data-snippet="snippets/1491.console"></div>
 <p>If an index is already in the cold phase, include the cold, warm, and hot tiers.</p>
 <p>For indices that have both the <code class="literal">_tier_preference</code> and <code class="literal">require.data</code> configured
 but the <code class="literal">_tier_preference</code> is outdated (ie. the node attribute configuration
@@ -236,7 +234,7 @@ the correct tiering.</p>
   "index.routing.allocation.include._tier_preference": "data_warm,data_hot"
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1490.console"></div>
+<div class="console_widget" data-snippet="snippets/1492.console"></div>
 <p>This situation can occur in a system that defaults to data tiers when, e.g.,
 an ILM policy that uses node attributes is restored and transitions the managed
 indices from the hot phase into the warm phase. In this case the node attribute

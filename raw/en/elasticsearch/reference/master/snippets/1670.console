@@ -1,6 +1,4 @@
-PUT /_cluster/settings
+POST /_security/saml/prepare
 {
-  "persistent" : {
-    "xpack.security.transport.filter.enabled" : false
-  }
+  "realm" : "saml1"
 }

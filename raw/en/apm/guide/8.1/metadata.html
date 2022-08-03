@@ -10,17 +10,19 @@
 <meta name="DC.type" content="Learn/Docs/APM Guide/8.1"/>
 <meta name="DC.subject" content="APM"/>
 <meta name="DC.identifier" content="8.1"/>
+<meta name="robots" content="noindex,nofollow"/>
 </head>
-<body>
+<body><div class="page_header">
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">APM User Guide [8.1]</a></span>
-»
-<span class="breadcrumb-link"><a href="legacy-apm-overview.html">Legacy APM Overview</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">APM User Guide [8.1]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="legacy-apm-overview.html">Legacy APM Overview</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="apm-data-model.html">Data Model</a></span>
-»
-<span class="breadcrumb-node">Metadata</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -32,18 +34,18 @@
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="metadata"></a>Metadata<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-server/edit/8.1/docs/legacy/guide/apm-data-model.asciidoc">edit</a></h2>
+<h2 class="title"><a id="metadata"></a>Metadata<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/apm-server/edit/8.1/docs/legacy/guide/apm-data-model.asciidoc">edit</a></h2>
 </div></div></div>
 <div class="important admon">
 <div class="icon"></div>
 <div class="admon_content">
-<p>This documentation refers to the standalone (legacy) method of running APM Server. This method of running APM Server will be deprecated and removed in a future release. Please consider <a class="xref" href="upgrade-to-apm-integration.html" title="Upgrade to the Elastic APM integration">upgrading to the Elastic APM integration</a>.
+<p>This documentation refers to the standalone (legacy) method of running APM Server. This method of running APM Server will be deprecated and removed in a future release. Please consider <a class="xref" href="upgrade-to-apm-integration.html" title="Switch to the Elastic APM integration">upgrading to the Elastic APM integration</a>.
 If you&#8217;ve already upgraded, see <a class="xref" href="data-model.html" title="Data Model"><em>Data Model</em></a>.</p>
 </div>
 </div>
 <p>Metadata can enrich your events and make application performance monitoring even more useful.
 Let&#8217;s explore the different types of metadata that Elastic APM offers.</p>
-<h4><a id="labels-fields"></a>Labels<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-server/edit/8.1/docs/legacy/guide/apm-data-model.asciidoc">edit</a></h4>
+<h4><a id="labels-fields"></a>Labels<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/apm-server/edit/8.1/docs/legacy/guide/apm-data-model.asciidoc">edit</a></h4>
 <p>Labels add <span class="strong strong"><strong>indexed</strong></span> information to transactions, spans, and errors.
 Indexed means the data is searchable and aggregatable in Elasticsearch.
 Add additional key-value pairs to define multiple labels.</p>
@@ -75,7 +77,7 @@ Defining too many unique fields in an index is a condition that can lead to a
 <a href="/guide/en/elasticsearch/reference/8.1/mapping.html#mapping-limit-settings" class="ulink" target="_top">mapping explosion</a>.</p>
 </div>
 </div>
-<h5><a id="_agent_api_reference_4"></a>Agent API reference<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-server/edit/8.1/docs/legacy/guide/apm-data-model.asciidoc">edit</a></h5>
+<h5><a id="_agent_api_reference_4"></a>Agent API reference<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/apm-server/edit/8.1/docs/legacy/guide/apm-data-model.asciidoc">edit</a></h5>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
 <li class="listitem">
@@ -100,11 +102,11 @@ Python: <a href="/guide/en/apm/agent/python/6.x/api.html#api-label" class="ulink
 Ruby:  <a href="/guide/en/apm/agent/ruby/4.x/api.html#api-agent-set-label" class="ulink" target="_top"><code class="literal">set_label</code></a>
 </li>
 <li class="listitem">
-Rum: <a href="/guide/en/apm/agent/rum-js/4.x/agent-api.html#apm-add-labels" class="ulink" target="_top"><code class="literal">addLabels</code></a>
+Rum: <a href="/guide/en/apm/agent/rum-js/5.x/agent-api.html#apm-add-labels" class="ulink" target="_top"><code class="literal">addLabels</code></a>
 </li>
 </ul>
 </div>
-<h4><a id="custom-fields"></a>Custom context<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-server/edit/8.1/docs/legacy/guide/apm-data-model.asciidoc">edit</a></h4>
+<h4><a id="custom-fields"></a>Custom context<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/apm-server/edit/8.1/docs/legacy/guide/apm-data-model.asciidoc">edit</a></h4>
 <p>Custom context adds <span class="strong strong"><strong>non-indexed</strong></span>,
 custom contextual information to transactions and errors.
 Non-indexed means the data is not searchable or aggregatable in Elasticsearch,
@@ -135,7 +137,7 @@ Applies to: <a class="xref" href="transactions.html" title="Transactions">Transa
 <p>Setting a circular object, a large object, or a non JSON serializable object can lead to errors.</p>
 </div>
 </div>
-<h5><a id="_agent_api_reference_5"></a>Agent API reference<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-server/edit/8.1/docs/legacy/guide/apm-data-model.asciidoc">edit</a></h5>
+<h5><a id="_agent_api_reference_5"></a>Agent API reference<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/apm-server/edit/8.1/docs/legacy/guide/apm-data-model.asciidoc">edit</a></h5>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
 <li class="listitem">
@@ -163,11 +165,11 @@ Python: <a href="/guide/en/apm/agent/python/6.x/api.html#api-set-custom-context"
 Ruby: <a href="/guide/en/apm/agent/ruby/4.x/api.html#api-agent-set-custom-context" class="ulink" target="_top"><code class="literal">set_custom_context</code></a>
 </li>
 <li class="listitem">
-Rum: <a href="/guide/en/apm/agent/rum-js/4.x/agent-api.html#apm-set-custom-context" class="ulink" target="_top"><code class="literal">setCustomContext</code></a>
+Rum: <a href="/guide/en/apm/agent/rum-js/5.x/agent-api.html#apm-set-custom-context" class="ulink" target="_top"><code class="literal">setCustomContext</code></a>
 </li>
 </ul>
 </div>
-<h4><a id="user-fields"></a>User context<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-server/edit/8.1/docs/legacy/guide/apm-data-model.asciidoc">edit</a></h4>
+<h4><a id="user-fields"></a>User context<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/apm-server/edit/8.1/docs/legacy/guide/apm-data-model.asciidoc">edit</a></h4>
 <p>User context adds <span class="strong strong"><strong>indexed</strong></span> user information to transactions and errors.
 Indexed means the data is searchable and aggregatable in Elasticsearch.</p>
 <div class="ulist itemizedlist">
@@ -186,7 +188,7 @@ Applies to: <a class="xref" href="transactions.html" title="Transactions">Transa
 </li>
 </ul>
 </div>
-<h5><a id="_agent_api_reference_6"></a>Agent API reference<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-server/edit/8.1/docs/legacy/guide/apm-data-model.asciidoc">edit</a></h5>
+<h5><a id="_agent_api_reference_6"></a>Agent API reference<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/apm-server/edit/8.1/docs/legacy/guide/apm-data-model.asciidoc">edit</a></h5>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
 <li class="listitem">
@@ -215,7 +217,7 @@ Python: <a href="/guide/en/apm/agent/python/6.x/api.html#api-set-user-context" c
 Ruby: <a href="/guide/en/apm/agent/ruby/4.x/api.html#api-agent-set-user" class="ulink" target="_top"><code class="literal">set_user</code></a>
 </li>
 <li class="listitem">
-Rum: <a href="/guide/en/apm/agent/rum-js/4.x/agent-api.html#apm-set-user-context" class="ulink" target="_top"><code class="literal">setUserContext</code></a>
+Rum: <a href="/guide/en/apm/agent/rum-js/5.x/agent-api.html#apm-set-user-context" class="ulink" target="_top"><code class="literal">setUserContext</code></a>
 </li>
 </ul>
 </div>

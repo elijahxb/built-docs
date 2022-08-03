@@ -17,13 +17,10 @@ A newer version is available. For the latest information, see the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [7.17]</a></span>
-»
-<span class="breadcrumb-link"><a href="rest-apis.html">REST APIs</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [7.17]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="rest-apis.html">REST APIs</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="security-api.html">Security APIs</a></span>
-»
-<span class="breadcrumb-node">SAML prepare authentication API</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -164,7 +161,7 @@ authentication request.
   "realm" : "saml1"
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/2608.console"></div>
+<div class="console_widget" data-snippet="snippets/2610.console"></div>
 <p>The following example generates a SAML authentication request for the SAML realm with an Assertion
 Consuming Service URL matching <code class="literal">https://kibana.org/api/security/saml/callback</code></p>
 <div class="pre_wrapper lang-console">
@@ -173,7 +170,7 @@ Consuming Service URL matching <code class="literal">https://kibana.org/api/secu
   "acs" : "https://kibana.org/api/security/saml/callback"
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/2609.console"></div>
+<div class="console_widget" data-snippet="snippets/2611.console"></div>
 <p>This API returns the following response:</p>
 <div class="pre_wrapper lang-js">
 <pre class="programlisting prettyprint lang-js">{

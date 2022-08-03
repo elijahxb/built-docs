@@ -1,1 +1,5 @@
-POST my-index-000001/_update_by_query?scroll_size=100
+# All groups with all stats
+GET /_nodes/stats?groups=_all
+
+# Some groups from just the indices stats
+GET /_nodes/stats/indices?groups=foo,bar

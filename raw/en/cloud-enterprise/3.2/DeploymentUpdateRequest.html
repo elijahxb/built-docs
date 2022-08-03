@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>DeploymentUpdateRequest | Elastic Cloud Enterprise Reference [3.2] | Elastic</title>
+<link rel="home" href="index.html" title="Elastic Cloud Enterprise Reference [3.2]"/>
+<link rel="up" href="definitions.html" title="Definitions"/>
+<link rel="prev" href="DeploymentUpdateMetadata.html" title="DeploymentUpdateMetadata"/>
+<link rel="next" href="DeploymentUpdateResources.html" title="DeploymentUpdateResources"/>
+<meta name="DC.type" content="Learn/Docs/CloudEnterprise/Reference/3.2"/>
+<meta name="DC.subject" content="ECE"/>
+<meta name="DC.identifier" content="3.2"/>
+</head>
+<body><div class="page_header">
+A newer version is available. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Cloud Enterprise Reference [3.2]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="ece-restful-api.html">RESTful API</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="ece-api-reference.html">API reference</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="definitions.html">Definitions</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="DeploymentUpdateMetadata.html">« <code class="literal">DeploymentUpdateMetadata</code></a>
+</span>
+<span class="next">
+<a href="DeploymentUpdateResources.html"><code class="literal">DeploymentUpdateResources</code> »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="DeploymentUpdateRequest"></a><code class="literal">DeploymentUpdateRequest</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/cloud-enterprise/ce-api-swagger.asciidoc">edit</a></h3>
+</div></div></div>
+<p>A request for updating a Deployment consisting of multiple resources</p>
+<div class="section">
+<div class="titlepage"><div><div>
+<h4 class="title"><a id="ece_properties_162"></a>Properties<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/cloud-enterprise/ce-api-swagger.asciidoc">edit</a></h4>
+</div></div></div>
+<div class="variablelist">
+<dl class="variablelist">
+<dt>
+<span class="term">
+<code class="literal">alias</code> (<code class="literal">string</code>)
+</span>
+</dt>
+<dd>
+A user-defined alias to use in place of Cluster IDs for user-friendly URLs
+</dd>
+<dt>
+<span class="term">
+<code class="literal">metadata</code> (<a class="xref" href="DeploymentUpdateMetadata.html" title="DeploymentUpdateMetadata"><code class="literal">DeploymentUpdateMetadata</code></a>)
+</span>
+</dt>
+<dd>
+Any new information about the current deployment object. If there is no new information the value is unchanged.
+</dd>
+<dt>
+<span class="term">
+<code class="literal">name</code> (<code class="literal">string</code>)
+</span>
+</dt>
+<dd>
+A new name for the deployment, otherwise stays the same.
+</dd>
+<dt>
+<span class="term">
+<code class="literal">prune_orphans</code> (<code class="literal">boolean</code>, required)
+</span>
+</dt>
+<dd>
+Whether or not to prune orphan resources that are no longer mentioned in this request. Note that resourcesare tracked by ref_id, and if a resource&#39;s ref_id is changed, any previous running resources created with that previousref_id are considered to be orphaned as well.
+</dd>
+<dt>
+<span class="term">
+<code class="literal">resources</code> (<a class="xref" href="DeploymentUpdateResources.html" title="DeploymentUpdateResources"><code class="literal">DeploymentUpdateResources</code></a>)
+</span>
+</dt>
+<dd>
+New information about the Resources that will have this Deployment, otherwise they stay the same
+</dd>
+<dt>
+<span class="term">
+<code class="literal">settings</code> (<a class="xref" href="DeploymentUpdateSettings.html" title="DeploymentUpdateSettings"><code class="literal">DeploymentUpdateSettings</code></a>)
+</span>
+</dt>
+<dd>
+Any new configuration for the current deployment object. If there is no new configuration the value is unchanged.
+</dd>
+</dl>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h4 class="title"><a id="ece_example_167"></a>Example<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/cloud-enterprise/ce-api-swagger.asciidoc">edit</a></h4>
+</div></div></div>
+<div class="pre_wrapper lang-json">
+<pre class="programlisting prettyprint lang-json">{
+   "alias" : "string",
+   "metadata" : {
+      "hidden" : true,
+      "system_owned" : true,
+      "tags" : [
+         {
+            "key" : "string",
+            "value" : "string"
+         }
+      ]
+   },
+   "name" : "string",
+   "prune_orphans" : true,
+   "resources" : {
+      "apm" : [
+         {
+            "display_name" : "string",
+            "elasticsearch_cluster_ref_id" : "string",
+            "plan" : {
+               "apm" : {
+                  "docker_image" : "string",
+                  "system_settings" : {
+                     "debug_enabled" : true,
+                     "elasticsearch_password" : "string",
+                     "elasticsearch_url" : "string",
+                     "elasticsearch_username" : "string",
+                     "kibana_url" : "string",
+                     "secret_token" : "string"
+                  },
+                  "user_settings_json" : {},
+                  "user_settings_override_json" : {},
+                  "user_settings_override_yaml" : "string",
+                  "user_settings_yaml" : "string",
+                  "version" : "string"
+               },
+               "cluster_topology" : [
+                  {
+                     "apm" : {
+                        "docker_image" : "string",
+                        "system_settings" : {
+                           "debug_enabled" : true,
+                           "elasticsearch_password" : "string",
+                           "elasticsearch_url" : "string",
+                           "elasticsearch_username" : "string",
+                           "kibana_url" : "string",
+                           "secret_token" : "string"
+                        },
+                        "user_settings_json" : {},
+                        "user_settings_override_json" : {},
+                        "user_settings_override_yaml" : "string",
+                        "user_settings_yaml" : "string",
+                        "version" : "string"
+                     },
+                     "instance_configuration_id" : "string",
+                     "size" : {
+                        "resource" : "string",
+                        "value" : 0
+                     },
+                     "zone_count" : 0
+                  }
+               ],
+               "transient" : {
+                  "plan_configuration" : {
+                     "calm_wait_time" : 0,
+                     "cluster_reboot" : "string",
+                     "extended_maintenance" : true,
+                     "move_allocators" : [
+                        {
+                           "allocator_down" : true,
+                           "from" : "string",
+                           "to" : [
+                              "string"
+                           ]
+                        }
+                     ],
+                     "move_instances" : [
+                        {
+                           "from" : "string",
+                           "instance_down" : true,
+                           "to" : [
+                              "string"
+                           ]
+                        }
+                     ],
+                     "override_failsafe" : true,
+                     "preferred_allocators" : [
+                        "string"
+                     ],
+                     "reallocate_instances" : true,
+                     "timeout" : 0
+                  },
+                  "strategy" : {
+                     "autodetect" : {},
+                     "grow_and_shrink" : {},
+                     "rolling" : {
+                        "allow_inline_resize" : true,
+                        "group_by" : "string",
+                        "shard_init_wait_time" : 0,
+                        "skip_synced_flush" : true
+                     },
+                     "rolling_grow_and_shrink" : {}
+                  }
+               }
+            },
+            "ref_id" : "string",
+            "region" : "string",
+            "settings" : {
+               "metadata" : {
+                  "contact_email" : "string",
+                  "hidden" : true,
+                  "name" : "string",
+                  "organization_id" : "string",
+                  "owner_id" : "string",
+                  "resources" : {
+                     "cpu" : {
+                        "boost" : true,
+                        "hard_limit" : true
+                     }
+                  },
+                  "subscription_level" : "string",
+                  "system_owned" : true
+               }
+            }
+         }
+      ],
+      "appsearch" : [
+         {
+            "display_name" : "string",
+            "elasticsearch_cluster_ref_id" : "string",
+            "plan" : {
+               "appsearch" : {
+                  "docker_image" : "string",
+                  "system_settings" : {
+                     "elasticsearch_password" : "string",
+                     "elasticsearch_url" : "string",
+                     "elasticsearch_username" : "string",
+                     "secret_session_key" : "string"
+                  },
+                  "user_settings_json" : {},
+                  "user_settings_override_json" : {},
+                  "user_settings_override_yaml" : "string",
+                  "user_settings_yaml" : "string",
+                  "version" : "string"
+               },
+               "cluster_topology" : [
+                  {
+                     "appsearch" : {
+                        "docker_image" : "string",
+                        "system_settings" : {
+                           "elasticsearch_password" : "string",
+                           "elasticsearch_url" : "string",
+                           "elasticsearch_username" : "string",
+                           "secret_session_key" : "string"
+                        },
+                        "user_settings_json" : {},
+                        "user_settings_override_json" : {},
+                        "user_settings_override_yaml" : "string",
+                        "user_settings_yaml" : "string",
+                        "version" : "string"
+                     },
+                     "instance_configuration_id" : "string",
+                     "node_type" : {
+                        "appserver" : true,
+                        "worker" : true
+                     },
+                     "size" : {
+                        "resource" : "string",
+                        "value" : 0
+                     },
+                     "zone_count" : 0
+                  }
+               ],
+               "transient" : {
+                  "plan_configuration" : {
+                     "calm_wait_time" : 0,
+                     "cluster_reboot" : "string",
+                     "extended_maintenance" : true,
+                     "move_allocators" : [
+                        {
+                           "allocator_down" : true,
+                           "from" : "string",
+                           "to" : [
+                              "string"
+                           ]
+                        }
+                     ],
+                     "move_instances" : [
+                        {
+                           "from" : "string",
+                           "instance_down" : true,
+                           "to" : [
+                              "string"
+                           ]
+                        }
+                     ],
+                     "override_failsafe" : true,
+                     "preferred_allocators" : [
+                        "string"
+                     ],
+                     "reallocate_instances" : true,
+                     "timeout" : 0
+                  },
+                  "strategy" : {
+                     "autodetect" : {},
+                     "grow_and_shrink" : {},
+                     "rolling" : {
+                        "allow_inline_resize" : true,
+                        "group_by" : "string",
+                        "shard_init_wait_time" : 0,
+                        "skip_synced_flush" : true
+                     },
+                     "rolling_grow_and_shrink" : {}
+                  }
+               }
+            },
+            "ref_id" : "string",
+            "region" : "string",
+            "settings" : {
+               "metadata" : {
+                  "contact_email" : "string",
+                  "hidden" : true,
+                  "name" : "string",
+                  "organization_id" : "string",
+                  "owner_id" : "string",
+                  "resources" : {
+                     "cpu" : {
+                        "boost" : true,
+                        "hard_limit" : true
+                     }
+                  },
+                  "subscription_level" : "string",
+                  "system_owned" : true
+               }
+            }
+         }
+      ],
+      "elasticsearch" : [
+         {
+            "display_name" : "string",
+            "plan" : {
+               "autoscaling_enabled" : true,
+               "cluster_topology" : [
+                  {
+                     "autoscaling_max" : {
+                        "resource" : "string",
+                        "value" : 0
+                     },
+                     "autoscaling_min" : {
+                        "resource" : "string",
+                        "value" : 0
+                     },
+                     "autoscaling_policy_override_json" : {},
+                     "elasticsearch" : {
+                        "curation" : {
+                           "from_instance_configuration_id" : "string",
+                           "to_instance_configuration_id" : "string"
+                        },
+                        "docker_image" : "string",
+                        "enabled_built_in_plugins" : [
+                           "string"
+                        ],
+                        "node_attributes" : {
+                           "some_property" : "string"
+                        },
+                        "system_settings" : {
+                           "auto_create_index" : true,
+                           "default_shards_per_index" : 0,
+                           "destructive_requires_name" : true,
+                           "enable_close_index" : true,
+                           "monitoring_collection_interval" : 0,
+                           "monitoring_history_duration" : "string",
+                           "reindex_whitelist" : [
+                              "string"
+                           ],
+                           "scripting" : {
+                              "expressions_enabled" : true,
+                              "file" : {
+                                 "enabled" : true,
+                                 "sandbox_mode" : true
+                              },
+                              "inline" : {
+                                 "enabled" : true,
+                                 "sandbox_mode" : true
+                              },
+                              "mustache_enabled" : true,
+                              "painless_enabled" : true,
+                              "stored" : {
+                                 "enabled" : true,
+                                 "sandbox_mode" : true
+                              }
+                           },
+                           "use_disk_threshold" : true,
+                           "watcher_trigger_engine" : "string"
+                        },
+                        "user_bundles" : [
+                           {
+                              "elasticsearch_version" : "string",
+                              "name" : "string",
+                              "url" : "string"
+                           }
+                        ],
+                        "user_plugins" : [
+                           {
+                              "elasticsearch_version" : "string",
+                              "name" : "string",
+                              "url" : "string"
+                           }
+                        ],
+                        "user_settings_json" : {},
+                        "user_settings_override_json" : {},
+                        "user_settings_override_yaml" : "string",
+                        "user_settings_yaml" : "string",
+                        "version" : "string"
+                     },
+                     "id" : "string",
+                     "instance_configuration_id" : "string",
+                     "memory_per_node" : 0,
+                     "node_count_per_zone" : 0,
+                     "node_roles" : [
+                        "string"
+                     ],
+                     "node_type" : {
+                        "data" : true,
+                        "ingest" : true,
+                        "master" : true,
+                        "ml" : true
+                     },
+                     "size" : {
+                        "resource" : "string",
+                        "value" : 0
+                     },
+                     "topology_element_control" : {
+                        "min" : {
+                           "resource" : "string",
+                           "value" : 0
+                        }
+                     },
+                     "zone_count" : 0
+                  }
+               ],
+               "deployment_template" : {
+                  "id" : "string",
+                  "version" : "string"
+               },
+               "elasticsearch" : {
+                  "curation" : {
+                     "from_instance_configuration_id" : "string",
+                     "to_instance_configuration_id" : "string"
+                  },
+                  "docker_image" : "string",
+                  "enabled_built_in_plugins" : [
+                     "string"
+                  ],
+                  "node_attributes" : {
+                     "some_property" : "string"
+                  },
+                  "system_settings" : {
+                     "auto_create_index" : true,
+                     "default_shards_per_index" : 0,
+                     "destructive_requires_name" : true,
+                     "enable_close_index" : true,
+                     "monitoring_collection_interval" : 0,
+                     "monitoring_history_duration" : "string",
+                     "reindex_whitelist" : [
+                        "string"
+                     ],
+                     "scripting" : {
+                        "expressions_enabled" : true,
+                        "file" : {
+                           "enabled" : true,
+                           "sandbox_mode" : true
+                        },
+                        "inline" : {
+                           "enabled" : true,
+                           "sandbox_mode" : true
+                        },
+                        "mustache_enabled" : true,
+                        "painless_enabled" : true,
+                        "stored" : {
+                           "enabled" : true,
+                           "sandbox_mode" : true
+                        }
+                     },
+                     "use_disk_threshold" : true,
+                     "watcher_trigger_engine" : "string"
+                  },
+                  "user_bundles" : [
+                     {
+                        "elasticsearch_version" : "string",
+                        "name" : "string",
+                        "url" : "string"
+                     }
+                  ],
+                  "user_plugins" : [
+                     {
+                        "elasticsearch_version" : "string",
+                        "name" : "string",
+                        "url" : "string"
+                     }
+                  ],
+                  "user_settings_json" : {},
+                  "user_settings_override_json" : {},
+                  "user_settings_override_yaml" : "string",
+                  "user_settings_yaml" : "string",
+                  "version" : "string"
+               },
+               "transient" : {
+                  "cluster_settings_json" : {},
+                  "plan_configuration" : {
+                     "calm_wait_time" : 0,
+                     "cluster_reboot" : "string",
+                     "extended_maintenance" : true,
+                     "max_snapshot_age" : 0,
+                     "max_snapshot_attempts" : 0,
+                     "move_allocators" : [
+                        {
+                           "allocator_down" : true,
+                           "from" : "string",
+                           "to" : [
+                              "string"
+                           ]
+                        }
+                     ],
+                     "move_instances" : [
+                        {
+                           "from" : "string",
+                           "instance_down" : true,
+                           "to" : [
+                              "string"
+                           ]
+                        }
+                     ],
+                     "move_only" : true,
+                     "override_failsafe" : true,
+                     "preferred_allocators" : [
+                        "string"
+                     ],
+                     "reallocate_instances" : true,
+                     "skip_data_migration" : true,
+                     "skip_post_upgrade_steps" : true,
+                     "skip_snapshot" : true,
+                     "skip_snapshot_post_major_upgrade" : true,
+                     "skip_upgrade_checker" : true,
+                     "timeout" : 0
+                  },
+                  "remote_clusters" : {
+                     "resources" : [
+                        {
+                           "alias" : "string",
+                           "deployment_id" : "string",
+                           "elasticsearch_ref_id" : "string",
+                           "info" : {
+                              "compatible" : true,
+                              "connected" : true,
+                              "healthy" : true,
+                              "trusted" : true,
+                              "trusted_back" : true
+                           },
+                           "skip_unavailable" : true
+                        }
+                     ]
+                  },
+                  "restore_snapshot" : {
+                     "repository_config" : {
+                        "raw_settings" : {}
+                     },
+                     "repository_name" : "string",
+                     "restore_payload" : {
+                        "indices" : [
+                           "string"
+                        ],
+                        "raw_settings" : {}
+                     },
+                     "snapshot_name" : "string",
+                     "source_cluster_id" : "string",
+                     "strategy" : "string"
+                  },
+                  "strategy" : {
+                     "autodetect" : {},
+                     "grow_and_shrink" : {},
+                     "rolling" : {
+                        "allow_inline_resize" : true,
+                        "group_by" : "string",
+                        "shard_init_wait_time" : 0,
+                        "skip_synced_flush" : true
+                     },
+                     "rolling_grow_and_shrink" : {}
+                  }
+               }
+            },
+            "ref_id" : "string",
+            "region" : "string",
+            "settings" : {
+               "curation" : {
+                  "specs" : [
+                     {
+                        "index_pattern" : "string",
+                        "trigger_interval_seconds" : 0
+                     }
+                  ]
+               },
+               "dedicated_masters_threshold" : 0,
+               "metadata" : {
+                  "contact_email" : "string",
+                  "hidden" : true,
+                  "name" : "string",
+                  "organization_id" : "string",
+                  "owner_id" : "string",
+                  "resources" : {
+                     "cpu" : {
+                        "boost" : true,
+                        "hard_limit" : true
+                     }
+                  },
+                  "subscription_level" : "string",
+                  "system_owned" : true
+               },
+               "monitoring" : {
+                  "target_cluster_id" : "string"
+               },
+               "snapshot" : {
+                  "cron_expression" : "string",
+                  "enabled" : true,
+                  "interval" : "string",
+                  "pending_interval" : "string",
+                  "repository" : {
+                     "default" : {},
+                     "reference" : {
+                        "repository_name" : "string"
+                     },
+                     "static" : {
+                        "repository_type" : "string",
+                        "settings" : {}
+                     }
+                  },
+                  "retention" : {
+                     "max_age" : "string",
+                     "snapshots" : 0
+                  },
+                  "slm" : true,
+                  "suspended" : [
+                     "string"
+                  ],
+                  "wait_time_after_snapshotting" : "string"
+               },
+               "traffic_filter" : {
+                  "rulesets" : [
+                     "string"
+                  ]
+               },
+               "trust" : {
+                  "accounts" : [
+                     {
+                        "account_id" : "string",
+                        "trust_all" : true,
+                        "trust_allowlist" : [
+                           "string"
+                        ]
+                     }
+                  ],
+                  "direct" : [
+                     {
+                        "additional_node_names" : [
+                           "string"
+                        ],
+                        "certificates" : [
+                           {
+                              "metadata" : {
+                                 "fingerprint" : "string",
+                                 "valid_from" : "2019-01-01T00:00:00Z",
+                                 "valid_to" : "2019-01-01T00:00:00Z"
+                              },
+                              "pem" : "string"
+                           }
+                        ],
+                        "name" : "string",
+                        "scope_id" : "string",
+                        "trust_all" : true,
+                        "trust_allowlist" : [
+                           "string"
+                        ]
+                     }
+                  ],
+                  "external" : [
+                     {
+                        "trust_all" : true,
+                        "trust_allowlist" : [
+                           "string"
+                        ],
+                        "trust_relationship_id" : "string"
+                     }
+                  ]
+               }
+            }
+         }
+      ],
+      "enterprise_search" : [
+         {
+            "display_name" : "string",
+            "elasticsearch_cluster_ref_id" : "string",
+            "plan" : {
+               "cluster_topology" : [
+                  {
+                     "allocator_filter" : {},
+                     "enterprise_search" : {
+                        "docker_image" : "string",
+                        "system_settings" : {
+                           "elasticsearch_password" : "string",
+                           "elasticsearch_url" : "string",
+                           "elasticsearch_username" : "string",
+                           "secret_session_key" : "string"
+                        },
+                        "user_settings_json" : {},
+                        "user_settings_override_json" : {},
+                        "user_settings_override_yaml" : "string",
+                        "user_settings_yaml" : "string",
+                        "version" : "string"
+                     },
+                     "instance_configuration_id" : "string",
+                     "memory_per_node" : {},
+                     "node_configuration" : "string",
+                     "node_count_per_zone" : {},
+                     "node_type" : {
+                        "appserver" : true,
+                        "connector" : true,
+                        "worker" : true
+                     },
+                     "size" : {
+                        "resource" : "string",
+                        "value" : 0
+                     },
+                     "zone_count" : 0
+                  }
+               ],
+               "enterprise_search" : {
+                  "docker_image" : "string",
+                  "system_settings" : {
+                     "elasticsearch_password" : "string",
+                     "elasticsearch_url" : "string",
+                     "elasticsearch_username" : "string",
+                     "secret_session_key" : "string"
+                  },
+                  "user_settings_json" : {},
+                  "user_settings_override_json" : {},
+                  "user_settings_override_yaml" : "string",
+                  "user_settings_yaml" : "string",
+                  "version" : "string"
+               },
+               "transient" : {
+                  "plan_configuration" : {
+                     "calm_wait_time" : 0,
+                     "cluster_reboot" : "string",
+                     "extended_maintenance" : true,
+                     "move_allocators" : [
+                        {
+                           "allocator_down" : true,
+                           "from" : "string",
+                           "to" : [
+                              "string"
+                           ]
+                        }
+                     ],
+                     "move_instances" : [
+                        {
+                           "from" : "string",
+                           "instance_down" : true,
+                           "to" : [
+                              "string"
+                           ]
+                        }
+                     ],
+                     "override_failsafe" : true,
+                     "preferred_allocators" : [
+                        "string"
+                     ],
+                     "reallocate_instances" : true,
+                     "timeout" : 0
+                  },
+                  "strategy" : {
+                     "autodetect" : {},
+                     "grow_and_shrink" : {},
+                     "rolling" : {
+                        "allow_inline_resize" : true,
+                        "group_by" : "string",
+                        "shard_init_wait_time" : 0,
+                        "skip_synced_flush" : true
+                     },
+                     "rolling_grow_and_shrink" : {}
+                  }
+               }
+            },
+            "ref_id" : "string",
+            "region" : "string",
+            "settings" : {
+               "metadata" : {
+                  "contact_email" : "string",
+                  "hidden" : true,
+                  "name" : "string",
+                  "organization_id" : "string",
+                  "owner_id" : "string",
+                  "resources" : {
+                     "cpu" : {
+                        "boost" : true,
+                        "hard_limit" : true
+                     }
+                  },
+                  "subscription_level" : "string",
+                  "system_owned" : true
+               }
+            }
+         }
+      ],
+      "integrations_server" : [
+         {
+            "display_name" : "string",
+            "elasticsearch_cluster_ref_id" : "string",
+            "plan" : {
+               "cluster_topology" : [
+                  {
+                     "instance_configuration_id" : "string",
+                     "integrations_server" : {
+                        "docker_image" : "string",
+                        "mode" : "string",
+                        "system_settings" : {
+                           "debug_enabled" : true,
+                           "elasticsearch_password" : "string",
+                           "elasticsearch_url" : "string",
+                           "elasticsearch_username" : "string",
+                           "kibana_url" : "string",
+                           "secret_token" : "string"
+                        },
+                        "user_settings_json" : {},
+                        "user_settings_override_json" : {},
+                        "user_settings_override_yaml" : "string",
+                        "user_settings_yaml" : "string",
+                        "version" : "string"
+                     },
+                     "size" : {
+                        "resource" : "string",
+                        "value" : 0
+                     },
+                     "zone_count" : 0
+                  }
+               ],
+               "integrations_server" : {
+                  "docker_image" : "string",
+                  "mode" : "string",
+                  "system_settings" : {
+                     "debug_enabled" : true,
+                     "elasticsearch_password" : "string",
+                     "elasticsearch_url" : "string",
+                     "elasticsearch_username" : "string",
+                     "kibana_url" : "string",
+                     "secret_token" : "string"
+                  },
+                  "user_settings_json" : {},
+                  "user_settings_override_json" : {},
+                  "user_settings_override_yaml" : "string",
+                  "user_settings_yaml" : "string",
+                  "version" : "string"
+               },
+               "transient" : {
+                  "plan_configuration" : {
+                     "calm_wait_time" : 0,
+                     "cluster_reboot" : "string",
+                     "extended_maintenance" : true,
+                     "move_allocators" : [
+                        {
+                           "allocator_down" : true,
+                           "from" : "string",
+                           "to" : [
+                              "string"
+                           ]
+                        }
+                     ],
+                     "move_instances" : [
+                        {
+                           "from" : "string",
+                           "instance_down" : true,
+                           "to" : [
+                              "string"
+                           ]
+                        }
+                     ],
+                     "override_failsafe" : true,
+                     "preferred_allocators" : [
+                        "string"
+                     ],
+                     "reallocate_instances" : true,
+                     "timeout" : 0
+                  },
+                  "strategy" : {
+                     "autodetect" : {},
+                     "grow_and_shrink" : {},
+                     "rolling" : {
+                        "allow_inline_resize" : true,
+                        "group_by" : "string",
+                        "shard_init_wait_time" : 0,
+                        "skip_synced_flush" : true
+                     },
+                     "rolling_grow_and_shrink" : {}
+                  }
+               }
+            },
+            "ref_id" : "string",
+            "region" : "string",
+            "settings" : {
+               "metadata" : {
+                  "contact_email" : "string",
+                  "hidden" : true,
+                  "name" : "string",
+                  "organization_id" : "string",
+                  "owner_id" : "string",
+                  "resources" : {
+                     "cpu" : {
+                        "boost" : true,
+                        "hard_limit" : true
+                     }
+                  },
+                  "subscription_level" : "string",
+                  "system_owned" : true
+               }
+            }
+         }
+      ],
+      "kibana" : [
+         {
+            "display_name" : "string",
+            "elasticsearch_cluster_ref_id" : "string",
+            "plan" : {
+               "cluster_topology" : [
+                  {
+                     "instance_configuration_id" : "string",
+                     "kibana" : {
+                        "docker_image" : "string",
+                        "system_settings" : {
+                           "elasticsearch_password" : "string",
+                           "elasticsearch_url" : "string",
+                           "elasticsearch_username" : "string"
+                        },
+                        "user_settings_json" : {},
+                        "user_settings_override_json" : {},
+                        "user_settings_override_yaml" : "string",
+                        "user_settings_yaml" : "string",
+                        "version" : "string"
+                     },
+                     "memory_per_node" : 0,
+                     "node_count_per_zone" : 0,
+                     "size" : {
+                        "resource" : "string",
+                        "value" : 0
+                     },
+                     "zone_count" : 0
+                  }
+               ],
+               "kibana" : {
+                  "docker_image" : "string",
+                  "system_settings" : {
+                     "elasticsearch_password" : "string",
+                     "elasticsearch_url" : "string",
+                     "elasticsearch_username" : "string"
+                  },
+                  "user_settings_json" : {},
+                  "user_settings_override_json" : {},
+                  "user_settings_override_yaml" : "string",
+                  "user_settings_yaml" : "string",
+                  "version" : "string"
+               },
+               "transient" : {
+                  "plan_configuration" : {
+                     "calm_wait_time" : 0,
+                     "cluster_reboot" : "string",
+                     "extended_maintenance" : true,
+                     "move_allocators" : [
+                        {
+                           "allocator_down" : true,
+                           "from" : "string",
+                           "to" : [
+                              "string"
+                           ]
+                        }
+                     ],
+                     "move_instances" : [
+                        {
+                           "from" : "string",
+                           "instance_down" : true,
+                           "to" : [
+                              "string"
+                           ]
+                        }
+                     ],
+                     "override_failsafe" : true,
+                     "preferred_allocators" : [
+                        "string"
+                     ],
+                     "reallocate_instances" : true,
+                     "timeout" : 0
+                  },
+                  "strategy" : {
+                     "autodetect" : {},
+                     "grow_and_shrink" : {},
+                     "rolling" : {
+                        "allow_inline_resize" : true,
+                        "group_by" : "string",
+                        "shard_init_wait_time" : 0,
+                        "skip_synced_flush" : true
+                     },
+                     "rolling_grow_and_shrink" : {}
+                  }
+               }
+            },
+            "ref_id" : "string",
+            "region" : "string",
+            "settings" : {
+               "metadata" : {
+                  "contact_email" : "string",
+                  "hidden" : true,
+                  "name" : "string",
+                  "organization_id" : "string",
+                  "owner_id" : "string",
+                  "resources" : {
+                     "cpu" : {
+                        "boost" : true,
+                        "hard_limit" : true
+                     }
+                  },
+                  "subscription_level" : "string",
+                  "system_owned" : true
+               }
+            }
+         }
+      ]
+   },
+   "settings" : {
+      "observability" : {
+         "logging" : {
+            "destination" : {
+               "deployment_id" : "string",
+               "ref_id" : "string"
+            }
+         },
+         "metrics" : {
+            "destination" : {
+               "deployment_id" : "string",
+               "ref_id" : "string"
+            },
+            "force_legacy_monitoring" : true
+         }
+      }
+   }
+}</pre>
+</div>
+</div>
+
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="DeploymentUpdateMetadata.html">« <code class="literal">DeploymentUpdateMetadata</code></a>
+</span>
+<span class="next">
+<a href="DeploymentUpdateResources.html"><code class="literal">DeploymentUpdateResources</code> »</a>
+</span>
+</div>
+</div>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains('stemblock')) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+</body>
+</html>

@@ -1,5 +1,4 @@
-GET /analyze_sample/_analyze
+POST test/_update/1
 {
-  "analyzer" : "whitespace",
-  "text" : "this is a test"
+  "script" : "ctx._source.new_field = 'value_of_new_field'"
 }

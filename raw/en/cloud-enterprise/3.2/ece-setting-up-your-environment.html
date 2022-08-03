@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Setting up your environment | Elastic Cloud Enterprise Reference [3.2] | Elastic</title>
+<link rel="home" href="index.html" title="Elastic Cloud Enterprise Reference [3.2]"/>
+<link rel="up" href="ece-restful-api-examples.html" title="API examples"/>
+<link rel="prev" href="ece-restful-api-examples.html" title="API examples"/>
+<link rel="next" href="ece-restful-api-examples-get-deployments.html" title="A first API call: What deployments are there?"/>
+<meta name="DC.type" content="Learn/Docs/CloudEnterprise/Reference/3.2"/>
+<meta name="DC.subject" content="ECE"/>
+<meta name="DC.identifier" content="3.2"/>
+</head>
+<body><div class="page_header">
+A newer version is available. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Cloud Enterprise Reference [3.2]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="ece-restful-api.html">RESTful API</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="ece-restful-api-examples.html">API examples</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="ece-restful-api-examples.html">« API examples</a>
+</span>
+<span class="next">
+<a href="ece-restful-api-examples-get-deployments.html">A first API call: What deployments are there? »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="ece-setting-up-your-environment"></a>Setting up your environment<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/cloud-enterprise/ce-api-examples.asciidoc">edit</a></h2>
+</div></div></div>
+<p>These examples contain a few variables to help you test in your own environment. These include:</p>
+<div class="variablelist">
+<dl class="variablelist">
+<dt>
+<span class="term">
+<code class="literal">$ECE_API_KEY</code>
+</span>
+</dt>
+<dd>
+The API key used to authenticate API calls on Elastic Cloud Enterprise. For details on generating and using an API key, check <a class="xref" href="ece-restful-api-authentication.html#ece-api-keys" title="Authenticate using an API key">Authenticate using an API key</a>.
+</dd>
+<dt>
+<span class="term">
+<code class="literal">$COORDINATOR_HOST</code>
+</span>
+</dt>
+<dd>
+The address for the host that holds the coordinator role in your ECE installation. For example, in an AWS environment your coordinator host address would be in a format like <code class="literal">ec2-x-xx-xxx-xx.compute-1.amazonaws.com</code>.
+</dd>
+<dt>
+<span class="term">
+<code class="literal">$DEPLOYMENT_ID</code>
+</span>
+</dt>
+<dd>
+The ID used to uniquely identify an ECE deployment. The first <a class="xref" href="ece-restful-api-examples-get-deployments.html" title="A first API call: What deployments are there?">What deployments are there?</a> example shows you how to display the existing deployments and their IDs.
+</dd>
+<dt>
+<span class="term">
+<code class="literal">$REF_ID</code>
+</span>
+</dt>
+<dd>
+The unique ID for a resource in a deployment. This is first used in our <a class="xref" href="ece-restful-api-examples-progress-checking.html" title="Updating a deployment: Checking on progress">Checking on progress</a> example.
+</dd>
+</dl>
+</div>
+<p>You can use an <code class="literal">export</code> command to set these variables in your shell environment, so that you can cut and paste each example into a terminal shell:</p>
+<div class="pre_wrapper lang-sh">
+<pre class="programlisting prettyprint lang-sh">export ECE_API_KEY="YOUR_GENERATED_API_KEY"
+export COORDINATOR_HOST="ec2-x-xx-xxx-xx.compute-1.amazonaws.com"</pre>
+</div>
+<div class="tip admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>These API examples all use HTTPS over port 12443 and run against a host that holds the coordinator role. Using HTTPS requires that you have <a class="xref" href="ece-manage-certificates.html" title="Manage security certificates">a TLS certificate already installed</a>. For testing purposes only, you can specify the <code class="literal">-k</code> option to turn off certificate verification, as shown in our examples, or use HTTP over port 12400 until you get your TLS certificate sorted out.</p>
+</div>
+</div>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="ece-restful-api-examples.html">« API examples</a>
+</span>
+<span class="next">
+<a href="ece-restful-api-examples-get-deployments.html">A first API call: What deployments are there? »</a>
+</span>
+</div>
+</div>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains('stemblock')) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+</body>
+</html>

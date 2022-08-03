@@ -1,14 +1,13 @@
-PUT my-index-000001
+PUT idx
 {
   "mappings": {
+    "_source": { "mode": "synthetic" },
     "properties": {
-      "my_join_field": {
-        "type": "join",
-        "relations": {
-           "question": "answer"
-        },
-        "eager_global_ordinals": false
-      }
+      "kwd": { "type": "keyword" }
     }
   }
+}
+PUT idx/_doc/1
+{
+  "kwd": ["foo", "foo", "bar", "baz"]
 }

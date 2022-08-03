@@ -1,6 +1,12 @@
-POST /_security/oauth2/token
+POST music/_search?pretty
 {
-  "grant_type" : "password",
-  "username" : "test_admin",
-  "password" : "x-pack-test-password"
+  "suggest": {
+    "song-suggest": {
+      "prefix": "nor",
+      "completion": {
+        "field": "suggest",
+        "skip_duplicates": true
+      }
+    }
+  }
 }

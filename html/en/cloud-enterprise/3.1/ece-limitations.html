@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,36 +87,28 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
-                  
+                  <div class="page_header">
+A newer version is available. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elastic Cloud Enterprise Reference [3.1]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Cloud Enterprise Reference [3.1]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="ece-about_this_product.html">About this product</a></span>
-»
-<span class="breadcrumb-node">Limitations and known problems</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -237,6 +229,9 @@ When upgrading to ECE version 2.7.0 the automatic upgrade of the <code class="li
 <li class="listitem">
 When upgrading from version 2.9.x (2.9.0, 2.9.1, 2.9.2) to a version between 2.10.0 and 2.11.0, you might get an error that indicates deployment aliases cannot be set <a class="xref" href="ece-configuring-deployment-aliases.html" title="Enable custom endpoint aliases">in the console</a>. As a workaround, you can fix it using the <a class="xref" href="create-config-store-option.html" title="Create Config Store Option">dedicated API</a> by setting the value of <code class="literal">config_option_id</code> to <code class="literal">enable-deployment-alias</code> and the value of request body to <code class="literal">{ "value": "false" }</code>.
 </li>
+<li class="listitem">
+When upgrading a deployment with APM &amp; Fleet enabled to version 8.2, after the upgrade <span class="strong strong"><strong>APM &amp; Fleet</strong></span> no longer appears on the side menu nor on the <span class="strong strong"><strong>Edit</strong></span> page. The APM &amp; Fleet component still works correctly and you can keep using it. This problem is fixed in Elastic Cloud Enterprise 3.2.0.
+</li>
 </ul>
 </div>
 <h3><a id="ece-restrictions-transport-client"></a>Transport client<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-70/docs/cloud-enterprise/ce-limitations-known-problems.asciidoc">edit</a></h3>
@@ -244,6 +239,8 @@ When upgrading from version 2.9.x (2.9.0, 2.9.1, 2.9.2) to a version between 2.1
 <p>The transport client does not work with Elasticsearch clusters at version 7.6 and later that are managed by ECE. The transport client continues to work with Elasticsearch clusters at version 7.5 and earlier. Note that the transport client was deprecated with Elasticsearch version 7.0 and will be removed with 8.0.</p>
 <h3><a id="ece-restrictions-fleet"></a>Fleet<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-70/docs/cloud-enterprise/ce-limitations-known-problems.asciidoc">edit</a></h3>
 <p>In ECE version 2.10 with the original Elastic Stack pack version 7.14, if downloaded from the Elastic website before August 10, 2021, Fleet does not work when enabled in a deployment. To support Fleet, you can <a class="xref" href="ece-manage-elastic-stack.html" title="Manage Elastic Stack versions">get and re-upload a fresh copy</a> of the version 7.14 Elastic Stack pack to overwrite the original one. If you have existing version 7.14 deployments, then restart Fleet/APM after re-uploading the Elastic Stack pack to enable Fleet. This issue will be addressed in later stack packs and ECE versions.</p>
+<h3><a id="ece-restrictions-integrations-server"></a>Integrations Server<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-70/docs/cloud-enterprise/ce-limitations-known-problems.asciidoc">edit</a></h3>
+<p>A bug in Elastic Stack versions 8.1 and later may lead to a full disk for Elastic APM users with tail-based sampling enabled. A fix has been merged and will be released in a future version.</p>
 </div>
 <div class="navfooter">
 <span class="prev">
@@ -281,15 +278,37 @@ MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

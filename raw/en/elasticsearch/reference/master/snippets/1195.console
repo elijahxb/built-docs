@@ -1,11 +1,14 @@
-GET /_search
+GET sales/_search
 {
   "aggs": {
-    "products": {
-      "terms": {
-        "field": "product",
-        "size": 5,
-        "show_term_doc_count_error": true
+    "price_ranges": {
+      "range": {
+        "field": "price",
+        "ranges": [
+          { "to": 100.0 },
+          { "from": 100.0, "to": 200.0 },
+          { "from": 200.0 }
+        ]
       }
     }
   }

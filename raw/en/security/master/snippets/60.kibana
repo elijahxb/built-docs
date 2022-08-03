@@ -1,9 +1,1 @@
-POST api/lists
-{
-  "id": "internal-ip-range-excludes",
-  "name": "Exclude IP ranges",
-  "description": "Contains excluded IP ranges.",
-  "serializer": "(?<gte>.+)/(?<lte>.+)",
-  "deserializer": "{{{gte}}}--{{{lte}}}",
-  "type": "ip_range"
-}
+GET api/lists/_find?filter=type:keyword&page=1&per_page=2&sort_field=name&sort_order=desc

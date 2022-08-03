@@ -1,21 +1,23 @@
-GET /user_hits/_search
+POST /sales/_search
 {
-  "size": 0,
+  "query": {
+    "term": { "tags": "car" }
+  },
   "aggs": {
-    "users_per_day": {
-      "date_histogram": {
-        "field": "timestamp",
-        "calendar_interval": "day"
+    "by_sale": {
+      "nested": {
+        "path": "comments"
       },
       "aggs": {
-        "distinct_users": {
-          "cardinality": {
-            "field": "user_id"
-          }
-        },
-        "total_new_users": {
-          "cumulative_cardinality": {
-            "buckets_path": "distinct_users"
+        "by_user": {
+          "terms": {
+            "field": "comments.username",
+            "size": 1
+          },
+          "aggs": {
+            "by_nested": {
+              "top_hits": {}
+            }
           }
         }
       }

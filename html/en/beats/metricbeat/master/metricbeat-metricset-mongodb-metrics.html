@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,27 +87,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 You are looking at preliminary documentation for a future release.
@@ -116,13 +107,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Metricbeat Reference [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="metricbeat-modules.html">Modules</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Metricbeat Reference [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="metricbeat-modules.html">Modules</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="metricbeat-module-mongodb.html">MongoDB module</a></span>
-»
-<span class="breadcrumb-node">MongoDB metrics metricset</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -134,7 +122,7 @@ Not what you want? See the
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="metricbeat-metricset-mongodb-metrics"></a>MongoDB metrics metricset<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/modules/mongodb/metrics.asciidoc">edit</a></h2>
+<h2 class="title"><a id="metricbeat-metricset-mongodb-metrics"></a>MongoDB metrics metricset<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/module/mongodb/metrics/_meta/docs.asciidoc">edit</a></h2>
 </div></div></div>
 <p>This is the <code class="literal">metrics</code> metricset of the MongoDB module.</p>
 <p>It requires the following privileges, which is covered by the <a href="https://docs.mongodb.com/manual/reference/built-in-roles/#clusterMonitor" class="ulink" target="_top"><code class="literal">clusterMonitor</code> role</a>:</p>
@@ -148,7 +136,7 @@ Not what you want? See the
 <p>This is a default metricset. If the host module is unconfigured, this metricset is enabled by default.</p>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_fields_169"></a>Fields<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/modules/mongodb/metrics.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_fields_173"></a>Fields</h3>
 </div></div></div>
 <p>For a description of each field in the metricset, see the
 <a class="xref" href="exported-fields-mongodb.html" title="MongoDB fields">exported fields</a> section.</p>
@@ -156,17 +144,14 @@ Not what you want? See the
 <div class="pre_wrapper lang-json">
 <pre class="programlisting prettyprint lang-json">{
     "@timestamp": "2017-10-12T08:05:34.853Z",
-    "agent": {
-        "hostname": "host.example.com",
-        "name": "host.example.com"
-    },
     "event": {
         "dataset": "mongodb.metrics",
         "duration": 115000,
         "module": "mongodb"
     },
     "metricset": {
-        "name": "metrics"
+        "name": "metrics",
+        "period": 10000
     },
     "mongodb": {
         "metrics": {
@@ -193,7 +178,7 @@ Not what you want? See the
                 },
                 "db_stats": {
                     "failed": 0,
-                    "total": 3
+                    "total": 0
                 },
                 "distinct": {
                     "failed": 0,
@@ -201,7 +186,7 @@ Not what you want? See the
                 },
                 "find": {
                     "failed": 0,
-                    "total": 0
+                    "total": 1
                 },
                 "get_cmd_line_opts": {
                     "failed": 0,
@@ -233,7 +218,7 @@ Not what you want? See the
                 },
                 "is_master": {
                     "failed": 0,
-                    "total": 12
+                    "total": 6
                 },
                 "is_self": {
                     "failed": 0,
@@ -249,15 +234,15 @@ Not what you want? See the
                 },
                 "list_databased": {
                     "failed": 0,
-                    "total": 3
+                    "total": 0
                 },
                 "list_indexes": {
                     "failed": 0,
-                    "total": 0
+                    "total": 2
                 },
                 "ping": {
                     "failed": 0,
-                    "total": 12
+                    "total": 0
                 },
                 "profile": {
                     "failed": 0,
@@ -281,7 +266,7 @@ Not what you want? See the
                 },
                 "server_status": {
                     "failed": 0,
-                    "total": 3
+                    "total": 2
                 },
                 "update": {
                     "failed": 0,
@@ -346,30 +331,10 @@ Not what you want? See the
                     }
                 },
                 "executor": {
-                    "counters": {
-                        "cancels": 0,
-                        "event_created": 0,
-                        "event_wait": 0,
-                        "scheduled": {
-                            "dbwork": 0,
-                            "exclusive": 0,
-                            "failures": 0,
-                            "netcmd": 0,
-                            "work": 0,
-                            "work_at": 0
-                        },
-                        "waits": 0
-                    },
-                    "event_waiters": 0,
-                    "network_interface": "\nNetworkInterfaceASIO Operations' Diagnostic:\nOperation:    Count:   \nConnecting    0        \nIn Progress   0        \nSucceeded     0        \nCanceled      0        \nFailed        0        \nTimed Out     0        \n\n",
                     "queues": {
-                        "free": 0,
                         "in_progress": {
-                            "dbwork": 0,
-                            "exclusive": 0,
                             "network": 0
                         },
-                        "ready": 0,
                         "sleepers": 0
                     },
                     "shutting_down": false,
@@ -390,27 +355,6 @@ Not what you want? See the
                     },
                     "ops": 0,
                     "reders_created": 0
-                },
-                "preload": {
-                    "docs": {
-                        "count": 0,
-                        "time": {
-                            "ms": 0
-                        }
-                    },
-                    "indexes": {
-                        "count": 0,
-                        "time": {
-                            "ms": 0
-                        }
-                    }
-                }
-            },
-            "storage": {
-                "search": {
-                    "bucket_exhausted": 0,
-                    "requests": 0,
-                    "scanned": 0
                 }
             },
             "ttl": {
@@ -418,13 +362,13 @@ Not what you want? See the
                     "count": 0
                 },
                 "passes": {
-                    "count": 0
+                    "count": 1
                 }
             }
         }
     },
     "service": {
-        "address": "172.26.0.2:27017",
+        "address": "172.28.0.3:27017",
         "type": "mongodb"
     }
 }</pre>
@@ -444,15 +388,37 @@ Not what you want? See the
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

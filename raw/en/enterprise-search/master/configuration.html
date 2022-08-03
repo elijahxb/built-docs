@@ -19,9 +19,8 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="index.html">Elastic Enterprise Search Documentation [master]</a></span>
-»
-<span class="breadcrumb-node">Configuration</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -74,10 +73,10 @@ All deployments use the same <a class="xref" href="configuration.html#configurat
 <a class="xref" href="configuration.html#configuration-configure-eck" title="Elastic Cloud on Kubernetes (ECK)">Elastic Cloud on Kubernetes (ECK)</a>
 </li>
 <li class="listitem">
-<a class="xref" href="configuration.html#configuration-configure-packages" title="Tar, deb, and rpm packages">Tar, deb, and rpm packages</a>
+<a class="xref" href="configuration.html#configuration-configure-docker" title="Docker">Docker</a>
 </li>
 <li class="listitem">
-<a class="xref" href="configuration.html#configuration-configure-docker" title="Docker">Docker</a>
+<a class="xref" href="configuration.html#configuration-configure-packages" title="Tar, deb, and rpm packages">Tar, deb, and rpm packages</a>
 </li>
 </ul>
 </div>
@@ -91,6 +90,16 @@ All deployments use the same <a class="xref" href="configuration.html#configurat
 <h4><a id="configuration-configure-eck"></a>Elastic Cloud on Kubernetes (ECK)<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/enterprise-search-pubs/edit/main/enterprise-search-docs/configuration.asciidoc">edit</a></h4>
 <p>Configure Enterprise Search on Elastic Cloud on Kubernetes (ECK) by editing the YAML specification.</p>
 <p>See <a href="/guide/en/cloud-on-k8s/current/k8s-enterprise-search-configuration.html" class="ulink" target="_blank" rel="noopener">Configuration</a> in the Elastic Cloud on Kubernetes documentation.</p>
+<h4><a id="configuration-configure-docker"></a>Docker<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/enterprise-search-pubs/edit/main/enterprise-search-docs/configuration.asciidoc">edit</a></h4>
+<p>When running with <code class="literal">docker</code> or <code class="literal">docker-compose</code>, configure Enterprise Search using environment variables.</p>
+<p>Refer to the following examples:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<a class="xref" href="docker.html#docker-cli-example" title="Run Enterprise Search using docker run">Run Enterprise Search using <code class="literal">docker run</code></a>
+</li>
+</ul>
+</div>
 <h4><a id="configuration-configure-packages"></a>Tar, deb, and rpm packages<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/enterprise-search-pubs/edit/main/enterprise-search-docs/configuration.asciidoc">edit</a></h4>
 <p>When installed using a tar, deb, or rpm package, configure Enterprise Search using a configuration file.</p>
 <p>The location of the configuration file varies by package type:</p>
@@ -115,16 +124,6 @@ All deployments use the same <a class="xref" href="configuration.html#configurat
 </dl>
 </div>
 <p>Or, set the location of the configuration file using the following environment variable: <code class="literal">ENT_SEARCH_CONFIG_PATH</code>.</p>
-<h4><a id="configuration-configure-docker"></a>Docker<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/enterprise-search-pubs/edit/main/enterprise-search-docs/configuration.asciidoc">edit</a></h4>
-<p>When running with <code class="literal">docker</code> or <code class="literal">docker-compose</code>, configure Enterprise Search using environment variables.</p>
-<p>Refer to the following examples:</p>
-<div class="ulist itemizedlist">
-<ul class="itemizedlist">
-<li class="listitem">
-<a class="xref" href="docker.html#docker-cli-example" title="Run Enterprise Search using docker run">Run Enterprise Search using <code class="literal">docker run</code></a>
-</li>
-</ul>
-</div>
 <h3><a id="configuration-settings-format"></a>Configuration settings format<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/enterprise-search-pubs/edit/main/enterprise-search-docs/configuration.asciidoc">edit</a></h3>
 <p>The Enterprise Search configuration follows the <a href="https://yaml.org" class="ulink" target="_blank" rel="noopener">YAML</a> format.</p>
 <p>You can nest multi-node configuration settings:</p>
@@ -180,7 +179,7 @@ For example: elasticsearch.password: ${ELASTICSEARCH_PASSWORD:changeme}</p>
 </span>
 </dt>
 <dd>
-<p>Encryption keys to protect your application secrets. This field is required.</p>
+<p><a href="/guide/en/enterprise-search/master/encryption-keys.html" class="ulink" target="_top">Encryption keys</a> to protect your application secrets. This field is required.</p>
 <p><code class="literal">secret_management.encryption_keys: []</code></p>
 </dd>
 </dl>
@@ -242,7 +241,11 @@ Or, adjust Elasticsearch&#8217;s config/elasticsearch.yml instead.</p>
 </span>
 </dt>
 <dd>
-<p>Elasticsearch credentials.</p>
+<p>The username that the Enterprise Search server should use to make changes within Elasticsearch.
+For example, the Enterprise Search server uses this username to authenticate to Elasticsearch to create indices when needed.</p>
+<p>The user must have adequate permission within Elasticsearch.</p>
+<p>Alternatively, use a token for the Enterprise Search service account.
+The Enterprise Search service account token can be configured as part of <code class="literal">elasticsearch.headers</code>.</p>
 <p><code class="literal">elasticsearch.username: elastic</code></p>
 </dd>
 </dl>
@@ -256,7 +259,7 @@ Or, adjust Elasticsearch&#8217;s config/elasticsearch.yml instead.</p>
 </span>
 </dt>
 <dd>
-<p>Elasticsearch credentials.</p>
+<p>The password for the username provided in <a class="xref" href="configuration.html#configuration-setting-elasticsearch-username"><code class="literal">elasticsearch.username</code></a>.</p>
 <p><code class="literal">elasticsearch.password: changeme</code></p>
 </dd>
 </dl>
@@ -275,6 +278,10 @@ Or, adjust Elasticsearch&#8217;s config/elasticsearch.yml instead.</p>
 </dd>
 </dl>
 </div>
+<p>Can also include the credentials for the Enterprise Search service account.</p>
+<p><code class="literal">elasticsearch.headers: 'Authorization: Bearer [SERVICE_ACCOUNT_TOKEN]'</code></p>
+<p>These credentials are used by the Enterprise Search server to authenticate to Elasticsearch when managing internal Enterprise Search indices.
+A guide on how to generate a service account token for Enteprise Search can be found in the Elasticsearch documentation for <a href="/guide/en/elasticsearch/reference/master/service-accounts.html#service-accounts-tokens" class="ulink" target="_top">Service Accounts</a>.</p>
 <div class="variablelist">
 <a id="configuration-setting-elasticsearch-ssl-enabled"></a>
 <dl class="variablelist">
@@ -311,10 +318,11 @@ Or, adjust Elasticsearch&#8217;s config/elasticsearch.yml instead.</p>
 </span>
 </dt>
 <dd>
-<p>Path to the keystore that contains Certificate Authorities for Elasticsearch SSL certificate.</p>
+<p>Absolute pathname to the keystore that contains Certificate Authorities for Elasticsearch SSL certificate.</p>
 </dd>
 </dl>
 </div>
+<p><code class="literal">elasticsearch.ssl.certificate_authority: /path/elasticsearch/config/certs/http_ca.crt</code></p>
 <div class="variablelist">
 <a id="configuration-setting-elasticsearch-ssl-key"></a>
 <dl class="variablelist">
@@ -564,8 +572,7 @@ Also, changing a limit here does not actually guarantee that Enterprise Search w
 </span>
 </dt>
 <dd>
-<p><span class="strong strong"><strong>Deprecated</strong></span> Use <a class="xref" href="configuration.html#configuration-setting-search-index-document-size-limit"><code class="literal">search_index.document_size.limit</code></a> instead.</p>
-<p>The maximum allowed document size for a content source.</p>
+<p>Configure the maximum allowed document size for a content source.</p>
 <p><code class="literal">workplace_search.content_source.document_size.limit: 100kb</code></p>
 </dd>
 </dl>
@@ -579,7 +586,6 @@ Also, changing a limit here does not actually guarantee that Enterprise Search w
 </span>
 </dt>
 <dd>
-<p><span class="strong strong"><strong>Deprecated</strong></span> Use <a class="xref" href="configuration.html#configuration-setting-search-index-total-fields-limit"><code class="literal">search_index.total_fields.limit</code></a> instead.</p>
 <p>Configure how many fields a content source can have.</p>
 <p>The Elasticsearch/Lucene setting <code class="literal">indices.query.bool.max_clause_count</code> might also need to be adjusted if "Max clause count exceeded" errors start occurring.
 See <a href="/guide/en/elasticsearch/reference/master/search-settings.html" class="ulink" target="_blank" rel="noopener">Search settings</a> in the Elasticsearch documentation.</p>
@@ -644,7 +650,7 @@ This only applies to errors tied to individual documents.</p>
 </span>
 </dt>
 <dd>
-<p>The ratio of &lt;errored documents&gt; / &lt;total documents&gt; to tolerate in a sync job or in a rolling window (see <code class="literal">workplace_search.content_source.sync.error_ratio_window_size</code>).
+<p>Configure the ratio of &lt;errored documents&gt; / &lt;total documents&gt; to tolerate in a sync job or in a rolling window (see <code class="literal">workplace_search.content_source.sync.error_ratio_window_size</code>).
 If the job encounters an error ratio greater than this value in a given window, or overall
 at the end of the job, the job will fail.
 This only applies to errors tied to individual documents.</p>
@@ -704,7 +710,7 @@ Not all file types/sizes/content or Content Sources support thumbnail generation
 </span>
 </dt>
 <dd>
-<p>The refresh interval for full sync job (in ISO 8601 Duration format).</p>
+<p>Configure the refresh interval for full sync job (in ISO 8601 Duration format).</p>
 <p><code class="literal">workplace_search.content_source.sync.refresh_interval.full: P3D</code></p>
 </dd>
 </dl>
@@ -718,7 +724,7 @@ Not all file types/sizes/content or Content Sources support thumbnail generation
 </span>
 </dt>
 <dd>
-<p>The refresh interval for incremental sync job (in ISO 8601 Duration format).</p>
+<p>Configure the refresh interval for incremental sync job (in ISO 8601 Duration format).</p>
 <p><code class="literal">workplace_search.content_source.sync.refresh_interval.incremental: PT2H</code></p>
 </dd>
 </dl>
@@ -732,7 +738,7 @@ Not all file types/sizes/content or Content Sources support thumbnail generation
 </span>
 </dt>
 <dd>
-<p>The refresh interval for delete sync job (in ISO 8601 Duration format).</p>
+<p>Configure the refresh interval for delete sync job (in ISO 8601 Duration format).</p>
 <p><code class="literal">workplace_search.content_source.sync.refresh_interval.delete: PT6H</code></p>
 </dd>
 </dl>
@@ -746,7 +752,7 @@ Not all file types/sizes/content or Content Sources support thumbnail generation
 </span>
 </dt>
 <dd>
-<p>The refresh interval for permissions sync job (in ISO 8601 Duration format).</p>
+<p>Configure the refresh interval for permissions sync job (in ISO 8601 Duration format).</p>
 <p><code class="literal">workplace_search.content_source.sync.refresh_interval.permissions: PT5M</code></p>
 </dd>
 </dl>
@@ -802,7 +808,7 @@ Not all file types/sizes/content or Content Sources support thumbnail generation
 </span>
 </dt>
 <dd>
-<p>The query timeout (in milliseconds) for remote sources via the Search API.</p>
+<p>Configure the query timeout (in milliseconds) for remote sources via the Search API.</p>
 <p><code class="literal">workplace_search.remote_sources.query_timeout: 10000</code></p>
 </dd>
 </dl>
@@ -846,8 +852,7 @@ Defaults to <code class="literal">false</code> (HTTPS is enforced).</p>
 </span>
 </dt>
 <dd>
-<p><span class="strong strong"><strong>Deprecated</strong></span> Use <a class="xref" href="configuration.html#configuration-setting-search-index-document-size-limit"><code class="literal">search_index.document_size.limit</code></a> instead.</p>
-<p>The maximum allowed document size.</p>
+<p>Configure the maximum allowed document size.</p>
 <p><code class="literal">app_search.engine.document_size.limit: 100kb</code></p>
 </dd>
 </dl>
@@ -864,7 +869,6 @@ Defaults to <code class="literal">false</code> (HTTPS is enforced).</p>
 <p>Configure how many fields an engine can have.
 The Elasticsearch/Lucene setting <code class="literal">indices.query.bool.max_clause_count</code> might also need to be adjusted if "Max clause count exceeded" errors start occurring.
 See <a href="/guide/en/elasticsearch/reference/master/search-settings.html" class="ulink" target="_blank" rel="noopener">Search settings</a> in the Elasticsearch documentation.</p>
-<p><span class="strong strong"><strong>Deprecated</strong></span> Use <a class="xref" href="configuration.html#configuration-setting-search-index-total-fields-limit"><code class="literal">search_index.total_fields.limit</code></a> instead.</p>
 <p><code class="literal">app_search.engine.total_fields.limit: 64</code></p>
 </dd>
 </dl>
@@ -878,7 +882,6 @@ See <a href="/guide/en/elasticsearch/reference/master/search-settings.html" clas
 </span>
 </dt>
 <dd>
-<p><span class="strong strong"><strong>Deprecated</strong></span> Use <a class="xref" href="configuration.html#configuration-setting-search-index-per-engine-limit"><code class="literal">search_index.per_engine.limit</code></a> instead.</p>
 <p>Configure how many source engines a meta engine can have.</p>
 <p><code class="literal">app_search.engine.source_engines_per_meta_engine.limit: 15</code></p>
 </dd>
@@ -956,51 +959,6 @@ See <a href="/guide/en/elasticsearch/reference/master/search-settings.html" clas
 </dd>
 </dl>
 </div>
-<h5><a id="configuration-settings-limits-search-index"></a>Search Index<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/enterprise-search-pubs/edit/main/enterprise-search-docs/configuration.asciidoc">edit</a></h5>
-<div class="variablelist">
-<a id="configuration-setting-search-index-document-size-limit"></a>
-<dl class="variablelist">
-<dt>
-<span class="term">
-<code class="literal">search-index.document_size.limit</code> <span class="image"><a class="image" href="https://www.elastic.co/cloud/elasticsearch-service/signup?baymax=docs-body&amp;elektra=docs"><img src="https://doc-icons.s3.us-east-2.amazonaws.com/logo_cloud.svg" alt="logo cloud" title="Supported on Elasticsearch Service"></a></span>
-</span>
-</dt>
-<dd>
-<p>The maximum allowed document size for a content source.</p>
-<p><code class="literal">search-index.document_size.limit: 100kb</code></p>
-</dd>
-</dl>
-</div>
-<div class="variablelist">
-<a id="configuration-setting-search-index-total-fields-limit"></a>
-<dl class="variablelist">
-<dt>
-<span class="term">
-<code class="literal">search-index.total_fields.limit</code> <span class="image"><a class="image" href="https://www.elastic.co/cloud/elasticsearch-service/signup?baymax=docs-body&amp;elektra=docs"><img src="https://doc-icons.s3.us-east-2.amazonaws.com/logo_cloud.svg" alt="logo cloud" title="Supported on Elasticsearch Service"></a></span>
-</span>
-</dt>
-<dd>
-<p>Configure how many fields a search index can have.</p>
-<p>The Elasticsearch/Lucene setting <code class="literal">indices.query.bool.max_clause_count</code> might also need to be adjusted if "Max clause count exceeded" errors start occurring.
-See <a href="/guide/en/elasticsearch/reference/master/search-settings.html" class="ulink" target="_blank" rel="noopener">Search settings</a> in the Elasticsearch documentation.</p>
-<p><code class="literal">search-index.total_fields.limit: 64</code></p>
-</dd>
-</dl>
-</div>
-<div class="variablelist">
-<a id="configuration-setting-search-index-per-engine-limit"></a>
-<dl class="variablelist">
-<dt>
-<span class="term">
-<code class="literal">search_index.per_engine.limit</code> <span class="image"><a class="image" href="https://www.elastic.co/cloud/elasticsearch-service/signup?baymax=docs-body&amp;elektra=docs"><img src="https://doc-icons.s3.us-east-2.amazonaws.com/logo_cloud.svg" alt="logo cloud" title="Supported on Elasticsearch Service"></a></span>
-</span>
-</dt>
-<dd>
-<p>Configure how many source engines a meta engine can have.</p>
-<p><code class="literal">search_index.per_engine.limit: 15</code></p>
-</dd>
-</dl>
-</div>
 <h4><a id="configuration-settings-workers"></a>Workers<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/enterprise-search-pubs/edit/main/enterprise-search-docs/configuration.asciidoc">edit</a></h4>
 <div class="variablelist">
 <a id="configuration-setting-worker-threads"></a>
@@ -1011,7 +969,7 @@ See <a href="/guide/en/elasticsearch/reference/master/search-settings.html" clas
 </span>
 </dt>
 <dd>
-<p>The number of worker threads.</p>
+<p>Configure the number of worker threads.</p>
 <p><code class="literal">worker.threads: 1</code></p>
 </dd>
 </dl>
@@ -1215,8 +1173,8 @@ See <a class="xref" href="mailer-configuration.html" title="Configure a mail ser
 </span>
 </dt>
 <dd>
-<p><span class="strong strong"><strong>Deprecated</strong></span> ILM can no longer be disabled.</p>
-<p>The index lifecycle policies that Enterprise Search creates can be managed in Kibana.
+<p>This setting is deprecated and ILM can no longer be disabled.
+The index lifecycle policies that Enterprise Search creates can be managed in Kibana.
 See the <a href="/guide/en/elasticsearch/reference/master/index-lifecycle-management.html" class="ulink" target="_blank" rel="noopener">ILM documentation</a>.</p>
 <p><code class="literal">ilm.enabled: true</code></p>
 </dd>
@@ -1262,6 +1220,22 @@ See the <a href="/guide/en/elasticsearch/reference/master/index-lifecycle-manage
 <p>The maximum file size in bytes before rotating the log file.
 If log_rotation.keep_files is set to 0, no rotation will take place and there will be no size limit for the singular log file.</p>
 <p><code class="literal">log_rotation.rotate_every_bytes: 1048576 # 1 MiB</code></p>
+</dd>
+</dl>
+</div>
+<div class="variablelist">
+<a id="configuration-setting-connector-crawler-logging-events-enabled"></a>
+<dl class="variablelist">
+<dt>
+<span class="term">
+<code class="literal">connector.crawler.logging.events.enabled</code>
+</span>
+</dt>
+<dd>
+<p>Enable or disable indexing of Elasticsearch Crawler Event logs.
+These are enabled by default.
+Disabling these will impact dashboards and analytics.</p>
+<p><code class="literal">connector.crawler.logging.events.enabled: true</code></p>
 </dd>
 </dl>
 </div>
@@ -1892,6 +1866,37 @@ Each item in this list could be a file name of a certificate in PEM format or a 
 </dd>
 </dl>
 </div>
+<div class="variablelist">
+<a id="configuration-setting-crawler-security-auth-allow-http"></a>
+<dl class="variablelist">
+<dt>
+<span class="term">
+<code class="literal">crawler.security.auth.allow_http</code> <span class="image"><a class="image" href="https://www.elastic.co/cloud/elasticsearch-service/signup?baymax=docs-body&amp;elektra=docs"><img src="https://doc-icons.s3.us-east-2.amazonaws.com/logo_cloud.svg" alt="logo cloud" title="Supported on Elasticsearch Service"></a></span>
+</span>
+</dt>
+<dd>
+<p>Allow/Disallow <em>authenticated</em> crawling of non-HTTPS URLs:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<code class="literal">false</code> - Do not allow crawling non-HTTPS URLs (this is the default and the recommended value)
+</li>
+<li class="listitem">
+<code class="literal">true</code> - Allow crawling non-HTTPS URLs
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+<div class="warning admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>Enabling this setting could expose your Authorization headers to a man-in-the-middle attack and
+should never be used in production deployments.
+See <a href="https://en.wikipedia.org/wiki/Man-in-the-middle_attack" class="ulink" target="_top">https://en.wikipedia.org/wiki/Man-in-the-middle_attack</a> for more details.</p>
+</div>
+</div>
 <h5><a id="configuration-settings-elastic-crawler-dns-security"></a>Crawler DNS Security Controls<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/enterprise-search-pubs/edit/main/enterprise-search-docs/configuration.asciidoc">edit</a></h5>
 <div class="warning admon">
 <div class="icon"></div>
@@ -2009,6 +2014,35 @@ If your proxy server is running on a private address or a loopback address, you 
 </dd>
 </dl>
 </div>
+<h5><a id="configuration-settings-elastic-crawler-advanced-tuning"></a>Advanced crawler tuning<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/enterprise-search-pubs/edit/main/enterprise-search-docs/configuration.asciidoc">edit</a></h5>
+<div class="variablelist">
+<a id="configuration-settings-elastic-crawler-advanced-tuning-http-compression"></a>
+<dl class="variablelist">
+<dt>
+<span class="term">
+<code class="literal">crawler.http.compression.enabled</code>
+</span>
+</dt>
+<dd>
+<p>Enable/disable HTTP content (gzip/deflate) compression in Crawler requests.</p>
+<p><code class="literal">crawler.http.compression.enabled: true</code></p>
+</dd>
+</dl>
+</div>
+<div class="variablelist">
+<a id="configuration-settings-elastic-crawler-advanced-tuning-http-default-encoding"></a>
+<dl class="variablelist">
+<dt>
+<span class="term">
+<code class="literal">crawler.http.default_encoding</code>
+</span>
+</dt>
+<dd>
+<p>Default encoding used for responses that do not specify a charset.</p>
+<p><code class="literal">crawler.http.default_encoding: UTF-8</code></p>
+</dd>
+</dl>
+</div>
 <h4><a id="configuration-settings-read-only-mode"></a>Read-only mode<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/enterprise-search-pubs/edit/main/enterprise-search-docs/configuration.asciidoc">edit</a></h4>
 <div class="variablelist">
 <a id="configuration-setting-skip-read-only-check"></a>
@@ -2036,7 +2070,7 @@ Use at your own risk, should not be set to true when upgrading a production inst
 </span>
 </dt>
 <dd>
-<p>If true, allows access to <a href="/guide/en/app-search/master/elasticsearch-search-api-reference.html" class="ulink" target="_blank" rel="noopener">Elasticsearch search API</a>. By default, the API is disabled. As of 8.2, this API is a technical preview feature.</p>
+<p>If true, allows access to <a href="/guide/en/app-search/master/elasticsearch-search-api-reference.html" class="ulink" target="_blank" rel="noopener">Elasticsearch search API</a>. By default, the API is disabled. As of 8.4, this API is a beta feature.</p>
 </dd>
 </dl>
 </div>

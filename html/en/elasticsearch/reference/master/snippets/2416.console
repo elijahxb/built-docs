@@ -1,9 +1,23 @@
-POST _render/template
+POST _ml/anomaly_detectors/_estimate_model_memory
 {
-  "id": "my-search-template",
-  "params": {
-    "query_string": "hello world",
-    "from": 20,
-    "size": 10
+  "analysis_config": {
+    "bucket_span": "5m",
+    "detectors": [
+      {
+        "function": "sum",
+        "field_name": "bytes",
+        "by_field_name": "status",
+        "partition_field_name": "app"
+      }
+    ],
+    "influencers": [ "source_ip", "dest_ip" ]
+  },
+  "overall_cardinality": {
+    "status": 10,
+    "app": 50
+  },
+  "max_bucket_cardinality": {
+    "source_ip": 300,
+    "dest_ip": 30
   }
 }

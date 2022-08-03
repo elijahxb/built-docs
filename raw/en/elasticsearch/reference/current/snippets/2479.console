@@ -1,4 +1,7 @@
-POST /_security/user/jacknich/_password
+PUT _scripts/my-stored-script
 {
-  "password" : "new-test-password"
+  "script": {
+    "lang": "painless",
+    "source": "Math.log(_score * 2) + params['my_modifier']"
+  }
 }

@@ -1,1 +1,1 @@
-GET _slm/policy/nightly-snapshots
+POST _snapshot/my_repository/_cleanup

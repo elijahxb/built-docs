@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Trust management | Elastic Cloud Enterprise Reference [3.2] | Elastic</title>
+<link rel="home" href="index.html" title="Elastic Cloud Enterprise Reference [3.2]"/>
+<link rel="up" href="ece-administering-deployments.html" title="Administering deployments"/>
+<link rel="prev" href="ece-secure-clusters-kerberos.html" title="Secure your clusters with Kerberos"/>
+<link rel="next" href="ece-capture-heap-dumps.html" title="Deployment heap dumps"/>
+<meta name="DC.type" content="Learn/Docs/CloudEnterprise/Reference/3.2"/>
+<meta name="DC.subject" content="ECE"/>
+<meta name="DC.identifier" content="3.2"/>
+</head>
+<body><div class="page_header">
+A newer version is available. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Cloud Enterprise Reference [3.2]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="ece-administering-deployments.html">Administering deployments</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="ece-secure-clusters-kerberos.html">« Secure your clusters with Kerberos</a>
+</span>
+<span class="next">
+<a href="ece-capture-heap-dumps.html">Deployment heap dumps »</a>
+</span>
+</div>
+<div class="chapter">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="ece-trust-management"></a>Trust management<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/shared/ec-ce-trust-management.asciidoc">edit</a></h2>
+</div></div></div>
+<p>In order to establish a remote connection between two remote clusters, they must both trust each other. Trust is bi-directional: If one of the clusters doesn&#8217;t trust the other, the remote connection won&#8217;t be established.</p>
+<p>Mutual trust between two clusters is required to <a class="xref" href="ece-enable-ccs.html" title="Enable cross-cluster search and cross-cluster replication">enable cross-cluster search and cross-cluster replication</a>.</p>
+<p>Trust can be configured individually for each deployment.</p>
+<h3><a id="ece-trust-environment"></a>Default trust behavior in your environment<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/shared/ec-ce-trust-management.asciidoc">edit</a></h3>
+<p>By default, any deployment that you or your users create trusts all other deployments in the same Elastic Cloud Enterprise environment. You can change this behavior in the Cloud UI under <span class="strong strong"><strong>Platform</strong></span> &gt; <span class="strong strong"><strong>Trust Management</strong></span>, so that when a new deployment is created it does not trust any other deployment.
+You can choose one of the following options:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Trust all my deployments - New deployments will by default trust any other deployment from your ECE environment (even deployments that don&#8217;t exist when the deployment is created).
+</li>
+<li class="listitem">
+Trust no deployment - New deployments won&#8217;t trust any other deployment when they are created. (This can be changed later in the <a class="xref" href="ece-trust-management.html#ece-trust-deployment" title="Update the trust settings of a deployment">deployment trust settings</a>)
+</li>
+</ul>
+</div>
+<div class="imageblock screenshot">
+<div class="content">
+<img src="images/ce-environment-trust-management.png" alt="Trust management at the environment Level">
+</div>
+</div>
+<p>Note the following behaviours with this trust setting:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Changing the trust settings affects only deployments that you create in the future. The level of trust of existing deployments is not modified by this setting.
+</li>
+<li class="listitem">
+Deployments created before Elastic Cloud Enterprise version <code class="literal">2.9.0</code> trust only themselves.
+You need to update the trust setting for each deployment that you want to either use as a remote cluster or configure to work with a remote cluster.
+</li>
+</ul>
+</div>
+<h3><a id="ece-trust-remote-environments"></a>Configuring trust with other remote environments<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/shared/ec-ce-trust-management.asciidoc">edit</a></h3>
+<p>In order to configure remote clusters in other ECE environments, you will first need to establish a bi-directional trust relationship between both ECE environments:</p>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+Download the certificate and copy the environment ID from your first ECE environment under <span class="strong strong"><strong>Platform</strong></span> &gt; <span class="strong strong"><strong>Trust Management</strong></span> &gt; <span class="strong strong"><strong>Trust parameters</strong></span>
+</li>
+<li class="listitem">
+Create a new trust relationship in the other ECE environment under <span class="strong strong"><strong>Platform</strong></span> &gt; <span class="strong strong"><strong>Trust Management</strong></span> &gt; <span class="strong strong"><strong>Trusted environments</strong></span> using the certificate and environment ID from the previous step
+</li>
+<li class="listitem">
+Download the certificate and copy the environment ID from your second ECE environment and create a new trust relationship with those in the first ECE environment
+</li>
+</ol>
+</div>
+<div class="imageblock screenshot">
+<div class="content">
+<img src="images/ce-trust-relationship-creation.png" alt="Creation of trust relationships">
+</div>
+</div>
+<p>Now, deployments in those environments will be able to configure trust with deployments in the other environment. Trust must always be bi-directional (local cluster must trust remote cluster and viceversa) and it can be configured in each deployment page, under <span class="strong strong"><strong>Security</strong></span> &gt; <span class="strong strong"><strong>Trust Management</strong></span>:</p>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+Select <span class="strong strong"><strong>Add trusted environment</strong></span> to configure trust with deployments in another ECE environment whose trust relationship has been created in the previous step.
+</li>
+<li class="listitem">
+For each trusted ECE environment you can <a class="xref" href="ece-trust-management.html#ece-trust-deployment" title="Update the trust settings of a deployment">change the trust settings</a> to trust all deployments, none, or just specific ones.
+</li>
+</ol>
+</div>
+<div class="imageblock screenshot">
+<div class="content">
+<img src="images/ce-deployment-trusted-environments.png" alt="Trusted Environments at the Deployment Level">
+</div>
+</div>
+<h3><a id="ece-trust-deployment"></a>Update the trust settings of a deployment<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/shared/ec-ce-trust-management.asciidoc">edit</a></h3>
+<p>To configure the trust settings for a deployment:</p>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+<a class="xref" href="ece-login.html" title="Log into the Cloud UI">Log into the Cloud UI</a>.
+</li>
+<li class="listitem">
+<p>On the deployments page, select your deployment.</p>
+<p>Narrow the list by name, ID, or choose from several other filters. To further define the list, use a combination of filters.</p>
+</li>
+<li class="listitem">
+From the <span class="strong strong"><strong>Security</strong></span> menu, select <span class="strong strong"><strong>Trusted deployments &gt; Create trust</strong></span>.
+</li>
+</ol>
+</div>
+<p>The page shows a list of all the deployments that this deployment trusts, grouped by environment. Initially only the <span class="strong strong"><strong>Local Environment</strong></span> appears, which represents the current ECE environment, but you can trust deployments in other ECE environments after <a class="xref" href="ece-trust-management.html#ece-trust-remote-environments" title="Configuring trust with other remote environments">establishing trust relationships with those ECE environments</a>.</p>
+<p>Choose one of following options to configure the level of trust on each of your deployments for each environment:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Trust all deployments - This deployment trusts all other deployments in this ECE environment, including new deployments when they are created.
+</li>
+<li class="listitem">
+Trust no deployment - No deployment in this ECE environment is trusted.
+</li>
+<li class="listitem">
+Specific deployments. For your local environment, check the list of available deployments to trust. For remote ECE environments, you can introduce a list of Cluster Ids to trust from that ECE environment. The <code class="literal">Cluster ID</code> can be found in the deployment overview page under <span class="strong strong"><strong>Applications</strong></span>.
+</li>
+</ul>
+</div>
+<div class="imageblock screenshot">
+<div class="content">
+<img src="images/ce-deployment-trust-management.png" alt="Trust Management at the Deployment Level">
+</div>
+</div>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="ece-secure-clusters-kerberos.html">« Secure your clusters with Kerberos</a>
+</span>
+<span class="next">
+<a href="ece-capture-heap-dumps.html">Deployment heap dumps »</a>
+</span>
+</div>
+</div>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains('stemblock')) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+</body>
+</html>

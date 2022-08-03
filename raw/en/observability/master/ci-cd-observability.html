@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>CI/CD Observability | Observability Guide [master] | Elastic</title>
+<title>CI/CD observability | Observability Guide [master] | Elastic</title>
 <link rel="home" href="index.html" title="Observability Guide [master]"/>
 <link rel="up" href="index.html" title="Observability Guide [master]"/>
 <link rel="prev" href="cases-external-connectors.html" title="Configure external connectors"/>
@@ -18,9 +18,8 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="index.html">Observability Guide [master]</a></span>
-»
-<span class="breadcrumb-node">CI/CD Observability</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -32,7 +31,7 @@ Not what you want? See the
 </div>
 <div class="chapter">
 <div class="titlepage"><div><div>
-<h1 class="title"><a id="ci-cd-observability"></a>CI/CD Observability<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/observability-docs/edit/main/docs/en/observability/ci-cd-observability.asciidoc">edit</a></h1>
+<h1 class="title"><a id="ci-cd-observability"></a>CI/CD observability<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/observability-docs/edit/main/docs/en/observability/ci-cd-observability.asciidoc">edit</a></h1>
 </div></div></div>
 <p>To help administrators monitor and troubleshoot their CI/CD platform and help developers
 increase the speed and reliability of their CI/CD pipelines, Elastic Observability
@@ -44,9 +43,9 @@ OpenTelemetry.</p>
 <p>Using the APM Server, connect all your OpenTelemetry native CI/CD tools directly to Elastic Observability.</p>
 <div class="imageblock">
 <div class="content">
-<img src="images/simple-arch-observability.png" alt="Simple architecture of CI/CD Observability with Elastic">
+<img src="images/simple-arch-observability.png" alt="Simple architecture of CI/CD observability with Elastic">
 </div>
-<div class="title">Architecture of CI/CD Observability with Elastic</div>
+<div class="title">Architecture of CI/CD observability with Elastic</div>
 </div>
 <p>A more advanced CI/CD observability architecture includes an OpenTelemetry Collector
 deployed on the edge, next to the CI/CD tools. This architecture provides the following:</p>
@@ -64,9 +63,9 @@ Elastic Observability.
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/advanced-arch-observability.png" alt="Advanced architecture of CI/CD Observability with Elastic">
+<img src="images/advanced-arch-observability.png" alt="Advanced architecture of CI/CD observability with Elastic">
 </div>
-<div class="title">Advanced architecture of CI/CD Observability with Elastic</div>
+<div class="title">Advanced architecture of CI/CD observability with Elastic</div>
 </div>
 <h3><a id="ci-cd-administrators"></a>Observability for CI/CD administrators<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/observability-docs/edit/main/docs/en/observability/ci-cd-observability.asciidoc">edit</a></h3>
 <p>Elastic Observability allows CI/CD administrators to monitor and troubleshoot CI/CD
@@ -162,7 +161,7 @@ failure rates across the pipeline’s individual builds and jobs to spot slowdow
 </div>
 <p>The pipelines and traditional jobs are instrumented automatically. If you spot a slow or failing
 build and need to understand what’s happening, you can drill into the trace view of the build to look
-for the high duration or errorful jobs. You can then dig into the details to understand the
+for the high duration jobs or jobs with errors. You can then dig into the details to understand the
 source of the error.</p>
 <div class="imageblock screenshot">
 <div class="content">
@@ -351,6 +350,10 @@ Header value: a secret text credential with the value of <code class="literal">"
 </ul>
 </div>
 </li>
+</ol>
+</div>
+<div class="olist orderedlist">
+<ol class="orderedlist">
 <li class="listitem">
 <p>Go to <span class="strong strong"><strong>Add Visualisation Observability Backend</strong></span> and define the URL for your Kibana server.</p>
 <div class="imageblock screenshot">
@@ -392,7 +395,7 @@ the console output.</p>
 <h5><a id="ci-cd-jenkins-dashbaords"></a>Install Jenkins dashboards in Kibana<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/observability-docs/edit/main/docs/en/observability/ci-cd-observability.asciidoc">edit</a></h5>
 <p>There are out of the box Kibana dashboards that help visualize some metrics for the CI/CD platform.</p>
 <p>Using the <a href="/guide/en/kibana/master/dashboard-import-api.html" class="ulink" target="_top">Import API</a> or the Kibana UI, you
-can <a href="https://github.com/jenkinsci/opentelemetry-plugin/tree/master/docs/dashboards/elastic" class="ulink" target="_top">install dashboards</a>
+can <a href="https://github.com/jenkinsci/opentelemetry-plugin/blob/master/docs/DASHBOARDS.md#elastic" class="ulink" target="_top">install dashboards</a>
 that are compatible with version 7.12 or higher.</p>
 <p>For instance, you can follow the below steps:</p>
 <div class="ulist itemizedlist">
@@ -404,7 +407,7 @@ Import the dashboard in the Kibana UI
 </div>
 <div class="imageblock screenshot">
 <div class="content">
-<img src="images/jenkins-dashboard-import.png" alt="Import kibana dashboard">
+<img src="images/jenkins-dashboard-import.png" alt="Import Kibana dashboard">
 </div>
 <div class="title">Import dashboard in Kibana</div>
 </div>
@@ -487,7 +490,7 @@ Ansible playbooks. The plugin generates traces for each run and performance metr
 you understand which Ansible tasks or roles are run the most, how often they
 fail, and how long they take to complete.</p>
 <p>You can configure your Ansible playbooks with the <a href="https://docs.ansible.com/ansible/latest/collections/community/general/opentelemetry_callback.html" class="ulink" target="_top">Ansible OpenTelemetry callback plugin</a>.
-It’s required to install the Opentelemetry python libraries and configure the callback
+It’s required to install the OpenTelemetry python libraries and configure the callback
 as stated in the <a href="https://docs.ansible.com/ansible/latest/collections/community/general/opentelemetry_callback.html#examples" class="ulink" target="_top">examples</a> section.</p>
 <p>The context propagation from the Jenkins job or pipeline is passed to the Ansible run. Therefore,
 everything that happens in the CI is also shown in the traces.</p>
@@ -505,7 +508,7 @@ All of these features can help you quickly and visually assess your services use
 </div>
 <div class="title">ServiceMap view of a Jenkins pipeline execution instrumented with the Ansible plugin</div>
 </div>
-<h4><a id="ci-cd-otel-cli"></a>Otel cli<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/observability-docs/edit/main/docs/en/observability/ci-cd-observability.asciidoc">edit</a></h4>
+<h4><a id="ci-cd-otel-cli"></a>Otel CLI<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/observability-docs/edit/main/docs/en/observability/ci-cd-observability.asciidoc">edit</a></h4>
 <p><a href="https://github.com/equinix-labs/otel-cli" class="ulink" target="_top">otel-cli</a> is a command-line tool for sending OpenTelemetry
 traces, which is useful if instrumenting your scripts explicitly when no other implicit
 integration is in place.</p>
@@ -563,7 +566,7 @@ make login build push</pre>
 <h4><a id="ci-cd-pytest-otel"></a>Pytest-otel<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/observability-docs/edit/main/docs/en/observability/ci-cd-observability.asciidoc">edit</a></h4>
 <p><a href="https://pypi.org/project/pytest-otel/" class="ulink" target="_top">pytest-otel</a> is a pytest plugin for sending Python test
 results as OpenTelemetry traces. The test traces help you understand test execution,
-detect bottlenecks, and compare test executions across time to detect misbehaviors and issues.</p>
+detect bottlenecks, and compare test executions across time to detect misbehavior and issues.</p>
 <p>The context propagation from CI pipelines (Jenkins job or pipeline) is passed to the Maven build
 through the <code class="literal">TRACEPARENT</code>.</p>
 <div class="pre_wrapper lang-bash">
@@ -601,7 +604,7 @@ to derive pipeline execution traces into KPI metrics like throughput and the err
 of pipelines.</p>
 <h3><a id="check-service-health-from-cd-pipelines"></a>Check service health from deployment pipelines<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/observability-docs/edit/main/docs/en/observability/ci-cd-observability.asciidoc">edit</a></h3>
 <p>Integrating automated service health checks in deployment pipelines is critical for end-to-end deployment automation, which crucially enables deployment frequency to be increased.</p>
-<p>Elastic Observability exposes HTTP APIs to check the health of services. You can integrate these APIs in deployment pipelines to verify the behaviour of newly deployed instances, and either automatically continue the deployments or roll back according to the health status.</p>
+<p>Elastic Observability exposes HTTP APIs to check the health of services. You can integrate these APIs in deployment pipelines to verify the behavior of newly deployed instances, and either automatically continue the deployments or roll back according to the health status.</p>
 <p>The following example shows a canary deployment pipeline that leverages Elastic health check HTTP APIs to automate the quality check before rolling out the deployment from the canary to the entire set of instances:</p>
 <div class="imageblock">
 <div class="content">
@@ -623,12 +626,12 @@ of pipelines.</p>
 </ul>
 </div>
 <p>To define the time range, use the <code class="literal">start</code> and <code class="literal">end</code> parameters. These parameters are
-dates in ISO-8601 format. To query only one service, compose a filter in the param <code class="literal">kuery</code>,
+dates in ISO-8601 format. To query only one service, compose a filter in the parameter <code class="literal">kuery</code>,
 then filter by the service name using the expression <code class="literal">service.name:MY_SERVICE_NAME
 and service.version: SERVICE_VERSION</code>. Finally apply an <code class="literal">environment</code> filter by passing
 the <code class="literal">environment</code> parameter. To select all environments, use <code class="literal">ENVIRONMENT_ALL</code>.</p>
 <p>The API call requires authentication. We recommend to use an API Token to authenticate.</p>
-<p>The API is subject to changes and a stable API optimized for Continous Delivery use cases will soon be published.</p>
+<p>The API is subject to changes and a stable API optimized for Continuous Delivery use cases will soon be published.</p>
 <div class="pre_wrapper lang-python">
 <pre class="programlisting prettyprint lang-python">def check_service_health(service_name, service_version, error_rate_threshold, kibana_url, api_token):
     now = datetime.now()

@@ -1,38 +1,33 @@
-POST /_security/api_key/grant
+GET /my-index-000001/_search
 {
-  "grant_type": "password",
-  "username" : "test_admin",
-  "password" : "x-pack-test-password",
-  "api_key" : {
-    "name": "my-api-key",
-    "expiration": "1d",
-    "role_descriptors": {
-      "role-a": {
-        "cluster": ["all"],
-        "index": [
-          {
-          "names": ["index-a*"],
-          "privileges": ["read"]
-          }
-        ]
-      },
-      "role-b": {
-        "cluster": ["all"],
-        "index": [
-          {
-          "names": ["index-b*"],
-          "privileges": ["all"]
-          }
-        ]
+  "profile": true,
+  "query": {
+    "term": {
+      "user.id": {
+        "value": "elkbee"
+      }
+    }
+  },
+  "aggs": {
+    "my_scoped_agg": {
+      "terms": {
+        "field": "http.response.status_code"
       }
     },
-    "metadata": {
-      "application": "my-application",
-      "environment": {
-         "level": 1,
-         "trusted": true,
-         "tags": ["dev", "staging"]
+    "my_global_agg": {
+      "global": {},
+      "aggs": {
+        "my_level_agg": {
+          "terms": {
+            "field": "http.response.status_code"
+          }
+        }
       }
+    }
+  },
+  "post_filter": {
+    "match": {
+      "message": "search"
     }
   }
 }

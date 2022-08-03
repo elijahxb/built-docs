@@ -1,7 +1,8 @@
-GET /_analyze
+POST test/_search?filter_path=hits.total
 {
-  "tokenizer" : "keyword",
-  "filter" : ["lowercase"],
-  "char_filter" : ["html_strip"],
-  "text" : "this is a <b>test</b>"
+  "query": {
+    "match": {
+      "flag": "foo"
+    }
+  }
 }

@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,27 +87,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 You are looking at preliminary documentation for a future release.
@@ -116,13 +107,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="ingest.html">Ingest pipelines</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="ingest.html">Ingest pipelines</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="ingest-enriching-data.html">Enrich your data</a></span>
-»
-<span class="breadcrumb-node">Example: Enrich your data based on geolocation</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -134,7 +122,7 @@ Not what you want? See the
 </div>
 <div class="section xpack">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="geo-match-enrich-policy-type"></a>Example: Enrich your data based on geolocation<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ingest/geo-match-enrich-policy-type-ex.asciidoc">edit</a></h2>
+<h2 class="title"><a id="geo-match-enrich-policy-type"></a>Example: Enrich your data based on geolocation<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ingest/geo-match-enrich-policy-type-ex.asciidoc">edit</a></h2>
 </div></div></div>
 <p><code class="literal">geo_match</code> <a class="xref" href="ingest-enriching-data.html#enrich-policy">enrich policies</a> match enrich data to incoming
 documents based on a geographic location, using a
@@ -160,7 +148,7 @@ containing at least one <code class="literal">geo_shape</code> field.</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/646.console"></div>
+<div class="console_widget" data-snippet="snippets/656.console"></div>
 <p>Use the <a class="xref" href="docs-index_.html" title="Index API">index API</a> to index enrich data to this source index.</p>
 <a id="42bc7608bb675dd6238e2fecbb758d06"></a>
 <div class="pre_wrapper lang-console">
@@ -173,7 +161,7 @@ containing at least one <code class="literal">geo_shape</code> field.</p>
   "postal_code": "96598"
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/647.console"></div>
+<div class="console_widget" data-snippet="snippets/657.console"></div>
 <p>Use the <a class="xref" href="put-enrich-policy-api.html" title="Create enrich policy API">create enrich policy API</a> to create
 an enrich policy with the <code class="literal">geo_match</code> policy type. This policy must include:</p>
 <div class="ulist itemizedlist">
@@ -202,14 +190,14 @@ documents
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/648.console"></div>
+<div class="console_widget" data-snippet="snippets/658.console"></div>
 <p>Use the <a class="xref" href="execute-enrich-policy-api.html" title="Execute enrich policy API">execute enrich policy API</a> to create an
 enrich index for the policy.</p>
 <a id="207c04ccbdce0e8a289070a3b0a79ecb"></a>
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">POST /_enrich/policy/postal_policy/_execute</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/649.console"></div>
+<div class="console_widget" data-snippet="snippets/659.console"></div>
 <p>Use the <a class="xref" href="put-pipeline-api.html" title="Create or update pipeline API">create or update pipeline API</a> to create an ingest
 pipeline. In the pipeline, add an <a class="xref" href="enrich-processor.html" title="Enrich processor">enrich processor</a> that
 includes:</p>
@@ -230,7 +218,7 @@ enrich policy.
 <li class="listitem">
 The <code class="literal">shape_relation</code>, which indicates how the processor matches geoshapes in
 incoming documents to geoshapes in documents from the enrich index. See
-<a class="xref" href="query-dsl-geo-shape-query.html#_spatial_relations" title="Spatial Relations">Spatial Relations</a> for valid options and more information.
+<a class="xref" href="query-dsl-geo-shape-query.html#_spatial_relations" title="Spatial relations">Spatial relations</a> for valid options and more information.
 </li>
 </ul>
 </div>
@@ -251,7 +239,7 @@ incoming documents to geoshapes in documents from the enrich index. See
   ]
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/650.console"></div>
+<div class="console_widget" data-snippet="snippets/660.console"></div>
 <p>Use the ingest pipeline to index a document. The incoming document should
 include the <code class="literal">field</code> specified in your enrich processor.</p>
 <a id="ec420b28e327f332c9e99d6040c4eb3f"></a>
@@ -263,14 +251,14 @@ include the <code class="literal">field</code> specified in your enrich processo
   "geo_location": "POINT (13.5 52.5)"
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/651.console"></div>
+<div class="console_widget" data-snippet="snippets/661.console"></div>
 <p>To verify the enrich processor matched and appended the appropriate field data,
 use the <a class="xref" href="docs-get.html" title="Get API">get API</a> to view the indexed document.</p>
 <a id="a3f3c1f3f31dbd225da5fd14633bc4a0"></a>
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">GET /users/_doc/0</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/652.console"></div>
+<div class="console_widget" data-snippet="snippets/662.console"></div>
 <p>The API returns the following response:</p>
 <a id="1fabc3706c34195873abecc44203073a"></a>
 <div class="pre_wrapper lang-console-result">
@@ -308,15 +296,37 @@ use the <a class="xref" href="docs-get.html" title="Get API">get API</a> to view
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

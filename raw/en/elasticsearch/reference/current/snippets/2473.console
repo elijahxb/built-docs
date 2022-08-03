@@ -1,30 +1,27 @@
-GET museums/_mvt/location/13/4207/2692
+PUT _rollup/job/sensor
 {
-  "grid_precision": 2,
-  "fields": [
-    "name",
-    "price"
-  ],
-  "query": {
-    "term": {
-      "included": true
+  "index_pattern": "sensor-*",
+  "rollup_index": "sensor_rollup",
+  "cron": "*/30 * * * * ?",
+  "page_size": 1000,
+  "groups": {
+    "date_histogram": {
+      "field": "timestamp",
+      "fixed_interval": "1h",
+      "delay": "7d"
+    },
+    "terms": {
+      "fields": [ "node" ]
     }
   },
-  "aggs": {
-    "min_price": {
-      "min": {
-        "field": "price"
-      }
+  "metrics": [
+    {
+      "field": "temperature",
+      "metrics": [ "min", "max", "sum" ]
     },
-    "max_price": {
-      "max": {
-        "field": "price"
-      }
-    },
-    "avg_price": {
-      "avg": {
-        "field": "price"
-      }
+    {
+      "field": "voltage",
+      "metrics": [ "avg" ]
     }
-  }
+  ]
 }

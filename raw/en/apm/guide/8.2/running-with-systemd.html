@@ -13,19 +13,16 @@
 <meta name="robots" content="noindex,nofollow"/>
 </head>
 <body><div class="page_header">
-You are looking at preliminary documentation for a future release.
-Not what you want? See the
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
 <a href="../current/index.html">current release documentation</a>.
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">APM User Guide [8.2]</a></span>
-»
-<span class="breadcrumb-link"><a href="overview.html">Legacy APM Server Reference</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">APM User Guide [8.2]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="overview.html">Legacy APM Server Reference</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="setting-up-and-running.html">Set up APM Server</a></span>
-»
-<span class="breadcrumb-node">APM Server and systemd</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -42,7 +39,7 @@ Not what you want? See the
 <div class="important admon">
 <div class="icon"></div>
 <div class="admon_content">
-<p>This documentation refers to configuring the standalone (legacy) APM Server. This method of running APM Server will be deprecated and removed in a future release. Please consider <a class="xref" href="upgrade-to-apm-integration.html" title="Upgrade to the Elastic APM integration">upgrading to Fleet and the APM integration</a>.</p>
+<p>This documentation refers to configuring the standalone (legacy) APM Server. This method of running APM Server will be deprecated and removed in a future release. Please consider <a class="xref" href="upgrade-to-apm-integration.html" title="Switch to the Elastic APM integration">upgrading to Fleet and the APM integration</a>.</p>
 </div>
 </div>
 <p>The DEB and RPM packages include a service unit for Linux systems with
@@ -94,17 +91,17 @@ override to change the default options.</p>
 </thead>
 <tbody>
 <tr>
-<td align="left" valign="top"><p><span class="strong strong"><strong>BEAT_LOG_OPTS</strong></span></p></td>
+<td align="left" valign="top"><p><span class="strong strong"><strong><code class="literal">BEAT_LOG_OPTS</code></strong></span></p></td>
 <td align="left" valign="top"><p>Log options</p></td>
 <td align="left" valign="top"><p></p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p><span class="strong strong"><strong>BEAT_CONFIG_OPTS</strong></span></p></td>
+<td align="left" valign="top"><p><span class="strong strong"><strong><code class="literal">BEAT_CONFIG_OPTS</code></strong></span></p></td>
 <td align="left" valign="top"><p>Flags for configuration file path</p></td>
 <td align="left" valign="top"><p><code class="literal"><code class="literal">-c /etc/apm-server/apm-server.yml</code></code></p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p><span class="strong strong"><strong>BEAT_PATH_OPTS</strong></span></p></td>
+<td align="left" valign="top"><p><span class="strong strong"><strong><code class="literal">BEAT_PATH_OPTS</code></strong></span></p></td>
 <td align="left" valign="top"><p>Other paths</p></td>
 <td align="left" valign="top"><p><code class="literal"><code class="literal">-path.home /usr/share/apm-server -path.config /etc/apm-server -path.data /var/lib/apm-server -path.logs /var/log/apm-server</code></code></p></td>
 </tr>

@@ -1,10 +1,9 @@
-PATCH api/cases/293f1bc0-74f6-11ea-b83a-553aecdb28b6/comments
+POST /api/endpoint/isolate
 {
-  "id": "8af6ac20-74f6-11ea-b83a-553aecdb28b6",
-  "type": "user",
-  "comment": "That is nothing - Ethan Hunt answered a targeted social
-  media campaign promoting phishy pension schemes to IMF operatives.
-  Even worse, he likes baked beans.",
-  "owner": "securitySolution",
-  "version": "Wzk1LDFd"
+  "endpoint_ids": [
+  	"9972d10e-4b9e-41aa-a534-a85e2a28ea42",
+  	"bc0e4f0c-3bca-4633-9fee-156c0b505d16",
+  	"fa89271b-b9d4-43f2-a684-307cffddeb5a"
+  ],
+  "comment": "Locked down, pending further investigation"
 }

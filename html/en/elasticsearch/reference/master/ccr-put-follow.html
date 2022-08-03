@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,27 +87,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 You are looking at preliminary documentation for a future release.
@@ -116,13 +107,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="rest-apis.html">REST APIs</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="rest-apis.html">REST APIs</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="ccr-apis.html">Cross-cluster replication APIs</a></span>
-»
-<span class="breadcrumb-node">Create follower API</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -134,13 +122,13 @@ Not what you want? See the
 </div>
 <div class="section xpack">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="ccr-put-follow"></a>Create follower API<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ccr/apis/follow/put-follow.asciidoc">edit</a></h2>
+<h2 class="title"><a id="ccr-put-follow"></a>Create follower API<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ccr/apis/follow/put-follow.asciidoc">edit</a></h2>
 </div></div></div>
 
 <p>Creates a follower index.</p>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="ccr-put-follow-request"></a>Request<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ccr/apis/follow/put-follow.asciidoc">edit</a></h3>
+<h3 class="title"><a id="ccr-put-follow-request"></a>Request<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ccr/apis/follow/put-follow.asciidoc">edit</a></h3>
 </div></div></div>
 <a id="73646c12ad33a813ab2280f1dc83500e"></a>
 <div class="pre_wrapper lang-console">
@@ -150,12 +138,12 @@ Not what you want? See the
   "leader_index" : "&lt;leader_index&gt;"
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1884.console"></div>
+<div class="console_widget" data-snippet="snippets/1999.console"></div>
 </div>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="ccr-put-follow-prereqs"></a>Prerequisites<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ccr/apis/follow/put-follow.asciidoc">edit</a></h3>
+<h3 class="title"><a id="ccr-put-follow-prereqs"></a>Prerequisites<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ccr/apis/follow/put-follow.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -172,7 +160,7 @@ For more information, see <a class="xref" href="security-privileges.html" title=
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="ccr-put-follow-desc"></a>Description<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ccr/apis/follow/put-follow.asciidoc">edit</a></h3>
+<h3 class="title"><a id="ccr-put-follow-desc"></a>Description<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ccr/apis/follow/put-follow.asciidoc">edit</a></h3>
 </div></div></div>
 <p>This API creates a new follower index that is configured to follow the
 referenced leader index. When this API returns, the follower index exists, and
@@ -181,7 +169,7 @@ cross-cluster replication starts replicating operations from the leader index to
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="ccr-put-follow-path-parms"></a>Path parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ccr/apis/follow/put-follow.asciidoc">edit</a></h3>
+<h3 class="title"><a id="ccr-put-follow-path-parms"></a>Path parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ccr/apis/follow/put-follow.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="variablelist">
 <dl class="variablelist">
@@ -199,7 +187,7 @@ cross-cluster replication starts replicating operations from the leader index to
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="ccr-put-follow-query-params"></a>Query parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ccr/apis/follow/put-follow.asciidoc">edit</a></h3>
+<h3 class="title"><a id="ccr-put-follow-query-params"></a>Query parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ccr/apis/follow/put-follow.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="variablelist">
 <dl class="variablelist">
@@ -221,7 +209,7 @@ the follower index.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="ccr-put-follow-request-body"></a>Request body<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ccr/apis/follow/put-follow.asciidoc">edit</a></h3>
+<h3 class="title"><a id="ccr-put-follow-request-body"></a>Request body<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ccr/apis/follow/put-follow.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="variablelist">
 <dl class="variablelist">
@@ -242,6 +230,33 @@ the follower index.
 (Required, string) The <a class="xref" href="remote-clusters.html" title="Remote clusters">remote cluster</a> containing
 the leader index.
 </dd>
+<dt>
+<span class="term">
+<a id="ccr-put-follow-request-body-data_stream_name"></a><code class="literal">data_stream_name</code>
+</span>
+</dt>
+<dd>
+(Optional, string) If the leader index is part of a <a class="xref" href="data-streams.html" title="Data streams">data stream</a>, the name to
+which the local data stream for the followed index should be renamed. For example, A request like:
+</dd>
+</dl>
+</div>
+<a id="ba10b644a4e9a2e7d78744ca607355d0"></a>
+<div class="pre_wrapper lang-console">
+<pre class="programlisting prettyprint lang-console">PUT /.ds-logs-mysql-default_copy-2022-01-01-000001/_ccr/follow
+{
+  "remote_cluster" : "remote_cluster",
+  "leader_index" : ".ds-logs-mysql-default-2022-01-01-000001",
+  "data_stream_name": "logs-mysql-default_copy"
+}</pre>
+</div>
+<div class="console_widget" data-snippet="snippets/2000.console"></div>
+<p>Replicates the leader index <code class="literal">.ds-logs-mysql-default-2022-01-01-000001</code> into the follower index
+<code class="literal">.ds-logs-mysql-default_copy-2022-01-01-000001</code> and will do so using the data stream
+<code class="literal">logs-mysql-default_copy</code>, as opposed to the original leader data stream name of
+<code class="literal">logs-mysql-default</code>.</p>
+<div class="variablelist">
+<dl class="variablelist">
 <dt>
 <span class="term">
 <code class="literal">settings</code>
@@ -351,7 +366,7 @@ immediately attempt to read from the leader again.
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="_default_values"></a>Default values<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ccr/apis/follow-request-body.asciidoc">edit</a></h4>
+<h4 class="title"><a id="_default_values"></a>Default values<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ccr/apis/follow-request-body.asciidoc">edit</a></h4>
 </div></div></div>
 <p>The following output from the follow info api describes all the default
 values for the above described index follow request parameters:</p>
@@ -382,7 +397,7 @@ values for the above described index follow request parameters:</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="ccr-put-follow-examples"></a>Examples<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ccr/apis/follow/put-follow.asciidoc">edit</a></h3>
+<h3 class="title"><a id="ccr-put-follow-examples"></a>Examples<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ccr/apis/follow/put-follow.asciidoc">edit</a></h3>
 </div></div></div>
 <p>This example creates a follower index named <code class="literal">follower_index</code>:</p>
 <a id="1b3762712c14a19e8c2956b4f530d327"></a>
@@ -406,7 +421,7 @@ values for the above described index follow request parameters:</p>
   "read_poll_timeout" : "30s"
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1885.console"></div>
+<div class="console_widget" data-snippet="snippets/2001.console"></div>
 <p>The API returns the following result:</p>
 <a id="cd06634b8187698efa6a7990d3713297"></a>
 <div class="pre_wrapper lang-console-result">
@@ -431,15 +446,37 @@ values for the above described index follow request parameters:</p>
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

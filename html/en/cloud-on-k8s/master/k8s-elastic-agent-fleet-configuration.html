@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,27 +87,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 You are looking at preliminary documentation for a future release.
@@ -116,13 +107,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elastic Cloud on Kubernetes [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="k8s-orchestrating-elastic-stack-applications.html">Orchestrating Elastic Stack applications</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Cloud on Kubernetes [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="k8s-orchestrating-elastic-stack-applications.html">Orchestrating Elastic Stack applications</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="k8s-elastic-agent-fleet.html">Run Fleet-managed Elastic Agent on ECK</a></span>
-»
-<span class="breadcrumb-node">Configuration</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -136,12 +124,6 @@ Not what you want? See the
 <div class="titlepage"><div><div>
 <h2 class="title"><a id="k8s-elastic-agent-fleet-configuration"></a>Configuration<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/cloud-on-k8s/edit/main/docs/orchestrating-elastic-stack-applications/agent-fleet.asciidoc">edit</a></h2>
 </div></div></div>
-<div class="warning admon">
-<div class="icon"></div>
-<div class="admon_content">
-<p>This functionality is in technical preview and may be changed or removed in a future release. Elastic will apply best effort to fix any issues, but features in technical preview are not subject to the support SLA of official GA features.</p>
-</div>
-</div>
 <p>Fleet-managed Elastic Agents must connect to Fleet Server to receive their configurations. You can deploy Fleet Server instances using ECKs Agent CRD with the appropriate configuration, as shown in <a class="xref" href="k8s-elastic-agent-fleet-configuration.html#k8s-elastic-agent-fleet-configuration-fleet-mode-and-fleet-server" title="Fleet mode and Fleet Server">Fleet mode and Fleet Server</a>.</p>
 <p>To know more about Fleet architecture and related components, check the Fleet <a href="/guide/en/fleet/current/fleet-server.html" class="ulink" target="_top">documentation</a>.</p>
 <div class="section">
@@ -199,6 +181,7 @@ spec:
         monitoring_enabled:
           - logs
           - metrics
+        unenroll_timeout: 900
         package_policies:
         - name: fleet_server-1
           id: fleet_server-1
@@ -240,7 +223,7 @@ spec:
 <div class="titlepage"><div><div>
 <h3 class="title"><a id="k8s-elastic-agent-fleet-configuration-setting-referenced-resources"></a>Set referenced resources<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/cloud-on-k8s/edit/main/docs/orchestrating-elastic-stack-applications/agent-fleet.asciidoc">edit</a></h3>
 </div></div></div>
-<p>Both Fleet Server and Elastic Agent in Fleet mode can facilitate the Fleet setup. Fleet Server can set up Fleet in Kibana (which otherwise requires manual steps) and enroll itself in the default Fleet Server policy. Elastic Agent can enroll itself in the default Elastic Agent policy. To allow ECK to set this up, provide a reference to ECK-managed Kibana through <code class="literal">kibanaRef</code> configuration element.</p>
+<p>Both Fleet Server and Elastic Agent in Fleet mode can be automatically set up with Fleet by ECK. The ECK operator can set up Fleet in Kibana (which otherwise requires manual steps) and enroll Fleet Server in the default Fleet Server policy. Elastic Agent can be automatically enrolled in the default Elastic Agent policy. To allow ECK to set this up, provide a reference to a ECK-managed Kibana through the <code class="literal">kibanaRef</code> configuration element.</p>
 <div class="pre_wrapper lang-yaml">
 <pre class="programlisting prettyprint lang-yaml">apiVersion: agent.k8s.elastic.co/v1alpha1
 kind: Agent
@@ -250,7 +233,7 @@ spec:
   kibanaRef:
     name: kibana</pre>
 </div>
-<p>ECK can also facilitate the connection between Elastic Agents and ECK-managed Fleet Server. To allow ECK to set this up, provide a reference to Fleet Server through <code class="literal">fleetServerRef</code> configuration element.</p>
+<p>ECK can also facilitate the connection between Elastic Agents and a ECK-managed Fleet Server. To allow ECK to set this up, provide a reference to Fleet Server through the <code class="literal">fleetServerRef</code> configuration element.</p>
 <div class="pre_wrapper lang-yaml">
 <pre class="programlisting prettyprint lang-yaml">apiVersion: agent.k8s.elastic.co/v1alpha1
 kind: Agent
@@ -260,7 +243,7 @@ spec:
   fleetServerRef:
     name: fleet-server-sample</pre>
 </div>
-<p>Set <code class="literal">elasticsearchRefs</code> element in your Fleet Server to point to the Elasticsearch cluster that will manage Fleet. Leave <code class="literal">elasticsearchRefs</code> empty or unset for any Elastic Agent running in Fleet mode as the Elasticsearch cluster to target will come from Kibana <code class="literal">xpack.fleet.agents.elasticsearch.hosts</code> configuration element.</p>
+<p>Set the <code class="literal">elasticsearchRefs</code> element in your Fleet Server to point to the Elasticsearch cluster that will manage Fleet. Leave <code class="literal">elasticsearchRefs</code> empty or unset it for any Elastic Agent running in Fleet mode as the Elasticsearch cluster to target will come from Kibana&#8217;s <code class="literal">xpack.fleet.agents.elasticsearch.hosts</code> configuration element.</p>
 <div class="note admon">
 <div class="icon"></div>
 <div class="admon_content">
@@ -283,15 +266,14 @@ spec:
 <div class="titlepage"><div><div>
 <h3 class="title"><a id="k8s-elastic-agent-fleet-configuration-custom-configuration"></a>Customize Elastic Agent configuration<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/cloud-on-k8s/edit/main/docs/orchestrating-elastic-stack-applications/agent-fleet.asciidoc">edit</a></h3>
 </div></div></div>
-<p>In contrast to what happens with Elastic Agent as standalone, the configuration is managed through Fleet, and it cannot be defined through <code class="literal">config</code> or <code class="literal">configRef</code> elements.</p>
-<p>You can only configure the setup part of the Fleet Server and Elastic Agent. You can override each of the environment variables that agents consume, as documented in <a href="/guide/en/fleet/current/agent-environment-variables.html" class="ulink" target="_top">Elastic Agent environment variables</a>. This allows different setups where components are deployed both in local Kubernetes cluster and externally.</p>
+<p>In contrast to Elastic Agents in standalone mode, the configuration is managed through Fleet, and it cannot be defined through <code class="literal">config</code> or <code class="literal">configRef</code> elements.</p>
 </div>
 
 <div class="section">
 <div class="titlepage"><div><div>
 <h3 class="title"><a id="k8s-elastic-agent-fleet-configuration-upgrade-specification"></a>Upgrade the Elastic Agent specification<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/cloud-on-k8s/edit/main/docs/orchestrating-elastic-stack-applications/agent-fleet.asciidoc">edit</a></h3>
 </div></div></div>
-<p>You can upgrade the Elastic Agent version or change settings by editing the YAML specification file. ECK applies the changes by performing a rolling restart of the Agent&#8217;s Pods. Depending on the settings that you used, ECK configures an agent to set up Fleet in Kibana, enrolls itself in Fleet, or restarts Elastic Agent on certificate rollover.</p>
+<p>You can upgrade the Elastic Agent version or change settings by editing the YAML specification file. ECK applies the changes by performing a rolling restart of the Agent&#8217;s Pods. Depending on the settings that you used, ECK will set up Fleet in Kibana, enrolls the agent in Fleet, or restarts Elastic Agent on certificate rollover.</p>
 </div>
 
 <div class="section">
@@ -306,7 +288,7 @@ kind: Agent
 metadata:
   name: elastic-agent-sample
 spec:
-  version: 8.1.2
+  version: 8.3.3
   daemonSet:
     strategy:
       type: RollingUpdate
@@ -328,7 +310,7 @@ kind: Agent
 metadata:
   name: elastic-agent-sample
 spec:
-  version: 8.1.2
+  version: 8.3.3
   elasticsearchRefs:
   - name: elasticsearch-sample
   daemonSet:
@@ -400,23 +382,19 @@ roleRef:
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="k8s-elastic-agent-fleet-configuration-override-default-fleet-configuration-settings"></a>Override default Fleet configuration settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/cloud-on-k8s/edit/main/docs/orchestrating-elastic-stack-applications/agent-fleet.asciidoc">edit</a></h3>
+<h3 class="title"><a id="k8s-elastic-agent-control-fleet-policy-selection"></a>Control Fleet policy selection<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/cloud-on-k8s/edit/main/docs/orchestrating-elastic-stack-applications/agent-fleet.asciidoc">edit</a></h3>
 </div></div></div>
-<p>ECK uses environment variables to control how Elastic Agent and Fleet Server should be configured. Sometimes, it might be required to override some of these settings. For example, if Kibana TLS certificate is signed by a well-known root and can&#8217;t include <code class="literal">kibana-kb-http.namespace.svc</code> as a SAN, <code class="literal">KIBANA_FLEET_HOST</code> can be overriden to point to the URL that the certificate specifies. To do that, specify environment variable, as shown in the following example.</p>
+<p>ECK uses the default policy to enroll Elastic Agents in Fleet and the default Fleet Server policy to enroll Fleet Server. A different policy can be chosen by using the <code class="literal">policyID</code> attribute in the Elastic Agent resource:</p>
 <div class="pre_wrapper lang-yaml">
-<pre class="programlisting prettyprint lang-yaml">...
+<pre class="programlisting prettyprint lang-yaml">apiVersion: agent.k8s.elastic.co/v1alpha1
+kind: Agent
+metadata:
+  name: fleet-server-sample
 spec:
-  deployment:
-    podTemplate:
-      spec:
-        containers:
-        - name: agent
-          env:
-          - name: KIBANA_FLEET_HOST
-            value: "https://kibana.example.com:443"
+  policyID: my-custom-policy
 ...</pre>
 </div>
-<p>Check the Elastic Agent <a href="/guide/en/fleet/current/agent-environment-variables.html" class="ulink" target="_top">docs</a> to get a list of all the environment variables that can be used.</p>
+<p>Please note that the environment variables related to policy selection mentioned in the Elastic Agent <a href="/guide/en/fleet/current/agent-environment-variables.html" class="ulink" target="_top">docs</a> like <code class="literal">FLEET_SERVER_POLICY_ID</code> will be managed by the ECK operator.</p>
 </div>
 
 </div>
@@ -432,15 +410,37 @@ spec:
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

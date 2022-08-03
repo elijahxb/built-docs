@@ -1,8 +1,6 @@
-GET /_analyze
+POST test/_update/1
 {
-  "tokenizer" : "standard",
-  "filter" : ["snowball"],
-  "text" : "detailed output",
-  "explain" : true,
-  "attributes" : ["keyword"]
+  "doc": {
+    "name": "new_name"
+  }
 }

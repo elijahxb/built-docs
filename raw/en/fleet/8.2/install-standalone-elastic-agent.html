@@ -13,17 +13,15 @@
 <meta name="robots" content="noindex,nofollow"/>
 </head>
 <body><div class="page_header">
-You are looking at preliminary documentation for a future release.
-Not what you want? See the
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
 <a href="../current/index.html">current release documentation</a>.
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Fleet and Elastic Agent Guide [8.2]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Fleet and Elastic Agent Guide [8.2]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="elastic-agent-installation.html">Install Elastic Agents</a></span>
-»
-<span class="breadcrumb-node">Install standalone Elastic Agents (advanced users)</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -60,6 +58,12 @@ versions automatically. When you upgrade the integration in Kibana, you&#8217;ll
 need to update the standalone policy manually.</p>
 </div>
 </div>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>You can install only a single Elastic Agent per host.</p>
+</div>
+</div>
 <p>To install and run Elastic Agent standalone:</p>
 <div class="olist orderedlist">
 <ol class="orderedlist">
@@ -71,7 +75,7 @@ need to update the standalone policy manually.</p>
             aria-selected="true"
             aria-controls="mac-tab-download"
             id="mac-download">
-      MacOS
+      macOS
     </button>
     <button role="tab"
             aria-selected="false"
@@ -106,35 +110,77 @@ need to update the standalone policy manually.</p>
        role="tabpanel"
        id="mac-tab-download"
        aria-labelledby="mac-download">
-<p>Version 8.2.0 of Elastic Agent has not yet been released.</p>
+<div class="pre_wrapper lang-sh">
+<pre class="programlisting prettyprint lang-sh">curl -L -O https://artifacts.elastic.co/downloads/beats/elastic-agent/elastic-agent-8.2.3-darwin-x86_64.tar.gz
+tar xzvf elastic-agent-8.2.3-darwin-x86_64.tar.gz</pre>
+</div>
   </div>
   <div tabindex="0"
        role="tabpanel"
        id="linux-tab-download"
        aria-labelledby="linux-download"
        hidden="">
-<p>Version 8.2.0 of Elastic Agent has not yet been released.</p>
+<div class="pre_wrapper lang-sh">
+<pre class="programlisting prettyprint lang-sh">curl -L -O https://artifacts.elastic.co/downloads/beats/elastic-agent/elastic-agent-8.2.3-linux-x86_64.tar.gz
+tar xzvf elastic-agent-8.2.3-linux-x86_64.tar.gz</pre>
+</div>
   </div>
   <div tabindex="0"
        role="tabpanel"
        id="win-tab-download"
        aria-labelledby="win-download"
        hidden="">
-<p>Version 8.2.0 of Elastic Agent has not yet been released.</p>
+<div class="pre_wrapper lang-powershell">
+<pre class="programlisting prettyprint lang-powershell"># PowerShell 5.0+
+wget https://artifacts.elastic.co/downloads/beats/elastic-agent/elastic-agent-8.2.3-windows-x86_64.zip -OutFile elastic-agent-8.2.3-windows-x86_64.zip
+Expand-Archive .\elastic-agent-8.2.3-windows-x86_64.zip</pre>
+</div>
+<p>Or manually:</p>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+Download the Elastic Agent Windows zip file from the
+<a href="/downloads/beats/elastic-agent" class="ulink" target="_top">download page</a>.
+</li>
+<li class="listitem">
+Extract the contents of the zip file.
+</li>
+</ol>
+</div>
   </div>
   <div tabindex="0"
        role="tabpanel"
        id="deb-tab-download"
        aria-labelledby="deb-download"
        hidden="">
-<p>Version 8.2.0 of Elastic Agent has not yet been released.</p>
+<div class="important admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>To simplify upgrading to future versions of Elastic Agent, we recommended
+that you use the tarball distribution instead of the DEB distribution.</p>
+</div>
+</div>
+<div class="pre_wrapper lang-sh">
+<pre class="programlisting prettyprint lang-sh">curl -L -O https://artifacts.elastic.co/downloads/beats/elastic-agent/elastic-agent-8.2.3-amd64.deb
+sudo dpkg -i elastic-agent-8.2.3-amd64.deb</pre>
+</div>
   </div>
   <div tabindex="0"
        role="tabpanel"
        id="rpm-tab-download"
        aria-labelledby="rpm-download"
        hidden="">
-<p>Version 8.2.0 of Elastic Agent has not yet been released.</p>
+<div class="important admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>To simplify upgrading to future versions of Elastic Agent, we recommended
+that you use the tarball distribution instead of the RPM distribution.</p>
+</div>
+</div>
+<div class="pre_wrapper lang-sh">
+<pre class="programlisting prettyprint lang-sh">curl -L -O https://artifacts.elastic.co/downloads/beats/elastic-agent/elastic-agent-8.2.3-x86_64.rpm
+sudo rpm -vi elastic-agent-8.2.3-x86_64.rpm</pre>
+</div>
   </div>
 </div>
 <p>Refer to the <a href="/downloads/elastic-agent" class="ulink" target="_top">download page</a> for other
@@ -157,7 +203,7 @@ outputs:
     type: elasticsearch
     hosts:
       - 'https://da4e3a6298c14a6683e6064ebfve9ace.us-central1.gcp.cloud.es.io:443'
-    api_key: _Nj4oH0aWZVGqM7MGop8:349p_U1ERHyIc4Nm8_AYkw <a id="CO6-1"></a><i class="conum" data-value="1"></i>
+    api_key: _Nj4oH0aWZVGqM7MGop8:349p_U1ERHyIc4Nm8_AYkw <a id="CO1-1"></a><i class="conum" data-value="1"></i>
 [...]</pre>
 </div>
 <p>For more information required privileges and creating API keys, see
@@ -188,7 +234,7 @@ systemd, so just enable then start the service.</p>
             aria-selected="true"
             aria-controls="mac-tab-run-standalone"
             id="mac-run-standalone">
-      MacOS
+      macOS
     </button>
     <button role="tab"
             aria-selected="false"
@@ -276,14 +322,14 @@ integrations require root privileges to collect sensitive data.</p>
 </div>
 </div>
 <div class="pre_wrapper lang-shell">
-<pre class="programlisting prettyprint lang-shell">sudo systemctl enable elastic-agent <a id="CO6-2"></a><i class="conum" data-value="1"></i>
+<pre class="programlisting prettyprint lang-shell">sudo systemctl enable elastic-agent <a id="CO1-2"></a><i class="conum" data-value="1"></i>
 sudo systemctl start elastic-agent</pre>
 </div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO6-1"><i class="conum" data-value="1"></i></a><a href="#CO6-2"></a></p>
+<p><a href="#CO1-1"><i class="conum" data-value="1"></i></a><a href="#CO1-2"></a></p>
 </td>
 <td align="left" valign="top">
 <p>The DEB package includes a service unit for Linux systems with systemd. On
@@ -307,14 +353,14 @@ integrations require root privileges to collect sensitive data.</p>
 </div>
 </div>
 <div class="pre_wrapper lang-shell">
-<pre class="programlisting prettyprint lang-shell">sudo systemctl enable elastic-agent <a id="CO7-1"></a><i class="conum" data-value="1"></i>
+<pre class="programlisting prettyprint lang-shell">sudo systemctl enable elastic-agent <a id="CO2-1"></a><i class="conum" data-value="1"></i>
 sudo systemctl start elastic-agent</pre>
 </div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO7-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO2-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>The RPM package includes a service unit for Linux systems with systemd. On

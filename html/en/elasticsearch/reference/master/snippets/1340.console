@@ -8,16 +8,32 @@ POST /sales/_search
         "calendar_interval": "month"
       },
       "aggs": {
-        "sales": {
+        "total_sales": {
           "sum": {
             "field": "price"
           }
         },
-        "percent_of_total_sales": {
-          "normalize": {
-            "buckets_path": "sales",         
-            "method": "percent_of_sum",      
-            "format": "00.00%"               
+        "t-shirts": {
+          "filter": {
+            "term": {
+              "type": "t-shirt"
+            }
+          },
+          "aggs": {
+            "sales": {
+              "sum": {
+                "field": "price"
+              }
+            }
+          }
+        },
+        "t-shirt-percentage": {
+          "bucket_script": {
+            "buckets_path": {
+              "tShirtSales": "t-shirts>sales",
+              "totalSales": "total_sales"
+            },
+            "script": "params.tShirtSales / params.totalSales * 100"
           }
         }
       }

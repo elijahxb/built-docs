@@ -15,9 +15,8 @@
 <body>
 <div id="content">
 <div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="index.html">Elasticsearch Add-On for Heroku Documentation</a></span>
-»
-<span class="breadcrumb-node">Securing your deployment</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -29,7 +28,7 @@
 </div>
 <div class="part">
 <div class="titlepage"><div><div>
-<h1 class="title"><a id="ech-security"></a>Securing your deployment<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-71/docs/saas/security.asciidoc">edit</a></h1>
+<h1 class="title"><a id="ech-security"></a>Securing your deployment<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-77/docs/saas/security.asciidoc">edit</a></h1>
 </div></div></div>
 <div class="openblock partintro">
 <div class="content">
@@ -47,18 +46,18 @@ following steps to secure your deployments:</p>
 Reset the <a class="xref" href="ech-password-reset.html" title="Reset the elastic user password"><code class="literal">elastic</code> user password</a>.
 </li>
 <li class="listitem">
-Use third-party authentication providers and services like <a class="xref" href="ech-securing-clusters-SAML.html" title="Secure your clusters with SAML">SAML</a>, <a class="xref" href="ech-secure-clusters-oidc.html" title="Secure your clusters with OpenID Connect">OpenID Connect</a>, or <a class="xref" href="ech-secure-clusters-kerberos.html" title="Secure your clusters with Kerberos">Kerberos</a> to provide dynamic <a href="/guide/en/elasticsearch/reference/8.1/mapping-roles.html" class="ulink" target="_top">role mappings</a> for role based or attribute based access control.
+Use third-party authentication providers and services like <a class="xref" href="ech-securing-clusters-SAML.html" title="Secure your clusters with SAML">SAML</a>, <a class="xref" href="ech-secure-clusters-oidc.html" title="Secure your clusters with OpenID Connect">OpenID Connect</a>, or <a class="xref" href="ech-secure-clusters-kerberos.html" title="Secure your clusters with Kerberos">Kerberos</a> to provide dynamic <a href="/guide/en/elasticsearch/reference/8.3/mapping-roles.html" class="ulink" target="_top">role mappings</a> for role based or attribute based access control.
 </li>
 <li class="listitem">
-Use Kibana Spaces and roles to <a href="/guide/en/kibana/8.1/tutorial-secure-access-to-kibana.html" class="ulink" target="_top">secure access to Kibana</a>.
+Use Kibana Spaces and roles to <a href="/guide/en/kibana/8.3/tutorial-secure-access-to-kibana.html" class="ulink" target="_top">secure access to Kibana</a>.
 </li>
 <li class="listitem">
-Authorize and authenticate service accounts for Beats by <a href="/guide/en/beats/filebeat/8.1/beats-api-keys.html" class="ulink" target="_top">granting access using API keys</a>.
+Authorize and authenticate service accounts for Beats by <a href="/guide/en/beats/filebeat/8.3/beats-api-keys.html" class="ulink" target="_top">granting access using API keys</a>.
 </li>
 <li class="listitem">
 Roles can provide full, or read only, access to your data and can be
 created in Kibana or directly in Elasticsearch. Check
-<a href="/guide/en/elasticsearch/reference/8.1/defining-roles.html" class="ulink" target="_top">defining roles</a> for full details.
+<a href="/guide/en/elasticsearch/reference/8.3/defining-roles.html" class="ulink" target="_top">defining roles</a> for full details.
 </li>
 </ul>
 </div>
@@ -74,6 +73,7 @@ Secure your settings with the Elasticsearch <a class="xref" href="ech-configurin
 <p>In addition, we also enable encryption at rest (EAR) by default. Elasticsearch Add-On for Heroku supports EAR for both the data stored in your clusters and the snapshots we take for backup, on all cloud platforms and across all regions.</p>
 </div>
 </div>
+
 
 
 

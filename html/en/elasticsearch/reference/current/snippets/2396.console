@@ -1,14 +1,1 @@
-POST /sales*/_async_search?size=0
-{
-  "sort": [
-    { "date": { "order": "asc" } }
-  ],
-  "aggs": {
-    "sale_date": {
-      "date_histogram": {
-        "field": "date",
-        "calendar_interval": "1d"
-      }
-    }
-  }
-}
+GET _ml/anomaly_detectors/low_request_rate/model_snapshots/_all/_upgrade/_stats

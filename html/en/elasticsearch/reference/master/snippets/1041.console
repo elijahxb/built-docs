@@ -1,4 +1,25 @@
-PUT my-index-000001/_doc/1
+GET my-index-000001/_search
 {
-  "color":   ["blue", "green"]
+  "query": {
+    "script_score": {
+      "query" : {
+        "bool" : {
+          "filter" : {
+            "term" : {
+              "status" : "published"
+            }
+          }
+        }
+      },
+      "script": {
+        "source": """
+          double value = dotProduct(params.query_vector, 'my_dense_vector');
+          return sigmoid(1, Math.E, -value);
+        """,
+        "params": {
+          "query_vector": [4, 3.4, -0.2]
+        }
+      }
+    }
+  }
 }

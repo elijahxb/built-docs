@@ -57,7 +57,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -88,38 +88,26 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Add-On for Heroku Documentation</a></span>
-»
-<span class="breadcrumb-link"><a href="ech-security.html">Securing your deployment</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Add-On for Heroku Documentation</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="ech-security.html">Securing your deployment</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="ech-traffic-filtering-deployment-configuration.html">Traffic Filtering</a></span>
-»
-<span class="breadcrumb-node">Azure Private Link traffic filters</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -131,7 +119,7 @@
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="ech-traffic-filtering-vnet"></a>Azure Private Link traffic filters<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-71/docs/shared/ec-ce-traffic-filtering-vnet.asciidoc">edit</a></h2>
+<h2 class="title"><a id="ech-traffic-filtering-vnet"></a>Azure Private Link traffic filters<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-77/docs/shared/ec-ce-traffic-filtering-vnet.asciidoc">edit</a></h2>
 </div></div></div>
 <p>Traffic filtering, to allow only Azure Private Link connections, is one of the security layers available in Elasticsearch Add-On for Heroku. It allows you to limit how your deployments can be accessed.</p>
 <p>Read more about <a class="xref" href="ech-traffic-filtering-deployment-configuration.html" title="Traffic Filtering">Traffic Filtering</a> for the general concepts behind traffic filtering in Elasticsearch Add-On for Heroku.</p>
@@ -143,7 +131,7 @@
 </div>
 <p>Azure Private Link establishes a secure connection between two Azure VNets. The VNets can belong to separate accounts, for example a service provider and their service consumers. Azure routes the Private Link traffic within the Azure data centers and never exposes it to the public internet. In such a configuration, Elastic Cloud is the third-party service provider and the customers are service consumers.</p>
 <p>Private Link is a connection between an Azure Private Endpoint and a Azure Private Link Service.</p>
-<h3><a id="ech-private-link-azure-service-aliases"></a>Azure Private Link Service aliases<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-71/docs/shared/ec-ce-traffic-filtering-vnet.asciidoc">edit</a></h3>
+<h3><a id="ech-private-link-azure-service-aliases"></a>Azure Private Link Service aliases<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-77/docs/shared/ec-ce-traffic-filtering-vnet.asciidoc">edit</a></h3>
 <p>Private Link Services are set up by Elastic in all supported Azure regions under the following aliases:</p>
 <div class="informaltable">
 <table border="1" cellpadding="4px">
@@ -220,6 +208,26 @@
 <td align="left" valign="top"><p>southcentralus-prod-013-privatelink-service.f8030986-5fb9-4b0e-8463-69604233b07e.southcentralus.azure.privatelinkservice</p></td>
 <td align="left" valign="top"><p>privatelink.southcentralus.azure.elastic-cloud.com</p></td>
 </tr>
+<tr>
+<td align="left" valign="top"><p>canadacentral</p></td>
+<td align="left" valign="top"><p>canadacentral-prod-011-privatelink-service.203896f1-da53-4c40-b7db-0ba4e17a1019.canadacentral.azure.privatelinkservice</p></td>
+<td align="left" valign="top"><p>privatelink.canadacentral.azure.elastic-cloud.com</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p>brazilsouth</p></td>
+<td align="left" valign="top"><p>brazilsouth-prod-014-privatelink-service.05813ca4-cd0f-4692-ad69-a339d023f666.brazilsouth.azure.privatelinkservice</p></td>
+<td align="left" valign="top"><p>privatelink.brazilsouth.azure.elastic-cloud.com</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p>centralindia</p></td>
+<td align="left" valign="top"><p>centralindia-prod-016-privatelink-service.071806ca-8101-425b-ae86-737935a719d3.centralindia.azure.privatelinkservice</p></td>
+<td align="left" valign="top"><p>privatelink.centralindia.azure.elastic-cloud.com</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p>southafricanorth</p></td>
+<td align="left" valign="top"><p>southafricanorth-prod-015-privatelink-service.b443098d-6382-42aa-9025-e0cd3ec9c103.southafricanorth.azure.privatelinkservice</p></td>
+<td align="left" valign="top"><p>privatelink.southafricanorth.azure.elastic-cloud.com</p></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -260,7 +268,7 @@
 </tbody>
 </table>
 </div>
-<h3><a id="ech-private-link-azure-dns"></a>Create your private endpoint and DNS entries in Azure<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-71/docs/shared/ec-ce-traffic-filtering-vnet.asciidoc">edit</a></h3>
+<h3><a id="ech-private-link-azure-dns"></a>Create your private endpoint and DNS entries in Azure<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-77/docs/shared/ec-ce-traffic-filtering-vnet.asciidoc">edit</a></h3>
 <div class="olist orderedlist">
 <ol class="orderedlist">
 <li class="listitem">
@@ -299,7 +307,7 @@ After creating the <em>Private DNS Zone</em>, associate the zone with your VNet.
 </li>
 </ol>
 </div>
-<h3><a id="ech-azure-allow-traffic-from-link-id"></a>Add the Private Link rules to your deployments<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-71/docs/shared/ec-ce-traffic-filtering-vnet.asciidoc">edit</a></h3>
+<h3><a id="ech-azure-allow-traffic-from-link-id"></a>Add the Private Link rules to your deployments<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-77/docs/shared/ec-ce-traffic-filtering-vnet.asciidoc">edit</a></h3>
 <p>Follow these high-level steps to add Private Link rules to your deployments.</p>
 <div class="olist orderedlist">
 <ol class="orderedlist">
@@ -320,7 +328,7 @@ After creating the <em>Private DNS Zone</em>, associate the zone with your VNet.
 </li>
 </ol>
 </div>
-<h4><a id="ech-find-your-resource-name"></a>Find your private endpoint resource name<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-71/docs/shared/ec-ce-traffic-filtering-vnet.asciidoc">edit</a></h4>
+<h4><a id="ech-find-your-resource-name"></a>Find your private endpoint resource name<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-77/docs/shared/ec-ce-traffic-filtering-vnet.asciidoc">edit</a></h4>
 <div class="olist orderedlist">
 <ol class="orderedlist">
 <li class="listitem">
@@ -334,7 +342,7 @@ Copy the value of the top level <span class="strong strong"><strong>name</strong
 </li>
 </ol>
 </div>
-<h4><a id="ech-find-your-resource-id"></a>Find your private endpoint resource ID<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-71/docs/shared/ec-ce-traffic-filtering-vnet.asciidoc">edit</a></h4>
+<h4><a id="ech-find-your-resource-id"></a>Find your private endpoint resource ID<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-77/docs/shared/ec-ce-traffic-filtering-vnet.asciidoc">edit</a></h4>
 <div class="olist orderedlist">
 <ol class="orderedlist">
 <li class="listitem">
@@ -358,7 +366,7 @@ Copy the value of the <span class="strong strong"><strong>properties.resourceGUI
 <img src="images/ec-private-link-azure-properties.png" alt="Private endpoint Properties" width="75%">
 </div>
 </div>
-<h4><a id="ech-azure-create-traffic-filter-private-link-rule-set"></a>Create rules using the Private Link Endpoint Resource Name and Resource ID<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-71/docs/shared/ec-ce-traffic-filtering-vnet.asciidoc">edit</a></h4>
+<h4><a id="ech-azure-create-traffic-filter-private-link-rule-set"></a>Create rules using the Private Link Endpoint Resource Name and Resource ID<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-77/docs/shared/ec-ce-traffic-filtering-vnet.asciidoc">edit</a></h4>
 <p>When you have your private endpoint name and ID, you can create a Private Link traffic filter rule set.</p>
 <div class="olist orderedlist">
 <ol class="orderedlist">
@@ -453,7 +461,7 @@ curl: (7) Failed to connect to 6b111580caaa4a9e84b18ec7c600155e.privatelink.east
 </ol>
 </div>
 <p>The next step is to <a class="xref" href="ech-traffic-filtering-vpc.html#ech-associate-traffic-filter-private-link-rule-set" title="Associate a PrivateLink rule set with your deployment">associate the rule set</a> with your deployments.</p>
-<h4><a id="ech-azure-associate-traffic-filter-private-link-rule-set"></a>Associate a Private Link rule set with your deployment<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-71/docs/shared/ec-ce-traffic-filtering-vnet.asciidoc">edit</a></h4>
+<h4><a id="ech-azure-associate-traffic-filter-private-link-rule-set"></a>Associate a Private Link rule set with your deployment<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-77/docs/shared/ec-ce-traffic-filtering-vnet.asciidoc">edit</a></h4>
 <p>To associate a Private Link rule set with your deployment:</p>
 <div class="olist orderedlist">
 <ol class="orderedlist">
@@ -468,7 +476,7 @@ Choose the filter you want to apply and select <span class="strong strong"><stro
 </li>
 </ol>
 </div>
-<h4><a id="ech-azure-access-the-deployment-over-private-link"></a>Access the deployment over a Private Link<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-71/docs/shared/ec-ce-traffic-filtering-vnet.asciidoc">edit</a></h4>
+<h4><a id="ech-azure-access-the-deployment-over-private-link"></a>Access the deployment over a Private Link<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-77/docs/shared/ec-ce-traffic-filtering-vnet.asciidoc">edit</a></h4>
 <p>For traffic to connect with the deployment over Azure Private Link, the client making the request needs to be located within the VNet where you&#8217;ve created the private endpoint. You can also setup network traffic to flow through the originating VNet from somewhere else, such as another VNet or a VPN from your corporate network. This assumes that the private endpoint and the DNS record are also available within that context. Check your service provider documentation for setup instructions.</p>
 <div class="important admon">
 <div class="icon"></div>
@@ -489,7 +497,7 @@ Choose the filter you want to apply and select <span class="strong strong"><stro
 <p>If you are using Azure Private Link together with Fleet, and enrolling the Elastic Agent with a Private Link URL, you need to configure Fleet Server to use and propagate the Private Link URL by updating the <span class="strong strong"><strong>Fleet Server hosts</strong></span> field in the <span class="strong strong"><strong>Fleet settings</strong></span> section of Kibana. Otherwise, Elastic Agent will reset to use a default address instead of the Private Link URL.</p>
 </div>
 </div>
-<h3><a id="ech-azure-edit-traffic-filter-private-link-rule-set"></a>Edit a Private Link connection<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-71/docs/shared/ec-ce-traffic-filtering-vnet.asciidoc">edit</a></h3>
+<h3><a id="ech-azure-edit-traffic-filter-private-link-rule-set"></a>Edit a Private Link connection<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-77/docs/shared/ec-ce-traffic-filtering-vnet.asciidoc">edit</a></h3>
 <p>You can edit a rule set name or to change the VPC endpoint ID.</p>
 <div class="olist orderedlist">
 <ol class="orderedlist">
@@ -504,7 +512,7 @@ Select the <span class="strong strong"><strong>Edit</strong></span> icon.
 </li>
 </ol>
 </div>
-<h4><a id="ech-azure-delete-traffic-filter-private-link-rule-set"></a>Delete a Private Link rule set<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-71/docs/shared/ec-ce-traffic-filtering-vnet.asciidoc">edit</a></h4>
+<h4><a id="ech-azure-delete-traffic-filter-private-link-rule-set"></a>Delete a Private Link rule set<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-77/docs/shared/ec-ce-traffic-filtering-vnet.asciidoc">edit</a></h4>
 <p>If you need to remove a rule set, you must first remove any associations with deployments.</p>
 <p>To delete a rule set with all its rules:</p>
 <div class="olist orderedlist">
@@ -523,7 +531,7 @@ Select the <span class="strong strong"><strong>Remove</strong></span> icon. The 
 </li>
 </ol>
 </div>
-<h4><a id="ech-azure-remove-association-traffic-filter-private-link-rule-set"></a>Remove a Private Link rule set association from your deployment<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-71/docs/shared/ec-ce-traffic-filtering-vnet.asciidoc">edit</a></h4>
+<h4><a id="ech-azure-remove-association-traffic-filter-private-link-rule-set"></a>Remove a Private Link rule set association from your deployment<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-77/docs/shared/ec-ce-traffic-filtering-vnet.asciidoc">edit</a></h4>
 <p>To remove an association through the UI:</p>
 <div class="olist orderedlist">
 <ol class="orderedlist">
@@ -535,7 +543,7 @@ On the <span class="strong strong"><strong>Security</strong></span> page, under 
 </li>
 </ol>
 </div>
-<h3><a id="ech-azure-inter-region-private-link"></a>Setting up an inter-region Private Link connection<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-71/docs/shared/ec-ce-traffic-filtering-vnet.asciidoc">edit</a></h3>
+<h3><a id="ech-azure-inter-region-private-link"></a>Setting up an inter-region Private Link connection<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-77/docs/shared/ec-ce-traffic-filtering-vnet.asciidoc">edit</a></h3>
 <p>Azure supports inter-region Private Link as described in the <a href="https://docs.microsoft.com/en-us/azure/private-link/private-endpoint-overview" class="ulink" target="_top">Azure documentation</a>. "The Private Link resource can be deployed in a different region than the virtual network and private endpoint."</p>
 <p>This means your deployment on Elastic Cloud can be in a different region than the Private Link endpoints or the clients that consume the deployment endpoints.</p>
 <div class="imageblock screenshot">
@@ -579,15 +587,37 @@ Create a Private Hosted Zone for region 2, and associate it with VNET1 similar t
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

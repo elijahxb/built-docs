@@ -13,17 +13,15 @@
 <meta name="robots" content="noindex,nofollow"/>
 </head>
 <body><div class="page_header">
-You are looking at preliminary documentation for a future release.
-Not what you want? See the
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
 <a href="../current/index.html">current release documentation</a>.
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Plugins and Integrations [8.2]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Plugins and Integrations [8.2]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="analysis.html">Analysis Plugins</a></span>
-»
-<span class="breadcrumb-node">Smart Chinese Analysis Plugin</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -44,7 +42,17 @@ analyzer uses probabilistic knowledge to find the optimal word segmentation
 for Simplified Chinese text. The text is first broken into sentences, then
 each sentence is segmented into words.</p>
 <h4><a id="analysis-smartcn-install"></a>Installation<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.2/docs/plugins/install_remove.asciidoc">edit</a></h4>
-<p>Version 8.2.0 of the Elastic Stack has not yet been released.</p>
+<p>This plugin can be installed using the plugin manager:</p>
+<div class="pre_wrapper lang-sh">
+<pre class="programlisting prettyprint lang-sh">sudo bin/elasticsearch-plugin install analysis-smartcn</pre>
+</div>
+<p>The plugin must be installed on every node in the cluster, and each node must
+be restarted after installation.</p>
+<p>You can download this plugin for <a class="xref" href="plugin-management-custom-url.html" title="Custom URL or file system">offline
+install</a> from <a href="https://artifacts.elastic.co/downloads/elasticsearch-plugins/analysis-smartcn/analysis-smartcn-8.2.3.zip" class="ulink" target="_top">https://artifacts.elastic.co/downloads/elasticsearch-plugins/analysis-smartcn/analysis-smartcn-8.2.3.zip</a>. To verify
+the <code class="literal">.zip</code> file, use the
+<a href="https://artifacts.elastic.co/downloads/elasticsearch-plugins/analysis-smartcn/analysis-smartcn-8.2.3.zip.sha512" class="ulink" target="_top">SHA hash</a> or
+<a href="https://artifacts.elastic.co/downloads/elasticsearch-plugins/analysis-smartcn/analysis-smartcn-8.2.3.zip.asc" class="ulink" target="_top">ASC key</a>.</p>
 <h4><a id="analysis-smartcn-remove"></a>Removal<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.2/docs/plugins/install_remove.asciidoc">edit</a></h4>
 <p>The plugin can be removed with the following command:</p>
 <div class="pre_wrapper lang-sh">

@@ -17,13 +17,10 @@ A newer version is available. For the latest information, see the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [7.17]</a></span>
-»
-<span class="breadcrumb-link"><a href="rest-apis.html">REST APIs</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [7.17]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="rest-apis.html">REST APIs</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="indices.html">Index APIs</a></span>
-»
-<span class="breadcrumb-node">Index stats API</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -43,7 +40,7 @@ statistics for the stream&#8217;s backing indices.</p>
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">GET /my-index-000001/_stats</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/2211.console"></div>
+<div class="console_widget" data-snippet="snippets/2213.console"></div>
 <div class="section">
 <div class="titlepage"><div><div>
 <h3 class="title"><a id="index-stats-api-request"></a>Request<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/7.17/docs/reference/indices/stats.asciidoc">edit</a></h3>
@@ -247,14 +244,6 @@ Size of the index in <a class="xref" href="common-options.html#byte-units" title
 </dd>
 <dt>
 <span class="term">
-<code class="literal">suggest</code>
-</span>
-</dt>
-<dd>
-<a class="xref" href="search-suggesters.html" title="Suggesters">Suggester</a> statistics.
-</dd>
-<dt>
-<span class="term">
 <code class="literal">translog</code>
 </span>
 </dt>
@@ -453,7 +442,7 @@ that are <span class="strong strong"><strong>not</strong></span> loaded into mem
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">GET /index1,index2/_stats</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/2212.console"></div>
+<div class="console_widget" data-snippet="snippets/2214.console"></div>
 </div>
 
 <div class="section">
@@ -463,7 +452,7 @@ that are <span class="strong strong"><strong>not</strong></span> loaded into mem
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">GET /_stats</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/2213.console"></div>
+<div class="console_widget" data-snippet="snippets/2215.console"></div>
 </div>
 
 <div class="section">
@@ -476,7 +465,7 @@ for all indices.</p>
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">GET /_stats/merge,refresh</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/2214.console"></div>
+<div class="console_widget" data-snippet="snippets/2216.console"></div>
 </div>
 
 <div class="section">
@@ -489,7 +478,7 @@ for the <code class="literal">group1</code> and <code class="literal">group2</co
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">GET /_stats/search?groups=group1,group2</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/2215.console"></div>
+<div class="console_widget" data-snippet="snippets/2217.console"></div>
 </div>
 
 </div>

@@ -1,1 +1,6 @@
-GET /_enrich/policy
+POST test/_update/1
+{
+  "doc": {
+    "name": "new_name"
+  }
+}

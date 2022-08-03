@@ -1,8 +1,20 @@
-PUT _cluster/settings
+PUT index/_doc/1
 {
-  "persistent": {
-    "cluster.routing.allocation.disk.watermark.low": null,
-    "cluster.routing.allocation.disk.watermark.high": null,
-    "cluster.routing.allocation.disk.watermark.flood_stage": null
+  "my_date": "2016-05-11T16:30:55.328Z"
+}
+
+GET index/_search
+{
+  "query": {
+    "constant_score": {
+      "filter": {
+        "range": {
+          "my_date": {
+            "gte": "now-1h",
+            "lte": "now"
+          }
+        }
+      }
+    }
   }
 }

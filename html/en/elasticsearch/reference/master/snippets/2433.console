@@ -1,13 +1,1 @@
-POST music/_search
-{
-  "_source": "suggest",    
-  "suggest": {
-    "song-suggest": {
-      "prefix": "nir",
-      "completion": {
-        "field": "suggest",
-        "size": 5          
-      }
-    }
-  }
-}
+GET _ml/calendars/planned-outages/events?start=1635638400000&end=1635724800000

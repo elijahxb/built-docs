@@ -17,13 +17,10 @@ A newer version is available. For the latest information, see the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [7.17]</a></span>
-»
-<span class="breadcrumb-link"><a href="rest-apis.html">REST APIs</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [7.17]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="rest-apis.html">REST APIs</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="cat.html">Compact and aligned text (CAT) APIs</a></span>
-»
-<span class="breadcrumb-node">cat recovery API</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -243,7 +240,7 @@ Defaults to <code class="literal">false</code>.
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">GET _cat/recovery?v=true</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1853.console"></div>
+<div class="console_widget" data-snippet="snippets/1855.console"></div>
 <p>The API returns the following response:</p>
 <div class="pre_wrapper lang-txt">
 <pre class="programlisting prettyprint lang-txt">index             shard time type  stage source_host source_node target_host target_node repository snapshot files files_recovered files_percent files_total bytes bytes_recovered bytes_percent bytes_total translog_ops translog_ops_recovered translog_ops_percent
@@ -263,7 +260,7 @@ host the replicas, you can retrieve information about an ongoing recovery.</p>
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">GET _cat/recovery?v=true&amp;h=i,s,t,ty,st,shost,thost,f,fp,b,bp</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1854.console"></div>
+<div class="console_widget" data-snippet="snippets/1856.console"></div>
 <p>The API returns the following response:</p>
 <div class="pre_wrapper lang-txt">
 <pre class="programlisting prettyprint lang-txt">i               s t      ty   st    shost       thost       f     fp      b bp
@@ -284,7 +281,7 @@ snapshot recovery.</p>
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">GET _cat/recovery?v=true&amp;h=i,s,t,ty,st,rep,snap,f,fp,b,bp</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1855.console"></div>
+<div class="console_widget" data-snippet="snippets/1857.console"></div>
 <p>The API returns the following response with a recovery type of <code class="literal">snapshot</code>:</p>
 <div class="pre_wrapper lang-txt">
 <pre class="programlisting prettyprint lang-txt">i               s t      ty       st    rep     snap   f  fp   b     bp

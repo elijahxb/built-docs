@@ -17,13 +17,10 @@ A newer version is available. For the latest information, see the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [7.17]</a></span>
-»
-<span class="breadcrumb-link"><a href="rest-apis.html">REST APIs</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [7.17]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="rest-apis.html">REST APIs</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="ml-apis.html">Machine learning anomaly detection APIs</a></span>
-»
-<span class="breadcrumb-node">Delete anomaly detection jobs API</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -140,7 +137,7 @@ wait until the job deletion completes. Defaults to <code class="literal">true</c
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">DELETE _ml/anomaly_detectors/total-requests</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/2327.console"></div>
+<div class="console_widget" data-snippet="snippets/2329.console"></div>
 <p>When the job is deleted, you receive the following results:</p>
 <div class="pre_wrapper lang-console-result">
 <pre class="programlisting prettyprint lang-console-result">{
@@ -151,7 +148,7 @@ wait until the job deletion completes. Defaults to <code class="literal">true</c
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">DELETE _ml/anomaly_detectors/total-requests?wait_for_completion=false</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/2328.console"></div>
+<div class="console_widget" data-snippet="snippets/2330.console"></div>
 <p>When <code class="literal">wait_for_completion</code> is set to <code class="literal">false</code>, the response contains the id
 of the job deletion task:</p>
 <div class="pre_wrapper lang-console-result">

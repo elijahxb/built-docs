@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,40 +87,25 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
-                  <div class="page_header">
-You are looking at preliminary documentation for a future release.
-Not what you want? See the
-<a href="../current/index.html">current release documentation</a>.
-</div>
+                  
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elastic Common Schema (ECS) Reference [8.3]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Common Schema (ECS) Reference [8.3]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="ecs-additional-information.html">Additional Information</a></span>
-»
-<span class="breadcrumb-node">Questions and Answers</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -170,7 +155,7 @@ data from the same service
 </div>
 <h4><a id="conflict"></a>What if I have fields that conflict with ECS?<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/ecs/edit/8.3/docs/additional-info/faq.asciidoc">edit</a></h4>
 <p>The
-<a href="/guide/en/elasticsearch/reference/8.1/rename-processor.html" class="ulink" target="_top">rename
+<a href="/guide/en/elasticsearch/reference/8.3/rename-processor.html" class="ulink" target="_top">rename
 processor</a> can help you resolve field conflicts. For example, imagine that you
 already have a field called "user," but ECS employs <code class="literal">user</code> as an object. You can
 use the rename processor on ingest time to rename your field to the matching ECS
@@ -200,12 +185,12 @@ Underline notation: <code class="literal">user_firstname: Nicolas</code>, <code 
       "lastname": "Ruflin"
     }</pre>
 </div>
-<p>In Elasticsearch, <code class="literal">user</code> is represented as an <a href="/guide/en/elasticsearch/reference/8.1/object.html" class="ulink" target="_top">object
+<p>In Elasticsearch, <code class="literal">user</code> is represented as an <a href="/guide/en/elasticsearch/reference/8.3/object.html" class="ulink" target="_top">object
 datatype</a>. In the case of the underline notation, both are just
-<a href="/guide/en/elasticsearch/reference/8.1/mapping-types.html" class="ulink" target="_top">string datatypes</a>.</p>
+<a href="/guide/en/elasticsearch/reference/8.3/mapping-types.html" class="ulink" target="_top">string datatypes</a>.</p>
 <h5><a id="dot-adv"></a>Advantages of dot notation<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/ecs/edit/8.3/docs/additional-info/faq.asciidoc">edit</a></h5>
 <p>With dot notation, each prefix in Elasticsearch is an object. Each object can have
-<a href="/guide/en/elasticsearch/reference/8.1/object.html#object-params" class="ulink" target="_top">parameters</a>
+<a href="/guide/en/elasticsearch/reference/8.3/object.html#object-params" class="ulink" target="_top">parameters</a>
 that control how fields inside the object are treated. In the context of ECS,
 for example, these parameters would allow you to disable dynamic property
 creation for certain prefixes.</p>
@@ -233,7 +218,7 @@ characteristics. For example, both <code class="literal">keyword</code> and <cod
 However, a different type from the same family can replace the default defined in ECS
 if required for a specific use cases. Users should understand any potential performance
 or storage differences before changing from a default field type.</p>
-<p>The Elasticsearch <a href="/guide/en/elasticsearch/reference/8.1/mapping-types.html" class="ulink" target="_top">mapping types</a> section has more information about type
+<p>The Elasticsearch <a href="/guide/en/elasticsearch/reference/8.3/mapping-types.html" class="ulink" target="_top">mapping types</a> section has more information about type
 families.</p>
 </div>
 <div class="navfooter">
@@ -248,15 +233,37 @@ families.</p>
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

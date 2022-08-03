@@ -17,13 +17,10 @@ A newer version is available. For the latest information, see the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Fleet and Elastic Agent Guide [7.17]</a></span>
-»
-<span class="breadcrumb-link"><a href="manage-agents-in-fleet.html">Centrally manage Elastic Agents in Fleet</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Fleet and Elastic Agent Guide [7.17]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="manage-agents-in-fleet.html">Centrally manage Elastic Agents in Fleet</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="fleet-server.html">Fleet Server</a></span>
-»
-<span class="breadcrumb-node">Add a Fleet Server</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -153,6 +150,14 @@ Fleet Servers.</p>
        hidden="">
 <p>To deploy a self-managed Fleet Server, install an Elastic Agent and enroll it in an
 agent policy containing the Fleet Server integration.</p>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>You can install only a single Elastic Agent per host, which means you cannot run
+Fleet Server and another Elastic Agent on the same host unless you deploy a
+containerized Fleet Server.</p>
+</div>
+</div>
 <div class="olist orderedlist">
 <ol class="orderedlist">
 <li class="listitem">

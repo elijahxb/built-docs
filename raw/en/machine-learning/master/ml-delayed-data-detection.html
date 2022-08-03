@@ -20,13 +20,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Machine Learning in the Elastic Stack [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="ml-ad-overview.html">Anomaly detection</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Machine Learning in the Elastic Stack [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="ml-ad-overview.html">Anomaly detection</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="anomaly-examples.html">Anomaly detection examples</a></span>
-»
-<span class="breadcrumb-node">Handling delayed data</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -38,7 +35,7 @@ Not what you want? See the
 </div>
 <div class="section xpack">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="ml-delayed-data-detection"></a>Handling delayed data<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ml/anomaly-detection/ml-delayed-data-detection.asciidoc">edit</a></h2>
+<h2 class="title"><a id="ml-delayed-data-detection"></a>Handling delayed data<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ml/anomaly-detection/ml-delayed-data-detection.asciidoc">edit</a></h2>
 </div></div></div>
 <p>Delayed data are documents that are indexed late. That is to say, it is data
 related to a time that your datafeed has already processed and it is therefore
@@ -54,7 +51,7 @@ that is struck depends upon each use case and the environmental factors of the
 cluster.</p>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_why_worry_about_delayed_data"></a>Why worry about delayed data?<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ml/anomaly-detection/ml-delayed-data-detection.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_why_worry_about_delayed_data"></a>Why worry about delayed data?<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ml/anomaly-detection/ml-delayed-data-detection.asciidoc">edit</a></h3>
 </div></div></div>
 <p>If data are delayed randomly (and consequently are missing from analysis), the
 results of certain types of functions are not really affected. In these
@@ -69,7 +66,7 @@ next course of action.</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_how_do_we_detect_delayed_data"></a>How do we detect delayed data?<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ml/anomaly-detection/ml-delayed-data-detection.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_how_do_we_detect_delayed_data"></a>How do we detect delayed data?<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ml/anomaly-detection/ml-delayed-data-detection.asciidoc">edit</a></h3>
 </div></div></div>
 <p>In addition to the <code class="literal">query_delay</code> field, there is a delayed data check config,
 which enables you to configure the datafeed to look in the past for delayed data.
@@ -98,7 +95,7 @@ in the anomaly detection job management page:</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_what_to_do_about_delayed_data"></a>What to do about delayed data?<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ml/anomaly-detection/ml-delayed-data-detection.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_what_to_do_about_delayed_data"></a>What to do about delayed data?<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ml/anomaly-detection/ml-delayed-data-detection.asciidoc">edit</a></h3>
 </div></div></div>
 <p>The most common course of action is to simply to do nothing. For many functions
 and situations, ignoring the data is acceptable. However, if the amount of

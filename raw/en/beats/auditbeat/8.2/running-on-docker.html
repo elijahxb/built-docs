@@ -13,17 +13,15 @@
 <meta name="robots" content="noindex,nofollow"/>
 </head>
 <body><div class="page_header">
-You are looking at preliminary documentation for a future release.
-Not what you want? See the
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
 <a href="../current/index.html">current release documentation</a>.
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Auditbeat Reference [8.2]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Auditbeat Reference [8.2]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="setting-up-and-running.html">Set up and run Auditbeat</a></span>
-»
-<span class="breadcrumb-node">Run Auditbeat on Docker</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -53,8 +51,12 @@ Elastic license levels.</p>
 </div></div></div>
 <p>Obtaining Auditbeat for Docker is as simple as issuing a <code class="literal">docker pull</code> command
 against the Elastic Docker registry.</p>
-<p>However, version 8.2.0 of Auditbeat has not yet been
-released, so no Docker image is currently available for this version.</p>
+<div class="pre_wrapper lang-sh">
+<pre class="programlisting prettyprint lang-sh">docker pull docker.elastic.co/beats/auditbeat:8.2.3</pre>
+</div>
+<p>Alternatively, you can download other Docker images that contain only features
+available under the Apache 2.0 license. To download the images, go to
+<a href="https://www.docker.elastic.co" class="ulink" target="_top">www.docker.elastic.co</a>.</p>
 </div>
 
 <div class="section">
@@ -69,7 +71,7 @@ and machine learning jobs.  Run this command:</p>
 <pre class="programlisting prettyprint lang-sh">docker run \
   --cap-add="AUDIT_CONTROL" \
   --cap-add="AUDIT_READ" \
-  docker.elastic.co/beats/auditbeat:8.2.0 \
+  docker.elastic.co/beats/auditbeat:8.2.3 \
   setup -E setup.kibana.host=kibana:5601 \
   -E output.elasticsearch.hosts=["elasticsearch:9200"] <a id="CO6-1"></a><i class="conum" data-value="1"></i> <a id="CO6-2"></a><i class="conum" data-value="2"></i></pre>
 </div>
@@ -133,7 +135,7 @@ With <code class="literal">docker run</code>, the volume mount can be specified 
   --cap-add="AUDIT_CONTROL" \
   --cap-add="AUDIT_READ" \
   --pid=host \
-  docker.elastic.co/beats/auditbeat:8.2.0 -e \
+  docker.elastic.co/beats/auditbeat:8.2.3 -e \
   --strict.perms=false \
   -E output.elasticsearch.hosts=["elasticsearch:9200"] <a id="CO7-1"></a><i class="conum" data-value="1"></i> <a id="CO7-2"></a><i class="conum" data-value="2"></i></pre>
 </div>
@@ -175,7 +177,7 @@ using the syntax shown earlier.</p>
 <p>It&#8217;s possible to embed your Auditbeat configuration in a custom image.
 Here is an example Dockerfile to achieve this:</p>
 <div class="pre_wrapper lang-dockerfile">
-<pre class="programlisting prettyprint lang-dockerfile">FROM docker.elastic.co/beats/auditbeat:8.2.0
+<pre class="programlisting prettyprint lang-dockerfile">FROM docker.elastic.co/beats/auditbeat:8.2.3
 COPY auditbeat.yml /usr/share/auditbeat/auditbeat.yml</pre>
 </div>
 </div>
@@ -191,7 +193,7 @@ capabilities to operate correctly. Ensure that the <code class="literal">AUDIT_C
 capabilities are available to the container.</p>
 <p>It is also essential to run Auditbeat in the host PID namespace.</p>
 <div class="pre_wrapper lang-sh">
-<pre class="programlisting prettyprint lang-sh">docker run --cap-add=AUDIT_CONTROL --cap-add=AUDIT_READ --user=root --pid=host docker.elastic.co/beats/auditbeat:8.2.0</pre>
+<pre class="programlisting prettyprint lang-sh">docker run --cap-add=AUDIT_CONTROL --cap-add=AUDIT_READ --user=root --pid=host docker.elastic.co/beats/auditbeat:8.2.3</pre>
 </div>
 </div>
 

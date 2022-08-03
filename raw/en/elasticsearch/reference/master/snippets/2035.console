@@ -1,17 +1,8 @@
-POST /_mtermvectors
+PUT my-index-000001/_doc/1?timeout=5m
 {
-   "docs": [
-      {
-         "_index": "my-index-000001",
-         "_id": "2",
-         "term_statistics": true
-      },
-      {
-         "_index": "my-index-000001",
-         "_id": "1",
-         "fields": [
-            "message"
-         ]
-      }
-   ]
+  "@timestamp": "2099-11-15T13:12:00",
+  "message": "GET /search HTTP/1.1 200 1070000",
+  "user": {
+    "id": "kimchy"
+  }
 }

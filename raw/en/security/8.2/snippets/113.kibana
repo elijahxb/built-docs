@@ -1,1 +1,8 @@
-GET api/cases/293f1bc0-74f6-11ea-b83a-553aecdb28b6/alerts
+POST api/exception_lists
+{
+  "description": "Endpoint Security Host Isolation Exceptions List",
+  "name": "Endpoint Security Host Isolation Exceptions List",
+  "list_id": "{endpoint-artifact-list-id}",
+  "type": "endpoint",
+  "namespace_type": "agnostic"
+}

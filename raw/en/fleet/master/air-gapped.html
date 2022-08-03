@@ -6,7 +6,7 @@
 <link rel="home" href="index.html" title="Fleet and Elastic Agent Guide [master]"/>
 <link rel="up" href="integrations.html" title="Manage Elastic Agent integrations"/>
 <link rel="prev" href="uninstall-integration.html" title="Uninstall an Elastic Agent integration"/>
-<link rel="next" href="elastic-agent-installation.html" title="Install Elastic Agents"/>
+<link rel="next" href="elastic-agent-configuration.html" title="Configure standalone Elastic Agents"/>
 <meta name="DC.type" content="Learn/Docs/Fleet/Guide/Elastic Agent/master"/>
 <meta name="DC.subject" content="Fleet and Elastic Agent"/>
 <meta name="DC.identifier" content="master"/>
@@ -18,18 +18,16 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Fleet and Elastic Agent Guide [master]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Fleet and Elastic Agent Guide [master]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="integrations.html">Manage Elastic Agent integrations</a></span>
-»
-<span class="breadcrumb-node">Air-gapped environments</span>
 </div>
 <div class="navheader">
 <span class="prev">
 <a href="uninstall-integration.html">« Uninstall an Elastic Agent integration</a>
 </span>
 <span class="next">
-<a href="elastic-agent-installation.html">Install Elastic Agents »</a>
+<a href="elastic-agent-configuration.html">Configure standalone Elastic Agents »</a>
 </span>
 </div>
 <div class="section">
@@ -56,7 +54,7 @@ a selection of packages.</p>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
 <li class="listitem">
-8.2.0 (recommended): <code class="literal">docker.elastic.co/package-registry/distribution:8.2.0</code> - Selection of packages from the production repository released with the 8.2.0 version of the Elastic Stack.
+8.4.0 (recommended): <code class="literal">docker.elastic.co/package-registry/distribution:8.4.0</code> - Selection of packages from the production repository released with the 8.4.0 version of the Elastic Stack.
 </li>
 <li class="listitem">
 production: <code class="literal">docker.elastic.co/package-registry/distribution:production</code> - Packages available in the production registry (<a href="https://epr.elastic.co" class="ulink" target="_top">https://epr.elastic.co</a>).
@@ -72,7 +70,7 @@ snapshot: <code class="literal">docker.elastic.co/package-registry/distribution:
 <div class="warning admon">
 <div class="icon"></div>
 <div class="admon_content">
-<p>Version 8.2.0 of the Elastic Package Registry distribution has not yet been released.</p>
+<p>Version 8.4.0 of the Elastic Package Registry distribution has not yet been released.</p>
 </div>
 </div>
 <p>To update the distribution image, re-pull the image and then restart the docker container.</p>
@@ -92,13 +90,13 @@ These images can also be used with other container runtimes compatible with Dock
 <li class="listitem">
 <p>Pull the Docker image from the public Docker registry:</p>
 <div class="pre_wrapper lang-sh">
-<pre class="programlisting prettyprint lang-sh">docker pull docker.elastic.co/package-registry/distribution:8.2.0</pre>
+<pre class="programlisting prettyprint lang-sh">docker pull docker.elastic.co/package-registry/distribution:8.4.0</pre>
 </div>
 </li>
 <li class="listitem">
 <p>Save the Docker image locally:</p>
 <div class="pre_wrapper lang-sh">
-<pre class="programlisting prettyprint lang-sh">docker save -o package-registry-8.2.0.tar docker.elastic.co/package-registry/distribution:8.2.0</pre>
+<pre class="programlisting prettyprint lang-sh">docker save -o package-registry-8.4.0.tar docker.elastic.co/package-registry/distribution:8.4.0</pre>
 </div>
 <div class="tip admon">
 <div class="icon"></div>
@@ -110,13 +108,13 @@ These images can also be used with other container runtimes compatible with Dock
 <li class="listitem">
 <p>Transfer the image to the air-gapped environment and load it:</p>
 <div class="pre_wrapper lang-sh">
-<pre class="programlisting prettyprint lang-sh">docker load -i package-registry-8.2.0.tar</pre>
+<pre class="programlisting prettyprint lang-sh">docker load -i package-registry-8.4.0.tar</pre>
 </div>
 </li>
 <li class="listitem">
 <p>Run the Elastic Package Registry:</p>
 <div class="pre_wrapper lang-sh">
-<pre class="programlisting prettyprint lang-sh">docker run -it -p 8080:8080 docker.elastic.co/package-registry/distribution:8.2.0</pre>
+<pre class="programlisting prettyprint lang-sh">docker run -it -p 8080:8080 docker.elastic.co/package-registry/distribution:8.4.0</pre>
 </div>
 </li>
 <li class="listitem">
@@ -125,7 +123,7 @@ requests to the root path:</p>
 <div class="pre_wrapper lang-sh">
 <pre class="programlisting prettyprint lang-sh">docker run -it -p 8080:8080 \
     --health-cmd "curl -f -L http://127.0.0.1:8080/" \
-    docker.elastic.co/package-registry/distribution:8.2.0</pre>
+    docker.elastic.co/package-registry/distribution:8.4.0</pre>
 </div>
 </li>
 </ol>
@@ -146,7 +144,13 @@ can start the Elastic Package Registry listening on the 443 port using the follo
   -e EPR_ADDRESS=0.0.0.0:443 \
   -e EPR_TLS_KEY=/etc/ssl/package-registry.key \
   -e EPR_TLS_CERT=/etc/ssl/package-registry.crt \
-  docker.elastic.co/package-registry/distribution:8.2.0</pre>
+  docker.elastic.co/package-registry/distribution:8.4.0</pre>
+</div>
+<h6><a id="_using_custom_ca_certificates"></a>Using custom CA certificates<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/observability-docs/edit/main/docs/en/ingest-management/fleet/air-gapped.asciidoc">edit</a></h6>
+<p>If you are using self-signed certificates or certificates issued by a custom Certificate Authority (CA), you need to set the file path to your CA in the <code class="literal">NODE_EXTRA_CA_CERTS</code> environment
+variable in the Kibana startup files.</p>
+<div class="pre_wrapper lang-text">
+<pre class="programlisting prettyprint lang-text">NODE_EXTRA_CA_CERTS="/etc/kibana/certs/ca-cert.pem"</pre>
 </div>
 <h4><a id="air-gapped-limitations"></a>Limitations for Elastic Agent upgrades<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/observability-docs/edit/main/docs/en/ingest-management/fleet/air-gapped.asciidoc">edit</a></h4>
 <p>The <a class="xref" href="upgrade-elastic-agent.html" title="Upgrade Fleet-managed Elastic Agents">Upgrade Elastic Agents</a> feature in technical preview does not currently support network restricted environments without access to artifacts.elastic.co.
@@ -166,7 +170,7 @@ Use the <a class="xref" href="elastic-agent-cmd-options.html#elastic-agent-upgra
 </div>
 <h5><a id="_example"></a>Example<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/observability-docs/edit/main/docs/en/ingest-management/fleet/air-gapped.asciidoc">edit</a></h5>
 <div class="pre_wrapper lang-sh">
-<pre class="programlisting prettyprint lang-sh">elastic-agent upgrade 8.2.0 --source-uri https://myinternaldomain.com/elastic-agent/elastic-agent-8.2.0-&lt;platform&gt;-x86_64.tar.gz</pre>
+<pre class="programlisting prettyprint lang-sh">elastic-agent upgrade 8.4.0 --source-uri https://myinternaldomain.com/elastic-agent/elastic-agent-8.4.0-&lt;platform&gt;-x86_64.tar.gz</pre>
 </div>
 </div>
 <div class="navfooter">
@@ -174,7 +178,7 @@ Use the <a class="xref" href="elastic-agent-cmd-options.html#elastic-agent-upgra
 <a href="uninstall-integration.html">« Uninstall an Elastic Agent integration</a>
 </span>
 <span class="next">
-<a href="elastic-agent-installation.html">Install Elastic Agents »</a>
+<a href="elastic-agent-configuration.html">Configure standalone Elastic Agents »</a>
 </span>
 </div>
 </div>

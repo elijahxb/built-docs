@@ -18,13 +18,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="data-rollup-transform.html">Roll up or transform your data</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="data-rollup-transform.html">Roll up or transform your data</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="transforms.html">Transforming data</a></span>
-»
-<span class="breadcrumb-node">Generating alerts for transforms</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -36,7 +33,7 @@ Not what you want? See the
 </div>
 <div class="section xpack">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="transform-alerts"></a>Generating alerts for transforms<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/transform/transform-alerts.asciidoc">edit</a></h2>
+<h2 class="title"><a id="transform-alerts"></a>Generating alerts for transforms<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/transform/transform-alerts.asciidoc">edit</a></h2>
 </div></div></div>
 <div class="warning admon">
 <div class="icon"></div>
@@ -66,7 +63,7 @@ Monitors transforms health and alerts if an operational issue occurred.
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="creating-transform-rules"></a>Creating a rule<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/transform/transform-alerts.asciidoc">edit</a></h3>
+<h3 class="title"><a id="creating-transform-rules"></a>Creating a rule<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/transform/transform-alerts.asciidoc">edit</a></h3>
 </div></div></div>
 <p>You can create transform rules under <span class="strong strong"><strong>Stack Management &gt; Rules and Connectors</strong></span>.</p>
 <p>On the <span class="strong strong"><strong>Create rule</strong></span> window, give a name to the rule and optionally provide
@@ -85,7 +82,7 @@ For more details, refer to the documentation of
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="creating-transform-health-rules"></a>Transform health<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/transform/transform-alerts.asciidoc">edit</a></h4>
+<h4 class="title"><a id="creating-transform-health-rules"></a>Transform health<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/transform/transform-alerts.asciidoc">edit</a></h4>
 </div></div></div>
 <p>Select the transform or transforms to include. You can also use a special
 character (<code class="literal">*</code>) to apply the rule to all your transforms. Transforms
@@ -119,11 +116,12 @@ are met.</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="defining-actions"></a>Defining actions<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/transform/transform-alerts.asciidoc">edit</a></h3>
+<h3 class="title"><a id="defining-actions"></a>Defining actions<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/transform/transform-alerts.asciidoc">edit</a></h3>
 </div></div></div>
 <p>Connect your rule to actions that use supported built-in integrations by
 selecting a connector type. Connectors are Kibana services or third-party
-integrations that perform an action when the rule conditions are met.</p>
+integrations that perform an action when the rule conditions are met or the
+alert is recovered. You can select in which case the action will run.</p>
 <div class="imageblock screenshot">
 <div class="content">
 <img src="images/transform-alert-actions.png" alt="Selecting connector type">

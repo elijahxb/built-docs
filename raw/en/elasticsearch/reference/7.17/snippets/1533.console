@@ -1,6 +1,8 @@
-PUT _cluster/_settings
+PUT logs-my_app-default/_settings
 {
-  "persistent": {
-    "cluster.routing.allocation.enforce_default_tier_preference": true
+  "index": {
+    "lifecycle": {
+      "name": "new-lifecycle-policy"
+    }
   }
 }

@@ -18,13 +18,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Java API Client [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="java-rest-low.html">Java Low Level REST Client</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Java API Client [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="java-rest-low.html">Java Low Level REST Client</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="java-rest-low-config.html">Common configuration</a></span>
-»
-<span class="breadcrumb-node">Basic authentication</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -78,7 +75,7 @@ RestClientBuilder builder = RestClient.builder(
         @Override
         public HttpAsyncClientBuilder customizeHttpClient(
                 HttpAsyncClientBuilder httpClientBuilder) {
-            httpClientBuilder.disableAuthCaching(); <a id="CO29-1"></a><i class="conum" data-value="1"></i>
+            httpClientBuilder.disableAuthCaching(); <a id="CO28-1"></a><i class="conum" data-value="1"></i>
             return httpClientBuilder
                 .setDefaultCredentialsProvider(credentialsProvider);
         }
@@ -88,7 +85,7 @@ RestClientBuilder builder = RestClient.builder(
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO29-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO28-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Disable preemptive authentication</p>

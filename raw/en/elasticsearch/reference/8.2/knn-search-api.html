@@ -13,19 +13,16 @@
 <meta name="robots" content="noindex,nofollow"/>
 </head>
 <body><div class="page_header">
-You are looking at preliminary documentation for a future release.
-Not what you want? See the
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
 <a href="../current/index.html">current release documentation</a>.
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.2]</a></span>
-»
-<span class="breadcrumb-link"><a href="rest-apis.html">REST APIs</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.2]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="rest-apis.html">REST APIs</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="search.html">Search APIs</a></span>
-»
-<span class="breadcrumb-node">kNN search API</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -60,7 +57,7 @@ Not what you want? See the
   "_source": ["name", "file_type"]
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/2409.console"></div>
+<div class="console_widget" data-snippet="snippets/2423.console"></div>
 <div class="section">
 <div class="titlepage"><div><div>
 <h3 class="title"><a id="knn-search-api-request"></a>Request<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.2/docs/reference/search/knn-search.asciidoc">edit</a></h3>
@@ -95,6 +92,8 @@ closest vectors and returns those documents as search hits.</p>
 efficient kNN search. Like most kNN algorithms, HNSW is an approximate method
 that sacrifices result accuracy for improved search speed. This means the
 results returned are not always the true <em>k</em> closest neighbors.</p>
+<p>The kNN search API supports <a class="xref" href="knn-search-api.html#knn-search-api-filter-example" title="Filtered kNN search">restricting the search using a filter</a>.
+The search will return the top <code class="literal">k</code> documents that also match the filter query.</p>
 </div>
 
 <div class="section">
@@ -539,6 +538,10 @@ candidates considered, which is <code class="literal">num_candidates * num_shard
 <div class="titlepage"><div><div>
 <h3 class="title"><a id="knn-search-api-example"></a>Examples<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.2/docs/reference/search/knn-search.asciidoc">edit</a></h3>
 </div></div></div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h4 class="title"><a id="_basic_knn_search"></a>Basic kNN search<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.2/docs/reference/search/knn-search.asciidoc">edit</a></h4>
+</div></div></div>
 <p>The following requests create a <code class="literal">dense_vector</code> field with indexing enabled and
 add sample documents:</p>
 <a id="3df98616de24d43f01ee19d45db81a7f"></a>
@@ -577,7 +580,13 @@ PUT my-index/_doc/2?refresh
   "file_type": "svg"
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/2410.console"></div>
+<div class="console_widget" data-snippet="snippets/2424.console"></div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h4 class="title"><a id="knn-search-api-filter-example"></a>Filtered kNN search<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.2/docs/reference/search/knn-search.asciidoc">edit</a></h4>
+</div></div></div>
 <p>The next request performs a kNN search filtered by the <code class="literal">file_type</code> field:</p>
 <a id="0d108ffd5a644ee68fb931a23ed182c8"></a>
 <div class="pre_wrapper lang-console">
@@ -597,7 +606,7 @@ PUT my-index/_doc/2?refresh
   "_source": ["name"]
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/2411.console"></div>
+<div class="console_widget" data-snippet="snippets/2425.console"></div>
 <a id="8fd5aad2b007762a2777bb99c5f86f4d"></a>
 <div class="pre_wrapper lang-console-result">
 <pre class="programlisting prettyprint lang-console-result">{
@@ -628,6 +637,8 @@ PUT my-index/_doc/2?refresh
   }
 }</pre>
 </div>
+</div>
+
 </div>
 
 </div>

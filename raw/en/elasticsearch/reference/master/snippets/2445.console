@@ -1,16 +1,6 @@
-POST _search?typed_keys
+POST _ml/filters/safe_domains/_update
 {
-  "suggest": {
-    "text" : "some test mssage",
-    "my-first-suggester" : {
-      "term" : {
-        "field" : "message"
-      }
-    },
-    "my-second-suggester" : {
-      "phrase" : {
-        "field" : "message"
-      }
-    }
-  }
+  "description": "Updated list of domains",
+  "add_items": ["*.myorg.com"],
+  "remove_items": ["wikipedia.org"]
 }

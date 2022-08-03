@@ -1,10 +1,45 @@
-GET my-index/_knn_search
+POST _ml/datafeeds/_preview
 {
-  "knn": {
-    "field": "image_vector",
-    "query_vector": [0.3, 0.1, 1.2],
-    "k": 10,
-    "num_candidates": 100
+  "datafeed_config": {
+    "indices" : [
+      "kibana_sample_data_ecommerce"
+    ],
+    "query" : {
+      "bool" : {
+        "filter" : [
+          {
+            "term" : {
+              "_index" : "kibana_sample_data_ecommerce"
+            }
+          }
+        ]
+      }
+    },
+    "scroll_size" : 1000
   },
-  "_source": ["name", "date"]
+  "job_config": {
+    "description" : "Find customers spending an unusually high amount in an hour",
+    "analysis_config" : {
+      "bucket_span" : "1h",
+      "detectors" : [
+        {
+          "detector_description" : "High total sales",
+          "function" : "high_sum",
+          "field_name" : "taxful_total_price",
+          "over_field_name" : "customer_full_name.keyword"
+        }
+      ],
+      "influencers" : [
+        "customer_full_name.keyword",
+        "category.keyword"
+      ]
+    },
+    "analysis_limits" : {
+      "model_memory_limit" : "10mb"
+    },
+    "data_description" : {
+      "time_field" : "order_date",
+      "time_format" : "epoch_ms"
+    }
+  }
 }

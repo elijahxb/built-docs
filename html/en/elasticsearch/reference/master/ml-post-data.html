@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,27 +87,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 You are looking at preliminary documentation for a future release.
@@ -116,13 +107,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="rest-apis.html">REST APIs</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="rest-apis.html">REST APIs</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="ml-ad-apis.html">Machine learning anomaly detection APIs</a></span>
-»
-<span class="breadcrumb-node">Post data to jobs API</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -134,7 +122,7 @@ Not what you want? See the
 </div>
 <div class="section xpack">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="ml-post-data"></a>Post data to jobs API<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ml/anomaly-detection/apis/post-data.asciidoc">edit</a></h2>
+<h2 class="title"><a id="ml-post-data"></a>Post data to jobs API<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ml/anomaly-detection/apis/post-data.asciidoc">edit</a></h2>
 </div></div></div>
 
 <div class="warning admon">
@@ -147,14 +135,14 @@ Not what you want? See the
 <p>Sends data to an anomaly detection job for analysis.</p>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="ml-post-data-request"></a>Request<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ml/anomaly-detection/apis/post-data.asciidoc">edit</a></h3>
+<h3 class="title"><a id="ml-post-data-request"></a>Request<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ml/anomaly-detection/apis/post-data.asciidoc">edit</a></h3>
 </div></div></div>
 <p><code class="literal">POST _ml/anomaly_detectors/&lt;job_id&gt;/_data</code></p>
 </div>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="ml-post-data-prereqs"></a>Prerequisites<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ml/anomaly-detection/apis/post-data.asciidoc">edit</a></h3>
+<h3 class="title"><a id="ml-post-data-prereqs"></a>Prerequisites<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ml/anomaly-detection/apis/post-data.asciidoc">edit</a></h3>
 </div></div></div>
 <p>Requires the <code class="literal">manage_ml</code> cluster privilege. This privilege is included in the
 <code class="literal">machine_learning_admin</code> built-in role.</p>
@@ -162,7 +150,7 @@ Not what you want? See the
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="ml-post-data-desc"></a>Description<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ml/anomaly-detection/apis/post-data.asciidoc">edit</a></h3>
+<h3 class="title"><a id="ml-post-data-desc"></a>Description<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ml/anomaly-detection/apis/post-data.asciidoc">edit</a></h3>
 </div></div></div>
 <p>The job must have a state of <code class="literal">open</code> to receive and process the data.</p>
 <p>The data that you send to the job must use the JSON format. Multiple JSON
@@ -199,7 +187,7 @@ or a comma-separated list.</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="ml-post-data-path-parms"></a>Path parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ml/anomaly-detection/apis/post-data.asciidoc">edit</a></h3>
+<h3 class="title"><a id="ml-post-data-path-parms"></a>Path parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ml/anomaly-detection/apis/post-data.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="variablelist">
 <dl class="variablelist">
@@ -218,7 +206,7 @@ Identifier for the anomaly detection job.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="ml-post-data-query-parms"></a>Query parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ml/anomaly-detection/apis/post-data.asciidoc">edit</a></h3>
+<h3 class="title"><a id="ml-post-data-query-parms"></a>Query parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ml/anomaly-detection/apis/post-data.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="variablelist">
 <dl class="variablelist">
@@ -244,7 +232,7 @@ Identifier for the anomaly detection job.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="ml-post-data-request-body"></a>Request body<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ml/anomaly-detection/apis/post-data.asciidoc">edit</a></h3>
+<h3 class="title"><a id="ml-post-data-request-body"></a>Request body<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ml/anomaly-detection/apis/post-data.asciidoc">edit</a></h3>
 </div></div></div>
 <p>A sequence of one or more JSON documents containing the data to be analyzed.
 Only whitespace characters are permitted in between the documents.</p>
@@ -252,7 +240,7 @@ Only whitespace characters are permitted in between the documents.</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="ml-post-data-example"></a>Examples<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ml/anomaly-detection/apis/post-data.asciidoc">edit</a></h3>
+<h3 class="title"><a id="ml-post-data-example"></a>Examples<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ml/anomaly-detection/apis/post-data.asciidoc">edit</a></h3>
 </div></div></div>
 <p>The following example posts data from the <code class="literal">it_ops_new_kpi.json</code> file to the
 <code class="literal">it_ops_new_kpi</code> job:</p>
@@ -299,15 +287,37 @@ the job. For example:</p>
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

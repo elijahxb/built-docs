@@ -58,7 +58,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -89,27 +89,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 You are looking at preliminary documentation for a future release.
@@ -118,13 +109,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Kibana Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="xpack-apm.html">APM</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Kibana Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="xpack-apm.html">APM</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="apm-getting-started.html">Get started with the APM app</a></span>
-»
-<span class="breadcrumb-node">Transactions</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -150,7 +138,7 @@ APM agents automatically collect performance metrics on HTTP requests, database 
 <img src="apm/images/apm-transactions-overview.png" alt="Example view of transactions table in the APM app in Kibana">
 </div>
 </div>
-<p>The <span class="strong strong"><strong>Latency</strong></span>, <span class="strong strong"><strong>transactions per minute</strong></span>, <span class="strong strong"><strong>Failed transaction rate</strong></span>, and <span class="strong strong"><strong>Average duration by span type</strong></span>
+<p>The <span class="strong strong"><strong>Latency</strong></span>, <span class="strong strong"><strong>Throughput</strong></span>, <span class="strong strong"><strong>Failed transaction rate</strong></span>, <span class="strong strong"><strong>Average duration by span type</strong></span>, and <span class="strong strong"><strong>Cold start rate</strong></span>
 charts display information on all transactions associated with the selected service:</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -215,6 +203,15 @@ For example, is your app spending time in external calls, database processing, o
 "app" indicates that something was happening within the application, but we&#8217;re not sure exactly what.
 This could be a sign that the agent does not have auto-instrumentation for whatever was happening during that time.</p>
 <p>It&#8217;s important to note that if you have asynchronous spans, the sum of all span times may exceed the duration of the transaction.</p>
+</dd>
+<dt>
+<span class="term">
+<span class="strong strong"><strong>Cold start rate</strong></span>
+</span>
+</dt>
+<dd>
+Only applicable to serverless transactions, this chart displays the percentage of requests that trigger a cold start of a serverless function.
+See <a class="xref" href="apm-lambda.html#apm-lambda-cold-start-info" title="Cold starts">Cold starts</a> for more information.
 </dd>
 </dl>
 </div>
@@ -333,6 +330,9 @@ URL
 <li class="listitem">
 User - Requires additional configuration, but allows you to see which user experienced the current transaction.
 </li>
+<li class="listitem">
+FaaS information, like cold start, AWS request ID, trigger type, and trigger request ID
+</li>
 </ul>
 </div>
 <div class="tip admon">
@@ -382,15 +382,37 @@ To learn more, see <a class="xref" href="correlations.html" title="Find transact
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Manage snapshot repositories | Elastic Cloud Enterprise Reference [3.2] | Elastic</title>
+<link rel="home" href="index.html" title="Elastic Cloud Enterprise Reference [3.2]"/>
+<link rel="up" href="ece-configuring-ece.html" title="Configuring your installation"/>
+<link rel="prev" href="ece-include-additional-kibana-plugin.html" title="Include additional Kibana plugins"/>
+<link rel="next" href="ece-configure-gcp-snapshotting-v6.html" title="Snapshotting to Google Cloud Storage (GCS) for Elasticsearch 6.4 - 6.8"/>
+<meta name="DC.type" content="Learn/Docs/CloudEnterprise/Reference/3.2"/>
+<meta name="DC.subject" content="ECE"/>
+<meta name="DC.identifier" content="3.2"/>
+</head>
+<body><div class="page_header">
+A newer version is available. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Cloud Enterprise Reference [3.2]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="ece-configuring-ece.html">Configuring your installation</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="ece-include-additional-kibana-plugin.html">« Include additional Kibana plugins</a>
+</span>
+<span class="next">
+<a href="ece-configure-gcp-snapshotting-v6.html">Snapshotting to Google Cloud Storage (GCS) for Elasticsearch 6.4 - 6.8 »</a>
+</span>
+</div>
+<div class="chapter">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="ece-manage-repositories"></a>Manage snapshot repositories<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/cloud-enterprise/ce-configuring-ece-snapshot-repositories.asciidoc">edit</a></h2>
+</div></div></div>
+<p>Snapshot repositories are managed for your entire Elastic Cloud Enterprise installation and can be specified for an Elasticsearch cluster when you create or manage it.</p>
+<p>When a repository is specified, a snapshot is taken every 30 minutes by default, or at the interval that you specify. For Elastic Stack versions 7.6 and above, snapshots are configured and restored using the <a href="/guide/en/elasticsearch/reference/8.3/snapshot-restore.html" class="ulink" target="_top">snapshot and restore feature</a>. For Elastic Stack versions 7.5 and earlier, check the instructions for <a class="xref" href="ece-snapshots.html#ece-change-snapshot-interval" title="Change the snapshot interval">adjusting the snapshot interval</a>.</p>
+<p>Elastic Cloud Enterprise installations support the following snapshot repository types:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<a href="/guide/en/elasticsearch/reference/8.3/repository-azure.html" class="ulink" target="_top">Azure</a>
+</li>
+<li class="listitem">
+<a href="/guide/en/elasticsearch/reference/8.3/repository-gcs.html" class="ulink" target="_top">Google Cloud Storage</a>
+</li>
+<li class="listitem">
+<a href="/guide/en/elasticsearch/reference/8.3/repository-s3.html" class="ulink" target="_top">AWS S3</a>
+</li>
+</ul>
+</div>
+<p>To configure Google Cloud Storage (GCS) as a snapshot repository, your Elasticsearch cluster must be version 6.0 or later and you must use <a href="https://developers.google.com/identity/protocols/application-default-credentials" class="ulink" target="_top">Google Default Authentication</a>. To learn more, check <a class="xref" href="ece-configure-gcp-snapshotting.html" title="Snapshotting to Google Cloud Storage (GCS) for Elasticsearch 7.0 and later">Snapshotting to Google Cloud Storage</a>. To configure Microsoft Azure Storage as a snapshot repository, your Elasticsearch cluster must be version 5.X, 6.2.X, or later. To learn more, check <a class="xref" href="ece-configure-azure-snapshotting.html" title="Snapshotting to Azure Storage for Elasticsearch 7.0 and later">Snapshotting to Azure Storage</a>.</p>
+<p>For more details about how snapshots are used with Elasticsearch, check <a href="/guide/en/elasticsearch/reference/8.3/modules-snapshots.html" class="ulink" target="_top">Snapshot and Restore</a>. You can also review the official documentation for these storage repository options:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/Introduction.html" class="ulink" target="_top">Amazon S3 documentation</a>
+</li>
+<li class="listitem">
+<a href="https://docs.microsoft.com/en-us/azure/storage/common/storage-quickstart-create-account" class="ulink" target="_top">Microsoft Azure storage documentation</a>
+</li>
+<li class="listitem">
+<a href="https://cloud.google.com/storage/docs/" class="ulink" target="_top">Google Cloud Storage documentation</a>
+</li>
+</ul>
+</div>
+<div class="tip admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>If you are installing ECE without internet access (commonly called an offline or air-gapped installation), you will need to use an on-premise storage service.  We suggest that you use <a href="https://www.minio.io/" class="ulink" target="_top">Minio</a>. For our installation notes, check <a class="xref" href="ece-configuring-minio.html" title="Snapshotting to Minio on-premise storage">Snapshotting to Minio On-Premise Storage</a>.</p>
+</div>
+</div>
+<h3><a id="ece-manage-repositories-add"></a>Add snapshot repository configurations<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/cloud-enterprise/ce-configuring-ece-snapshot-repositories.asciidoc">edit</a></h3>
+<p>Before any snapshot or restore operation can be performed for Elasticsearch clusters, at least one snapshot repository configuration needs to be added to your Elastic Cloud Enterprise installation.</p>
+<p>To add a snapshot repository:</p>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+<a class="xref" href="ece-login.html" title="Log into the Cloud UI">Log into the Cloud UI</a>.
+</li>
+<li class="listitem">
+From the <span class="strong strong"><strong>Platform</strong></span> menu, select <span class="strong strong"><strong>Repositories</strong></span>.
+</li>
+<li class="listitem">
+Select <span class="strong strong"><strong>Add Repository</strong></span> to add an existing repository.
+</li>
+<li class="listitem">
+Provide a name for the repository configuration.
+</li>
+<li class="listitem">
+<p>Select one of the supported repository types and specify the necessary settings:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<p>Amazon S3 configuration:</p>
+<p>All repository options must be specified, as there are no default values.</p>
+<div class="variablelist">
+<dl class="variablelist">
+<dt>
+<span class="term">
+Region
+</span>
+</dt>
+<dd>
+The region where the bucket is located.
+</dd>
+<dt>
+<span class="term">
+Bucket
+</span>
+</dt>
+<dd>
+The name of the bucket to be used for snapshots.
+</dd>
+<dt>
+<span class="term">
+Access key
+</span>
+</dt>
+<dd>
+The access key to use for authentication.
+</dd>
+<dt>
+<span class="term">
+Secret key
+</span>
+</dt>
+<dd>
+The secret key to use for authentication.
+</dd>
+</dl>
+</div>
+</li>
+<li class="listitem">
+<p>Advanced configuration:</p>
+<p>Used for Microsoft Azure, Google Cloud Platform, or for some Amazon S3 repositories where you need to provide additional configuration parameters not supported by the S3 repository option. Configurations must be specified in a valid JSON format. For example:</p>
+<p>Amazon S3 (check <a href="/guide/en/elasticsearch/reference/8.3/repository-s3.html#repository-s3-repository" class="ulink" target="_top">supported settings</a>):</p>
+<div class="pre_wrapper lang-json">
+<pre class="programlisting prettyprint lang-json">{
+  "type": "s3",
+  "settings": {
+    "bucket": "my_bucket_name",
+    "region": "us-west"
+  }
+}</pre>
+</div>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>Don&#8217;t set <code class="literal">base_path</code> when configuring a snapshot repository for Elastic Cloud Enterprise.
+ Elastic Cloud Enterprise automatically generates the <code class="literal">base_path</code> for each deployment so that
+ multiple deployments may share the same bucket.</p>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li class="listitem">
+Select <span class="strong strong"><strong>Save</strong></span>.
+</li>
+</ol>
+</div>
+<h3><a id="ece_edit_snapshot_repository_configurations"></a>Edit snapshot repository configurations<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/cloud-enterprise/ce-configuring-ece-snapshot-repositories.asciidoc">edit</a></h3>
+<p>To edit a snapshot repository configuration from your Elastic Cloud Enterprise installation:</p>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+<a class="xref" href="ece-login.html" title="Log into the Cloud UI">Log into the Cloud UI</a>.
+</li>
+<li class="listitem">
+From the <span class="strong strong"><strong>Platform</strong></span> menu, select <span class="strong strong"><strong>Repositories</strong></span>.
+</li>
+<li class="listitem">
+<p>Select <span class="strong strong"><strong>Edit</strong></span> to modify a snapshot repository configuration.</p>
+<p>For available options that you can change, check <a class="xref" href="ece-manage-repositories.html" title="Manage snapshot repositories">Add Snapshot Repository Configurations</a>.</p>
+</li>
+<li class="listitem">
+Select <span class="strong strong"><strong>Save</strong></span>.
+</li>
+</ol>
+</div>
+<h3><a id="ece_delete_snapshot_repository_configurations"></a>Delete snapshot repository configurations<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/cloud-enterprise/ce-configuring-ece-snapshot-repositories.asciidoc">edit</a></h3>
+<p>Deleting a snapshot repository configuration does not remove the snapshot repository itself from S3. Only the configuration that enables Elastic Cloud Enterprise to access the repository is removed. Existing snapshots are also retained and need to be deleted separately if you no longer need them.</p>
+<p>To delete a snapshot repository configuration from your Elastic Cloud Enterprise installation:</p>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+<a class="xref" href="ece-login.html" title="Log into the Cloud UI">Log into the Cloud UI</a>.
+</li>
+<li class="listitem">
+From the <span class="strong strong"><strong>Platform</strong></span> menu, select <span class="strong strong"><strong>Repositories</strong></span>.
+</li>
+<li class="listitem">
+Find the repository name that you want to remove.
+</li>
+<li class="listitem">
+<p>Run the following command against the repository name:</p>
+<div class="pre_wrapper lang-sh">
+<pre class="programlisting prettyprint lang-sh">curl -s -XDELETE -u USER:PASSWORD https://COORDINATOR_HOST:12443/api/v1/platform/configuration/snapshots/repositories/REPOSITORY_NAME</pre>
+</div>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>The user must have sufficient privileges, such as the <code class="literal">admin</code> user.</p>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<h3><a id="ece-manage-repositories-clusters"></a>Manage Elasticsearch cluster repositories<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/cloud-enterprise/ce-configuring-ece-snapshot-repositories.asciidoc">edit</a></h3>
+<p>You might need to update existing Elasticsearch clusters to use a different snapshot repository for one of the following reasons:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+If you do not want all snapshots for a specific Elasticsearch cluster to go into the same bucket as your other clusters, you can add a new snapshot repository configuration with separate permissions and then change your Elasticsearch cluster to use the new repository.
+</li>
+<li class="listitem">
+If you created an Elasticsearch cluster with no snapshot repository configured, you can add a repository later on. Elastic Cloud Enterprise will start taking snapshots of the cluster automatically.
+</li>
+</ul>
+</div>
+<p>To change the snapshot repository for an existing Elasticsearch cluster:</p>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+<a class="xref" href="ece-login.html" title="Log into the Cloud UI">Log into the Cloud UI</a>.
+</li>
+<li class="listitem">
+Optional: If you need to use a repository that is not yet listed, <a class="xref" href="ece-manage-repositories.html" title="Manage snapshot repositories">add a snapshot repository configuration</a> first.
+</li>
+<li class="listitem">
+<p>From the <span class="strong strong"><strong>Deployments</strong></span> page, select your deployment.</p>
+<p>Narrow the list by name, ID, or choose from several other filters. To further define the list, use a combination of filters.</p>
+</li>
+<li class="listitem">
+From the <span class="strong strong"><strong>Elasticsearch</strong></span> menu, select <span class="strong strong"><strong>Snapshots</strong></span>.
+</li>
+<li class="listitem">
+Under <span class="strong strong"><strong>Snapshot repository</strong></span>, choose a different repository and select <span class="strong strong"><strong>Save repository</strong></span>.
+</li>
+</ol>
+</div>
+<p>Future snapshots will be sent to the new repository.</p>
+
+
+
+
+
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="ece-include-additional-kibana-plugin.html">« Include additional Kibana plugins</a>
+</span>
+<span class="next">
+<a href="ece-configure-gcp-snapshotting-v6.html">Snapshotting to Google Cloud Storage (GCS) for Elasticsearch 6.4 - 6.8 »</a>
+</span>
+</div>
+</div>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains('stemblock')) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+</body>
+</html>

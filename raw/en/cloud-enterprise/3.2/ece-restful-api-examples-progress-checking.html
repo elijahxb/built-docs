@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Updating a deployment: Checking on progress | Elastic Cloud Enterprise Reference [3.2] | Elastic</title>
+<link rel="home" href="index.html" title="Elastic Cloud Enterprise Reference [3.2]"/>
+<link rel="up" href="ece-restful-api-examples.html" title="API examples"/>
+<link rel="prev" href="ece-restful-api-examples-resize-and-ha.html" title="Applying a new plan: Resize and add high availability"/>
+<link rel="next" href="ece-restful-api-examples-upgrade.html" title="Applying a new deployment configuration: Upgrade"/>
+<meta name="DC.type" content="Learn/Docs/CloudEnterprise/Reference/3.2"/>
+<meta name="DC.subject" content="ECE"/>
+<meta name="DC.identifier" content="3.2"/>
+</head>
+<body><div class="page_header">
+A newer version is available. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Cloud Enterprise Reference [3.2]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="ece-restful-api.html">RESTful API</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="ece-restful-api-examples.html">API examples</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="ece-restful-api-examples-resize-and-ha.html">« Applying a new plan: Resize and add high availability</a>
+</span>
+<span class="next">
+<a href="ece-restful-api-examples-upgrade.html">Applying a new deployment configuration: Upgrade »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="ece-restful-api-examples-progress-checking"></a>Updating a deployment: Checking on progress<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/cloud-enterprise/ce-api-examples.asciidoc">edit</a></h2>
+</div></div></div>
+<p>For smaller deployments, changes in the configuration of resources might take only a minute, but larger deployments might take quite a while, especially if data needs to be migrated to new nodes.</p>
+<p>Switching to the ECE UI to check on progress is not feasible if you plan to use the RESTful API for automation, so the API also lets you check on the progress of changes when obtaining information about a deployment.
+Each resource contains an <code class="literal">info</code> field with the current plan (the current configuration), and potentially pending plans still to be applied.</p>
+<p>This information can be obtained by querying the full deployment, as shown:</p>
+<div class="pre_wrapper lang-sh">
+<pre class="programlisting prettyprint lang-sh">curl -k -X GET -H "Authorization: ApiKey $ECE_API_KEY" https://$COORDINATOR_HOST:12443/api/v1/deployments/$DEPLOYMENT_ID</pre>
+</div>
+<p>To get information about just one of the resources in the deployment, specify its <code class="literal">kind</code> and <code class="literal">ref_id</code>:</p>
+<div class="pre_wrapper lang-sh">
+<pre class="programlisting prettyprint lang-sh">curl -k -X GET -H "Authorization: ApiKey $ECE_API_KEY" https://$COORDINATOR_HOST:12443/api/v1/deployments/$DEPLOYMENT_ID/elasticsearch/$REF_ID</pre>
+</div>
+<div class="pre_wrapper lang-text">
+<pre class="programlisting prettyprint lang-text">{
+  "ref_id" : "main-elasticsearch",
+  "id" : "f6917af4c5504dc9938cea403bda7c44",
+  "region" : "ece-region",
+  "info" : {
+    "cluster_id" : "f6917af4c7506dc9938bfb408bdb3e69",
+    "cluster_name" : "My First Deployment",
+    "deployment_id" : "$DEPLOYMENT_ID",
+    "healthy" : false,
+    "status" : "reconfiguring",
+    "plan_info" : {
+      "healthy" : true,
+      "current" : {
+        "healthy" : true,
+        "plan" : {
+    ...
+      "pending" : {
+        "plan_attempt_id" : "da0a04aa-dd78-43bc-bb8e-d29c8cedbd98",
+        "healthy" : true,
+        "attempt_start_time" : "2021-08-10T22:18:00.719Z",
+        "plan" : {
+    ...
+  }
+}</pre>
+</div>
+<div class="variablelist">
+<dl class="variablelist">
+<dt>
+<span class="term">
+<code class="literal">REF_ID</code>
+</span>
+</dt>
+<dd>
+The reference ID introduced when creating the resource. In our example, the value of <code class="literal">ref_id</code> is <code class="literal">main-elasticsearch</code>.
+</dd>
+</dl>
+</div>
+<p>For each resource, an <code class="literal">info</code> field contains a <code class="literal">plan_info</code> field. Inside this object, the <code class="literal">pending</code> field shows the plan that is currently pending to be applied, in this case the plan from <a class="xref" href="ece-restful-api-examples-resize-and-ha.html" title="Applying a new plan: Resize and add high availability">our previous example</a>. After the configuration change completes, the <code class="literal">pending</code> field is replaced by a <code class="literal">current</code> field that shows the new configuration.</p>
+<p>For long-running changes that might involve large clusters, this "yes" or "no" answer to the question whether there are still pending configuration changes might not always be sufficiently granular. If you need more detailed information, you can also get the activity log returned back to you:</p>
+<div class="pre_wrapper lang-sh">
+<pre class="programlisting prettyprint lang-sh">curl -k -X GET -H "Authorization: ApiKey $ECE_API_KEY" https://$COORDINATOR_HOST:12443/api/v1/deployments/$DEPLOYMENT_ID?show_plan_logs=true</pre>
+</div>
+<div class="pre_wrapper lang-sh">
+<pre class="programlisting prettyprint lang-sh">curl -k -X GET -H "Authorization: ApiKey $ECE_API_KEY" https://$COORDINATOR_HOST:12443/api/v1/deployments/$DEPLOYMENT_ID/elasticsearch/$REF_ID?show_plan_logs=true</pre>
+</div>
+<p>Beware that the activity log can be quite long, as it lists every step in the deployment configuration process. To simplify the output, you can grep on <code class="literal">"message": "Completed step:</code> to get the highlights of how each step in the plan is getting applied. The output will look similar to this very abridged example:</p>
+<div class="pre_wrapper lang-sh">
+<pre class="programlisting prettyprint lang-sh">"message": "Starting step: [plan-validator]: [cluster=ElasticsearchCluster(1e5675defe924b14af39136bd476fe36), stat=4294980506,4294980506,1544207967588,1544207967588,0,0,0,0,1403,0,4294980506\n]"
+...
+"message": "Plan successfully constructed: [PlanSuccessful()]"</pre>
+</div>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="ece-restful-api-examples-resize-and-ha.html">« Applying a new plan: Resize and add high availability</a>
+</span>
+<span class="next">
+<a href="ece-restful-api-examples-upgrade.html">Applying a new deployment configuration: Upgrade »</a>
+</span>
+</div>
+</div>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains('stemblock')) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+</body>
+</html>

@@ -11,6 +11,7 @@
 <meta name="DC.type" content="Learn/Docs/Clients/.Net/8.1"/>
 <meta name="DC.subject" content="Clients"/>
 <meta name="DC.identifier" content="8.1"/>
+<meta name="robots" content="noindex,nofollow"/>
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -56,7 +57,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,38 +88,30 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
-                  
+                  <div class="page_header">
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch .NET Client [8.1]</a></span>
-»
-<span class="breadcrumb-link"><a href="nest.html">NEST - High level client</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch .NET Client [8.1]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="nest.html">NEST - High level client</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="search.html">Search</a></span>
-»
-<span class="breadcrumb-node">Writing bool queries</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -130,7 +123,7 @@
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="bool-queries"></a>Writing bool queries<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/query-dsl/bool-dsl/bool-dsl.asciidoc">edit</a></h2>
+<h2 class="title"><a id="bool-queries"></a>Writing bool queries<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/query-dsl/bool-dsl/bool-dsl.asciidoc">edit</a></h2>
 </div></div></div>
 <p>Writing <code class="literal">bool</code> queries can grow verbose rather quickly when using the query DSL. For example,
 take a single <a href="/guide/en/elasticsearch/reference/master/query-dsl-bool-query.html" class="ulink" target="_top">bool query</a> with two <code class="literal">should</code> clauses</p>
@@ -154,7 +147,7 @@ in <em>hadouken indenting</em></p>
 </div>
 <div class="title">Figure 2. hadouken indenting</div>
 </div>
-<h3><a id="_operator_overloading"></a>Operator overloading<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/query-dsl/bool-dsl/bool-dsl.asciidoc">edit</a></h3>
+<h3><a id="_operator_overloading"></a>Operator overloading<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/query-dsl/bool-dsl/bool-dsl.asciidoc">edit</a></h3>
 <p>For this reason, NEST introduces <span class="strong strong"><strong>operator overloading</strong></span> so complex <code class="literal">bool</code> queries become easier to write.
 The overloaded operators are</p>
 <div class="ulist itemizedlist">
@@ -176,7 +169,7 @@ The overloaded operators are</p>
 <p>We&#8217;ll demonstrate each with examples.</p>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="binary-or-operator"></a>Binary || operator<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/query-dsl/bool-dsl/bool-dsl.asciidoc">edit</a></h3>
+<h3 class="title"><a id="binary-or-operator"></a>Binary || operator<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/query-dsl/bool-dsl/bool-dsl.asciidoc">edit</a></h3>
 </div></div></div>
 <p>Using the overloaded binary <code class="literal">||</code> operator, a <code class="literal">bool</code> query with <code class="literal">should</code> clauses can be more succinctly
 expressed.</p>
@@ -226,7 +219,7 @@ expressed.</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="binary-and-operator"></a>Binary &amp;&amp; operator<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/query-dsl/bool-dsl/bool-dsl.asciidoc">edit</a></h3>
+<h3 class="title"><a id="binary-and-operator"></a>Binary &amp;&amp; operator<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/query-dsl/bool-dsl/bool-dsl.asciidoc">edit</a></h3>
 </div></div></div>
 <p>The overloaded binary <code class="literal">&amp;&amp;</code> operator can be used to combine queries together. When the queries to be combined
 don&#8217;t have any unary operators applied to them, the resulting query is a <code class="literal">bool</code> query with <code class="literal">must</code> clauses</p>
@@ -332,7 +325,7 @@ to join the <code class="literal">&amp;&amp;</code> queries together to form a s
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="unary-negation-operator"></a>Unary ! operator<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/query-dsl/bool-dsl/bool-dsl.asciidoc">edit</a></h3>
+<h3 class="title"><a id="unary-negation-operator"></a>Unary ! operator<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/query-dsl/bool-dsl/bool-dsl.asciidoc">edit</a></h3>
 </div></div></div>
 <p>NEST also offers a shorthand notation for creating a <code class="literal">bool</code> query with a <code class="literal">must_not</code> clause
 using the unary <code class="literal">!</code> operator</p>
@@ -408,7 +401,7 @@ a single <code class="literal">bool</code> query with two <code class="literal">
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="unary-plus-operator"></a>Unary + operator<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/query-dsl/bool-dsl/bool-dsl.asciidoc">edit</a></h3>
+<h3 class="title"><a id="unary-plus-operator"></a>Unary + operator<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/query-dsl/bool-dsl/bool-dsl.asciidoc">edit</a></h3>
 </div></div></div>
 <p>A query can be transformed into a <code class="literal">bool</code> query with a <code class="literal">filter</code> clause using the unary <code class="literal">+</code> operator</p>
 <div class="pre_wrapper lang-csharp">
@@ -454,7 +447,7 @@ combined with the <code class="literal">&amp;&amp;</code> operator to form a sin
     +Query &amp;&amp; +Query,
     c =&gt; c.Bool.Filter.Should().HaveCount(2));</pre>
 </div>
-<h3><a id="_combining_bool_queries"></a>Combining bool queries<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/query-dsl/bool-dsl/bool-dsl.asciidoc">edit</a></h3>
+<h3><a id="_combining_bool_queries"></a>Combining bool queries<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/query-dsl/bool-dsl/bool-dsl.asciidoc">edit</a></h3>
 <p>When combining multiple queries with the binary <code class="literal">&amp;&amp;</code> operator
 where some or all queries have unary operators applied,
 NEST is still able to combine them to form a single <code class="literal">bool</code> query.</p>
@@ -527,7 +520,7 @@ NEST is still able to combine them to form a single <code class="literal">bool</
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_combining_queries_with_or_should_clauses"></a>Combining queries with || or should clauses<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/query-dsl/bool-dsl/bool-dsl.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_combining_queries_with_or_should_clauses"></a>Combining queries with || or should clauses<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/query-dsl/bool-dsl/bool-dsl.asciidoc">edit</a></h3>
 </div></div></div>
 <p>As per the previous example, NEST will combine multiple <code class="literal">should</code> or <code class="literal">||</code> into a single <code class="literal">bool</code> query
 with <code class="literal">should</code> clauses, when it sees that the <code class="literal">bool</code> queries in play <span class="strong strong"><strong>only</strong></span> consist of <code class="literal">should</code> clauses;</p>
@@ -623,7 +616,7 @@ of the original query because only matching on <code class="literal">term5</code
         nestedBool.Bool.Should.Should().HaveCount(4);
     });</pre>
 </div>
-<h3><a id="_locked_bool_queries"></a>Locked bool queries<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/query-dsl/bool-dsl/bool-dsl.asciidoc">edit</a></h3>
+<h3><a id="_locked_bool_queries"></a>Locked bool queries<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/query-dsl/bool-dsl/bool-dsl.asciidoc">edit</a></h3>
 <p>NEST will not combine <code class="literal">bool</code> queries if any of the query metadata is set e.g if metadata such as <code class="literal">boost</code> or <code class="literal">name</code> are set,
 NEST will treat these as locked.</p>
 <p>Here we demonstrate that two locked <code class="literal">bool</code> queries are not combined</p>
@@ -653,7 +646,7 @@ NEST will treat these as locked.</p>
     || new BoolQuery { Should = new QueryContainer[] { Query } },
     c =&gt; AssertDoesNotJoinOntoLockedBool(c, "leftBool"));</pre>
 </div>
-<h3><a id="_perfomance_considerations"></a>Perfomance considerations<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/query-dsl/bool-dsl/bool-dsl.asciidoc">edit</a></h3>
+<h3><a id="_perfomance_considerations"></a>Perfomance considerations<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/query-dsl/bool-dsl/bool-dsl.asciidoc">edit</a></h3>
 <p>If you have a requirement of combining many many queries using the bool dsl please take the following into account.</p>
 <p>You <span class="strong strong"><strong>can</strong></span> use bitwise assignments in a loop to combine many queries into a bigger bool.</p>
 <p>In this example we are creating a single bool query with a 1000 must clauses using the <code class="literal">&amp;=</code> assign operator.</p>
@@ -710,15 +703,37 @@ See <a href="https://github.com/elastic/elasticsearch-net/pull/2235" class="ulin
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

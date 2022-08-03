@@ -1,11 +1,4 @@
-POST music/_search?pretty
+POST _ml/anomaly_detectors/low_request_rate/_open
 {
-  "suggest": {
-    "song-suggest": {
-      "regex": "n[ever|i]r",
-      "completion": {
-        "field": "suggest"
-      }
-    }
-  }
+  "timeout": "35m"
 }

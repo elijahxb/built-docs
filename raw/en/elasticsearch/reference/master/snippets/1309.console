@@ -1,15 +1,17 @@
-POST /_search
+POST /sales/_search?size=0
 {
+  "query": {
+    "constant_score": {
+      "filter": {
+        "match": { "type": "hat" }
+      }
+    }
+  },
   "aggs": {
-    "my_date_histo": {
-      "date_histogram": {
-        "field": "timestamp",
-        "calendar_interval": "day"
-      },
-      "aggs": {
-        "the_deriv": {
-          "derivative": { "buckets_path": "_count" }
-        }
+    "hat_prices": {
+      "sum": {
+        "field": "price",
+        "missing": 100
       }
     }
   }

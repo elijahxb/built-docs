@@ -14,11 +14,9 @@
 <body>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Integrations Developer Guide</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Integrations Developer Guide</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="package-spec.html">Package specification</a></span>
-»
-<span class="breadcrumb-node"><code class="literal">data_stream</code></span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -63,12 +61,7 @@
       name: agent
       required: false
       additionalContents: false
-      contents:
-      - description: Folder containing agent stream definitions
-        type: folder
-        name: stream
-        required: true
-        additionalContents: false
+      $ref: "./agent/spec.yml"
     - description: Folder containing Elasticsearch assets
       type: folder
       name: elasticsearch

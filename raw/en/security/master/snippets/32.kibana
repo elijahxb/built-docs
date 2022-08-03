@@ -1,1 +1,1 @@
-GET api/detection_engine/privileges
+PUT api/detection_engine/rules/prepackaged

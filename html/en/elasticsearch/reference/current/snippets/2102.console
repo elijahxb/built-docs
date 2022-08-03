@@ -1,22 +1,13 @@
-PUT _component_template/template_1
+POST _reindex
 {
-  "template": {
-    "settings": {
-      "number_of_shards": 1
-    },
-    "mappings": {
-      "_source": {
-        "enabled": false
-      },
-      "properties": {
-        "host_name": {
-          "type": "keyword"
-        },
-        "created_at": {
-          "type": "date",
-          "format": "EEE MMM dd HH:mm:ss Z yyyy"
-        }
-      }
-    }
+  "source": {
+    "index": "metricbeat-*"
+  },
+  "dest": {
+    "index": "metricbeat"
+  },
+  "script": {
+    "lang": "painless",
+    "source": "ctx._index = 'metricbeat-' + (ctx._index.substring('metricbeat-'.length(), ctx._index.length())) + '-1'"
   }
 }

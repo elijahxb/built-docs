@@ -1,17 +1,13 @@
-GET news/_search
+PUT parent_example
 {
-  "query": {
-    "simple_query_string": {
-      "query": "+elasticsearch  +pozmantier"
-    }
-  },
-  "_source": [
-    "title",
-    "source"
-  ],
-  "highlight": {
-    "fields": {
-      "content": {}
-    }
+  "mappings": {
+     "properties": {
+       "join": {
+         "type": "join",
+         "relations": {
+           "question": "answer"
+         }
+       }
+     }
   }
 }

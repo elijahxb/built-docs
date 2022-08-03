@@ -1,7 +1,6 @@
-POST _watcher/watch/my_watch/_execute
+POST /_security/oauth2/token
 {
-  "action_modes" : {
-    "action1" : "force_simulate",
-    "action2" : "skip"
-  }
+  "grant_type" : "password",
+  "username" : "test_admin",
+  "password" : "x-pack-test-password"
 }

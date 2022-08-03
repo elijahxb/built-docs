@@ -7,7 +7,7 @@
 <link rel="home" href="index.html" title="APM User Guide [8.2]"/>
 <link rel="up" href="upgrade.html" title="Upgrade"/>
 <link rel="prev" href="agent-server-compatibility.html" title="APM agent compatibility"/>
-<link rel="next" href="upgrading-to-8.x.html" title="Upgrade to version 8.2.0"/>
+<link rel="next" href="upgrading-to-8.x.html" title="Upgrade to version 8.2.3"/>
 <meta name="DC.type" content="Learn/Docs/APM Guide/8.2"/>
 <meta name="DC.subject" content="APM"/>
 <meta name="DC.identifier" content="8.2"/>
@@ -57,7 +57,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -88,47 +88,36 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
-You are looking at preliminary documentation for a future release.
-Not what you want? See the
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
 <a href="../current/index.html">current release documentation</a>.
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">APM User Guide [8.2]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">APM User Guide [8.2]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="upgrade.html">Upgrade</a></span>
-»
-<span class="breadcrumb-node">Breaking Changes</span>
 </div>
 <div class="navheader">
 <span class="prev">
 <a href="agent-server-compatibility.html">« APM agent compatibility</a>
 </span>
 <span class="next">
-<a href="upgrading-to-8.x.html">Upgrade to version 8.2.0 »</a>
+<a href="upgrading-to-8.x.html">Upgrade to version 8.2.3 »</a>
 </span>
 </div>
 <div class="section">
@@ -137,6 +126,24 @@ Not what you want? See the
 </div></div></div>
 <p>This section describes the breaking changes and deprecations introduced in this release
 and previous minor versions.</p>
+<h3><a id="breaking-changes-8.2"></a>8.2<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/apm-server/edit/8.2/docs/apm-breaking.asciidoc">edit</a></h3>
+<p>The following breaking changes are introduced in APM version 8.2.0:</p>
+<h4><a id="_apm_server_now_emits_events_with_event_duration"></a>APM Server now emits events with <code class="literal">event.duration</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/apm-server/edit/8.2/docs/apm-breaking.asciidoc">edit</a></h4>
+<p>APM Server no longer emits events with a <code class="literal">transaction.duration.us</code> or <code class="literal">span.duration.us</code>.
+Instead, events are emitted with an <code class="literal">event.duration</code>.
+An ingest pipeline sets the legacy <code class="literal">&lt;event&gt;.duration.us</code> field and removes the <code class="literal">event.duration</code>.</p>
+<p>This change will impact users who are not using APM Server&#8217;s Elasticsearch output or the packaged ingest pipeline.
+For details, see <a href="https://github.com/elastic/apm-server/pull/7261" class="ulink" target="_top">PR #7261</a>.</p>
+<h4><a id="_removed_observer_version_major"></a>Removed <code class="literal">observer.version_major</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/apm-server/edit/8.2/docs/apm-breaking.asciidoc">edit</a></h4>
+<p>The field <code class="literal">observer.version_major</code> is non-standard and existed only for the APM UI to filter out legacy docs (versions &lt;7.0).
+This check is no longer performed, so the field has been removed.</p>
+<p>For details, see <a href="https://github.com/elastic/apm-server/pull/7399" class="ulink" target="_top">PR #7399</a>.</p>
+<h4><a id="_apm_server_no_longer_ships_with_system_v_init_scripts_or_the_go_daemon_wrapper"></a>APM Server no longer ships with System V init scripts or the go-daemon wrapper<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/apm-server/edit/8.2/docs/apm-breaking.asciidoc">edit</a></h4>
+<p>As of version 8.1.0, all Linux distributions supported by APM Server support systemd.
+As a result, APM Server no longer ships with System V init scripts or the go-daemon wrapper; use systemd instead.</p>
+<p>For details, see <a href="https://github.com/elastic/apm-server/pull/7576" class="ulink" target="_top">PR #7576</a>.</p>
+<h4><a id="_deprecated_32_bit_architectures"></a>Deprecated 32-bit architectures<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/apm-server/edit/8.2/docs/apm-breaking.asciidoc">edit</a></h4>
+<p>APM Server support for 32-bit architectures has been deprecated and will be removed in a future release.</p>
 <h3><a id="breaking-changes-8.1"></a>8.1<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/apm-server/edit/8.2/docs/apm-breaking.asciidoc">edit</a></h3>
 <p>There are no breaking changes in APM.</p>
 <h3><a id="breaking-changes-8.0"></a>8.0<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/apm-server/edit/8.2/docs/apm-breaking.asciidoc">edit</a></h3>
@@ -281,22 +288,44 @@ output.elasticsearch.flush_interval</pre>
 <a href="agent-server-compatibility.html">« APM agent compatibility</a>
 </span>
 <span class="next">
-<a href="upgrading-to-8.x.html">Upgrade to version 8.2.0 »</a>
+<a href="upgrading-to-8.x.html">Upgrade to version 8.2.3 »</a>
 </span>
 </div>
 </div>
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

@@ -1,1 +1,1 @@
-GET /_snapshot/my_repository/snapshot_*?sort=start_time&from_sort_value=1577833200000
+POST /_security/service/elastic/fleet-server/credential/token/token1,token2/_clear_cache

@@ -20,13 +20,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Kibana Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="development.html">Developer guide</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Kibana Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="development.html">Developer guide</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="kibana-architecture.html">Architecture</a></span>
-»
-<span class="breadcrumb-node">Logging service</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -48,7 +45,7 @@ Not what you want? See the
 </div>
 </div>
 <div class="pre_wrapper lang-typescript">
-<pre class="programlisting prettyprint lang-typescript">import type { PluginInitializerContext, CoreSetup, Plugin, Logger } from 'kibana/server';
+<pre class="programlisting prettyprint lang-typescript">import type { PluginInitializerContext, CoreSetup, Plugin, Logger } from '@kbn/core/server';
 
 export class MyPlugin implements Plugin {
   private readonly logger: Logger;
@@ -69,7 +66,7 @@ export class MyPlugin implements Plugin {
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_usage"></a>Usage<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/developer/architecture/core/logging-service.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_usage_2"></a>Usage<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/developer/architecture/core/logging-service.asciidoc">edit</a></h3>
 </div></div></div>
 <p>Usage is very straightforward, one should just get a logger for a specific context and use it to log messages with
 different log level.</p>

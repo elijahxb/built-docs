@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,27 +87,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 A newer version is available. For the latest information, see the
@@ -115,13 +106,10 @@ A newer version is available. For the latest information, see the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [7.17]</a></span>
-»
-<span class="breadcrumb-link"><a href="query-dsl.html">Query DSL</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [7.17]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="query-dsl.html">Query DSL</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="compound-queries.html">Compound queries</a></span>
-»
-<span class="breadcrumb-node">Function score query</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -157,7 +145,7 @@ by the query.</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/879.console"></div>
+<div class="console_widget" data-snippet="snippets/881.console"></div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
@@ -199,7 +187,7 @@ given filtering query</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/880.console"></div>
+<div class="console_widget" data-snippet="snippets/882.console"></div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
@@ -460,7 +448,7 @@ simple sample:</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/881.console"></div>
+<div class="console_widget" data-snippet="snippets/883.console"></div>
 <div class="important admon">
 <div class="icon"></div>
 <div class="admon_content">
@@ -497,7 +485,7 @@ same script, and provide parameters to it:</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/882.console"></div>
+<div class="console_widget" data-snippet="snippets/884.console"></div>
 <p>Note that unlike the <code class="literal">custom_score</code> query, the
 score of the query is multiplied with the result of the script scoring. If
 you wish to inhibit this, set <code class="literal">"boost_mode": "replace"</code></p>
@@ -555,7 +543,7 @@ a lot of memory.</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/883.console"></div>
+<div class="console_widget" data-snippet="snippets/885.console"></div>
 </div>
 
 <div class="section">
@@ -584,7 +572,7 @@ doing so would look like:</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/884.console"></div>
+<div class="console_widget" data-snippet="snippets/886.console"></div>
 <p>Which will translate into the following formula for scoring:</p>
 <p><code class="literal">sqrt(1.2 * doc['my-int'].value)</code></p>
 <p>There are a number of options for the <code class="literal">field_value_factor</code> function:</p>
@@ -794,7 +782,7 @@ days, weeks, and so on. Example:</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/885.console"></div>
+<div class="console_widget" data-snippet="snippets/887.console"></div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
@@ -1120,7 +1108,7 @@ the request would look like this:</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/886.console"></div>
+<div class="console_widget" data-snippet="snippets/888.console"></div>
 <p>Next, we show how the computed score looks like for each of the three
 possible decay functions.</p>
 <div class="section">
@@ -1226,15 +1214,37 @@ return 1.</p>
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

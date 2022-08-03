@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,27 +87,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 A newer version is available. For the latest information, see the
@@ -115,13 +106,10 @@ A newer version is available. For the latest information, see the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [7.17]</a></span>
-»
-<span class="breadcrumb-link"><a href="secure-cluster.html">Secure the Elastic Stack</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [7.17]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="secure-cluster.html">Secure the Elastic Stack</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="authorization.html">User authorization</a></span>
-»
-<span class="breadcrumb-node">Field level security</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -158,7 +146,7 @@ thus bound to a well-defined set of data streams or indices (and potentially a s
   ]
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1688.console"></div>
+<div class="console_widget" data-snippet="snippets/1690.console"></div>
 <p>Access to the following metadata fields is always allowed: <code class="literal">_id</code>,
 <code class="literal">_type</code>, <code class="literal">_parent</code>, <code class="literal">_routing</code>, <code class="literal">_timestamp</code>, <code class="literal">_ttl</code>, <code class="literal">_size</code> and <code class="literal">_index</code>. If
 you specify an empty list of fields, only these metadata fields are accessible.</p>
@@ -184,7 +172,7 @@ example grants read access to all fields that start with an <code class="literal
   ]
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1689.console"></div>
+<div class="console_widget" data-snippet="snippets/1691.console"></div>
 <p>Use the dot notations to refer to nested fields in more complex documents. For
 example, assuming the following document:</p>
 <div class="pre_wrapper lang-js">
@@ -212,7 +200,7 @@ field:</p>
   ]
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1690.console"></div>
+<div class="console_widget" data-snippet="snippets/1692.console"></div>
 <p>This is where wildcard support shines. For example, use <code class="literal">customer.*</code> to enable
 only read access to the <code class="literal">customer</code> data:</p>
 <div class="pre_wrapper lang-console">
@@ -229,7 +217,7 @@ only read access to the <code class="literal">customer</code> data:</p>
   ]
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1691.console"></div>
+<div class="console_widget" data-snippet="snippets/1693.console"></div>
 <p>You can deny permission to access fields with the following syntax:</p>
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">POST /_security/role/test_role5
@@ -246,7 +234,7 @@ only read access to the <code class="literal">customer</code> data:</p>
   ]
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1692.console"></div>
+<div class="console_widget" data-snippet="snippets/1694.console"></div>
 <p>The following rules apply:</p>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -280,7 +268,7 @@ those which match the pattern in the denied fields.
   ]
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1693.console"></div>
+<div class="console_widget" data-snippet="snippets/1695.console"></div>
 <p>In the above example, users can read all fields with the prefix "customer."
 except for "customer.handle".</p>
 <p>An empty array for <code class="literal">grant</code> (for example, <code class="literal">"grant" : []</code>) means that access has
@@ -317,7 +305,7 @@ POST /_security/role/test_role8
   ]
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1694.console"></div>
+<div class="console_widget" data-snippet="snippets/1696.console"></div>
 <p>The resulting permission is equal to:</p>
 <div class="pre_wrapper lang-js">
 <pre class="programlisting prettyprint lang-js">{
@@ -356,15 +344,37 @@ To secure a concrete field, its field name must be used directly.</p>
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

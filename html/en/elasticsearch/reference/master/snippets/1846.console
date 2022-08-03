@@ -1,1 +1,1 @@
-GET /_cluster/stats?human&pretty
+GET /my-index-000001/_settings/index.routing.allocation.include._tier_preference?flat_settings

@@ -15,19 +15,16 @@
 <meta name="robots" content="noindex,nofollow"/>
 </head>
 <body><div class="page_header">
-You are looking at preliminary documentation for a future release.
-Not what you want? See the
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
 <a href="../current/index.html">current release documentation</a>.
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Kibana Guide [8.2]</a></span>
-»
-<span class="breadcrumb-link"><a href="api.html">REST API</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Kibana Guide [8.2]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="api.html">REST API</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="cases-api.html">Cases APIs</a></span>
-»
-<span class="breadcrumb-node">Get reporters API</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -53,7 +50,7 @@ Not what you want? See the
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_prerequisite_11"></a>Prerequisite<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.2/docs/api/cases/cases-api-get-reporters.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_prerequisites_20"></a>Prerequisites<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.2/docs/api/cases/cases-api-get-reporters.asciidoc">edit</a></h3>
 </div></div></div>
 <p>You must have <code class="literal">read</code> privileges for the <span class="strong strong"><strong>Cases</strong></span> feature in the <span class="strong strong"><strong>Management</strong></span>,
 <span class="strong strong"><strong>Observability</strong></span>, or <span class="strong strong"><strong>Security</strong></span> section of the
@@ -79,9 +76,11 @@ will contain all reporters from cases that the user has access to read.
 </dd>
 </dl>
 </div>
+</div>
+
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="_response_code_12"></a>Response code<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.2/docs/api/cases/cases-api-get-reporters.asciidoc">edit</a></h4>
+<h3 class="title"><a id="_response_codes_13"></a>Response codes<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.2/docs/api/cases/cases-api-get-reporters.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="variablelist">
 <dl class="variablelist">
@@ -99,13 +98,13 @@ Indicates a successful call.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="_example_37"></a>Example<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.2/docs/api/cases/cases-api-get-reporters.asciidoc">edit</a></h4>
+<h3 class="title"><a id="_examples_21"></a>Examples<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.2/docs/api/cases/cases-api-get-reporters.asciidoc">edit</a></h3>
 </div></div></div>
 <p>Returns all case reporters:</p>
 <div class="pre_wrapper lang-kibana">
 <pre class="programlisting prettyprint lang-kibana">GET api/cases/reporters</pre>
 </div>
-<div class="kibana_widget" data-snippet="snippets/152.kibana"></div>
+<div class="kibana_widget" data-snippet="snippets/164.kibana"></div>
 <p>The API returns a JSON object with the retrieved reporters. For example:</p>
 <div class="pre_wrapper lang-json">
 <pre class="programlisting prettyprint lang-json">[
@@ -121,8 +120,6 @@ Indicates a successful call.
   }
 ]</pre>
 </div>
-</div>
-
 </div>
 
 </div>

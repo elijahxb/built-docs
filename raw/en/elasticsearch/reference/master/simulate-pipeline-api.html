@@ -18,13 +18,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="rest-apis.html">REST APIs</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="rest-apis.html">REST APIs</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="ingest-apis.html">Ingest APIs</a></span>
-»
-<span class="breadcrumb-node">Simulate pipeline API</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -36,7 +33,7 @@ Not what you want? See the
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="simulate-pipeline-api"></a>Simulate pipeline API<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ingest/apis/simulate-pipeline.asciidoc">edit</a></h2>
+<h2 class="title"><a id="simulate-pipeline-api"></a>Simulate pipeline API<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ingest/apis/simulate-pipeline.asciidoc">edit</a></h2>
 </div></div></div>
 
 <p>Executes an ingest pipeline against
@@ -63,10 +60,10 @@ a set of provided documents.</p>
   ]
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/2259.console"></div>
+<div class="console_widget" data-snippet="snippets/2376.console"></div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="simulate-pipeline-api-request"></a>Request<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ingest/apis/simulate-pipeline.asciidoc">edit</a></h3>
+<h3 class="title"><a id="simulate-pipeline-api-request"></a>Request<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ingest/apis/simulate-pipeline.asciidoc">edit</a></h3>
 </div></div></div>
 <p><code class="literal">POST /_ingest/pipeline/&lt;pipeline&gt;/_simulate</code></p>
 <p><code class="literal">GET /_ingest/pipeline/&lt;pipeline&gt;/_simulate</code></p>
@@ -76,7 +73,7 @@ a set of provided documents.</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="simulate-pipeline-api-prereqs"></a>Prerequisites<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ingest/apis/simulate-pipeline.asciidoc">edit</a></h3>
+<h3 class="title"><a id="simulate-pipeline-api-prereqs"></a>Prerequisites<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ingest/apis/simulate-pipeline.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -91,7 +88,7 @@ If the Elasticsearch security features are enabled, you must have the
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="simulate-pipeline-api-desc"></a>Description<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ingest/apis/simulate-pipeline.asciidoc">edit</a></h3>
+<h3 class="title"><a id="simulate-pipeline-api-desc"></a>Description<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ingest/apis/simulate-pipeline.asciidoc">edit</a></h3>
 </div></div></div>
 <p>The simulate pipeline API executes a specific pipeline
 against a set of documents provided in the body of the request.</p>
@@ -102,7 +99,7 @@ or supply a pipeline definition in the body of the request.</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="simulate-pipeline-api-path-params"></a>Path parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ingest/apis/simulate-pipeline.asciidoc">edit</a></h3>
+<h3 class="title"><a id="simulate-pipeline-api-path-params"></a>Path parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ingest/apis/simulate-pipeline.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="variablelist">
 <dl class="variablelist">
@@ -122,7 +119,7 @@ parameter is required.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="simulate-pipeline-api-query-params"></a>Query parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ingest/apis/simulate-pipeline.asciidoc">edit</a></h3>
+<h3 class="title"><a id="simulate-pipeline-api-query-params"></a>Query parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ingest/apis/simulate-pipeline.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="variablelist">
 <dl class="variablelist">
@@ -143,7 +140,7 @@ for each processor in the executed pipeline.
 
 <div class="section child_attributes">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="simulate-pipeline-api-request-body"></a>Request body<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ingest/apis/simulate-pipeline.asciidoc">edit</a></h3>
+<h3 class="title"><a id="simulate-pipeline-api-request-body"></a>Request body<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ingest/apis/simulate-pipeline.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="variablelist">
 <dl class="variablelist">
@@ -289,11 +286,11 @@ JSON body for the document.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="simulate-pipeline-api-example"></a>Examples<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ingest/apis/simulate-pipeline.asciidoc">edit</a></h3>
+<h3 class="title"><a id="simulate-pipeline-api-example"></a>Examples<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ingest/apis/simulate-pipeline.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="simulate-pipeline-api-path-parm-ex"></a>Specify a pipeline as a path parameter<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ingest/apis/simulate-pipeline.asciidoc">edit</a></h4>
+<h4 class="title"><a id="simulate-pipeline-api-path-parm-ex"></a>Specify a pipeline as a path parameter<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ingest/apis/simulate-pipeline.asciidoc">edit</a></h4>
 </div></div></div>
 <a id="67ffa135c50c43d6788636c88078c7d1"></a>
 <div class="pre_wrapper lang-console">
@@ -317,9 +314,9 @@ JSON body for the document.
   ]
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/2260.console"></div>
+<div class="console_widget" data-snippet="snippets/2377.console"></div>
 <p>The API returns the following response:</p>
-<a id="661b827203639440daa8f73727c8375e"></a>
+<a id="a9bc8b084309ca06fee316df844ab975"></a>
 <div class="pre_wrapper lang-console-result">
 <pre class="programlisting prettyprint lang-console-result">{
    "docs": [
@@ -327,6 +324,7 @@ JSON body for the document.
          "doc": {
             "_id": "id",
             "_index": "index",
+            "_version": "-3",
             "_source": {
                "field2": "_value",
                "foo": "bar"
@@ -340,6 +338,7 @@ JSON body for the document.
          "doc": {
             "_id": "id",
             "_index": "index",
+            "_version": "-3",
             "_source": {
                "field2": "_value",
                "foo": "rab"
@@ -356,7 +355,7 @@ JSON body for the document.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="simulate-pipeline-api-request-body-ex"></a>Specify a pipeline in the request body<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ingest/apis/simulate-pipeline.asciidoc">edit</a></h4>
+<h4 class="title"><a id="simulate-pipeline-api-request-body-ex"></a>Specify a pipeline in the request body<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ingest/apis/simulate-pipeline.asciidoc">edit</a></h4>
 </div></div></div>
 <a id="17c2b0a6b0305804ff3b7fd3b4a68df3"></a>
 <div class="pre_wrapper lang-console">
@@ -392,9 +391,9 @@ JSON body for the document.
   ]
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/2261.console"></div>
+<div class="console_widget" data-snippet="snippets/2378.console"></div>
 <p>The API returns the following response:</p>
-<a id="661b827203639440daa8f73727c8375e"></a>
+<a id="a9bc8b084309ca06fee316df844ab975"></a>
 <div class="pre_wrapper lang-console-result">
 <pre class="programlisting prettyprint lang-console-result">{
    "docs": [
@@ -402,6 +401,7 @@ JSON body for the document.
          "doc": {
             "_id": "id",
             "_index": "index",
+            "_version": "-3",
             "_source": {
                "field2": "_value",
                "foo": "bar"
@@ -415,6 +415,7 @@ JSON body for the document.
          "doc": {
             "_id": "id",
             "_index": "index",
+            "_version": "-3",
             "_source": {
                "field2": "_value",
                "foo": "rab"
@@ -431,7 +432,7 @@ JSON body for the document.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="ingest-verbose-param"></a>View verbose results<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ingest/apis/simulate-pipeline.asciidoc">edit</a></h4>
+<h4 class="title"><a id="ingest-verbose-param"></a>View verbose results<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ingest/apis/simulate-pipeline.asciidoc">edit</a></h4>
 </div></div></div>
 <p>You can use the simulate pipeline API
 to see how each processor affects the ingest document
@@ -479,9 +480,9 @@ you can add the <code class="literal">verbose</code> parameter to the request.</
   ]
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/2262.console"></div>
+<div class="console_widget" data-snippet="snippets/2379.console"></div>
 <p>The API returns the following response:</p>
-<a id="0eff6e633b8d412fd21d4f9dcbfd6d04"></a>
+<a id="5b212b84aaef524960c835a7d937eeb9"></a>
 <div class="pre_wrapper lang-console-result">
 <pre class="programlisting prettyprint lang-console-result">{
   "docs" : [
@@ -493,6 +494,7 @@ you can add the <code class="literal">verbose</code> parameter to the request.</
           "doc" : {
             "_index" : "index",
             "_id" : "id",
+            "_version": "-3",
             "_source" : {
               "field2" : "_value2",
               "foo" : "bar"
@@ -509,6 +511,7 @@ you can add the <code class="literal">verbose</code> parameter to the request.</
           "doc" : {
             "_index" : "index",
             "_id" : "id",
+            "_version": "-3",
             "_source" : {
               "field3" : "_value3",
               "field2" : "_value2",
@@ -530,6 +533,7 @@ you can add the <code class="literal">verbose</code> parameter to the request.</
           "doc" : {
             "_index" : "index",
             "_id" : "id",
+            "_version": "-3",
             "_source" : {
               "field2" : "_value2",
               "foo" : "rab"
@@ -546,6 +550,7 @@ you can add the <code class="literal">verbose</code> parameter to the request.</
           "doc" : {
             "_index" : "index",
             "_id" : "id",
+            "_version": "-3",
             "_source" : {
               "field3" : "_value3",
               "field2" : "_value2",

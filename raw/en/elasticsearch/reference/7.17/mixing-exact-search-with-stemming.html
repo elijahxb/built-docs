@@ -17,13 +17,10 @@ A newer version is available. For the latest information, see the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [7.17]</a></span>
-»
-<span class="breadcrumb-link"><a href="how-to.html">How to</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [7.17]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="how-to.html">How to</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="recipes.html">Recipes</a></span>
-»
-<span class="breadcrumb-node">Mixing exact search with stemming</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -85,7 +82,7 @@ PUT index/_doc/2
 
 POST index/_refresh</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1737.console"></div>
+<div class="console_widget" data-snippet="snippets/1739.console"></div>
 <p>With such a setup, searching for <code class="literal">ski</code> on <code class="literal">body</code> would return both documents:</p>
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">GET index/_search
@@ -98,7 +95,7 @@ POST index/_refresh</pre>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1738.console"></div>
+<div class="console_widget" data-snippet="snippets/1740.console"></div>
 <div class="pre_wrapper lang-console-result">
 <pre class="programlisting prettyprint lang-console-result">{
   "took": 2,
@@ -152,7 +149,7 @@ stemming.</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1739.console"></div>
+<div class="console_widget" data-snippet="snippets/1741.console"></div>
 <div class="pre_wrapper lang-console-result">
 <pre class="programlisting prettyprint lang-console-result">{
   "took": 1,
@@ -204,7 +201,7 @@ field, see below:</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1740.console"></div>
+<div class="console_widget" data-snippet="snippets/1742.console"></div>
 <div class="pre_wrapper lang-console-result">
 <pre class="programlisting prettyprint lang-console-result">{
   "took": 2,

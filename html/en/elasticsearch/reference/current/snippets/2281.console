@@ -1,18 +1,9 @@
-PUT _ml/anomaly_detectors/total-requests
+# PUT <my-index-{now/d}-000001>
+PUT %3Cmy-index-%7Bnow%2Fd%7D-000001%3E
 {
-  "description" : "Total sum of requests",
-  "analysis_config" : {
-    "bucket_span":"10m",
-    "detectors": [
-      {
-        "detector_description": "Sum of total",
-        "function": "sum",
-        "field_name": "total"
-      }
-    ]
-  },
-  "data_description" : {
-    "time_field":"timestamp",
-    "time_format": "epoch_ms"
+  "aliases": {
+    "my-alias": {
+      "is_write_index": true
+    }
   }
 }

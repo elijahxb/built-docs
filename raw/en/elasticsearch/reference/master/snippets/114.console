@@ -1,9 +1,15 @@
-PUT /my-index-000001/_mapping
+GET my-index-000001/_search
 {
-  "properties": {
-    "employee-id": {
-      "type": "keyword",
-      "index": false
+  "aggs": {
+    "avg_start": {
+      "avg": {
+        "field": "measures.start"
+      }
+    },
+    "avg_end": {
+      "avg": {
+        "field": "measures.end"
+      }
     }
   }
 }

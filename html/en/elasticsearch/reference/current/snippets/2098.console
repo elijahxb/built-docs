@@ -1,6 +1,5 @@
-PUT /logs
+POST my-index-000001/_doc/1?refresh
 {
-  "aliases": {
-    "<logs_{now/M}>": {}
-  }
+  "text": "words words",
+  "flag": "foo"
 }

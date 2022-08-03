@@ -19,11 +19,9 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Workplace Search Guide [master]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Workplace Search Guide [master]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="workplace-search-content-sources.html">Content Sources Overview</a></span>
-»
-<span class="breadcrumb-node">Connecting Google Drive</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -57,6 +55,15 @@ Not what you want? See the
 </tbody>
 </table>
 </div>
+<div class="sidebar">
+<div class="titlepage"><div><div>
+<p class="title"><strong>Check the Elastic discussion forums for the latest information about your content source</strong></p>
+</div></div></div>
+<p>Workplace Search allows you to index third-party content sources.
+Sometimes these apps will make unanticipated API changes that impact your content syncing and require an action.
+We can&#8217;t always keep up in real time in this documentation!</p>
+<p>Visit the <a href="https://discuss.elastic.co//c/enterprise-search/workplace-search" class="ulink" target="_blank" rel="noopener">Workplace Search discussion forum</a> to read the latest information and check for known issues.</p>
+</div>
 <h3><a id="google-drive-configuration"></a>Configuring the Google Drive Connector<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/enterprise-search-pubs/edit/main/workplace-search-docs/guides/content-sources/google-drive.asciidoc">edit</a></h3>
 <p>Configuring the Google Drive connector is the first step prior to connecting the Google Drive service to Workplace Search, and requires that you create an <span class="strong strong"><strong>OAuth App</strong></span> from the Google Drive platform.</p>
 <hr>
@@ -74,14 +81,14 @@ Not what you want? See the
 <div class="content">
 <img src="images/guides/google-drive/google-drive-create-project.png" alt="">
 </div>
-<div class="title">Figure 42. Connecting Google Drive</div>
+<div class="title">Figure 48. Connecting Google Drive</div>
 </div>
 <p>If you already have active projects, you can create a new project from the Project Dropdown menu:</p>
 <div id="google-drive-2" class="imageblock screenshot">
 <div class="content">
 <img src="images/guides/google-drive/google-drive-create-project-existing.png" alt="">
 </div>
-<div class="title">Figure 43. Connecting Google Drive</div>
+<div class="title">Figure 49. Connecting Google Drive</div>
 </div>
 <p>Fill in the project information in a way that best suits your organization.</p>
 <hr>
@@ -90,7 +97,7 @@ Not what you want? See the
 <div class="content">
 <img src="images/guides/google-drive/google-drive-search-for-api.png" alt="">
 </div>
-<div class="title">Figure 44. Connecting Google Drive</div>
+<div class="title">Figure 50. Connecting Google Drive</div>
 </div>
 <hr>
 <p><span class="strong strong"><strong>Step 4.</strong></span> <span class="strong strong"><strong>Enable</strong></span> access to the Google Drive API for this project:</p>
@@ -98,7 +105,7 @@ Not what you want? See the
 <div class="content">
 <img src="images/guides/google-drive/google-drive-enable.png" alt="">
 </div>
-<div class="title">Figure 45. Connecting Google Drive</div>
+<div class="title">Figure 51. Connecting Google Drive</div>
 </div>
 <hr>
 <p><span class="strong strong"><strong>Step 5.</strong></span> You will be prompted to <span class="strong strong"><strong>Create Credentials</strong></span>:</p>
@@ -106,7 +113,7 @@ Not what you want? See the
 <div class="content">
 <img src="images/guides/google-drive/google-drive-create-credentials.png" alt="">
 </div>
-<div class="title">Figure 46. Connecting Google Drive</div>
+<div class="title">Figure 52. Connecting Google Drive</div>
 </div>
 <hr>
 <p><span class="strong strong"><strong>Step 6.</strong></span> Select <span class="strong strong"><strong>Google Drive API</strong></span> as the API you are using. You will call it from <span class="strong strong"><strong>Web browser</strong></span> to access <span class="strong strong"><strong>User data</strong></span>:</p>
@@ -114,7 +121,7 @@ Not what you want? See the
 <div class="content">
 <img src="images/guides/google-drive/google-drive-create-api.png" alt="">
 </div>
-<div class="title">Figure 47. Connecting Google Drive</div>
+<div class="title">Figure 53. Connecting Google Drive</div>
 </div>
 <hr>
 <p><span class="strong strong"><strong>Step 7.</strong></span> Click <span class="strong strong"><strong>What credentials do I need?</strong></span>, and select the <span class="strong strong"><strong>Set up consent screen</strong></span> option:</p>
@@ -122,7 +129,7 @@ Not what you want? See the
 <div class="content">
 <img src="images/guides/google-drive/google-drive-set-up-consent-screen.png" alt="">
 </div>
-<div class="title">Figure 48. Connecting Google Drive</div>
+<div class="title">Figure 54. Connecting Google Drive</div>
 </div>
 <hr>
 <p><span class="strong strong"><strong>Step 8.</strong></span> Select <span class="strong strong"><strong>Internal</strong></span> as User Type.</p>
@@ -132,7 +139,7 @@ Not what you want? See the
 <div class="content">
 <img src="images/guides/google-drive/google-drive-consent-screen-form.png" alt="">
 </div>
-<div class="title">Figure 49. Connecting Google Drive</div>
+<div class="title">Figure 55. Connecting Google Drive</div>
 </div>
 <hr>
 <p><span class="strong strong"><strong>Step 10.</strong></span> In the <span class="strong strong"><strong>Scopes for Google APIs</strong></span> section, click <span class="strong strong"><strong>Add scope</strong></span> and select the following scopes for the Google Drive API:</p>
@@ -144,7 +151,7 @@ Not what you want? See the
 <div class="content">
 <img src="images/guides/google-drive/google-drive-add-scope.png" alt="">
 </div>
-<div class="title">Figure 50. Connecting Google Drive</div>
+<div class="title">Figure 56. Connecting Google Drive</div>
 </div>
 <p><span class="strong strong"><strong>Save</strong></span> the changes.</p>
 <hr>
@@ -153,7 +160,7 @@ Not what you want? See the
 <div class="content">
 <img src="images/guides/google-drive/google-drive-create-oauth-id.png" alt="">
 </div>
-<div class="title">Figure 51. Connecting Google Drive</div>
+<div class="title">Figure 57. Connecting Google Drive</div>
 </div>
 <hr>
 <p><span class="strong strong"><strong>Step 12.</strong></span> Fill out the OAuth form:</p>
@@ -174,7 +181,7 @@ Not what you want? See the
 <div class="content">
 <img src="images/guides/google-drive/google-drive-create-oauth-id-form.png" alt="">
 </div>
-<div class="title">Figure 52. Connecting Google Drive</div>
+<div class="title">Figure 58. Connecting Google Drive</div>
 </div>
 <hr>
 <p><span class="strong strong"><strong>Step 13.</strong></span> Upon submission, you will be presented with a <span class="strong strong"><strong>Client ID</strong></span> and <span class="strong strong"><strong>Client Secret</strong></span>. Keep them handy, as we&#8217;ll need them in a moment.</p>

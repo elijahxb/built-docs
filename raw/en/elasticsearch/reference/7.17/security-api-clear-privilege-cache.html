@@ -17,13 +17,10 @@ A newer version is available. For the latest information, see the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [7.17]</a></span>
-»
-<span class="breadcrumb-link"><a href="rest-apis.html">REST APIs</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [7.17]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="rest-apis.html">REST APIs</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="security-api.html">Security APIs</a></span>
-»
-<span class="breadcrumb-node">Clear privileges cache API</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -98,17 +95,17 @@ For example, to clear the cache for <code class="literal">myapp</code>:</p>
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">POST /_security/privilege/myapp/_clear_cache</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/2521.console"></div>
+<div class="console_widget" data-snippet="snippets/2523.console"></div>
 <p>Specify multiple applications as a comma-separated list.</p>
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">POST /_security/privilege/myapp,my-other-app/_clear_cache</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/2522.console"></div>
+<div class="console_widget" data-snippet="snippets/2524.console"></div>
 <p>To clear the cache for all applications, use <code class="literal">*</code>.</p>
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">POST /_security/privilege/*/_clear_cache</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/2523.console"></div>
+<div class="console_widget" data-snippet="snippets/2525.console"></div>
 </div>
 
 </div>

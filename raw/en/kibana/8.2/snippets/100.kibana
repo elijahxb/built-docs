@@ -1,1 +1,12 @@
-$ curl -X GET api/alerting/rules/_find?fields=id&fields=name
+$ curl -X POST api/index_patterns/index-pattern/my-pattern/fields
+{
+    "fields": {
+        "foo": {
+            "count": 123,
+            "customLabel": "Foo"
+        },
+        "bar": {
+            "customLabel": "Bar"
+        }
+    }
+}

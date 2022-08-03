@@ -18,11 +18,9 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Functionbeat Reference [master]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Functionbeat Reference [master]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="configuring-howto-functionbeat.html">Configure Functionbeat</a></span>
-»
-<span class="breadcrumb-node">functionbeat.reference.yml</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -368,6 +366,10 @@ functionbeat.provider.aws.functions:
 # fields in the output document instead of being grouped under a fields
 # sub-dictionary. Default is false.
 #fields_under_root: false
+
+# Configure the precision of all timestamps in Functionbeat.
+# Available options: millisecond, microsecond, nanosecond
+#timestamp.precision: millisecond
 
 # Internal queue configuration for buffering events to be published.
 #queue:

@@ -1,14 +1,9 @@
-POST _security/role/click_role
+PUT /_security/role_mapping/jwt8_users?refresh=true
 {
-  "indices": [
-    {
-      "names": [ "events-*" ],
-      "privileges": [ "read" ],
-      "query": {
-        "match": {
-          "category": "click"
-        }
-      }
-    }
-  ]
+  "roles" : [ "user" ],
+  "rules" : { "all" : [
+      { "field": { "realm.name": "jwt8" } },
+      { "field": { "username": "principalname1" } }
+  ] },
+  "enabled": true
 }

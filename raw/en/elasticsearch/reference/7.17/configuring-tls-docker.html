@@ -17,13 +17,10 @@ A newer version is available. For the latest information, see the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [7.17]</a></span>
-»
-<span class="breadcrumb-link"><a href="secure-cluster.html">Secure the Elastic Stack</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [7.17]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="secure-cluster.html">Secure the Elastic Stack</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="configuring-stack-security.html">Configure security for the Elastic Stack</a></span>
-»
-<span class="breadcrumb-node">Encrypting communications in an Elasticsearch Docker Container</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -118,7 +115,7 @@ ELASTIC_PASSWORD=PleaseChangeMe <a id="CO528-3"></a><i class="conum" data-value=
 services:
   create_certs:
     container_name: create_certs
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.17.2
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.17.5
     command: &gt;
       bash -c '
         if [[ ! -f /certs/bundle.zip ]]; then
@@ -152,7 +149,7 @@ volumes: {"certs"}</pre>
 services:
   es01:
     container_name: es01
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.17.2
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.17.5
     environment:
       - node.name=es01
       - discovery.seed_hosts=es01,es02
@@ -181,7 +178,7 @@ services:
 
   es02:
     container_name: es02
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.17.2
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.17.5
     environment:
       - node.name=es02
       - discovery.seed_hosts=es01,es02
@@ -202,7 +199,7 @@ services:
     volumes: ['data02:/usr/share/elasticsearch/data', 'certs:$CERTS_DIR']
 
   wait_until_ready:
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.17.2
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.17.5
     command: /usr/bin/true
     depends_on: {"es01": {"condition": "service_healthy"}}
 
@@ -257,7 +254,7 @@ creating self-signed certificates without having to pin specific internal IP add
 <li class="listitem">
 <p>Access the Elasticsearch API over SSL/TLS using the bootstrapped password:</p>
 <div class="pre_wrapper lang-sh">
-<pre class="programlisting prettyprint lang-sh">docker run --rm -v es_certs:/certs --network=es_default docker.elastic.co/elasticsearch/elasticsearch:7.17.2 curl --cacert /certs/ca/ca.crt -u elastic:PleaseChangeMe https://es01:9200</pre>
+<pre class="programlisting prettyprint lang-sh">docker run --rm -v es_certs:/certs --network=es_default docker.elastic.co/elasticsearch/elasticsearch:7.17.5 curl --cacert /certs/ca/ca.crt -u elastic:PleaseChangeMe https://es01:9200</pre>
 </div>
 </li>
 <li class="listitem">

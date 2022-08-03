@@ -1,1 +1,1 @@
-GET _data_stream/my-data-stream*
+GET _cat/ml/anomaly_detectors?h=id,s,dpr,mb&v=true

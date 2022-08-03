@@ -1,11 +1,7 @@
-POST _reindex
+POST /leader_index/_ccr/forget_follower
 {
-  "source": {
-    "index": "source",
-    "size": 100
-  },
-  "dest": {
-    "index": "dest",
-    "routing": "=cat"
-  }
+  "follower_cluster" : "follower_cluster",
+  "follower_index" : "follower_index",
+  "follower_index_uuid" : "vYpnaWPRQB6mNspmoCeYyA",
+  "leader_remote_cluster" : "leader_cluster"
 }

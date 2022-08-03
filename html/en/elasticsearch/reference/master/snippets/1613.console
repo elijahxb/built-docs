@@ -1,7 +1,15 @@
-GET _cluster/allocation/explain
+PUT _slm/policy/daily-snapshots
 {
-  "index": "my-index",
-  "shard": 0,
-  "primary": false,
-  "current_node": "my-node"
+  "name": "<daily-snapshot-{now/d}>",
+  "schedule": "0 45 23 * * ?",         
+  "repository": "my_repository",
+  "config": {
+    "indices": "*",
+    "include_global_state": true
+  },
+  "retention": {
+    "expire_after": "30d",
+    "min_count": 1,
+    "max_count": 31
+  }
 }

@@ -1,12 +1,7 @@
-PUT my-index-000001/_mappings
+GET /_search
 {
-  "runtime": {
-    "http.responses": {
-      "type": "long",
-      "script": """
-        String response=dissect('%{clientip} %{ident} %{auth} [%{@timestamp}] "%{verb} %{request} HTTP/%{httpversion}" %{response} %{size}').extract(doc["message"].value)?.response;
-        if (response != null) emit(Integer.parseInt(response));
-      """
-    }
-  }
+  "query" : {
+    "match_all": {}
+  },
+  "_source": "route_length_miles"
 }

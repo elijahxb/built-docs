@@ -1,7 +1,10 @@
-PUT /my-index-000001
+POST _reindex
 {
-  "settings": {
-    "number_of_shards": 3,
-    "number_of_replicas": 2
+  "max_docs": 1,
+  "source": {
+    "index": "my-index-000001"
+  },
+  "dest": {
+    "index": "my-new-index-000001"
   }
 }

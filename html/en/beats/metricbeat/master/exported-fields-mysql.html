@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,27 +87,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 You are looking at preliminary documentation for a future release.
@@ -116,11 +107,9 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Metricbeat Reference [master]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Metricbeat Reference [master]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="exported-fields.html">Exported fields</a></span>
-»
-<span class="breadcrumb-node">MySQL fields</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -132,14 +121,14 @@ Not what you want? See the
 </div>
 <div class="chapter">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="exported-fields-mysql"></a>MySQL fields<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/fields.asciidoc">edit</a></h2>
+<h2 class="title"><a id="exported-fields-mysql"></a>MySQL fields</h2>
 </div></div></div>
 <p>MySQL server status metrics collected from MySQL.</p>
-<h3><a id="_mysql"></a>mysql<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_mysql"></a>mysql</h3>
 <p><code class="literal">mysql</code> contains the metrics that were obtained from MySQL query.</p>
-<h3><a id="_galera_status"></a>galera_status<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_galera_status"></a>galera_status</h3>
 <p><code class="literal">galera_status</code> contains the metrics that were obtained by the status SQL query on Galera.</p>
-<h3><a id="_apply_2"></a>apply<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_apply_2"></a>apply</h3>
 <p>Apply status fields.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -172,7 +161,7 @@ Not what you want? See the
 </dd>
 </dl>
 </div>
-<h3><a id="_cert"></a>cert<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_cert"></a>cert</h3>
 <p>Certification status fields.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -205,7 +194,7 @@ Not what you want? See the
 </dd>
 </dl>
 </div>
-<h3><a id="_cluster_2"></a>cluster<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_cluster_2"></a>cluster</h3>
 <p>Cluster status fields.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -238,7 +227,7 @@ Not what you want? See the
 </dd>
 </dl>
 </div>
-<h3><a id="_commit_2"></a>commit<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_commit_3"></a>commit</h3>
 <p>Commit status fields.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -271,7 +260,7 @@ Not what you want? See the
 </dd>
 </dl>
 </div>
-<h3><a id="_evs"></a>evs<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_evs"></a>evs</h3>
 <p>Evs Fields.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -295,7 +284,7 @@ Not what you want? See the
 </dd>
 </dl>
 </div>
-<h3><a id="_flow_ctl"></a>flow_ctl<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_flow_ctl"></a>flow_ctl</h3>
 <p>Flow Control fields.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -346,7 +335,7 @@ Not what you want? See the
 </dd>
 </dl>
 </div>
-<h3><a id="_local"></a>local<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_local"></a>local</h3>
 <p>Node specific Cluster status fields.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -379,7 +368,7 @@ Not what you want? See the
 </dd>
 </dl>
 </div>
-<h3><a id="_recv"></a>recv<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_recv"></a>recv</h3>
 <p>Node specific recv fields.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -430,7 +419,7 @@ Not what you want? See the
 </dd>
 </dl>
 </div>
-<h3><a id="_send"></a>send<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_send"></a>send</h3>
 <p>Node specific sent fields.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -490,7 +479,7 @@ Not what you want? See the
 </dd>
 </dl>
 </div>
-<h3><a id="_received"></a>received<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_received"></a>received</h3>
 <p>Write-Set receive status fields.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -514,7 +503,7 @@ Not what you want? See the
 </dd>
 </dl>
 </div>
-<h3><a id="_repl"></a>repl<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_repl"></a>repl</h3>
 <p>Replication status fields.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -574,9 +563,9 @@ Not what you want? See the
 </dd>
 </dl>
 </div>
-<h3><a id="_performance_3"></a>performance<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_performance_4"></a>performance</h3>
 <p><code class="literal">performance</code> contains metrics related to the performance of a MySQL instance</p>
-<h3><a id="_events_statements"></a>events_statements<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_events_statements"></a>events_statements</h3>
 <p>Records statement events summarized by schema and digest</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -636,7 +625,7 @@ Not what you want? See the
 </dd>
 </dl>
 </div>
-<h3><a id="_table_io_waits"></a>table_io_waits<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_table_io_waits"></a>table_io_waits</h3>
 <p>Records table I/O waits by index</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -678,11 +667,11 @@ Not what you want? See the
 </dd>
 </dl>
 </div>
-<h3><a id="_query_2"></a>query<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_query_2"></a>query</h3>
 <p><code class="literal">query</code> metricset fetches custom queries from the user to a MySQL instance.</p>
-<h3><a id="_status_7"></a>status<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_status_7"></a>status</h3>
 <p><code class="literal">status</code> contains the metrics that were obtained by the status SQL query.</p>
-<h3><a id="_aborted"></a>aborted<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_aborted"></a>aborted</h3>
 <p>Aborted status fields.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -706,8 +695,8 @@ Not what you want? See the
 </dd>
 </dl>
 </div>
-<h3><a id="_connection_2"></a>connection<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/fields.asciidoc">edit</a></h3>
-<h3><a id="_errors"></a>errors<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_connection_2"></a>connection</h3>
+<h3><a id="_errors"></a>errors</h3>
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -766,8 +755,8 @@ Not what you want? See the
 </dd>
 </dl>
 </div>
-<h3><a id="_cache_3"></a>cache<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/fields.asciidoc">edit</a></h3>
-<h3><a id="_ssl_8"></a>ssl<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_cache_3"></a>cache</h3>
+<h3><a id="_ssl_8"></a>ssl</h3>
 <p>SSL session cache hits and misses.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -800,8 +789,8 @@ Not what you want? See the
 </dd>
 </dl>
 </div>
-<h3><a id="_table"></a>table<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/fields.asciidoc">edit</a></h3>
-<h3><a id="_open_cache"></a>open_cache<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_table"></a>table</h3>
+<h3><a id="_open_cache"></a>open_cache</h3>
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -833,7 +822,7 @@ Not what you want? See the
 </dd>
 </dl>
 </div>
-<h3><a id="_binlog"></a>binlog<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_binlog"></a>binlog</h3>
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -854,7 +843,7 @@ Not what you want? See the
 </dd>
 </dl>
 </div>
-<h3><a id="_bytes"></a>bytes<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_bytes"></a>bytes</h3>
 <p>Bytes stats.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -880,7 +869,7 @@ Not what you want? See the
 </dd>
 </dl>
 </div>
-<h3><a id="_threads_2"></a>threads<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_threads_2"></a>threads</h3>
 <p>Threads stats.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -930,7 +919,7 @@ Not what you want? See the
 </dd>
 </dl>
 </div>
-<h3><a id="_created"></a>created<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_created"></a>created</h3>
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -959,7 +948,7 @@ Not what you want? See the
 </dd>
 </dl>
 </div>
-<h3><a id="_delayed"></a>delayed<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_delayed"></a>delayed</h3>
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -1004,7 +993,7 @@ Not what you want? See the
 </dd>
 </dl>
 </div>
-<h3><a id="_open_2"></a>open<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_open_2"></a>open</h3>
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -1041,7 +1030,7 @@ Not what you want? See the
 </dd>
 </dl>
 </div>
-<h3><a id="_command"></a>command<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_command"></a>command</h3>
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -1100,7 +1089,7 @@ Not what you want? See the
 </dd>
 </dl>
 </div>
-<h3><a id="_handler"></a>handler<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_handler"></a>handler</h3>
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -1150,7 +1139,7 @@ Not what you want? See the
 </dd>
 </dl>
 </div>
-<h3><a id="_read_6"></a>read<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_read_6"></a>read</h3>
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -1263,8 +1252,8 @@ Not what you want? See the
 </dd>
 </dl>
 </div>
-<h3><a id="_innodb"></a>innodb<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/fields.asciidoc">edit</a></h3>
-<h3><a id="_rows"></a>rows<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_innodb"></a>innodb</h3>
+<h3><a id="_rows"></a>rows</h3>
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -1305,7 +1294,7 @@ Not what you want? See the
 </dd>
 </dl>
 </div>
-<h3><a id="_buffer_pool"></a>buffer_pool<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_buffer_pool"></a>buffer_pool</h3>
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -1328,7 +1317,7 @@ Not what you want? See the
 </dd>
 </dl>
 </div>
-<h3><a id="_bytes_2"></a>bytes<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_bytes_2"></a>bytes</h3>
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -1351,7 +1340,7 @@ Not what you want? See the
 </dd>
 </dl>
 </div>
-<h3><a id="_pages"></a>pages<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_pages"></a>pages</h3>
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -1419,7 +1408,7 @@ Not what you want? See the
 </dd>
 </dl>
 </div>
-<h3><a id="_read_7"></a>read<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_read_7"></a>read</h3>
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -1460,7 +1449,7 @@ Not what you want? See the
 </dd>
 </dl>
 </div>
-<h3><a id="_pool_2"></a>pool<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_pool_2"></a>pool</h3>
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -1514,15 +1503,37 @@ Not what you want? See the
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

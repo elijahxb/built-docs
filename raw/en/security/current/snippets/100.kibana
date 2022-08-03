@@ -1,1 +1,9 @@
-GET api/cases/a18b38a0-71b0-11ea-a0b2-c51ea50a58e2/comments/71ec1870-725b-11ea-a0b2-c51ea50a58e2
+POST /api/endpoint/unisolate
+{
+  "endpoint_ids": [
+  	"1aa1f8fd-0fb0-4fe4-8c30-92068272d3f0",
+  	"b30a11bf-1395-4707-b508-fbb45ef9793e"
+  ],
+  "case_ids": ["4976be38-c134-4554-bd5e-0fd89ce63667"]
+  "comment": "Remediation complete, restoring network"
+}

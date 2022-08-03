@@ -13,19 +13,16 @@
 <meta name="robots" content="noindex,nofollow"/>
 </head>
 <body><div class="page_header">
-You are looking at preliminary documentation for a future release.
-Not what you want? See the
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
 <a href="../current/index.html">current release documentation</a>.
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.2]</a></span>
-»
-<span class="breadcrumb-link"><a href="rest-apis.html">REST APIs</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.2]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="rest-apis.html">REST APIs</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="cluster.html">Cluster APIs</a></span>
-»
-<span class="breadcrumb-node">Cluster stats API</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -2806,7 +2803,7 @@ Number of selected nodes using the distribution flavor and file type.
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">GET /_cluster/stats?human&amp;pretty</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1846.console"></div>
+<div class="console_widget" data-snippet="snippets/1859.console"></div>
 <p>The API returns the following response:</p>
 <div class="pre_wrapper lang-js">
 <pre class="programlisting prettyprint lang-js">{
@@ -2933,7 +2930,7 @@ Number of selected nodes using the distribution flavor and file type.
          "voting_only": 0
       },
       "versions": [
-         "8.2.0"
+         "8.2.3"
       ],
       "os": {
          "available_processors": 8,
@@ -3012,7 +3009,7 @@ Number of selected nodes using the distribution flavor and file type.
       "plugins": [
         {
           "name": "analysis-icu",
-          "version": "8.2.0",
+          "version": "8.2.3",
           "description": "The ICU Analysis plugin integrates Lucene ICU module into elasticsearch, adding ICU relates analysis components.",
           "classname": "org.elasticsearch.plugin.analysis.icu.AnalysisICUPlugin",
           "has_native_controller": false
@@ -3078,7 +3075,7 @@ filters</a>:</p>
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">GET /_cluster/stats/nodes/node1,node*,master:false</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1847.console"></div>
+<div class="console_widget" data-snippet="snippets/1860.console"></div>
 </div>
 
 </div>

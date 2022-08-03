@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Introducing Elastic Cloud Enterprise | Elastic Cloud Enterprise Reference [3.2] | Elastic</title>
+<link rel="home" href="index.html" title="Elastic Cloud Enterprise Reference [3.2]"/>
+<link rel="up" href="index.html" title="Elastic Cloud Enterprise Reference [3.2]"/>
+<link rel="prev" href="index.html" title="Elastic Cloud Enterprise Reference [3.2]"/>
+<link rel="next" href="ece-architecture.html" title="Service-oriented architecture"/>
+<meta name="DC.type" content="Learn/Docs/CloudEnterprise/Reference/3.2"/>
+<meta name="DC.subject" content="ECE"/>
+<meta name="DC.identifier" content="3.2"/>
+</head>
+<body><div class="page_header">
+A newer version is available. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Cloud Enterprise Reference [3.2]</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+</span>
+<span class="next">
+<a href="ece-architecture.html">Service-oriented architecture »</a>
+</span>
+</div>
+<div class="part">
+<div class="titlepage"><div><div>
+<h1 class="title"><a id="Elastic-Cloud-Enterprise-overview"></a>Introducing Elastic Cloud Enterprise<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/cloud-enterprise/ce-overview.asciidoc">edit</a></h1>
+</div></div></div>
+<div class="openblock partintro">
+<div class="content">
+<p>This page provides a high-level introduction to Elastic Cloud Enterprise (ECE).</p>
+<p><span class="strong strong"><strong>What is ECE?</strong></span></p>
+<p>ECE evolves from the Elastic hosted Cloud SaaS offering into a standalone product. You can deploy ECE on public or private clouds, virtual machines, or your own premises.</p>
+<p><span class="strong strong"><strong>Why ECE?</strong></span></p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Host your regulated or sensitive data on your internal network.
+</li>
+<li class="listitem">
+Reuse your existing investment in on-premise infrastructure and reduce total cost.
+</li>
+<li class="listitem">
+Maximize the hardware utilization for the various clusters.
+</li>
+<li class="listitem">
+Centralize the management of multiple Elastic deployments across teams or geographies.
+</li>
+</ul>
+</div>
+<p><span class="strong strong"><strong>ECE features</strong></span></p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+All services are containerized through Docker.
+</li>
+<li class="listitem">
+High Availability through multiple Availability Zones.
+</li>
+<li class="listitem">
+Deployment state coordination using ZooKeeper.
+</li>
+<li class="listitem">
+Easy access for admins through the Cloud UI and API.
+</li>
+<li class="listitem">
+Support for off-line installations.
+</li>
+<li class="listitem">
+Automated restore and snapshot.
+</li>
+</ul>
+</div>
+<p>Check the <a class="xref" href="ece-glossary.html" title="Glossary">glossary</a> to get familiar with the ECE terminology.</p>
+</div>
+</div>
+
+
+</div>
+<div class="navfooter">
+<span class="prev">
+</span>
+<span class="next">
+<a href="ece-architecture.html">Service-oriented architecture »</a>
+</span>
+</div>
+</div>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains('stemblock')) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+</body>
+</html>

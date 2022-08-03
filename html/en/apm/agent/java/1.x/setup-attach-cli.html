@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,36 +87,25 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">APM Java Agent Reference [1.x]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">APM Java Agent Reference [1.x]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="setup.html">Set up the Agent</a></span>
-»
-<span class="breadcrumb-node">Automatic setup with <code class="literal">apm-agent-attach-cli.jar</code></span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -130,14 +119,32 @@
 <div class="titlepage"><div><div>
 <h2 class="title"><a id="setup-attach-cli"></a>Automatic setup with <code class="literal">apm-agent-attach-cli.jar</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-java/edit/1.x/docs/setup-attach-cli.asciidoc">edit</a></h2>
 </div></div></div>
-<div class="note admon">
-<div class="icon"></div>
-<div class="admon_content">
-<p>This installation method is in beta.</p>
+<p>The <code class="literal">apm-agent-attach-cli.jar</code> is an executable Java command line program which attaches the Elastic APM Java agent to a specific JVM or to all JVMs of the same host it runs on, it has the following properties:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+No application code changes required.
+</li>
+<li class="listitem">
+Does not require to change JVM arguments nor application server configuration.
+</li>
+<li class="listitem">
+Allows to instrument all JVMs on given host, both running and by monitoring new JVMs as they start.
+</li>
+<li class="listitem">
+Requires to copy and execute the <code class="literal">apm-agent-attach-cli.jar</code> binary on the host.
+</li>
+<li class="listitem">
+Relies on the <a href="https://docs.oracle.com/javase/8/docs/jdk/api/attach/spec/com/sun/tools/attach/VirtualMachine.html#attach-java.lang.String-" class="ulink" target="_top">runtime attachment capabilities</a> for java agents of the JVM but doesn&#8217;t require a full JDK or the <code class="literal">tools.jar</code>.
+</li>
+<li class="listitem">
+Events that happen while the application starts up may not be captured.
+</li>
+<li class="listitem">
+It is not possible to attach to JVMs that are running in containers or in Kubernetes pods.
+</li>
+</ul>
 </div>
-</div>
-<p>The <code class="literal">apm-agent-attach-cli.jar</code> is an executable Java command line program which attaches the Elastic APM Java agent to a specific JVM or to all JVMs of the same host it runs on.</p>
-<p>This installation method does not require you to alter the configuration of your application server and can be used to conveniently instrument all JVMs on a particular host.</p>
 <h4><a id="setup-attach-cli-supported-environments"></a>Supported environments<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-java/edit/1.x/docs/setup-attach-cli.asciidoc">edit</a></h4>
 <p>On Unix operating systems, such as Linux and macOS, the attachment to HotSpot-based JVMs (like OpenJDK and Oracle JDK) and to OpenJ9 JVMs is supported.
 The user that runs the attacher has to be the same as the one that runs the target JVM or has to have permissions to switch to that user.</p>
@@ -147,9 +154,6 @@ The user that runs the attacher has to be the same as the one that runs the targ
 That means it is possible to run the attacher with Java 7 and attach the agent to an application that runs under Java 11.
 However, the type of the VM has to be the same:
 It&#8217;s not possible to attach to a J9 VM from a HotSpot-based VM and vice-versa.</p>
-<h4><a id="setup-attach-cli-caveats"></a>Caveats<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-java/edit/1.x/docs/setup-attach-cli.asciidoc">edit</a></h4>
-<p>The approach to mitigate <code class="literal">NoClassDefFoundError</code> s when used in OSGi containers (which includes most application servers) is experimental.
-Versions prior to 1.18.0 don&#8217;t support OSGi containers.</p>
 <h4><a id="setup-attach-cli-download"></a>Download<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-java/edit/1.x/docs/setup-attach-cli.asciidoc">edit</a></h4>
 <p>You can download the attach program from maven central:
 <a href="https://search.maven.org/search?q=g:co.elastic.apm%20AND%20a:apm-agent-attach-cli" class="ulink" target="_top">maven central</a></p>
@@ -191,11 +195,7 @@ Additionally, it applies some <a class="xref" href="configuration.html" title="C
     --config service_name=my-cool-service \
     --config server_url=http://localhost:8200</pre>
 </div>
-<p><a id="setup-attach-cli-usage-list"></a> // avoids dead links in old branches</p>
-<div class="section">
-<div class="titlepage"><div><div>
-<h3 class="title"><a id="setup-attach-cli-usage-options"></a>Options<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-java/edit/1.x/docs/setup-attach-cli.asciidoc">edit</a></h3>
-</div></div></div>
+<h4><a id="setup-attach-cli-usage-options"></a>Options<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-java/edit/1.x/docs/setup-attach-cli.asciidoc">edit</a></h4>
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -353,6 +353,7 @@ One history file will be kept with the name <code class="literal">${logFile}.1</
 </dt>
 <dd>
 <p>Instead of the bundled agent jar, download and attach the specified agent version from maven central.
+&lt;agent-version&gt; can be either the explicit version (for example: <code class="literal">1.15.0</code>) or <code class="literal">latest</code>.
 The agent is authenticated and validated based on the published PGP signature. This option requires internet access.</p>
 </dd>
 </dl>
@@ -399,8 +400,6 @@ done</pre>
 you are using the wrong artifact.
 Use the one which ends in <code class="literal">-cli.jar</code>.</p>
 </div>
-
-</div>
 <div class="navfooter">
 <span class="prev">
 <a href="setup-javaagent.html">« Manual setup with <code class="literal">-javaagent</code> flag</a>
@@ -413,15 +412,37 @@ Use the one which ends in <code class="literal">-cli.jar</code>.</p>
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

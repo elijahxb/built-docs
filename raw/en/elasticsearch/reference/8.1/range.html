@@ -10,17 +10,19 @@
 <meta name="DC.type" content="Learn/Docs/Elasticsearch/Reference/8.1"/>
 <meta name="DC.subject" content="Elasticsearch"/>
 <meta name="DC.identifier" content="8.1"/>
+<meta name="robots" content="noindex,nofollow"/>
 </head>
-<body>
+<body><div class="page_header">
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.1]</a></span>
-»
-<span class="breadcrumb-link"><a href="mapping.html">Mapping</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.1]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="mapping.html">Mapping</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="mapping-types.html">Field data types</a></span>
-»
-<span class="breadcrumb-node">Range field types</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -32,7 +34,7 @@
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="range"></a>Range field types<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/mapping/types/range.asciidoc">edit</a></h2>
+<h2 class="title"><a id="range"></a>Range field types<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/mapping/types/range.asciidoc">edit</a></h2>
 </div></div></div>
 
 <p>Range field types represent a continuous range of values between an upper and lower
@@ -164,7 +166,7 @@ PUT range_index/_doc/1?refresh
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/240.console"></div>
+<div class="console_widget" data-snippet="snippets/242.console"></div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
@@ -208,7 +210,7 @@ PUT range_index/_doc/1?refresh
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/241.console"></div>
+<div class="console_widget" data-snippet="snippets/243.console"></div>
 <p>The result produced by the above query.</p>
 <a id="7becc4d06e86ee20e9d6c417037710c7"></a>
 <div class="pre_wrapper lang-console-result">
@@ -261,7 +263,7 @@ PUT range_index/_doc/1?refresh
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/242.console"></div>
+<div class="console_widget" data-snippet="snippets/244.console"></div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
@@ -321,7 +323,7 @@ PUT range_index/_doc/1?refresh
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="ip-range"></a>IP Range<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/mapping/types/range.asciidoc">edit</a></h3>
+<h3 class="title"><a id="ip-range"></a>IP Range<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/mapping/types/range.asciidoc">edit</a></h3>
 </div></div></div>
 <p>In addition to the range format above, IP ranges can be provided in
 <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation" class="ulink" target="_top">CIDR</a> notation:</p>
@@ -341,12 +343,12 @@ PUT range_index/_doc/2
   "ip_allowlist" : "192.168.0.0/16"
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/243.console"></div>
+<div class="console_widget" data-snippet="snippets/245.console"></div>
 </div>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="range-params"></a>Parameters for range fields<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/mapping/types/range.asciidoc">edit</a></h3>
+<h3 class="title"><a id="range-params"></a>Parameters for range fields<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/mapping/types/range.asciidoc">edit</a></h3>
 </div></div></div>
 <p>The following parameters are accepted by range types:</p>
 <div class="informaltable">

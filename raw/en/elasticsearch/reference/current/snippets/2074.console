@@ -1,5 +1,4 @@
-GET /analyze_sample/_analyze
+GET /my-index-000001/_mget
 {
-  "field" : "obj1.field1",
-  "text" : "this is a test"
+  "ids" : ["1", "2"]
 }

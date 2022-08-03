@@ -17,13 +17,10 @@ A newer version is available. For the latest information, see the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [7.17]</a></span>
-»
-<span class="breadcrumb-link"><a href="mapping.html">Mapping</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [7.17]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="mapping.html">Mapping</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="mapping-types.html">Field data types</a></span>
-»
-<span class="breadcrumb-node">Sparse vector data type</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -72,7 +69,7 @@ Dimensions don&#8217;t need to be in order.</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/293.console"></div>
+<div class="console_widget" data-snippet="snippets/295.console"></div>
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">PUT my-index-000001/_doc/1
 {
@@ -86,7 +83,7 @@ PUT my-index-000001/_doc/2
   "my_vector" : {"103": 0.5, "4": -0.5,  "5": 1, "11" : 1.2}
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/294.console"></div>
+<div class="console_widget" data-snippet="snippets/296.console"></div>
 <p>Internally, each document&#8217;s sparse vector is encoded as a binary
 doc value. Its size in bytes is equal to
 <code class="literal">6 * NUMBER_OF_DIMENSIONS + 4</code>, where <code class="literal">NUMBER_OF_DIMENSIONS</code> -

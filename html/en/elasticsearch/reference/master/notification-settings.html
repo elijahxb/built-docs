@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,27 +87,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 You are looking at preliminary documentation for a future release.
@@ -116,13 +107,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="setup.html">Set up Elasticsearch</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="setup.html">Set up Elasticsearch</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="settings.html">Configuring Elasticsearch</a></span>
-»
-<span class="breadcrumb-node">Watcher settings in Elasticsearch</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -134,7 +122,7 @@ Not what you want? See the
 </div>
 <div class="section xpack">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="notification-settings"></a>Watcher settings in Elasticsearch<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/settings/notification-settings.asciidoc">edit</a></h2>
+<h2 class="title"><a id="notification-settings"></a>Watcher settings in Elasticsearch<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/settings/notification-settings.asciidoc">edit</a></h2>
 </div></div></div>
 
 <p><a id="notification-settings-description"></a>You configure Watcher settings to set up Watcher and send notifications via
@@ -148,7 +136,7 @@ For more information about creating and updating the Elasticsearch keystore, see
 <a class="xref" href="cluster-update-settings.html" title="Cluster update settings API">cluster update settings API</a>.</p>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="general-notification-settings"></a>General Watcher Settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/settings/notification-settings.asciidoc">edit</a></h3>
+<h3 class="title"><a id="general-notification-settings"></a>General Watcher Settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/settings/notification-settings.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="variablelist">
 <dl class="variablelist">
@@ -286,7 +274,7 @@ corresponding endpoints are explicitly allowed as well.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="ssl-notification-settings"></a>Watcher HTTP TLS/SSL settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/settings/ssl-settings.asciidoc">edit</a></h3>
+<h3 class="title"><a id="ssl-notification-settings"></a>Watcher HTTP TLS/SSL settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/settings/ssl-settings.asciidoc">edit</a></h3>
 </div></div></div>
 <p>You can configure the following TLS/SSL settings.</p>
 <div class="variablelist">
@@ -377,7 +365,7 @@ example, for version 12 the default value is <code class="literal">TLS_AES_256_G
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="watcher-tls-ssl-key-trusted-certificate-settings"></a>Watcher HTTP TLS/SSL key and trusted certificate settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/settings/ssl-settings.asciidoc">edit</a></h4>
+<h4 class="title"><a id="watcher-tls-ssl-key-trusted-certificate-settings"></a>Watcher HTTP TLS/SSL key and trusted certificate settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/settings/ssl-settings.asciidoc">edit</a></h4>
 </div></div></div>
 <p>The following settings are used to specify a private key, certificate, and the
 trusted certificates that should be used when communicating over an SSL/TLS connection.
@@ -387,7 +375,7 @@ authentication.</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="_pem_encoded_files_4"></a>PEM encoded files<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/settings/ssl-settings.asciidoc">edit</a></h4>
+<h4 class="title"><a id="_pem_encoded_files_4"></a>PEM encoded files<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/settings/ssl-settings.asciidoc">edit</a></h4>
 </div></div></div>
 <p>When using PEM encoded files, use the following settings:</p>
 <div class="variablelist">
@@ -459,7 +447,7 @@ List of paths to PEM encoded certificate files that should be trusted.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="_java_keystore_files_4"></a>Java keystore files<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/settings/ssl-settings.asciidoc">edit</a></h4>
+<h4 class="title"><a id="_java_keystore_files_4"></a>Java keystore files<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/settings/ssl-settings.asciidoc">edit</a></h4>
 </div></div></div>
 <p>When using Java keystore files (JKS), which contain the private key, certificate
 and certificates that should be trusted, use the following settings:</p>
@@ -558,7 +546,7 @@ Password for the truststore.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="watcher-pkcs12-files"></a>PKCS#12 files<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/settings/ssl-settings.asciidoc">edit</a></h4>
+<h4 class="title"><a id="watcher-pkcs12-files"></a>PKCS#12 files<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/settings/ssl-settings.asciidoc">edit</a></h4>
 </div></div></div>
 <p>Elasticsearch can be configured to use PKCS#12 container files (<code class="literal">.p12</code> or <code class="literal">.pfx</code> files)
 that contain the private key, certificate and certificates that should be trusted.</p>
@@ -680,7 +668,7 @@ Password for the truststore.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="email-notification-settings"></a>Email Notification Settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/settings/notification-settings.asciidoc">edit</a></h3>
+<h3 class="title"><a id="email-notification-settings"></a>Email Notification Settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/settings/notification-settings.asciidoc">edit</a></h3>
 </div></div></div>
 <p>You can configure the following email notification settings in
 <code class="literal">elasticsearch.yml</code>. For more information about sending notifications
@@ -1034,7 +1022,7 @@ Defaults to <code class="literal">Warning: The attachment [%s] contains characte
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="ssl-notification-smtp-settings"></a>Watcher Email TLS/SSL settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/settings/ssl-settings.asciidoc">edit</a></h3>
+<h3 class="title"><a id="ssl-notification-smtp-settings"></a>Watcher Email TLS/SSL settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/settings/ssl-settings.asciidoc">edit</a></h3>
 </div></div></div>
 <p>You can configure the following TLS/SSL settings.</p>
 <div class="variablelist">
@@ -1125,7 +1113,7 @@ example, for version 12 the default value is <code class="literal">TLS_AES_256_G
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="watcher-email-tls-ssl-key-trusted-certificate-settings"></a>Watcher Email TLS/SSL key and trusted certificate settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/settings/ssl-settings.asciidoc">edit</a></h4>
+<h4 class="title"><a id="watcher-email-tls-ssl-key-trusted-certificate-settings"></a>Watcher Email TLS/SSL key and trusted certificate settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/settings/ssl-settings.asciidoc">edit</a></h4>
 </div></div></div>
 <p>The following settings are used to specify a private key, certificate, and the
 trusted certificates that should be used when communicating over an SSL/TLS connection.
@@ -1135,7 +1123,7 @@ authentication.</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="_pem_encoded_files_5"></a>PEM encoded files<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/settings/ssl-settings.asciidoc">edit</a></h4>
+<h4 class="title"><a id="_pem_encoded_files_5"></a>PEM encoded files<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/settings/ssl-settings.asciidoc">edit</a></h4>
 </div></div></div>
 <p>When using PEM encoded files, use the following settings:</p>
 <div class="variablelist">
@@ -1207,7 +1195,7 @@ List of paths to PEM encoded certificate files that should be trusted.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="_java_keystore_files_5"></a>Java keystore files<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/settings/ssl-settings.asciidoc">edit</a></h4>
+<h4 class="title"><a id="_java_keystore_files_5"></a>Java keystore files<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/settings/ssl-settings.asciidoc">edit</a></h4>
 </div></div></div>
 <p>When using Java keystore files (JKS), which contain the private key, certificate
 and certificates that should be trusted, use the following settings:</p>
@@ -1306,7 +1294,7 @@ Password for the truststore.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="watcher-email-pkcs12-files"></a>PKCS#12 files<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/settings/ssl-settings.asciidoc">edit</a></h4>
+<h4 class="title"><a id="watcher-email-pkcs12-files"></a>PKCS#12 files<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/settings/ssl-settings.asciidoc">edit</a></h4>
 </div></div></div>
 <p>Elasticsearch can be configured to use PKCS#12 container files (<code class="literal">.p12</code> or <code class="literal">.pfx</code> files)
 that contain the private key, certificate and certificates that should be trusted.</p>
@@ -1428,7 +1416,7 @@ Password for the truststore.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="slack-notification-settings"></a>Slack Notification Settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/settings/notification-settings.asciidoc">edit</a></h3>
+<h3 class="title"><a id="slack-notification-settings"></a>Slack Notification Settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/settings/notification-settings.asciidoc">edit</a></h3>
 </div></div></div>
 <p>You can configure the following Slack notification settings in
 <code class="literal">elasticsearch.yml</code>. For more information about sending notifications
@@ -1552,7 +1540,7 @@ Slack attachments documentation</a>.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="jira-notification-settings"></a>Jira Notification Settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/settings/notification-settings.asciidoc">edit</a></h3>
+<h3 class="title"><a id="jira-notification-settings"></a>Jira Notification Settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/settings/notification-settings.asciidoc">edit</a></h3>
 </div></div></div>
 <p>You can configure the following Jira notification settings in
 <code class="literal">elasticsearch.yml</code>. For more information about using notifications
@@ -1647,7 +1635,7 @@ Optional.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="pagerduty-notification-settings"></a>PagerDuty Notification Settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/settings/notification-settings.asciidoc">edit</a></h3>
+<h3 class="title"><a id="pagerduty-notification-settings"></a>PagerDuty Notification Settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/settings/notification-settings.asciidoc">edit</a></h3>
 </div></div></div>
 <p>You can configure the following PagerDuty notification settings in
 <code class="literal">elasticsearch.yml</code>. For more information about sending notifications
@@ -1799,15 +1787,37 @@ the event by default. Valid values: <code class="literal">true</code>, <code cla
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

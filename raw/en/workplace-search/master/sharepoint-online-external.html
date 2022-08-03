@@ -19,11 +19,9 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Workplace Search Guide [master]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Workplace Search Guide [master]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="workplace-search-content-sources.html">Content Sources Overview</a></span>
-»
-<span class="breadcrumb-node">SharePoint Online connector package</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -37,21 +35,6 @@ Not what you want? See the
 <div class="titlepage"><div><div>
 <h2 class="title"><a id="sharepoint-online-external"></a>SharePoint Online connector package<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/enterprise-search-pubs/edit/main/workplace-search-docs/guides/content-sources/sharepoint-online-external.asciidoc">edit</a></h2>
 </div></div></div>
-<p>SharePoint Online by Microsoft is a cloud-based collaboration, knowledge management and storage platform for organizations of all sizes. Often used as a centralized content management system (CMS), SharePoint Online stores a wealth of information across departments and teams. <span class="strong strong"><strong>Use the Elastic Enterprise Search SharePoint Online <a href="https://github.com/elastic/connectors/" class="ulink" target="_blank" rel="noopener">connector package</a> to deploy and run a SharePoint Online connector on your own infrastructure. After registering your connector package, Workplace Search automatically captures, syncs, and indexes the following items from your SharePoint Online:</strong></span></p>
-<div class="informaltable">
-<table border="1" cellpadding="4px">
-<colgroup>
-<col class="col_1"/>
-<col class="col_2"/>
-</colgroup>
-<tbody>
-<tr>
-<td align="left" valign="top"><p><span class="strong strong"><strong>Stored Files</strong></span></p></td>
-<td align="left" valign="top"><p>Including ID, File Metadata, File Content, Updated by, and timestamps</p></td>
-</tr>
-</tbody>
-</table>
-</div>
 <div class="note admon">
 <div class="icon"></div>
 <div class="admon_content">
@@ -66,6 +49,30 @@ Tech preview features are subject to change and are not covered by the support S
 Elastic plans to promote this feature to GA in a future release.</p>
 </div>
 </div>
+<p>SharePoint Online by Microsoft is a cloud-based collaboration, knowledge management and storage platform for organizations of all sizes. Often used as a centralized content management system (CMS), SharePoint Online stores a wealth of information across departments and teams. <span class="strong strong"><strong>Use the Elastic Enterprise Search SharePoint Online <a href="https://github.com/elastic/connectors/tree/8.3" class="ulink" target="_blank" rel="noopener">connector package</a> to deploy and run a SharePoint Online connector on your own infrastructure. After registering your connector package, Workplace Search automatically captures, syncs, and indexes the following items from your SharePoint Online:</strong></span></p>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+</colgroup>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><span class="strong strong"><strong>Stored Files</strong></span></p></td>
+<td align="left" valign="top"><p>Including ID, File Metadata, File Content, Updated by, and timestamps</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sidebar">
+<div class="titlepage"><div><div>
+<p class="title"><strong>Check the Elastic discussion forums for the latest information about your content source</strong></p>
+</div></div></div>
+<p>Workplace Search allows you to index third-party content sources.
+Sometimes these apps will make unanticipated API changes that impact your content syncing and require an action.
+We can&#8217;t always keep up in real time in this documentation!</p>
+<p>Vist the <a href="https://discuss.elastic.co//c/enterprise-search/workplace-search" class="ulink" target="_blank" rel="noopener">Workplace Search discussion forum</a> to read the latest information and check for known issues.</p>
+</div>
 <h3><a id="sharepoint-online-external-known-issues"></a>Known issues<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/enterprise-search-pubs/edit/main/workplace-search-docs/guides/content-sources/sharepoint-online-external.asciidoc">edit</a></h3>
 <div class="olist orderedlist">
 <ol class="orderedlist">
@@ -79,7 +86,7 @@ After November 8, 2020, these apps can be connected by Azure AD admin users only
 </ol>
 </div>
 <h3><a id="sharepoint-online-external-deploy-connector"></a>Deploying and running the connector<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/enterprise-search-pubs/edit/main/workplace-search-docs/guides/content-sources/sharepoint-online-external.asciidoc">edit</a></h3>
-<p>Visit the <a href="https://github.com/elastic/connectors/" class="ulink" target="_blank" rel="noopener">Elastic Enterprise Search connectors repository</a>.
+<p>Visit the <a href="https://github.com/elastic/connectors/tree/8.3" class="ulink" target="_blank" rel="noopener">Elastic Enterprise Search connectors repository</a>.
 Use the documentation within that repository to deploy and run the connector on your own infrastructure.</p>
 <p>During that process you will create an API key.</p>
 <p>Record the API key and the deployed connector&#8217;s URL. You will need this information in a future step: <a class="xref" href="sharepoint-online-external.html#sharepoint-online-external-connector-info" title="Entering the connector information within Kibana">Entering the connector information within Kibana</a>.</p>
@@ -91,7 +98,7 @@ Use the documentation within that repository to deploy and run the connector on 
 <div class="content">
 <img src="images/guides/sharepoint/sharepoint-1.png" alt="">
 </div>
-<div class="title">Figure 95. Connecting SharePoint</div>
+<div class="title">Figure 101. Connecting SharePoint</div>
 </div>
 <hr>
 <p><span class="strong strong"><strong>Step 2.</strong></span>  Locate <span class="strong strong"><strong>App Registrations</strong></span>:</p>
@@ -99,7 +106,7 @@ Use the documentation within that repository to deploy and run the connector on 
 <div class="content">
 <img src="images/guides/sharepoint/sharepoint-2.png" alt="">
 </div>
-<div class="title">Figure 96. Connecting SharePoint</div>
+<div class="title">Figure 102. Connecting SharePoint</div>
 </div>
 <hr>
 <p><span class="strong strong"><strong>Step 3.</strong></span> Click <span class="strong strong"><strong>New Registration</strong></span>:</p>
@@ -107,7 +114,7 @@ Use the documentation within that repository to deploy and run the connector on 
 <div class="content">
 <img src="images/guides/sharepoint/sharepoint-3.png" alt="">
 </div>
-<div class="title">Figure 97. Connecting SharePoint</div>
+<div class="title">Figure 103. Connecting SharePoint</div>
 </div>
 <hr>
 <p><span class="strong strong"><strong>Step 4.</strong></span> Give your app a name - like "Workplace Search" - and make it <em>multitenant</em>.</p>
@@ -124,7 +131,7 @@ Use the documentation within that repository to deploy and run the connector on 
 <div class="content">
 <img src="images/guides/sharepoint/sharepoint-4.png" alt="">
 </div>
-<div class="title">Figure 98. Connecting SharePoint</div>
+<div class="title">Figure 104. Connecting SharePoint</div>
 </div>
 <hr>
 <p><span class="strong strong"><strong>Step 6.</strong></span> Record the <span class="strong strong"><strong>Client ID</strong></span>.</p>
@@ -136,7 +143,7 @@ Use the documentation within that repository to deploy and run the connector on 
 <div class="content">
 <img src="images/guides/sharepoint/sharepoint-5.png" alt="">
 </div>
-<div class="title">Figure 99. Connecting SharePoint</div>
+<div class="title">Figure 105. Connecting SharePoint</div>
 </div>
 <hr>
 <p><span class="strong strong"><strong>Step 7.</strong></span> <span class="strong strong"><strong>Save</strong></span> the cofiguration.</p>
@@ -144,7 +151,7 @@ Use the documentation within that repository to deploy and run the connector on 
 <div class="content">
 <img src="images/guides/sharepoint/sharepoint-6.png" alt="">
 </div>
-<div class="title">Figure 100. Connecting SharePoint</div>
+<div class="title">Figure 106. Connecting SharePoint</div>
 </div>
 <hr>
 <p><span class="strong strong"><strong>Step 8.</strong></span> Locate the <span class="strong strong"><strong>Client Secret</strong></span> by navigating to <span class="strong strong"><strong>Certificates &amp; Secrets</strong></span>:</p>
@@ -152,7 +159,7 @@ Use the documentation within that repository to deploy and run the connector on 
 <div class="content">
 <img src="images/guides/sharepoint/sharepoint-7.png" alt="">
 </div>
-<div class="title">Figure 101. Connecting SharePoint</div>
+<div class="title">Figure 107. Connecting SharePoint</div>
 </div>
 <hr>
 <p><span class="strong strong"><strong>Step 9.</strong></span> Pick a name for your client secret (for example, Workplace Search). Select <em>24 months</em> as the expiration date:</p>
@@ -160,7 +167,7 @@ Use the documentation within that repository to deploy and run the connector on 
 <div class="content">
 <img src="images/guides/sharepoint/sharepoint-8.png" alt="">
 </div>
-<div class="title">Figure 102. Connecting SharePoint</div>
+<div class="title">Figure 108. Connecting SharePoint</div>
 </div>
 <hr>
 <p><span class="strong strong"><strong>Step 10.</strong></span> Record the <span class="strong strong"><strong>Client Secret</strong></span> value before leaving this screen.</p>
@@ -168,7 +175,7 @@ Use the documentation within that repository to deploy and run the connector on 
 <div class="content">
 <img src="images/guides/sharepoint/sharepoint-9.png" alt="">
 </div>
-<div class="title">Figure 103. Connecting SharePoint</div>
+<div class="title">Figure 109. Connecting SharePoint</div>
 </div>
 <p>You will need this in a future step: <a class="xref" href="sharepoint-online-external.html#sharepoint-online-external-oauth-client-info" title="Entering the OAuth client information within Kibana">Entering the OAuth client information within Kibana</a>.</p>
 <hr>
@@ -186,7 +193,7 @@ offline_access</pre>
 <div class="content">
 <img src="images/guides/sharepoint/sharepoint-10.png" alt="">
 </div>
-<div class="title">Figure 104. Connecting SharePoint</div>
+<div class="title">Figure 110. Connecting SharePoint</div>
 </div>
 <hr>
 <p><span class="strong strong"><strong>Step 12.</strong></span> Finally, <span class="strong strong"><strong>Grant admin consent</strong></span>.</p>

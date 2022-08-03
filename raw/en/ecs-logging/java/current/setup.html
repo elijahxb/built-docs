@@ -14,9 +14,8 @@
 <body>
 <div id="content">
 <div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="index.html">ECS Logging Java Reference [1.x]</a></span>
-»
-<span class="breadcrumb-node">Get started</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -194,7 +193,13 @@ function changeTabs(e) {
 }
 </script>
 <h3><a id="setup-step-1"></a>Step 1: Configure application logging<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/ecs-logging-java/edit/1.x/docs/setup.asciidoc">edit</a></h3>
-<p>The following logging frameworks are supported:</p>
+<p>If you are using the Elastic APM Java agent, the easiest way to transform your logs into ECS-compatible JSON format is through the
+<a href="/guide/en/apm/agent/java/current/config-logging.html#config-log-ecs-reformatting" class="ulink" target="_top"><code class="literal">log_ecs_reformatting</code></a> configuration option.
+By only setting this option, the Java agent will automatically import the correct ECS-logging library and configure your logging
+framework to use it instead (<code class="literal">OVERRIDE</code>/<code class="literal">REPLACE</code>) or in addition to (<code class="literal">SHADE</code>) your current configuration. No other changes required!
+Make sure to check out other <a href="/guide/en/apm/agent/java/current/config-logging.html" class="ulink" target="_top">Logging configuration options</a> to unlock the full potential of this option.</p>
+<p>Otherwise, follow the steps below to manually apply ECS-formatting through your logging framework configuration.
+The following logging frameworks are supported:</p>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
 <li class="listitem">
@@ -429,8 +434,10 @@ Other than that, there are no required dependencies.</p>
     &lt;include resource="org/springframework/boot/logging/logback/defaults.xml"/&gt;
     &lt;include resource="org/springframework/boot/logging/logback/console-appender.xml" /&gt;
     &lt;include resource="org/springframework/boot/logging/logback/file-appender.xml" /&gt;
+    &lt;include resource="co/elastic/logging/logback/boot/ecs-console-appender.xml" /&gt;
     &lt;include resource="co/elastic/logging/logback/boot/ecs-file-appender.xml" /&gt;
     &lt;root level="INFO"&gt;
+        &lt;appender-ref ref="ECS_JSON_CONSOLE"/&gt;
         &lt;appender-ref ref="CONSOLE"/&gt;
         &lt;appender-ref ref="ECS_JSON_FILE"/&gt;
         &lt;appender-ref ref="FILE"/&gt;
@@ -450,6 +457,7 @@ logging.file=/path/to/my-application.log</pre>
 <div class="pre_wrapper lang-xml">
 <pre class="programlisting prettyprint lang-xml">&lt;encoder class="co.elastic.logging.logback.EcsEncoder"&gt;
     &lt;serviceName&gt;my-application&lt;/serviceName&gt;
+    &lt;serviceVersion&gt;my-application-version&lt;/serviceVersion&gt;
     &lt;serviceNodeName&gt;my-application-cluster-node&lt;/serviceNodeName&gt;
 &lt;/encoder&gt;</pre>
 </div>
@@ -475,7 +483,13 @@ logging.file=/path/to/my-application.log</pre>
 <td align="left" valign="top"><p><code class="literal">serviceName</code></p></td>
 <td align="left" valign="top"><p>String</p></td>
 <td align="left" valign="top"><p></p></td>
-<td align="left" valign="top"><p>Sets the <code class="literal">service.name</code> field so you can filter your logs by a particular service</p></td>
+<td align="left" valign="top"><p>Sets the <code class="literal">service.name</code> field so you can filter your logs by a particular service name</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><code class="literal">serviceVersion</code></p></td>
+<td align="left" valign="top"><p>String</p></td>
+<td align="left" valign="top"><p></p></td>
+<td align="left" valign="top"><p>Sets the <code class="literal">service.version</code> field so you can filter your logs by a particular service version</p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p><code class="literal">serviceNodeName</code></p></td>
@@ -486,28 +500,28 @@ logging.file=/path/to/my-application.log</pre>
 <tr>
 <td align="left" valign="top"><p><code class="literal">eventDataset</code></p></td>
 <td align="left" valign="top"><p>String</p></td>
-<td align="left" valign="top"><p><code class="literal">${serviceName}.log</code></p></td>
+<td align="left" valign="top"><p><code class="literal">${serviceName}</code></p></td>
 <td align="left" valign="top"><p>Sets the <code class="literal">event.dataset</code> field used by the machine learning job of the Logs app to look for anomalies in the log rate.</p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p><code class="literal">includeMarkers</code></p></td>
 <td align="left" valign="top"><p>boolean</p></td>
 <td align="left" valign="top"><p><code class="literal">false</code></p></td>
-<td align="left" valign="top"><p>Log <a href="https://logging.apache.org/log4j/2.0/manual/markers.html" class="ulink" target="_top">Markers</a> as <a href="/guide/en/ecs/8.1/ecs-base.html" class="ulink" target="_top"><code class="literal">tags</code></a></p></td>
+<td align="left" valign="top"><p>Log <a href="https://logging.apache.org/log4j/2.0/manual/markers.html" class="ulink" target="_top">Markers</a> as <a href="/guide/en/ecs/8.3/ecs-base.html" class="ulink" target="_top"><code class="literal">tags</code></a></p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p><code class="literal">stackTraceAsArray</code></p></td>
 <td align="left" valign="top"><p>boolean</p></td>
 <td align="left" valign="top"><p><code class="literal">false</code></p></td>
-<td align="left" valign="top"><p>Serializes the <a href="/guide/en/ecs/8.1/ecs-error.html" class="ulink" target="_top"><code class="literal">error.stack_trace</code></a> as a JSON array where each element is in a new line to improve readability.
+<td align="left" valign="top"><p>Serializes the <a href="/guide/en/ecs/8.3/ecs-error.html" class="ulink" target="_top"><code class="literal">error.stack_trace</code></a> as a JSON array where each element is in a new line to improve readability.
 Note that this requires a slightly more complex <a class="xref" href="setup.html#setup-stack-trace-as-array" title="When stackTraceAsArray is enabled">Filebeat configuration</a>.</p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p><code class="literal">includeOrigin</code></p></td>
 <td align="left" valign="top"><p>boolean</p></td>
 <td align="left" valign="top"><p><code class="literal">false</code></p></td>
-<td align="left" valign="top"><p>If <code class="literal">true</code>, adds the <a href="/guide/en/ecs/8.1/ecs-log.html" class="ulink" target="_top"><code class="literal">log.origin.file.name</code></a>,
- <a href="/guide/en/ecs/8.1/ecs-log.html" class="ulink" target="_top"><code class="literal">log.origin.file.line</code></a> and <a href="/guide/en/ecs/8.1/ecs-log.html" class="ulink" target="_top"><code class="literal">log.origin.function</code></a> fields.
+<td align="left" valign="top"><p>If <code class="literal">true</code>, adds the <a href="/guide/en/ecs/8.3/ecs-log.html" class="ulink" target="_top"><code class="literal">log.origin.file.name</code></a>,
+ <a href="/guide/en/ecs/8.3/ecs-log.html" class="ulink" target="_top"><code class="literal">log.origin.file.line</code></a> and <a href="/guide/en/ecs/8.3/ecs-log.html" class="ulink" target="_top"><code class="literal">log.origin.function</code></a> fields.
  Note that you also have to set <code class="literal">&lt;includeCallerData&gt;true&lt;/includeCallerData&gt;</code> on your appenders if you are using the async ones.</p></td>
 </tr>
 </tbody>
@@ -537,10 +551,10 @@ For example:</p>
 &lt;Configuration status="DEBUG"&gt;
     &lt;Appenders&gt;
         &lt;Console name="LogToConsole" target="SYSTEM_OUT"&gt;
-            &lt;EcsLayout serviceName="my-app" serviceNodeName="my-app-cluster-node"/&gt;
+            &lt;EcsLayout serviceName="my-app" serviceVersion="my-app-version" serviceNodeName="my-app-cluster-node"/&gt;
         &lt;/Console&gt;
         &lt;File name="LogToFile" fileName="logs/app.log"&gt;
-            &lt;EcsLayout serviceName="my-app" serviceNodeName="my-app-cluster-node"/&gt;
+            &lt;EcsLayout serviceName="my-app" serviceVersion="my-app-version" serviceNodeName="my-app-cluster-node"/&gt;
         &lt;/File&gt;
     &lt;/Appenders&gt;
     &lt;Loggers&gt;
@@ -573,7 +587,13 @@ For example:</p>
 <td align="left" valign="top"><p><code class="literal">serviceName</code></p></td>
 <td align="left" valign="top"><p>String</p></td>
 <td align="left" valign="top"><p></p></td>
-<td align="left" valign="top"><p>Sets the <code class="literal">service.name</code> field so you can filter your logs by a particular service</p></td>
+<td align="left" valign="top"><p>Sets the <code class="literal">service.name</code> field so you can filter your logs by a particular service name</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><code class="literal">serviceVersion</code></p></td>
+<td align="left" valign="top"><p>String</p></td>
+<td align="left" valign="top"><p></p></td>
+<td align="left" valign="top"><p>Sets the <code class="literal">service.version</code> field so you can filter your logs by a particular service version</p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p><code class="literal">serviceNodeName</code></p></td>
@@ -584,28 +604,28 @@ For example:</p>
 <tr>
 <td align="left" valign="top"><p><code class="literal">eventDataset</code></p></td>
 <td align="left" valign="top"><p>String</p></td>
-<td align="left" valign="top"><p><code class="literal">${serviceName}.log</code></p></td>
+<td align="left" valign="top"><p><code class="literal">${serviceName}</code></p></td>
 <td align="left" valign="top"><p>Sets the <code class="literal">event.dataset</code> field used by the machine learning job of the Logs app to look for anomalies in the log rate.</p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p><code class="literal">includeMarkers</code></p></td>
 <td align="left" valign="top"><p>boolean</p></td>
 <td align="left" valign="top"><p><code class="literal">false</code></p></td>
-<td align="left" valign="top"><p>Log <a href="https://logging.apache.org/log4j/2.0/manual/markers.html" class="ulink" target="_top">Markers</a> as <a href="/guide/en/ecs/8.1/ecs-base.html" class="ulink" target="_top"><code class="literal">tags</code></a></p></td>
+<td align="left" valign="top"><p>Log <a href="https://logging.apache.org/log4j/2.0/manual/markers.html" class="ulink" target="_top">Markers</a> as <a href="/guide/en/ecs/8.3/ecs-base.html" class="ulink" target="_top"><code class="literal">tags</code></a></p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p><code class="literal">stackTraceAsArray</code></p></td>
 <td align="left" valign="top"><p>boolean</p></td>
 <td align="left" valign="top"><p><code class="literal">false</code></p></td>
-<td align="left" valign="top"><p>Serializes the <a href="/guide/en/ecs/8.1/ecs-error.html" class="ulink" target="_top"><code class="literal">error.stack_trace</code></a> as a JSON array where each element is in a new line to improve readability.
+<td align="left" valign="top"><p>Serializes the <a href="/guide/en/ecs/8.3/ecs-error.html" class="ulink" target="_top"><code class="literal">error.stack_trace</code></a> as a JSON array where each element is in a new line to improve readability.
  Note that this requires a slightly more complex <a class="xref" href="setup.html#setup-stack-trace-as-array" title="When stackTraceAsArray is enabled">Filebeat configuration</a>.</p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p><code class="literal">includeOrigin</code></p></td>
 <td align="left" valign="top"><p>boolean</p></td>
 <td align="left" valign="top"><p><code class="literal">false</code></p></td>
-<td align="left" valign="top"><p>If <code class="literal">true</code>, adds the <a href="/guide/en/ecs/8.1/ecs-log.html" class="ulink" target="_top"><code class="literal">log.origin.file.name</code></a>,
- <a href="/guide/en/ecs/8.1/ecs-log.html" class="ulink" target="_top"><code class="literal">log.origin.file.line</code></a> and <a href="/guide/en/ecs/8.1/ecs-log.html" class="ulink" target="_top"><code class="literal">log.origin.function</code></a> fields.
+<td align="left" valign="top"><p>If <code class="literal">true</code>, adds the <a href="/guide/en/ecs/8.3/ecs-log.html" class="ulink" target="_top"><code class="literal">log.origin.file.name</code></a>,
+ <a href="/guide/en/ecs/8.3/ecs-log.html" class="ulink" target="_top"><code class="literal">log.origin.file.line</code></a> and <a href="/guide/en/ecs/8.3/ecs-log.html" class="ulink" target="_top"><code class="literal">log.origin.function</code></a> fields.
  Note that you also have to set <code class="literal">includeLocation="true"</code> on your loggers and appenders if you are using the async ones.</p></td>
 </tr>
 </tbody>
@@ -681,7 +701,13 @@ For example:</p>
 <td align="left" valign="top"><p><code class="literal">serviceName</code></p></td>
 <td align="left" valign="top"><p>String</p></td>
 <td align="left" valign="top"><p></p></td>
-<td align="left" valign="top"><p>Sets the <code class="literal">service.name</code> field so you can filter your logs by a particular service</p></td>
+<td align="left" valign="top"><p>Sets the <code class="literal">service.name</code> field so you can filter your logs by a particular service name</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><code class="literal">serviceVersion</code></p></td>
+<td align="left" valign="top"><p>String</p></td>
+<td align="left" valign="top"><p></p></td>
+<td align="left" valign="top"><p>Sets the <code class="literal">service.version</code> field so you can filter your logs by a particular service version</p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p><code class="literal">serviceNodeName</code></p></td>
@@ -692,22 +718,22 @@ For example:</p>
 <tr>
 <td align="left" valign="top"><p><code class="literal">eventDataset</code></p></td>
 <td align="left" valign="top"><p>String</p></td>
-<td align="left" valign="top"><p><code class="literal">${serviceName}.log</code></p></td>
+<td align="left" valign="top"><p><code class="literal">${serviceName}</code></p></td>
 <td align="left" valign="top"><p>Sets the <code class="literal">event.dataset</code> field used by the machine learning job of the Logs app to look for anomalies in the log rate.</p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p><code class="literal">stackTraceAsArray</code></p></td>
 <td align="left" valign="top"><p>boolean</p></td>
 <td align="left" valign="top"><p><code class="literal">false</code></p></td>
-<td align="left" valign="top"><p>Serializes the <a href="/guide/en/ecs/8.1/ecs-error.html" class="ulink" target="_top"><code class="literal">error.stack_trace</code></a> as a JSON array where each element is in a new line to improve readability.
+<td align="left" valign="top"><p>Serializes the <a href="/guide/en/ecs/8.3/ecs-error.html" class="ulink" target="_top"><code class="literal">error.stack_trace</code></a> as a JSON array where each element is in a new line to improve readability.
 Note that this requires a slightly more complex <a class="xref" href="setup.html#setup-stack-trace-as-array" title="When stackTraceAsArray is enabled">Filebeat configuration</a>.</p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p><code class="literal">includeOrigin</code></p></td>
 <td align="left" valign="top"><p>boolean</p></td>
 <td align="left" valign="top"><p><code class="literal">false</code></p></td>
-<td align="left" valign="top"><p>If <code class="literal">true</code>, adds the <a href="/guide/en/ecs/8.1/ecs-log.html" class="ulink" target="_top"><code class="literal">log.origin.file.name</code></a>,
-<a href="/guide/en/ecs/8.1/ecs-log.html" class="ulink" target="_top"><code class="literal">log.origin.file.line</code></a> and <a href="/guide/en/ecs/8.1/ecs-log.html" class="ulink" target="_top"><code class="literal">log.origin.function</code></a> fields.
+<td align="left" valign="top"><p>If <code class="literal">true</code>, adds the <a href="/guide/en/ecs/8.3/ecs-log.html" class="ulink" target="_top"><code class="literal">log.origin.file.name</code></a>,
+<a href="/guide/en/ecs/8.3/ecs-log.html" class="ulink" target="_top"><code class="literal">log.origin.file.line</code></a> and <a href="/guide/en/ecs/8.3/ecs-log.html" class="ulink" target="_top"><code class="literal">log.origin.function</code></a> fields.
 Note that you also have to set <code class="literal">&lt;param name="LocationInfo" value="true"/&gt;</code> if you are using <code class="literal">AsyncAppender</code>.</p></td>
 </tr>
 </tbody>
@@ -733,6 +759,7 @@ Note that you also have to set <code class="literal">&lt;param name="LocationInf
 <pre class="programlisting prettyprint lang-properties">java.util.logging.ConsoleHandler.level = FINE
 java.util.logging.ConsoleHandler.formatter = co.elastic.logging.jul.EcsFormatter
 co.elastic.logging.jul.EcsFormatter.serviceName=my-app
+co.elastic.logging.jul.EcsFormatter.serviceVersion=my-app-version
 co.elastic.logging.jul.EcsFormatter.serviceNodeName=my-app-cluster-node</pre>
 </div>
 <p><span class="strong strong"><strong>Layout Parameters</strong></span></p>
@@ -757,7 +784,13 @@ co.elastic.logging.jul.EcsFormatter.serviceNodeName=my-app-cluster-node</pre>
 <td align="left" valign="top"><p><code class="literal">serviceName</code></p></td>
 <td align="left" valign="top"><p>String</p></td>
 <td align="left" valign="top"><p></p></td>
-<td align="left" valign="top"><p>Sets the <code class="literal">service.name</code> field so you can filter your logs by a particular service</p></td>
+<td align="left" valign="top"><p>Sets the <code class="literal">service.name</code> field so you can filter your logs by a particular service name</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><code class="literal">serviceVersion</code></p></td>
+<td align="left" valign="top"><p>String</p></td>
+<td align="left" valign="top"><p></p></td>
+<td align="left" valign="top"><p>Sets the <code class="literal">service.version</code> field so you can filter your logs by a particular service version</p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p><code class="literal">serviceNodeName</code></p></td>
@@ -768,21 +801,21 @@ co.elastic.logging.jul.EcsFormatter.serviceNodeName=my-app-cluster-node</pre>
 <tr>
 <td align="left" valign="top"><p><code class="literal">eventDataset</code></p></td>
 <td align="left" valign="top"><p>String</p></td>
-<td align="left" valign="top"><p><code class="literal">${serviceName}.log</code></p></td>
+<td align="left" valign="top"><p><code class="literal">${serviceName}</code></p></td>
 <td align="left" valign="top"><p>Sets the <code class="literal">event.dataset</code> field used by the machine learning job of the Logs app to look for anomalies in the log rate.</p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p><code class="literal">stackTraceAsArray</code></p></td>
 <td align="left" valign="top"><p>boolean</p></td>
 <td align="left" valign="top"><p><code class="literal">false</code></p></td>
-<td align="left" valign="top"><p>Serializes the <a href="/guide/en/ecs/8.1/ecs-error.html" class="ulink" target="_top"><code class="literal">error.stack_trace</code></a> as a JSON array where each element is in a new line to improve readability. Note that this requires a slightly more complex [Filebeat configuration](../README.md#when-stacktraceasarray-is-enabled).</p></td>
+<td align="left" valign="top"><p>Serializes the <a href="/guide/en/ecs/8.3/ecs-error.html" class="ulink" target="_top"><code class="literal">error.stack_trace</code></a> as a JSON array where each element is in a new line to improve readability. Note that this requires a slightly more complex [Filebeat configuration](../README.md#when-stacktraceasarray-is-enabled).</p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p><code class="literal">includeOrigin</code></p></td>
 <td align="left" valign="top"><p>boolean</p></td>
 <td align="left" valign="top"><p><code class="literal">false</code></p></td>
-<td align="left" valign="top"><p>If <code class="literal">true</code>, adds the <a href="/guide/en/ecs/8.1/ecs-log.html" class="ulink" target="_top"><code class="literal">log.origin.file.name</code></a>,
- <a href="/guide/en/ecs/8.1/ecs-log.html" class="ulink" target="_top"><code class="literal">log.origin.file.line</code></a> and <a href="/guide/en/ecs/8.1/ecs-log.html" class="ulink" target="_top"><code class="literal">log.origin.function</code></a> fields.
+<td align="left" valign="top"><p>If <code class="literal">true</code>, adds the <a href="/guide/en/ecs/8.3/ecs-log.html" class="ulink" target="_top"><code class="literal">log.origin.file.name</code></a>,
+ <a href="/guide/en/ecs/8.3/ecs-log.html" class="ulink" target="_top"><code class="literal">log.origin.file.line</code></a> and <a href="/guide/en/ecs/8.3/ecs-log.html" class="ulink" target="_top"><code class="literal">log.origin.function</code></a> fields.
  Note that JUL does not stores line number and <code class="literal">log.origin.file.line</code> will have <em>1</em> value.</p></td>
 </tr>
 <tr>
@@ -810,7 +843,7 @@ co.elastic.logging.jul.EcsFormatter.serviceNodeName=my-app-cluster-node</pre>
 <p>Add the formatter to a handler in the logging subsystem:</p>
 <div class="pre_wrapper lang-bash">
 <pre class="programlisting prettyprint lang-bash">$WILDFLY_HOME/bin/jboss-cli.sh -c '/subsystem=logging/custom-formatter=ECS:add(module=co.elastic.logging.jboss-logmanager-ecs-formatter,
-class=co.elastic.logging.jboss.logmanager.EcsFormatter, properties={serviceName=my-app,serviceNodeName=my-app-cluster-node}),\
+class=co.elastic.logging.jboss.logmanager.EcsFormatter, properties={serviceName=my-app,serviceVersion=my-app-version,serviceNodeName=my-app-cluster-node}),\
                                    /subsystem=logging/console-handler=CONSOLE:write-attribute(name=named-formatter,value=ECS)'</pre>
 </div>
 <p><span class="strong strong"><strong>Layout Parameters</strong></span></p>
@@ -835,7 +868,13 @@ class=co.elastic.logging.jboss.logmanager.EcsFormatter, properties={serviceName=
 <td align="left" valign="top"><p><code class="literal">serviceName</code></p></td>
 <td align="left" valign="top"><p>String</p></td>
 <td align="left" valign="top"><p></p></td>
-<td align="left" valign="top"><p>Sets the <code class="literal">service.name</code> field so you can filter your logs by a particular service</p></td>
+<td align="left" valign="top"><p>Sets the <code class="literal">service.name</code> field so you can filter your logs by a particular service name</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><code class="literal">serviceVersion</code></p></td>
+<td align="left" valign="top"><p>String</p></td>
+<td align="left" valign="top"><p></p></td>
+<td align="left" valign="top"><p>Sets the <code class="literal">service.version</code> field so you can filter your logs by a particular service version</p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p><code class="literal">serviceNodeName</code></p></td>
@@ -846,21 +885,21 @@ class=co.elastic.logging.jboss.logmanager.EcsFormatter, properties={serviceName=
 <tr>
 <td align="left" valign="top"><p><code class="literal">eventDataset</code></p></td>
 <td align="left" valign="top"><p>String</p></td>
-<td align="left" valign="top"><p><code class="literal">${serviceName}.log</code></p></td>
+<td align="left" valign="top"><p><code class="literal">${serviceName}</code></p></td>
 <td align="left" valign="top"><p>Sets the <code class="literal">event.dataset</code> field used by the machine learning job of the Logs app to look for anomalies in the log rate.</p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p><code class="literal">stackTraceAsArray</code></p></td>
 <td align="left" valign="top"><p>boolean</p></td>
 <td align="left" valign="top"><p><code class="literal">false</code></p></td>
-<td align="left" valign="top"><p>Serializes the <a href="/guide/en/ecs/8.1/ecs-error.html" class="ulink" target="_top"><code class="literal">error.stack_trace</code></a> as a JSON array where each element is in a new line to improve readability. Note that this requires a slightly more complex <a class="xref" href="setup.html#setup-stack-trace-as-array" title="When stackTraceAsArray is enabled">Filebeat configuration</a>.</p></td>
+<td align="left" valign="top"><p>Serializes the <a href="/guide/en/ecs/8.3/ecs-error.html" class="ulink" target="_top"><code class="literal">error.stack_trace</code></a> as a JSON array where each element is in a new line to improve readability. Note that this requires a slightly more complex <a class="xref" href="setup.html#setup-stack-trace-as-array" title="When stackTraceAsArray is enabled">Filebeat configuration</a>.</p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p><code class="literal">includeOrigin</code></p></td>
 <td align="left" valign="top"><p>boolean</p></td>
 <td align="left" valign="top"><p><code class="literal">false</code></p></td>
-<td align="left" valign="top"><p>If <code class="literal">true</code>, adds the <a href="/guide/en/ecs/8.1/ecs-log.html" class="ulink" target="_top"><code class="literal">log.origin.file.name</code></a>,
- <a href="/guide/en/ecs/8.1/ecs-log.html" class="ulink" target="_top"><code class="literal">log.origin.file.line</code></a> and <a href="/guide/en/ecs/8.1/ecs-log.html" class="ulink" target="_top"><code class="literal">log.origin.function</code></a> fields.</p></td>
+<td align="left" valign="top"><p>If <code class="literal">true</code>, adds the <a href="/guide/en/ecs/8.3/ecs-log.html" class="ulink" target="_top"><code class="literal">log.origin.file.name</code></a>,
+ <a href="/guide/en/ecs/8.3/ecs-log.html" class="ulink" target="_top"><code class="literal">log.origin.file.line</code></a> and <a href="/guide/en/ecs/8.3/ecs-log.html" class="ulink" target="_top"><code class="literal">log.origin.function</code></a> fields.</p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p><code class="literal">additionalFields</code></p></td>
@@ -1076,7 +1115,7 @@ function changeTabs(e) {
 <div class="olist orderedlist">
 <ol class="orderedlist">
 <li class="listitem">
-Follow the <a href="/guide/en/beats/filebeat/8.1/filebeat-installation-configuration.html" class="ulink" target="_top">Filebeat quick start</a>
+Follow the <a href="/guide/en/beats/filebeat/8.3/filebeat-installation-configuration.html" class="ulink" target="_top">Filebeat quick start</a>
 </li>
 <li class="listitem">
 Add the following configuration to your <code class="literal">filebeat.yaml</code> file.
@@ -1131,7 +1170,7 @@ processors:
 Make sure your application logs to stdout/stderr.
 </li>
 <li class="listitem">
-Follow the <a href="/guide/en/beats/filebeat/8.1/running-on-kubernetes.html" class="ulink" target="_top">Run Filebeat on Kubernetes</a> guide.
+Follow the <a href="/guide/en/beats/filebeat/8.3/running-on-kubernetes.html" class="ulink" target="_top">Run Filebeat on Kubernetes</a> guide.
 </li>
 <li class="listitem">
 Enable <a href="/guide/en/beats/filebeat/current/configuration-autodiscover-hints.html" class="ulink" target="_top">hints-based autodiscover</a> (uncomment the corresponding section in <code class="literal">filebeat-kubernetes.yaml</code>).
@@ -1161,7 +1200,7 @@ This will make sure the logs are parsed appropriately.
 Make sure your application logs to stdout/stderr.
 </li>
 <li class="listitem">
-Follow the <a href="/guide/en/beats/filebeat/8.1/running-on-docker.html" class="ulink" target="_top">Run Filebeat on Docker</a> guide.
+Follow the <a href="/guide/en/beats/filebeat/8.3/running-on-docker.html" class="ulink" target="_top">Run Filebeat on Docker</a> guide.
 </li>
 <li class="listitem">
 Enable <a href="/guide/en/beats/filebeat/current/configuration-autodiscover-hints.html" class="ulink" target="_top">hints-based autodiscover</a>.
@@ -1182,7 +1221,7 @@ This will make sure the logs are parsed appropriately.
 </div>
   </div>
 </div>
-<p>For more information, see the <a href="/guide/en/beats/filebeat/8.1/configuring-howto-filebeat.html" class="ulink" target="_top">Filebeat reference</a>.</p>
+<p>For more information, see the <a href="/guide/en/beats/filebeat/8.3/configuring-howto-filebeat.html" class="ulink" target="_top">Filebeat reference</a>.</p>
 <h4><a id="setup-stack-trace-as-array"></a>When <code class="literal">stackTraceAsArray</code> is enabled<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/ecs-logging-java/edit/1.x/docs/setup.asciidoc">edit</a></h4>
 <p>Filebeat can normally only decode JSON if there is one JSON object per line.
 When <code class="literal">stackTraceAsArray</code> is enabled, there will be a new line for each stack trace element which improves readability.

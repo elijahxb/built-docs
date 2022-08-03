@@ -11,6 +11,7 @@
 <meta name="DC.type" content="Learn/Docs/Elasticsearch/Reference/8.1"/>
 <meta name="DC.subject" content="Elasticsearch"/>
 <meta name="DC.identifier" content="8.1"/>
+<meta name="robots" content="noindex,nofollow"/>
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -56,7 +57,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,38 +88,30 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
-                  
+                  <div class="page_header">
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.1]</a></span>
-»
-<span class="breadcrumb-link"><a href="search-aggregations.html">Aggregations</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.1]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="search-aggregations.html">Aggregations</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="search-aggregations-metrics.html">Metrics aggregations</a></span>
-»
-<span class="breadcrumb-node">Scripted metric aggregation</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -130,7 +123,7 @@
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="search-aggregations-metrics-scripted-metric-aggregation"></a>Scripted metric aggregation<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/aggregations/metrics/scripted-metric-aggregation.asciidoc">edit</a></h2>
+<h2 class="title"><a id="search-aggregations-metrics-scripted-metric-aggregation"></a>Scripted metric aggregation<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/aggregations/metrics/scripted-metric-aggregation.asciidoc">edit</a></h2>
 </div></div></div>
 
 <p>A metric aggregation that executes using scripts to provide a metric output.</p>
@@ -161,7 +154,7 @@
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1267.console"></div>
+<div class="console_widget" data-snippet="snippets/1269.console"></div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
@@ -216,7 +209,7 @@
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1268.console"></div>
+<div class="console_widget" data-snippet="snippets/1270.console"></div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
@@ -233,7 +226,7 @@ in a global <code class="literal">params</code> object so that it can be shared 
 <p>For more details on specifying scripts see <a class="xref" href="modules-scripting.html" title="Scripting">script documentation</a>.</p>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="scripted-metric-aggregation-return-types"></a>Allowed return types<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/aggregations/metrics/scripted-metric-aggregation.asciidoc">edit</a></h3>
+<h3 class="title"><a id="scripted-metric-aggregation-return-types"></a>Allowed return types<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/aggregations/metrics/scripted-metric-aggregation.asciidoc">edit</a></h3>
 </div></div></div>
 <p>Whilst any valid script object can be used within a single script, the scripts must return or store in the <code class="literal">state</code> object only the following types:</p>
 <div class="ulist itemizedlist">
@@ -256,7 +249,7 @@ Array (containing elements of only the types listed here)
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="scripted-metric-aggregation-scope"></a>Scope of scripts<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/aggregations/metrics/scripted-metric-aggregation.asciidoc">edit</a></h3>
+<h3 class="title"><a id="scripted-metric-aggregation-scope"></a>Scope of scripts<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/aggregations/metrics/scripted-metric-aggregation.asciidoc">edit</a></h3>
 </div></div></div>
 <p>The scripted metric aggregation uses scripts at 4 stages of its execution:</p>
 <div class="variablelist">
@@ -319,7 +312,7 @@ final combined profit which will be returned in the response of the aggregation.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="scripted-metric-aggregation-example"></a>Worked example<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/aggregations/metrics/scripted-metric-aggregation.asciidoc">edit</a></h3>
+<h3 class="title"><a id="scripted-metric-aggregation-example"></a>Worked example<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/aggregations/metrics/scripted-metric-aggregation.asciidoc">edit</a></h3>
 </div></div></div>
 <p>Imagine a situation where you index the following documents into an index with 2 shards:</p>
 <a id="75e360d03fb416f0a65ca37c662c2e9c"></a>
@@ -334,12 +327,12 @@ final combined profit which will be returned in the response of the aggregation.
 {"index":{"_id":4}}
 {"type": "sale","amount": 130}</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1269.console"></div>
+<div class="console_widget" data-snippet="snippets/1271.console"></div>
 <p>Lets say that documents 1 and 3 end up on shard A and documents 2 and 4 end up on shard B. The following is a breakdown of what the aggregation result is
 at each stage of the example above.</p>
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="_before_init_script"></a>Before init_script<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/aggregations/metrics/scripted-metric-aggregation.asciidoc">edit</a></h4>
+<h4 class="title"><a id="_before_init_script"></a>Before init_script<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/aggregations/metrics/scripted-metric-aggregation.asciidoc">edit</a></h4>
 </div></div></div>
 <p><code class="literal">state</code> is initialized as a new empty object.</p>
 <div class="pre_wrapper lang-js">
@@ -349,7 +342,7 @@ at each stage of the example above.</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="_after_init_script"></a>After init_script<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/aggregations/metrics/scripted-metric-aggregation.asciidoc">edit</a></h4>
+<h4 class="title"><a id="_after_init_script"></a>After init_script<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/aggregations/metrics/scripted-metric-aggregation.asciidoc">edit</a></h4>
 </div></div></div>
 <p>This is run once on each shard before any document collection is performed, and so we will have a copy on each shard:</p>
 <div class="variablelist">
@@ -384,7 +377,7 @@ Shard B
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="_after_map_script"></a>After map_script<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/aggregations/metrics/scripted-metric-aggregation.asciidoc">edit</a></h4>
+<h4 class="title"><a id="_after_map_script"></a>After map_script<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/aggregations/metrics/scripted-metric-aggregation.asciidoc">edit</a></h4>
 </div></div></div>
 <p>Each shard collects its documents and runs the map_script on each document that is collected:</p>
 <div class="variablelist">
@@ -419,7 +412,7 @@ Shard B
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="_after_combine_script"></a>After combine_script<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/aggregations/metrics/scripted-metric-aggregation.asciidoc">edit</a></h4>
+<h4 class="title"><a id="_after_combine_script"></a>After combine_script<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/aggregations/metrics/scripted-metric-aggregation.asciidoc">edit</a></h4>
 </div></div></div>
 <p>The combine_script is executed on each shard after document collection is complete and reduces all the transactions down to a single profit figure for each
 shard (by summing the values in the transactions array) which is passed back to the coordinating node:</p>
@@ -447,7 +440,7 @@ Shard B
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="_after_reduce_script"></a>After reduce_script<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/aggregations/metrics/scripted-metric-aggregation.asciidoc">edit</a></h4>
+<h4 class="title"><a id="_after_reduce_script"></a>After reduce_script<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/aggregations/metrics/scripted-metric-aggregation.asciidoc">edit</a></h4>
 </div></div></div>
 <p>The reduce_script receives a <code class="literal">states</code> array containing the result of the combine script for each shard:</p>
 <div class="pre_wrapper lang-js">
@@ -475,7 +468,7 @@ produce the response:</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="scripted-metric-aggregation-parameters"></a>Other parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/aggregations/metrics/scripted-metric-aggregation.asciidoc">edit</a></h3>
+<h3 class="title"><a id="scripted-metric-aggregation-parameters"></a>Other parameters<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/aggregations/metrics/scripted-metric-aggregation.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="informaltable">
 <table border="0" cellpadding="4px">
@@ -510,7 +503,7 @@ the default is the equivalent of providing:
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="scripted-metric-aggregation-empty-buckets"></a>Empty buckets<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/aggregations/metrics/scripted-metric-aggregation.asciidoc">edit</a></h3>
+<h3 class="title"><a id="scripted-metric-aggregation-empty-buckets"></a>Empty buckets<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/aggregations/metrics/scripted-metric-aggregation.asciidoc">edit</a></h3>
 </div></div></div>
 <p>If a parent bucket of the scripted metric aggregation does not collect any documents an empty aggregation response will be returned from the
 shard with a <code class="literal">null</code> value. In this case the <code class="literal">reduce_script</code>'s <code class="literal">states</code> variable will contain <code class="literal">null</code> as a response from that shard.
@@ -530,15 +523,37 @@ shard with a <code class="literal">null</code> value. In this case the <code cla
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

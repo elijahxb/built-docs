@@ -18,11 +18,9 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">APM User Guide [master]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">APM User Guide [master]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="data-model.html">Data Model</a></span>
-»
-<span class="breadcrumb-node">Metrics</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -265,6 +263,9 @@ These are used to calculate the throughput and latency of requests to backend se
 <code class="literal">span.destination.service.resource</code>: The destination service resource, for example <code class="literal">mysql</code>
 </li>
 <li class="listitem">
+<code class="literal">span.name</code>: The name of the operation, for example <code class="literal">SELECT FROM table_name</code>.
+</li>
+<li class="listitem">
 <code class="literal">event.outcome</code>: The outcome of the operation, for example <code class="literal">success</code>
 </li>
 <li class="listitem">
@@ -276,15 +277,41 @@ These are used to calculate the throughput and latency of requests to backend se
 <li class="listitem">
 <code class="literal">service.environment</code>: The environment of the service that made the request
 </li>
+<li class="listitem">
+<code class="literal">service.target.name</code>: The target service name, for example <code class="literal">customer_db</code>
+</li>
+<li class="listitem">
+<code class="literal">service.target.type</code>: The target service type, for example <code class="literal">mysql</code>
+</li>
 </ul>
 </div>
 </dd>
 </dl>
 </div>
 <p>The <code class="literal">@timestamp</code> field of these documents holds the start of the aggregation interval.</p>
+<h4><a id="_data_streams_4"></a>Data streams<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-server/edit/main/docs/data-model.asciidoc">edit</a></h4>
+<p>Metrics are stored in the following data streams:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+APM internal metrics: <code class="literal">metrics-apm.internal-&lt;namespace&gt;</code>
+</li>
+<li class="listitem">
+APM profiling metrics: <code class="literal">metrics-apm.profiling-&lt;namespace&gt;</code>
+</li>
+<li class="listitem">
+Application metrics: <code class="literal">metrics-apm.app.&lt;service.name&gt;-&lt;namespace&gt;</code>
+</li>
+</ul>
+</div>
+<p>See <a class="xref" href="apm-data-streams.html" title="Data streams">Data streams</a> to learn more.</p>
 <h4><a id="_example_metric_document"></a>Example metric document<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-server/edit/main/docs/data-model.asciidoc">edit</a></h4>
-<p>Below is an example of a metric document as stored in Elasticsearch, containing JVM metrics produced by the Elastic APM Java agent.
-The document contains two related metrics: <code class="literal">jvm.gc.time</code> and <code class="literal">jvm.gc.count</code>. These are accompanied by various fields describing
+<p>This example shows what metric documents can look like when indexed in Elasticsearch.</p>
+<details>
+<summary class="title">Expand Elasticsearch document</summary>
+<div class="content">
+<p>This example contains JVM metrics produced by the Elastic APM Java agent.
+and contains two related metrics: <code class="literal">jvm.gc.time</code> and <code class="literal">jvm.gc.count</code>. These are accompanied by various fields describing
 the environment in which the metrics were captured: service name, host name, Kubernetes pod UID, container ID, process ID, and more.
 These fields make it possible to search and aggregate across various dimensions, such as by service, host, and Kubernetes pod.</p>
 <div class="pre_wrapper lang-json">
@@ -358,6 +385,8 @@ These fields make it possible to search and aggregate across various dimensions,
   }
 }</pre>
 </div>
+</div>
+</details>
 </div>
 <div class="navfooter">
 <span class="prev">

@@ -1,1 +1,1 @@
-GET /my-index-000001/_termvectors/1?fields=message
+POST /_data_stream/_migrate/my-logs

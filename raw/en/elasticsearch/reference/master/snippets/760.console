@@ -1,13 +1,16 @@
-GET /my-index-000001/_search?scroll=1m
+GET my-index-000001/_search
 {
-  "slice": {
-    "field": "@timestamp",
-    "id": 0,
-    "max": 10
-  },
   "query": {
-    "match": {
-      "message": "foo"
+    "match_phrase": { "message": "number 1" }
+  },
+  "highlight": {
+    "fields": {
+      "message": {
+        "type": "plain",
+        "fragment_size": 15,
+        "number_of_fragments": 3,
+        "fragmenter": "span"
+      }
     }
   }
 }

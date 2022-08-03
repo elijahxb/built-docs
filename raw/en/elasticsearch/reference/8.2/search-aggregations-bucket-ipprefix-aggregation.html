@@ -13,19 +13,16 @@
 <meta name="robots" content="noindex,nofollow"/>
 </head>
 <body><div class="page_header">
-You are looking at preliminary documentation for a future release.
-Not what you want? See the
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
 <a href="../current/index.html">current release documentation</a>.
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.2]</a></span>
-»
-<span class="breadcrumb-link"><a href="search-aggregations.html">Aggregations</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.2]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="search-aggregations.html">Aggregations</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="search-aggregations-bucket.html">Bucket aggregations</a></span>
-»
-<span class="breadcrumb-node">IP prefix aggregation</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -78,7 +75,7 @@ POST /network-traffic/_bulk?refresh
 {"index":{"_id":8}}
 {"ipv4":"192.168.3.107","ipv6":"2001:db8:a4f8:114f:6001:0:12:7307"}</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1143.console"></div>
+<div class="console_widget" data-snippet="snippets/1145.console"></div>
 <p>The following aggregation groups documents into buckets. Each bucket identifies a different sub-network. The sub-network is calculated by applying a netmask with prefix length of <code class="literal">24</code> to each IP address in the <code class="literal">ipv4</code> field:</p>
 <a id="5a754dcc854b9154296550a0b581cb9d"></a>
 <a id="ip-prefix-ipv4-example"></a><div class="pre_wrapper lang-console">
@@ -95,7 +92,7 @@ POST /network-traffic/_bulk?refresh
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1144.console"></div>
+<div class="console_widget" data-snippet="snippets/1146.console"></div>
 <p>Response:</p>
 <a id="9d413061e61b51498e7d21f68bddc8b3"></a>
 <div class="pre_wrapper lang-console-result">
@@ -148,7 +145,7 @@ POST /network-traffic/_bulk?refresh
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1145.console"></div>
+<div class="console_widget" data-snippet="snippets/1147.console"></div>
 <p>If <code class="literal">is_ipv6</code> is <code class="literal">true</code>, the response doesn&#8217;t include a <code class="literal">netmask</code> for each bucket.</p>
 <a id="6a16b05416d7fe2681cf39faf2eb47dd"></a>
 <div class="pre_wrapper lang-console-result">
@@ -324,7 +321,7 @@ The IPv4 netmask. If <code class="literal">is_ipv6</code> is <code class="litera
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1146.console"></div>
+<div class="console_widget" data-snippet="snippets/1148.console"></div>
 <p>Response:</p>
 <a id="302d8b2499946dc3cf6e8f2b2a411ff0"></a>
 <div class="pre_wrapper lang-console-result">
@@ -381,7 +378,7 @@ The IPv4 netmask. If <code class="literal">is_ipv6</code> is <code class="litera
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1147.console"></div>
+<div class="console_widget" data-snippet="snippets/1149.console"></div>
 <p>Response:</p>
 <a id="046cb749b74dc843528feac0fbd1d879"></a>
 <div class="pre_wrapper lang-console-result">
@@ -440,7 +437,7 @@ The IPv4 netmask. If <code class="literal">is_ipv6</code> is <code class="litera
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1148.console"></div>
+<div class="console_widget" data-snippet="snippets/1150.console"></div>
 <p>Response:</p>
 <a id="f60009e1a7f4aa91603049cb5cd9ba63"></a>
 <div class="pre_wrapper lang-console-result">

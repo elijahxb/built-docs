@@ -11,6 +11,7 @@
 <meta name="DC.type" content="Learn/Docs/Elasticsearch/Reference/8.1"/>
 <meta name="DC.subject" content="Elasticsearch"/>
 <meta name="DC.identifier" content="8.1"/>
+<meta name="robots" content="noindex,nofollow"/>
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -56,7 +57,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,38 +88,30 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
-                  
+                  <div class="page_header">
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.1]</a></span>
-»
-<span class="breadcrumb-link"><a href="search-aggregations.html">Aggregations</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.1]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="search-aggregations.html">Aggregations</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="search-aggregations-metrics.html">Metrics aggregations</a></span>
-»
-<span class="breadcrumb-node">Max aggregation</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -130,7 +123,7 @@
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="search-aggregations-metrics-max-aggregation"></a>Max aggregation<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/aggregations/metrics/max-aggregation.asciidoc">edit</a></h2>
+<h2 class="title"><a id="search-aggregations-metrics-max-aggregation"></a>Max aggregation<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/aggregations/metrics/max-aggregation.asciidoc">edit</a></h2>
 </div></div></div>
 
 <p>A <code class="literal">single-value</code> metrics aggregation that keeps track and returns the maximum
@@ -153,7 +146,7 @@ whose absolute value is greater than <code class="literal">2^53</code>.</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1238.console"></div>
+<div class="console_widget" data-snippet="snippets/1240.console"></div>
 <p>Response:</p>
 <a id="7b9352d63010d25f9571f4588f7c2a26"></a>
 <div class="pre_wrapper lang-console-result">
@@ -171,7 +164,7 @@ the key by which the aggregation result can be retrieved from the returned
 response.</p>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_script_6"></a>Script<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/aggregations/metrics/max-aggregation.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_script_6"></a>Script<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/aggregations/metrics/max-aggregation.asciidoc">edit</a></h3>
 </div></div></div>
 <p>If you need to get the <code class="literal">max</code> of something more complex than a single field,
 run an aggregation on a <a class="xref" href="runtime.html" title="Runtime fields">runtime field</a>.</p>
@@ -199,12 +192,12 @@ run an aggregation on a <a class="xref" href="runtime.html" title="Runtime field
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1239.console"></div>
+<div class="console_widget" data-snippet="snippets/1241.console"></div>
 </div>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_missing_value_10"></a>Missing value<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/aggregations/metrics/max-aggregation.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_missing_value_10"></a>Missing value<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/aggregations/metrics/max-aggregation.asciidoc">edit</a></h3>
 </div></div></div>
 <p>The <code class="literal">missing</code> parameter defines how documents that are missing a value should
 be treated. By default they will be ignored but it is also possible to treat
@@ -223,7 +216,7 @@ them as if they had a value.</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1240.console"></div>
+<div class="console_widget" data-snippet="snippets/1242.console"></div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
@@ -241,7 +234,7 @@ bucket as documents that have the value <code class="literal">10</code>.</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="search-aggregations-metrics-max-aggregation-histogram-fields"></a>Histogram fields<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/aggregations/metrics/max-aggregation.asciidoc">edit</a></h3>
+<h3 class="title"><a id="search-aggregations-metrics-max-aggregation-histogram-fields"></a>Histogram fields<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/aggregations/metrics/max-aggregation.asciidoc">edit</a></h3>
 </div></div></div>
 <p>When <code class="literal">max</code> is computed on <a class="xref" href="histogram.html" title="Histogram field type">histogram fields</a>, the result of the aggregation is the maximum
 of all elements in the <code class="literal">values</code> array. Note, that the <code class="literal">counts</code> array of the histogram is ignored.</p>
@@ -282,7 +275,7 @@ POST /metrics_index/_search?size=0&amp;filter_path=aggregations
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1241.console"></div>
+<div class="console_widget" data-snippet="snippets/1243.console"></div>
 <p>The <code class="literal">max</code> aggregation will return the maximum value of all histogram fields:</p>
 <a id="dea6ca729490250bb8f32c7726d02b18"></a>
 <div class="pre_wrapper lang-console-result">
@@ -309,15 +302,37 @@ POST /metrics_index/_search?size=0&amp;filter_path=aggregations
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

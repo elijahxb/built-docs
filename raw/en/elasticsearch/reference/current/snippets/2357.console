@@ -1,19 +1,15 @@
-POST _ml/trained_models/model2/deployment/_infer
+PUT _license
 {
-  "docs": [
+  "licenses": [
     {
-      "text_field": "This is a very happy person"
+      "uid":"893361dc-9749-4997-93cb-802e3d7fa4xx",
+      "type":"basic",
+      "issue_date_in_millis":1411948800000,
+      "expiry_date_in_millis":1914278399999,
+      "max_nodes":1,
+      "issued_to":"issuedTo",
+      "issuer":"issuer",
+      "signature":"xx"
     }
-  ],
-  "inference_config": {
-    "zero_shot_classification": {
-      "labels": [
-        "glad",
-        "sad",
-        "bad",
-        "rad"
-      ],
-      "multi_label": false
-    }
-  }
+    ]
 }

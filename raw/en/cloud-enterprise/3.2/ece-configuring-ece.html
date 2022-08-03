@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Configuring your installation | Elastic Cloud Enterprise Reference [3.2] | Elastic</title>
+<link rel="home" href="index.html" title="Elastic Cloud Enterprise Reference [3.2]"/>
+<link rel="up" href="index.html" title="Elastic Cloud Enterprise Reference [3.2]"/>
+<link rel="prev" href="ece-getting-started-post-installation.html" title="Post-installation steps"/>
+<link rel="next" href="ece-system-clusters-configuration.html" title="System clusters configuration"/>
+<meta name="DC.type" content="Learn/Docs/CloudEnterprise/Reference/3.2"/>
+<meta name="DC.subject" content="ECE"/>
+<meta name="DC.identifier" content="3.2"/>
+</head>
+<body><div class="page_header">
+A newer version is available. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Cloud Enterprise Reference [3.2]</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="ece-getting-started-post-installation.html">« Post-installation steps</a>
+</span>
+<span class="next">
+<a href="ece-system-clusters-configuration.html">System clusters configuration »</a>
+</span>
+</div>
+<div class="part">
+<div class="titlepage"><div><div>
+<h1 class="title"><a id="ece-configuring-ece"></a>Configuring your installation<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/cloud-enterprise/ce-configuring-ece.asciidoc">edit</a></h1>
+</div></div></div>
+<div class="openblock partintro">
+<div class="content">
+<p>Now that you have Elastic Cloud Enterprise up and running, take a look at some of the additional features that you can configure:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<a class="xref" href="ece-system-clusters-configuration.html" title="System clusters configuration">System clusters configuration</a> - Best practices for ECE system clusters to ensure a highly available and resilient setup.
+</li>
+<li class="listitem">
+<a class="xref" href="ece-configuring-ece-templates.html" title="Configure deployment templates">Configure deployment templates</a> - Make the most out of deployment templates by configuring ECE for your hardware and creating custom deployment templates.
+</li>
+<li class="listitem">
+<a class="xref" href="ece-manage-repositories.html" title="Manage snapshot repositories">Manage snapshot repositories</a> - To back up your Elasticsearch clusters automatically, you need to configure a snapshot repository.
+</li>
+<li class="listitem">
+<a class="xref" href="ece-add-license.html" title="Manage licenses">Manage licenses</a> - Keep Elastic Cloud Enterprise current with a valid license.
+</li>
+<li class="listitem">
+<a class="xref" href="ece-administering-endpoints.html" title="Change endpoint URLs">Change endpoint URLs</a> - Set where Elasticsearch and Kibana can be accessed from.
+</li>
+<li class="listitem">
+<a class="xref" href="ece-configuring-allocator-affinity.html" title="Configure allocator affinity">Configure allocator affinity</a> - Determine how ECE distributes your Elastic Stack deployments across allocators.
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="ece-getting-started-post-installation.html">« Post-installation steps</a>
+</span>
+<span class="next">
+<a href="ece-system-clusters-configuration.html">System clusters configuration »</a>
+</span>
+</div>
+</div>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains('stemblock')) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+</body>
+</html>

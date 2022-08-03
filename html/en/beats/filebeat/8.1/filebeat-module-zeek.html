@@ -11,6 +11,7 @@
 <meta name="DC.type" content="Learn/Docs/Filebeat/Reference/8.1"/>
 <meta name="DC.subject" content="Filebeat"/>
 <meta name="DC.identifier" content="8.1"/>
+<meta name="robots" content="noindex,nofollow"/>
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -56,7 +57,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,36 +88,29 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
-                  
+                  <div class="page_header">
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Filebeat Reference [8.1]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Filebeat Reference [8.1]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="filebeat-modules.html">Modules</a></span>
-»
-<span class="breadcrumb-node">Zeek (Bro) Module</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -128,7 +122,7 @@
 </div>
 <div class="chapter xpack">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="filebeat-module-zeek"></a>Zeek (Bro) Module<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h2>
+<h2 class="title"><a id="filebeat-module-zeek"></a>Zeek (Bro) Module<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h2>
 </div></div></div>
 <div class="sidebar">
 <div class="titlepage"><div><div>
@@ -168,12 +162,12 @@ installed in Zeek.</p>
 how to configure and run modules.</p>
 </div>
 </div>
-<h3><a id="_compatibility_38"></a>Compatibility<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h3>
+<h3><a id="_compatibility_38"></a>Compatibility<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h3>
 <p>This module has been developed against Zeek 2.6.1, but is expected to work
 with newer versions of Zeek.</p>
 <p>Zeek requires a Unix-like platform, and it currently supports Linux, FreeBSD,
 and Mac OS X.</p>
-<h4><a id="_capture_loss_log_fileset_settings"></a><code class="literal">capture_loss</code> log fileset settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
+<h4><a id="_capture_loss_log_fileset_settings"></a><code class="literal">capture_loss</code> log fileset settings<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -202,49 +196,7 @@ events. Defaults to <code class="literal">[suricata]</code>.
 </dd>
 </dl>
 </div>
-<h4><a id="_connection_log_fileset_settings"></a><code class="literal">connection</code> log fileset settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
-<div class="variablelist">
-<dl class="variablelist">
-<dt>
-<span class="term">
-<span class="strong strong"><strong><code class="literal">var.paths</code></strong></span>
-</span>
-</dt>
-<dd>
-An array of glob-based paths that specify where to look for the log files. All
-patterns supported by <a href="https://golang.org/pkg/path/filepath/#Glob" class="ulink" target="_top">Go Glob</a>
-are also supported here. For example, you can use wildcards to fetch all files
-from a predefined level of subdirectories: <code class="literal">/path/to/log/*/*.log</code>. This
-fetches all <code class="literal">.log</code> files from the subfolders of <code class="literal">/path/to/log</code>. It does not
-fetch log files from the <code class="literal">/path/to/log</code> folder itself. If this setting is left
-empty, Filebeat will choose log paths based on your operating system.
-</dd>
-<dt>
-<span class="term">
-<span class="strong strong"><strong><code class="literal">var.tags</code></strong></span>
-</span>
-</dt>
-<dd>
-A list of tags to include in events. Including <code class="literal">forwarded</code> indicates that the
-events did not originate on this host and causes <code class="literal">host.name</code> to not be added to
-events. Defaults to <code class="literal">[suricata]</code>.
-</dd>
-<dt>
-<span class="term">
-<code class="literal">var.internal_networks</code>
-</span>
-</dt>
-<dd>
-A list of CIDR ranges describing the IP addresses that
-you consider internal. This is used in determining the value of
-<code class="literal">network.direction</code>. The values
-can be either a CIDR value or one of the named ranges supported by the
-<a class="xref" href="defining-processors.html#condition-network" title="network"><code class="literal">network</code></a> condition. The default value is <code class="literal">[private]</code>
-which classifies RFC 1918 (IPv4) and RFC 4193 (IPv6) addresses as internal.
-</dd>
-</dl>
-</div>
-<h4><a id="_dce_rpc_log_fileset_settings"></a><code class="literal">dce_rpc</code> log fileset settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
+<h4><a id="_connection_log_fileset_settings"></a><code class="literal">connection</code> log fileset settings<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -286,7 +238,7 @@ which classifies RFC 1918 (IPv4) and RFC 4193 (IPv6) addresses as internal.
 </dd>
 </dl>
 </div>
-<h4><a id="_dhcp_log_fileset_settings"></a><code class="literal">dhcp</code> log fileset settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
+<h4><a id="_dce_rpc_log_fileset_settings"></a><code class="literal">dce_rpc</code> log fileset settings<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -328,7 +280,7 @@ which classifies RFC 1918 (IPv4) and RFC 4193 (IPv6) addresses as internal.
 </dd>
 </dl>
 </div>
-<h4><a id="_dnp3_log_fileset_settings"></a><code class="literal">dnp3</code> log fileset settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
+<h4><a id="_dhcp_log_fileset_settings"></a><code class="literal">dhcp</code> log fileset settings<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -370,7 +322,7 @@ which classifies RFC 1918 (IPv4) and RFC 4193 (IPv6) addresses as internal.
 </dd>
 </dl>
 </div>
-<h4><a id="_dns_log_fileset_settings"></a><code class="literal">dns</code> log fileset settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
+<h4><a id="_dnp3_log_fileset_settings"></a><code class="literal">dnp3</code> log fileset settings<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -412,7 +364,7 @@ which classifies RFC 1918 (IPv4) and RFC 4193 (IPv6) addresses as internal.
 </dd>
 </dl>
 </div>
-<h4><a id="_dpd_log_fileset_settings"></a><code class="literal">dpd</code> log fileset settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
+<h4><a id="_dns_log_fileset_settings"></a><code class="literal">dns</code> log fileset settings<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -454,36 +406,7 @@ which classifies RFC 1918 (IPv4) and RFC 4193 (IPv6) addresses as internal.
 </dd>
 </dl>
 </div>
-<h4><a id="_files_log_fileset_settings"></a><code class="literal">files</code> log fileset settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
-<div class="variablelist">
-<dl class="variablelist">
-<dt>
-<span class="term">
-<span class="strong strong"><strong><code class="literal">var.paths</code></strong></span>
-</span>
-</dt>
-<dd>
-An array of glob-based paths that specify where to look for the log files. All
-patterns supported by <a href="https://golang.org/pkg/path/filepath/#Glob" class="ulink" target="_top">Go Glob</a>
-are also supported here. For example, you can use wildcards to fetch all files
-from a predefined level of subdirectories: <code class="literal">/path/to/log/*/*.log</code>. This
-fetches all <code class="literal">.log</code> files from the subfolders of <code class="literal">/path/to/log</code>. It does not
-fetch log files from the <code class="literal">/path/to/log</code> folder itself. If this setting is left
-empty, Filebeat will choose log paths based on your operating system.
-</dd>
-<dt>
-<span class="term">
-<span class="strong strong"><strong><code class="literal">var.tags</code></strong></span>
-</span>
-</dt>
-<dd>
-A list of tags to include in events. Including <code class="literal">forwarded</code> indicates that the
-events did not originate on this host and causes <code class="literal">host.name</code> to not be added to
-events. Defaults to <code class="literal">[suricata]</code>.
-</dd>
-</dl>
-</div>
-<h4><a id="_ftp_log_fileset_settings"></a><code class="literal">ftp</code> log fileset settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
+<h4><a id="_dpd_log_fileset_settings"></a><code class="literal">dpd</code> log fileset settings<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -525,7 +448,36 @@ which classifies RFC 1918 (IPv4) and RFC 4193 (IPv6) addresses as internal.
 </dd>
 </dl>
 </div>
-<h4><a id="_files_log_fileset_settings_2"></a><code class="literal">files</code> log fileset settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
+<h4><a id="_files_log_fileset_settings"></a><code class="literal">files</code> log fileset settings<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
+<div class="variablelist">
+<dl class="variablelist">
+<dt>
+<span class="term">
+<span class="strong strong"><strong><code class="literal">var.paths</code></strong></span>
+</span>
+</dt>
+<dd>
+An array of glob-based paths that specify where to look for the log files. All
+patterns supported by <a href="https://golang.org/pkg/path/filepath/#Glob" class="ulink" target="_top">Go Glob</a>
+are also supported here. For example, you can use wildcards to fetch all files
+from a predefined level of subdirectories: <code class="literal">/path/to/log/*/*.log</code>. This
+fetches all <code class="literal">.log</code> files from the subfolders of <code class="literal">/path/to/log</code>. It does not
+fetch log files from the <code class="literal">/path/to/log</code> folder itself. If this setting is left
+empty, Filebeat will choose log paths based on your operating system.
+</dd>
+<dt>
+<span class="term">
+<span class="strong strong"><strong><code class="literal">var.tags</code></strong></span>
+</span>
+</dt>
+<dd>
+A list of tags to include in events. Including <code class="literal">forwarded</code> indicates that the
+events did not originate on this host and causes <code class="literal">host.name</code> to not be added to
+events. Defaults to <code class="literal">[suricata]</code>.
+</dd>
+</dl>
+</div>
+<h4><a id="_ftp_log_fileset_settings"></a><code class="literal">ftp</code> log fileset settings<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -567,7 +519,7 @@ which classifies RFC 1918 (IPv4) and RFC 4193 (IPv6) addresses as internal.
 </dd>
 </dl>
 </div>
-<h4><a id="_http_log_fileset_settings"></a><code class="literal">http</code> log fileset settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
+<h4><a id="_files_log_fileset_settings_2"></a><code class="literal">files</code> log fileset settings<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -609,7 +561,7 @@ which classifies RFC 1918 (IPv4) and RFC 4193 (IPv6) addresses as internal.
 </dd>
 </dl>
 </div>
-<h4><a id="_intel_log_fileset_settings"></a><code class="literal">intel</code> log fileset settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
+<h4><a id="_http_log_fileset_settings"></a><code class="literal">http</code> log fileset settings<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -651,7 +603,7 @@ which classifies RFC 1918 (IPv4) and RFC 4193 (IPv6) addresses as internal.
 </dd>
 </dl>
 </div>
-<h4><a id="_irc_log_fileset_settings"></a><code class="literal">irc</code> log fileset settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
+<h4><a id="_intel_log_fileset_settings"></a><code class="literal">intel</code> log fileset settings<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -693,7 +645,7 @@ which classifies RFC 1918 (IPv4) and RFC 4193 (IPv6) addresses as internal.
 </dd>
 </dl>
 </div>
-<h4><a id="_kerberos_log_fileset_settings"></a><code class="literal">kerberos</code> log fileset settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
+<h4><a id="_irc_log_fileset_settings"></a><code class="literal">irc</code> log fileset settings<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -735,7 +687,7 @@ which classifies RFC 1918 (IPv4) and RFC 4193 (IPv6) addresses as internal.
 </dd>
 </dl>
 </div>
-<h4><a id="_modbus_log_fileset_settings"></a><code class="literal">modbus</code> log fileset settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
+<h4><a id="_kerberos_log_fileset_settings"></a><code class="literal">kerberos</code> log fileset settings<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -777,7 +729,7 @@ which classifies RFC 1918 (IPv4) and RFC 4193 (IPv6) addresses as internal.
 </dd>
 </dl>
 </div>
-<h4><a id="_mysql_log_fileset_settings"></a><code class="literal">mysql</code> log fileset settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
+<h4><a id="_modbus_log_fileset_settings"></a><code class="literal">modbus</code> log fileset settings<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -819,7 +771,7 @@ which classifies RFC 1918 (IPv4) and RFC 4193 (IPv6) addresses as internal.
 </dd>
 </dl>
 </div>
-<h4><a id="_notice_log_fileset_settings"></a><code class="literal">notice</code> log fileset settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
+<h4><a id="_mysql_log_fileset_settings"></a><code class="literal">mysql</code> log fileset settings<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -861,7 +813,7 @@ which classifies RFC 1918 (IPv4) and RFC 4193 (IPv6) addresses as internal.
 </dd>
 </dl>
 </div>
-<h4><a id="_ntls_log_fileset_settings"></a><code class="literal">ntls</code> log fileset settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
+<h4><a id="_notice_log_fileset_settings"></a><code class="literal">notice</code> log fileset settings<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -903,7 +855,7 @@ which classifies RFC 1918 (IPv4) and RFC 4193 (IPv6) addresses as internal.
 </dd>
 </dl>
 </div>
-<h4><a id="_ntp_log_fileset_settings"></a><code class="literal">ntp</code> log fileset settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
+<h4><a id="_ntls_log_fileset_settings"></a><code class="literal">ntls</code> log fileset settings<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -945,65 +897,7 @@ which classifies RFC 1918 (IPv4) and RFC 4193 (IPv6) addresses as internal.
 </dd>
 </dl>
 </div>
-<h4><a id="_ocsp_log_fileset_settings"></a><code class="literal">ocsp</code> log fileset settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
-<div class="variablelist">
-<dl class="variablelist">
-<dt>
-<span class="term">
-<span class="strong strong"><strong><code class="literal">var.paths</code></strong></span>
-</span>
-</dt>
-<dd>
-An array of glob-based paths that specify where to look for the log files. All
-patterns supported by <a href="https://golang.org/pkg/path/filepath/#Glob" class="ulink" target="_top">Go Glob</a>
-are also supported here. For example, you can use wildcards to fetch all files
-from a predefined level of subdirectories: <code class="literal">/path/to/log/*/*.log</code>. This
-fetches all <code class="literal">.log</code> files from the subfolders of <code class="literal">/path/to/log</code>. It does not
-fetch log files from the <code class="literal">/path/to/log</code> folder itself. If this setting is left
-empty, Filebeat will choose log paths based on your operating system.
-</dd>
-<dt>
-<span class="term">
-<span class="strong strong"><strong><code class="literal">var.tags</code></strong></span>
-</span>
-</dt>
-<dd>
-A list of tags to include in events. Including <code class="literal">forwarded</code> indicates that the
-events did not originate on this host and causes <code class="literal">host.name</code> to not be added to
-events. Defaults to <code class="literal">[suricata]</code>.
-</dd>
-</dl>
-</div>
-<h4><a id="_pe_log_fileset_settings"></a><code class="literal">pe</code> log fileset settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
-<div class="variablelist">
-<dl class="variablelist">
-<dt>
-<span class="term">
-<span class="strong strong"><strong><code class="literal">var.paths</code></strong></span>
-</span>
-</dt>
-<dd>
-An array of glob-based paths that specify where to look for the log files. All
-patterns supported by <a href="https://golang.org/pkg/path/filepath/#Glob" class="ulink" target="_top">Go Glob</a>
-are also supported here. For example, you can use wildcards to fetch all files
-from a predefined level of subdirectories: <code class="literal">/path/to/log/*/*.log</code>. This
-fetches all <code class="literal">.log</code> files from the subfolders of <code class="literal">/path/to/log</code>. It does not
-fetch log files from the <code class="literal">/path/to/log</code> folder itself. If this setting is left
-empty, Filebeat will choose log paths based on your operating system.
-</dd>
-<dt>
-<span class="term">
-<span class="strong strong"><strong><code class="literal">var.tags</code></strong></span>
-</span>
-</dt>
-<dd>
-A list of tags to include in events. Including <code class="literal">forwarded</code> indicates that the
-events did not originate on this host and causes <code class="literal">host.name</code> to not be added to
-events. Defaults to <code class="literal">[suricata]</code>.
-</dd>
-</dl>
-</div>
-<h4><a id="_radius_log_fileset_settings"></a><code class="literal">radius</code> log fileset settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
+<h4><a id="_ntp_log_fileset_settings"></a><code class="literal">ntp</code> log fileset settings<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -1045,7 +939,65 @@ which classifies RFC 1918 (IPv4) and RFC 4193 (IPv6) addresses as internal.
 </dd>
 </dl>
 </div>
-<h4><a id="_rdp_log_fileset_settings"></a><code class="literal">rdp</code> log fileset settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
+<h4><a id="_ocsp_log_fileset_settings"></a><code class="literal">ocsp</code> log fileset settings<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
+<div class="variablelist">
+<dl class="variablelist">
+<dt>
+<span class="term">
+<span class="strong strong"><strong><code class="literal">var.paths</code></strong></span>
+</span>
+</dt>
+<dd>
+An array of glob-based paths that specify where to look for the log files. All
+patterns supported by <a href="https://golang.org/pkg/path/filepath/#Glob" class="ulink" target="_top">Go Glob</a>
+are also supported here. For example, you can use wildcards to fetch all files
+from a predefined level of subdirectories: <code class="literal">/path/to/log/*/*.log</code>. This
+fetches all <code class="literal">.log</code> files from the subfolders of <code class="literal">/path/to/log</code>. It does not
+fetch log files from the <code class="literal">/path/to/log</code> folder itself. If this setting is left
+empty, Filebeat will choose log paths based on your operating system.
+</dd>
+<dt>
+<span class="term">
+<span class="strong strong"><strong><code class="literal">var.tags</code></strong></span>
+</span>
+</dt>
+<dd>
+A list of tags to include in events. Including <code class="literal">forwarded</code> indicates that the
+events did not originate on this host and causes <code class="literal">host.name</code> to not be added to
+events. Defaults to <code class="literal">[suricata]</code>.
+</dd>
+</dl>
+</div>
+<h4><a id="_pe_log_fileset_settings"></a><code class="literal">pe</code> log fileset settings<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
+<div class="variablelist">
+<dl class="variablelist">
+<dt>
+<span class="term">
+<span class="strong strong"><strong><code class="literal">var.paths</code></strong></span>
+</span>
+</dt>
+<dd>
+An array of glob-based paths that specify where to look for the log files. All
+patterns supported by <a href="https://golang.org/pkg/path/filepath/#Glob" class="ulink" target="_top">Go Glob</a>
+are also supported here. For example, you can use wildcards to fetch all files
+from a predefined level of subdirectories: <code class="literal">/path/to/log/*/*.log</code>. This
+fetches all <code class="literal">.log</code> files from the subfolders of <code class="literal">/path/to/log</code>. It does not
+fetch log files from the <code class="literal">/path/to/log</code> folder itself. If this setting is left
+empty, Filebeat will choose log paths based on your operating system.
+</dd>
+<dt>
+<span class="term">
+<span class="strong strong"><strong><code class="literal">var.tags</code></strong></span>
+</span>
+</dt>
+<dd>
+A list of tags to include in events. Including <code class="literal">forwarded</code> indicates that the
+events did not originate on this host and causes <code class="literal">host.name</code> to not be added to
+events. Defaults to <code class="literal">[suricata]</code>.
+</dd>
+</dl>
+</div>
+<h4><a id="_radius_log_fileset_settings"></a><code class="literal">radius</code> log fileset settings<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -1087,7 +1039,7 @@ which classifies RFC 1918 (IPv4) and RFC 4193 (IPv6) addresses as internal.
 </dd>
 </dl>
 </div>
-<h4><a id="_rfb_log_fileset_settings"></a><code class="literal">rfb</code> log fileset settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
+<h4><a id="_rdp_log_fileset_settings"></a><code class="literal">rdp</code> log fileset settings<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -1129,7 +1081,7 @@ which classifies RFC 1918 (IPv4) and RFC 4193 (IPv6) addresses as internal.
 </dd>
 </dl>
 </div>
-<h4><a id="_signature_log_fileset_settings"></a><code class="literal">signature</code> log fileset settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
+<h4><a id="_rfb_log_fileset_settings"></a><code class="literal">rfb</code> log fileset settings<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -1171,7 +1123,7 @@ which classifies RFC 1918 (IPv4) and RFC 4193 (IPv6) addresses as internal.
 </dd>
 </dl>
 </div>
-<h4><a id="_sip_log_fileset_settings"></a><code class="literal">sip</code> log fileset settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
+<h4><a id="_signature_log_fileset_settings"></a><code class="literal">signature</code> log fileset settings<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -1213,7 +1165,7 @@ which classifies RFC 1918 (IPv4) and RFC 4193 (IPv6) addresses as internal.
 </dd>
 </dl>
 </div>
-<h4><a id="_smb_cmd_log_fileset_settings"></a><code class="literal">smb_cmd</code> log fileset settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
+<h4><a id="_sip_log_fileset_settings"></a><code class="literal">sip</code> log fileset settings<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -1255,7 +1207,7 @@ which classifies RFC 1918 (IPv4) and RFC 4193 (IPv6) addresses as internal.
 </dd>
 </dl>
 </div>
-<h4><a id="_smb_files_log_fileset_settings"></a><code class="literal">smb_files</code> log fileset settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
+<h4><a id="_smb_cmd_log_fileset_settings"></a><code class="literal">smb_cmd</code> log fileset settings<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -1297,7 +1249,7 @@ which classifies RFC 1918 (IPv4) and RFC 4193 (IPv6) addresses as internal.
 </dd>
 </dl>
 </div>
-<h4><a id="_smb_mapping_log_fileset_settings"></a><code class="literal">smb_mapping</code> log fileset settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
+<h4><a id="_smb_files_log_fileset_settings"></a><code class="literal">smb_files</code> log fileset settings<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -1339,7 +1291,7 @@ which classifies RFC 1918 (IPv4) and RFC 4193 (IPv6) addresses as internal.
 </dd>
 </dl>
 </div>
-<h4><a id="_smtp_log_fileset_settings"></a><code class="literal">smtp</code> log fileset settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
+<h4><a id="_smb_mapping_log_fileset_settings"></a><code class="literal">smb_mapping</code> log fileset settings<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -1381,7 +1333,7 @@ which classifies RFC 1918 (IPv4) and RFC 4193 (IPv6) addresses as internal.
 </dd>
 </dl>
 </div>
-<h4><a id="_snmp_log_fileset_settings"></a><code class="literal">snmp</code> log fileset settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
+<h4><a id="_smtp_log_fileset_settings"></a><code class="literal">smtp</code> log fileset settings<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -1423,7 +1375,7 @@ which classifies RFC 1918 (IPv4) and RFC 4193 (IPv6) addresses as internal.
 </dd>
 </dl>
 </div>
-<h4><a id="_socks_log_fileset_settings"></a><code class="literal">socks</code> log fileset settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
+<h4><a id="_snmp_log_fileset_settings"></a><code class="literal">snmp</code> log fileset settings<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -1465,7 +1417,7 @@ which classifies RFC 1918 (IPv4) and RFC 4193 (IPv6) addresses as internal.
 </dd>
 </dl>
 </div>
-<h4><a id="_ssh_log_fileset_settings"></a><code class="literal">ssh</code> log fileset settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
+<h4><a id="_socks_log_fileset_settings"></a><code class="literal">socks</code> log fileset settings<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -1507,7 +1459,7 @@ which classifies RFC 1918 (IPv4) and RFC 4193 (IPv6) addresses as internal.
 </dd>
 </dl>
 </div>
-<h4><a id="_ssl_log_fileset_settings"></a><code class="literal">ssl</code> log fileset settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
+<h4><a id="_ssh_log_fileset_settings"></a><code class="literal">ssh</code> log fileset settings<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -1549,36 +1501,7 @@ which classifies RFC 1918 (IPv4) and RFC 4193 (IPv6) addresses as internal.
 </dd>
 </dl>
 </div>
-<h4><a id="_stats_log_fileset_settings"></a><code class="literal">stats</code> log fileset settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
-<div class="variablelist">
-<dl class="variablelist">
-<dt>
-<span class="term">
-<span class="strong strong"><strong><code class="literal">var.paths</code></strong></span>
-</span>
-</dt>
-<dd>
-An array of glob-based paths that specify where to look for the log files. All
-patterns supported by <a href="https://golang.org/pkg/path/filepath/#Glob" class="ulink" target="_top">Go Glob</a>
-are also supported here. For example, you can use wildcards to fetch all files
-from a predefined level of subdirectories: <code class="literal">/path/to/log/*/*.log</code>. This
-fetches all <code class="literal">.log</code> files from the subfolders of <code class="literal">/path/to/log</code>. It does not
-fetch log files from the <code class="literal">/path/to/log</code> folder itself. If this setting is left
-empty, Filebeat will choose log paths based on your operating system.
-</dd>
-<dt>
-<span class="term">
-<span class="strong strong"><strong><code class="literal">var.tags</code></strong></span>
-</span>
-</dt>
-<dd>
-A list of tags to include in events. Including <code class="literal">forwarded</code> indicates that the
-events did not originate on this host and causes <code class="literal">host.name</code> to not be added to
-events. Defaults to <code class="literal">[suricata]</code>.
-</dd>
-</dl>
-</div>
-<h4><a id="_syslog_log_fileset_settings"></a><code class="literal">syslog</code> log fileset settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
+<h4><a id="_ssl_log_fileset_settings"></a><code class="literal">ssl</code> log fileset settings<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -1620,7 +1543,36 @@ which classifies RFC 1918 (IPv4) and RFC 4193 (IPv6) addresses as internal.
 </dd>
 </dl>
 </div>
-<h4><a id="_traceroute_log_fileset_settings"></a><code class="literal">traceroute</code> log fileset settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
+<h4><a id="_stats_log_fileset_settings"></a><code class="literal">stats</code> log fileset settings<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
+<div class="variablelist">
+<dl class="variablelist">
+<dt>
+<span class="term">
+<span class="strong strong"><strong><code class="literal">var.paths</code></strong></span>
+</span>
+</dt>
+<dd>
+An array of glob-based paths that specify where to look for the log files. All
+patterns supported by <a href="https://golang.org/pkg/path/filepath/#Glob" class="ulink" target="_top">Go Glob</a>
+are also supported here. For example, you can use wildcards to fetch all files
+from a predefined level of subdirectories: <code class="literal">/path/to/log/*/*.log</code>. This
+fetches all <code class="literal">.log</code> files from the subfolders of <code class="literal">/path/to/log</code>. It does not
+fetch log files from the <code class="literal">/path/to/log</code> folder itself. If this setting is left
+empty, Filebeat will choose log paths based on your operating system.
+</dd>
+<dt>
+<span class="term">
+<span class="strong strong"><strong><code class="literal">var.tags</code></strong></span>
+</span>
+</dt>
+<dd>
+A list of tags to include in events. Including <code class="literal">forwarded</code> indicates that the
+events did not originate on this host and causes <code class="literal">host.name</code> to not be added to
+events. Defaults to <code class="literal">[suricata]</code>.
+</dd>
+</dl>
+</div>
+<h4><a id="_syslog_log_fileset_settings"></a><code class="literal">syslog</code> log fileset settings<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -1662,7 +1614,7 @@ which classifies RFC 1918 (IPv4) and RFC 4193 (IPv6) addresses as internal.
 </dd>
 </dl>
 </div>
-<h4><a id="_tunnel_log_fileset_settings"></a><code class="literal">tunnel</code> log fileset settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
+<h4><a id="_traceroute_log_fileset_settings"></a><code class="literal">traceroute</code> log fileset settings<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -1704,7 +1656,7 @@ which classifies RFC 1918 (IPv4) and RFC 4193 (IPv6) addresses as internal.
 </dd>
 </dl>
 </div>
-<h4><a id="_weird_log_fileset_settings"></a><code class="literal">weird</code> log fileset settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
+<h4><a id="_tunnel_log_fileset_settings"></a><code class="literal">tunnel</code> log fileset settings<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -1746,7 +1698,49 @@ which classifies RFC 1918 (IPv4) and RFC 4193 (IPv6) addresses as internal.
 </dd>
 </dl>
 </div>
-<h4><a id="_x509_log_fileset_settings"></a><code class="literal">x509</code> log fileset settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
+<h4><a id="_weird_log_fileset_settings"></a><code class="literal">weird</code> log fileset settings<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
+<div class="variablelist">
+<dl class="variablelist">
+<dt>
+<span class="term">
+<span class="strong strong"><strong><code class="literal">var.paths</code></strong></span>
+</span>
+</dt>
+<dd>
+An array of glob-based paths that specify where to look for the log files. All
+patterns supported by <a href="https://golang.org/pkg/path/filepath/#Glob" class="ulink" target="_top">Go Glob</a>
+are also supported here. For example, you can use wildcards to fetch all files
+from a predefined level of subdirectories: <code class="literal">/path/to/log/*/*.log</code>. This
+fetches all <code class="literal">.log</code> files from the subfolders of <code class="literal">/path/to/log</code>. It does not
+fetch log files from the <code class="literal">/path/to/log</code> folder itself. If this setting is left
+empty, Filebeat will choose log paths based on your operating system.
+</dd>
+<dt>
+<span class="term">
+<span class="strong strong"><strong><code class="literal">var.tags</code></strong></span>
+</span>
+</dt>
+<dd>
+A list of tags to include in events. Including <code class="literal">forwarded</code> indicates that the
+events did not originate on this host and causes <code class="literal">host.name</code> to not be added to
+events. Defaults to <code class="literal">[suricata]</code>.
+</dd>
+<dt>
+<span class="term">
+<code class="literal">var.internal_networks</code>
+</span>
+</dt>
+<dd>
+A list of CIDR ranges describing the IP addresses that
+you consider internal. This is used in determining the value of
+<code class="literal">network.direction</code>. The values
+can be either a CIDR value or one of the named ranges supported by the
+<a class="xref" href="defining-processors.html#condition-network" title="network"><code class="literal">network</code></a> condition. The default value is <code class="literal">[private]</code>
+which classifies RFC 1918 (IPv4) and RFC 4193 (IPv6) addresses as internal.
+</dd>
+</dl>
+</div>
+<h4><a id="_x509_log_fileset_settings"></a><code class="literal">x509</code> log fileset settings<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h4>
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -1775,14 +1769,14 @@ events. Defaults to <code class="literal">[suricata]</code>.
 </dd>
 </dl>
 </div>
-<h3><a id="_example_dashboard_25"></a>Example dashboard<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h3>
+<h3><a id="_example_dashboard_25"></a>Example dashboard<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h3>
 <p>This module comes with a sample dashboard. For example:</p>
 <div class="imageblock screenshot">
 <div class="content">
 <img src="./images/kibana-zeek.png" alt="kibana zeek">
 </div>
 </div>
-<h3><a id="_fields_67"></a>Fields<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h3>
+<h3><a id="_fields_67"></a>Fields<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/zeek.asciidoc">edit</a></h3>
 <p>For a description of each field in the module, see the
 <a class="xref" href="exported-fields-zeek.html" title="Zeek fields">exported fields</a> section.</p>
 </div>
@@ -1798,15 +1792,37 @@ events. Defaults to <code class="literal">[suricata]</code>.
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

@@ -1,6 +1,9 @@
-PUT /_cluster/settings?flat_settings=true
+PUT _snapshot/my-repo
 {
-  "transient" : {
-    "indices.recovery.max_bytes_per_sec" : "20mb"
+  "type": "s3",
+  "settings": {
+    "bucket": "repo-bucket",
+    "client": "elastic-internal-71bcd3",
+    "base_path": "myrepo"
   }
 }

@@ -1,1 +1,1 @@
-GET /_count?filter_path=-_shards
+GET _nodes/stats?filter_path=nodes.*.jvm.mem.pools.old

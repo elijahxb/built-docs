@@ -59,7 +59,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -90,27 +90,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 <strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
@@ -119,13 +110,10 @@ will be released for this version. For the latest information, see the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Kibana Guide [8.0]</a></span>
-»
-<span class="breadcrumb-link"><a href="management.html">Stack Management</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Kibana Guide [8.0]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="management.html">Stack Management</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="action-types.html">Connectors</a></span>
-»
-<span class="breadcrumb-node">Preconfigured connectors</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -166,21 +154,21 @@ Cannot be edited or deleted.
 two out-of-the box connectors: <a class="xref" href="slack-action-type.html" title="Slack connector and action">Slack</a> and <a class="xref" href="webhook-action-type.html" title="Webhook connector and action">Webhook</a>.</p>
 <div class="pre_wrapper lang-js">
 <pre class="programlisting prettyprint lang-js">  xpack.actions.preconfigured:
-    my-slack1:                  <a id="CO47-1"></a><i class="conum" data-value="1"></i>
-      actionTypeId: .slack      <a id="CO47-2"></a><i class="conum" data-value="2"></i>
-      name: 'Slack #xyz'        <a id="CO47-3"></a><i class="conum" data-value="3"></i>
+    my-slack1:                  <a id="CO48-1"></a><i class="conum" data-value="1"></i>
+      actionTypeId: .slack      <a id="CO48-2"></a><i class="conum" data-value="2"></i>
+      name: 'Slack #xyz'        <a id="CO48-3"></a><i class="conum" data-value="3"></i>
       secrets:
         webhookUrl: 'https://hooks.slack.com/services/abcd/efgh/ijklmnopqrstuvwxyz'
     webhook-service:
       actionTypeId: .webhook
       name: 'Email service'
-      config:                   <a id="CO47-4"></a><i class="conum" data-value="4"></i>
+      config:                   <a id="CO48-4"></a><i class="conum" data-value="4"></i>
         url: 'https://email-alert-service.elastic.co'
         method: post
         headers:
           header1: value1
           header2: value2
-      secrets:                  <a id="CO47-5"></a><i class="conum" data-value="5"></i>
+      secrets:                  <a id="CO48-5"></a><i class="conum" data-value="5"></i>
         user: elastic
         password: changeme</pre>
 </div>
@@ -188,7 +176,7 @@ two out-of-the box connectors: <a class="xref" href="slack-action-type.html" tit
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO47-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO48-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>The key is the connector identifier, <code class="literal">my-slack1</code> in this example.</p>
@@ -196,7 +184,7 @@ two out-of-the box connectors: <a class="xref" href="slack-action-type.html" tit
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO47-2"><i class="conum" data-value="2"></i></a></p>
+<p><a href="#CO48-2"><i class="conum" data-value="2"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p><code class="literal">actionTypeId</code> is the action type identifier.</p>
@@ -204,7 +192,7 @@ two out-of-the box connectors: <a class="xref" href="slack-action-type.html" tit
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO47-3"><i class="conum" data-value="3"></i></a></p>
+<p><a href="#CO48-3"><i class="conum" data-value="3"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p><code class="literal">name</code> is the name of the preconfigured connector.</p>
@@ -212,7 +200,7 @@ two out-of-the box connectors: <a class="xref" href="slack-action-type.html" tit
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO47-4"><i class="conum" data-value="4"></i></a></p>
+<p><a href="#CO48-4"><i class="conum" data-value="4"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p><code class="literal">config</code> is the configuration specific to the connector type.</p>
@@ -220,7 +208,7 @@ two out-of-the box connectors: <a class="xref" href="slack-action-type.html" tit
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO47-5"><i class="conum" data-value="5"></i></a></p>
+<p><a href="#CO48-5"><i class="conum" data-value="5"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p><code class="literal">secrets</code> is the sensitive configuration, such as username, password, and keys, specific to the connector type.</p>
@@ -269,15 +257,37 @@ two out-of-the box connectors: <a class="xref" href="slack-action-type.html" tit
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

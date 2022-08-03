@@ -19,11 +19,9 @@ will be released for this version. For the latest information, see the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.0]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.0]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="xpack-alerting.html">Watcher</a></span>
-»
-<span class="breadcrumb-node">Troubleshooting Watcher</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -46,7 +44,7 @@ do that by submitting the following request:</p>
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">GET .watches/_mapping</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1684.console"></div>
+<div class="console_widget" data-snippet="snippets/1685.console"></div>
 <p>If the index mappings are missing, follow these steps to restore the correct
 mappings:</p>
 <div class="olist orderedlist">
@@ -66,7 +64,7 @@ Restart the Elasticsearch node.
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">DELETE .watches</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1685.console"></div>
+<div class="console_widget" data-snippet="snippets/1686.console"></div>
 </li>
 <li class="listitem">
 <p>Disable direct access to the <code class="literal">.watches</code> index:</p>

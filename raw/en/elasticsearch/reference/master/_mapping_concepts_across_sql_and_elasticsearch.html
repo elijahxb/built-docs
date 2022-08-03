@@ -18,13 +18,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="xpack-sql.html">SQL</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="xpack-sql.html">SQL</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="sql-concepts.html">Conventions and Terminology</a></span>
-»
-<span class="breadcrumb-node">Mapping concepts across SQL and Elasticsearch</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -36,7 +33,7 @@ Not what you want? See the
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="_mapping_concepts_across_sql_and_elasticsearch"></a>Mapping concepts across SQL and Elasticsearch<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/sql/concepts.asciidoc">edit</a></h2>
+<h2 class="title"><a id="_mapping_concepts_across_sql_and_elasticsearch"></a>Mapping concepts across SQL and Elasticsearch<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/sql/concepts.asciidoc">edit</a></h2>
 </div></div></div>
 <p>While SQL and Elasticsearch have different terms for the way the data is organized (and different semantics), essentially their purpose is the same.</p>
 <p>So let&#8217;s start from the bottom; these roughly are:</p>
@@ -87,7 +84,7 @@ In practice this means that while in SQL one can potentially have multiple catal
 <tr>
 <td align="left" valign="top"><p><code class="literal">cluster</code></p></td>
 <td align="left" valign="top"><p><code class="literal">cluster</code> (federated)</p></td>
-<td align="left" valign="top"><p>Traditionally in SQL, <em>cluster</em> refers to a single RDMBS instance which contains a number of <code class="literal">catalog</code>s or <code class="literal">database</code>s (see above). The same word can be reused inside Elasticsearch as well however its semantic clarified a bit.</p>
+<td align="left" valign="top"><p>Traditionally in SQL, <em>cluster</em> refers to a single RDBMS instance which contains a number of <code class="literal">catalog</code>s or <code class="literal">database</code>s (see above). The same word can be reused inside Elasticsearch as well however its semantic clarified a bit.</p>
 <p>While RDBMS tend to have only one running instance, on a single machine (<em>not</em> distributed), Elasticsearch goes the opposite way and by default, is distributed and multi-instance.</p>
 <p>Further more, an Elasticsearch <code class="literal">cluster</code> can be connected to other <code class="literal">cluster</code>s in a <em>federated</em> fashion thus <code class="literal">cluster</code> means:</p>
 <p>single cluster::

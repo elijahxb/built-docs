@@ -7,7 +7,7 @@
 <link rel="home" href="index.html" title="Elasticsearch Guide [master]"/>
 <link rel="up" href="index.html" title="Elasticsearch Guide [master]"/>
 <link rel="prev" href="role-mapping-resources.html" title="Role mapping resources"/>
-<link rel="next" href="migrating-8.1.html" title="Migrating to 8.1"/>
+<link rel="next" href="migrating-8.5.html" title="Migrating to 8.5"/>
 <meta name="DC.type" content="Learn/Docs/Elasticsearch/Reference/master"/>
 <meta name="DC.subject" content="Elasticsearch"/>
 <meta name="DC.identifier" content="master"/>
@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,27 +87,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 You are looking at preliminary documentation for a future release.
@@ -116,27 +107,26 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span>
-»
-<span class="breadcrumb-node">Migration guide</span>
 </div>
 <div class="navheader">
 <span class="prev">
 <a href="role-mapping-resources.html">« Role mapping resources</a>
 </span>
 <span class="next">
-<a href="migrating-8.1.html">Migrating to 8.1 »</a>
+<a href="migrating-8.5.html">Migrating to 8.5 »</a>
 </span>
 </div>
 <div class="part">
 <div class="titlepage"><div><div>
-<h1 class="title"><a id="breaking-changes"></a>Migration guide<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/migration/index.asciidoc">edit</a></h1>
+<h1 class="title"><a id="breaking-changes"></a>Migration guide<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/migration/migration_intro.asciidoc">edit</a></h1>
 </div></div></div>
 <div class="openblock partintro">
 <div class="content">
 <p>This section discusses the changes that you need to be aware of to migrate
-your application to 8.2.0. For more information about what&#8217;s new in this
-release, see the <a class="xref" href="release-highlights.html" title="What&#8217;s new in 8.2"><em>What&#8217;s new in 8.2</em></a> and <a class="xref" href="es-release-notes.html" title="Release notes">Release notes</a>.</p>
+your application to 8.4.0. For more information about what&#8217;s new in this
+release, see the <a class="xref" href="release-highlights.html" title="What&#8217;s new in 8.4"><em>What&#8217;s new in 8.4</em></a> and <a class="xref" href="es-release-notes.html" title="Release notes">Release notes</a>.</p>
 <p>As Elasticsearch introduces new features and improves existing ones, the changes
 sometimes make older settings, APIs, and parameters obsolete. We typically
 deprecate obsolete functionality as part of a release. If possible, we support
@@ -164,11 +154,23 @@ and mappings for deprecated functionality.
 </li>
 </ul>
 </div>
-<p>For more information about 8.2,
-see the <a class="xref" href="release-highlights.html" title="What&#8217;s new in 8.2"><em>What&#8217;s new in 8.2</em></a> and <a class="xref" href="es-release-notes.html" title="Release notes">Release notes</a>.
+<p>For more information about 8.4,
+see the <a class="xref" href="release-highlights.html" title="What&#8217;s new in 8.4"><em>What&#8217;s new in 8.4</em></a> and <a class="xref" href="es-release-notes.html" title="Release notes">Release notes</a>.
 For information about how to upgrade your cluster, see <a class="xref" href="setup-upgrade.html" title="Upgrade Elasticsearch">Upgrade Elasticsearch</a>.</p>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
+<li class="listitem">
+<a class="xref" href="migrating-8.5.html" title="Migrating to 8.5">Migrating to 8.5</a>
+</li>
+<li class="listitem">
+<a class="xref" href="migrating-8.4.html" title="Migrating to 8.4">Migrating to 8.4</a>
+</li>
+<li class="listitem">
+<a class="xref" href="migrating-8.3.html" title="Migrating to 8.3">Migrating to 8.3</a>
+</li>
+<li class="listitem">
+<a class="xref" href="migrating-8.2.html" title="Migrating to 8.2">Migrating to 8.2</a>
+</li>
 <li class="listitem">
 <a class="xref" href="migrating-8.1.html" title="Migrating to 8.1">Migrating to 8.1</a>
 </li>
@@ -181,28 +183,54 @@ For information about how to upgrade your cluster, see <a class="xref" href="set
 </div>
 
 
+
+
+
+
 </div>
 <div class="navfooter">
 <span class="prev">
 <a href="role-mapping-resources.html">« Role mapping resources</a>
 </span>
 <span class="next">
-<a href="migrating-8.1.html">Migrating to 8.1 »</a>
+<a href="migrating-8.5.html">Migrating to 8.5 »</a>
 </span>
 </div>
 </div>
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

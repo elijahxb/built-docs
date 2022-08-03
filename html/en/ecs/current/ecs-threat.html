@@ -3,14 +3,14 @@
   <head>
     
 <meta charset="UTF-8">
-<title>Threat Fields | Elastic Common Schema (ECS) Reference [8.1] | Elastic</title>
-<link rel="home" href="index.html" title="Elastic Common Schema (ECS) Reference [8.1]"/>
+<title>Threat Fields | Elastic Common Schema (ECS) Reference [8.3] | Elastic</title>
+<link rel="home" href="index.html" title="Elastic Common Schema (ECS) Reference [8.3]"/>
 <link rel="up" href="ecs-field-reference.html" title="ECS Field Reference"/>
 <link rel="prev" href="ecs-source.html" title="Source Fields"/>
 <link rel="next" href="ecs-threat-usage.html" title="Threat Fields Usage and Examples"/>
-<meta name="DC.type" content="Learn/Docs/Elastic Common Schema (ECS)/Reference/8.1"/>
+<meta name="DC.type" content="Learn/Docs/Elastic Common Schema (ECS)/Reference/8.3"/>
 <meta name="DC.subject" content="Elastic Common Schema (ECS)"/>
-<meta name="DC.identifier" content="8.1"/>
+<meta name="DC.identifier" content="8.3"/>
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,36 +87,25 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elastic Common Schema (ECS) Reference [8.1]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Common Schema (ECS) Reference [8.3]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="ecs-field-reference.html">ECS Field Reference</a></span>
-»
-<span class="breadcrumb-node">Threat Fields</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -128,11 +117,11 @@
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="ecs-threat"></a>Threat Fields<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/ecs/edit/8.1/docs/fields/field-details.asciidoc">edit</a></h2>
+<h2 class="title"><a id="ecs-threat"></a>Threat Fields<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/ecs/edit/8.3/docs/fields/field-details.asciidoc">edit</a></h2>
 </div></div></div>
 <p>Fields to classify events and alerts according to a threat taxonomy such as the MITRE ATT&amp;CK® framework.</p>
 <p>These fields are for users to classify alerts from all of their sources (e.g. IDS, NGFW, etc.) within a common taxonomy. The threat.tactic.* fields are meant to capture the high level category of the threat (e.g. "impact"). The threat.technique.* fields are meant to capture which kind of approach is used by this detected threat, to accomplish the goal (e.g. "endpoint denial of service").</p>
-<h4><a id="_threat_field_details"></a>Threat Field Details<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/ecs/edit/8.1/docs/fields/field-details.asciidoc">edit</a></h4>
+<h4><a id="_threat_field_details"></a>Threat Field Details<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/ecs/edit/8.3/docs/fields/field-details.asciidoc">edit</a></h4>
 <div class="informaltable">
 <table border="1" cellpadding="4px">
 <colgroup>
@@ -459,7 +448,7 @@ This field is beta and subject to change.
 <a class="xref" href="ecs-threat.html#field-threat-enrichments-matched-occurred">threat.enrichments.matched.occurred</a></p></td>
 <td align="left" valign="top"><p>Indicates when the indicator match was generated</p>
 <p>type: date</p>
-<p>example: <code class="literal">2021-10-05 17:00:58.326000+00:00</code></p></td>
+<p>example: <code class="literal">2021-10-05T17:00:58.326Z</code></p></td>
 <td align="left" valign="top"><p>extended</p></td>
 </tr>
 <tr>
@@ -474,6 +463,38 @@ This field is beta and subject to change.
 <p>Identifies the type of match that caused the event to be enriched with the given indicator</p>
 <p>type: keyword</p>
 <p>example: <code class="literal">indicator_match_rule</code></p></td>
+<td align="left" valign="top"><p>extended</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><a id="field-threat-feed-dashboard-id"></a>
+<a class="xref" href="ecs-threat.html#field-threat-feed-dashboard-id">threat.feed.dashboard_id</a></p></td>
+<td align="left" valign="top"><p>The saved object ID of the dashboard belonging to the threat feed for displaying dashboard links to threat feeds in Kibana.</p>
+<p>type: keyword</p>
+<p>example: <code class="literal">5ba16340-72e6-11eb-a3e3-b3cc7c78a70f</code></p></td>
+<td align="left" valign="top"><p>extended</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><a id="field-threat-feed-description"></a>
+<a class="xref" href="ecs-threat.html#field-threat-feed-description">threat.feed.description</a></p></td>
+<td align="left" valign="top"><p>Description of the threat feed in a UI friendly format.</p>
+<p>type: keyword</p>
+<p>example: <code class="literal">Threat feed from the AlienVault Open Threat eXchange network.</code></p></td>
+<td align="left" valign="top"><p>extended</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><a id="field-threat-feed-name"></a>
+<a class="xref" href="ecs-threat.html#field-threat-feed-name">threat.feed.name</a></p></td>
+<td align="left" valign="top"><p>The name of the threat feed in UI friendly format.</p>
+<p>type: keyword</p>
+<p>example: <code class="literal">AlienVault OTX</code></p></td>
+<td align="left" valign="top"><p>extended</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><a id="field-threat-feed-reference"></a>
+<a class="xref" href="ecs-threat.html#field-threat-feed-reference">threat.feed.reference</a></p></td>
+<td align="left" valign="top"><p>Reference information for the threat feed in a UI friendly format.</p>
+<p>type: keyword</p>
+<p>example: <code class="literal">https://otx.alienvault.com</code></p></td>
 <td align="left" valign="top"><p>extended</p></td>
 </tr>
 <tr>
@@ -820,8 +841,8 @@ This field is beta and subject to change.
 </tbody>
 </table>
 </div>
-<h4><a id="_field_reuse_24"></a>Field Reuse<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/ecs/edit/8.1/docs/fields/field-details.asciidoc">edit</a></h4>
-<h5><a id="ecs-threat-nestings"></a>Field sets that can be nested under Threat<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/ecs/edit/8.1/docs/fields/field-details.asciidoc">edit</a></h5>
+<h4><a id="_field_reuse_24"></a>Field Reuse<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/ecs/edit/8.3/docs/fields/field-details.asciidoc">edit</a></h4>
+<h5><a id="ecs-threat-nestings"></a>Field sets that can be nested under Threat<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/ecs/edit/8.3/docs/fields/field-details.asciidoc">edit</a></h5>
 <div class="informaltable">
 <table border="1" cellpadding="4px">
 <colgroup>
@@ -936,7 +957,7 @@ Reusing the <code class="literal">x509</code> fields in this location is current
 </tbody>
 </table>
 </div>
-<h4><a id="_threat_field_usage"></a>Threat Field Usage<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/ecs/edit/8.1/docs/fields/field-details.asciidoc">edit</a></h4>
+<h4><a id="_threat_field_usage"></a>Threat Field Usage<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/ecs/edit/8.3/docs/fields/field-details.asciidoc">edit</a></h4>
 <p>For usage and examples of the threat fields, please see the <a class="xref" href="ecs-threat-usage.html" title="Threat Fields Usage and Examples">Threat Fields Usage and Examples</a> section.</p>
 
 </div>
@@ -952,15 +973,37 @@ Reusing the <code class="literal">x509</code> fields in this location is current
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

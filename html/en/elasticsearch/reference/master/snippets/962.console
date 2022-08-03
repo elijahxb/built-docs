@@ -1,5 +1,19 @@
-PUT /my-index-000001/_doc/1?refresh
+PUT /example
 {
-  "text": "This is a parent document.",
-  "my-join-field": "my-parent"
+  "mappings": {
+    "properties": {
+      "location": {
+        "type": "geo_shape"
+      }
+    }
+  }
+}
+
+POST /example/_doc?refresh
+{
+  "name": "Wind & Wetter, Berlin, Germany",
+  "location": {
+    "type": "point",
+    "coordinates": [ 13.400544, 52.530286 ]
+  }
 }

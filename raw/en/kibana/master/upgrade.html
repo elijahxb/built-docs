@@ -20,11 +20,9 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Kibana Guide [master]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Kibana Guide [master]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="setup.html">Set up</a></span>
-»
-<span class="breadcrumb-node">Upgrade Kibana</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -38,7 +36,7 @@ Not what you want? See the
 <div class="titlepage"><div><div>
 <h2 class="title"><a id="upgrade"></a>Upgrade Kibana<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/setup/upgrade.asciidoc">edit</a></h2>
 </div></div></div>
-<p>To upgrade from 7.16.0 or earlier to 8.2.0,
+<p>To upgrade from 7.16.0 or earlier to 8.4.0,
 <span class="strong strong"><strong>you must first upgrade to 7.17</strong></span>, which enables you to use the <span class="strong strong"><strong>Upgrade Assistant</strong></span> to
 <a href="/guide/en/elastic-stack/master/upgrading-elastic-stack.html#prepare-to-upgrade" class="ulink" target="_top">prepare for the upgrade</a>.
 Before you upgrade, you must resolve all critical issues identified by the <span class="strong strong"><strong>Upgrade Assistant</strong></span>.</p>
@@ -56,7 +54,7 @@ state. By default, snapshots include the <code class="literal">kibana</code> fea
 </div>
 </div>
 <p>For more information about upgrading,
-refer to <a href="/guide/en/elastic-stack/master/upgrading-elastic-stack.html" class="ulink" target="_top">Upgrading to Elastic 8.2.0.</a></p>
+refer to <a href="/guide/en/elastic-stack/master/upgrading-elastic-stack.html" class="ulink" target="_top">Upgrading to Elastic 8.4.0.</a></p>
 <div class="important admon">
 <div class="icon"></div>
 <div class="admon_content">
@@ -76,7 +74,9 @@ complete the upgrade migration before bringing up the remaining instances.</p>
 <h3><a id="preventing-migration-failures"></a>Preparing for migration<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/setup/upgrade.asciidoc">edit</a></h3>
 <p>Take these extra steps to ensure you are ready for migration.</p>
 <h4><a id="_ensure_your_elasticsearch_cluster_is_healthy"></a>Ensure your Elasticsearch cluster is healthy<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/setup/upgrade.asciidoc">edit</a></h4>
-<p>Problems with your Elasticsearch cluster can prevent Kibana upgrades from succeeding. Ensure that your cluster has:</p>
+<p>Problems with your Elasticsearch cluster can prevent Kibana upgrades from succeeding.</p>
+<p>During the upgrade process, Kibana creates new indices into which updated documents are written. If a cluster is approaching the low watermark, there&#8217;s a high risk of Kibana not being able to create these. Reading, transforming and writing updated documents can be memory intensive, using more available heap than during routine operation. You must make sure that enough heap is available to prevent requests from timing out or throwing errors from circuit breaker exceptions. You should also ensure that all shards are replicated and assigned.</p>
+<p>A healthy cluster has:</p>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
 <li class="listitem">

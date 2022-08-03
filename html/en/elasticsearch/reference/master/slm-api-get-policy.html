@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,27 +87,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 You are looking at preliminary documentation for a future release.
@@ -116,13 +107,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="rest-apis.html">REST APIs</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="rest-apis.html">REST APIs</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="snapshot-lifecycle-management-api.html">Snapshot lifecycle management APIs</a></span>
-»
-<span class="breadcrumb-node">Get snapshot lifecycle policy API</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -134,14 +122,14 @@ Not what you want? See the
 </div>
 <div class="section xpack">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="slm-api-get-policy"></a>Get snapshot lifecycle policy API<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/slm/apis/slm-get.asciidoc">edit</a></h2>
+<h2 class="title"><a id="slm-api-get-policy"></a>Get snapshot lifecycle policy API<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/slm/apis/slm-get.asciidoc">edit</a></h2>
 </div></div></div>
 
 <p>Retrieves one or more snapshot lifecycle policy definitions and
 information about the latest snapshot attempts.</p>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="slm-api-get-request"></a>Request<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/slm/apis/slm-get.asciidoc">edit</a></h3>
+<h3 class="title"><a id="slm-api-get-request"></a>Request<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/slm/apis/slm-get.asciidoc">edit</a></h3>
 </div></div></div>
 <p><code class="literal">GET _slm/policy/&lt;policy-id&gt;</code></p>
 <p><code class="literal">GET _slm/policy</code></p>
@@ -149,7 +137,7 @@ information about the latest snapshot attempts.</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="slm-api-get-lifecycle-prereqs"></a>Prerequisites<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/slm/apis/slm-get.asciidoc">edit</a></h3>
+<h3 class="title"><a id="slm-api-get-lifecycle-prereqs"></a>Prerequisites<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/slm/apis/slm-get.asciidoc">edit</a></h3>
 </div></div></div>
 <p>If the Elasticsearch security features are enabled, you must have the <code class="literal">manage_slm</code>
 cluster privilege to use this API. For more information, see
@@ -158,7 +146,7 @@ cluster privilege to use this API. For more information, see
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="slm-api-get-desc"></a>Description<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/slm/apis/slm-get.asciidoc">edit</a></h3>
+<h3 class="title"><a id="slm-api-get-desc"></a>Description<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/slm/apis/slm-get.asciidoc">edit</a></h3>
 </div></div></div>
 <p>Returns the specified policy definition and
 information about the latest successful and failed attempts to create snapshots.
@@ -167,7 +155,7 @@ If no policy is specified, returns all defined policies.</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="slm-api-get-path-params"></a>Path parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/slm/apis/slm-get.asciidoc">edit</a></h3>
+<h3 class="title"><a id="slm-api-get-path-params"></a>Path parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/slm/apis/slm-get.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="variablelist">
 <dl class="variablelist">
@@ -186,25 +174,25 @@ Comma-separated list of snapshot lifecycle policy IDs.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="slm-api-get-example"></a>Examples<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/slm/apis/slm-get.asciidoc">edit</a></h3>
+<h3 class="title"><a id="slm-api-get-example"></a>Examples<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/slm/apis/slm-get.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="slm-api-get-specific-ex"></a>Get a specific policy<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/slm/apis/slm-get.asciidoc">edit</a></h4>
+<h4 class="title"><a id="slm-api-get-specific-ex"></a>Get a specific policy<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/slm/apis/slm-get.asciidoc">edit</a></h4>
 </div></div></div>
 <p>Get the <code class="literal">daily-snapshots</code> policy:</p>
 <a id="f2175feadc2abe545899889e6d4ffcad"></a>
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">GET _slm/policy/daily-snapshots?human</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/2626.console"></div>
+<div class="console_widget" data-snippet="snippets/2750.console"></div>
 <p>This request returns the following response:</p>
 <a id="7cefd344e81b6ec54a2bc7fa3268b7bf"></a>
 <div class="pre_wrapper lang-console-result">
 <pre class="programlisting prettyprint lang-console-result">{
   "daily-snapshots": {
-    "version": 1,                                 <a id="CO710-1"></a><i class="conum" data-value="1"></i>
-    "modified_date": "2099-05-06T01:30:00.000Z",  <a id="CO710-2"></a><i class="conum" data-value="2"></i>
+    "version": 1,                                 <a id="CO758-1"></a><i class="conum" data-value="1"></i>
+    "modified_date": "2099-05-06T01:30:00.000Z",  <a id="CO758-2"></a><i class="conum" data-value="2"></i>
     "modified_date_millis": 4081757400000,
     "policy" : {
       "schedule": "0 30 1 * * ?",
@@ -228,7 +216,7 @@ Comma-separated list of snapshot lifecycle policy IDs.
       "snapshots_deleted": 0,
       "snapshot_deletion_failures": 0
     },
-    "next_execution": "2099-05-07T01:30:00.000Z", <a id="CO710-3"></a><i class="conum" data-value="3"></i>
+    "next_execution": "2099-05-07T01:30:00.000Z", <a id="CO758-3"></a><i class="conum" data-value="3"></i>
     "next_execution_millis": 4081843800000
   }
 }</pre>
@@ -237,7 +225,7 @@ Comma-separated list of snapshot lifecycle policy IDs.
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO710-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO758-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>The version of the snapshot policy, only the latest version is stored and incremented when the policy is updated</p>
@@ -245,7 +233,7 @@ Comma-separated list of snapshot lifecycle policy IDs.
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO710-2"><i class="conum" data-value="2"></i></a></p>
+<p><a href="#CO758-2"><i class="conum" data-value="2"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>The last time this policy was modified.</p>
@@ -253,7 +241,7 @@ Comma-separated list of snapshot lifecycle policy IDs.
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO710-3"><i class="conum" data-value="3"></i></a></p>
+<p><a href="#CO758-3"><i class="conum" data-value="3"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>The next time this policy will be executed.</p>
@@ -265,13 +253,13 @@ Comma-separated list of snapshot lifecycle policy IDs.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="slm-api-get-all-ex"></a>Get all policies<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/slm/apis/slm-get.asciidoc">edit</a></h4>
+<h4 class="title"><a id="slm-api-get-all-ex"></a>Get all policies<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/slm/apis/slm-get.asciidoc">edit</a></h4>
 </div></div></div>
 <a id="a159e1ce0cba7a35ce44db9bebad22f3"></a>
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">GET _slm/policy</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/2627.console"></div>
+<div class="console_widget" data-snippet="snippets/2751.console"></div>
 </div>
 
 </div>
@@ -289,15 +277,37 @@ Comma-separated list of snapshot lifecycle policy IDs.
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

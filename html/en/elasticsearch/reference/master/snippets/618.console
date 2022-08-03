@@ -1,11 +1,32 @@
-POST my-data-stream/_doc?pipeline=my-pipeline
+PUT _component_template/my-weather-sensor-mappings
 {
-  "@timestamp": "2099-03-07T11:04:05.000Z",
-  "my-keyword-field": "foo"
+  "template": {
+    "mappings": {
+      "properties": {
+        "sensor_id": {
+          "type": "keyword",
+          "time_series_dimension": true
+        },
+        "location": {
+          "type": "keyword",
+          "time_series_dimension": true
+        },
+        "temperature": {
+          "type": "half_float",
+          "time_series_metric": "gauge"
+        },
+        "humidity": {
+          "type": "half_float",
+          "time_series_metric": "gauge"
+        },
+        "@timestamp": {
+          "type": "date",
+          "format": "strict_date_optional_time"
+        }
+      }
+    }
+  },
+  "_meta": {
+    "description": "Mappings for weather sensor data"
+  }
 }
-
-PUT my-data-stream/_bulk?pipeline=my-pipeline
-{ "create":{ } }
-{ "@timestamp": "2099-03-07T11:04:06.000Z", "my-keyword-field": "foo" }
-{ "create":{ } }
-{ "@timestamp": "2099-03-07T11:04:07.000Z", "my-keyword-field": "bar" }

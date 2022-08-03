@@ -57,7 +57,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -88,27 +88,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 <strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
@@ -117,13 +108,10 @@ will be released for this version. For the latest information, see the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.0]</a></span>
-»
-<span class="breadcrumb-link"><a href="setup.html">Set up Elasticsearch</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.0]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="setup.html">Set up Elasticsearch</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="settings.html">Configuring Elasticsearch</a></span>
-»
-<span class="breadcrumb-node">Security settings in Elasticsearch</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -167,6 +155,22 @@ It also affects all Kibana instances that connect to this Elasticsearch instance
 not need to disable security features in those <code class="literal">kibana.yml</code> files. For more
 information about disabling security features in specific Kibana instances, see
 <a href="/guide/en/kibana/8.0/security-settings-kb.html" class="ulink" target="_top">Kibana security settings</a>.</p>
+</dd>
+<dt>
+<span class="term">
+<code class="literal">xpack.security.autoconfiguration.enabled</code>
+</span>
+</dt>
+<dd>
+<p>
+(<a class="xref" href="settings.html#static-cluster-setting">Static</a>)
+Defaults to <code class="literal">true</code>, which enables
+<a class="xref" href="configuring-stack-security.html" title="Start the Elastic Stack with security enabled">security auto configuration</a>.
+</p>
+<p>If set to <code class="literal">false</code>, security auto configuration is disabled, which is not
+recommended. When disabled, security is not configured automatically when
+starting Elasticsearch for the first time, which means that you must
+<a class="xref" href="manually-configure-security.html" title="Manually configure security">manually configure security</a>.</p>
 </dd>
 <dt>
 <span class="term">
@@ -3287,7 +3291,7 @@ or <code class="literal">client_secret_jwt</code>. Defaults to <code class="lite
 <dl class="variablelist">
 <dt>
 <span class="term">
-<code class="literal">rp.client_auth_signature_algorithm</code> <span class="image"><a class="image" href="https://www.elastic.co/cloud/elasticsearch-service/signup?baymax=docs-body&amp;elektra=docs"><img src="https://doc-icons.s3.us-east-2.amazonaws.com/logo_cloud.svg" alt="logo cloud" title="Supported on Elasticsearch Service"></a></span>
+<code class="literal">rp.client_auth_jwt_signature_algorithm</code> <span class="image"><a class="image" href="https://www.elastic.co/cloud/elasticsearch-service/signup?baymax=docs-body&amp;elektra=docs"><img src="https://doc-icons.s3.us-east-2.amazonaws.com/logo_cloud.svg" alt="logo cloud" title="Supported on Elasticsearch Service"></a></span>
 </span>
 </dt>
 <dd>
@@ -3340,7 +3344,9 @@ or one of <code class="literal">id_token</code>, <code class="literal">id_token 
 (<a class="xref" href="settings.html#static-cluster-setting">Static</a>)
 The signature algorithm that will be used by Elasticsearch in order to verify the
 signature of the id tokens it will receive from the OpenID Connect Provider.
-Defaults to <code class="literal">RSA256</code>.
+Allowed values are <code class="literal">HS256</code>, <code class="literal">HS384</code>, <code class="literal">HS512</code>, <code class="literal">ES256</code>, <code class="literal">ES384</code>, <code class="literal">ES512</code>,
+<code class="literal">RS256</code>, <code class="literal">RS384</code>, <code class="literal">RS512</code>, <code class="literal">PS256</code>, <code class="literal">PS384</code>, <code class="literal">PS512</code>.
+Defaults to <code class="literal">RS256</code>.
 </dd>
 </dl>
 </div>
@@ -3519,6 +3525,7 @@ As per <code class="literal">claim_patterns.principal</code>, but for the <em>dn
 (<a class="xref" href="settings.html#static-cluster-setting">Static</a>)
 The maximum allowed clock skew to be taken into consideration when validating
 id tokens with regards to their creation and expiration times.
+Defaults to <code class="literal">60s</code>.
 </dd>
 </dl>
 </div>
@@ -3630,7 +3637,7 @@ a maximum period inactivity between two consecutive data packets). Defaults to
 (<a class="xref" href="settings.html#static-cluster-setting">Static</a>)
 Controls the behavior of the http client used for back-channel communication to
 the OpenID Connect Provider endpoints. Specifies the maximum number of
-connections allowed across all endpoints.
+connections allowed across all endpoints. Defaults to <code class="literal">200</code>.
 </dd>
 </dl>
 </div>
@@ -3645,7 +3652,7 @@ connections allowed across all endpoints.
 (<a class="xref" href="settings.html#static-cluster-setting">Static</a>)
 Controls the behavior of the http client used for back-channel communication to
 the OpenID Connect Provider endpoints. Specifies the maximum number of
-connections allowed per endpoint.
+connections allowed per endpoint. Defaults to <code class="literal">200</code>.
 </dd>
 </dl>
 </div>
@@ -5355,15 +5362,37 @@ following:</p>
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

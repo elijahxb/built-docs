@@ -1,13 +1,19 @@
-GET /_search
+GET sales/_search
 {
   "aggs": {
-    "genres": {
-      "terms": {
-        "field": "genre",
-        "order": { "playback_stats.max": "desc" }
+    "price_ranges": {
+      "range": {
+        "field": "price",
+        "ranges": [
+          { "to": 100 },
+          { "from": 100, "to": 200 },
+          { "from": 200 }
+        ]
       },
       "aggs": {
-        "playback_stats": { "stats": { "field": "play_count" } }
+        "price_stats": {
+          "stats": { "field": "price" }
+        }
       }
     }
   }

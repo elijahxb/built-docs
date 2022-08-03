@@ -1,6 +1,20 @@
-PUT /_nodes/USpTGYaBSIKbgSUJR2Z9lg/shutdown
+PUT /_ingest/pipeline/my-pipeline-id
 {
-  "type": "restart",
-  "reason": "Demonstrating how the node shutdown API works",
-  "allocation_delay": "20m"
+  "description" : "My optional pipeline description",
+  "processors" : [
+    {
+      "set" : {
+        "description" : "My optional processor description",
+        "field": "my-keyword-field",
+        "value": "foo"
+      }
+    }
+  ],
+  "_meta": {
+    "reason": "set my-keyword-field to foo",
+    "serialization": {
+      "class": "MyPipeline",
+      "id": 10
+    }
+  }
 }

@@ -13,21 +13,17 @@
 <meta name="robots" content="noindex,nofollow"/>
 </head>
 <body><div class="page_header">
-You are looking at preliminary documentation for a future release.
-Not what you want? See the
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
 <a href="../current/index.html">current release documentation</a>.
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">APM User Guide [8.2]</a></span>
-»
-<span class="breadcrumb-link"><a href="overview.html">Legacy APM Server Reference</a></span>
-»
-<span class="breadcrumb-link"><a href="securing-apm-server.html">Secure APM Server</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">APM User Guide [8.2]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="overview.html">Legacy APM Server Reference</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="securing-apm-server.html">Secure APM Server</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="secure-communication-agents.html">Secure communication with APM agents</a></span>
-»
-<span class="breadcrumb-node">API keys</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -44,7 +40,7 @@ Not what you want? See the
 <div class="important admon">
 <div class="icon"></div>
 <div class="admon_content">
-<p>This documentation refers to configuring the standalone (legacy) APM Server. This method of running APM Server will be deprecated and removed in a future release. Please consider <a class="xref" href="upgrade-to-apm-integration.html" title="Upgrade to the Elastic APM integration">upgrading to Fleet and the APM integration</a>.
+<p>This documentation refers to configuring the standalone (legacy) APM Server. This method of running APM Server will be deprecated and removed in a future release. Please consider <a class="xref" href="upgrade-to-apm-integration.html" title="Switch to the Elastic APM integration">upgrading to Fleet and the APM integration</a>.
 If you&#8217;ve already upgraded, see <a class="xref" href="api-key.html" title="API keys">API keys</a>.</p>
 </div>
 </div>
@@ -71,7 +67,7 @@ API keys can have one or more of these privileges:</p>
 <span class="strong strong"><strong>Ingest</strong></span> (<code class="literal">event:write</code>): Required for ingesting Agent events.
 </li>
 <li class="listitem">
-<span class="strong strong"><strong>Sourcemap</strong></span> (<code class="literal">sourcemap:write</code>): Required for <a class="xref" href="sourcemaps.html" title="How to apply source maps to error stack traces when using minified bundles">uploading sourcemaps</a>.
+<span class="strong strong"><strong>Source map</strong></span> (<code class="literal">sourcemap:write</code>): Required for <a class="xref" href="sourcemaps.html" title="How to apply source maps to error stack traces when using minified bundles">uploading source maps</a>.
 </li>
 </ul>
 </div>
@@ -139,7 +135,7 @@ to create a role named <code class="literal">apm_agent_key_role</code>.</p>
   "cluster": ["manage_own_api_key"],
   "applications": [{
     "application": "apm",
-    "privileges": ["event:write", "config_agent:read"],
+    "privileges": ["event:write", "config_agent:read", "sourcemap:write"],
     "resources": ["*"]
   }]
 }</pre>
@@ -151,7 +147,7 @@ open Kibana, navigate to <span class="strong strong"><strong>Stack Management</s
 <p>Enter a name for your API key and select <span class="strong strong"><strong>Restrict privileges</strong></span>.
 In the role descriptors box, copy and paste the following JSON.
 This example creates an API key with privileges for ingesting APM events,
-reading agent central configuration, uploading a sourcemap:</p>
+reading agent central configuration, uploading a source map:</p>
 <div class="pre_wrapper lang-json">
 <pre class="programlisting prettyprint lang-json">{
    "apm": {
@@ -348,7 +344,7 @@ Error count ........ 0</pre>
   }
 }</pre>
 </div>
-<div class="kibana_widget" data-snippet="snippets/15.kibana"></div>
+<div class="kibana_widget" data-snippet="snippets/18.kibana"></div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
@@ -486,7 +482,7 @@ If nothing is configured, configuration settings from the <code class="literal">
 The value may be either a complete URL or a "host[:port]", in which case the "http"scheme is assumed.
 If nothing is configured, configuration settings from the <code class="literal">output</code> section will be reused.</p>
 <h6><a id="_elasticsearch_timeout"></a><code class="literal">elasticsearch.timeout</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/apm-server/edit/8.2/docs/legacy/secure-communication-agents.asciidoc">edit</a></h6>
-<p>The http request timeout in seconds for the Elasticsearch request.
+<p>The HTTP request timeout in seconds for the Elasticsearch request.
 If nothing is configured, configuration settings from the <code class="literal">output</code> section will be reused.</p>
 <h5><a id="_auth_api_key_elasticsearch_ssl_configuration_options"></a><code class="literal">auth.api_key.elasticsearch.ssl.*</code> configuration options<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/apm-server/edit/8.2/docs/legacy/secure-communication-agents.asciidoc">edit</a></h5>
 <p>SSL is off by default. Set <code class="literal">elasticsearch.protocol</code> to <code class="literal">https</code> if you want to enable <code class="literal">https</code>.</p>

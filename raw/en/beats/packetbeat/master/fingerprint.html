@@ -18,13 +18,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Packetbeat Reference [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="configuring-howto-packetbeat.html">Configure Packetbeat</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Packetbeat Reference [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="configuring-howto-packetbeat.html">Configure Packetbeat</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="filtering-and-enhancing-data.html">Filter and enhance data with processors</a></span>
-»
-<span class="breadcrumb-node">Generate a fingerprint of an event</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -43,6 +40,7 @@ Not what you want? See the
 specified subset of its fields.</p>
 <p>The value that is hashed is constructed as a concatenation of the field name and
 field value separated by <code class="literal">|</code>. For example <code class="literal">|field1|value1|field2|value2|</code>.</p>
+<p>Nested fields are supported in the following format: <code class="literal">"field1.field2"</code> e.g: <code class="literal">["log.path.file", "foo"]</code></p>
 <div class="pre_wrapper lang-yaml">
 <pre class="programlisting prettyprint lang-yaml">processors:
   - fingerprint:

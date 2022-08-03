@@ -1,12 +1,8 @@
-POST /sales/_search?size=0
+GET my-index-000001/_search?pretty
 {
-  "aggs": {
-    "sale_date": {
-      "auto_date_histogram": {
-        "field": "date",
-        "buckets": 10,
-        "missing": "2000/01/01"
-      }
+  "query": {
+    "match": {
+      "full_text": "Quick Brown Foxes!"
     }
   }
 }

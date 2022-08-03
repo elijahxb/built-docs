@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,27 +87,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 A newer version is available. For the latest information, see the
@@ -115,13 +106,10 @@ A newer version is available. For the latest information, see the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [7.17]</a></span>
-»
-<span class="breadcrumb-link"><a href="setup.html">Set up Elasticsearch</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [7.17]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="setup.html">Set up Elasticsearch</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="settings.html">Configuring Elasticsearch</a></span>
-»
-<span class="breadcrumb-node">Logging</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -757,10 +745,21 @@ version. Deprecation log messages at the <code class="literal">WARN</code> level
 critical feature was used, it won&#8217;t be removed in next major version, but might
 be removed in the future.</p>
 <p>To stop writing deprecation log messages, set <code class="literal">logger.deprecation.level</code>
-to <code class="literal">OFF</code>:</p>
+to <code class="literal">OFF</code> in <code class="literal">log4j2.properties</code> :</p>
 <div class="pre_wrapper lang-properties">
 <pre class="programlisting prettyprint lang-properties">logger.deprecation.level = OFF</pre>
 </div>
+<p>Alternatively, you can change the logging level dynamically:</p>
+<div class="pre_wrapper lang-console">
+<pre class="programlisting prettyprint lang-console">PUT /_cluster/settings
+{
+  "persistent": {
+    "logger.org.elasticsearch.deprecation": "OFF"
+  }
+}</pre>
+</div>
+<div class="console_widget" data-snippet="snippets/27.console"></div>
+<p>Refer to <a class="xref" href="logging.html#configuring-logging-levels" title="Configuring logging levels">Configuring logging levels</a>.</p>
 <p>You can identify what is triggering deprecated functionality if <code class="literal">X-Opaque-Id</code> was used as an HTTP header.
 The user ID is included in the <code class="literal">X-Opaque-ID</code> field in deprecation JSON logs.</p>
 <div class="pre_wrapper lang-js">
@@ -799,7 +798,7 @@ logs streams when parsing.</p>
 appender.rolling.layout.type_name = server</pre>
 </div>
 <p>Each line contains a single JSON document with the properties configured in <code class="literal">ESJsonLayout</code>.
-See this class <a href="https://artifacts.elastic.co/javadoc/org/elasticsearch/elasticsearch/7.17.2/org/elasticsearch/common/logging/ESJsonLayout.html" class="ulink" target="_top">javadoc</a> for more details.
+See this class <a href="https://artifacts.elastic.co/javadoc/org/elasticsearch/elasticsearch/7.17.5/org/elasticsearch/common/logging/ESJsonLayout.html" class="ulink" target="_top">javadoc</a> for more details.
 However if a JSON document contains an exception, it will be printed over multiple lines.
 The first line will contain regular properties and subsequent lines will contain the
 stacktrace formatted as a JSON array.</p>
@@ -833,15 +832,37 @@ appender.rolling.filePattern = ${sys:es.logs.base_path}${sys:file.separator}${sy
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

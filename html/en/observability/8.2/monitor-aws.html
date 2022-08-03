@@ -57,7 +57,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -88,40 +88,29 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
-You are looking at preliminary documentation for a future release.
-Not what you want? See the
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
 <a href="../current/index.html">current release documentation</a>.
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Observability Guide [8.2]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Observability Guide [8.2]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="observability-tutorials.html">Tutorials</a></span>
-»
-<span class="breadcrumb-node">Monitor Amazon Web Services (AWS)</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -311,48 +300,94 @@ ship the data.</p>
        role="tabpanel"
        id="deb-tab-install-filebeat"
        aria-labelledby="deb-install-filebeat">
-<p>Version 8.2.0 of Filebeat has not yet been released.</p>
+<div class="pre_wrapper lang-sh">
+<pre class="programlisting prettyprint lang-sh">curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-8.2.3-amd64.deb
+sudo dpkg -i filebeat-8.2.3-amd64.deb</pre>
+</div>
   </div>
   <div tabindex="0"
        role="tabpanel"
        id="rpm-tab-install-filebeat"
        aria-labelledby="rpm-install-filebeat"
        hidden="">
-<p>Version 8.2.0 of Filebeat has not yet been released.</p>
+<div class="pre_wrapper lang-sh">
+<pre class="programlisting prettyprint lang-sh">curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-8.2.3-x86_64.rpm
+sudo rpm -vi filebeat-8.2.3-x86_64.rpm</pre>
+</div>
   </div>
   <div tabindex="0"
        role="tabpanel"
        id="mac-tab-install-filebeat"
        aria-labelledby="mac-install-filebeat"
        hidden="">
-<p>Version 8.2.0 of Filebeat has not yet been released.</p>
+<div class="pre_wrapper lang-sh">
+<pre class="programlisting prettyprint lang-sh">curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-8.2.3-darwin-x86_64.tar.gz
+tar xzvf filebeat-8.2.3-darwin-x86_64.tar.gz</pre>
+</div>
   </div>
   <div tabindex="0"
        role="tabpanel"
        id="linux-tab-install-filebeat"
        aria-labelledby="linux-install-filebeat"
        hidden="">
-<p>Version 8.2.0 of Filebeat has not yet been released.</p>
+<div class="pre_wrapper lang-sh">
+<pre class="programlisting prettyprint lang-sh">curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-8.2.3-linux-x86_64.tar.gz
+tar xzvf filebeat-8.2.3-linux-x86_64.tar.gz</pre>
+</div>
   </div>
   <div tabindex="0"
        role="tabpanel"
        id="win-tab-install-filebeat"
        aria-labelledby="win-install-filebeat"
        hidden="">
-<p>Version 8.2.0 of Filebeat has not yet been released.</p>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+Download the Filebeat Windows zip file from the
+<a href="/downloads/beats/filebeat" class="ulink" target="_top">downloads page</a>.
+</li>
+<li class="listitem">
+Extract the contents of the zip file into <code class="literal">C:\Program Files</code>.
+</li>
+<li class="listitem">
+Rename the <code class="literal">filebeat-&lt;version&gt;-windows</code> directory to <code class="literal">Filebeat</code>.
+</li>
+<li class="listitem">
+Open a PowerShell prompt as an Administrator (right-click the PowerShell icon
+and select <span class="strong strong"><strong>Run As Administrator</strong></span>).
+</li>
+<li class="listitem">
+<p>From the PowerShell prompt, run the following commands to install
+Filebeat as a Windows service:</p>
+<div class="pre_wrapper lang-sh">
+<pre class="programlisting prettyprint lang-sh">PS &gt; cd 'C:\Program Files\Filebeat'
+PS C:\Program Files\Filebeat&gt; .\install-service-filebeat.ps1</pre>
+</div>
+</li>
+</ol>
+</div>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>If script execution is disabled on your system, you need to set the
+execution policy for the current session to allow the script to run. For
+example:
+<code class="literal">PowerShell.exe -ExecutionPolicy UnRestricted -File .\install-service-filebeat.ps1</code>.</p>
+</div>
+</div>
   </div>
 </div>
 <h4><a id="_set_up_assets"></a>Set up assets<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/observability-docs/edit/8.2/docs/en/shared/install-configure-filebeat.asciidoc">edit</a></h4>
 <p>Filebeat comes with predefined assets for parsing, indexing, and visualizing your data.
 Run the following command to load these assets. It may take a few minutes.</p>
 <div class="pre_wrapper lang-bash">
-<pre class="programlisting prettyprint lang-bash">./filebeat setup -e -E 'cloud.id=YOUR_DEPLOYMENT_CLOUD_ID' -E 'cloud.auth=elastic:YOUR_SUPER_SECRET_PASS' <a id="CO42-1"></a><i class="conum" data-value="1"></i></pre>
+<pre class="programlisting prettyprint lang-bash">./filebeat setup -e -E 'cloud.id=YOUR_DEPLOYMENT_CLOUD_ID' -E 'cloud.auth=elastic:YOUR_SUPER_SECRET_PASS' <a id="CO34-1"></a><i class="conum" data-value="1"></i></pre>
 </div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO42-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO34-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Substitute your Cloud ID and an administrator&#8217;s <code class="literal">username:password</code> in this command.
@@ -384,8 +419,8 @@ echo -n "&lt;Your Deployment Cloud ID&gt;" | ./filebeat keystore add CLOUD_ID --
 <li class="listitem">
 <p>To store logs in Elasticsearch with minimal permissions, create an API key to send
 data from Filebeat to Elasticsearch Service. Log into Kibana (you can do so from the Cloud
-Console without typing in any permissions) and select <span class="strong strong"><strong>Management</strong></span> &#8594; <span class="strong strong"><strong>Dev
-Tools</strong></span>. Send the following request:</p>
+Console without typing in any permissions) and select <span class="strong strong"><strong>Management</strong></span> &#8594; <span class="strong strong"><strong>Dev Tools</strong></span>.
+Send the following request:</p>
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">POST /_security/api_key
 {
@@ -395,8 +430,8 @@ Tools</strong></span>. Send the following request:</p>
       "cluster": [
         "monitor",
         "read_ilm",
-        "cluster:admin/ingest/pipeline/get", <a id="CO43-1"></a><i class="conum" data-value="1"></i>
-        "cluster:admin/ingest/pipeline/put" <a id="CO43-2"></a><i class="conum" data-value="1"></i>
+        "cluster:admin/ingest/pipeline/get", <a id="CO35-1"></a><i class="conum" data-value="1"></i>
+        "cluster:admin/ingest/pipeline/put" <a id="CO35-2"></a><i class="conum" data-value="1"></i>
       ],
       "index": [
         {
@@ -413,7 +448,7 @@ Tools</strong></span>. Send the following request:</p>
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO43-1"><i class="conum" data-value="1"></i></a><a href="#CO43-2"></a></p>
+<p><a href="#CO35-1"><i class="conum" data-value="1"></i></a><a href="#CO35-2"></a></p>
 </td>
 <td align="left" valign="top">
 <p>Filebeat needs extra cluster permissions to publish logs, which differs
@@ -474,7 +509,7 @@ buckets. With this setup, periodic polling from each S3 bucket is not needed.</p
 <code class="literal">cloudwatch</code>, <code class="literal">elb</code> and <code class="literal">s3access</code>. In this tutorial, we are going to show you a
 few examples using the <code class="literal">ec2</code> and the <code class="literal">s3access</code> filesets.</p>
 <p>The <code class="literal">ec2</code> fileset is
-used to ship and process logs stored in cloudwatch, and export them to an S3
+used to ship and process logs stored in CloudWatch, and export them to an S3
 bucket. The <code class="literal">s3access</code> fileset is used when S3 access logs need to be collected.
 It provides detailed records for the requests that are made to a bucket. Server
 access logs are useful for many applications. For example, access log
@@ -492,9 +527,9 @@ learn about your customer base and understand your Amazon S3 bill.</p>
   cloudwatch:
     enabled: false
   ec2:
-    enabled: true <a id="CO44-1"></a><i class="conum" data-value="1"></i>
-    var.credential_profile_name: fb-aws <a id="CO44-2"></a><i class="conum" data-value="2"></i>
-    var.queue_url: https://sqs.eu-central-1.amazonaws.com/836370109380/howtoguide-tutorial <a id="CO44-3"></a><i class="conum" data-value="3"></i>
+    enabled: true <a id="CO36-1"></a><i class="conum" data-value="1"></i>
+    var.credential_profile_name: fb-aws <a id="CO36-2"></a><i class="conum" data-value="2"></i>
+    var.queue_url: https://sqs.eu-central-1.amazonaws.com/836370109380/howtoguide-tutorial <a id="CO36-3"></a><i class="conum" data-value="3"></i>
   elb:
     enabled: false
   s3access:
@@ -506,7 +541,7 @@ learn about your customer base and understand your Amazon S3 bill.</p>
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO44-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO36-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Enables the <code class="literal">ec2</code> fileset.</p>
@@ -514,7 +549,7 @@ learn about your customer base and understand your Amazon S3 bill.</p>
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO44-2"><i class="conum" data-value="2"></i></a></p>
+<p><a href="#CO36-2"><i class="conum" data-value="2"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>This is the AWS profile defined following the <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html" class="ulink" target="_top">AWS standard</a>.</p>
@@ -522,7 +557,7 @@ learn about your customer base and understand your Amazon S3 bill.</p>
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO44-3"><i class="conum" data-value="3"></i></a></p>
+<p><a href="#CO36-3"><i class="conum" data-value="3"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Add the URL to the queue containing notifications around the bucket containing the EC2 logs</p>
@@ -549,7 +584,7 @@ following permissions attached to it:</p>
     ]
 }</pre>
 </div>
-<p>You can now upload your logs to the S3 bucket. If you are using cloudwatch,
+<p>You can now upload your logs to the S3 bucket. If you are using CloudWatch,
 make sure to edit the policy of your bucket as shown in <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/S3ExportTasksConsole.html" class="ulink" target="_top">step 3 of the AWS user guide</a>.
 This will help you avoid permissions issues.</p>
 <p>Start Filebeat to collect the logs.</p>
@@ -590,15 +625,15 @@ the following configurations.</p>
   cloudwatch:
     enabled: false
   ec2:
-    enabled: true <a id="CO45-1"></a><i class="conum" data-value="1"></i>
-    var.credential_profile_name: fb-aws <a id="CO45-2"></a><i class="conum" data-value="2"></i>
-    var.queue_url: https://sqs.eu-central-1.amazonaws.com/836370109380/howtoguide-tutorial <a id="CO45-3"></a><i class="conum" data-value="3"></i>
+    enabled: true <a id="CO37-1"></a><i class="conum" data-value="1"></i>
+    var.credential_profile_name: fb-aws <a id="CO37-2"></a><i class="conum" data-value="2"></i>
+    var.queue_url: https://sqs.eu-central-1.amazonaws.com/836370109380/howtoguide-tutorial <a id="CO37-3"></a><i class="conum" data-value="3"></i>
   elb:
     enabled: false
   s3access:
-    enabled: true <a id="CO45-4"></a><i class="conum" data-value="1"></i>
-    var.credential_profile_name: fb-aws <a id="CO45-5"></a><i class="conum" data-value="2"></i>
-    var.queue_url: https://sqs.eu-central-1.amazonaws.com/836370109380/access-log <a id="CO45-6"></a><i class="conum" data-value="4"></i>
+    enabled: true <a id="CO37-4"></a><i class="conum" data-value="1"></i>
+    var.credential_profile_name: fb-aws <a id="CO37-5"></a><i class="conum" data-value="2"></i>
+    var.queue_url: https://sqs.eu-central-1.amazonaws.com/836370109380/access-log <a id="CO37-6"></a><i class="conum" data-value="4"></i>
   vpcflow:
     enabled: false</pre>
 </div>
@@ -606,7 +641,7 @@ the following configurations.</p>
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO45-1"><i class="conum" data-value="1"></i></a><a href="#CO45-4"></a></p>
+<p><a href="#CO37-1"><i class="conum" data-value="1"></i></a><a href="#CO37-4"></a></p>
 </td>
 <td align="left" valign="top">
 <p>Enables the <code class="literal">ec2</code> fileset.</p>
@@ -614,15 +649,15 @@ the following configurations.</p>
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO45-2"><i class="conum" data-value="2"></i></a><a href="#CO45-5"></a></p>
+<p><a href="#CO37-2"><i class="conum" data-value="2"></i></a><a href="#CO37-5"></a></p>
 </td>
 <td align="left" valign="top">
-<p>This is the aws profile defined following the <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html" class="ulink" target="_top">AWS standard</a>.</p>
+<p>This is the AWS profile defined following the <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html" class="ulink" target="_top">AWS standard</a>.</p>
 </td>
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO45-3"><i class="conum" data-value="3"></i></a></p>
+<p><a href="#CO37-3"><i class="conum" data-value="3"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Add the URL to the queue containing notifications around the bucket containing the EC2 logs</p>
@@ -630,7 +665,7 @@ the following configurations.</p>
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO45-6"><i class="conum" data-value="4"></i></a></p>
+<p><a href="#CO37-6"><i class="conum" data-value="4"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Add the URL to the queue containing notifications around the bucket containing the S3 access logs</p>
@@ -638,8 +673,8 @@ the following configurations.</p>
 </tr>
 </table>
 </div>
-<p>Once you have edited the config file, you need to restart filebeat. To stop
-flebeat, you can press CTRL + C in the terminal. Now let&#8217;s restart filebeat by
+<p>Once you have edited the config file, you need to restart Filebeat. To stop
+Filebeat, you can press CTRL + C in the terminal. Now let&#8217;s restart Filebeat by
 running the following command:</p>
 <div class="pre_wrapper lang-bash">
 <pre class="programlisting prettyprint lang-bash">./filebeat -e</pre>
@@ -653,7 +688,7 @@ Kibana. To see the raw logs, open the main menu in Kibana, then click
 <img src="EC2-logs.png" alt="EC2 logs in the Logs UI">
 </div>
 </div>
-<p>The filesets we used in the previous steps also come with prebuilt dashboards
+<p>The filesets we used in the previous steps also come with pre-built dashboards
 that you can use to visualize the data. In Kibana, open the main menu and click
 <span class="strong strong"><strong>Dashboard</strong></span>. Search for S3 and select the dashboard called:
 <span class="strong strong"><strong>[Filebeat AWS] S3 Server Access Log Overview</strong></span>:</p>
@@ -721,48 +756,94 @@ Please see <a href="/guide/en/beats/metricbeat/current/metricbeat-module-aws.htm
        role="tabpanel"
        id="deb-tab-install-metricbeat"
        aria-labelledby="deb-install-metricbeat">
-<p>Version 8.2.0 of Metricbeat has not yet been released.</p>
+<div class="pre_wrapper lang-sh">
+<pre class="programlisting prettyprint lang-sh">curl -L -O https://artifacts.elastic.co/downloads/beats/metricbeat/metricbeat-8.2.3-amd64.deb
+sudo dpkg -i metricbeat-8.2.3-amd64.deb</pre>
+</div>
   </div>
   <div tabindex="0"
        role="tabpanel"
        id="rpm-tab-install-metricbeat"
        aria-labelledby="rpm-install-metricbeat"
        hidden="">
-<p>Version 8.2.0 of Metricbeat has not yet been released.</p>
+<div class="pre_wrapper lang-sh">
+<pre class="programlisting prettyprint lang-sh">curl -L -O https://artifacts.elastic.co/downloads/beats/metricbeat/metricbeat-8.2.3-x86_64.rpm
+sudo rpm -vi metricbeat-8.2.3-x86_64.rpm</pre>
+</div>
   </div>
   <div tabindex="0"
        role="tabpanel"
        id="mac-tab-install-metricbeat"
        aria-labelledby="mac-install-metricbeat"
        hidden="">
-<p>Version 8.2.0 of Metricbeat has not yet been released.</p>
+<div class="pre_wrapper lang-sh">
+<pre class="programlisting prettyprint lang-sh">curl -L -O https://artifacts.elastic.co/downloads/beats/metricbeat/metricbeat-8.2.3-darwin-x86_64.tar.gz
+tar xzvf metricbeat-8.2.3-darwin-x86_64.tar.gz</pre>
+</div>
   </div>
   <div tabindex="0"
        role="tabpanel"
        id="linux-tab-install-metricbeat"
        aria-labelledby="linux-install-metricbeat"
        hidden="">
-<p>Version 8.2.0 of Metricbeat has not yet been released.</p>
+<div class="pre_wrapper lang-sh">
+<pre class="programlisting prettyprint lang-sh">curl -L -O https://artifacts.elastic.co/downloads/beats/metricbeat/metricbeat-8.2.3-linux-x86_64.tar.gz
+tar xzvf metricbeat-8.2.3-linux-x86_64.tar.gz</pre>
+</div>
   </div>
   <div tabindex="0"
        role="tabpanel"
        id="win-tab-install-metricbeat"
        aria-labelledby="win-install-metricbeat"
        hidden="">
-<p>Version 8.2.0 of Metricbeat has not yet been released.</p>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+Download the Metricbeat Windows zip file from the
+<a href="/downloads/beats/metricbeat" class="ulink" target="_top">downloads page</a>.
+</li>
+<li class="listitem">
+Extract the contents of the zip file into <code class="literal">C:\Program Files</code>.
+</li>
+<li class="listitem">
+Rename the <code class="literal">metricbeat-&lt;version&gt;-windows</code> directory to <code class="literal">Metricbeat</code>.
+</li>
+<li class="listitem">
+Open a PowerShell prompt as an Administrator (right-click the PowerShell icon
+and select <span class="strong strong"><strong>Run As Administrator</strong></span>).
+</li>
+<li class="listitem">
+<p>From the PowerShell prompt, run the following commands to install
+Metricbeat as a Windows service:</p>
+<div class="pre_wrapper lang-sh">
+<pre class="programlisting prettyprint lang-sh">PS &gt; cd 'C:\Program Files\Metricbeat'
+PS C:\Program Files\Metricbeat&gt; .\install-service-metricbeat.ps1</pre>
+</div>
+</li>
+</ol>
+</div>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>If script execution is disabled on your system, you need to set the
+execution policy for the current session to allow the script to run. For
+example:
+<code class="literal">PowerShell.exe -ExecutionPolicy UnRestricted -File .\install-service-metricbeat.ps1</code>.</p>
+</div>
+</div>
   </div>
 </div>
 <h4><a id="_set_up_assets_2"></a>Set up assets<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/observability-docs/edit/8.2/docs/en/shared/install-configure-metricbeat.asciidoc">edit</a></h4>
 <p>Metricbeat comes with predefined assets for parsing, indexing, and visualizing your data.
 Run the following command to load these assets. It may take a few minutes.</p>
 <div class="pre_wrapper lang-bash">
-<pre class="programlisting prettyprint lang-bash">./metricbeat setup -e -E 'cloud.id=YOUR_DEPLOYMENT_CLOUD_ID' -E 'cloud.auth=elastic:YOUR_SUPER_SECRET_PASS' <a id="CO46-1"></a><i class="conum" data-value="1"></i></pre>
+<pre class="programlisting prettyprint lang-bash">./metricbeat setup -e -E 'cloud.id=YOUR_DEPLOYMENT_CLOUD_ID' -E 'cloud.auth=elastic:YOUR_SUPER_SECRET_PASS' <a id="CO38-1"></a><i class="conum" data-value="1"></i></pre>
 </div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO46-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO38-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Substitute your Cloud ID and an administrator&#8217;s <code class="literal">username:password</code> in this command.
@@ -794,8 +875,8 @@ echo -n "&lt;Your Deployment Cloud ID&gt;" | ./metricbeat keystore add CLOUD_ID 
 <li class="listitem">
 <p>To store metrics in Elasticsearch with minimal permissions, create an API key to send
 data from Metricbeat to Elasticsearch Service. Log into Kibana (you can do so from the Cloud
-Console without typing in any permissions) and select <span class="strong strong"><strong>Management</strong></span> &#8594; <span class="strong strong"><strong>Dev
-Tools</strong></span>. Send the following request:</p>
+Console without typing in any permissions) and select <span class="strong strong"><strong>Management</strong></span> &#8594; <span class="strong strong"><strong>Dev Tools</strong></span>.
+Send the following request:</p>
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">POST /_security/api_key
 {
@@ -873,11 +954,11 @@ few examples using the <code class="literal">ec2</code> and the <code class="lit
 <li class="listitem">
 <p>Edit the <code class="literal">modules.d/aws.yml</code> file with the following configurations.</p>
 <div class="pre_wrapper lang-yml">
-<pre class="programlisting prettyprint lang-yml">- module: aws <a id="CO47-1"></a><i class="conum" data-value="1"></i>
-  period: 24h <a id="CO47-2"></a><i class="conum" data-value="2"></i>
+<pre class="programlisting prettyprint lang-yml">- module: aws <a id="CO39-1"></a><i class="conum" data-value="1"></i>
+  period: 24h <a id="CO39-2"></a><i class="conum" data-value="2"></i>
   metricsets:
-    - billing <a id="CO47-3"></a><i class="conum" data-value="3"></i>
-  credential_profile_name: mb-aws <a id="CO47-4"></a><i class="conum" data-value="4"></i>
+    - billing <a id="CO39-3"></a><i class="conum" data-value="3"></i>
+  credential_profile_name: mb-aws <a id="CO39-4"></a><i class="conum" data-value="4"></i>
   cost_explorer_config:
     group_by_dimension_keys:
       - "AZ"
@@ -885,17 +966,17 @@ few examples using the <code class="literal">ec2</code> and the <code class="lit
       - "SERVICE"
     group_by_tag_keys:
       - "aws:createdBy"
-- module: aws <a id="CO47-5"></a><i class="conum" data-value="1"></i>
-  period: 300s <a id="CO47-6"></a><i class="conum" data-value="2"></i>
+- module: aws <a id="CO39-5"></a><i class="conum" data-value="1"></i>
+  period: 300s <a id="CO39-6"></a><i class="conum" data-value="2"></i>
   metricsets:
-    - ec2 <a id="CO47-7"></a><i class="conum" data-value="3"></i>
-  credential_profile_name: mb-aws <a id="CO47-8"></a><i class="conum" data-value="4"></i></pre>
+    - ec2 <a id="CO39-7"></a><i class="conum" data-value="3"></i>
+  credential_profile_name: mb-aws <a id="CO39-8"></a><i class="conum" data-value="4"></i></pre>
 </div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO47-1"><i class="conum" data-value="1"></i></a><a href="#CO47-5"></a></p>
+<p><a href="#CO39-1"><i class="conum" data-value="1"></i></a><a href="#CO39-5"></a></p>
 </td>
 <td align="left" valign="top">
 <p>Defines the module that is going to be used.</p>
@@ -903,7 +984,7 @@ few examples using the <code class="literal">ec2</code> and the <code class="lit
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO47-2"><i class="conum" data-value="2"></i></a><a href="#CO47-6"></a></p>
+<p><a href="#CO39-2"><i class="conum" data-value="2"></i></a><a href="#CO39-6"></a></p>
 </td>
 <td align="left" valign="top">
 <p>Defines the period at which the metrics are going to be collected</p>
@@ -911,7 +992,7 @@ few examples using the <code class="literal">ec2</code> and the <code class="lit
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO47-3"><i class="conum" data-value="3"></i></a><a href="#CO47-7"></a></p>
+<p><a href="#CO39-3"><i class="conum" data-value="3"></i></a><a href="#CO39-7"></a></p>
 </td>
 <td align="left" valign="top">
 <p>Defines the metricset that is going to be used.</p>
@@ -919,10 +1000,10 @@ few examples using the <code class="literal">ec2</code> and the <code class="lit
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO47-4"><i class="conum" data-value="4"></i></a><a href="#CO47-8"></a></p>
+<p><a href="#CO39-4"><i class="conum" data-value="4"></i></a><a href="#CO39-8"></a></p>
 </td>
 <td align="left" valign="top">
-<p>This is the aws profile defined following the <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html" class="ulink" target="_top">AWS standard</a>.</p>
+<p>This is the AWS profile defined following the <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html" class="ulink" target="_top">AWS standard</a>.</p>
 </td>
 </tr>
 </table>
@@ -966,7 +1047,7 @@ Kibana. In Kibana, open the main menu and click
 <img src="EC2-instances.png" alt="Your EC2 Infrastructure">
 </div>
 </div>
-<p>The metricsets we used in the previous steps also comes with prebuilt dashboard
+<p>The metricsets we used in the previous steps also comes with pre-built dashboard
 that you can use to visualize the data. In Kibana, open the main menu and click
 <span class="strong strong"><strong>Dashboard</strong></span>. Search for EC2 and select the dashboard called: <span class="strong strong"><strong>[Metricbeat
 AWS] EC2 Overview</strong></span>:</p>
@@ -995,15 +1076,37 @@ AWS] EC2 Overview</strong></span>:</p>
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

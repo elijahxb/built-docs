@@ -10,15 +10,18 @@
 <meta name="DC.type" content="Learn/Docs/Enterprise Search/Guide/8.1"/>
 <meta name="DC.subject" content="Enterprise Search"/>
 <meta name="DC.identifier" content="8.1"/>
+<meta name="robots" content="noindex,nofollow"/>
 </head>
-<body>
+<body><div class="page_header">
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elastic Enterprise Search Documentation [8.1]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Enterprise Search Documentation [8.1]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="users-access.html">Manage users and access to Enterprise Search</a></span>
-»
-<span class="breadcrumb-node">Set up Enterprise Search with SAML 2.0 single sign-on (SSO)</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -49,7 +52,12 @@ See the end of this document for how to apply these instructions to a deployment
 <p>Configure a SAML realm within Elasticsearch for <a class="xref" href="user-interfaces.html#user-interfaces-management-kibana" title="Manage Enterprise Search in Kibana">Enterprise Search in Kibana</a>.</p>
 <p>Add the following configuration to the Elasticsearch <code class="literal">config/elasticsearch.yml</code> file:</p>
 <div class="pre_wrapper lang-yaml">
-<pre class="programlisting prettyprint lang-yaml">xpack.security.authc.token.enabled: true
+<pre class="programlisting prettyprint lang-yaml"># Skip this if you are running an Elastic Cloud deployment
+# Elastic Cloud has token service enabled by default and will not accept the `xpack.security.authc.token.enabled` setting
+xpack.security.authc.token.enabled: true
+
+# Update the `http://localhost:5601` references to the location of your Kibana endpoint
+# See https://www.elastic.co/guide/en/enterprise-search/current/endpoints-ref.html
 xpack.security.authc.realms.saml.kibana-my-saml:
   order: 3
   # Replace with your SAML identity provider's metadata URL
@@ -190,7 +198,7 @@ kind: Elasticsearch
 metadata:
   name: example
 spec:
-  version: 8.1.2
+  version: 8.1.3
   nodeSets:
     - name: default
       count: 1
@@ -215,7 +223,7 @@ kind: EnterpriseSearch
 metadata:
   name: example
 spec:
-  version: 8.1.2
+  version: 8.1.3
   count: 1
   elasticsearchRef:
     name: example
@@ -237,7 +245,7 @@ kind: Kibana
 metadata:
   name: example
 spec:
-  version: 8.1.2
+  version: 8.1.3
   config:
     xpack.security.authc.providers:
       saml:

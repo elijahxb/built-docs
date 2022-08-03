@@ -17,13 +17,10 @@ A newer version is available. For the latest information, see the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [7.17]</a></span>
-»
-<span class="breadcrumb-link"><a href="analysis.html">Text analysis</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [7.17]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="analysis.html">Text analysis</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="analysis-analyzers.html">Built-in analyzer reference</a></span>
-»
-<span class="breadcrumb-node">Fingerprint analyzer</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -52,7 +49,7 @@ configured, stop words will also be removed.</p>
   "text": "Yes yes, Gödel said this sentence is consistent and."
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/383.console"></div>
+<div class="console_widget" data-snippet="snippets/385.console"></div>
 <p>The above sentence would produce the following single term:</p>
 <div class="pre_wrapper lang-text">
 <pre class="programlisting prettyprint lang-text">[ and consistent godel is said sentence this yes ]</pre>
@@ -145,7 +142,7 @@ POST my-index-000001/_analyze
   "text": "Yes yes, Gödel said this sentence is consistent and."
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/384.console"></div>
+<div class="console_widget" data-snippet="snippets/386.console"></div>
 <p>The above example produces the following term:</p>
 <div class="pre_wrapper lang-text">
 <pre class="programlisting prettyprint lang-text">[ consistent godel said sentence yes ]</pre>
@@ -217,7 +214,7 @@ customization:</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/385.console"></div>
+<div class="console_widget" data-snippet="snippets/387.console"></div>
 </div>
 <div class="navfooter">
 <span class="prev">

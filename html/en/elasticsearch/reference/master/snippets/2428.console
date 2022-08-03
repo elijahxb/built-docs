@@ -1,13 +1,4 @@
-PUT music
+GET _ml/anomaly_detectors/high_sum_total_sales/model_snapshots
 {
-  "mappings": {
-    "properties": {
-      "suggest": {
-        "type": "completion"
-      },
-      "title": {
-        "type": "keyword"
-      }
-    }
-  }
+  "start": "1575402236000"
 }

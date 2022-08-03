@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>A first API call: What deployments are there? | Elastic Cloud Enterprise Reference [3.2] | Elastic</title>
+<link rel="home" href="index.html" title="Elastic Cloud Enterprise Reference [3.2]"/>
+<link rel="up" href="ece-restful-api-examples.html" title="API examples"/>
+<link rel="prev" href="ece-setting-up-your-environment.html" title="Setting up your environment"/>
+<link rel="next" href="ece-restful-api-examples-create-deployment.html" title="Create a first Deployment: Elasticsearch and Kibana"/>
+<meta name="DC.type" content="Learn/Docs/CloudEnterprise/Reference/3.2"/>
+<meta name="DC.subject" content="ECE"/>
+<meta name="DC.identifier" content="3.2"/>
+</head>
+<body><div class="page_header">
+A newer version is available. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Cloud Enterprise Reference [3.2]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="ece-restful-api.html">RESTful API</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="ece-restful-api-examples.html">API examples</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="ece-setting-up-your-environment.html">« Setting up your environment</a>
+</span>
+<span class="next">
+<a href="ece-restful-api-examples-create-deployment.html">Create a first Deployment: Elasticsearch and Kibana »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="ece-restful-api-examples-get-deployments"></a>A first API call: What deployments are there?<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/cloud-enterprise/ce-api-examples.asciidoc">edit</a></h2>
+</div></div></div>
+<p>As a first API call, let’s use a GET request to retrieve information about existing deployments:</p>
+<div class="pre_wrapper lang-sh">
+<pre class="programlisting prettyprint lang-sh">curl -k -X GET -H "Authorization: ApiKey $ECE_API_KEY" https://$COORDINATOR_HOST:12443/api/v1/deployments</pre>
+</div>
+<div class="pre_wrapper lang-json">
+<pre class="programlisting prettyprint lang-json">{
+  "deployments" : [
+    {
+      "id" : "c7d139e789864bf4a6e41819ece19741",
+      "name" : "security-cluster",
+      "resources" : [
+        {
+          "ref_id" : "elasticsearch",
+          "id" : "c7d139e789864bf4a6e41819ece19741",
+          "kind" : "elasticsearch",
+          "region" : "ece-region",
+          "cloud_id" : "security-cluster:MTkyLjE2OC40NC4xMC5pcC5lcy5pbzo5MjQzJGM3ZDEzOWU3ODk4NjRiZjRhNmU0MTgxOWVjZTE5NzQxJA=="
+        }
+      ]
+    },
+    {
+      "id" : "93de3a6caf8d4e4c8e66e1127277cead",
+      "name" : "logging-and-metrics",
+      "resources" : [
+        {
+          "ref_id" : "elasticsearch",
+          "id" : "93de3a6caf8d4e4c8e66e1127277cead",
+          "kind" : "elasticsearch",
+          "region" : "ece-region",
+          "cloud_id" : "logging-and-metrics:MTkyLjE2OC40NC4xMC5pcC5lcy5pbzo5MjQzJDkzZGUzYTZjYWY4ZDRlNGM4ZTY2ZTExMjcyNzdjZWFkJDIwOWE4ZDM4ZGUwNDRmNzhhYjFhMWFlODNiODE2MWY0"
+        },
+        {
+          "ref_id" : "kibana",
+          "elasticsearch_cluster_ref_id" : "elasticsearch",
+          "id" : "209a8d38de044f78ab1a1ae83b8161f4",
+          "kind" : "kibana",
+          "region" : "ece-region"
+        }
+      ]
+    },
+    {
+      "id" : "3e31526f42b74776a3c715e0f5277a5c",
+      "name" : "admin-console-elasticsearch",
+      "resources" : [
+        {
+          "ref_id" : "elasticsearch",
+          "id" : "3e31526f42b74776a3c715e0f5277a5c",
+          "kind" : "elasticsearch",
+          "region" : "ece-region",
+          "cloud_id" : "admin-console-elasticsearch:MTkyLjE2OC40NC4xMC5pcC5lcy5pbzo5MjQzJDNlMzE1MjZmNDJiNzQ3NzZhM2M3MTVlMGY1Mjc3YTVjJA=="
+        }
+      ]
+    }
+  ]
+}</pre>
+</div>
+<p>There are three deployments, <code class="literal">security-cluster</code>, <code class="literal">logging-and-metrics</code>, and <code class="literal">admin-console-elasticsearch</code>, which get created with every installation of Elastic Cloud Enterprise. Take care when modifying these deployments, as they are part of the control plane of ECE. To keep your installation safe, some operations are not allowed on these deployments, but we do recommend that you enable fault tolerance for their Elasticsearch resources and resize them.</p>
+<p>In order to obtain more detail about a specific deployment, we can use a GET request using one of the deployment IDs from the previous response (in this example, you could set $DEPLOYMENT_ID to the ID of the <code class="literal">admin-console-elasticsearch</code> deployment: <code class="literal">3e31526f42b74776a3c715e0f5277a5c</code>):</p>
+<div class="pre_wrapper lang-sh">
+<pre class="programlisting prettyprint lang-sh">curl -k -X GET -H "Authorization: ApiKey $ECE_API_KEY" https://$COORDINATOR_HOST:12443/api/v1/deployments/$DEPLOYMENT_ID</pre>
+</div>
+<div class="pre_wrapper lang-json">
+<pre class="programlisting prettyprint lang-json">{
+  "id" : "3e31526f42b74776a3c715e0f5277a5c",
+  "name" : "admin-console-elasticsearch",
+  "healthy" : true,
+  "resources" : {
+    "elasticsearch" : [
+      {
+        "ref_id" : "elasticsearch",
+        "id" : "3e31526f42b74776a3c715e0f5277a5c",
+        "region" : "ece-region",
+        "info" : {
+          "cluster_id" : "3e31526f42b74776a3c715e0f5277a5c",
+          "cluster_name" : "admin-console-elasticsearch",
+          "deployment_id" : "3e31526f42b74776a3c715e0f5277a5c",
+          "healthy" : true,
+          "status" : "started",
+          "plan_info" : {
+            "healthy" : true,
+            ...
+          },
+          "topology": {
+            ...
+          }
+        }
+      }
+    ]
+  },
+  "metadata" : {
+    "owner_id" : "admin",
+    "organization_id" : "platform",
+    "system_owned" : true,
+    "hidden" : false,
+    "last_modified" : "2021-07-28T21:32:47.508Z",
+    "last_resource_plan_modified" : "2021-07-28T21:32:09.659Z"
+  }
+}</pre>
+</div>
+<p>To simplify things, we&#8217;ve omitted some sections from the JSON output.</p>
+<h4><a id="ece_a_note_on_terminology"></a>A note on terminology<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/cloud-enterprise/ce-api-examples.asciidoc">edit</a></h4>
+<p>If this is your first time using the ECE API, some of the terminology in the JSON output will likely be unfamiliar. For example, there is a reference to the term “plan” in output fields such as <code class="literal">plan_info</code>. A plan is just a resource configuration that gets applied to a resource, such as an Elasticsearch cluster or a Kibana instance. When you change an Elasticsearch cluster to resize it, for example, you are applying a new plan.</p>
+<p>A deployment is a group of different resources such as Elasticsearch clusters, a Kibana instance, and other products of the Elastic Stack. In the previous example, the <code class="literal">admin-console-elasticsearch</code> deployment only had an Elasticsearch resource, and the <code class="literal">logging-and-metrics</code> deployment had both Elasticsearch and Kibana resources.</p>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="ece-setting-up-your-environment.html">« Setting up your environment</a>
+</span>
+<span class="next">
+<a href="ece-restful-api-examples-create-deployment.html">Create a first Deployment: Elasticsearch and Kibana »</a>
+</span>
+</div>
+</div>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains('stemblock')) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+</body>
+</html>

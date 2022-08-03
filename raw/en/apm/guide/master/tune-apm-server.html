@@ -18,15 +18,11 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">APM User Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="overview.html">Legacy APM Server Reference</a></span>
-»
-<span class="breadcrumb-link"><a href="howto-guides.html">How-to guides</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">APM User Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="overview.html">Legacy APM Server Reference</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="howto-guides.html">How-to guides</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="tune-data-ingestion.html">Tune data ingestion</a></span>
-»
-<span class="breadcrumb-node">Tune APM Server</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -44,7 +40,7 @@ Not what you want? See the
 <div class="important admon">
 <div class="icon"></div>
 <div class="admon_content">
-<p>This documentation refers to the standalone (legacy) method of running APM Server. This method of running APM Server will be deprecated and removed in a future release. Please consider <a class="xref" href="upgrade-to-apm-integration.html" title="Upgrade to the Elastic APM integration">upgrading to the Elastic APM integration</a>.</p>
+<p>This documentation refers to the standalone (legacy) method of running APM Server. This method of running APM Server will be deprecated and removed in a future release. Please consider <a class="xref" href="upgrade-to-apm-integration.html" title="Switch to the Elastic APM integration">upgrading to the Elastic APM integration</a>.</p>
 </div>
 </div>
 <div class="ulist itemizedlist">
@@ -71,7 +67,7 @@ Having several instances will also increase <a class="xref" href="high-availabil
 <p>Large payloads may result in request timeouts.
 You can reduce the payload size by decreasing the flush interval in the agents.
 This will cause agents to send smaller and more frequent requests.</p>
-<p>Optionally you can also <a class="xref" href="reduce-storage.html#reduce-sample-rate" title="Reduce the sample rate">reduce the sample rate</a> or <a class="xref" href="reduce-storage.html#reduce-stacktrace" title="Reduce collected stacktrace information">reduce the amount of stacktraces</a>.</p>
+<p>Optionally you can also <a class="xref" href="reduce-storage.html#reduce-sample-rate" title="Reduce the sample rate">reduce the sample rate</a> or <a class="xref" href="reduce-storage.html#reduce-stacktrace" title="Reduce collected stack trace information">reduce the amount of stack traces</a>.</p>
 <p>Read more in the <a href="/guide/en/apm/agent/index.html" class="ulink" target="_top">agents documentation</a>.</p>
 <h5><a id="adjust-event-rate"></a>Adjust anonymous auth rate limit<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-server/edit/main/docs/legacy/data-ingestion.asciidoc">edit</a></h5>
 <p>Agents make use of long running requests and flush as many events over a single request as possible.

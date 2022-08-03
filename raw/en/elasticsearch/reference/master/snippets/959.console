@@ -1,12 +1,18 @@
-GET /my-index-000001/_search
+GET /_search
 {
   "query": {
-    "has_parent": {
-      "parent_type": "parent",
-      "query": {
-        "term": {
-          "tag": {
-            "value": "Elasticsearch"
+    "bool": {
+      "must": {
+        "match_all": {}
+      },
+      "filter": {
+        "geo_polygon": {
+          "person.location": {
+            "points": [
+              [ -70, 40 ],
+              [ -80, 30 ],
+              [ -90, 20 ]
+            ]
           }
         }
       }

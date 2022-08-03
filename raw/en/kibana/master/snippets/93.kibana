@@ -1,8 +1,7 @@
-$ curl -X POST api/index_patterns/index_pattern/<index_pattern_id>/runtime_field/<runtime_field_name>
+$ curl -X POST api/index_patterns/index-pattern/my-pattern
 {
-  "runtimeField": {
-     "script": {
-        "source": "emit(doc["bar"].value)"
-      }
+  "refresh_fields": true,
+  "index_pattern": {
+    "fields": {}
   }
 }

@@ -55,7 +55,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -86,27 +86,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   
 <div class="page_header">
@@ -123,6 +114,9 @@ Not what you want? See the
 </div>
 <div class="book" lang="en">
 <div class="titlepage">
+<div class="breadcrumbs" id="title-page-breadcrumb">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+</div>
 <div>
 <div><h1 class="title"><a id="elastic-enterprise-search-documentation"></a>Elastic Enterprise Search Documentation</h1></div>
 </div>
@@ -132,7 +126,9 @@ Not what you want? See the
 <div id="content">
 <!--START_TOC-->
 <div class="toc">
-<ul class="toc"><li id="book_title"><span>Enterprise Search Guide: <select id="live_versions"><option value="master" selected>master</option><option value="8.1">8.1 (current)</option><option value="7.17">7.17</option><option value="other">other versions</option></select><span id="other_versions">other versions: <select><option value="master" selected>master</option><option value="8.2">8.2</option><option value="8.1">8.1 (current)</option><option value="8.0">8.0</option><option value="7.17">7.17</option><option value="7.16">7.16</option><option value="7.15">7.15</option><option value="7.14">7.14</option><option value="7.13">7.13</option><option value="7.12">7.12</option><option value="7.11">7.11</option><option value="7.10">7.10</option><option value="7.9">7.9</option><option value="7.8">7.8</option><option value="7.7">7.7</option></select></span></li><li><span class="chapter"><a href="introduction.html">Introduction</a></span>
+<ul class="toc"><li id="book_title"><span>Enterprise Search Guide: <select id="live_versions"><option value="master" selected>master</option><option value="8.3">8.3 (current)</option><option value="7.17">7.17</option><option value="other">other versions</option></select><span id="other_versions">other versions: <select><option value="master" selected>master</option><option value="8.3">8.3 (current)</option><option value="8.2">8.2</option><option value="8.1">8.1</option><option value="8.0">8.0</option><option value="7.17">7.17</option><option value="7.16">7.16</option><option value="7.15">7.15</option><option value="7.14">7.14</option><option value="7.13">7.13</option><option value="7.12">7.12</option><option value="7.11">7.11</option><option value="7.10">7.10</option><option value="7.9">7.9</option><option value="7.8">7.8</option><option value="7.7">7.7</option></select></span></li><li><span class="chapter"><a href="introduction.html">Introduction</a></span>
+</li>
+<li><span class="chapter"><a href="start.html">Getting started with Elastic Enterprise Search</a></span>
 </li>
 <li><span class="chapter"><a href="installation.html">Installation</a></span>
 <ul>
@@ -166,7 +162,7 @@ Not what you want? See the
 </li>
 </ul>
 </li>
-<li><span class="chapter"><a href="license-management.html">Platinum features</a></span>
+<li><span class="chapter"><a href="license-management.html">Subscriptions and features</a></span>
 </li>
 <li><span class="chapter"><a href="upgrading-and-migrating.html">Upgrading &amp; migrating</a></span>
 <ul>
@@ -198,7 +194,33 @@ Not what you want? See the
 </li>
 <li><span class="chapter"><a href="programming-language-clients.html">Programming language clients</a></span>
 </li>
-<li><span class="chapter"><a href="log-retention.html">Log retention</a></span>
+<li><span class="chapter"><a href="crawler.html">Elastic web crawler</a></span>
+<ul>
+<li><span class="section"><a href="crawler-getting-started.html">Getting started with the Elastic web crawler</a></span>
+</li>
+<li><span class="section"><a href="crawler-searching.html">Searching your crawled documents</a></span>
+</li>
+<li><span class="section"><a href="crawler-managing.html">Managing crawls in Kibana</a></span>
+</li>
+<li><span class="section"><a href="crawler-content.html">Optimizing web content for the web crawler</a></span>
+</li>
+<li><span class="section"><a href="crawler-troubleshooting.html">Troubleshooting crawls</a></span>
+</li>
+</ul>
+</li>
+<li><span class="chapter"><a href="logs-and-logging.html">Logs and logging</a></span>
+<ul>
+<li><span class="section"><a href="manage-logs.html">Manage your logs</a></span>
+</li>
+<li><span class="section"><a href="audit-logs.html">Audit logging</a></span>
+</li>
+<li><span class="section"><a href="log-retention.html">Log retention</a></span>
+</li>
+<li><span class="section"><a href="logging-view-query-logs.html">View and query logs</a></span>
+</li>
+<li><span class="section"><a href="logs-quick-reference.html">Logs quick reference</a></span>
+</li>
+</ul>
 </li>
 <li><span class="chapter"><a href="monitoring.html">Monitoring</a></span>
 </li>
@@ -210,7 +232,21 @@ Not what you want? See the
 </li>
 <li><span class="chapter"><a href="changelog.html">Release notes</a></span>
 <ul>
+<li><span class="section"><a href="release-notes-8.4.0.html">8.4.0 release notes</a></span>
+</li>
+<li><span class="section"><a href="release-notes-8.3.3.html">8.3.3 release notes</a></span>
+</li>
+<li><span class="section"><a href="release-notes-8.3.2.html">8.3.2 release notes</a></span>
+</li>
+<li><span class="section"><a href="release-notes-8.3.1.html">8.3.1 release notes</a></span>
+</li>
 <li><span class="section"><a href="release-notes-8.3.0.html">8.3.0 release notes</a></span>
+</li>
+<li><span class="section"><a href="release-notes-8.2.3.html">8.2.3 release notes</a></span>
+</li>
+<li><span class="section"><a href="release-notes-8.2.2.html">8.2.2 release notes</a></span>
+</li>
+<li><span class="section"><a href="release-notes-8.2.1.html">8.2.1 release notes</a></span>
 </li>
 <li><span class="section"><a href="release-notes-8.2.0.html">8.2.0 release notes</a></span>
 </li>
@@ -236,76 +272,6 @@ Not what you want? See the
 </li>
 <li><span class="section"><a href="release-notes-8.0.0-alpha1.html">8.0.0-alpha1 release notes</a></span>
 </li>
-<li><span class="section"><a href="release-notes-7.17.3.html">7.17.3 release notes</a></span>
-</li>
-<li><span class="section"><a href="release-notes-7.17.2.html">7.17.2 release notes</a></span>
-</li>
-<li><span class="section"><a href="release-notes-7.17.1.html">7.17.1 release notes</a></span>
-</li>
-<li><span class="section"><a href="release-notes-7.17.0.html">7.17.0 release notes</a></span>
-</li>
-<li><span class="section"><a href="release-notes-7.16.3.html">7.16.3 release notes</a></span>
-</li>
-<li><span class="section"><a href="release-notes-7.16.2.html">7.16.2 release notes</a></span>
-</li>
-<li><span class="section"><a href="release-notes-7.16.1.html">7.16.1 release notes</a></span>
-</li>
-<li><span class="section"><a href="release-notes-7.16.0.html">7.16.0 release notes</a></span>
-</li>
-<li><span class="section"><a href="release-notes-7.15.2.html">7.15.2 release notes</a></span>
-</li>
-<li><span class="section"><a href="release-notes-7.15.1.html">7.15.1 release notes</a></span>
-</li>
-<li><span class="section"><a href="release-notes-7.15.0.html">7.15.0 release notes</a></span>
-</li>
-<li><span class="section"><a href="release-notes-7.14.2.html">7.14.2 release notes</a></span>
-</li>
-<li><span class="section"><a href="release-notes-7.14.1.html">7.14.1 release notes</a></span>
-</li>
-<li><span class="section"><a href="release-notes-7.14.0.html">7.14.0 release notes</a></span>
-</li>
-<li><span class="section"><a href="release-notes-7.13.4.html">7.13.4 release notes</a></span>
-</li>
-<li><span class="section"><a href="release-notes-7.13.3.html">7.13.3 release notes</a></span>
-</li>
-<li><span class="section"><a href="release-notes-7.13.2.html">7.13.2 release notes</a></span>
-</li>
-<li><span class="section"><a href="release-notes-7.13.1.html">7.13.1 release notes</a></span>
-</li>
-<li><span class="section"><a href="release-notes-7.13.0.html">7.13.0 release notes</a></span>
-</li>
-<li><span class="section"><a href="release-notes-7.12.1.html">7.12.1 release notes</a></span>
-</li>
-<li><span class="section"><a href="release-notes-7.12.0.html">7.12.0 release notes</a></span>
-</li>
-<li><span class="section"><a href="release-notes-7.11.2.html">7.11.2 release notes</a></span>
-</li>
-<li><span class="section"><a href="release-notes-7.11.1.html">7.11.1 release notes</a></span>
-</li>
-<li><span class="section"><a href="release-notes-7.11.0.html">7.11.0 Release notes</a></span>
-</li>
-<li><span class="section"><a href="release-notes-7.10.2.html">7.10.2 Release notes</a></span>
-</li>
-<li><span class="section"><a href="release-notes-7.10.1.html">7.10.1 Release notes</a></span>
-</li>
-<li><span class="section"><a href="release-notes-7.10.0.html">7.10.0 Release notes</a></span>
-</li>
-<li><span class="section"><a href="7.9.3-release-notes.html">7.9.3 Release notes</a></span>
-</li>
-<li><span class="section"><a href="7.9.2-release-notes.html">7.9.2 Release notes</a></span>
-</li>
-<li><span class="section"><a href="7.9.1-release-notes.html">7.9.1 Release notes</a></span>
-</li>
-<li><span class="section"><a href="7.9.0-release-notes.html">7.9.0 Release notes</a></span>
-</li>
-<li><span class="section"><a href="7.8.1-release-notes.html">7.8.1 Release notes</a></span>
-</li>
-<li><span class="section"><a href="7.8.0-release-notes.html">7.8.0 Release Notes</a></span>
-</li>
-<li><span class="section"><a href="7.7.1-release-notes.html">7.7.1 Release Notes</a></span>
-</li>
-<li><span class="section"><a href="7.7.0-release-notes.html">7.7.0 Release Notes</a></span>
-</li>
 </ul>
 </li>
 <li><span class="chapter"><a href="endpoints-ref.html">Endpoints reference</a></span>
@@ -313,6 +279,8 @@ Not what you want? See the
 </ul>
 </div>
 <!--END_TOC-->
+
+
 
 
 
@@ -339,15 +307,37 @@ Not what you want? See the
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

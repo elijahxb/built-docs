@@ -18,13 +18,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="rest-apis.html">REST APIs</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="rest-apis.html">REST APIs</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="cat.html">Compact and aligned text (CAT) APIs</a></span>
-»
-<span class="breadcrumb-node">cat aliases API</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -36,7 +33,7 @@ Not what you want? See the
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="cat-alias"></a>cat aliases API<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/cat/alias.asciidoc">edit</a></h2>
+<h2 class="title"><a id="cat-alias"></a>cat aliases API<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/cat/alias.asciidoc">edit</a></h2>
 </div></div></div>
 
 <div class="important admon">
@@ -51,7 +48,7 @@ consumption, use the <a class="xref" href="aliases.html" title="Aliases">aliases
 information. The API does not return data stream aliases.</p>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="cat-alias-api-request"></a>Request<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/cat/alias.asciidoc">edit</a></h3>
+<h3 class="title"><a id="cat-alias-api-request"></a>Request<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/cat/alias.asciidoc">edit</a></h3>
 </div></div></div>
 <p><code class="literal">GET _cat/aliases/&lt;alias&gt;</code></p>
 <p><code class="literal">GET _cat/aliases</code></p>
@@ -59,7 +56,7 @@ information. The API does not return data stream aliases.</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="cat-alias-api-prereqs"></a>Prerequisites<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/cat/alias.asciidoc">edit</a></h3>
+<h3 class="title"><a id="cat-alias-api-prereqs"></a>Prerequisites<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/cat/alias.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -74,7 +71,7 @@ for any alias you retrieve.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="cat-alias-api-path-params"></a>Path parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/cat/alias.asciidoc">edit</a></h3>
+<h3 class="title"><a id="cat-alias-api-path-params"></a>Path parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/cat/alias.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="variablelist">
 <dl class="variablelist">
@@ -94,7 +91,7 @@ wildcards (<code class="literal">*</code>). To retrieve all aliases, omit this p
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="cat-alias-api-query-params"></a>Query parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/cat/alias.asciidoc">edit</a></h3>
+<h3 class="title"><a id="cat-alias-api-query-params"></a>Query parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/cat/alias.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="variablelist">
 <dl class="variablelist">
@@ -217,13 +214,13 @@ Wildcard patterns are not accepted.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="cat-alias-api-example"></a>Examples<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/cat/alias.asciidoc">edit</a></h3>
+<h3 class="title"><a id="cat-alias-api-example"></a>Examples<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/cat/alias.asciidoc">edit</a></h3>
 </div></div></div>
 <a id="78176cd6f570e1534bb40b19e6e900b6"></a>
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">GET _cat/aliases?v=true</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1797.console"></div>
+<div class="console_widget" data-snippet="snippets/1908.console"></div>
 <p>The API returns the following response:</p>
 <div class="pre_wrapper lang-txt">
 <pre class="programlisting prettyprint lang-txt">alias  index filter routing.index routing.search is_write_index

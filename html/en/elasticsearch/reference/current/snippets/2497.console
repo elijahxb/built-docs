@@ -1,13 +1,15 @@
-PUT /_security/privilege
+GET my-index/_knn_search
 {
-  "myapp": {
-    "read": {
-      "actions": [
-        "data:read/*" ,
-        "action:login" ],
-        "metadata": {
-          "description": "Read access to myapp"
-        }
-      }
+  "knn": {
+    "field": "image_vector",
+    "query_vector": [0.3, 0.1, 1.2],
+    "k": 5,
+    "num_candidates": 50
+  },
+  "filter": {
+    "term": {
+      "file_type": "svg"
     }
+  },
+  "_source": ["name"]
 }

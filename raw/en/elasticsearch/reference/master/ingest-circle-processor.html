@@ -18,13 +18,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="ingest.html">Ingest pipelines</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="ingest.html">Ingest pipelines</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="processors.html">Ingest processor reference</a></span>
-»
-<span class="breadcrumb-node">Circle processor</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -36,13 +33,13 @@ Not what you want? See the
 </div>
 <div class="section xpack">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="ingest-circle-processor"></a>Circle processor<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ingest/processors/circle.asciidoc">edit</a></h2>
+<h2 class="title"><a id="ingest-circle-processor"></a>Circle processor<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ingest/processors/circle.asciidoc">edit</a></h2>
 </div></div></div>
 
 <p>Converts circle definitions of shapes to regular polygons which approximate them.</p>
 <div class="table">
 <a id="circle-processor-options"></a>
-<p class="title"><strong>Table 5. Circle Processor Options</strong></p>
+<p class="title"><strong>Table 6. Circle Processor Options</strong></p>
 <div class="table-contents">
 <table border="1" cellpadding="4px" summary="Circle Processor Options">
 <colgroup>
@@ -152,7 +149,7 @@ PUT _ingest/pipeline/polygonize_circles
   ]
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/667.console"></div>
+<div class="console_widget" data-snippet="snippets/683.console"></div>
 <p>Using the above pipeline, we can attempt to index a document into the <code class="literal">circles</code> index.
 The circle can be represented as either a WKT circle or a GeoJSON circle. The resulting
 polygon will be represented and indexed using the same format as the input circle. WKT will
@@ -165,7 +162,7 @@ be translated to a WKT polygon, and GeoJSON circles will be translated to GeoJSO
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_example_circle_defined_in_well_known_text"></a>Example: Circle defined in Well Known Text<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ingest/processors/circle.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_example_circle_defined_in_well_known_text"></a>Example: Circle defined in Well Known Text<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ingest/processors/circle.asciidoc">edit</a></h3>
 </div></div></div>
 <p>In this example a circle defined in WKT format is indexed</p>
 <a id="b0b1ae9582599f501f3b3ed8a42ea2af"></a>
@@ -177,7 +174,7 @@ be translated to a WKT polygon, and GeoJSON circles will be translated to GeoJSO
 
 GET circles/_doc/1</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/668.console"></div>
+<div class="console_widget" data-snippet="snippets/684.console"></div>
 <p>The response from the above index request:</p>
 <a id="0cec3cd5ad68774be62c362e10bab293"></a>
 <div class="pre_wrapper lang-console-result">
@@ -197,7 +194,7 @@ GET circles/_doc/1</pre>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_example_circle_defined_in_geojson"></a>Example: Circle defined in GeoJSON<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ingest/processors/circle.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_example_circle_defined_in_geojson"></a>Example: Circle defined in GeoJSON<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ingest/processors/circle.asciidoc">edit</a></h3>
 </div></div></div>
 <p>In this example a circle defined in GeoJSON format is indexed</p>
 <a id="415b46bc2b7a7b4dcf9a73ac67ea20e9"></a>
@@ -213,7 +210,7 @@ GET circles/_doc/1</pre>
 
 GET circles/_doc/2</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/669.console"></div>
+<div class="console_widget" data-snippet="snippets/685.console"></div>
 <p>The response from the above index request:</p>
 <a id="0c8975f6497b2f06e68077b613427d41"></a>
 <div class="pre_wrapper lang-console-result">
@@ -245,7 +242,7 @@ GET circles/_doc/2</pre>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="circle-processor-notes"></a>Notes on Accuracy<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ingest/processors/circle.asciidoc">edit</a></h3>
+<h3 class="title"><a id="circle-processor-notes"></a>Notes on Accuracy<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ingest/processors/circle.asciidoc">edit</a></h3>
 </div></div></div>
 <p>Accuracy of the polygon that represents the circle is defined as <code class="literal">error_distance</code>. The smaller this
 difference is, the closer to a perfect circle the polygon is.</p>
@@ -254,7 +251,7 @@ of the polygon given different inputs.</p>
 <p>The minimum number of sides is <code class="literal">4</code> and the maximum is <code class="literal">1000</code>.</p>
 <div class="table">
 <a id="circle-processor-accuracy"></a>
-<p class="title"><strong>Table 6. Circle Processor Accuracy</strong></p>
+<p class="title"><strong>Table 7. Circle Processor Accuracy</strong></p>
 <div class="table-contents">
 <table border="1" cellpadding="4px" summary="Circle Processor Accuracy">
 <colgroup>

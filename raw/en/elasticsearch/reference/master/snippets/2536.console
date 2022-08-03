@@ -1,7 +1,1 @@
-POST /_security/api_key
-{
-  "name": "my-api-key-1",
-  "metadata": {
-    "application": "my-application"
-  }
-}
+GET /my-index-000001/_search_shards?routing=foo,bar

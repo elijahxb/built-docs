@@ -17,13 +17,10 @@ A newer version is available. For the latest information, see the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elastic Cloud on Kubernetes [1.9]</a></span>
-»
-<span class="breadcrumb-link"><a href="k8s-orchestrating-elastic-stack-applications.html">Orchestrating Elastic Stack applications</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Cloud on Kubernetes [1.9]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="k8s-orchestrating-elastic-stack-applications.html">Orchestrating Elastic Stack applications</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="k8s-elastic-agent-fleet.html">Run Fleet-managed Elastic Agent on ECK</a></span>
-»
-<span class="breadcrumb-node">Configuration</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -168,7 +165,7 @@ kind: Agent
 metadata:
   name: elastic-agent-sample
 spec:
-  version: 8.1.2
+  version: 8.3.3
   daemonSet:
     strategy:
       type: RollingUpdate
@@ -190,7 +187,7 @@ kind: Agent
 metadata:
   name: elastic-agent-sample
 spec:
-  version: 8.1.2
+  version: 8.3.3
   elasticsearchRefs:
   - name: elasticsearch-sample
   daemonSet:

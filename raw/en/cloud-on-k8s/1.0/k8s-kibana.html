@@ -17,9 +17,8 @@ A newer version is available. For the latest information, see the
 </div>
 <div id="content">
 <div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="index.html">Elastic Cloud on Kubernetes [1.0]</a></span>
-»
-<span class="breadcrumb-node">Running Kibana on ECK</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -88,7 +87,7 @@ kind: Kibana
 metadata:
   name: quickstart
 spec:
-  version: 8.1.2
+  version: 8.3.3
   count: 1
   elasticsearchRef:
     name: quickstart
@@ -119,7 +118,7 @@ kind: Kibana
 metadata:
   name: kibana-sample
 spec:
-  version: 8.1.2
+  version: 8.3.3
   count: 1
   config:
     elasticsearch.hosts:
@@ -135,7 +134,7 @@ kind: Kibana
 metadata:
   name: kibana-sample
 spec:
-  version: 8.1.2
+  version: 8.3.3
   count: 1
   config:
     elasticsearch.hosts:
@@ -185,7 +184,7 @@ kind: Kibana
 metadata:
   name: kibana-sample
 spec:
-  version: 8.1.2
+  version: 8.3.3
   count: 1
   elasticsearchRef:
     name: "elasticsearch-sample"
@@ -219,7 +218,7 @@ kind: Kibana
 metadata:
   name: kibana-sample
 spec:
-  version: 8.1.2
+  version: 8.3.3
   count: 1
   elasticsearchRef:
     name: "elasticsearch-sample"
@@ -252,7 +251,7 @@ kind: Kibana
 metadata:
   name: kibana-sample
 spec:
-  version: 8.1.2
+  version: 8.3.3
   count: 3
   elasticsearchRef:
     name: "elasticsearch-sample"
@@ -273,7 +272,7 @@ kind: Kibana
 metadata:
   name: kibana-sample
 spec:
-  version: 8.1.2
+  version: 8.3.3
   count: 1
   elasticsearchRef:
     name: "elasticsearch-sample"
@@ -297,7 +296,7 @@ kind: Kibana
 metadata:
   name: kibana-sample
 spec:
-  version: 8.1.2
+  version: 8.3.3
   count: 1
   elasticsearchRef:
     name: "elasticsearch-sample"

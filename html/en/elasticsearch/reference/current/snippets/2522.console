@@ -1,5 +1,11 @@
-POST /_security/api_key
+POST music/_search?pretty
 {
-  "name": "my-api-key",
-  "role_descriptors": {}
+  "suggest": {
+    "song-suggest": {
+      "regex": "n[ever|i]r",
+      "completion": {
+        "field": "suggest"
+      }
+    }
+  }
 }

@@ -1,16 +1,15 @@
-PUT _cluster/settings
+POST /_security/role/logstash-reader
 {
-  "persistent": {
-    "cluster": {
-      "remote": {
-        "cluster_two": {
-          "transport.compress": false
-        },
-        "cluster_three": {
-          "transport.compress": true,
-          "transport.ping_schedule": "60s"
-        }
-      }
+  "indices": [
+    {
+      "names": [
+        "logstash-*"
+        ],
+        "privileges": [
+          "read_cross_cluster",
+          "read",
+          "view_index_metadata"
+          ]
     }
-  }
+  ]
 }

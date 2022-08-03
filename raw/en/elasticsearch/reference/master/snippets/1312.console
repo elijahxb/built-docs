@@ -1,41 +1,26 @@
-POST /sales/_search
+GET node_upgrade/_search
 {
   "size": 0,
   "aggs": {
-    "sales_per_month": {
-      "date_histogram": {
-        "field": "date",
-        "calendar_interval": "month"
-      },
-      "aggs": {
-        "total_sales": {
-          "sum": {
-            "field": "price"
-          }
-        },
-        "t-shirts": {
+    "startup_time_ttest": {
+      "t_test": {
+        "a": {
+          "field": "startup_time_before",        
           "filter": {
             "term": {
-              "type": "t-shirt"
-            }
-          },
-          "aggs": {
-            "sales": {
-              "sum": {
-                "field": "price"
-              }
+              "group": "A"                       
             }
           }
         },
-        "t-shirt-percentage": {
-          "bucket_script": {
-            "buckets_path": {
-              "tShirtSales": "t-shirts>sales",
-              "totalSales": "total_sales"
-            },
-            "script": "params.tShirtSales / params.totalSales * 100"
+        "b": {
+          "field": "startup_time_before",        
+          "filter": {
+            "term": {
+              "group": "B"                       
+            }
           }
-        }
+        },
+        "type": "heteroscedastic"                
       }
     }
   }

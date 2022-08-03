@@ -1,27 +1,25 @@
-PUT bicycles
+PUT _watcher/watch/log_error_watch
 {
-  "mappings": {
-    "properties": {
-      "cycle_type": {
-        "type": "constant_keyword",
-        "value": "bicycle"
-      },
-      "name": {
-        "type": "text"
+  "trigger" : { "schedule" : { "interval" : "10s" }},
+  "input" : {
+    "search" : {
+      "request" : {
+        "indices" : [ "logs" ],
+        "body" : {
+          "query" : {
+            "match" : { "message": "error" }
+          }
+        }
       }
     }
-  }
-}
-
-PUT other_cycles
-{
-  "mappings": {
-    "properties": {
-      "cycle_type": {
-        "type": "keyword"
-      },
-      "name": {
-        "type": "text"
+  },
+  "condition" : {
+    "compare" : { "ctx.payload.hits.total" : { "gt" : 0 }}
+  },
+  "actions" : {
+    "log_error" : {
+      "logging" : {
+        "text" : "Found {{ctx.payload.hits.total}} errors in the logs"
       }
     }
   }

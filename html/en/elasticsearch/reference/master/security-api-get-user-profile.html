@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,27 +87,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 You are looking at preliminary documentation for a future release.
@@ -116,13 +107,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="rest-apis.html">REST APIs</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="rest-apis.html">REST APIs</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="security-api.html">Security APIs</a></span>
-»
-<span class="breadcrumb-node">Get user profile API</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -134,7 +122,7 @@ Not what you want? See the
 </div>
 <div class="section xpack">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="security-api-get-user-profile"></a>Get user profile API<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/x-pack/docs/en/rest-api/security/get-user-profile.asciidoc">edit</a></h2>
+<h2 class="title"><a id="security-api-get-user-profile"></a>Get user profile API<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/x-pack/docs/en/rest-api/security/get-user-profile.asciidoc">edit</a></h2>
 </div></div></div>
 
 <div class="warning admon">
@@ -146,14 +134,14 @@ Not what you want? See the
 <p>Retrieves a user&#8217;s profile using the unique profile ID.</p>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="security-api-get-user-profile-request"></a>Request<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/x-pack/docs/en/rest-api/security/get-user-profile.asciidoc">edit</a></h3>
+<h3 class="title"><a id="security-api-get-user-profile-request"></a>Request<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/x-pack/docs/en/rest-api/security/get-user-profile.asciidoc">edit</a></h3>
 </div></div></div>
 <p><code class="literal">GET /_security/profile/&lt;uid&gt;</code></p>
 </div>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="security-api-get-user-profile-prereqs"></a>Prerequisites<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/x-pack/docs/en/rest-api/security/get-user-profile.asciidoc">edit</a></h3>
+<h3 class="title"><a id="security-api-get-user-profile-prereqs"></a>Prerequisites<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/x-pack/docs/en/rest-api/security/get-user-profile.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -166,7 +154,7 @@ To use this API, you must have <em>at least</em> the <code class="literal">manag
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="security-api-get-user-profile-desc"></a>Description<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/x-pack/docs/en/rest-api/security/get-user-profile.asciidoc">edit</a></h3>
+<h3 class="title"><a id="security-api-get-user-profile-desc"></a>Description<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/x-pack/docs/en/rest-api/security/get-user-profile.asciidoc">edit</a></h3>
 </div></div></div>
 <p>The get user profile API returns the user profile document matching a specified
 <code class="literal">uid</code>, which is generated when
@@ -175,7 +163,7 @@ To use this API, you must have <em>at least</em> the <code class="literal">manag
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="security-api-get-user-profile-path-params"></a>Path parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/x-pack/docs/en/rest-api/security/get-user-profile.asciidoc">edit</a></h3>
+<h3 class="title"><a id="security-api-get-user-profile-path-params"></a>Path parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/x-pack/docs/en/rest-api/security/get-user-profile.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="variablelist">
 <dl class="variablelist">
@@ -193,7 +181,7 @@ To use this API, you must have <em>at least</em> the <code class="literal">manag
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="security-api-get-user-profile-query-params"></a>Query parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/x-pack/docs/en/rest-api/security/get-user-profile.asciidoc">edit</a></h3>
+<h3 class="title"><a id="security-api-get-user-profile-query-params"></a>Query parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/x-pack/docs/en/rest-api/security/get-user-profile.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="variablelist">
 <dl class="variablelist">
@@ -214,7 +202,7 @@ specified <code class="literal">&lt;key&gt;</code>. Defaults to returning no con
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="security-api-get-user-profile-response-body"></a>Response body<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/x-pack/docs/en/rest-api/security/get-user-profile.asciidoc">edit</a></h3>
+<h3 class="title"><a id="security-api-get-user-profile-response-body"></a>Response body<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/x-pack/docs/en/rest-api/security/get-user-profile.asciidoc">edit</a></h3>
 </div></div></div>
 <p>A successful call returns the JSON representation of the user profile
 and its internal versioning numbers. The API returns an empty object
@@ -225,18 +213,19 @@ a potential large payload.</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="security-api-get-user-profile-example"></a>Examples<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/x-pack/docs/en/rest-api/security/get-user-profile.asciidoc">edit</a></h3>
+<h3 class="title"><a id="security-api-get-user-profile-example"></a>Examples<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/x-pack/docs/en/rest-api/security/get-user-profile.asciidoc">edit</a></h3>
 </div></div></div>
-<a id="d0cac757c5f01b584032235754df1503"></a>
+<a id="9143be4f137574271953a7a8107e175b"></a>
 <div class="pre_wrapper lang-console">
-<pre class="programlisting prettyprint lang-console">GET /_security/profile/u_kd2JMqwUQwSCCOxMv7M1vw</pre>
+<pre class="programlisting prettyprint lang-console">GET /_security/profile/u_79HkWkwmnBH5gqFKwoxggWPjEBOur1zLPXQPEl1VBW0_0</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/2594.console"></div>
-<p>The API returns the following response for a <code class="literal">uid</code> matching <code class="literal">u_kd2JMqwUQwSCCOxMv7M1vw</code>:</p>
-<div class="pre_wrapper lang-js">
-<pre class="programlisting prettyprint lang-js">{
-  "u_kd2JMqwUQwSCCOxMv7M1vw": {
-    "uid": "u_kd2JMqwUQwSCCOxMv7M1vw",
+<div class="console_widget" data-snippet="snippets/2716.console"></div>
+<p>The API returns the following response for a <code class="literal">uid</code> matching <code class="literal">u_79HkWkwmnBH5gqFKwoxggWPjEBOur1zLPXQPEl1VBW0_0</code>:</p>
+<a id="6bd2dba03e3cec1c60c650ec2d54a144"></a>
+<div class="pre_wrapper lang-console-result">
+<pre class="programlisting prettyprint lang-console-result">{
+  "u_79HkWkwmnBH5gqFKwoxggWPjEBOur1zLPXQPEl1VBW0_0": {
+    "uid": "u_79HkWkwmnBH5gqFKwoxggWPjEBOur1zLPXQPEl1VBW0_0",
     "enabled": true,
     "last_synchronized": 1642650651037,
     "user": {
@@ -244,15 +233,17 @@ a potential large payload.</p>
       "roles": [
         "admin", "other_role1"
       ],
-      "realm_name": "native1",
+      "realm_name": "native",
       "full_name": "Jack Nicholson",
       "email": "jacknich@example.com"
     },
-    "labels": {},
-    "data": {}, <a id="CO708-1"></a><i class="conum" data-value="1"></i>
+    "labels": {
+      "direction": "north"
+    },
+    "data": {}, <a id="CO754-1"></a><i class="conum" data-value="1"></i>
     "_doc": {
-      "_primary_term": 1,
-      "_seq_no": 0
+      "_primary_term": 88,
+      "_seq_no": 66
     }
   }
 }</pre>
@@ -261,7 +252,7 @@ a potential large payload.</p>
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO708-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO754-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>No content is returned in the <code class="literal">data</code> field by default.</p>
@@ -271,15 +262,16 @@ a potential large payload.</p>
 </div>
 <p>The following request retrieves a subset of <code class="literal">data</code> that&#8217;s nested under the
 key <code class="literal">app1</code>, along with the user&#8217;s profile:</p>
-<a id="7e5986ea2005436e8e46aa4e74668cdd"></a>
+<a id="13df08eefc9ba98e311793bbca74133b"></a>
 <div class="pre_wrapper lang-console">
-<pre class="programlisting prettyprint lang-console">GET /_security/profile/u_kd2JMqwUQwSCCOxMv7M1vw?data=app1.key1</pre>
+<pre class="programlisting prettyprint lang-console">GET /_security/profile/u_79HkWkwmnBH5gqFKwoxggWPjEBOur1zLPXQPEl1VBW0_0?data=app1.key1</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/2595.console"></div>
-<div class="pre_wrapper lang-js">
-<pre class="programlisting prettyprint lang-js">{
-  "u_kd2JMqwUQwSCCOxMv7M1vw": {
-    "uid": "u_kd2JMqwUQwSCCOxMv7M1vw",
+<div class="console_widget" data-snippet="snippets/2717.console"></div>
+<a id="42eac1602d3b963b057ded7a4367f390"></a>
+<div class="pre_wrapper lang-console-result">
+<pre class="programlisting prettyprint lang-console-result">{
+  "u_79HkWkwmnBH5gqFKwoxggWPjEBOur1zLPXQPEl1VBW0_0": {
+    "uid": "u_79HkWkwmnBH5gqFKwoxggWPjEBOur1zLPXQPEl1VBW0_0",
     "enabled": true,
     "last_synchronized": 1642650651037,
     "user": {
@@ -287,19 +279,21 @@ key <code class="literal">app1</code>, along with the user&#8217;s profile:</p>
       "roles": [
         "admin", "other_role1"
       ],
-      "realm_name": "native1",
+      "realm_name": "native",
       "full_name": "Jack Nicholson",
       "email": "jacknich@example.com"
     },
-    "labels": {},
+    "labels": {
+      "direction": "north"
+    },
     "data": {
       "app1": {
         "key1": "value1"
       }
     },
     "_doc": {
-      "_primary_term": 1,
-      "_seq_no": 0
+      "_primary_term": 88,
+      "_seq_no": 66
     }
   }
 }</pre>
@@ -319,15 +313,37 @@ key <code class="literal">app1</code>, along with the user&#8217;s profile:</p>
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

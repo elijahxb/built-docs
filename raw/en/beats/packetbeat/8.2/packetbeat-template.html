@@ -13,17 +13,15 @@
 <meta name="robots" content="noindex,nofollow"/>
 </head>
 <body><div class="page_header">
-You are looking at preliminary documentation for a future release.
-Not what you want? See the
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
 <a href="../current/index.html">current release documentation</a>.
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Packetbeat Reference [8.2]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Packetbeat Reference [8.2]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="howto-guides.html">How to guides</a></span>
-»
-<span class="breadcrumb-node">Load the Elasticsearch index template</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -143,7 +141,7 @@ Elasticsearch, see <a class="xref" href="packetbeat-template.html#load-template-
 </div>
 <p><span class="strong strong"><strong>docker:</strong></span></p>
 <div class="pre_wrapper lang-sh">
-<pre class="programlisting prettyprint lang-sh">docker run docker.elastic.co/beats/packetbeat:8.2.0 setup --index-management -E output.logstash.enabled=false -E 'output.elasticsearch.hosts=["localhost:9200"]'</pre>
+<pre class="programlisting prettyprint lang-sh">docker run docker.elastic.co/beats/packetbeat:8.2.3 setup --index-management -E output.logstash.enabled=false -E 'output.elasticsearch.hosts=["localhost:9200"]'</pre>
 </div>
 <p><span class="strong strong"><strong>win:</strong></span></p>
 <p>Open a PowerShell prompt as an Administrator (right-click the PowerShell icon
@@ -197,43 +195,43 @@ machine that does have connectivity, and then install the template manually.</p>
 </div>
 <p><span class="strong strong"><strong>win:</strong></span></p>
 <div class="pre_wrapper lang-sh">
-<pre class="programlisting prettyprint lang-sh">PS &gt; .\packetbeat.exe export template --es.version 8.2.0 | Out-File -Encoding UTF8 packetbeat.template.json</pre>
+<pre class="programlisting prettyprint lang-sh">PS &gt; .\packetbeat.exe export template --es.version 8.2.3 | Out-File -Encoding UTF8 packetbeat.template.json</pre>
 </div>
 <p>To install the template, run:</p>
 <p><span class="strong strong"><strong>deb and rpm:</strong></span></p>
 <div class="pre_wrapper lang-sh">
-<pre class="programlisting prettyprint lang-sh">curl -XPUT -H 'Content-Type: application/json' http://localhost:9200/_index_template/packetbeat-8.2.0 -d@packetbeat.template.json</pre>
+<pre class="programlisting prettyprint lang-sh">curl -XPUT -H 'Content-Type: application/json' http://localhost:9200/_index_template/packetbeat-8.2.3 -d@packetbeat.template.json</pre>
 </div>
 <p><span class="strong strong"><strong>mac:</strong></span></p>
 <div class="pre_wrapper lang-sh">
-<pre class="programlisting prettyprint lang-sh">curl -XPUT -H 'Content-Type: application/json' http://localhost:9200/_index_template/packetbeat-8.2.0 -d@packetbeat.template.json</pre>
+<pre class="programlisting prettyprint lang-sh">curl -XPUT -H 'Content-Type: application/json' http://localhost:9200/_index_template/packetbeat-8.2.3 -d@packetbeat.template.json</pre>
 </div>
 <p><span class="strong strong"><strong>linux:</strong></span></p>
 <div class="pre_wrapper lang-sh">
-<pre class="programlisting prettyprint lang-sh">curl -XPUT -H 'Content-Type: application/json' http://localhost:9200/_index_template/packetbeat-8.2.0 -d@packetbeat.template.json</pre>
+<pre class="programlisting prettyprint lang-sh">curl -XPUT -H 'Content-Type: application/json' http://localhost:9200/_index_template/packetbeat-8.2.3 -d@packetbeat.template.json</pre>
 </div>
 <p><span class="strong strong"><strong>win:</strong></span></p>
 <div class="pre_wrapper lang-sh">
-<pre class="programlisting prettyprint lang-sh">PS &gt; Invoke-RestMethod -Method Put -ContentType "application/json" -InFile packetbeat.template.json -Uri http://localhost:9200/_index_template/packetbeat-8.2.0</pre>
+<pre class="programlisting prettyprint lang-sh">PS &gt; Invoke-RestMethod -Method Put -ContentType "application/json" -InFile packetbeat.template.json -Uri http://localhost:9200/_index_template/packetbeat-8.2.3</pre>
 </div>
 <p>Once you have loaded the index template, load the data stream as well. If you
 do not load it, you have to give the publisher user <code class="literal">manage</code> permission on
-packetbeat-8.2.0 index.</p>
+packetbeat-8.2.3 index.</p>
 <p><span class="strong strong"><strong>deb and rpm:</strong></span></p>
 <div class="pre_wrapper lang-sh">
-<pre class="programlisting prettyprint lang-sh">curl -XPUT http://localhost:9200/_data_stream/packetbeat-8.2.0</pre>
+<pre class="programlisting prettyprint lang-sh">curl -XPUT http://localhost:9200/_data_stream/packetbeat-8.2.3</pre>
 </div>
 <p><span class="strong strong"><strong>mac:</strong></span></p>
 <div class="pre_wrapper lang-sh">
-<pre class="programlisting prettyprint lang-sh">curl -XPUT http://localhost:9200/_data_stream/packetbeat-8.2.0</pre>
+<pre class="programlisting prettyprint lang-sh">curl -XPUT http://localhost:9200/_data_stream/packetbeat-8.2.3</pre>
 </div>
 <p><span class="strong strong"><strong>linux:</strong></span></p>
 <div class="pre_wrapper lang-sh">
-<pre class="programlisting prettyprint lang-sh">curl -XPUT http://localhost:9200/_data_stream/packetbeat-8.2.0</pre>
+<pre class="programlisting prettyprint lang-sh">curl -XPUT http://localhost:9200/_data_stream/packetbeat-8.2.3</pre>
 </div>
 <p><span class="strong strong"><strong>win:</strong></span></p>
 <div class="pre_wrapper lang-sh">
-<pre class="programlisting prettyprint lang-sh">PS &gt; Invoke-RestMethod -Method Put -Uri http://localhost:9200/_data_stream/packetbeat-8.2.0</pre>
+<pre class="programlisting prettyprint lang-sh">PS &gt; Invoke-RestMethod -Method Put -Uri http://localhost:9200/_data_stream/packetbeat-8.2.3</pre>
 </div>
 </div>
 <div class="navfooter">

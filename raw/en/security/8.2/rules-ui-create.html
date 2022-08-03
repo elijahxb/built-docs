@@ -13,17 +13,15 @@
 <meta name="robots" content="noindex,nofollow"/>
 </head>
 <body><div class="page_header">
-You are looking at preliminary documentation for a future release.
-Not what you want? See the
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
 <a href="../current/index.html">current release documentation</a>.
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elastic Security Solution [8.2]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Security Solution [8.2]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="detection-engine-overview.html">Detections and alerts</a></span>
-»
-<span class="breadcrumb-node">Create a detection rule</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -126,8 +124,8 @@ the rule&#8217;s search results.</p>
 <div class="important admon">
 <div class="icon"></div>
 <div class="admon_content">
-<p>After you activate a rule, you can periodically check the rule is running as expected
-in the <a class="xref" href="alerts-ui-monitor.html" title="Monitor and troubleshoot rule executions">Monitoring tab</a> on the All rules page. If you see
+<p>After you activate a rule, you can check if it is running as expected
+using the <a class="xref" href="alerts-ui-monitor.html" title="Monitor and troubleshoot rule executions">Monitoring tab</a> on the Rules page. If you see
 values in the <code class="literal">Gap</code> column, you can <a class="xref" href="alerts-ui-monitor.html#troubleshoot-signals" title="Troubleshoot missing alerts">Troubleshoot missing alerts</a>.</p>
 <p>When a rule fails to run, the Elastic Security app tries to rerun it at its next
 scheduled run time.</p>
@@ -318,13 +316,7 @@ Use the <code class="literal">Group by</code> and <code class="literal">Threshol
 <div class="important admon">
 <div class="icon"></div>
 <div class="admon_content">
-<p>Signals created by <span class="strong strong"><strong>threshold</strong></span> rules are synthetic signals that do not resemble the source documents. The signal itself only contains data about the fields that were aggregated over (the <code class="literal">Group by</code> fields). Additionally, the signal contains "lookup" data for retrieving a <span class="strong strong"><strong>Timeline</strong></span> of all of the source events that caused the threshold to be exceeded.
-If you wish to create an <a class="xref" href="rules-ui-create.html#rule-notifications" title="Set up alert notifications (optional)"><span class="strong strong"><strong>Action</strong></span></a> based on a threshold rule, you can obtain values of the fields that were aggregated over by entering the following:</p>
-<pre class="screen">{{#context.alerts}}
-  {{#signal.threshold_result.terms}}
-    {{value}}
-  {{/signal.threshold_result.terms}}
-{{/context.alerts}}</pre>
+<p>Alerts created by threshold rules are synthetic alerts that do not resemble the source documents. The alert itself only contains data about the fields that were aggregated over (the <code class="literal">Group by</code> fields). Other fields are omitted, because they can vary across all source documents that were counted toward the threshold. Additionally, you can reference the actual count of documents that exceeded the threshold from the <code class="literal">kibana.alert.threshold_result.count</code> field.</p>
 </div>
 </div>
 </li>
@@ -485,7 +477,7 @@ Continue with <a class="xref" href="rules-ui-create.html#preview-rules" title="P
 </ol>
 </div>
 <h3><a id="preview-rules"></a>Preview your rule (optional)<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/security-docs/edit/8.2/docs/detections/rules-ui-create.asciidoc">edit</a></h3>
-<p>You can preview any rule to learn how noisy it will be before submitting it. If necessary, you can then adjust the rule&#8217;s query.</p>
+<p>You can preview any rule to learn how noisy it will be before saving it. If necessary, you can then adjust the rule&#8217;s query.</p>
 <div class="note admon">
 <div class="icon"></div>
 <div class="admon_content">
@@ -502,21 +494,20 @@ Write the rule query.
 Select a timeframe of data to preview query results&#8201;&#8212;&#8201;<span class="strong strong"><strong>Last hour</strong></span>, <span class="strong strong"><strong>Last day</strong></span>, or <span class="strong strong"><strong>Last month</strong></span>&#8201;&#8212;&#8201;from the <span class="strong strong"><strong>Quick query preview</strong></span> drop-down.
 </li>
 <li class="listitem">
-Click <span class="strong strong"><strong>Preview results</strong></span>. A histogram shows the number of alerts you can expect based on the defined rule parameters and historical events in your indices.
-</li>
-</ol>
+<p>Click <span class="strong strong"><strong>Preview results</strong></span>. The rule preview shows a histogram and alerts table with the alerts you can expect, based on the defined rule parameters and historical events in your indices. You can view the details of a particular alert by clicking the <span class="strong strong"><strong>View details</strong></span> button in the alerts table.</p>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>The preview excludes the effects of rule exceptions and timestamp overrides. In the preview histogram, alerts are stacked by <code class="literal">event.category</code> (or <code class="literal">host.name</code> for machine learning rules), and events with multiple values are counted more than once.</p>
 </div>
-<p>A "noise warning" is displayed if the preview generates more than one alert per hour.</p>
+</div>
 <div class="imageblock screenshot">
 <div class="content">
 <img src="images/preview-rule.png" alt="preview rule">
 </div>
 </div>
-<div class="note admon">
-<div class="icon"></div>
-<div class="admon_content">
-<p>The preview excludes the effects of rule exceptions and timestamp overrides.</p>
-</div>
+</li>
+</ol>
 </div>
 <h3><a id="rule-ui-basic-params"></a>Configure basic rule settings<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/security-docs/edit/8.2/docs/detections/rules-ui-create.asciidoc">edit</a></h3>
 <div class="olist orderedlist">

@@ -58,7 +58,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -89,27 +89,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 You are looking at preliminary documentation for a future release.
@@ -118,13 +109,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Machine Learning in the Elastic Stack [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="ml-dfanalytics.html">Data frame analytics</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Machine Learning in the Elastic Stack [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="ml-dfanalytics.html">Data frame analytics</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="ml-dfa-concepts.html">Advanced concepts</a></span>
-»
-<span class="breadcrumb-node">Trained models</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -139,7 +127,7 @@ Not what you want? See the
 <h2 class="title"><a id="ml-trained-models"></a>Trained models<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/stack-docs/edit/main/docs/en/stack/ml/df-analytics/ml-trained-models.asciidoc">edit</a></h2>
 </div></div></div>
 <p>When you use a data frame analytics job to perform classification or regression analysis,
-it creates a machine learning model that is trained and tested against a labelled data set.
+it creates a machine learning model that is trained and tested against a labeled data set.
 When you are satisfied with your trained model, you can use it to make
 predictions against new data. For example, you can use it in the processor of
 an ingest pipeline or in a pipeline aggregation within a search query. For more
@@ -148,16 +136,14 @@ information about this process, see <a class="xref" href="ml-dfa-overview.html#m
 <a class="xref" href="ml-dfa-regression.html#ml-inference-reg" title="Inference">regression</a>.</p>
 <p>You can also supply trained models that are not created by data frame analytics job but
 adhere to the appropriate
-<a href="https://github.com/elastic/ml-json-schemas" class="ulink" target="_top">JSON schema</a>. If you want to use
-these trained models in the Elastic Stack, you must store them in Elasticsearch documents by
-using the <a href="/guide/en/elasticsearch/reference/master/put-trained-models.html" class="ulink" target="_top">create trained models API</a>.</p>
-<p>In Kibana, you can view and manage your trained models within <span class="strong strong"><strong>Machine Learning</strong></span> &gt; <span class="strong strong"><strong>Model
-Management</strong></span>:</p>
-<div class="imageblock screenshot">
-<div class="content">
-<img src="images/trained-model-management.jpg" alt="List of trained models in the Machine Learning app in Kibana">
-</div>
-</div>
+<a href="https://github.com/elastic/ml-json-schemas" class="ulink" target="_top">JSON schema</a>. Likewise, you can use
+third-party models to perform natural language processing (NLP) tasks. If you
+want to use these trained models in the Elastic Stack, you must store them in Elasticsearch
+documents by using the <a href="/guide/en/elasticsearch/reference/master/put-trained-models.html" class="ulink" target="_top">create trained models API</a>.
+For more information about NLP models, refer to <a class="xref" href="ml-nlp-deploy-models.html" title="Deploy trained models"><em>Deploy trained models</em></a>.</p>
+<p>In Kibana, you can view and manage your trained models in
+<span class="strong strong"><strong>Stack Management</strong></span> &gt; <span class="strong strong"><strong>Alerts and Insights</strong></span> &gt; <span class="strong strong"><strong>Machine Learning</strong></span> and
+<span class="strong strong"><strong>Machine Learning</strong></span> &gt; <span class="strong strong"><strong>Model Management</strong></span>.</p>
 <p>Alternatively, you can use APIs like
 <a href="/guide/en/elasticsearch/reference/master/get-trained-models.html" class="ulink" target="_top">get trained models</a> and
 <a href="/guide/en/elasticsearch/reference/master/delete-trained-models.html" class="ulink" target="_top">delete trained models</a>.</p>
@@ -308,15 +294,37 @@ MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

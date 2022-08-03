@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,27 +87,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 You are looking at preliminary documentation for a future release.
@@ -116,13 +107,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Plugins and Integrations [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="discovery.html">Discovery Plugins</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Plugins and Integrations [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="discovery.html">Discovery Plugins</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="discovery-azure-classic.html">Azure Classic Discovery Plugin</a></span>
-»
-<span class="breadcrumb-node">Setup process for Azure Discovery</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -134,7 +122,7 @@ Not what you want? See the
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="discovery-azure-classic-long"></a>Setup process for Azure Discovery<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/plugins/discovery-azure-classic.asciidoc">edit</a></h3>
+<h3 class="title"><a id="discovery-azure-classic-long"></a>Setup process for Azure Discovery<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/plugins/discovery-azure-classic.asciidoc">edit</a></h3>
 </div></div></div>
 <p>We will expose here one strategy which is to hide our Elasticsearch cluster from outside.</p>
 <p>With this strategy, only VMs behind the same virtual port can talk to each
@@ -143,7 +131,7 @@ discovery to build a cluster, using the Azure API to retrieve information
 about your nodes.</p>
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="discovery-azure-classic-long-prerequisites"></a>Prerequisites<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/plugins/discovery-azure-classic.asciidoc">edit</a></h4>
+<h4 class="title"><a id="discovery-azure-classic-long-prerequisites"></a>Prerequisites<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/plugins/discovery-azure-classic.asciidoc">edit</a></h4>
 </div></div></div>
 <p>Before starting, you need to have:</p>
 <div class="ulist itemizedlist">
@@ -243,7 +231,7 @@ azure account import /tmp/azure.publishsettings</pre>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="discovery-azure-classic-long-instance"></a>Creating your first instance<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/plugins/discovery-azure-classic.asciidoc">edit</a></h4>
+<h4 class="title"><a id="discovery-azure-classic-long-instance"></a>Creating your first instance<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/plugins/discovery-azure-classic.asciidoc">edit</a></h4>
 </div></div></div>
 <p>You need to have a storage account available. Check <a href="http://www.windowsazure.com/en-us/develop/net/how-to-guides/blob-storage/#create-account" class="ulink" target="_top">Azure Blob Storage documentation</a>
 for more information.</p>
@@ -393,42 +381,15 @@ keystore to the instance, then connect to the instance using SSH:</p>
 <pre class="programlisting prettyprint lang-sh">scp /tmp/azurekeystore.pkcs12 azure-elasticsearch-cluster.cloudapp.net:/home/elasticsearch
 ssh azure-elasticsearch-cluster.cloudapp.net</pre>
 </div>
-<p>Once connected, <a href="/guide/en/elastic-stack-get-started/master/get-started-elastic-stack.html#install-elasticsearch" class="ulink" target="_top">install Elasticsearch</a>:</p>
-<p>Check that Elasticsearch is running:</p>
-<div class="pre_wrapper lang-console">
-<pre class="programlisting prettyprint lang-console">GET /</pre>
-</div>
-<div class="console_widget" data-snippet="snippets/29.console"></div>
-<p>This command should give you a JSON result:</p>
-<div class="pre_wrapper lang-js">
-<pre class="programlisting prettyprint lang-js">{
-  "name" : "Cp8oag6",
-  "cluster_name" : "elasticsearch",
-  "cluster_uuid" : "AT69_T_DTp-1qgIJlatQqA",
-  "version" : {
-    "number" : "8.2.0-SNAPSHOT",
-    "build_type" : "tar",
-    "build_hash" : "f27399d",
-    "build_date" : "2016-03-30T09:51:41.449Z",
-    "build_snapshot" : false,
-    "lucene_version" : "9.1.0",
-    "minimum_wire_compatibility_version" : "1.2.3",
-    "minimum_index_compatibility_version" : "1.2.3"
-  },
-  "tagline" : "You Know, for Search"
-}</pre>
-</div>
+<p>Once connected,  <a href="/guide/en/elasticsearch/reference/master/install-elasticsearch.html" class="ulink" target="_top">install Elasticsearch</a>.</p>
 </div>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="discovery-azure-classic-long-plugin"></a>Install Elasticsearch cloud azure plugin<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/plugins/discovery-azure-classic.asciidoc">edit</a></h4>
+<h4 class="title"><a id="discovery-azure-classic-long-plugin"></a>Install Elasticsearch cloud azure plugin<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/plugins/discovery-azure-classic.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="pre_wrapper lang-sh">
-<pre class="programlisting prettyprint lang-sh"># Stop Elasticsearch
-sudo service elasticsearch stop
-
-# Install the plugin
+<pre class="programlisting prettyprint lang-sh"># Install the plugin
 sudo /usr/share/elasticsearch/bin/elasticsearch-plugin install discovery-azure-classic
 
 # Configure it
@@ -452,9 +413,9 @@ discovery:
 # Recommended (warning: non durable disk)
 # path.data: /mnt/resource/elasticsearch/data</pre>
 </div>
-<p>Restart Elasticsearch:</p>
+<p>Start Elasticsearch:</p>
 <div class="pre_wrapper lang-sh">
-<pre class="programlisting prettyprint lang-sh">sudo service elasticsearch start</pre>
+<pre class="programlisting prettyprint lang-sh">sudo systemctl start elasticsearch</pre>
 </div>
 <p>If anything goes wrong, check your logs in <code class="literal">/var/log/elasticsearch</code>.</p>
 </div>
@@ -472,15 +433,37 @@ discovery:
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

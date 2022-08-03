@@ -13,17 +13,15 @@
 <meta name="robots" content="noindex,nofollow"/>
 </head>
 <body><div class="page_header">
-You are looking at preliminary documentation for a future release.
-Not what you want? See the
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
 <a href="../current/index.html">current release documentation</a>.
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.2]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.2]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="data-management.html">Data management</a></span>
-»
-<span class="breadcrumb-node">Troubleshooting index lifecycle management errors</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -62,7 +60,7 @@ is at least five days old:</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1491.console"></div>
+<div class="console_widget" data-snippet="snippets/1493.console"></div>
 <p>There is nothing that prevents you from applying the <code class="literal">shrink-index</code> policy to a new
 index that has only two shards:</p>
 <a id="aaba346e0becdf12db13658296e0b8a1"></a>
@@ -75,7 +73,7 @@ index that has only two shards:</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1492.console"></div>
+<div class="console_widget" data-snippet="snippets/1494.console"></div>
 <p>After five days, ILM attempts to shrink <code class="literal">my-index-000001</code> from two shards to four shards.
 Because the shrink action cannot <em>increase</em> the number of shards, this operation fails
 and ILM moves <code class="literal">my-index-000001</code> to the <code class="literal">ERROR</code> step.</p>
@@ -85,7 +83,7 @@ what went wrong:</p>
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">GET /my-index-000001/_ilm/explain</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1493.console"></div>
+<div class="console_widget" data-snippet="snippets/1495.console"></div>
 <p>Which returns the following information:</p>
 <a id="c1b3a102b30024f96b20a76580ae2bb1"></a>
 <div class="pre_wrapper lang-console-result">
@@ -96,23 +94,23 @@ what went wrong:</p>
       "managed" : true,
       "index_creation_date_millis" : 1541717265865,
       "time_since_index_creation": "5.1d",
-      "policy" : "shrink-index",                <a id="CO486-1"></a><i class="conum" data-value="1"></i>
+      "policy" : "shrink-index",                <a id="CO490-1"></a><i class="conum" data-value="1"></i>
       "lifecycle_date_millis" : 1541717265865,
-      "age": "5.1d",                            <a id="CO486-2"></a><i class="conum" data-value="2"></i>
-      "phase" : "warm",                         <a id="CO486-3"></a><i class="conum" data-value="3"></i>
+      "age": "5.1d",                            <a id="CO490-2"></a><i class="conum" data-value="2"></i>
+      "phase" : "warm",                         <a id="CO490-3"></a><i class="conum" data-value="3"></i>
       "phase_time_millis" : 1541717272601,
-      "action" : "shrink",                      <a id="CO486-4"></a><i class="conum" data-value="4"></i>
+      "action" : "shrink",                      <a id="CO490-4"></a><i class="conum" data-value="4"></i>
       "action_time_millis" : 1541717272601,
-      "step" : "ERROR",                         <a id="CO486-5"></a><i class="conum" data-value="5"></i>
+      "step" : "ERROR",                         <a id="CO490-5"></a><i class="conum" data-value="5"></i>
       "step_time_millis" : 1541717272688,
-      "failed_step" : "shrink",                 <a id="CO486-6"></a><i class="conum" data-value="6"></i>
+      "failed_step" : "shrink",                 <a id="CO490-6"></a><i class="conum" data-value="6"></i>
       "step_info" : {
-        "type" : "illegal_argument_exception",  <a id="CO486-7"></a><i class="conum" data-value="7"></i>
+        "type" : "illegal_argument_exception",  <a id="CO490-7"></a><i class="conum" data-value="7"></i>
         "reason" : "the number of target shards [4] must be less that the number of source shards [2]"
       },
       "phase_execution" : {
         "policy" : "shrink-index",
-        "phase_definition" : {                  <a id="CO486-8"></a><i class="conum" data-value="8"></i>
+        "phase_definition" : {                  <a id="CO490-8"></a><i class="conum" data-value="8"></i>
           "min_age" : "5d",
           "actions" : {
             "shrink" : {
@@ -131,7 +129,7 @@ what went wrong:</p>
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO486-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO490-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>The policy being used to manage the index: <code class="literal">shrink-index</code></p>
@@ -139,7 +137,7 @@ what went wrong:</p>
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO486-2"><i class="conum" data-value="2"></i></a></p>
+<p><a href="#CO490-2"><i class="conum" data-value="2"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>The index age: 5.1 days</p>
@@ -147,7 +145,7 @@ what went wrong:</p>
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO486-3"><i class="conum" data-value="3"></i></a></p>
+<p><a href="#CO490-3"><i class="conum" data-value="3"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>The phase the index is currently in: <code class="literal">warm</code></p>
@@ -155,7 +153,7 @@ what went wrong:</p>
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO486-4"><i class="conum" data-value="4"></i></a></p>
+<p><a href="#CO490-4"><i class="conum" data-value="4"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>The current action: <code class="literal">shrink</code></p>
@@ -163,7 +161,7 @@ what went wrong:</p>
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO486-5"><i class="conum" data-value="5"></i></a></p>
+<p><a href="#CO490-5"><i class="conum" data-value="5"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>The step the index is currently in: <code class="literal">ERROR</code></p>
@@ -171,7 +169,7 @@ what went wrong:</p>
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO486-6"><i class="conum" data-value="6"></i></a></p>
+<p><a href="#CO490-6"><i class="conum" data-value="6"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>The step that failed to execute: <code class="literal">shrink</code></p>
@@ -179,7 +177,7 @@ what went wrong:</p>
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO486-7"><i class="conum" data-value="7"></i></a></p>
+<p><a href="#CO490-7"><i class="conum" data-value="7"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>The type of error and a description of that error.</p>
@@ -187,7 +185,7 @@ what went wrong:</p>
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO486-8"><i class="conum" data-value="8"></i></a></p>
+<p><a href="#CO490-8"><i class="conum" data-value="8"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>The definition of the current phase from the <code class="literal">shrink-index</code> policy</p>
@@ -214,7 +212,7 @@ what went wrong:</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1494.console"></div>
+<div class="console_widget" data-snippet="snippets/1496.console"></div>
 <h3><a id="_retrying_failed_lifecycle_policy_steps"></a>Retrying failed lifecycle policy steps<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.2/docs/reference/ilm/error-handling.asciidoc">edit</a></h3>
 <p>Once you fix the problem that put an index in the <code class="literal">ERROR</code> step,
 you might need to explicitly tell ILM to retry the step:</p>
@@ -222,7 +220,7 @@ you might need to explicitly tell ILM to retry the step:</p>
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">POST /my-index-000001/_ilm/retry</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1495.console"></div>
+<div class="console_widget" data-snippet="snippets/1497.console"></div>
 <p>ILM subsequently attempts to re-run the step that failed.
 You can use the <a class="xref" href="ilm-explain-lifecycle.html" title="Explain lifecycle API">ILM Explain API</a> to monitor the progress.</p>
 <h3><a id="_common_ilm_errors"></a>Common ILM errors<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.2/docs/reference/ilm/error-handling.asciidoc">edit</a></h3>
@@ -264,6 +262,9 @@ For more information, see <a class="xref" href="fix-common-cluster-issues.html#c
 <p>This indicates that the cluster is running out of disk space.
 This can happen when you don&#8217;t have index lifecycle management set up to roll over from hot to warm nodes.</p>
 <p>Consider adding nodes, upgrading your hardware, or deleting unneeded indices.</p>
+<h4><a id="_security_exception_action_action_name_is_unauthorized_for_user_user_name_with_roles_role_name_this_action_is_granted_by_the_index_privileges_manage_follow_indexmanageall"></a>security_exception: action [&lt;action-name&gt;] is unauthorized for user [&lt;user-name&gt;] with roles [&lt;role-name&gt;], this action is granted by the index privileges [manage_follow_index,manage,all]<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.2/docs/reference/ilm/error-handling.asciidoc">edit</a></h4>
+<p>This indicates the ILM action cannot be executed because the user used by ILM to perform the action doesn&#8217;t have the proper privileges. This can happen when user&#8217;s privileges has been dropped after updating the ILM policy.
+ILM actions are run as though they were performed by the last user who modify the policy. The account used to create or modify the policy from should have permissions to perform all operations that are part of that policy.</p>
 </div>
 <div class="navfooter">
 <span class="prev">

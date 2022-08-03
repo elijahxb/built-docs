@@ -1,13 +1,24 @@
-POST api/actions/connector
+POST api/exception_lists/items
 {
-  "connector_type_id": ".resilient",
-  "config": {
-    "apiUrl": "https://ibm-resilient.siem.estc.dev",
-    "orgId": "201"
-  },
-  "secrets": {
-    "apiKeyId": "2ad2bbd3-7cd2-3096-9619-de13c5ab70ca",
-    "apiKeySecret": "Hzol67ZoeATAR-8pQxSp3q_NPTDtWU6_QNBoCSCA-ic"
-  },
-  "name": "IBM"
+  "description": "some description about this entry",
+  "entries": [
+      {
+          "field": "destination.ip",
+          "value": "10.10.0.1",
+          "type": "match",
+          "operator": "included"
+      }
+  ],
+  "list_id": "{endpoint-artifact-list-id}",
+  "name": "Some name for this item",
+  "namespace_type": "agnostic",
+  "os_types": [
+    "linux",
+    "macos",
+    "windows"
+  ],
+  "tags": [
+      "policy:all"
+  ],
+  "type": "simple"
 }

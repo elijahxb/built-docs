@@ -6,7 +6,7 @@
 <title>Suspicious DLL Loaded for Persistence or Privilege Escalation | Elastic Security Solution [master] | Elastic</title>
 <link rel="home" href="index.html" title="Elastic Security Solution [master]"/>
 <link rel="up" href="prebuilt-rules.html" title="Prebuilt rule reference"/>
-<link rel="prev" href="suspicious-cmd-execution-via-wmi.html" title="Suspicious Cmd Execution via WMI"/>
+<link rel="prev" href="suspicious-crontab-creation-or-modification.html" title="Suspicious CronTab Creation or Modification"/>
 <link rel="next" href="suspicious-emond-child-process.html" title="Suspicious Emond Child Process"/>
 <meta name="DC.type" content="Learn/Docs/Security/Guide/master"/>
 <meta name="DC.subject" content="Security"/>
@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,27 +87,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 You are looking at preliminary documentation for a future release.
@@ -116,17 +107,14 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elastic Security Solution [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="detection-engine-overview.html">Detections and alerts</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Security Solution [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="detection-engine-overview.html">Detections and alerts</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="prebuilt-rules.html">Prebuilt rule reference</a></span>
-»
-<span class="breadcrumb-node">Suspicious DLL Loaded for Persistence or Privilege Escalation</span>
 </div>
 <div class="navheader">
 <span class="prev">
-<a href="suspicious-cmd-execution-via-wmi.html">« Suspicious Cmd Execution via WMI</a>
+<a href="suspicious-crontab-creation-or-modification.html">« Suspicious CronTab Creation or Modification</a>
 </span>
 <span class="next">
 <a href="suspicious-emond-child-process.html">Suspicious Emond Child Process »</a>
@@ -170,7 +158,7 @@ logs-windows.*
 <a href="https://googleprojectzero.blogspot.com/2018/04/windows-exploitation-tricks-exploiting.html" class="ulink" target="_top">https://googleprojectzero.blogspot.com/2018/04/windows-exploitation-tricks-exploiting.html</a>
 </li>
 <li class="listitem">
-<a href="https://shellz.club/edgegdi-dll-for-persistence-and-lateral-movement/" class="ulink" target="_top">https://shellz.club/edgegdi-dll-for-persistence-and-lateral-movement/</a>
+<a href="https://shellz.club/2020/10/16/edgegdi-dll-for-persistence-and-lateral-movement.html" class="ulink" target="_top">https://shellz.club/2020/10/16/edgegdi-dll-for-persistence-and-lateral-movement.html</a>
 </li>
 <li class="listitem">
 <a href="https://windows-internals.com/faxing-your-way-to-system/" class="ulink" target="_top">https://windows-internals.com/faxing-your-way-to-system/</a>
@@ -203,14 +191,25 @@ Privilege Escalation
 </li>
 </ul>
 </div>
-<p><span class="strong strong"><strong>Version</strong></span>: 2 (<a class="xref" href="suspicious-dll-loaded-for-persistence-or-privilege-escalation.html#suspicious-dll-loaded-for-persistence-or-privilege-escalation-history" title="Rule version history">version history</a>)</p>
+<p><span class="strong strong"><strong>Version</strong></span>: 4 (<a class="xref" href="suspicious-dll-loaded-for-persistence-or-privilege-escalation.html#suspicious-dll-loaded-for-persistence-or-privilege-escalation-history" title="Rule version history">version history</a>)</p>
 <p><span class="strong strong"><strong>Added (Elastic Stack release)</strong></span>: 7.12.0</p>
-<p><span class="strong strong"><strong>Last modified (Elastic Stack release)</strong></span>: 7.14.0</p>
+<p><span class="strong strong"><strong>Last modified (Elastic Stack release)</strong></span>: 8.3.0</p>
 <p><span class="strong strong"><strong>Rule authors</strong></span>: Elastic</p>
 <p><span class="strong strong"><strong>Rule license</strong></span>: Elastic License v2</p>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_rule_query_498"></a>Rule query<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/main/docs/detections/prebuilt-rules/rule-details/suspicious-dll-loaded-for-persistence-or-privilege-escalation.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_investigation_guide_376"></a>Investigation guide<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/main/docs/detections/prebuilt-rules/rule-details/suspicious-dll-loaded-for-persistence-or-privilege-escalation.asciidoc">edit</a></h3>
+</div></div></div>
+<div class="pre_wrapper lang-markdown">
+<pre class="programlisting prettyprint lang-markdown">## Config
+
+If enabling an EQL rule on a non-elastic-agent index (such as beats) for versions &lt;8.2, events will not define `event.ingested` and default fallback for EQL rules was not added until 8.2, so you will need to add a custom pipeline to populate `event.ingested` to @timestamp for this rule to work.</pre>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="_rule_query_515"></a>Rule query<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/main/docs/detections/prebuilt-rules/rule-details/suspicious-dll-loaded-for-persistence-or-privilege-escalation.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="pre_wrapper lang-js">
 <pre class="programlisting prettyprint lang-js">library where dll.name : ( "wlbsctrl.dll", "wbemcomn.dll",
@@ -226,7 +225,7 @@ dll.code_signature.status : "trusted")</pre>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_threat_mapping_443"></a>Threat mapping<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/main/docs/detections/prebuilt-rules/rule-details/suspicious-dll-loaded-for-persistence-or-privilege-escalation.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_threat_mapping_462"></a>Threat mapping<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/main/docs/detections/prebuilt-rules/rule-details/suspicious-dll-loaded-for-persistence-or-privilege-escalation.asciidoc">edit</a></h3>
 </div></div></div>
 <p><span class="strong strong"><strong>Framework</strong></span>: MITRE ATT&amp;CK<sup>TM</sup></p>
 <div class="ulist itemizedlist">
@@ -307,6 +306,34 @@ Reference URL: <a href="https://attack.mitre.org/techniques/T1574/" class="ulink
 <dl class="variablelist">
 <dt>
 <span class="term">
+Version 4 (8.3.0 release)
+</span>
+</dt>
+<dd>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Formatting only
+</li>
+</ul>
+</div>
+</dd>
+<dt>
+<span class="term">
+Version 3 (8.2.0 release)
+</span>
+</dt>
+<dd>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Formatting only
+</li>
+</ul>
+</div>
+</dd>
+<dt>
+<span class="term">
 Version 2 (7.14.0 release)
 </span>
 </dt>
@@ -335,7 +362,7 @@ Version 2 (7.14.0 release)
 </div>
 <div class="navfooter">
 <span class="prev">
-<a href="suspicious-cmd-execution-via-wmi.html">« Suspicious Cmd Execution via WMI</a>
+<a href="suspicious-crontab-creation-or-modification.html">« Suspicious CronTab Creation or Modification</a>
 </span>
 <span class="next">
 <a href="suspicious-emond-child-process.html">Suspicious Emond Child Process »</a>
@@ -345,15 +372,37 @@ Version 2 (7.14.0 release)
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

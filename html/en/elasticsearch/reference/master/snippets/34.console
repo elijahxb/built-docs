@@ -1,1 +1,3 @@
-GET _nodes/stats/process?filter_path=**.max_file_descriptors
+GET _cat/health
+
+GET _cat/recovery

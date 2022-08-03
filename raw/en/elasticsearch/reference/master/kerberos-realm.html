@@ -6,7 +6,7 @@
 <link rel="home" href="index.html" title="Elasticsearch Guide [master]"/>
 <link rel="up" href="setting-up-authentication.html" title="User authentication"/>
 <link rel="prev" href="saml-realm.html" title="SAML authentication"/>
-<link rel="next" href="custom-realms.html" title="Integrating with other authentication systems"/>
+<link rel="next" href="jwt-auth-realm.html" title="JWT authentication"/>
 <meta name="DC.type" content="Learn/Docs/Elasticsearch/Reference/master"/>
 <meta name="DC.subject" content="Elasticsearch"/>
 <meta name="DC.identifier" content="master"/>
@@ -18,25 +18,22 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="secure-cluster.html">Secure the Elastic Stack</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="secure-cluster.html">Secure the Elastic Stack</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="setting-up-authentication.html">User authentication</a></span>
-»
-<span class="breadcrumb-node">Kerberos authentication</span>
 </div>
 <div class="navheader">
 <span class="prev">
 <a href="saml-realm.html">« SAML authentication</a>
 </span>
 <span class="next">
-<a href="custom-realms.html">Integrating with other authentication systems »</a>
+<a href="jwt-auth-realm.html">JWT authentication »</a>
 </span>
 </div>
 <div class="section xpack">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="kerberos-realm"></a>Kerberos authentication<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/x-pack/docs/en/security/authentication/kerberos-realm.asciidoc">edit</a></h2>
+<h2 class="title"><a id="kerberos-realm"></a>Kerberos authentication<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/x-pack/docs/en/security/authentication/kerberos-realm.asciidoc">edit</a></h2>
 </div></div></div>
 <p>You can configure the Elastic Stack security features to support Kerberos V5
 authentication, an industry standard protocol to authenticate users in Elasticsearch.</p>
@@ -51,7 +48,7 @@ map users to roles. For more information on realm settings, see
 <a class="xref" href="security-settings.html#ref-kerberos-settings" title="Kerberos realm settings">Kerberos realm settings</a>.</p>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="kerberos-terms"></a>Key concepts<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/x-pack/docs/en/security/authentication/kerberos-realm.asciidoc">edit</a></h3>
+<h3 class="title"><a id="kerberos-terms"></a>Key concepts<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/x-pack/docs/en/security/authentication/kerberos-realm.asciidoc">edit</a></h3>
 </div></div></div>
 <p>There are a few terms and concepts that you&#8217;ll encounter when you&#8217;re setting up
 Kerberos realms:</p>
@@ -140,7 +137,7 @@ server. It contains an encrypted authenticator.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="kerberos-realm-configuration"></a>Configuring a Kerberos realm<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/x-pack/docs/en/security/authentication/kerberos-realm.asciidoc">edit</a></h3>
+<h3 class="title"><a id="kerberos-realm-configuration"></a>Configuring a Kerberos realm<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/x-pack/docs/en/security/authentication/kerberos-realm.asciidoc">edit</a></h3>
 </div></div></div>
 <p>Kerberos is used to protect services and uses a ticket-based authentication
 protocol to authenticate users.
@@ -155,7 +152,7 @@ obtaining TGT. Elasticsearch clients must first obtain a TGT then initiate the p
 authenticating with Elasticsearch.</p>
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="kerberos-realm-prereq"></a>Before you begin<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/x-pack/docs/en/security/authentication/configuring-kerberos-realm.asciidoc">edit</a></h4>
+<h4 class="title"><a id="kerberos-realm-prereq"></a>Before you begin<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/x-pack/docs/en/security/authentication/configuring-kerberos-realm.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="olist orderedlist">
 <ol class="orderedlist">
@@ -220,7 +217,7 @@ It is not required for Kerberos authentication directly against the Elasticsearc
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="kerberos-realm-create"></a>Create a Kerberos realm<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/x-pack/docs/en/security/authentication/configuring-kerberos-realm.asciidoc">edit</a></h4>
+<h4 class="title"><a id="kerberos-realm-create"></a>Create a Kerberos realm<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/x-pack/docs/en/security/authentication/configuring-kerberos-realm.asciidoc">edit</a></h4>
 </div></div></div>
 <p>To configure a Kerberos realm in Elasticsearch:</p>
 <div class="olist orderedlist">
@@ -322,7 +319,7 @@ identify users by their <code class="literal">username</code> field.</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1630.console"></div>
+<div class="console_widget" data-snippet="snippets/1659.console"></div>
 <p>In case you want to support Kerberos cross realm authentication you may
 need to map roles based on the Kerberos realm name. For such scenarios
 following are the additional user metadata available for role mapping:
@@ -344,7 +341,7 @@ alternative to role mapping.</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="kerberos-realm-kibana"></a>Configure Kibana for Kerberos<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/x-pack/docs/en/security/authentication/kerberos-realm.asciidoc">edit</a></h4>
+<h4 class="title"><a id="kerberos-realm-kibana"></a>Configure Kibana for Kerberos<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/x-pack/docs/en/security/authentication/kerberos-realm.asciidoc">edit</a></h4>
 </div></div></div>
 <p>If you want to use Kerberos to authenticate via your browser and Kibana, you
 need to enable the relevant authentication provider in Kibana configuration. See
@@ -359,7 +356,7 @@ need to enable the relevant authentication provider in Kibana configuration. See
 <a href="saml-realm.html">« SAML authentication</a>
 </span>
 <span class="next">
-<a href="custom-realms.html">Integrating with other authentication systems »</a>
+<a href="jwt-auth-realm.html">JWT authentication »</a>
 </span>
 </div>
 </div>

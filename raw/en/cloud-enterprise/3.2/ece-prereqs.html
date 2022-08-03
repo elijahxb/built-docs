@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Preparing your installation | Elastic Cloud Enterprise Reference [3.2] | Elastic</title>
+<link rel="home" href="index.html" title="Elastic Cloud Enterprise Reference [3.2]"/>
+<link rel="up" href="index.html" title="Elastic Cloud Enterprise Reference [3.2]"/>
+<link rel="prev" href="ece-containerization.html" title="Services as Docker containers"/>
+<link rel="next" href="ece-hardware-prereq.html" title="Hardware prerequisites"/>
+<meta name="DC.type" content="Learn/Docs/CloudEnterprise/Reference/3.2"/>
+<meta name="DC.subject" content="ECE"/>
+<meta name="DC.identifier" content="3.2"/>
+</head>
+<body><div class="page_header">
+A newer version is available. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Cloud Enterprise Reference [3.2]</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="ece-containerization.html">« Services as Docker containers</a>
+</span>
+<span class="next">
+<a href="ece-hardware-prereq.html">Hardware prerequisites »</a>
+</span>
+</div>
+<div class="part">
+<div class="titlepage"><div><div>
+<h1 class="title"><a id="ece-prereqs"></a>Preparing your installation<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/cloud-enterprise/ce-prerequisites.asciidoc">edit</a></h1>
+</div></div></div>
+<div class="openblock partintro">
+<div class="content">
+<p>When you prepare your hosts to install ECE, the following prerequisites <span class="strong strong"><strong>must</strong></span> be considered:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<a class="xref" href="ece-hardware-prereq.html" title="Hardware prerequisites">Hardware prerequisites</a>
+</li>
+<li class="listitem">
+<a class="xref" href="ece-software-prereq.html" title="Software prerequisites">Software prerequisites</a>
+</li>
+<li class="listitem">
+<a class="xref" href="ece-networking-prereq.html" title="Networking prerequisites">Networking prerequisites</a>
+</li>
+<li class="listitem">
+<a class="xref" href="ece-ha.html" title="High availability">High availability</a>
+</li>
+<li class="listitem">
+<a class="xref" href="ece-roles.html" title="Separation of roles">Separation of roles</a>
+</li>
+<li class="listitem">
+<a class="xref" href="ece-load-balancers.html" title="Load balancers">Load balancers</a>
+</li>
+<li class="listitem">
+<a class="xref" href="ece-users-permissions.html" title="Users and permissions">Users and permissions</a>
+</li>
+<li class="listitem">
+<a class="xref" href="ece-jvm.html" title="JVM heap size">JVM heap sizes</a>
+</li>
+<li class="listitem">
+<a class="xref" href="ece-wildcard-dns.html" title="Wildcard DNS record">Wildcard DNS record</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="ece-containerization.html">« Services as Docker containers</a>
+</span>
+<span class="next">
+<a href="ece-hardware-prereq.html">Hardware prerequisites »</a>
+</span>
+</div>
+</div>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains('stemblock')) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+</body>
+</html>

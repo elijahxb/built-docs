@@ -11,6 +11,7 @@
 <meta name="DC.type" content="Learn/Docs/Elasticsearch/Reference/8.1"/>
 <meta name="DC.subject" content="Elasticsearch"/>
 <meta name="DC.identifier" content="8.1"/>
+<meta name="robots" content="noindex,nofollow"/>
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -56,7 +57,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,38 +88,30 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
-                  
+                  <div class="page_header">
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.1]</a></span>
-»
-<span class="breadcrumb-link"><a href="setup.html">Set up Elasticsearch</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.1]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="setup.html">Set up Elasticsearch</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="settings.html">Configuring Elasticsearch</a></span>
-»
-<span class="breadcrumb-node">Shard request cache settings</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -130,7 +123,7 @@
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="shard-request-cache"></a>Shard request cache settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/modules/indices/request_cache.asciidoc">edit</a></h2>
+<h2 class="title"><a id="shard-request-cache"></a>Shard request cache settings<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/modules/indices/request_cache.asciidoc">edit</a></h2>
 </div></div></div>
 <p>When a search request is run against an index or against many indices, each
 involved shard executes the search locally and returns its local results to
@@ -152,7 +145,7 @@ but it will cache <code class="literal">hits.total</code>,  <a class="xref" href
 <code class="literal">Math.random()</code> or <code class="literal">new Date()</code> are not cached.</p>
 </div>
 </div>
-<h4><a id="_cache_invalidation"></a>Cache invalidation<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/modules/indices/request_cache.asciidoc">edit</a></h4>
+<h4><a id="_cache_invalidation"></a>Cache invalidation<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/modules/indices/request_cache.asciidoc">edit</a></h4>
 <p>The cache is smart&#8201;&#8212;&#8201;it keeps the same <em>near real-time</em> promise as uncached
 search.</p>
 <p>Cached results are invalidated automatically whenever the shard refreshes to
@@ -167,8 +160,8 @@ least recently used cache keys will be evicted.</p>
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">POST /my-index-000001,my-index-000002/_cache/clear?request=true</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/27.console"></div>
-<h4><a id="_enabling_and_disabling_caching"></a>Enabling and disabling caching<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/modules/indices/request_cache.asciidoc">edit</a></h4>
+<div class="console_widget" data-snippet="snippets/28.console"></div>
+<h4><a id="_enabling_and_disabling_caching"></a>Enabling and disabling caching<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/modules/indices/request_cache.asciidoc">edit</a></h4>
 <p>The cache is enabled by default, but can be disabled when creating a new
 index as follows:</p>
 <a id="4498b9d3b0c77e1b9ef6664ff5963ce2"></a>
@@ -180,7 +173,7 @@ index as follows:</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/28.console"></div>
+<div class="console_widget" data-snippet="snippets/29.console"></div>
 <p>It can also be enabled or disabled dynamically on an existing index with the
 <a class="xref" href="indices-update-settings.html" title="Update index settings API"><code class="literal">update-settings</code></a> API:</p>
 <a id="e26c96978096ccc592849cca9db67ffc"></a>
@@ -188,8 +181,8 @@ index as follows:</p>
 <pre class="programlisting prettyprint lang-console">PUT /my-index-000001/_settings
 { "index.requests.cache.enable": true }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/29.console"></div>
-<h4><a id="_enabling_and_disabling_caching_per_request"></a>Enabling and disabling caching per request<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/modules/indices/request_cache.asciidoc">edit</a></h4>
+<div class="console_widget" data-snippet="snippets/30.console"></div>
+<h4><a id="_enabling_and_disabling_caching_per_request"></a>Enabling and disabling caching per request<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/modules/indices/request_cache.asciidoc">edit</a></h4>
 <p>The <code class="literal">request_cache</code> query-string parameter can be used to enable or disable
 caching on a <span class="strong strong"><strong>per-request</strong></span> basis. If set, it overrides the index-level setting:</p>
 <a id="5e099493f135ff7bd614e935c4f2bf5a"></a>
@@ -206,11 +199,11 @@ caching on a <span class="strong strong"><strong>per-request</strong></span> bas
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/30.console"></div>
+<div class="console_widget" data-snippet="snippets/31.console"></div>
 <p>Requests where <code class="literal">size</code> is greater than 0 will not be cached even if the request cache is
 enabled in the index settings. To cache these requests you will need to use the
 query-string parameter detailed here.</p>
-<h4><a id="_cache_key"></a>Cache key<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/modules/indices/request_cache.asciidoc">edit</a></h4>
+<h4><a id="_cache_key"></a>Cache key<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/modules/indices/request_cache.asciidoc">edit</a></h4>
 <p>A hash of the whole JSON body is used as the cache key. This means that if the JSON
 changes&#8201;&#8212;&#8201;for instance if keys are output in a different order&#8201;&#8212;&#8201;then the
 cache key will not be recognised.</p>
@@ -222,7 +215,7 @@ keys are always emitted in the same order. This canonical mode can be used in
 the application to ensure that a request is always serialized in the same way.</p>
 </div>
 </div>
-<h4><a id="_cache_settings"></a>Cache settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/modules/indices/request_cache.asciidoc">edit</a></h4>
+<h4><a id="_cache_settings"></a>Cache settings<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/modules/indices/request_cache.asciidoc">edit</a></h4>
 <p>The cache is managed at the node level, and has a default maximum size of <code class="literal">1%</code>
 of the heap. This can be changed in the <code class="literal">config/elasticsearch.yml</code> file with:</p>
 <div class="pre_wrapper lang-yaml">
@@ -232,20 +225,20 @@ of the heap. This can be changed in the <code class="literal">config/elasticsear
 for cached results, but there should be no reason to do so. Remember that
 stale results are automatically invalidated when the index is refreshed. This
 setting is provided for completeness' sake only.</p>
-<h4><a id="_monitoring_cache_usage"></a>Monitoring cache usage<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/modules/indices/request_cache.asciidoc">edit</a></h4>
+<h4><a id="_monitoring_cache_usage"></a>Monitoring cache usage<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/modules/indices/request_cache.asciidoc">edit</a></h4>
 <p>The size of the cache (in bytes) and the number of evictions can be viewed
 by index, with the <a class="xref" href="indices-stats.html" title="Index stats API"><code class="literal">indices-stats</code></a> API:</p>
 <a id="36da9668fef56910370f16bfb772cc40"></a>
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">GET /_stats/request_cache?human</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/31.console"></div>
+<div class="console_widget" data-snippet="snippets/32.console"></div>
 <p>or by node with the <a class="xref" href="cluster-nodes-stats.html" title="Nodes stats API"><code class="literal">nodes-stats</code></a> API:</p>
 <a id="90631797c7fbda43902abf2cc0ea8304"></a>
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">GET /_nodes/stats/indices/request_cache?human</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/32.console"></div>
+<div class="console_widget" data-snippet="snippets/33.console"></div>
 </div>
 <div class="navfooter">
 <span class="prev">
@@ -259,15 +252,37 @@ by index, with the <a class="xref" href="indices-stats.html" title="Index stats 
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

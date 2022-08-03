@@ -11,6 +11,7 @@
 <meta name="DC.type" content="Learn/Docs/Logstash/Reference/8.1"/>
 <meta name="DC.subject" content="Logstash"/>
 <meta name="DC.identifier" content="8.1"/>
+<meta name="robots" content="noindex,nofollow"/>
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -56,7 +57,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,36 +88,29 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
-                  
+                  <div class="page_header">
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Logstash Reference [8.1]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Logstash Reference [8.1]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="output-plugins.html">Output plugins</a></span>
-»
-<span class="breadcrumb-node">Udp output plugin</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -128,7 +122,7 @@
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="plugins-outputs-udp"></a>Udp output plugin<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-output-udp/edit/main/docs/index.asciidoc">edit</a></h2>
+<h2 class="title"><a id="plugins-outputs-udp"></a>Udp output plugin<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-output-udp/edit/main/docs/index.asciidoc">edit</a></h2>
 </div></div></div>
 
 <div class="ulist itemizedlist">
@@ -148,7 +142,7 @@ Released on: 2021-07-14
 <a href="/guide/en/logstash-versioned-plugins/current/output-udp-index.html" class="ulink" target="_top">Versioned plugin docs</a>.</p>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_getting_help_112"></a>Getting Help<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-output-udp/edit/main/docs/index.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_getting_help_112"></a>Getting Help<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-output-udp/edit/main/docs/index.asciidoc">edit</a></h3>
 </div></div></div>
 <p>For questions about the plugin, open a topic in the <a href="http://discuss.elastic.co" class="ulink" target="_top">Discuss</a> forums. For bugs or feature requests, open an issue in <a href="https://github.com/logstash-plugins/logstash-output-udp" class="ulink" target="_top">Github</a>.
 For the list of Elastic supported plugins, please consult the <a href="/support/matrix#matrix_logstash_plugins" class="ulink" target="_top">Elastic Support Matrix</a>.</p>
@@ -156,7 +150,7 @@ For the list of Elastic supported plugins, please consult the <a href="/support/
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_description_111"></a>Description<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-output-udp/edit/main/docs/index.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_description_111"></a>Description<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-output-udp/edit/main/docs/index.asciidoc">edit</a></h3>
 </div></div></div>
 <p>Send events over UDP</p>
 <p>Keep in mind that UDP does not provide delivery or duplicate protection guarantees.
@@ -170,7 +164,7 @@ to retry a failed write for a number of times before dropping the event.</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="plugins-outputs-udp-options"></a>Udp Output Configuration Options<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-output-udp/edit/main/docs/index.asciidoc">edit</a></h3>
+<h3 class="title"><a id="plugins-outputs-udp-options"></a>Udp Output Configuration Options<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-output-udp/edit/main/docs/index.asciidoc">edit</a></h3>
 </div></div></div>
 <p>This plugin supports the following configuration options plus the <a class="xref" href="plugins-outputs-udp.html#plugins-outputs-udp-common-options" title="Common Options">Common Options</a> described later.</p>
 <div class="informaltable">
@@ -216,7 +210,7 @@ output plugins.</p>
 <p>&nbsp;</p>
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-outputs-udp-host"></a><code class="literal">host</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-output-udp/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-outputs-udp-host"></a><code class="literal">host</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-output-udp/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -236,7 +230,7 @@ There is no default value for this setting.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-outputs-udp-port"></a><code class="literal">port</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-output-udp/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-outputs-udp-port"></a><code class="literal">port</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-output-udp/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -256,7 +250,7 @@ There is no default value for this setting.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-outputs-udp-retry_count"></a><code class="literal">retry_count</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-output-udp/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-outputs-udp-retry_count"></a><code class="literal">retry_count</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-output-udp/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -273,7 +267,7 @@ Default value is <code class="literal">0</code>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-outputs-udp-retry_backoff_ms"></a><code class="literal">retry_backoff_ms</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-output-udp/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-outputs-udp-retry_backoff_ms"></a><code class="literal">retry_backoff_ms</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-output-udp/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -292,7 +286,7 @@ Default value is <code class="literal">10</code>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="plugins-outputs-udp-common-options"></a>Common Options<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-output-udp/edit/main/docs/index.asciidoc">edit</a></h3>
+<h3 class="title"><a id="plugins-outputs-udp-common-options"></a>Common Options<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-output-udp/edit/main/docs/index.asciidoc">edit</a></h3>
 </div></div></div>
 <p>The following configuration options are supported by all output plugins:</p>
 <div class="informaltable">
@@ -330,7 +324,7 @@ Default value is <code class="literal">10</code>
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-outputs-udp-codec"></a><code class="literal">codec</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-output-udp/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-outputs-udp-codec"></a><code class="literal">codec</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-output-udp/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -347,7 +341,7 @@ Default value is <code class="literal">"json"</code>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-outputs-udp-enable_metric"></a><code class="literal">enable_metric</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-output-udp/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-outputs-udp-enable_metric"></a><code class="literal">enable_metric</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-output-udp/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -366,7 +360,7 @@ for a specific plugin.</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-outputs-udp-id"></a><code class="literal">id</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-output-udp/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-outputs-udp-id"></a><code class="literal">id</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-output-udp/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -413,15 +407,37 @@ Adding a named ID in this case will help in monitoring Logstash when using the m
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

@@ -1,50 +1,17 @@
-PUT test
+PUT _ml/data_frame/analytics/loganalytics
 {
-  "settings": {
-    "index": {
-      "number_of_shards": 1,
-      "analysis": {
-        "analyzer": {
-          "trigram": {
-            "type": "custom",
-            "tokenizer": "standard",
-            "filter": ["lowercase","shingle"]
-          },
-          "reverse": {
-            "type": "custom",
-            "tokenizer": "standard",
-            "filter": ["lowercase","reverse"]
-          }
-        },
-        "filter": {
-          "shingle": {
-            "type": "shingle",
-            "min_shingle_size": 2,
-            "max_shingle_size": 3
-          }
-        }
-      }
-    }
+  "description": "Outlier detection on log data",
+  "source": {
+    "index": "logdata"
   },
-  "mappings": {
-    "properties": {
-      "title": {
-        "type": "text",
-        "fields": {
-          "trigram": {
-            "type": "text",
-            "analyzer": "trigram"
-          },
-          "reverse": {
-            "type": "text",
-            "analyzer": "reverse"
-          }
-        }
-      }
+  "dest": {
+    "index": "logdata_out"
+  },
+  "analysis": {
+    "outlier_detection": {
+      "compute_feature_influence": true,
+      "outlier_fraction": 0.05,
+      "standardization_enabled": true
     }
   }
 }
-POST test/_doc?refresh=true
-{"title": "noble warriors"}
-POST test/_doc?refresh=true
-{"title": "nobel prize"}

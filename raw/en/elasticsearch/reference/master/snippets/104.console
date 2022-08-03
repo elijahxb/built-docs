@@ -1,11 +1,9 @@
-PUT my-index-000001/_doc/2
+PUT /my-index-000001/_mapping
 {
-  "name": {
-    "first":  "Paul",
-    "last":   "McCartney",
-    "title": {
-      "value": "Sir",
-      "category": "order of chivalry"
+  "properties": {
+    "employee-id": {
+      "type": "keyword",
+      "index": false
     }
   }
 }

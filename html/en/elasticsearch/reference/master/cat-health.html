@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,27 +87,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 You are looking at preliminary documentation for a future release.
@@ -116,13 +107,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="rest-apis.html">REST APIs</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="rest-apis.html">REST APIs</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="cat.html">Compact and aligned text (CAT) APIs</a></span>
-»
-<span class="breadcrumb-node">cat health API</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -134,7 +122,7 @@ Not what you want? See the
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="cat-health"></a>cat health API<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/cat/health.asciidoc">edit</a></h2>
+<h2 class="title"><a id="cat-health"></a>cat health API<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/cat/health.asciidoc">edit</a></h2>
 </div></div></div>
 
 <div class="important admon">
@@ -149,14 +137,14 @@ consumption, use the <a class="xref" href="cluster-health.html" title="Cluster h
 health</a> API.</p>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="cat-health-api-request"></a>Request<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/cat/health.asciidoc">edit</a></h3>
+<h3 class="title"><a id="cat-health-api-request"></a>Request<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/cat/health.asciidoc">edit</a></h3>
 </div></div></div>
 <p><code class="literal">GET /_cat/health</code></p>
 </div>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="cat-health-api-prereqs"></a>Prerequisites<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/cat/health.asciidoc">edit</a></h3>
+<h3 class="title"><a id="cat-health-api-prereqs"></a>Prerequisites<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/cat/health.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -170,7 +158,7 @@ If the Elasticsearch security features are enabled, you must have the <code clas
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="cat-health-api-desc"></a>Description<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/cat/health.asciidoc">edit</a></h3>
+<h3 class="title"><a id="cat-health-api-desc"></a>Description<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/cat/health.asciidoc">edit</a></h3>
 </div></div></div>
 <p>You can use the cat health API to get the health status of a cluster.</p>
 <p><a id="timestamp"></a>This API is often used to check malfunctioning clusters. To help you
@@ -196,7 +184,7 @@ over a longer period of time. See <a class="xref" href="cat-health.html#cat-heal
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="cat-health-api-query-params"></a>Query parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/cat/health.asciidoc">edit</a></h3>
+<h3 class="title"><a id="cat-health-api-query-params"></a>Query parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/cat/health.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="variablelist">
 <dl class="variablelist">
@@ -270,11 +258,11 @@ Defaults to <code class="literal">false</code>.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="cat-health-api-example"></a>Examples<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/cat/health.asciidoc">edit</a></h3>
+<h3 class="title"><a id="cat-health-api-example"></a>Examples<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/cat/health.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="cat-health-api-example-timestamp"></a>Example with a timestamp<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/cat/health.asciidoc">edit</a></h4>
+<h4 class="title"><a id="cat-health-api-example-timestamp"></a>Example with a timestamp<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/cat/health.asciidoc">edit</a></h4>
 </div></div></div>
 <p>By default, the cat health API returns <code class="literal">HH:MM:SS</code> and
 <a href="https://en.wikipedia.org/wiki/Unix_time" class="ulink" target="_top">Unix <code class="literal">epoch</code></a> timestamps. For example:</p>
@@ -282,7 +270,7 @@ Defaults to <code class="literal">false</code>.
 <a id="cat-health-example"></a><div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">GET /_cat/health?v=true</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1807.console"></div>
+<div class="console_widget" data-snippet="snippets/1918.console"></div>
 <p>The API returns the following response:</p>
 <div class="pre_wrapper lang-txt">
 <pre class="programlisting prettyprint lang-txt">epoch      timestamp cluster       status node.total node.data shards pri relo init unassign pending_tasks max_task_wait_time active_shards_percent
@@ -292,14 +280,14 @@ Defaults to <code class="literal">false</code>.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="cat-health-api-example-no-timestamp"></a>Example without a timestamp<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/cat/health.asciidoc">edit</a></h4>
+<h4 class="title"><a id="cat-health-api-example-no-timestamp"></a>Example without a timestamp<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/cat/health.asciidoc">edit</a></h4>
 </div></div></div>
 <p>You can use the <code class="literal">ts</code> (timestamps) parameter to disable timestamps. For example:</p>
 <a id="2c0dbdcf400cde5d36f7c9e6c1101011"></a>
 <a id="cat-health-no-timestamp-example"></a><div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">GET /_cat/health?v=true&amp;ts=false</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1808.console"></div>
+<div class="console_widget" data-snippet="snippets/1919.console"></div>
 <p>The API returns the following response:</p>
 <div class="pre_wrapper lang-txt">
 <pre class="programlisting prettyprint lang-txt">cluster       status node.total node.data shards pri relo init unassign pending_tasks max_task_wait_time active_shards_percent
@@ -309,7 +297,7 @@ elasticsearch green           1         1      1   1    0    0        0         
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="cat-health-api-example-across-nodes"></a>Example across nodes<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/cat/health.asciidoc">edit</a></h4>
+<h4 class="title"><a id="cat-health-api-example-across-nodes"></a>Example across nodes<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/cat/health.asciidoc">edit</a></h4>
 </div></div></div>
 <p>You can use the cat health API to verify the health of a cluster across nodes.
 For example:</p>
@@ -326,7 +314,7 @@ For example:</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="cat-health-api-example-large-cluster"></a>Example with a large cluster<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/cat/health.asciidoc">edit</a></h4>
+<h4 class="title"><a id="cat-health-api-example-large-cluster"></a>Example with a large cluster<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/cat/health.asciidoc">edit</a></h4>
 </div></div></div>
 <p>You can use the cat health API to track the recovery of a large cluster over a
 longer period of time. You can do this by including the cat health API request
@@ -360,15 +348,37 @@ shards remains static, it would indicate an issue with the cluster recovery.</p>
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

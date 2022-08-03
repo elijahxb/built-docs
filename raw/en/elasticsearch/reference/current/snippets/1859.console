@@ -1,1 +1,1 @@
-GET /_nodes/stats?metric=ingest&filter_path=nodes.*.ingest
+POST /my-index-000001/_search?size=surprise_me

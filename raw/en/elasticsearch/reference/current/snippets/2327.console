@@ -1,1 +1,13 @@
-POST _ml/anomaly_detectors/low_request_rate/model_snapshots/1828371/_upgrade?timeout=45m&wait_for_completion=true
+POST _ilm/move/my-index-000001
+{
+  "current_step": {
+    "phase": "new",
+    "action": "complete",
+    "name": "complete"
+  },
+  "next_step": {
+    "phase": "warm",
+    "action": "forcemerge",
+    "name": "forcemerge"
+  }
+}

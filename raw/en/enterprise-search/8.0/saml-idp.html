@@ -19,11 +19,9 @@ will be released for this version. For the latest information, see the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elastic Enterprise Search Documentation [8.0]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Enterprise Search Documentation [8.0]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="users-access.html">Manage users and access to Enterprise Search</a></span>
-»
-<span class="breadcrumb-node">Set up Enterprise Search with SAML 2.0 single sign-on (SSO)</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -54,7 +52,12 @@ See the end of this document for how to apply these instructions to a deployment
 <p>Configure a SAML realm within Elasticsearch for <a class="xref" href="user-interfaces.html#user-interfaces-management-kibana" title="Manage Enterprise Search in Kibana">Enterprise Search in Kibana</a>.</p>
 <p>Add the following configuration to the Elasticsearch <code class="literal">config/elasticsearch.yml</code> file:</p>
 <div class="pre_wrapper lang-yaml">
-<pre class="programlisting prettyprint lang-yaml">xpack.security.authc.token.enabled: true
+<pre class="programlisting prettyprint lang-yaml"># Skip this if you are running an Elastic Cloud deployment
+# Elastic Cloud has token service enabled by default and will not accept the `xpack.security.authc.token.enabled` setting
+xpack.security.authc.token.enabled: true
+
+# Update the `http://localhost:5601` references to the location of your Kibana endpoint
+# See https://www.elastic.co/guide/en/enterprise-search/current/endpoints-ref.html
 xpack.security.authc.realms.saml.kibana-my-saml:
   order: 3
   # Replace with your SAML identity provider's metadata URL

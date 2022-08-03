@@ -1,20 +1,17 @@
-PUT my-index/
+POST _data_stream/_modify
 {
-  "mappings": {
-    "dynamic_templates": [
-      {
-        "geo_point": {
-             "mapping": {
-                "type" : "geo_point"
-             }
-        }
+  "actions": [
+    {
+      "remove_backing_index": {
+        "data_stream": "my-logs",
+        "index": ".ds-my-logs-2099.01.01-000001"
       }
-    ]
-  }
+    },
+    {
+      "add_backing_index": {
+        "data_stream": "my-logs",
+        "index": "index-to-add"
+      }
+    }
+  ]
 }
-
-POST /_bulk
-{ "index" : { "_index" : "my_index", "_id" : "1", "dynamic_templates": {"work_location": "geo_point"}} }
-{ "field" : "value1", "work_location": "41.12,-71.34", "raw_location": "41.12,-71.34"}
-{ "create" : { "_index" : "my_index", "_id" : "2", "dynamic_templates": {"home_location": "geo_point"}} }
-{ "field" : "value2", "home_location": "41.12,-71.34"}

@@ -1,1 +1,1 @@
-GET _snapshot/_status
+POST /_security/service/elastic/fleet-server/credential/token/*/_clear_cache

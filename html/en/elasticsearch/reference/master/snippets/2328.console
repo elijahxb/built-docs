@@ -1,6 +1,11 @@
-POST _ml/filters/safe_domains/_update
+POST /_index_template/_simulate
 {
-  "description": "Updated list of domains",
-  "add_items": ["*.myorg.com"],
-  "remove_items": ["wikipedia.org"]
+  "index_patterns": ["my-index-*"],
+  "composed_of": ["ct2"],
+  "priority": 10,
+  "template": {
+    "settings": {
+      "index.number_of_replicas": 1
+    }
+  }
 }

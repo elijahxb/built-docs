@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,27 +87,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 You are looking at preliminary documentation for a future release.
@@ -116,13 +107,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="xpack-sql.html">SQL</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="xpack-sql.html">SQL</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="sql-functions.html">Functions and Operators</a></span>
-»
-<span class="breadcrumb-node">String Functions</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -134,23 +122,23 @@ Not what you want? See the
 </div>
 <div class="section xpack">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="sql-functions-string"></a>String Functions<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/sql/functions/string.asciidoc">edit</a></h2>
+<h2 class="title"><a id="sql-functions-string"></a>String Functions<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/sql/functions/string.asciidoc">edit</a></h2>
 </div></div></div>
 <p>Functions for performing string manipulation.</p>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="sql-functions-string-ascii"></a><code class="literal">ASCII</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/sql/functions/string.asciidoc">edit</a></h3>
+<h3 class="title"><a id="sql-functions-string-ascii"></a><code class="literal">ASCII</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/sql/functions/string.asciidoc">edit</a></h3>
 </div></div></div>
 <p><strong>Synopsis:</strong></p>
 <div class="pre_wrapper lang-sql">
-<pre class="programlisting prettyprint lang-sql">ASCII(string_exp) <a id="CO433-1"></a><i class="conum" data-value="1"></i></pre>
+<pre class="programlisting prettyprint lang-sql">ASCII(string_exp) <a id="CO435-1"></a><i class="conum" data-value="1"></i></pre>
 </div>
 <p><span class="strong strong"><strong>Input</strong></span>:</p>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO433-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO435-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>string expression. If <code class="literal">null</code>, the function returns <code class="literal">null</code>.</p>
@@ -171,18 +159,18 @@ ASCII('Elastic')
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="sql-functions-string-bit-length"></a><code class="literal">BIT_LENGTH</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/sql/functions/string.asciidoc">edit</a></h3>
+<h3 class="title"><a id="sql-functions-string-bit-length"></a><code class="literal">BIT_LENGTH</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/sql/functions/string.asciidoc">edit</a></h3>
 </div></div></div>
 <p><strong>Synopsis:</strong></p>
 <div class="pre_wrapper lang-sql">
-<pre class="programlisting prettyprint lang-sql">BIT_LENGTH(string_exp) <a id="CO434-1"></a><i class="conum" data-value="1"></i></pre>
+<pre class="programlisting prettyprint lang-sql">BIT_LENGTH(string_exp) <a id="CO436-1"></a><i class="conum" data-value="1"></i></pre>
 </div>
 <p><span class="strong strong"><strong>Input</strong></span>:</p>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO434-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO436-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>string expression. If <code class="literal">null</code>, the function returns <code class="literal">null</code>.</p>
@@ -203,18 +191,18 @@ BIT_LENGTH('Elastic')
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="sql-functions-string-char"></a><code class="literal">CHAR</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/sql/functions/string.asciidoc">edit</a></h3>
+<h3 class="title"><a id="sql-functions-string-char"></a><code class="literal">CHAR</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/sql/functions/string.asciidoc">edit</a></h3>
 </div></div></div>
 <p><strong>Synopsis:</strong></p>
 <div class="pre_wrapper lang-sql">
-<pre class="programlisting prettyprint lang-sql">CHAR(code) <a id="CO435-1"></a><i class="conum" data-value="1"></i></pre>
+<pre class="programlisting prettyprint lang-sql">CHAR(code) <a id="CO437-1"></a><i class="conum" data-value="1"></i></pre>
 </div>
 <p><span class="strong strong"><strong>Input</strong></span>:</p>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO435-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO437-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>integer expression between <code class="literal">0</code> and <code class="literal">255</code>. If <code class="literal">null</code>, negative, or greater
@@ -236,18 +224,18 @@ E</pre>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="sql-functions-string-char-length"></a><code class="literal">CHAR_LENGTH</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/sql/functions/string.asciidoc">edit</a></h3>
+<h3 class="title"><a id="sql-functions-string-char-length"></a><code class="literal">CHAR_LENGTH</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/sql/functions/string.asciidoc">edit</a></h3>
 </div></div></div>
 <p><strong>Synopsis:</strong></p>
 <div class="pre_wrapper lang-sql">
-<pre class="programlisting prettyprint lang-sql">CHAR_LENGTH(string_exp) <a id="CO436-1"></a><i class="conum" data-value="1"></i></pre>
+<pre class="programlisting prettyprint lang-sql">CHAR_LENGTH(string_exp) <a id="CO438-1"></a><i class="conum" data-value="1"></i></pre>
 </div>
 <p><span class="strong strong"><strong>Input</strong></span>:</p>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO436-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO438-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>string expression. If <code class="literal">null</code>, the function returns <code class="literal">null</code>.</p>
@@ -268,20 +256,20 @@ CHAR_LENGTH('Elastic')
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="sql-functions-string-concat"></a><code class="literal">CONCAT</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/sql/functions/string.asciidoc">edit</a></h3>
+<h3 class="title"><a id="sql-functions-string-concat"></a><code class="literal">CONCAT</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/sql/functions/string.asciidoc">edit</a></h3>
 </div></div></div>
 <p><strong>Synopsis:</strong></p>
 <div class="pre_wrapper lang-sql">
 <pre class="programlisting prettyprint lang-sql">CONCAT(
-    string_exp1, <a id="CO437-1"></a><i class="conum" data-value="1"></i>
-    string_exp2) <a id="CO437-2"></a><i class="conum" data-value="2"></i></pre>
+    string_exp1, <a id="CO439-1"></a><i class="conum" data-value="1"></i>
+    string_exp2) <a id="CO439-2"></a><i class="conum" data-value="2"></i></pre>
 </div>
 <p><span class="strong strong"><strong>Input</strong></span>:</p>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO437-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO439-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>string expression. Treats <code class="literal">null</code> as an empty string.</p>
@@ -289,7 +277,7 @@ CHAR_LENGTH('Elastic')
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO437-2"><i class="conum" data-value="2"></i></a></p>
+<p><a href="#CO439-2"><i class="conum" data-value="2"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>string expression. Treats <code class="literal">null</code> as an empty string.</p>
@@ -310,22 +298,22 @@ Elasticsearch SQL</pre>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="sql-functions-string-insert"></a><code class="literal">INSERT</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/sql/functions/string.asciidoc">edit</a></h3>
+<h3 class="title"><a id="sql-functions-string-insert"></a><code class="literal">INSERT</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/sql/functions/string.asciidoc">edit</a></h3>
 </div></div></div>
 <p><strong>Synopsis:</strong></p>
 <div class="pre_wrapper lang-sql">
 <pre class="programlisting prettyprint lang-sql">INSERT(
-    source,      <a id="CO438-1"></a><i class="conum" data-value="1"></i>
-    start,       <a id="CO438-2"></a><i class="conum" data-value="2"></i>
-    length,      <a id="CO438-3"></a><i class="conum" data-value="3"></i>
-    replacement) <a id="CO438-4"></a><i class="conum" data-value="4"></i></pre>
+    source,      <a id="CO440-1"></a><i class="conum" data-value="1"></i>
+    start,       <a id="CO440-2"></a><i class="conum" data-value="2"></i>
+    length,      <a id="CO440-3"></a><i class="conum" data-value="3"></i>
+    replacement) <a id="CO440-4"></a><i class="conum" data-value="4"></i></pre>
 </div>
 <p><span class="strong strong"><strong>Input</strong></span>:</p>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO438-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO440-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>string expression. If <code class="literal">null</code>, the function returns <code class="literal">null</code>.</p>
@@ -333,7 +321,7 @@ Elasticsearch SQL</pre>
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO438-2"><i class="conum" data-value="2"></i></a></p>
+<p><a href="#CO440-2"><i class="conum" data-value="2"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>integer expression. If <code class="literal">null</code>, the function returns <code class="literal">null</code>.</p>
@@ -341,7 +329,7 @@ Elasticsearch SQL</pre>
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO438-3"><i class="conum" data-value="3"></i></a></p>
+<p><a href="#CO440-3"><i class="conum" data-value="3"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>integer expression. If <code class="literal">null</code>, the function returns <code class="literal">null</code>.</p>
@@ -349,7 +337,7 @@ Elasticsearch SQL</pre>
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO438-4"><i class="conum" data-value="4"></i></a></p>
+<p><a href="#CO440-4"><i class="conum" data-value="4"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>string expression. If <code class="literal">null</code>, the function returns <code class="literal">null</code>.</p>
@@ -370,18 +358,18 @@ Elasticsearch</pre>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="sql-functions-string-lcase"></a><code class="literal">LCASE</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/sql/functions/string.asciidoc">edit</a></h3>
+<h3 class="title"><a id="sql-functions-string-lcase"></a><code class="literal">LCASE</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/sql/functions/string.asciidoc">edit</a></h3>
 </div></div></div>
 <p><strong>Synopsis:</strong></p>
 <div class="pre_wrapper lang-sql">
-<pre class="programlisting prettyprint lang-sql">LCASE(string_exp) <a id="CO439-1"></a><i class="conum" data-value="1"></i></pre>
+<pre class="programlisting prettyprint lang-sql">LCASE(string_exp) <a id="CO441-1"></a><i class="conum" data-value="1"></i></pre>
 </div>
 <p><span class="strong strong"><strong>Input</strong></span>:</p>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO439-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO441-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>string expression. If <code class="literal">null</code>, the function returns <code class="literal">null</code>.</p>
@@ -402,20 +390,20 @@ elastic</pre>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="sql-functions-string-left"></a><code class="literal">LEFT</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/sql/functions/string.asciidoc">edit</a></h3>
+<h3 class="title"><a id="sql-functions-string-left"></a><code class="literal">LEFT</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/sql/functions/string.asciidoc">edit</a></h3>
 </div></div></div>
 <p><strong>Synopsis:</strong></p>
 <div class="pre_wrapper lang-sql">
 <pre class="programlisting prettyprint lang-sql">LEFT(
-    string_exp, <a id="CO440-1"></a><i class="conum" data-value="1"></i>
-    count)      <a id="CO440-2"></a><i class="conum" data-value="2"></i></pre>
+    string_exp, <a id="CO442-1"></a><i class="conum" data-value="1"></i>
+    count)      <a id="CO442-2"></a><i class="conum" data-value="2"></i></pre>
 </div>
 <p><span class="strong strong"><strong>Input</strong></span>:</p>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO440-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO442-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>string expression. If <code class="literal">null</code>, the function returns <code class="literal">null</code>.</p>
@@ -423,7 +411,7 @@ elastic</pre>
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO440-2"><i class="conum" data-value="2"></i></a></p>
+<p><a href="#CO442-2"><i class="conum" data-value="2"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>integer expression. If <code class="literal">null</code>, the function returns <code class="literal">null</code>. If <code class="literal">0</code> or
@@ -445,18 +433,18 @@ Ela</pre>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="sql-functions-string-length"></a><code class="literal">LENGTH</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/sql/functions/string.asciidoc">edit</a></h3>
+<h3 class="title"><a id="sql-functions-string-length"></a><code class="literal">LENGTH</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/sql/functions/string.asciidoc">edit</a></h3>
 </div></div></div>
 <p><strong>Synopsis:</strong></p>
 <div class="pre_wrapper lang-sql">
-<pre class="programlisting prettyprint lang-sql">LENGTH(string_exp) <a id="CO441-1"></a><i class="conum" data-value="1"></i></pre>
+<pre class="programlisting prettyprint lang-sql">LENGTH(string_exp) <a id="CO443-1"></a><i class="conum" data-value="1"></i></pre>
 </div>
 <p><span class="strong strong"><strong>Input</strong></span>:</p>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO441-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO443-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>string expression. If <code class="literal">null</code>, the function returns <code class="literal">null</code>.</p>
@@ -477,14 +465,14 @@ LENGTH('Elastic   ')
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="sql-functions-string-locate"></a><code class="literal">LOCATE</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/sql/functions/string.asciidoc">edit</a></h3>
+<h3 class="title"><a id="sql-functions-string-locate"></a><code class="literal">LOCATE</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/sql/functions/string.asciidoc">edit</a></h3>
 </div></div></div>
 <p><strong>Synopsis:</strong></p>
 <div class="pre_wrapper lang-sql">
 <pre class="programlisting prettyprint lang-sql">LOCATE(
-    pattern, <a id="CO442-1"></a><i class="conum" data-value="1"></i>
-    source   <a id="CO442-2"></a><i class="conum" data-value="2"></i>
-    [, start]<a id="CO442-3"></a><i class="conum" data-value="3"></i>
+    pattern, <a id="CO444-1"></a><i class="conum" data-value="1"></i>
+    source   <a id="CO444-2"></a><i class="conum" data-value="2"></i>
+    [, start]<a id="CO444-3"></a><i class="conum" data-value="3"></i>
 )</pre>
 </div>
 <p><span class="strong strong"><strong>Input</strong></span>:</p>
@@ -492,7 +480,7 @@ LENGTH('Elastic   ')
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO442-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO444-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>string expression.  If <code class="literal">null</code>, the function returns <code class="literal">null</code>.</p>
@@ -500,7 +488,7 @@ LENGTH('Elastic   ')
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO442-2"><i class="conum" data-value="2"></i></a></p>
+<p><a href="#CO444-2"><i class="conum" data-value="2"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>string expression.  If <code class="literal">null</code>, the function returns <code class="literal">null</code>.</p>
@@ -508,7 +496,7 @@ LENGTH('Elastic   ')
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO442-3"><i class="conum" data-value="3"></i></a></p>
+<p><a href="#CO444-3"><i class="conum" data-value="3"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>integer expression; optional. If <code class="literal">null</code>, <code class="literal">0</code>, <code class="literal">1</code>, negative, or not
@@ -540,18 +528,18 @@ LOCATE('a', 'Elasticsearch', 5)
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="sql-functions-string-ltrim"></a><code class="literal">LTRIM</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/sql/functions/string.asciidoc">edit</a></h3>
+<h3 class="title"><a id="sql-functions-string-ltrim"></a><code class="literal">LTRIM</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/sql/functions/string.asciidoc">edit</a></h3>
 </div></div></div>
 <p><strong>Synopsis:</strong></p>
 <div class="pre_wrapper lang-sql">
-<pre class="programlisting prettyprint lang-sql">LTRIM(string_exp) <a id="CO443-1"></a><i class="conum" data-value="1"></i></pre>
+<pre class="programlisting prettyprint lang-sql">LTRIM(string_exp) <a id="CO445-1"></a><i class="conum" data-value="1"></i></pre>
 </div>
 <p><span class="strong strong"><strong>Input</strong></span>:</p>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO443-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO445-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>string expression. If <code class="literal">null</code>, the function returns <code class="literal">null</code>.</p>
@@ -572,18 +560,18 @@ Elastic</pre>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="sql-functions-string-octet-length"></a><code class="literal">OCTET_LENGTH</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/sql/functions/string.asciidoc">edit</a></h3>
+<h3 class="title"><a id="sql-functions-string-octet-length"></a><code class="literal">OCTET_LENGTH</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/sql/functions/string.asciidoc">edit</a></h3>
 </div></div></div>
 <p><strong>Synopsis:</strong></p>
 <div class="pre_wrapper lang-sql">
-<pre class="programlisting prettyprint lang-sql">OCTET_LENGTH(string_exp) <a id="CO444-1"></a><i class="conum" data-value="1"></i></pre>
+<pre class="programlisting prettyprint lang-sql">OCTET_LENGTH(string_exp) <a id="CO446-1"></a><i class="conum" data-value="1"></i></pre>
 </div>
 <p><span class="strong strong"><strong>Input</strong></span>:</p>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO444-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO446-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>string expression. If <code class="literal">null</code>, the function returns <code class="literal">null</code>.</p>
@@ -604,98 +592,13 @@ OCTET_LENGTH('Elastic')
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="sql-functions-string-position"></a><code class="literal">POSITION</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/sql/functions/string.asciidoc">edit</a></h3>
+<h3 class="title"><a id="sql-functions-string-position"></a><code class="literal">POSITION</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/sql/functions/string.asciidoc">edit</a></h3>
 </div></div></div>
 <p><strong>Synopsis:</strong></p>
 <div class="pre_wrapper lang-sql">
 <pre class="programlisting prettyprint lang-sql">POSITION(
-    string_exp1, <a id="CO445-1"></a><i class="conum" data-value="1"></i>
-    string_exp2) <a id="CO445-2"></a><i class="conum" data-value="2"></i></pre>
-</div>
-<p><span class="strong strong"><strong>Input</strong></span>:</p>
-<div class="calloutlist">
-<table border="0" summary="Callout list">
-<tr>
-<td align="left" valign="top" width="5%">
-<p><a href="#CO445-1"><i class="conum" data-value="1"></i></a></p>
-</td>
-<td align="left" valign="top">
-<p>string expression. If <code class="literal">null</code>, the function returns <code class="literal">null</code>.</p>
-</td>
-</tr>
-<tr>
-<td align="left" valign="top" width="5%">
-<p><a href="#CO445-2"><i class="conum" data-value="2"></i></a></p>
-</td>
-<td align="left" valign="top">
-<p>string expression. If <code class="literal">null</code>, the function returns <code class="literal">null</code>.</p>
-</td>
-</tr>
-</table>
-</div>
-<p><span class="strong strong"><strong>Output</strong></span>: integer</p>
-<p><span class="strong strong"><strong>Description</strong></span>: Returns the position of the <code class="literal">string_exp1</code> in <code class="literal">string_exp2</code>. The result is an exact numeric.</p>
-<div class="pre_wrapper lang-sql">
-<pre class="programlisting prettyprint lang-sql">SELECT POSITION('Elastic', 'Elasticsearch');
-
-POSITION('Elastic', 'Elasticsearch')
-------------------------------------
-1</pre>
-</div>
-</div>
-
-<div class="section">
-<div class="titlepage"><div><div>
-<h3 class="title"><a id="sql-functions-string-repeat"></a><code class="literal">REPEAT</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/sql/functions/string.asciidoc">edit</a></h3>
-</div></div></div>
-<p><strong>Synopsis:</strong></p>
-<div class="pre_wrapper lang-sql">
-<pre class="programlisting prettyprint lang-sql">REPEAT(
-    string_exp, <a id="CO446-1"></a><i class="conum" data-value="1"></i>
-    count)      <a id="CO446-2"></a><i class="conum" data-value="2"></i></pre>
-</div>
-<p><span class="strong strong"><strong>Input</strong></span>:</p>
-<div class="calloutlist">
-<table border="0" summary="Callout list">
-<tr>
-<td align="left" valign="top" width="5%">
-<p><a href="#CO446-1"><i class="conum" data-value="1"></i></a></p>
-</td>
-<td align="left" valign="top">
-<p>string expression. If <code class="literal">null</code>, the function returns <code class="literal">null</code>.</p>
-</td>
-</tr>
-<tr>
-<td align="left" valign="top" width="5%">
-<p><a href="#CO446-2"><i class="conum" data-value="2"></i></a></p>
-</td>
-<td align="left" valign="top">
-<p>integer expression. If <code class="literal">0</code>, negative, or <code class="literal">null</code>, the function returns <code class="literal">null</code>.</p>
-</td>
-</tr>
-</table>
-</div>
-<p><span class="strong strong"><strong>Output</strong></span>: string</p>
-<p><span class="strong strong"><strong>Description</strong></span>: Returns a character string composed of <code class="literal">string_exp</code> repeated <code class="literal">count</code> times.</p>
-<div class="pre_wrapper lang-sql">
-<pre class="programlisting prettyprint lang-sql">SELECT REPEAT('La', 3);
-
- REPEAT('La', 3)
-----------------
-LaLaLa</pre>
-</div>
-</div>
-
-<div class="section">
-<div class="titlepage"><div><div>
-<h3 class="title"><a id="sql-functions-string-replace"></a><code class="literal">REPLACE</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/sql/functions/string.asciidoc">edit</a></h3>
-</div></div></div>
-<p><strong>Synopsis:</strong></p>
-<div class="pre_wrapper lang-sql">
-<pre class="programlisting prettyprint lang-sql">REPLACE(
-    source,      <a id="CO447-1"></a><i class="conum" data-value="1"></i>
-    pattern,     <a id="CO447-2"></a><i class="conum" data-value="2"></i>
-    replacement) <a id="CO447-3"></a><i class="conum" data-value="3"></i></pre>
+    string_exp1, <a id="CO447-1"></a><i class="conum" data-value="1"></i>
+    string_exp2) <a id="CO447-2"></a><i class="conum" data-value="2"></i></pre>
 </div>
 <p><span class="strong strong"><strong>Input</strong></span>:</p>
 <div class="calloutlist">
@@ -716,9 +619,94 @@ LaLaLa</pre>
 <p>string expression. If <code class="literal">null</code>, the function returns <code class="literal">null</code>.</p>
 </td>
 </tr>
+</table>
+</div>
+<p><span class="strong strong"><strong>Output</strong></span>: integer</p>
+<p><span class="strong strong"><strong>Description</strong></span>: Returns the position of the <code class="literal">string_exp1</code> in <code class="literal">string_exp2</code>. The result is an exact numeric.</p>
+<div class="pre_wrapper lang-sql">
+<pre class="programlisting prettyprint lang-sql">SELECT POSITION('Elastic', 'Elasticsearch');
+
+POSITION('Elastic', 'Elasticsearch')
+------------------------------------
+1</pre>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="sql-functions-string-repeat"></a><code class="literal">REPEAT</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/sql/functions/string.asciidoc">edit</a></h3>
+</div></div></div>
+<p><strong>Synopsis:</strong></p>
+<div class="pre_wrapper lang-sql">
+<pre class="programlisting prettyprint lang-sql">REPEAT(
+    string_exp, <a id="CO448-1"></a><i class="conum" data-value="1"></i>
+    count)      <a id="CO448-2"></a><i class="conum" data-value="2"></i></pre>
+</div>
+<p><span class="strong strong"><strong>Input</strong></span>:</p>
+<div class="calloutlist">
+<table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO447-3"><i class="conum" data-value="3"></i></a></p>
+<p><a href="#CO448-1"><i class="conum" data-value="1"></i></a></p>
+</td>
+<td align="left" valign="top">
+<p>string expression. If <code class="literal">null</code>, the function returns <code class="literal">null</code>.</p>
+</td>
+</tr>
+<tr>
+<td align="left" valign="top" width="5%">
+<p><a href="#CO448-2"><i class="conum" data-value="2"></i></a></p>
+</td>
+<td align="left" valign="top">
+<p>integer expression. If <code class="literal">0</code>, negative, or <code class="literal">null</code>, the function returns <code class="literal">null</code>.</p>
+</td>
+</tr>
+</table>
+</div>
+<p><span class="strong strong"><strong>Output</strong></span>: string</p>
+<p><span class="strong strong"><strong>Description</strong></span>: Returns a character string composed of <code class="literal">string_exp</code> repeated <code class="literal">count</code> times.</p>
+<div class="pre_wrapper lang-sql">
+<pre class="programlisting prettyprint lang-sql">SELECT REPEAT('La', 3);
+
+ REPEAT('La', 3)
+----------------
+LaLaLa</pre>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="sql-functions-string-replace"></a><code class="literal">REPLACE</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/sql/functions/string.asciidoc">edit</a></h3>
+</div></div></div>
+<p><strong>Synopsis:</strong></p>
+<div class="pre_wrapper lang-sql">
+<pre class="programlisting prettyprint lang-sql">REPLACE(
+    source,      <a id="CO449-1"></a><i class="conum" data-value="1"></i>
+    pattern,     <a id="CO449-2"></a><i class="conum" data-value="2"></i>
+    replacement) <a id="CO449-3"></a><i class="conum" data-value="3"></i></pre>
+</div>
+<p><span class="strong strong"><strong>Input</strong></span>:</p>
+<div class="calloutlist">
+<table border="0" summary="Callout list">
+<tr>
+<td align="left" valign="top" width="5%">
+<p><a href="#CO449-1"><i class="conum" data-value="1"></i></a></p>
+</td>
+<td align="left" valign="top">
+<p>string expression. If <code class="literal">null</code>, the function returns <code class="literal">null</code>.</p>
+</td>
+</tr>
+<tr>
+<td align="left" valign="top" width="5%">
+<p><a href="#CO449-2"><i class="conum" data-value="2"></i></a></p>
+</td>
+<td align="left" valign="top">
+<p>string expression. If <code class="literal">null</code>, the function returns <code class="literal">null</code>.</p>
+</td>
+</tr>
+<tr>
+<td align="left" valign="top" width="5%">
+<p><a href="#CO449-3"><i class="conum" data-value="3"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>string expression. If <code class="literal">null</code>, the function returns <code class="literal">null</code>.</p>
@@ -739,20 +727,20 @@ Fantastic</pre>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="sql-functions-string-right"></a><code class="literal">RIGHT</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/sql/functions/string.asciidoc">edit</a></h3>
+<h3 class="title"><a id="sql-functions-string-right"></a><code class="literal">RIGHT</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/sql/functions/string.asciidoc">edit</a></h3>
 </div></div></div>
 <p><strong>Synopsis:</strong></p>
 <div class="pre_wrapper lang-sql">
 <pre class="programlisting prettyprint lang-sql">RIGHT(
-    string_exp, <a id="CO448-1"></a><i class="conum" data-value="1"></i>
-    count)      <a id="CO448-2"></a><i class="conum" data-value="2"></i></pre>
+    string_exp, <a id="CO450-1"></a><i class="conum" data-value="1"></i>
+    count)      <a id="CO450-2"></a><i class="conum" data-value="2"></i></pre>
 </div>
 <p><span class="strong strong"><strong>Input</strong></span>:</p>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO448-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO450-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>string expression. If <code class="literal">null</code>, the function returns <code class="literal">null</code>.</p>
@@ -760,7 +748,7 @@ Fantastic</pre>
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO448-2"><i class="conum" data-value="2"></i></a></p>
+<p><a href="#CO450-2"><i class="conum" data-value="2"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>integer expression. If <code class="literal">null</code>, the function returns <code class="literal">null</code>. If <code class="literal">0</code> or
@@ -782,18 +770,18 @@ tic</pre>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="sql-functions-string-rtrim"></a><code class="literal">RTRIM</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/sql/functions/string.asciidoc">edit</a></h3>
+<h3 class="title"><a id="sql-functions-string-rtrim"></a><code class="literal">RTRIM</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/sql/functions/string.asciidoc">edit</a></h3>
 </div></div></div>
 <p><strong>Synopsis:</strong></p>
 <div class="pre_wrapper lang-sql">
-<pre class="programlisting prettyprint lang-sql">RTRIM(string_exp) <a id="CO449-1"></a><i class="conum" data-value="1"></i></pre>
+<pre class="programlisting prettyprint lang-sql">RTRIM(string_exp) <a id="CO451-1"></a><i class="conum" data-value="1"></i></pre>
 </div>
 <p><span class="strong strong"><strong>Input</strong></span>:</p>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO449-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO451-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>string expression. If <code class="literal">null</code>, the function returns <code class="literal">null</code>.</p>
@@ -814,18 +802,18 @@ Elastic</pre>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="sql-functions-string-space"></a><code class="literal">SPACE</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/sql/functions/string.asciidoc">edit</a></h3>
+<h3 class="title"><a id="sql-functions-string-space"></a><code class="literal">SPACE</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/sql/functions/string.asciidoc">edit</a></h3>
 </div></div></div>
 <p><strong>Synopsis:</strong></p>
 <div class="pre_wrapper lang-sql">
-<pre class="programlisting prettyprint lang-sql">SPACE(count) <a id="CO450-1"></a><i class="conum" data-value="1"></i></pre>
+<pre class="programlisting prettyprint lang-sql">SPACE(count) <a id="CO452-1"></a><i class="conum" data-value="1"></i></pre>
 </div>
 <p><span class="strong strong"><strong>Input</strong></span>:</p>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO450-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO452-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>integer expression. If <code class="literal">null</code> or negative, the function returns <code class="literal">null</code>.</p>
@@ -845,20 +833,20 @@ Elastic</pre>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="sql-functions-string-startswith"></a><code class="literal">STARTS_WITH</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/sql/functions/string.asciidoc">edit</a></h3>
+<h3 class="title"><a id="sql-functions-string-startswith"></a><code class="literal">STARTS_WITH</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/sql/functions/string.asciidoc">edit</a></h3>
 </div></div></div>
 <p><strong>Synopsis:</strong></p>
 <div class="pre_wrapper lang-sql">
 <pre class="programlisting prettyprint lang-sql">STARTS_WITH(
-    source,   <a id="CO451-1"></a><i class="conum" data-value="1"></i>
-    pattern)  <a id="CO451-2"></a><i class="conum" data-value="2"></i></pre>
+    source,   <a id="CO453-1"></a><i class="conum" data-value="1"></i>
+    pattern)  <a id="CO453-2"></a><i class="conum" data-value="2"></i></pre>
 </div>
 <p><span class="strong strong"><strong>Input</strong></span>:</p>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO451-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO453-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>string expression. If <code class="literal">null</code>, the function returns <code class="literal">null</code>.</p>
@@ -866,7 +854,7 @@ Elastic</pre>
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO451-2"><i class="conum" data-value="2"></i></a></p>
+<p><a href="#CO453-2"><i class="conum" data-value="2"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>string expression. If <code class="literal">null</code>, the function returns <code class="literal">null</code>.</p>
@@ -895,21 +883,21 @@ false</pre>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="sql-functions-string-substring"></a><code class="literal">SUBSTRING</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/sql/functions/string.asciidoc">edit</a></h3>
+<h3 class="title"><a id="sql-functions-string-substring"></a><code class="literal">SUBSTRING</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/sql/functions/string.asciidoc">edit</a></h3>
 </div></div></div>
 <p><strong>Synopsis:</strong></p>
 <div class="pre_wrapper lang-sql">
 <pre class="programlisting prettyprint lang-sql">SUBSTRING(
-    source, <a id="CO452-1"></a><i class="conum" data-value="1"></i>
-    start,  <a id="CO452-2"></a><i class="conum" data-value="2"></i>
-    length) <a id="CO452-3"></a><i class="conum" data-value="3"></i></pre>
+    source, <a id="CO454-1"></a><i class="conum" data-value="1"></i>
+    start,  <a id="CO454-2"></a><i class="conum" data-value="2"></i>
+    length) <a id="CO454-3"></a><i class="conum" data-value="3"></i></pre>
 </div>
 <p><span class="strong strong"><strong>Input</strong></span>:</p>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO452-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO454-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>string expression. If <code class="literal">null</code>, the function returns <code class="literal">null</code>.</p>
@@ -917,7 +905,7 @@ false</pre>
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO452-2"><i class="conum" data-value="2"></i></a></p>
+<p><a href="#CO454-2"><i class="conum" data-value="2"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>integer expression. If <code class="literal">null</code>, the function returns <code class="literal">null</code>.</p>
@@ -925,7 +913,7 @@ false</pre>
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO452-3"><i class="conum" data-value="3"></i></a></p>
+<p><a href="#CO454-3"><i class="conum" data-value="3"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>integer expression. If <code class="literal">null</code>, the function returns <code class="literal">null</code>.</p>
@@ -946,18 +934,18 @@ Elastic</pre>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="sql-functions-string-trim"></a><code class="literal">TRIM</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/sql/functions/string.asciidoc">edit</a></h3>
+<h3 class="title"><a id="sql-functions-string-trim"></a><code class="literal">TRIM</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/sql/functions/string.asciidoc">edit</a></h3>
 </div></div></div>
 <p><strong>Synopsis:</strong></p>
 <div class="pre_wrapper lang-sql">
-<pre class="programlisting prettyprint lang-sql">TRIM(string_exp) <a id="CO453-1"></a><i class="conum" data-value="1"></i></pre>
+<pre class="programlisting prettyprint lang-sql">TRIM(string_exp) <a id="CO455-1"></a><i class="conum" data-value="1"></i></pre>
 </div>
 <p><span class="strong strong"><strong>Input</strong></span>:</p>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO453-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO455-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>string expression. If <code class="literal">null</code>, the function returns <code class="literal">null</code>.</p>
@@ -978,18 +966,18 @@ Elastic</pre>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="sql-functions-string-ucase"></a><code class="literal">UCASE</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/sql/functions/string.asciidoc">edit</a></h3>
+<h3 class="title"><a id="sql-functions-string-ucase"></a><code class="literal">UCASE</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/sql/functions/string.asciidoc">edit</a></h3>
 </div></div></div>
 <p><strong>Synopsis:</strong></p>
 <div class="pre_wrapper lang-sql">
-<pre class="programlisting prettyprint lang-sql">UCASE(string_exp) <a id="CO454-1"></a><i class="conum" data-value="1"></i></pre>
+<pre class="programlisting prettyprint lang-sql">UCASE(string_exp) <a id="CO456-1"></a><i class="conum" data-value="1"></i></pre>
 </div>
 <p><span class="strong strong"><strong>Input</strong></span>:</p>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO454-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO456-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>string expression. If <code class="literal">null</code>, the function returns <code class="literal">null</code>.</p>
@@ -1021,15 +1009,37 @@ ELASTIC</pre>
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

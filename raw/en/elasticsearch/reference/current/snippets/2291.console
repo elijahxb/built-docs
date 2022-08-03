@@ -1,1 +1,1 @@
-DELETE _ml/anomaly_detectors/total-requests?wait_for_completion=false
+POST /_index_template/_simulate_index/my-index-000001

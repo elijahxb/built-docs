@@ -11,6 +11,7 @@
 <meta name="DC.type" content="Learn/Docs/Clients/.Net/8.1"/>
 <meta name="DC.subject" content="Clients"/>
 <meta name="DC.identifier" content="8.1"/>
+<meta name="robots" content="noindex,nofollow"/>
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -56,7 +57,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,38 +88,30 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
-                  
+                  <div class="page_header">
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch .NET Client [8.1]</a></span>
-»
-<span class="breadcrumb-link"><a href="nest.html">NEST - High level client</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch .NET Client [8.1]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="nest.html">NEST - High level client</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="search.html">Search</a></span>
-»
-<span class="breadcrumb-node">Writing queries</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -130,14 +123,14 @@
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="writing-queries"></a>Writing queries<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/search/writing-queries.asciidoc">edit</a></h2>
+<h2 class="title"><a id="writing-queries"></a>Writing queries<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/search/writing-queries.asciidoc">edit</a></h2>
 </div></div></div>
 <p>Once you have data indexed within Elasticsearch, you&#8217;re going to want to be able to search it. Elasticsearch
 offers a powerful query DSL to define queries to execute against Elasticsearch. This DSL is based on JSON
 and is exposed in NEST in the form of both a Fluent API and an Object Initializer syntax</p>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_match_all_query"></a>Match All query<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/search/writing-queries.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_match_all_query"></a>Match All query<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/search/writing-queries.asciidoc">edit</a></h3>
 </div></div></div>
 <p>The simplest of queries is the <a href="/guide/en/elasticsearch/reference/master/query-dsl-match-all-query.html" class="ulink" target="_top">match_all</a> query;
 this will return all documents, giving them all a <code class="literal">_score</code> of 1.0</p>
@@ -184,11 +177,11 @@ searchResponse = _client.Search&lt;Project&gt;(searchRequest);</pre>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_search_request_parameters"></a>Search request parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/search/writing-queries.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_search_request_parameters"></a>Search request parameters<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/search/writing-queries.asciidoc">edit</a></h3>
 </div></div></div>
 <p>There are several parameters available on a search request; take a look at the reference section
 on <a class="xref" href="reference-search.html" title="Search">search</a> for more details.</p>
-<h3><a id="_common_queries"></a>Common queries<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/search/writing-queries.asciidoc">edit</a></h3>
+<h3><a id="_common_queries"></a>Common queries<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/search/writing-queries.asciidoc">edit</a></h3>
 <p>By default, documents will be returned in <code class="literal">_score</code> descending order, where the <code class="literal">_score</code> for each hit
 is the relevancy score calculated for how well the document matched the query criteria.</p>
 <p>There are a number of search queries at your disposal, all of which are documented in
@@ -211,7 +204,7 @@ operations that users typically want to perform</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="structured-search"></a>Structured search<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/search/writing-queries.asciidoc">edit</a></h3>
+<h3 class="title"><a id="structured-search"></a>Structured search<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/search/writing-queries.asciidoc">edit</a></h3>
 </div></div></div>
 <p>Structured search is about querying data that has inherent structure. Dates, times and numbers
 are all structured and it is common to want to query against fields of these types to look
@@ -312,7 +305,7 @@ full text search, you should consider indexing it with <a class="xref" href="mul
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="unstructured-search"></a>Unstructured search<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/search/writing-queries.asciidoc">edit</a></h3>
+<h3 class="title"><a id="unstructured-search"></a>Unstructured search<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/search/writing-queries.asciidoc">edit</a></h3>
 </div></div></div>
 <p>Another common use case is to search within full text fields in order to find the most relevant documents.</p>
 <p><a class="xref" href="full-text-queries.html" title="Full text queries">Full text queries</a> are used for unstructured search; here we use the <code class="literal">match</code> query
@@ -354,7 +347,7 @@ index.</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="combining-queries"></a>Combining queries<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/search/writing-queries.asciidoc">edit</a></h3>
+<h3 class="title"><a id="combining-queries"></a>Combining queries<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/search/writing-queries.asciidoc">edit</a></h3>
 </div></div></div>
 <p>An extremely common scenario is to combine separate queries together to form a
 <a class="xref" href="compound-queries.html" title="Compound queries">compound query</a>, the most common of which is the <code class="literal">bool</code> query</p>
@@ -509,7 +502,7 @@ and further examples.</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_search_response"></a>Search response<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/search/writing-queries.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_search_response"></a>Search response<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/search/writing-queries.asciidoc">edit</a></h3>
 </div></div></div>
 <p>The response returned from a search query is an <code class="literal">SearchResponse&lt;T&gt;</code>, where <code class="literal">T</code> is the
 generic parameter type defined in the search method call. There are a fair few properties
@@ -519,7 +512,7 @@ which we&#8217;ll demonstrate below.</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_matching_documents"></a>Matching documents<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/search/writing-queries.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_matching_documents"></a>Matching documents<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/search/writing-queries.asciidoc">edit</a></h3>
 </div></div></div>
 <p>To get the documents in the response that match the search query is easy enough</p>
 <div class="pre_wrapper lang-csharp">
@@ -570,15 +563,37 @@ an example that retrieves the highlights for a hit, when using <a class="xref" h
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

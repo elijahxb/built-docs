@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Delete hosts | Elastic Cloud Enterprise Reference [3.2] | Elastic</title>
+<link rel="home" href="index.html" title="Elastic Cloud Enterprise Reference [3.2]"/>
+<link rel="up" href="ece-administering-ece.html" title="Administering your installation"/>
+<link rel="prev" href="ece-move-nodes.html" title="Move nodes or instances from allocators"/>
+<link rel="next" href="ece-perform-host-maintenance.html" title="Perform host maintenance"/>
+<meta name="DC.type" content="Learn/Docs/CloudEnterprise/Reference/3.2"/>
+<meta name="DC.subject" content="ECE"/>
+<meta name="DC.identifier" content="3.2"/>
+</head>
+<body><div class="page_header">
+A newer version is available. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Cloud Enterprise Reference [3.2]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="ece-administering-ece.html">Administering your installation</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="ece-move-nodes.html">« Move nodes or instances from allocators</a>
+</span>
+<span class="next">
+<a href="ece-perform-host-maintenance.html">Perform host maintenance »</a>
+</span>
+</div>
+<div class="chapter">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="ece-delete-runner"></a>Delete hosts<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/cloud-enterprise/ce-administering-ece.asciidoc">edit</a></h2>
+</div></div></div>
+<p>You might need to delete hosts for several reasons:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+To remove some resources from your Elastic Cloud Enterprise installation if they are no longer required.
+</li>
+<li class="listitem">
+To remove a faulty host from the Cloud UI so that it is no longer part of your Elastic Cloud Enterprise installation.
+</li>
+</ul>
+</div>
+<p>Deleting a host only removes the host from your installation, it does not <a class="xref" href="ece-uninstall.html" title="Remove Elastic Cloud Enterprise">remove the Elastic Cloud Enterprise software from the host</a>. After the host has been deleted, you can repurpose or troubleshoot the physical host on which the Elastic Cloud Enterprise host was located.</p>
+<p>To delete hosts:</p>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+<a class="xref" href="ece-login.html" title="Log into the Cloud UI">Log into the Cloud UI</a>.
+</li>
+<li class="listitem">
+<p>From the <span class="strong strong"><strong>Platform</strong></span> menu, select <span class="strong strong"><strong>Hosts</strong></span>.</p>
+<p>Narrow the list by name, ID, or choose from several other filters. To further define the list, use a combination of filters.</p>
+</li>
+<li class="listitem">
+<p>For hosts that hold the allocator role:</p>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+<a class="xref" href="ece-maintenance-mode.html" title="Enable maintenance mode">Enable maintenance mode</a> on the allocator.
+</li>
+<li class="listitem">
+<a class="xref" href="ece-move-nodes.html" title="Move nodes or instances from allocators">Move all nodes off the allocator</a> and to other allocators in your installation.
+</li>
+</ol>
+</div>
+</li>
+<li class="listitem">
+Go to <span class="strong strong"><strong>Hosts</strong></span> and select a host.
+</li>
+<li class="listitem">
+Select <span class="strong strong"><strong>Manage roles</strong></span> from the <span class="strong strong"><strong>Manage host</strong></span> menu and remove all assigned roles.
+</li>
+<li class="listitem">
+Select <span class="strong strong"><strong>Demote host</strong></span> from the <span class="strong strong"><strong>Manage host</strong></span> menu if present. If the <span class="strong strong"><strong>Delete host</strong></span> option is already enabled, skip this step.
+</li>
+<li class="listitem">
+Remove <em>all running</em> containers from the host, starting from the container with name <code class="literal">frc-runners-runner</code>. Then remove the storage directory (the default <code class="literal">/mnt/data/elastic/</code>). You can use the recommended <a class="xref" href="ece-uninstall.html" title="Remove Elastic Cloud Enterprise">cleanup command</a>.
+</li>
+<li class="listitem">
+Select <span class="strong strong"><strong>Delete host</strong></span> and confirm.
+</li>
+</ol>
+</div>
+<div class="tip admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>Refresh the page if the button isn&#8217;t active.</p>
+</div>
+</div>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="ece-move-nodes.html">« Move nodes or instances from allocators</a>
+</span>
+<span class="next">
+<a href="ece-perform-host-maintenance.html">Perform host maintenance »</a>
+</span>
+</div>
+</div>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains('stemblock')) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+</body>
+</html>

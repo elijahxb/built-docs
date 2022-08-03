@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,27 +87,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 You are looking at preliminary documentation for a future release.
@@ -116,11 +107,9 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Painless Scripting Language [master]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Painless Scripting Language [master]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="painless-guide.html">Painless Guide</a></span>
-»
-<span class="breadcrumb-node">Painless execute API</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -132,7 +121,7 @@ Not what you want? See the
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="painless-execute-api"></a>Painless execute API<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/painless/painless-guide/painless-execute-script.asciidoc">edit</a></h2>
+<h2 class="title"><a id="painless-execute-api"></a>Painless execute API<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/painless/painless-guide/painless-execute-script.asciidoc">edit</a></h2>
 </div></div></div>
 <div class="warning admon">
 <div class="icon"></div>
@@ -143,14 +132,14 @@ Not what you want? See the
 <p>The Painless execute API runs a script and returns a result.</p>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="painless-execute-api-request"></a>Request<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/painless/painless-guide/painless-execute-script.asciidoc">edit</a></h3>
+<h3 class="title"><a id="painless-execute-api-request"></a>Request<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/painless/painless-guide/painless-execute-script.asciidoc">edit</a></h3>
 </div></div></div>
 <p><code class="literal">POST /_scripts/painless/_execute</code></p>
 </div>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="painless-execute-api-desc"></a>Description<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/painless/painless-guide/painless-execute-script.asciidoc">edit</a></h3>
+<h3 class="title"><a id="painless-execute-api-desc"></a>Description<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/painless/painless-guide/painless-execute-script.asciidoc">edit</a></h3>
 </div></div></div>
 <p>Use this API to build and test scripts, such as when defining a script for a
 <a href="/guide/en/elasticsearch/reference/master/runtime.html" class="ulink" target="_top">runtime field</a>. This API requires very few dependencies, and is
@@ -163,7 +152,7 @@ you&#8217;re using for that script.</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="painless-execute-api-request-body"></a>Request body<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/painless/painless-guide/painless-execute-script.asciidoc">edit</a></h3>
+<h3 class="title"><a id="painless-execute-api-request-body"></a>Request body<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/painless/painless-guide/painless-execute-script.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="variablelist">
 <dl class="variablelist">
@@ -257,7 +246,7 @@ method if the referenced fields do not have any values.</p>
 </td>
 <td valign="top">
 <p>
-<code class="literal">emit(double lat, double long)</code>
+<code class="literal">emit(double lat, double lon)</code>
 </p>
 </td>
 </tr>
@@ -408,8 +397,9 @@ sorted list of <code class="literal">double</code> values. See
 </span>
 </dt>
 <dd>
-The context for <a href="/guide/en/elasticsearch/reference/master/geo-point.html" class="ulink" target="_top"><code class="literal">geo-point</code> fields</a>. <code class="literal">emit</code> takes a
-<code class="literal">geo-point</code> value and the script returns coordinates for the geo point. See
+The context for <a href="/guide/en/elasticsearch/reference/master/geo-point.html" class="ulink" target="_top"><code class="literal">geo-point</code> fields</a>. <code class="literal">emit</code> takes two double
+parameters, the latitude and longitude values, and the script returns an object in
+GeoJSON format containing the coordinates for the geo point. See
 <a class="xref" href="painless-execute-api.html#painless-runtime-geo" title="geo_point_field">geo_point_field context</a>.
 </dd>
 <dt>
@@ -539,7 +529,7 @@ relevance score in the <code class="literal">_score</code> metadata field.</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="painless-execute-test"></a>Test context<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/painless/painless-guide/painless-execute-script.asciidoc">edit</a></h3>
+<h3 class="title"><a id="painless-execute-test"></a>Test context<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/painless/painless-guide/painless-execute-script.asciidoc">edit</a></h3>
 </div></div></div>
 <p>The <code class="literal">painless_test</code> context runs scripts without additional parameters. The only
 variable that is available is <code class="literal">params</code>, which can be used to access user defined
@@ -548,7 +538,7 @@ values. The result of the script is always converted to a string.</p>
 <code class="literal">context</code> or <code class="literal">context_setup</code>.</p>
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="_request"></a>Request<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/painless/painless-guide/painless-execute-script.asciidoc">edit</a></h4>
+<h4 class="title"><a id="_request"></a>Request<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/painless/painless-guide/painless-execute-script.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">POST /_scripts/painless/_execute
@@ -567,7 +557,7 @@ values. The result of the script is always converted to a string.</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="_response"></a>Response<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/painless/painless-guide/painless-execute-script.asciidoc">edit</a></h4>
+<h4 class="title"><a id="_response"></a>Response<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/painless/painless-guide/painless-execute-script.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="pre_wrapper lang-console-result">
 <pre class="programlisting prettyprint lang-console-result">{
@@ -580,7 +570,7 @@ values. The result of the script is always converted to a string.</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="painless-execute-filter-context"></a>Filter context<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/painless/painless-guide/painless-execute-script.asciidoc">edit</a></h3>
+<h3 class="title"><a id="painless-execute-filter-context"></a>Filter context<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/painless/painless-guide/painless-execute-script.asciidoc">edit</a></h3>
 </div></div></div>
 <p>The <code class="literal">filter</code> context treats scripts as if they were run inside a <code class="literal">script</code> query.
 For testing purposes, a document must be provided so that it will be temporarily
@@ -589,7 +579,7 @@ indexed in-memory and is accessible from the script. More precisely, the
 script being tested.</p>
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="_request_2"></a>Request<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/painless/painless-guide/painless-execute-script.asciidoc">edit</a></h4>
+<h4 class="title"><a id="_request_2"></a>Request<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/painless/painless-guide/painless-execute-script.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">PUT /my-index-000001
@@ -627,7 +617,7 @@ script being tested.</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="_response_2"></a>Response<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/painless/painless-guide/painless-execute-script.asciidoc">edit</a></h4>
+<h4 class="title"><a id="_response_2"></a>Response<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/painless/painless-guide/painless-execute-script.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="pre_wrapper lang-console-result">
 <pre class="programlisting prettyprint lang-console-result">{
@@ -640,13 +630,13 @@ script being tested.</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="painless-execute-core-context"></a>Score context<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/painless/painless-guide/painless-execute-script.asciidoc">edit</a></h3>
+<h3 class="title"><a id="painless-execute-core-context"></a>Score context<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/painless/painless-guide/painless-execute-script.asciidoc">edit</a></h3>
 </div></div></div>
 <p>The <code class="literal">score</code> context treats scripts as if they were run inside a <code class="literal">script_score</code>
 function in a <code class="literal">function_score</code> query.</p>
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="_request_3"></a>Request<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/painless/painless-guide/painless-execute-script.asciidoc">edit</a></h4>
+<h4 class="title"><a id="_request_3"></a>Request<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/painless/painless-guide/painless-execute-script.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">PUT /my-index-000001
@@ -687,7 +677,7 @@ function in a <code class="literal">function_score</code> query.</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="_response_3"></a>Response<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/painless/painless-guide/painless-execute-script.asciidoc">edit</a></h4>
+<h4 class="title"><a id="_response_3"></a>Response<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/painless/painless-guide/painless-execute-script.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="pre_wrapper lang-console-result">
 <pre class="programlisting prettyprint lang-console-result">{
@@ -700,7 +690,7 @@ function in a <code class="literal">function_score</code> query.</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="painless-execute-runtime-field-context"></a>Field contexts<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/painless/painless-guide/painless-execute-script.asciidoc">edit</a></h3>
+<h3 class="title"><a id="painless-execute-runtime-field-context"></a>Field contexts<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/painless/painless-guide/painless-execute-script.asciidoc">edit</a></h3>
 </div></div></div>
 <p>The field contexts treat scripts as if they were run inside the
 <a href="/guide/en/elasticsearch/reference/master/runtime-search-request.html" class="ulink" target="_top"><code class="literal">runtime_mappings</code> section</a> of a search query.
@@ -709,7 +699,7 @@ include those scripts anywhere that they&#8217;re supported, such as  <a class="
 <p>Choose a field context based on the data type you want to return.</p>
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="painless-runtime-boolean"></a><code class="literal">boolean_field</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/painless/painless-guide/painless-execute-script.asciidoc">edit</a></h4>
+<h4 class="title"><a id="painless-runtime-boolean"></a><code class="literal">boolean_field</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/painless/painless-guide/painless-execute-script.asciidoc">edit</a></h4>
 </div></div></div>
 <p>Use the <code class="literal">boolean_field</code> field context when you want to return a <code class="literal">true</code>
 or <code class="literal">false</code> value from a script valuation. <a href="/guide/en/elasticsearch/reference/master/boolean.html" class="ulink" target="_top">Boolean fields</a>
@@ -811,7 +801,7 @@ valuation:</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="painless-runtime-datetime"></a><code class="literal">date_time</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/painless/painless-guide/painless-execute-script.asciidoc">edit</a></h4>
+<h4 class="title"><a id="painless-runtime-datetime"></a><code class="literal">date_time</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/painless/painless-guide/painless-execute-script.asciidoc">edit</a></h4>
 </div></div></div>
 <p>Several options are available for using
 <a class="xref" href="painless-datetime.html" title="Using Datetime in Painless">using datetime in Painless</a>. In this example, you&#8217;ll
@@ -922,7 +912,7 @@ year is pretty impressive!</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="painless-runtime-double"></a><code class="literal">double_field</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/painless/painless-guide/painless-execute-script.asciidoc">edit</a></h4>
+<h4 class="title"><a id="painless-runtime-double"></a><code class="literal">double_field</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/painless/painless-guide/painless-execute-script.asciidoc">edit</a></h4>
 </div></div></div>
 <p>Use the <code class="literal">double_field</code> context for <a href="/guide/en/elasticsearch/reference/master/number.html" class="ulink" target="_top">numeric data</a> of type
 <code class="literal">double</code>. For example, let&#8217;s say you have sensor data that includes a <code class="literal">voltage</code>
@@ -998,7 +988,7 @@ the original value of <code class="literal">5.6</code> by <code class="literal">
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="painless-runtime-geo"></a><code class="literal">geo_point_field</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/painless/painless-guide/painless-execute-script.asciidoc">edit</a></h4>
+<h4 class="title"><a id="painless-runtime-geo"></a><code class="literal">geo_point_field</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/painless/painless-guide/painless-execute-script.asciidoc">edit</a></h4>
 </div></div></div>
 <p><a href="/guide/en/elasticsearch/reference/master/geo-point.html" class="ulink" target="_top">Geo-point</a> fields accept latitude-longitude pairs. You can
 define a geo-point field in several ways, and include values for latitude and
@@ -1013,7 +1003,7 @@ positions of <code class="literal">lat</code> and <code class="literal">lon</cod
       "lat": {
         "type": "double"
       },
-     "lon": {
+      "lon": {
         "type": "double"
       }
     }
@@ -1022,7 +1012,7 @@ positions of <code class="literal">lat</code> and <code class="literal">lon</cod
 </div>
 <div class="console_widget" data-snippet="snippets/36.console"></div>
 <p>You can then use the <code class="literal">geo_point_field</code> runtime field context to write a script
-that retrieves the <code class="literal">lat</code> and <code class="literal">long</code> values.</p>
+that retrieves the <code class="literal">lat</code> and <code class="literal">lon</code> values.</p>
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">POST /_scripts/painless/_execute
 {
@@ -1042,26 +1032,33 @@ that retrieves the <code class="literal">lat</code> and <code class="literal">lo
 }</pre>
 </div>
 <div class="console_widget" data-snippet="snippets/37.console"></div>
-<p>Because this you&#8217;re working with a geo-point field type, the response includes
+<p>Because you&#8217;re working with a geo-point field type, the response includes
 results that are formatted as <code class="literal">coordinates</code>.</p>
 <div class="pre_wrapper lang-console-result">
 <pre class="programlisting prettyprint lang-console-result">{
   "result" : [
     {
       "coordinates" : [
-        -71.34000004269183,
-        41.1199999647215
+        -71.34,
+        41.12
       ],
       "type" : "Point"
     }
   ]
 }</pre>
 </div>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>The emit function for <a href="/guide/en/elasticsearch/reference/master/geo-point.html" class="ulink" target="_top">geo-point</a> fields takes two parameters ordered with
+<code class="literal">lat</code> before <code class="literal">lon</code>, but the output GeoJSON format orders the <code class="literal">coordinates</code> as <code class="literal">[ lon, lat ]</code>.</p>
+</div>
+</div>
 </div>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="painless-runtime-ip"></a><code class="literal">ip_field</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/painless/painless-guide/painless-execute-script.asciidoc">edit</a></h4>
+<h4 class="title"><a id="painless-runtime-ip"></a><code class="literal">ip_field</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/painless/painless-guide/painless-execute-script.asciidoc">edit</a></h4>
 </div></div></div>
 <p>The <code class="literal">ip_field</code> context is useful for data that includes IP addresses of type
 <a href="/guide/en/elasticsearch/reference/master/ip.html" class="ulink" target="_top"><code class="literal">ip</code></a>. For example, let&#8217;s say you have a <code class="literal">message</code> field from an Apache
@@ -1119,7 +1116,7 @@ value matching the IP address. If the pattern doesn’t match
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="painless-runtime-keyword"></a><code class="literal">keyword_field</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/painless/painless-guide/painless-execute-script.asciidoc">edit</a></h4>
+<h4 class="title"><a id="painless-runtime-keyword"></a><code class="literal">keyword_field</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/painless/painless-guide/painless-execute-script.asciidoc">edit</a></h4>
 </div></div></div>
 <p><a href="/guide/en/elasticsearch/reference/master/keyword.html" class="ulink" target="_top">Keyword fields</a> are often used in sorting, aggregations, and
 term-level queries.</p>
@@ -1172,7 +1169,7 @@ calculate and return the day of the week:</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="painless-runtime-long"></a><code class="literal">long_field</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/painless/painless-guide/painless-execute-script.asciidoc">edit</a></h4>
+<h4 class="title"><a id="painless-runtime-long"></a><code class="literal">long_field</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/painless/painless-guide/painless-execute-script.asciidoc">edit</a></h4>
 </div></div></div>
 <p>Let&#8217;s say you have sensor data that a <code class="literal">measures</code> object. This object includes
 a <code class="literal">start</code> and <code class="literal">end</code> field, and you want to calculate the difference between
@@ -1236,7 +1233,7 @@ field from the <code class="literal">measures</code> object and subtracts it fro
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="painless-runtime-composite"></a><code class="literal">composite_field</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/painless/painless-guide/painless-execute-script.asciidoc">edit</a></h4>
+<h4 class="title"><a id="painless-runtime-composite"></a><code class="literal">composite_field</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/painless/painless-guide/painless-execute-script.asciidoc">edit</a></h4>
 </div></div></div>
 <p>Let&#8217;s say you have logging data with a raw <code class="literal">message</code> field which you want to split
 in multiple sub-fields that can be accessed separately.</p>
@@ -1324,15 +1321,37 @@ the grok function:</p>
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

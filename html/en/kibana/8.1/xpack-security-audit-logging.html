@@ -13,6 +13,7 @@
 <meta name="DC.type" content="Learn/Docs/Kibana/Reference/8.1"/>
 <meta name="DC.subject" content="Kibana"/>
 <meta name="DC.identifier" content="8.1"/>
+<meta name="robots" content="noindex,nofollow"/>
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -58,7 +59,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -89,38 +90,30 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
-                  
+                  <div class="page_header">
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Kibana Guide [8.1]</a></span>
-»
-<span class="breadcrumb-link"><a href="setup.html">Set up</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Kibana Guide [8.1]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="setup.html">Set up</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="using-kibana-with-security.html">Configure security in Kibana</a></span>
-»
-<span class="breadcrumb-node">Audit logs</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -132,7 +125,7 @@
 </div>
 <div class="section xpack">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="xpack-security-audit-logging"></a>Audit logs<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/user/security/audit-logging.asciidoc">edit</a></h2>
+<h2 class="title"><a id="xpack-security-audit-logging"></a>Audit logs<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/user/security/audit-logging.asciidoc">edit</a></h2>
 </div></div></div>
 <p>Audit logging is a <a href="/subscriptions" class="ulink" target="_top">subscription feature</a> that you can enable to keep track of security-related events,
 such as authorization success and failures. Logging these events enables you to monitor Kibana for suspicious activity and provides evidence
@@ -146,13 +139,14 @@ Elasticsearch, refer to <a href="/guide/en/elasticsearch/reference/8.1/auditing.
 <div class="icon"></div>
 <div class="admon_content">
 <p>Audit logs are <span class="strong strong"><strong>disabled</strong></span> by default. To enable this functionality, you must
-set <code class="literal">xpack.security.audit.enabled</code> to <code class="literal">true</code> in <code class="literal">kibana.yml</code>, and optionally configure
-an <a class="xref" href="security-settings-kb.html#audit-logging-settings" title="Audit logging settings">appender</a> to write the audit log to a location of your choosing.</p>
+set <code class="literal">xpack.security.audit.enabled</code> to <code class="literal">true</code> in <code class="literal">kibana.yml</code>.</p>
+<p>You can optionally configure audit logs location, file/rolling file appenders and
+ignore filters using <a class="xref" href="security-settings-kb.html#audit-logging-settings" title="Audit logging settings">Audit logging settings</a>.</p>
 </div>
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="xpack-security-ecs-audit-logging"></a>Audit events<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/user/security/audit-logging.asciidoc">edit</a></h3>
+<h3 class="title"><a id="xpack-security-ecs-audit-logging"></a>Audit events<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/user/security/audit-logging.asciidoc">edit</a></h3>
 </div></div></div>
 <p>Refer to the table of events that can be logged for auditing purposes.</p>
 <p>Each event is broken down into <a class="xref" href="xpack-security-audit-logging.html#field-event-category">category</a>, <a class="xref" href="xpack-security-audit-logging.html#field-event-type">type</a>, <a class="xref" href="xpack-security-audit-logging.html#field-event-action">action</a> and
@@ -180,7 +174,7 @@ Refer to the corresponding Elasticsearch logs for potential write errors.</p>
 <td align="left" colspan="3" valign="top">
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="_category_authentication"></a>Category: authentication<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/user/security/audit-logging.asciidoc">edit</a></h4>
+<h4 class="title"><a id="_category_authentication"></a>Category: authentication<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/user/security/audit-logging.asciidoc">edit</a></h4>
 </div></div></div>
 
 </div>
@@ -220,11 +214,11 @@ Refer to the corresponding Elasticsearch logs for potential write errors.</p>
 <td align="left" colspan="3" valign="top">
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="_category_database"></a>Category: database<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/user/security/audit-logging.asciidoc">edit</a></h4>
+<h4 class="title"><a id="_category_database"></a>Category: database<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/user/security/audit-logging.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h5 class="title"><a id="_type_creation"></a>Type: creation<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/user/security/audit-logging.asciidoc">edit</a></h5>
+<h5 class="title"><a id="_type_creation"></a>Type: creation<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/user/security/audit-logging.asciidoc">edit</a></h5>
 </div></div></div>
 
 </div>
@@ -287,7 +281,7 @@ Refer to the corresponding Elasticsearch logs for potential write errors.</p>
 <td align="left" colspan="3" valign="top">
 <div class="section">
 <div class="titlepage"><div><div>
-<h5 class="title"><a id="_type_change"></a>Type: change<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/user/security/audit-logging.asciidoc">edit</a></h5>
+<h5 class="title"><a id="_type_change"></a>Type: change<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/user/security/audit-logging.asciidoc">edit</a></h5>
 </div></div></div>
 
 </div>
@@ -438,7 +432,7 @@ Refer to the corresponding Elasticsearch logs for potential write errors.</p>
 <td align="left" colspan="3" valign="top">
 <div class="section">
 <div class="titlepage"><div><div>
-<h5 class="title"><a id="_type_deletion"></a>Type: deletion<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/user/security/audit-logging.asciidoc">edit</a></h5>
+<h5 class="title"><a id="_type_deletion"></a>Type: deletion<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/user/security/audit-logging.asciidoc">edit</a></h5>
 </div></div></div>
 
 </div>
@@ -499,7 +493,7 @@ Refer to the corresponding Elasticsearch logs for potential write errors.</p>
 <td align="left" colspan="3" valign="top">
 <div class="section">
 <div class="titlepage"><div><div>
-<h5 class="title"><a id="_type_access"></a>Type: access<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/user/security/audit-logging.asciidoc">edit</a></h5>
+<h5 class="title"><a id="_type_access"></a>Type: access<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/user/security/audit-logging.asciidoc">edit</a></h5>
 </div></div></div>
 
 </div>
@@ -614,7 +608,7 @@ Refer to the corresponding Elasticsearch logs for potential write errors.</p>
 <td align="left" colspan="3" valign="top">
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="_category_web"></a>Category: web<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/user/security/audit-logging.asciidoc">edit</a></h4>
+<h4 class="title"><a id="_category_web"></a>Category: web<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/user/security/audit-logging.asciidoc">edit</a></h4>
 </div></div></div>
 
 </div>
@@ -638,7 +632,7 @@ Refer to the corresponding Elasticsearch logs for potential write errors.</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="xpack-security-ecs-audit-schema"></a>Audit schema<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/user/security/audit-logging.asciidoc">edit</a></h3>
+<h3 class="title"><a id="xpack-security-ecs-audit-schema"></a>Audit schema<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/user/security/audit-logging.asciidoc">edit</a></h3>
 </div></div></div>
 <p>Audit logs are written in JSON using <a href="/guide/en/ecs/1.6/index.html" class="ulink" target="_top">Elastic Common Schema (ECS)</a> specification.</p>
 <div class="informaltable">
@@ -652,7 +646,7 @@ Refer to the corresponding Elasticsearch logs for potential write errors.</p>
 <td align="left" colspan="2" valign="top">
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="_base_fields"></a>Base Fields<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/user/security/audit-logging.asciidoc">edit</a></h4>
+<h4 class="title"><a id="_base_fields"></a>Base Fields<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/user/security/audit-logging.asciidoc">edit</a></h4>
 </div></div></div>
 
 </div>
@@ -676,7 +670,7 @@ Refer to the corresponding Elasticsearch logs for potential write errors.</p>
 <td align="left" colspan="2" valign="top">
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="_event_fields"></a>Event Fields<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/user/security/audit-logging.asciidoc">edit</a></h4>
+<h4 class="title"><a id="_event_fields"></a>Event Fields<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/user/security/audit-logging.asciidoc">edit</a></h4>
 </div></div></div>
 
 </div>
@@ -723,7 +717,7 @@ Refer to the corresponding Elasticsearch logs for potential write errors.</p>
 <td align="left" colspan="2" valign="top">
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="_user_fields"></a>User Fields<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/user/security/audit-logging.asciidoc">edit</a></h4>
+<h4 class="title"><a id="_user_fields"></a>User Fields<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/user/security/audit-logging.asciidoc">edit</a></h4>
 </div></div></div>
 
 </div>
@@ -748,7 +742,7 @@ Refer to the corresponding Elasticsearch logs for potential write errors.</p>
 <td align="left" colspan="2" valign="top">
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="_kibana_fields"></a>Kibana Fields<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/user/security/audit-logging.asciidoc">edit</a></h4>
+<h4 class="title"><a id="_kibana_fields"></a>Kibana Fields<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/user/security/audit-logging.asciidoc">edit</a></h4>
 </div></div></div>
 
 </div>
@@ -812,7 +806,7 @@ Refer to the corresponding Elasticsearch logs for potential write errors.</p>
 <td align="left" colspan="2" valign="top">
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="_error_fields"></a>Error Fields<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/user/security/audit-logging.asciidoc">edit</a></h4>
+<h4 class="title"><a id="_error_fields"></a>Error Fields<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/user/security/audit-logging.asciidoc">edit</a></h4>
 </div></div></div>
 
 </div>
@@ -835,7 +829,7 @@ Refer to the corresponding Elasticsearch logs for potential write errors.</p>
 <td align="left" colspan="2" valign="top">
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="_http_and_url_fields"></a>HTTP and URL Fields<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/user/security/audit-logging.asciidoc">edit</a></h4>
+<h4 class="title"><a id="_http_and_url_fields"></a>HTTP and URL Fields<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/user/security/audit-logging.asciidoc">edit</a></h4>
 </div></div></div>
 
 </div>
@@ -880,7 +874,7 @@ Refer to the corresponding Elasticsearch logs for potential write errors.</p>
 <td align="left" colspan="2" valign="top">
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="_tracing_fields"></a>Tracing Fields<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/user/security/audit-logging.asciidoc">edit</a></h4>
+<h4 class="title"><a id="_tracing_fields"></a>Tracing Fields<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/user/security/audit-logging.asciidoc">edit</a></h4>
 </div></div></div>
 
 </div>
@@ -902,7 +896,7 @@ Refer to the corresponding Elasticsearch logs for potential write errors.</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="xpack-security-ecs-audit-correlation"></a>Correlating audit events<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/user/security/audit-logging.asciidoc">edit</a></h3>
+<h3 class="title"><a id="xpack-security-ecs-audit-correlation"></a>Correlating audit events<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/user/security/audit-logging.asciidoc">edit</a></h3>
 </div></div></div>
 <p>Audit events can be correlated in two ways:</p>
 <div class="olist orderedlist">
@@ -924,7 +918,7 @@ calls that create Elasticsearch audit events.
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="_example_1_correlating_multiple_kibana_audit_events"></a>Example 1: correlating multiple Kibana audit events<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/user/security/audit-logging.asciidoc">edit</a></h4>
+<h4 class="title"><a id="_example_1_correlating_multiple_kibana_audit_events"></a>Example 1: correlating multiple Kibana audit events<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/user/security/audit-logging.asciidoc">edit</a></h4>
 </div></div></div>
 <p>When "thom" creates a new alerting rule, five audit events are written:</p>
 <div class="pre_wrapper lang-json">
@@ -940,7 +934,7 @@ next audit events are checks to validate the space and the connectors, and the l
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="_example_2_correlating_a_kibana_audit_event_with_elasticsearch_audit_events"></a>Example 2: correlating a Kibana audit event with Elasticsearch audit events<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/user/security/audit-logging.asciidoc">edit</a></h4>
+<h4 class="title"><a id="_example_2_correlating_a_kibana_audit_event_with_elasticsearch_audit_events"></a>Example 2: correlating a Kibana audit event with Elasticsearch audit events<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/user/security/audit-logging.asciidoc">edit</a></h4>
 </div></div></div>
 <p>When "thom" logs in, a "user_login" Kibana audit event is written:</p>
 <div class="pre_wrapper lang-json">
@@ -973,15 +967,37 @@ next audit events are checks to validate the space and the connectors, and the l
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

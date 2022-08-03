@@ -13,17 +13,15 @@
 <meta name="robots" content="noindex,nofollow"/>
 </head>
 <body><div class="page_header">
-You are looking at preliminary documentation for a future release.
-Not what you want? See the
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
 <a href="../current/index.html">current release documentation</a>.
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Logstash Reference [8.2]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Logstash Reference [8.2]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="setup-logstash.html">Setting Up and Running Logstash</a></span>
-»
-<span class="breadcrumb-node">Logstash Configuration Files</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -91,20 +89,6 @@ considered expert settings.
 </dt>
 <dd>
 Contains default settings for <code class="literal">log4j 2</code> library. See <a class="xref" href="logging.html#log4j2" title="Log4j2 configuration">Log4j2 configuration</a> for more info.
-</dd>
-<dt>
-<span class="term">
-<span class="strong strong"><strong><code class="literal">startup.options</code> (Linux)</strong></span>
-</span>
-</dt>
-<dd>
-Contains options used by the <code class="literal">system-install</code> script in <code class="literal">/usr/share/logstash/bin</code> to build the appropriate startup
-script for your system. When you install the Logstash package, the <code class="literal">system-install</code> script executes at the end of the
-installation process and uses the settings specified in <code class="literal">startup.options</code> to set options such as the user, group,
-service name, and service description. By default, Logstash services are installed under the user <code class="literal">logstash</code>. The <code class="literal">startup.options</code> file makes it easier for you to install multiple instances of the Logstash service. You can copy
-the file and change the values for specific settings. Note that the <code class="literal">startup.options</code> file is not read at startup. If
-you want to change the Logstash startup script (for example, to change the Logstash user or read from a different
-configuration path), you must re-run the <code class="literal">system-install</code> script (as root) to pass in the new settings.
 </dd>
 </dl>
 </div>

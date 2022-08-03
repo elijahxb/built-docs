@@ -1,1 +1,1 @@
-$ curl -X GET api/alerts/_find?fields=id&fields=name
+GET api/alerting/_health

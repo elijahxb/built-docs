@@ -10,17 +10,19 @@
 <meta name="DC.type" content="Learn/Docs/Elasticsearch/Reference/8.1"/>
 <meta name="DC.subject" content="Elasticsearch"/>
 <meta name="DC.identifier" content="8.1"/>
+<meta name="robots" content="noindex,nofollow"/>
 </head>
-<body>
+<body><div class="page_header">
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.1]</a></span>
-»
-<span class="breadcrumb-link"><a href="search-aggregations.html">Aggregations</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.1]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="search-aggregations.html">Aggregations</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="search-aggregations-bucket.html">Bucket aggregations</a></span>
-»
-<span class="breadcrumb-node">Date range aggregation</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -32,7 +34,7 @@
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="search-aggregations-bucket-daterange-aggregation"></a>Date range aggregation<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/aggregations/bucket/daterange-aggregation.asciidoc">edit</a></h2>
+<h2 class="title"><a id="search-aggregations-bucket-daterange-aggregation"></a>Date range aggregation<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/aggregations/bucket/daterange-aggregation.asciidoc">edit</a></h2>
 </div></div></div>
 
 <p>A range aggregation that is dedicated for date values. The main difference
@@ -62,7 +64,7 @@ for each range.</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1104.console"></div>
+<div class="console_widget" data-snippet="snippets/1106.console"></div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
@@ -121,7 +123,7 @@ replaces any missing components with default values. See
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_missing_values_2"></a>Missing Values<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/aggregations/bucket/daterange-aggregation.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_missing_values_2"></a>Missing Values<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/aggregations/bucket/daterange-aggregation.asciidoc">edit</a></h3>
 </div></div></div>
 <p>The <code class="literal">missing</code> parameter defines how documents that are missing a value should
 be treated. By default they will be ignored but it is also possible to treat
@@ -152,7 +154,7 @@ value mappings to specify default values per field.</p>
    }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1105.console"></div>
+<div class="console_widget" data-snippet="snippets/1107.console"></div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
@@ -170,7 +172,7 @@ bucket, as if they had a date value of "1976-11-30".</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="date-format-pattern"></a>Date Format/Pattern<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/aggregations/bucket/daterange-aggregation.asciidoc">edit</a></h3>
+<h3 class="title"><a id="date-format-pattern"></a>Date Format/Pattern<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/aggregations/bucket/daterange-aggregation.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="note admon">
 <div class="icon"></div>
@@ -578,7 +580,7 @@ break your application.</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="time-zones"></a>Time zone in date range aggregations<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/aggregations/bucket/daterange-aggregation.asciidoc">edit</a></h3>
+<h3 class="title"><a id="time-zones"></a>Time zone in date range aggregations<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/aggregations/bucket/daterange-aggregation.asciidoc">edit</a></h3>
 </div></div></div>
 <p>Dates can be converted from another time zone to UTC by specifying the
 <code class="literal">time_zone</code> parameter.</p>
@@ -606,7 +608,7 @@ can do the following:</p>
    }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1106.console"></div>
+<div class="console_widget" data-snippet="snippets/1108.console"></div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
@@ -631,7 +633,7 @@ can do the following:</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_keyed_response"></a>Keyed Response<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/aggregations/bucket/daterange-aggregation.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_keyed_response"></a>Keyed Response<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/aggregations/bucket/daterange-aggregation.asciidoc">edit</a></h3>
 </div></div></div>
 <p>Setting the <code class="literal">keyed</code> flag to <code class="literal">true</code> will associate a unique string key with each
 bucket and return the ranges as a hash rather than an array:</p>
@@ -654,7 +656,7 @@ bucket and return the ranges as a hash rather than an array:</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1107.console"></div>
+<div class="console_widget" data-snippet="snippets/1109.console"></div>
 <p>Response:</p>
 <a id="e08740e1125019aaeaf013e243edecf4"></a>
 <div class="pre_wrapper lang-console-result">
@@ -698,7 +700,7 @@ bucket and return the ranges as a hash rather than an array:</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1108.console"></div>
+<div class="console_widget" data-snippet="snippets/1110.console"></div>
 <p>Response:</p>
 <a id="d1538ecbc2b1cf0e3690207b72cf6d43"></a>
 <div class="pre_wrapper lang-console-result">

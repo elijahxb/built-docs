@@ -11,6 +11,7 @@
 <meta name="DC.type" content="Learn/Docs/Auditbeat/Reference/8.1"/>
 <meta name="DC.subject" content="Auditbeat"/>
 <meta name="DC.identifier" content="8.1"/>
+<meta name="robots" content="noindex,nofollow"/>
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -56,7 +57,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,36 +88,29 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
-                  
+                  <div class="page_header">
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Auditbeat Reference [8.1]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Auditbeat Reference [8.1]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="auditbeat-modules.html">Modules</a></span>
-»
-<span class="breadcrumb-node">Auditd Module</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -128,12 +122,12 @@
 </div>
 <div class="chapter">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="auditbeat-module-auditd"></a>Auditd Module<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/auditbeat/docs/modules/auditd.asciidoc">edit</a></h2>
+<h2 class="title"><a id="auditbeat-module-auditd"></a>Auditd Module<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/auditbeat/docs/modules/auditd.asciidoc">edit</a></h2>
 </div></div></div>
 <p>The <code class="literal">auditd</code> module receives audit events from the Linux Audit Framework that
 is a part of the Linux kernel.</p>
 <p>This module is available only for Linux.</p>
-<h3><a id="_how_it_works"></a>How it works<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/auditbeat/docs/modules/auditd.asciidoc">edit</a></h3>
+<h3><a id="_how_it_works"></a>How it works<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/auditbeat/docs/modules/auditd.asciidoc">edit</a></h3>
 <p>This module establishes a subscription to the kernel to receive the events
 as they occur. So unlike most other modules, the <code class="literal">period</code> configuration
 option is unused because it is not implemented using polling.</p>
@@ -146,7 +140,7 @@ into a single event.</p>
 <p>Messages for one event can be interleaved with messages from another event. This
 module will buffer the messages in order to combine related messages into a
 single event even if they arrive interleaved or out of order.</p>
-<h3><a id="_useful_commands"></a>Useful commands<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/auditbeat/docs/modules/auditd.asciidoc">edit</a></h3>
+<h3><a id="_useful_commands"></a>Useful commands<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/auditbeat/docs/modules/auditd.asciidoc">edit</a></h3>
 <p>When running Auditbeat with the <code class="literal">auditd</code> module enabled, you might find
 that other monitoring tools interfere with Auditbeat.</p>
 <p>For example, you might encounter errors if another process, such as <code class="literal">auditd</code>, is
@@ -179,7 +173,7 @@ from listening to audit messages:</p>
 <div class="pre_wrapper lang-shell">
 <pre class="programlisting prettyprint lang-shell">systemctl mask systemd-journald-audit.socket</pre>
 </div>
-<h3><a id="_inspect_the_kernel_audit_system_status"></a>Inspect the kernel audit system status<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/auditbeat/docs/modules/auditd.asciidoc">edit</a></h3>
+<h3><a id="_inspect_the_kernel_audit_system_status"></a>Inspect the kernel audit system status<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/auditbeat/docs/modules/auditd.asciidoc">edit</a></h3>
 <p>Auditbeat provides useful commands to query the state of the audit system
 in the Linux kernel.</p>
 <div class="ulist itemizedlist">
@@ -222,7 +216,7 @@ features 0xf</pre>
 </li>
 </ul>
 </div>
-<h3><a id="_configuration_options_15"></a>Configuration options<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/auditbeat/docs/modules/auditd.asciidoc">edit</a></h3>
+<h3><a id="_configuration_options_15"></a>Configuration options<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/auditbeat/docs/modules/auditd.asciidoc">edit</a></h3>
 <p>This module has some configuration options for tuning its behavior. The
 following example shows all configuration options with their default values.</p>
 <div class="pre_wrapper lang-yaml">
@@ -397,7 +391,7 @@ time.
 </dd>
 </dl>
 </div>
-<h4><a id="module-standard-options-auditd"></a>Standard configuration options<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/auditbeat/docs/auditbeat-options.asciidoc">edit</a></h4>
+<h4><a id="module-standard-options-auditd"></a>Standard configuration options<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/auditbeat/docs/auditbeat-options.asciidoc">edit</a></h4>
 <p>You can specify the following options for any Auditbeat module.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -484,7 +478,7 @@ clusters with the same <code class="literal">service.type</code>.
 </dd>
 </dl>
 </div>
-<h3><a id="audit-rules"></a>Audit rules<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/auditbeat/docs/modules/auditd.asciidoc">edit</a></h3>
+<h3><a id="audit-rules"></a>Audit rules<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/auditbeat/docs/modules/auditd.asciidoc">edit</a></h3>
 <p>The audit rules are where you configure the activities that are audited. These
 rules are configured as either syscalls or files that should be monitored. For
 example you can track all <code class="literal">connect</code> syscalls or file system writes to
@@ -515,7 +509,7 @@ Therefore it is unnecessary and unsupported to include a <code class="literal">-
     -a always,exit -F arch=b64 -S open,truncate,ftruncate,creat,openat,open_by_handle_at -F exit=-EACCES -F auid&gt;=1000 -F auid!=4294967295 -F key=access
     -a always,exit -F arch=b64 -S open,truncate,ftruncate,creat,openat,open_by_handle_at -F exit=-EPERM -F auid&gt;=1000 -F auid!=4294967295 -F key=access</pre>
 </div>
-<h3><a id="_example_configuration"></a>Example configuration<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/auditbeat/docs/modules/auditd.asciidoc">edit</a></h3>
+<h3><a id="_example_configuration"></a>Example configuration<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/auditbeat/docs/modules/auditd.asciidoc">edit</a></h3>
 <p>The Auditd module supports the common configuration options that are
 described under <a class="xref" href="configuration-auditbeat.html" title="Configure modules">configuring Auditbeat</a>. Here
 is an example configuration:</p>
@@ -563,15 +557,37 @@ is an example configuration:</p>
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

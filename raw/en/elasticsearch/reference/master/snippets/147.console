@@ -1,19 +1,9 @@
-PUT my-index-000001/_mappings
+GET stats-index/_search
 {
-  "runtime": {
-    "http": {
-      "type": "composite",
-      "script": "emit(grok(\"%{COMMONAPACHELOG}\").extract(doc[\"message\"].value))",
-      "fields": {
-        "clientip": {
-          "type": "ip"
-        },
-        "verb": {
-          "type": "keyword"
-        },
-        "response": {
-          "type": "long"
-        }
+  "query": {
+    "term": {
+      "agg_metric": {
+        "value": 702.30
       }
     }
   }

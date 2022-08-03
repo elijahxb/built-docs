@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,27 +87,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 You are looking at preliminary documentation for a future release.
@@ -116,13 +107,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="setup.html">Set up Elasticsearch</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="setup.html">Set up Elasticsearch</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="settings.html">Configuring Elasticsearch</a></span>
-»
-<span class="breadcrumb-node">Discovery and cluster formation settings</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -134,7 +122,7 @@ Not what you want? See the
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="modules-discovery-settings"></a>Discovery and cluster formation settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/modules/discovery/discovery-settings.asciidoc">edit</a></h2>
+<h2 class="title"><a id="modules-discovery-settings"></a>Discovery and cluster formation settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/modules/discovery/discovery-settings.asciidoc">edit</a></h2>
 </div></div></div>
 <p><a class="xref" href="modules-discovery.html" title="Discovery and cluster formation">Discovery and cluster formation</a> are affected by the
 following settings:</p>
@@ -175,9 +163,9 @@ for <code class="literal">discovery.seed_hosts</code> is <code class="literal">[
 </dt>
 <dd>
 (<a class="xref" href="settings.html#static-cluster-setting">Static</a>)
-Specifies which types of <a class="xref" href="modules-discovery-hosts-providers.html#built-in-hosts-providers" title="Seed hosts providers">seed hosts provider</a> to use
+Specifies which types of <a class="xref" href="discovery-hosts-providers.html#built-in-hosts-providers" title="Seed hosts providers">seed hosts provider</a> to use
 to obtain the addresses of the seed nodes used to start the discovery process.
-By default, it is the <a class="xref" href="modules-discovery-hosts-providers.html#settings-based-hosts-provider" title="Settings-based seed hosts provider">settings-based seed hosts
+By default, it is the <a class="xref" href="discovery-hosts-providers.html#settings-based-hosts-provider" title="Settings-based seed hosts provider">settings-based seed hosts
 provider</a> which obtains the seed node addresses from the <code class="literal">discovery.seed_hosts</code>
 setting.
 </dd>
@@ -210,7 +198,7 @@ to an existing cluster. See <a class="xref" href="important-settings.html#initia
 </dd>
 </dl>
 </div>
-<h4><a id="_expert_settings"></a>Expert settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/modules/discovery/discovery-settings.asciidoc">edit</a></h4>
+<h4><a id="_expert_settings"></a>Expert settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/modules/discovery/discovery-settings.asciidoc">edit</a></h4>
 <p>Discovery and cluster formation are also affected by the following
 <em>expert-level</em> settings, although it is not recommended to change any of these
 from their default values.</p>
@@ -480,6 +468,30 @@ Sets how long the master node waits for each cluster state update to be
 completely published to all nodes, unless <code class="literal">discovery.type</code> is set to
 <code class="literal">single-node</code>. The default value is <code class="literal">30s</code>. See <a class="xref" href="cluster-state-publishing.html" title="Publishing the cluster state">Publishing the cluster state</a>.
 </dd>
+<dt>
+<span class="term">
+`cluster.discovery_configuration_check.interval `
+</span>
+</dt>
+<dd>
+(<a class="xref" href="settings.html#static-cluster-setting">Static</a>)
+Sets the interval of some checks that will log warnings about an
+incorrect discovery configuration. The default value is <code class="literal">30s</code>.
+</dd>
+<dt>
+<span class="term">
+<code class="literal">cluster.join_validation.cache_timeout</code>
+</span>
+</dt>
+<dd>
+(<a class="xref" href="settings.html#static-cluster-setting">Static</a>)
+When a node requests to join the cluster, the elected master node sends it a
+copy of a recent cluster state to detect certain problems which might prevent
+the new node from joining the cluster. The master caches the state it sends and
+uses the cached state if another node joins the cluster soon after. This
+setting controls how long the master waits until it clears this cache. Defaults
+to <code class="literal">60s</code>.
+</dd>
 </dl>
 </div>
 <div class="variablelist">
@@ -598,15 +610,37 @@ takes longer than this threshold then Elasticsearch logs a warning. Defaults to 
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

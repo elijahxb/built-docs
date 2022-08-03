@@ -5,7 +5,7 @@
 <title>Install Elastic Agents | Fleet and Elastic Agent Guide [master] | Elastic</title>
 <link rel="home" href="index.html" title="Fleet and Elastic Agent Guide [master]"/>
 <link rel="up" href="index.html" title="Fleet and Elastic Agent Guide [master]"/>
-<link rel="prev" href="air-gapped.html" title="Air-gapped environments"/>
+<link rel="prev" href="fleet-server-monitoring.html" title="Monitor a self-managed Fleet Server"/>
 <link rel="next" href="install-fleet-managed-elastic-agent.html" title="Install Fleet-managed Elastic Agents"/>
 <meta name="DC.type" content="Learn/Docs/Fleet/Guide/Elastic Agent/master"/>
 <meta name="DC.subject" content="Fleet and Elastic Agent"/>
@@ -18,13 +18,12 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="index.html">Fleet and Elastic Agent Guide [master]</a></span>
-»
-<span class="breadcrumb-node">Install Elastic Agents</span>
 </div>
 <div class="navheader">
 <span class="prev">
-<a href="air-gapped.html">« Air-gapped environments</a>
+<a href="fleet-server-monitoring.html">« Monitor a self-managed Fleet Server</a>
 </span>
 <span class="next">
 <a href="install-fleet-managed-elastic-agent.html">Install Fleet-managed Elastic Agents »</a>
@@ -34,30 +33,22 @@ Not what you want? See the
 <div class="titlepage"><div><div>
 <h1 class="title"><a id="elastic-agent-installation"></a>Install Elastic Agents<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/observability-docs/edit/main/docs/en/ingest-management/elastic-agent/install-elastic-agent.asciidoc">edit</a></h1>
 </div></div></div>
-<div class="sidebar">
-<div class="titlepage"></div>
-<p>Elastic Agent is a single, unified agent that you deploy to hosts or containers to
-collect data and send it to the Elastic Stack. Behind the scenes, Elastic Agent runs the
-Beats shippers or Elastic Endpoint required for your configuration.</p>
-</div>
 <p>You have a few options for installing and managing an Elastic Agent:</p>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
 <li class="listitem">
 <p><span class="strong strong"><strong>Install a Fleet-managed Elastic Agent (recommended)</strong></span></p>
-<p>With this approach, you install Elastic Agent on each host you want to monitor and
-use Fleet in Kibana to define, configure, and manage your agents in a central
-location.</p>
+<p>With this approach, you install Elastic Agent and use Fleet in Kibana to define,
+configure, and manage your agents in a central location.</p>
 <p>We recommend using Fleet management because it makes the management and
 upgrade of your agents considerably easier.</p>
 <p>Refer to <a class="xref" href="install-fleet-managed-elastic-agent.html" title="Install Fleet-managed Elastic Agents">Install Fleet-managed Elastic Agents</a>.</p>
 </li>
 <li class="listitem">
 <p><span class="strong strong"><strong>Install Elastic Agent in standalone mode (advanced users)</strong></span></p>
-<p>With this approach, you install Elastic Agent on each host you want to monitor and
-manually configure the agent locally on the system where it’s installed. You are
-responsible for managing and upgrading the agents. This approach is reserved
-for advanced users only.</p>
+<p>With this approach, you install Elastic Agent and manually configure the agent locally
+on the system where it’s installed. You are responsible for managing and
+upgrading the agents. This approach is reserved for advanced users only.</p>
 <p>Refer to <a class="xref" href="install-standalone-elastic-agent.html" title="Install standalone Elastic Agents (advanced users)">Install standalone Elastic Agents (advanced users)</a>.</p>
 <div class="note admon">
 <div class="icon"></div>
@@ -110,7 +101,7 @@ The Elastic Agent used the default policy, running the system integration and se
 </tr>
 <tr>
 <td align="left" valign="top"><p><span class="strong strong"><strong>Disk</strong></span></p></td>
-<td align="left" valign="top"><p>640MB</p></td>
+<td align="left" valign="top"><p>640 MB</p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p><span class="strong strong"><strong>RSS Mem Size</strong></span></p></td>
@@ -130,7 +121,7 @@ The Elastic Agent used the default policy, running the system integration and se
 </div>
 <div class="navfooter">
 <span class="prev">
-<a href="air-gapped.html">« Air-gapped environments</a>
+<a href="fleet-server-monitoring.html">« Monitor a self-managed Fleet Server</a>
 </span>
 <span class="next">
 <a href="install-fleet-managed-elastic-agent.html">Install Fleet-managed Elastic Agents »</a>

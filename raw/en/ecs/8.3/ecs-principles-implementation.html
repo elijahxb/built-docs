@@ -11,20 +11,13 @@
 <meta name="DC.subject" content="Elastic Common Schema (ECS)"/>
 <meta name="DC.identifier" content="8.3"/>
 </head>
-<body><div class="page_header">
-You are looking at preliminary documentation for a future release.
-Not what you want? See the
-<a href="../current/index.html">current release documentation</a>.
-</div>
+<body>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elastic Common Schema (ECS) Reference [8.3]</a></span>
-»
-<span class="breadcrumb-link"><a href="ecs-using-ecs.html">Using ECS</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Common Schema (ECS) Reference [8.3]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="ecs-using-ecs.html">Using ECS</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="ecs-guidelines.html">Guidelines and Best Practices</a></span>
-»
-<span class="breadcrumb-node">Implementation patterns</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -350,7 +343,7 @@ Pivot between these events using the <a class="xref" href="ecs-related.html" tit
 the <code class="literal">related.ip</code> field, there is now a single field to search for a given IP regardless of what field it
 appeared:</p>
 <div class="pre_wrapper lang-sh">
-<pre class="programlisting prettyprint lang-sh">related.ip: 10.42.42.42</pre>
+<pre class="programlisting prettyprint lang-sh">related.ip: ["10.42.42.42"]</pre>
 </div>
 </div>
 <div class="navfooter">

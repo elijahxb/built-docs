@@ -1,11 +1,9 @@
-PUT /test
+POST _reindex
 {
-  "settings": {
-    "number_of_shards": 1
+  "source": {
+    "index": ["my-index-000001", "my-index-000002"]
   },
-  "mappings": {
-    "properties": {
-      "field1": { "type": "text" }
-    }
+  "dest": {
+    "index": "my-new-index-000002"
   }
 }

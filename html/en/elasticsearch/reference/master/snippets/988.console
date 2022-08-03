@@ -1,13 +1,5 @@
-PUT /my-index-000001
+PUT /my-index-000001/_doc/1?refresh
 {
-  "mappings": {
-    "properties": {
-      "message": {
-        "type": "text"
-      },
-      "query": {
-        "type": "percolator"
-      }
-    }
-  }
+  "text": "This is a parent document.",
+  "my-join-field": "my-parent"
 }

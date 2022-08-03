@@ -1,1 +1,9 @@
-PUT _ml/trained_models/flight-delay-prediction-1574775339910/model_aliases/flight_delay_model
+POST /my-index-000001/_doc?refresh=wait_for
+{
+  "user_id" : 12345
+}
+
+POST /my-index-000001/_doc?refresh=wait_for
+{
+  "user_id" : 12346
+}

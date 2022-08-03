@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,27 +87,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 You are looking at preliminary documentation for a future release.
@@ -116,13 +107,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Heartbeat Reference [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="configuring-howto-heartbeat.html">Configure Heartbeat</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Heartbeat Reference [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="configuring-howto-heartbeat.html">Configure Heartbeat</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="configuration-heartbeat-options.html">Configure Heartbeat monitors</a></span>
-»
-<span class="breadcrumb-node">Browser options</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -149,7 +137,7 @@ See the <a href="/guide/en/observability/master/synthetics-quickstart.html" clas
 This functionality is in beta and is subject to change. The design and code is less mature than official GA features and is being provided as-is with no warranties. Beta features are not subject to the support SLA of official GA features.
 </span>
 </span> The options described here configure Heartbeat to run the synthetic
-monitoring test suites via Synthetic Agent on the Chromium browser.
+monitoring test projects via Synthetic Agent on the Chromium browser.
 Additional shared options are defined in <a class="xref" href="monitor-options.html" title="Common monitor options">Common monitor options</a>.</p>
 <p>Browser based monitors can only be run in our Heartbeat docker image,
 or via the <code class="literal">elastic-agent-complete</code> docker image.
@@ -157,7 +145,7 @@ For more information, see <a href="/guide/en/observability/master/synthetics-qui
 <p>Example configuration:</p>
 <div class="pre_wrapper lang-yaml">
 <pre class="programlisting prettyprint lang-yaml">- type: browser
-  id: synthetic-inline-suites
+  id: synthetic-inline-tests
   name: Elastic website
   schedule: '@every 1m'
   source:
@@ -171,14 +159,14 @@ For more information, see <a href="/guide/en/observability/master/synthetics-qui
         });</pre>
 </div>
 <h4><a id="monitor-browser-source"></a><code class="literal">source</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/heartbeat/docs/monitors/monitor-browser.asciidoc">edit</a></h4>
-<p>Contains information on how to run the synthetic test suites.</p>
+<p>Contains information on how to run synthetic tests.</p>
 <h5><a id="monitor-source-inline"></a><code class="literal">inline</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/heartbeat/docs/monitors/monitor-browser.asciidoc">edit</a></h5>
 <p>Runs the Synthetic test scripts that are defined inline in the configuration.
 See <a href="/guide/en/observability/master/synthetics-create-test.html" class="ulink" target="_top">Synthetics syntax</a> for
 more information.</p>
 <p>This is the most convenient way to get Synthetic tests up and running, however, it becomes
 harder to maintain and share code as the number of test files increases.
-The recommended way to run Synthetic suites is to create an <a href="https://docs.npmjs.com/cli/v7/commands/npm-init" class="ulink" target="_top">NPM project</a> and
+The recommended way to run Synthetic tests is to create an <a href="https://docs.npmjs.com/cli/v7/commands/npm-init" class="ulink" target="_top">NPM project</a> and
 start writing individual tests for all the user journeys and save them as JavaScript or
 TypeScript files. Once the project is created, the tests can be invoked either by
 <a class="xref" href="monitor-browser-options.html#monitor-source-zipurl" title="Zip URL">Zip Url</a> or <a class="xref" href="monitor-browser-options.html#monitor-source-local" title="Local directory">Local directory</a> method.</p>
@@ -244,7 +232,7 @@ headers to the remote zip endpoint.</p>
 <p>Example configuration:</p>
 <div class="pre_wrapper lang-yaml">
 <pre class="programlisting prettyprint lang-yaml">- type: browser
-  id: todos-suites
+  id: todos-project
   name: Todos Journeys
   schedule: '@every 1m'
   source:
@@ -341,7 +329,16 @@ Defaults to false.</p>
 run with 5Mbps download, 3Mbps upload and 20ms latency which emulates a standard
 Cable connection.</p>
 <p>Users can control the throttling parameters, Below is an example of emulating a
-3G connection with 1.6Mbps download, 750Kbps upload and 150ms round trip time.</p>
+3G connection with 1.6Mbps download, 750Kbps upload and 150ms round trip time
+in two different supported formats.</p>
+<div class="pre_wrapper lang-yaml">
+<pre class="programlisting prettyprint lang-yaml">- type: browser
+  schedule: '@every 1m'
+  throttling:
+    download: 1.6
+    upload: 0.75
+    latency: 150</pre>
+</div>
 <div class="pre_wrapper lang-yaml">
 <pre class="programlisting prettyprint lang-yaml">- type: browser
   schedule: '@every 1m'
@@ -388,6 +385,9 @@ run only journeys with a name or tags that matches the configured glob
 </dd>
 </dl>
 </div>
+<h4><a id="monitor-browser-playwright-options"></a><code class="literal">playwright_options</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/heartbeat/docs/monitors/monitor-browser.asciidoc">edit</a></h4>
+<p>A map of extra options to pass in to the synthetics agent. These are used as the context for the Playwright
+browser object. See <a href="https://playwright.dev/docs/api/class-browser#browser-new-context" class="ulink" target="_top">the playwright browser context docs</a> for more information.</p>
 <h4><a id="monitor-browser-synthetics-args"></a><code class="literal">synthetics_args</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/heartbeat/docs/monitors/monitor-browser.asciidoc">edit</a></h4>
 <p>Extra arguments to pass to the synthetics agent package. Takes a list of
 strings.</p>
@@ -416,15 +416,37 @@ heartbeat.monitors:
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

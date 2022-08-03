@@ -19,13 +19,10 @@ will be released for this version. For the latest information, see the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.0]</a></span>
-»
-<span class="breadcrumb-link"><a href="secure-cluster.html">Secure the Elastic Stack</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.0]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="secure-cluster.html">Secure the Elastic Stack</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="setting-up-authentication.html">User authentication</a></span>
-»
-<span class="breadcrumb-node">LDAP user authentication</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -45,7 +42,7 @@ Lightweight Directory Access Protocol (LDAP) server to authenticate users. See
 <p>LDAP stores users and groups hierarchically, similar to the way folders are
 grouped in a file system. An LDAP directory&#8217;s hierarchy is built from containers
 such as the <em>organizational unit</em> (<code class="literal">ou</code>), <em>organization</em> (<code class="literal">o</code>), and
-<em>domain controller</em> (<code class="literal">dc</code>).</p>
+<em>domain component</em> (<code class="literal">dc</code>).</p>
 <p>The path to an entry is a <em>Distinguished Name</em> (DN) that uniquely identifies a
 user or group. User and group names typically have attributes such as a
 <em>common name</em> (<code class="literal">cn</code>) or <em>unique ID</em> (<code class="literal">uid</code>). A DN is specified as a string,
@@ -221,7 +218,7 @@ names. For example, the following mapping configuration maps the LDAP
   "enabled": true
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1611.console"></div>
+<div class="console_widget" data-snippet="snippets/1612.console"></div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
@@ -245,7 +242,7 @@ names. For example, the following mapping configuration maps the LDAP
   "enabled": true
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1612.console"></div>
+<div class="console_widget" data-snippet="snippets/1613.console"></div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>

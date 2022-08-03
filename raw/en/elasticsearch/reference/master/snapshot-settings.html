@@ -18,13 +18,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="setup.html">Set up Elasticsearch</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="setup.html">Set up Elasticsearch</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="settings.html">Configuring Elasticsearch</a></span>
-»
-<span class="breadcrumb-node">Snapshot and restore settings</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -36,7 +33,7 @@ Not what you want? See the
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="snapshot-settings"></a>Snapshot and restore settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/settings/snapshot-settings.asciidoc">edit</a></h2>
+<h2 class="title"><a id="snapshot-settings"></a>Snapshot and restore settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/settings/snapshot-settings.asciidoc">edit</a></h2>
 </div></div></div>
 <p>The following cluster settings configure <a class="xref" href="snapshot-restore.html" title="Snapshot and restore">snapshot and
 restore</a>.</p>
@@ -61,7 +58,7 @@ limit.</p>
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_slm_settings"></a>SLM settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/settings/snapshot-settings.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_slm_settings"></a>SLM settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/settings/snapshot-settings.asciidoc">edit</a></h3>
 </div></div></div>
 <p>The following cluster settings configure <a class="xref" href="snapshots-take-snapshot.html#automate-snapshots-slm" title="Automate snapshots with SLM">snapshot lifecycle management
 (SLM)</a>.</p>
@@ -74,7 +71,7 @@ limit.</p>
 </span>
 </dt>
 <dd>
-(<a class="xref" href="settings.html#static-cluster-setting">Static</a>, Boolean)
+(<a class="xref" href="settings.html#dynamic-cluster-setting">Dynamic</a>, Boolean)
 Controls whether SLM records the history of actions taken as part of SLM policies
 to the <code class="literal">slm-history-*</code> indices. Defaults to <code class="literal">true</code>.
 </dd>
@@ -109,6 +106,22 @@ Defaults to daily at 1:30am UTC: <code class="literal">0 30 1 * * ?</code>.
 (<a class="xref" href="settings.html#dynamic-cluster-setting">Dynamic</a>, <a class="xref" href="api-conventions.html#time-units" title="Time units">time value</a>)
 Limits how long SLM should spend deleting old snapshots.
 Defaults to one hour: <code class="literal">1h</code>.
+</dd>
+</dl>
+</div>
+<div class="variablelist">
+<a id="slm-health-failed-snapshot-warn-threshold"></a>
+<dl class="variablelist">
+<dt>
+<span class="term">
+<code class="literal">slm.health.failed_snapshot_warn_threshold</code>
+</span>
+</dt>
+<dd>
+(<a class="xref" href="settings.html#dynamic-cluster-setting">Dynamic</a>, Long)
+The number of failed invocations since last successful snapshot that
+indicate a problem with the policy in the health api.
+Defaults to a health api warning after five repeated failures: <code class="literal">5L</code>.
 </dd>
 </dl>
 </div>

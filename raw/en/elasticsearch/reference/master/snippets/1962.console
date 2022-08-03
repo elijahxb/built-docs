@@ -1,4 +1,6 @@
-POST test/_update/1
+PUT /_cluster/settings
 {
-  "script": "ctx._source['my-object'].remove('my-subfield')"
+  "persistent" : {
+    "indices.recovery.max_bytes_per_sec" : "50mb"
+  }
 }

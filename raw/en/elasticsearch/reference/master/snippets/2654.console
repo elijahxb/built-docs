@@ -1,1 +1,1 @@
-GET /_xpack/usage
+GET /_security/api_key?id=VuaCfGcBCdbkQm-e5aOx&owner=true

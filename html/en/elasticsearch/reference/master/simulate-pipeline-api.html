@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,27 +87,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 You are looking at preliminary documentation for a future release.
@@ -116,13 +107,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="rest-apis.html">REST APIs</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="rest-apis.html">REST APIs</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="ingest-apis.html">Ingest APIs</a></span>
-»
-<span class="breadcrumb-node">Simulate pipeline API</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -134,7 +122,7 @@ Not what you want? See the
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="simulate-pipeline-api"></a>Simulate pipeline API<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ingest/apis/simulate-pipeline.asciidoc">edit</a></h2>
+<h2 class="title"><a id="simulate-pipeline-api"></a>Simulate pipeline API<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ingest/apis/simulate-pipeline.asciidoc">edit</a></h2>
 </div></div></div>
 
 <p>Executes an ingest pipeline against
@@ -161,10 +149,10 @@ a set of provided documents.</p>
   ]
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/2259.console"></div>
+<div class="console_widget" data-snippet="snippets/2376.console"></div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="simulate-pipeline-api-request"></a>Request<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ingest/apis/simulate-pipeline.asciidoc">edit</a></h3>
+<h3 class="title"><a id="simulate-pipeline-api-request"></a>Request<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ingest/apis/simulate-pipeline.asciidoc">edit</a></h3>
 </div></div></div>
 <p><code class="literal">POST /_ingest/pipeline/&lt;pipeline&gt;/_simulate</code></p>
 <p><code class="literal">GET /_ingest/pipeline/&lt;pipeline&gt;/_simulate</code></p>
@@ -174,7 +162,7 @@ a set of provided documents.</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="simulate-pipeline-api-prereqs"></a>Prerequisites<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ingest/apis/simulate-pipeline.asciidoc">edit</a></h3>
+<h3 class="title"><a id="simulate-pipeline-api-prereqs"></a>Prerequisites<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ingest/apis/simulate-pipeline.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -189,7 +177,7 @@ If the Elasticsearch security features are enabled, you must have the
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="simulate-pipeline-api-desc"></a>Description<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ingest/apis/simulate-pipeline.asciidoc">edit</a></h3>
+<h3 class="title"><a id="simulate-pipeline-api-desc"></a>Description<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ingest/apis/simulate-pipeline.asciidoc">edit</a></h3>
 </div></div></div>
 <p>The simulate pipeline API executes a specific pipeline
 against a set of documents provided in the body of the request.</p>
@@ -200,7 +188,7 @@ or supply a pipeline definition in the body of the request.</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="simulate-pipeline-api-path-params"></a>Path parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ingest/apis/simulate-pipeline.asciidoc">edit</a></h3>
+<h3 class="title"><a id="simulate-pipeline-api-path-params"></a>Path parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ingest/apis/simulate-pipeline.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="variablelist">
 <dl class="variablelist">
@@ -220,7 +208,7 @@ parameter is required.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="simulate-pipeline-api-query-params"></a>Query parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ingest/apis/simulate-pipeline.asciidoc">edit</a></h3>
+<h3 class="title"><a id="simulate-pipeline-api-query-params"></a>Query parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ingest/apis/simulate-pipeline.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="variablelist">
 <dl class="variablelist">
@@ -241,7 +229,7 @@ for each processor in the executed pipeline.
 
 <div class="section child_attributes">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="simulate-pipeline-api-request-body"></a>Request body<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ingest/apis/simulate-pipeline.asciidoc">edit</a></h3>
+<h3 class="title"><a id="simulate-pipeline-api-request-body"></a>Request body<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ingest/apis/simulate-pipeline.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="variablelist">
 <dl class="variablelist">
@@ -387,11 +375,11 @@ JSON body for the document.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="simulate-pipeline-api-example"></a>Examples<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ingest/apis/simulate-pipeline.asciidoc">edit</a></h3>
+<h3 class="title"><a id="simulate-pipeline-api-example"></a>Examples<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ingest/apis/simulate-pipeline.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="simulate-pipeline-api-path-parm-ex"></a>Specify a pipeline as a path parameter<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ingest/apis/simulate-pipeline.asciidoc">edit</a></h4>
+<h4 class="title"><a id="simulate-pipeline-api-path-parm-ex"></a>Specify a pipeline as a path parameter<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ingest/apis/simulate-pipeline.asciidoc">edit</a></h4>
 </div></div></div>
 <a id="67ffa135c50c43d6788636c88078c7d1"></a>
 <div class="pre_wrapper lang-console">
@@ -415,9 +403,9 @@ JSON body for the document.
   ]
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/2260.console"></div>
+<div class="console_widget" data-snippet="snippets/2377.console"></div>
 <p>The API returns the following response:</p>
-<a id="661b827203639440daa8f73727c8375e"></a>
+<a id="a9bc8b084309ca06fee316df844ab975"></a>
 <div class="pre_wrapper lang-console-result">
 <pre class="programlisting prettyprint lang-console-result">{
    "docs": [
@@ -425,6 +413,7 @@ JSON body for the document.
          "doc": {
             "_id": "id",
             "_index": "index",
+            "_version": "-3",
             "_source": {
                "field2": "_value",
                "foo": "bar"
@@ -438,6 +427,7 @@ JSON body for the document.
          "doc": {
             "_id": "id",
             "_index": "index",
+            "_version": "-3",
             "_source": {
                "field2": "_value",
                "foo": "rab"
@@ -454,7 +444,7 @@ JSON body for the document.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="simulate-pipeline-api-request-body-ex"></a>Specify a pipeline in the request body<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ingest/apis/simulate-pipeline.asciidoc">edit</a></h4>
+<h4 class="title"><a id="simulate-pipeline-api-request-body-ex"></a>Specify a pipeline in the request body<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ingest/apis/simulate-pipeline.asciidoc">edit</a></h4>
 </div></div></div>
 <a id="17c2b0a6b0305804ff3b7fd3b4a68df3"></a>
 <div class="pre_wrapper lang-console">
@@ -490,9 +480,9 @@ JSON body for the document.
   ]
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/2261.console"></div>
+<div class="console_widget" data-snippet="snippets/2378.console"></div>
 <p>The API returns the following response:</p>
-<a id="661b827203639440daa8f73727c8375e"></a>
+<a id="a9bc8b084309ca06fee316df844ab975"></a>
 <div class="pre_wrapper lang-console-result">
 <pre class="programlisting prettyprint lang-console-result">{
    "docs": [
@@ -500,6 +490,7 @@ JSON body for the document.
          "doc": {
             "_id": "id",
             "_index": "index",
+            "_version": "-3",
             "_source": {
                "field2": "_value",
                "foo": "bar"
@@ -513,6 +504,7 @@ JSON body for the document.
          "doc": {
             "_id": "id",
             "_index": "index",
+            "_version": "-3",
             "_source": {
                "field2": "_value",
                "foo": "rab"
@@ -529,7 +521,7 @@ JSON body for the document.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="ingest-verbose-param"></a>View verbose results<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ingest/apis/simulate-pipeline.asciidoc">edit</a></h4>
+<h4 class="title"><a id="ingest-verbose-param"></a>View verbose results<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ingest/apis/simulate-pipeline.asciidoc">edit</a></h4>
 </div></div></div>
 <p>You can use the simulate pipeline API
 to see how each processor affects the ingest document
@@ -577,9 +569,9 @@ you can add the <code class="literal">verbose</code> parameter to the request.</
   ]
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/2262.console"></div>
+<div class="console_widget" data-snippet="snippets/2379.console"></div>
 <p>The API returns the following response:</p>
-<a id="0eff6e633b8d412fd21d4f9dcbfd6d04"></a>
+<a id="5b212b84aaef524960c835a7d937eeb9"></a>
 <div class="pre_wrapper lang-console-result">
 <pre class="programlisting prettyprint lang-console-result">{
   "docs" : [
@@ -591,6 +583,7 @@ you can add the <code class="literal">verbose</code> parameter to the request.</
           "doc" : {
             "_index" : "index",
             "_id" : "id",
+            "_version": "-3",
             "_source" : {
               "field2" : "_value2",
               "foo" : "bar"
@@ -607,6 +600,7 @@ you can add the <code class="literal">verbose</code> parameter to the request.</
           "doc" : {
             "_index" : "index",
             "_id" : "id",
+            "_version": "-3",
             "_source" : {
               "field3" : "_value3",
               "field2" : "_value2",
@@ -628,6 +622,7 @@ you can add the <code class="literal">verbose</code> parameter to the request.</
           "doc" : {
             "_index" : "index",
             "_id" : "id",
+            "_version": "-3",
             "_source" : {
               "field2" : "_value2",
               "foo" : "rab"
@@ -644,6 +639,7 @@ you can add the <code class="literal">verbose</code> parameter to the request.</
           "doc" : {
             "_index" : "index",
             "_id" : "id",
+            "_version": "-3",
             "_source" : {
               "field3" : "_value3",
               "field2" : "_value2",
@@ -677,15 +673,37 @@ you can add the <code class="literal">verbose</code> parameter to the request.</
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

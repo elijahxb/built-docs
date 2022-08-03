@@ -11,6 +11,7 @@
 <meta name="DC.type" content="Learn/Docs/Functionbeat/Reference/8.1"/>
 <meta name="DC.subject" content="Functionbeat"/>
 <meta name="DC.identifier" content="8.1"/>
+<meta name="robots" content="noindex,nofollow"/>
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -56,7 +57,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,38 +88,30 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
-                  
+                  <div class="page_header">
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Functionbeat Reference [8.1]</a></span>
-»
-<span class="breadcrumb-link"><a href="configuring-howto-functionbeat.html">Configure Functionbeat</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Functionbeat Reference [8.1]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="configuring-howto-functionbeat.html">Configure Functionbeat</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="configuring-output.html">Configure the output</a></span>
-»
-<span class="breadcrumb-node">Configure the Console output</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -130,7 +123,7 @@
 </div>
 <div class="section xpack">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="console-output"></a>Configure the Console output<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/libbeat/outputs/console/docs/console.asciidoc">edit</a></h2>
+<h2 class="title"><a id="console-output"></a>Configure the Console output<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/libbeat/outputs/console/docs/console.asciidoc">edit</a></h2>
 </div></div></div>
 
 <p>The Console output writes events in JSON format to stdout.</p>
@@ -149,12 +142,12 @@ output by commenting it out, and enable the console output by adding <code class
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_configuration_options_3"></a>Configuration options<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/libbeat/outputs/console/docs/console.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_configuration_options_3"></a>Configuration options<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/libbeat/outputs/console/docs/console.asciidoc">edit</a></h3>
 </div></div></div>
 <p>You can specify the following <code class="literal">output.console</code> options in the <code class="literal">functionbeat.yml</code> config file:</p>
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="_enabled_3"></a><code class="literal">enabled</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/libbeat/outputs/console/docs/console.asciidoc">edit</a></h4>
+<h4 class="title"><a id="_enabled_3"></a><code class="literal">enabled</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/libbeat/outputs/console/docs/console.asciidoc">edit</a></h4>
 </div></div></div>
 <p>The enabled config is a boolean setting to enable or disable the output. If set
 to false, the output is disabled.</p>
@@ -163,14 +156,14 @@ to false, the output is disabled.</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="_pretty"></a><code class="literal">pretty</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/libbeat/outputs/console/docs/console.asciidoc">edit</a></h4>
+<h4 class="title"><a id="_pretty"></a><code class="literal">pretty</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/libbeat/outputs/console/docs/console.asciidoc">edit</a></h4>
 </div></div></div>
 <p>If <code class="literal">pretty</code> is set to true, events written to stdout will be nicely formatted. The default is false.</p>
 </div>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="_codec"></a><code class="literal">codec</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/libbeat/outputs/console/docs/console.asciidoc">edit</a></h4>
+<h4 class="title"><a id="_codec"></a><code class="literal">codec</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/libbeat/outputs/console/docs/console.asciidoc">edit</a></h4>
 </div></div></div>
 <p>Output codec configuration. If the <code class="literal">codec</code> section is missing, events will be json encoded using the <code class="literal">pretty</code> option.</p>
 <p>See <a class="xref" href="configuration-output-codec.html" title="Change the output codec">Change the output codec</a> for more information.</p>
@@ -178,7 +171,7 @@ to false, the output is disabled.</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="_bulk_max_size_3"></a><code class="literal">bulk_max_size</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/libbeat/outputs/console/docs/console.asciidoc">edit</a></h4>
+<h4 class="title"><a id="_bulk_max_size_3"></a><code class="literal">bulk_max_size</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/libbeat/outputs/console/docs/console.asciidoc">edit</a></h4>
 </div></div></div>
 <p>The maximum number of events to buffer internally during publishing. The default is 2048.</p>
 <p>Specifying a larger batch size may add some latency and buffering during publishing. However, for Console output, this
@@ -203,15 +196,37 @@ number of events to be contained in a batch.</p>
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

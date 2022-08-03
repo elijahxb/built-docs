@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,27 +87,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 You are looking at preliminary documentation for a future release.
@@ -116,13 +107,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="mapping.html">Mapping</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="mapping.html">Mapping</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="mapping-types.html">Field data types</a></span>
-»
-<span class="breadcrumb-node">Numeric field types</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -134,7 +122,7 @@ Not what you want? See the
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="number"></a>Numeric field types<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/mapping/types/numeric.asciidoc">edit</a></h2>
+<h2 class="title"><a id="number"></a>Numeric field types<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/mapping/types/numeric.asciidoc">edit</a></h2>
 </div></div></div>
 
 <p>The following numeric types are supported:</p>
@@ -321,7 +309,7 @@ fmt.Println(res, err)</pre>
   }
 }</pre>
 </div>
-<div class="console_widget has-ruby has-go" data-snippet="snippets/222.console"></div>
+<div class="console_widget has-ruby has-go" data-snippet="snippets/217.console"></div>
 <div class="note admon">
 <div class="icon"></div>
 <div class="admon_content">
@@ -334,7 +322,7 @@ bound is <code class="literal">+0.0</code> then <code class="literal">-0.0</code
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_which_type_should_i_use"></a>Which type should I use?<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/mapping/types/numeric.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_which_type_should_i_use"></a>Which type should I use?<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/mapping/types/numeric.asciidoc">edit</a></h3>
 </div></div></div>
 <p>As far as integer types (<code class="literal">byte</code>, <code class="literal">short</code>, <code class="literal">integer</code> and <code class="literal">long</code>) are concerned,
 you should pick the smallest type which is enough for your use-case. This will
@@ -359,19 +347,23 @@ that is enough for the use-case among the floating-point types: <code class="lit
 <code class="literal">float</code> and <code class="literal">half_float</code>. Here is a table that compares these types in order
 to help make a decision.</p>
 <div class="informaltable">
+<a id="floating_point"></a>
 <table border="1" cellpadding="4px">
 <colgroup>
 <col class="col_1"/>
 <col class="col_2"/>
 <col class="col_3"/>
 <col class="col_4"/>
+<col class="col_5"/>
 </colgroup>
 <thead>
 <tr>
 <th align="left" valign="top">Type</th>
 <th align="left" valign="top">Minimum value</th>
 <th align="left" valign="top">Maximum value</th>
-<th align="left" valign="top">Significant bits / digits</th>
+<th align="left" valign="top">Significant<br>
+                                                     bits / digits</th>
+<th align="left" valign="top">Example precision loss</th>
 </tr>
 </thead>
 <tbody>
@@ -380,18 +372,24 @@ to help make a decision.</p>
 <td align="left" valign="top"><p><code class="literal">2<sup>-1074</sup></code></p></td>
 <td align="left" valign="top"><p><code class="literal">(2-2<sup>-52</sup>)·2<sup>1023</sup></code></p></td>
 <td align="left" valign="top"><p><code class="literal">53</code> / <code class="literal">15.95</code></p></td>
+<td align="left" valign="top"><p><code class="literal">1.2345678912345678</code>&#8594;<br>
+                                                                      <code class="literal">1.234567891234568</code></p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p><code class="literal">float</code></p></td>
 <td align="left" valign="top"><p><code class="literal">2<sup>-149</sup></code></p></td>
 <td align="left" valign="top"><p><code class="literal">(2-2<sup>-23</sup>)·2<sup>127</sup></code></p></td>
 <td align="left" valign="top"><p><code class="literal">24</code> / <code class="literal">7.22</code></p></td>
+<td align="left" valign="top"><p><code class="literal">1.23456789</code>&#8594;<br>
+                                                                      <code class="literal">1.2345679</code></p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p><code class="literal">half_float</code></p></td>
 <td align="left" valign="top"><p><code class="literal">2<sup>-24</sup></code></p></td>
 <td align="left" valign="top"><p><code class="literal">65504</code></p></td>
 <td align="left" valign="top"><p><code class="literal">11</code> / <code class="literal">3.31</code></p></td>
+<td align="left" valign="top"><p><code class="literal">1.2345</code>&#8594;<br>
+                                                                      <code class="literal">1.234375</code></p></td>
 </tr>
 </tbody>
 </table>
@@ -426,9 +424,9 @@ the data as both a <code class="literal">keyword</code> <em>and</em> a numeric d
 </div>
 </div>
 
-<div class="section">
+<div class="section child_attributes">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="number-params"></a>Parameters for numeric fields<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/mapping/types/numeric.asciidoc">edit</a></h3>
+<h3 class="title"><a id="number-params"></a>Parameters for numeric fields<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/mapping/types/numeric.asciidoc">edit</a></h3>
 </div></div></div>
 <p>The following parameters are accepted by numeric types:</p>
 <div class="variablelist">
@@ -536,18 +534,18 @@ the <a class="xref" href="mapping-source-field.html" title="_source field"><code
 </span>
 </dt>
 <dd>
-<p><span class="Admonishment Admonishment--preview">
+<p>
+<span class="Admonishment Admonishment--preview">
 [<span class="Admonishment-title u-mono">preview</span>]
 <span class="Admonishment-detail">
 This functionality is in technical preview and may be changed or removed in a future release. Elastic will apply best effort to fix any issues, but features in technical preview are not subject to the support SLA of official GA features.
 </span>
-</span>
-(Optional, Boolean)</p>
-<details>
-<summary class="title">For internal use by Elastic only.</summary>
-<div class="content">
-<p>Marks the field as a time series dimension. Defaults to <code class="literal">false</code>.</p>
-<p>The <a class="xref" href="mapping-settings-limit.html#index-mapping-dimension-fields-limit"><code class="literal">index.mapping.dimension_fields.limit</code></a>
+</span> (Optional, Boolean)
+</p>
+<p>Marks the field as a <code class="literal">time-series-dimension,time series dimension</code>. Defaults
+to <code class="literal">false</code>.</p>
+<p>The
+<a class="xref" href="tsds-index-settings.html#index-mapping-dimension-fields-limit"><code class="literal">index.mapping.dimension_fields.limit</code></a>
 index setting limits the number of dimensions in an index.</p>
 <p>Dimension fields have the following constraints:</p>
 <div class="ulist itemizedlist">
@@ -563,8 +561,6 @@ Field values cannot be an <a class="xref" href="array.html" title="Arrays">array
 <p>Of the numeric field types, only <code class="literal">byte</code>, <code class="literal">short</code>, <code class="literal">integer</code>, <code class="literal">long</code>, and
 <code class="literal">unsigned_long</code> fields support this parameter.</p>
 <p>A numeric field can&#8217;t be both a time series dimension and a time series metric.</p>
-</div>
-</details>
 </dd>
 <dt>
 <span class="term">
@@ -572,24 +568,53 @@ Field values cannot be an <a class="xref" href="array.html" title="Arrays">array
 </span>
 </dt>
 <dd>
-<p><span class="Admonishment Admonishment--preview">
+<p>
+<span class="Admonishment Admonishment--preview">
 [<span class="Admonishment-title u-mono">preview</span>]
 <span class="Admonishment-detail">
 This functionality is in technical preview and may be changed or removed in a future release. Elastic will apply best effort to fix any issues, but features in technical preview are not subject to the support SLA of official GA features.
 </span>
-</span>
-(Optional, string)</p>
-<details>
-<summary class="title">For internal use by Elastic only.</summary>
+</span> (Optional, string)
+Marks the field as a <a class="xref" href="tsds.html#time-series-metric" title="Metrics">time series metric</a>. The value is the
+metric type. You can&#8217;t update this parameter for existing fields.
+</p>
+<details open>
+<summary class="title">Valid <code class="literal">time_series_metric</code> values for numeric fields</summary>
 <div class="content">
-<p>Marks the field as a time series metric. The value is the metric type. Defaults
-to <code class="literal">null</code> (Not a time series metric).</p>
-<p>For numeric fields, this parameter accepts <code class="literal">gauge</code> and <code class="literal">counter</code>. You can&#8217;t
-update this parameter for existing fields.</p>
-<p>For a numeric time series metric, the <code class="literal">doc_values</code> parameter must be <code class="literal">true</code>. A
-numeric field can&#8217;t be both a time series dimension and a time series metric.</p>
+<div class="variablelist">
+<dl class="variablelist">
+<dt>
+<span class="term">
+<code class="literal">counter</code>
+</span>
+</dt>
+<dd>
+A number that only increases or resets to <code class="literal">0</code> (zero). For
+example, a count of errors or completed tasks.
+</dd>
+<dt>
+<span class="term">
+<code class="literal">gauge</code>
+</span>
+</dt>
+<dd>
+A number that can increase or decrease. For example, a temperature or
+available disk space.
+</dd>
+<dt>
+<span class="term">
+<code class="literal">null</code> (Default)
+</span>
+</dt>
+<dd>
+Not a time series metric.
+</dd>
+</dl>
+</div>
 </div>
 </details>
+<p>For a numeric time series metric, the <code class="literal">doc_values</code> parameter must be <code class="literal">true</code>. A
+numeric field can&#8217;t be both a time series dimension and a time series metric.</p>
 </dd>
 </dl>
 </div>
@@ -597,7 +622,7 @@ numeric field can&#8217;t be both a time series dimension and a time series metr
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="scaled-float-params"></a>Parameters for <code class="literal">scaled_float</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/mapping/types/numeric.asciidoc">edit</a></h3>
+<h3 class="title"><a id="scaled-float-params"></a>Parameters for <code class="literal">scaled_float</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/mapping/types/numeric.asciidoc">edit</a></h3>
 </div></div></div>
 <p><code class="literal">scaled_float</code> accepts an additional parameter:</p>
 <div class="informaltable">
@@ -630,6 +655,66 @@ This parameter is required.
 </div>
 </div>
 
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="numeric-synthetic-source"></a>Synthetic source<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/mapping/types/numeric.asciidoc">edit</a></h3>
+</div></div></div>
+<p>All numeric fields except <code class="literal">unsigned_long</code> support <a class="xref" href="mapping-source-field.html#synthetic-source" title="Synthetic _source">synthetic
+<code class="literal">_source</code></a> in their default configuration. Synthetic <code class="literal">_source</code> cannot be used
+together with <a class="xref" href="ignore-malformed.html" title="ignore_malformed"><code class="literal">ignore_malformed</code></a>, <a class="xref" href="copy-to.html" title="copy_to"><code class="literal">copy_to</code></a>, or
+with <a class="xref" href="doc-values.html" title="doc_values"><code class="literal">doc_values</code></a> disabled.</p>
+<p>Synthetic source always sorts numeric fields and removes duplicates. For example:</p>
+<a id="36063ff9a318dba7bb0be3a230655dc8"></a>
+<a id="synthetic-source-numeric-example"></a><div class="pre_wrapper lang-console">
+<pre class="programlisting prettyprint lang-console">PUT idx
+{
+  "mappings": {
+    "_source": { "mode": "synthetic" },
+    "properties": {
+      "long": { "type": "long" }
+    }
+  }
+}
+PUT idx/_doc/1
+{
+  "long": [0, 0, -123466, 87612]
+}</pre>
+</div>
+<div class="console_widget" data-snippet="snippets/218.console"></div>
+<p>Will become:</p>
+<a id="2f20867964873b85a3dc39d51a59377d"></a>
+<div class="pre_wrapper lang-console-result">
+<pre class="programlisting prettyprint lang-console-result">{
+  "long": [-123466, 0, 0, 87612]
+}</pre>
+</div>
+<p>Scaled floats will always apply their scaling factor so:</p>
+<a id="0e5db64154a722a5cbdb84b588ce2ce8"></a>
+<a id="synthetic-source-scaled-float-example"></a><div class="pre_wrapper lang-console">
+<pre class="programlisting prettyprint lang-console">PUT idx
+{
+  "mappings": {
+    "_source": { "mode": "synthetic" },
+    "properties": {
+      "f": { "type": "scaled_float", "scaling_factor": 0.01 }
+    }
+  }
+}
+PUT idx/_doc/1
+{
+  "f": 123
+}</pre>
+</div>
+<div class="console_widget" data-snippet="snippets/219.console"></div>
+<p>Will become:</p>
+<a id="ac632f8417164e97e3f2a7f67207d150"></a>
+<div class="pre_wrapper lang-console-result">
+<pre class="programlisting prettyprint lang-console-result">{
+  "f": 100.0
+}</pre>
+</div>
+</div>
+
 </div>
 <div class="navfooter">
 <span class="prev">
@@ -643,15 +728,37 @@ This parameter is required.
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

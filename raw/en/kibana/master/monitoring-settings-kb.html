@@ -18,13 +18,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Kibana Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="setup.html">Set up</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Kibana Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="setup.html">Set up</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="settings.html">Configure Kibana</a></span>
-»
-<span class="breadcrumb-node">Monitoring settings in Kibana</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -266,6 +263,15 @@ Specifies the minimum number of seconds that a time bucket in a chart can
 represent. Defaults to 10. If you modify the
 <code class="literal">monitoring.ui.collection.interval</code> in <code class="literal">elasticsearch.yml</code>, use the same
 value in this setting.
+</dd>
+<dt>
+<span class="term">
+<code class="literal">monitoring.ui.kibana.reporting.stale_status_threshold_seconds</code>
+</span>
+</dt>
+<dd>
+Specifies how many seconds can pass before the Kibana status reports are considered stale.
+Defaults to <code class="literal">120</code>.
 </dd>
 </dl>
 </div>

@@ -1,1 +1,1 @@
-GET /_cat/thread_pool
+POST /_ilm/stop

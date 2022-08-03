@@ -20,13 +20,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Machine Learning in the Elastic Stack [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="ml-nlp.html">Natural language processing</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Machine Learning in the Elastic Stack [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="ml-nlp.html">Natural language processing</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="ml-nlp-overview.html">Overview</a></span>
-»
-<span class="breadcrumb-node">Search and compare text</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -53,13 +50,12 @@ opposite by using a mathematical similarity function.</p>
 embedding is created, it can be stored in a
 <a href="/guide/en/elasticsearch/reference/master/dense-vector.html" class="ulink" target="_top">dense_vector</a> field and used at search time. For
 example, you can use these vectors in a
-<a href="/guide/en/elasticsearch/reference/master/knn-search.html" class="ulink" target="_top">k-nearest neighbour (kNN) search</a> to achieve semantic
+<a href="/guide/en/elasticsearch/reference/master/knn-search.html" class="ulink" target="_top">k-nearest neighbor (kNN) search</a> to achieve semantic
 search capabilities.</p>
 <p>The following is an example of producing a text embedding:</p>
 <div class="pre_wrapper lang-js">
-<pre class="programlisting prettyprint lang-js">...
-{
-    "input": "The quick brown fox jumps over the lazy dog."
+<pre class="programlisting prettyprint lang-js">{
+    docs: [{"text_field": "The quick brown fox jumps over the lazy dog."}]
 }
 ...</pre>
 </div>
@@ -67,7 +63,8 @@ search capabilities.</p>
 <div class="pre_wrapper lang-js">
 <pre class="programlisting prettyprint lang-js">...
 {
-    "results": [0.293478, -0.23845, ..., 1.34589e2, 0.119376]
+    "predicted_value": [0.293478, -0.23845, ..., 1.34589e2, 0.119376]
+    ...
 }
 ...</pre>
 </div>

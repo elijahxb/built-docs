@@ -1,1 +1,12 @@
-GET _ml/filters/safe_domains
+PUT /my-index-000001/_mapping
+{
+  "properties": {
+    "name": {
+      "properties": {
+        "last": {
+          "type": "text"
+        }
+      }
+    }
+  }
+}

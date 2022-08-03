@@ -1,12 +1,10 @@
-PUT /test
+POST _reindex
 {
-  "aliases": {
-    "alias_1": {},
-    "alias_2": {
-      "filter": {
-        "term": { "user.id": "kimchy" }
-      },
-      "routing": "shard-1"
-    }
+  "source": {
+    "index": "my-index-000001",
+    "_source": ["user.id", "_doc"]
+  },
+  "dest": {
+    "index": "my-new-index-000001"
   }
 }

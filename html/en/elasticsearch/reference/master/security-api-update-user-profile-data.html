@@ -7,7 +7,7 @@
 <link rel="home" href="index.html" title="Elasticsearch Guide [master]"/>
 <link rel="up" href="security-api.html" title="Security APIs"/>
 <link rel="prev" href="security-api-suggest-user-profile.html" title="Suggest user profile API"/>
-<link rel="next" href="snapshot-restore-apis.html" title="Snapshot and restore APIs"/>
+<link rel="next" href="security-api-has-privileges-user-profile.html" title="Has privileges user profile API"/>
 <meta name="DC.type" content="Learn/Docs/Elasticsearch/Reference/master"/>
 <meta name="DC.subject" content="Elasticsearch"/>
 <meta name="DC.identifier" content="master"/>
@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,27 +87,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 You are looking at preliminary documentation for a future release.
@@ -116,25 +107,22 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="rest-apis.html">REST APIs</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="rest-apis.html">REST APIs</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="security-api.html">Security APIs</a></span>
-»
-<span class="breadcrumb-node">Update user profile data API</span>
 </div>
 <div class="navheader">
 <span class="prev">
 <a href="security-api-suggest-user-profile.html">« Suggest user profile API</a>
 </span>
 <span class="next">
-<a href="snapshot-restore-apis.html">Snapshot and restore APIs »</a>
+<a href="security-api-has-privileges-user-profile.html">Has privileges user profile API »</a>
 </span>
 </div>
 <div class="section xpack">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="security-api-update-user-profile-data"></a>Update user profile data API<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/x-pack/docs/en/rest-api/security/update-user-profile-data.asciidoc">edit</a></h2>
+<h2 class="title"><a id="security-api-update-user-profile-data"></a>Update user profile data API<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/x-pack/docs/en/rest-api/security/update-user-profile-data.asciidoc">edit</a></h2>
 </div></div></div>
 
 <div class="warning admon">
@@ -147,14 +135,14 @@ Not what you want? See the
 unique ID.</p>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="security-api-update-user-profile-data-request"></a>Request<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/x-pack/docs/en/rest-api/security/update-user-profile-data.asciidoc">edit</a></h3>
+<h3 class="title"><a id="security-api-update-user-profile-data-request"></a>Request<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/x-pack/docs/en/rest-api/security/update-user-profile-data.asciidoc">edit</a></h3>
 </div></div></div>
 <p><code class="literal">POST /_security/profile/&lt;uid&gt;/_data</code></p>
 </div>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="security-api-update-user-profile-data-prereqs"></a>Prerequisites<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/x-pack/docs/en/rest-api/security/update-user-profile-data.asciidoc">edit</a></h3>
+<h3 class="title"><a id="security-api-update-user-profile-data-prereqs"></a>Prerequisites<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/x-pack/docs/en/rest-api/security/update-user-profile-data.asciidoc">edit</a></h3>
 </div></div></div>
 <p>To use this API, you must have one of the following privileges:</p>
 <div class="ulist itemizedlist">
@@ -172,7 +160,7 @@ referenced in the request.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="security-api-update-user-profile-data-desc"></a>Description<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/x-pack/docs/en/rest-api/security/update-user-profile-data.asciidoc">edit</a></h3>
+<h3 class="title"><a id="security-api-update-user-profile-data-desc"></a>Description<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/x-pack/docs/en/rest-api/security/update-user-profile-data.asciidoc">edit</a></h3>
 </div></div></div>
 <p>The update user profile API updates the <code class="literal">labels</code> and <code class="literal">data</code> fields of an
 existing user profile document with JSON objects. New keys and their values are
@@ -185,7 +173,7 @@ the allowed namespaces.</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="security-api-update-user-profile-data-path-params"></a>Path parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/x-pack/docs/en/rest-api/security/update-user-profile-data.asciidoc">edit</a></h3>
+<h3 class="title"><a id="security-api-update-user-profile-data-path-params"></a>Path parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/x-pack/docs/en/rest-api/security/update-user-profile-data.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="variablelist">
 <dl class="variablelist">
@@ -203,7 +191,7 @@ the allowed namespaces.</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="security-api-update-user-profile-data-query-params"></a>Query parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/x-pack/docs/en/rest-api/security/update-user-profile-data.asciidoc">edit</a></h3>
+<h3 class="title"><a id="security-api-update-user-profile-data-query-params"></a>Query parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/x-pack/docs/en/rest-api/security/update-user-profile-data.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="variablelist">
 <dl class="variablelist">
@@ -250,7 +238,7 @@ Valid values: <code class="literal">true</code>, <code class="literal">false</co
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="security-api-update-user-profile-data-request-body"></a>Request body<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/x-pack/docs/en/rest-api/security/update-user-profile-data.asciidoc">edit</a></h3>
+<h3 class="title"><a id="security-api-update-user-profile-data-request-body"></a>Request body<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/x-pack/docs/en/rest-api/security/update-user-profile-data.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="variablelist">
 <dl class="variablelist">
@@ -285,7 +273,7 @@ The <code class="literal">data</code> object is not searchable, but can be retri
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="security-api-update-user-profile-data-response-body"></a>Response body<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/x-pack/docs/en/rest-api/security/update-user-profile-data.asciidoc">edit</a></h3>
+<h3 class="title"><a id="security-api-update-user-profile-data-response-body"></a>Response body<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/x-pack/docs/en/rest-api/security/update-user-profile-data.asciidoc">edit</a></h3>
 </div></div></div>
 <p>A successful update user profile data API call returns a JSON structure
 indicating that the request is acknowledged:</p>
@@ -298,18 +286,16 @@ indicating that the request is acknowledged:</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="security-api-update-user-profile-data-example"></a>Examples<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/x-pack/docs/en/rest-api/security/update-user-profile-data.asciidoc">edit</a></h3>
+<h3 class="title"><a id="security-api-update-user-profile-data-example"></a>Examples<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/x-pack/docs/en/rest-api/security/update-user-profile-data.asciidoc">edit</a></h3>
 </div></div></div>
 <p>The following request updates a profile document for a <code class="literal">uid</code> matching
-<code class="literal">u_kd2JMqwUQwSCCOxMv7M1vw</code>:</p>
-<a id="3a9d1b31e8a429d43b566abe8bbd521a"></a>
+<code class="literal">u_P_0BMHgaOK3p7k-PFWUCbw9dQ-UFjt01oWJ_Dp2PmPc_0</code>:</p>
+<a id="ba21a7fbb74180ff138d97032f28ace7"></a>
 <div class="pre_wrapper lang-console">
-<pre class="programlisting prettyprint lang-console">POST /_security/profile/u_kd2JMqwUQwSCCOxMv7M1vw/_data
+<pre class="programlisting prettyprint lang-console">POST /_security/profile/u_P_0BMHgaOK3p7k-PFWUCbw9dQ-UFjt01oWJ_Dp2PmPc_0/_data
 {
   "labels": {
-    "app1": {
-      "tag": "prod"
-    }
+    "direction": "east"
   },
   "data": {
     "app1": {
@@ -318,16 +304,14 @@ indicating that the request is acknowledged:</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/2597.console"></div>
+<div class="console_widget" data-snippet="snippets/2719.console"></div>
 <p>You can update the profile data to replace some keys and add new keys:</p>
-<a id="9d73b96120715efdfd6f6272b8fce675"></a>
+<a id="32b7963c5cabbe9cc7d15da62f5edda9"></a>
 <div class="pre_wrapper lang-console">
-<pre class="programlisting prettyprint lang-console">POST /_security/profile/u_kd2JMqwUQwSCCOxMv7M1vw/_data
+<pre class="programlisting prettyprint lang-console">POST /_security/profile/u_P_0BMHgaOK3p7k-PFWUCbw9dQ-UFjt01oWJ_Dp2PmPc_0/_data
 {
   "labels": {
-    "app1": {
-      "tag": "dev"
-    }
+    "direction": "west"
   },
   "data": {
     "app1": {
@@ -336,27 +320,31 @@ indicating that the request is acknowledged:</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/2598.console"></div>
-<p>If you run the request again, the consolidated profile data is returned:</p>
-<div class="pre_wrapper lang-js">
-<pre class="programlisting prettyprint lang-js">{
-  "u_kd2JMqwUQwSCCOxMv7M1vw": {
-    "uid": "u_kd2JMqwUQwSCCOxMv7M1vw",
+<div class="console_widget" data-snippet="snippets/2720.console"></div>
+<p>If you get the profile now, the consolidated profile data is returned:</p>
+<a id="4f666d710758578e2582850dac3ad144"></a>
+<div class="pre_wrapper lang-console">
+<pre class="programlisting prettyprint lang-console">GET /_security/profile/u_P_0BMHgaOK3p7k-PFWUCbw9dQ-UFjt01oWJ_Dp2PmPc_0?data=*</pre>
+</div>
+<div class="console_widget" data-snippet="snippets/2721.console"></div>
+<a id="d0f3a7443cac1b64e23d34220260a578"></a>
+<div class="pre_wrapper lang-console-result">
+<pre class="programlisting prettyprint lang-console-result">{
+  "u_P_0BMHgaOK3p7k-PFWUCbw9dQ-UFjt01oWJ_Dp2PmPc_0": {
+    "uid": "u_P_0BMHgaOK3p7k-PFWUCbw9dQ-UFjt01oWJ_Dp2PmPc_0",
     "enabled": true,
     "last_synchronized": 1642650651037,
     "user": {
-      "username": "jacknich",
+      "username": "jackrea",
       "roles": [
-        "admin", "other_role1"
+        "admin"
       ],
-      "realm_name": "native1",
-      "full_name": "Jack Nicholson",
-      "email": "jacknich@example.com"
+      "realm_name": "native",
+      "full_name": "Jack Reacher",
+      "email": "jackrea@example.com"
     },
     "labels": {
-      "app1": {
-        "tag": "dev"
-      }
+      "direction": "west"
     },
     "data": {
       "app1": {
@@ -365,8 +353,8 @@ indicating that the request is acknowledged:</p>
       }
     },
     "_doc": {
-      "_primary_term": 1,
-      "_seq_no": 0
+      "_primary_term": 88,
+      "_seq_no": 66
     }
   }
 }</pre>
@@ -379,22 +367,44 @@ indicating that the request is acknowledged:</p>
 <a href="security-api-suggest-user-profile.html">« Suggest user profile API</a>
 </span>
 <span class="next">
-<a href="snapshot-restore-apis.html">Snapshot and restore APIs »</a>
+<a href="security-api-has-privileges-user-profile.html">Has privileges user profile API »</a>
 </span>
 </div>
 </div>
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

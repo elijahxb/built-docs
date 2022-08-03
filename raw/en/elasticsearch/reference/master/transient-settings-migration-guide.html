@@ -18,13 +18,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="breaking-changes.html">Migration guide</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="breaking-changes.html">Migration guide</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="migrating-8.0.html">Migrating to 8.0</a></span>
-»
-<span class="breadcrumb-node">Transient settings migration guide</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -36,7 +33,7 @@ Not what you want? See the
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="transient-settings-migration-guide"></a>Transient settings migration guide<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/migration/transient-settings-migration-guide.asciidoc">edit</a></h2>
+<h2 class="title"><a id="transient-settings-migration-guide"></a>Transient settings migration guide<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/migration/transient-settings-migration-guide.asciidoc">edit</a></h2>
 </div></div></div>
 <p>We no longer recommend using transient cluster settings. You can use transient
 settings to make temporary configuration changes to a cluster. However, a
@@ -65,7 +62,7 @@ users, or your custom workflows and applications.</p>
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">GET _cluster/settings?flat_settings=true&amp;filter_path=transient</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/2686.console"></div>
+<div class="console_widget" data-snippet="snippets/2810.console"></div>
 <p>The API returns transient settings in the <code class="literal">transient</code> object. If this object is
 empty, your cluster has no transient settings, and you can skip the remaining
 steps.</p>
@@ -97,7 +94,7 @@ request, reset any transient settings by assigning them a <code class="literal">
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/2687.console"></div>
+<div class="console_widget" data-snippet="snippets/2811.console"></div>
 </li>
 <li class="listitem">
 <p>Use the <a class="xref" href="cluster-get-settings.html" title="Cluster get settings API">cluster get settings API</a> to confirm your
@@ -106,7 +103,7 @@ cluster has no remaining transient settings.</p>
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">GET _cluster/settings?flat_settings=true</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/2688.console"></div>
+<div class="console_widget" data-snippet="snippets/2812.console"></div>
 <p>If the <code class="literal">transient</code> object is empty, your cluster has no transient settings.</p>
 <a id="2ed98be3424f9822f476f92cee85cae9"></a>
 <div class="pre_wrapper lang-console-result">

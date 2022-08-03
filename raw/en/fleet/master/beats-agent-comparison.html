@@ -18,9 +18,8 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="index.html">Fleet and Elastic Agent Guide [master]</a></span>
-»
-<span class="breadcrumb-node">Beats and Elastic Agent capabilities</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -100,165 +99,14 @@ further simplified and defined by integrations. In this model, the decision on
 the inputs is driven by the integration you want to collect data from. The
 complexity of configuration details of various inputs is driven centrally by
 Fleet and specifically by the integrations.</p>
-<p>The following table shows the inputs supported by the Elastic Agent in 8.2.0:</p>
-<div class="informaltable">
-<table border="1" cellpadding="4px">
-<colgroup>
-<col class="col_1"/>
-<col class="col_2"/>
-<col class="col_3"/>
-<col class="col_4"/>
-</colgroup>
-<thead>
-<tr>
-<th align="left" valign="top">Input</th>
-<th align="left" valign="top">Beats</th>
-<th align="left" valign="top">Fleet-managed Elastic Agent</th>
-<th align="left" valign="top">Standalone Elastic Agent</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left" valign="top"><p>AWS CloudWatch</p></td>
-<td align="left" valign="top"><p><span class="image"><img src="images/green-check.svg" alt="yes"></span> (beta)</p></td>
-<td align="left" valign="top"><p><span class="image"><img src="images/green-check.svg" alt="yes"></span> (beta)</p></td>
-<td align="left" valign="top"><p><span class="image"><img src="images/green-check.svg" alt="yes"></span> (beta)</p></td>
-</tr>
-<tr>
-<td align="left" valign="top"><p>AWS S3</p></td>
-<td align="left" valign="top"><p><span class="image"><img src="images/green-check.svg" alt="yes"></span></p></td>
-<td align="left" valign="top"><p><span class="image"><img src="images/green-check.svg" alt="yes"></span></p></td>
-<td align="left" valign="top"><p><span class="image"><img src="images/green-check.svg" alt="yes"></span></p></td>
-</tr>
-<tr>
-<td align="left" valign="top"><p>Azure Event Hub</p></td>
-<td align="left" valign="top"><p><span class="image"><img src="images/green-check.svg" alt="yes"></span></p></td>
-<td align="left" valign="top"><p><span class="image"><img src="images/green-check.svg" alt="yes"></span></p></td>
-<td align="left" valign="top"><p><span class="image"><img src="images/green-check.svg" alt="yes"></span></p></td>
-</tr>
-<tr>
-<td align="left" valign="top"><p>Cloud Foundry</p></td>
-<td align="left" valign="top"><p><span class="image"><img src="images/green-check.svg" alt="yes"></span></p></td>
-<td align="left" valign="top"><p><span class="image"><img src="images/red-x.svg" alt="no"></span></p></td>
-<td align="left" valign="top"><p><span class="image"><img src="images/green-check.svg" alt="yes"></span></p></td>
-</tr>
-<tr>
-<td align="left" valign="top"><p>Container</p></td>
-<td align="left" valign="top"><p><span class="image"><img src="images/green-check.svg" alt="yes"></span></p></td>
-<td align="left" valign="top"><p><span class="image"><img src="images/red-x.svg" alt="no"></span></p></td>
-<td align="left" valign="top"><p><span class="image"><img src="images/green-check.svg" alt="yes"></span></p></td>
-</tr>
-<tr>
-<td align="left" valign="top"><p>Docker</p></td>
-<td align="left" valign="top"><p><span class="image"><img src="images/green-check.svg" alt="yes"></span></p></td>
-<td align="left" valign="top"><p><span class="image"><img src="images/red-x.svg" alt="no"></span></p></td>
-<td align="left" valign="top"><p><span class="image"><img src="images/green-check.svg" alt="yes"></span></p></td>
-</tr>
-<tr>
-<td align="left" valign="top"><p>Endpoint security</p></td>
-<td align="left" valign="top"><p><span class="image"><img src="images/red-x.svg" alt="no"></span></p></td>
-<td align="left" valign="top"><p><span class="image"><img src="images/green-check.svg" alt="yes"></span></p></td>
-<td align="left" valign="top"><p><span class="image"><img src="images/red-x.svg" alt="no"></span></p></td>
-</tr>
-<tr>
-<td align="left" valign="top"><p>GCP Pub/Sub</p></td>
-<td align="left" valign="top"><p><span class="image"><img src="images/green-check.svg" alt="yes"></span></p></td>
-<td align="left" valign="top"><p><span class="image"><img src="images/green-check.svg" alt="yes"></span></p></td>
-<td align="left" valign="top"><p><span class="image"><img src="images/green-check.svg" alt="yes"></span></p></td>
-</tr>
-<tr>
-<td align="left" valign="top"><p>HTTP Endpoint</p></td>
-<td align="left" valign="top"><p><span class="image"><img src="images/green-check.svg" alt="yes"></span> (beta)</p></td>
-<td align="left" valign="top"><p><span class="image"><img src="images/green-check.svg" alt="yes"></span> (beta)</p></td>
-<td align="left" valign="top"><p><span class="image"><img src="images/green-check.svg" alt="yes"></span> (beta)</p></td>
-</tr>
-<tr>
-<td align="left" valign="top"><p>HTTP JSON</p></td>
-<td align="left" valign="top"><p><span class="image"><img src="images/green-check.svg" alt="yes"></span></p></td>
-<td align="left" valign="top"><p><span class="image"><img src="images/green-check.svg" alt="yes"></span></p></td>
-<td align="left" valign="top"><p><span class="image"><img src="images/green-check.svg" alt="yes"></span></p></td>
-</tr>
-<tr>
-<td align="left" valign="top"><p>Kafka</p></td>
-<td align="left" valign="top"><p><span class="image"><img src="images/green-check.svg" alt="yes"></span></p></td>
-<td align="left" valign="top"><p><span class="image"><img src="images/red-x.svg" alt="no"></span></p></td>
-<td align="left" valign="top"><p><span class="image"><img src="images/green-check.svg" alt="yes"></span></p></td>
-</tr>
-<tr>
-<td align="left" valign="top"><p>Logfile</p></td>
-<td align="left" valign="top"><p><span class="image"><img src="images/green-check.svg" alt="yes"></span></p></td>
-<td align="left" valign="top"><p><span class="image"><img src="images/green-check.svg" alt="yes"></span></p></td>
-<td align="left" valign="top"><p><span class="image"><img src="images/green-check.svg" alt="yes"></span></p></td>
-</tr>
-<tr>
-<td align="left" valign="top"><p>MQTT</p></td>
-<td align="left" valign="top"><p><span class="image"><img src="images/green-check.svg" alt="yes"></span></p></td>
-<td align="left" valign="top"><p><span class="image"><img src="images/red-x.svg" alt="no"></span></p></td>
-<td align="left" valign="top"><p><span class="image"><img src="images/green-check.svg" alt="yes"></span></p></td>
-</tr>
-<tr>
-<td align="left" valign="top"><p>NetFlow</p></td>
-<td align="left" valign="top"><p><span class="image"><img src="images/green-check.svg" alt="yes"></span></p></td>
-<td align="left" valign="top"><p><span class="image"><img src="images/green-check.svg" alt="yes"></span></p></td>
-<td align="left" valign="top"><p><span class="image"><img src="images/green-check.svg" alt="yes"></span></p></td>
-</tr>
-<tr>
-<td align="left" valign="top"><p>O365 Mgmt Act API</p></td>
-<td align="left" valign="top"><p><span class="image"><img src="images/green-check.svg" alt="yes"></span> (beta)</p></td>
-<td align="left" valign="top"><p><span class="image"><img src="images/green-check.svg" alt="yes"></span> (beta)</p></td>
-<td align="left" valign="top"><p><span class="image"><img src="images/green-check.svg" alt="yes"></span> (beta)</p></td>
-</tr>
-<tr>
-<td align="left" valign="top"><p>Osquery</p></td>
-<td align="left" valign="top"><p><span class="image"><img src="images/red-x.svg" alt="no"></span></p></td>
-<td align="left" valign="top"><p><span class="image"><img src="images/green-check.svg" alt="yes"></span></p></td>
-<td align="left" valign="top"><p><span class="image"><img src="images/red-x.svg" alt="no"></span></p></td>
-</tr>
-<tr>
-<td align="left" valign="top"><p>Redis</p></td>
-<td align="left" valign="top"><p><span class="image"><img src="images/green-check.svg" alt="yes"></span> (beta)</p></td>
-<td align="left" valign="top"><p><span class="image"><img src="images/red-x.svg" alt="no"></span></p></td>
-<td align="left" valign="top"><p><span class="image"><img src="images/green-check.svg" alt="yes"></span> (beta)</p></td>
-</tr>
-<tr>
-<td align="left" valign="top"><p>Stdin</p></td>
-<td align="left" valign="top"><p><span class="image"><img src="images/green-check.svg" alt="yes"></span></p></td>
-<td align="left" valign="top"><p><span class="image"><img src="images/red-x.svg" alt="no"></span></p></td>
-<td align="left" valign="top"><p><span class="image"><img src="images/green-check.svg" alt="yes"></span></p></td>
-</tr>
-<tr>
-<td align="left" valign="top"><p>Syslog</p></td>
-<td align="left" valign="top"><p><span class="image"><img src="images/green-check.svg" alt="yes"></span></p></td>
-<td align="left" valign="top"><p><span class="image"><img src="images/green-check.svg" alt="yes"></span></p></td>
-<td align="left" valign="top"><p><span class="image"><img src="images/green-check.svg" alt="yes"></span></p></td>
-</tr>
-<tr>
-<td align="left" valign="top"><p>TCP</p></td>
-<td align="left" valign="top"><p><span class="image"><img src="images/green-check.svg" alt="yes"></span></p></td>
-<td align="left" valign="top"><p><span class="image"><img src="images/green-check.svg" alt="yes"></span></p></td>
-<td align="left" valign="top"><p><span class="image"><img src="images/green-check.svg" alt="yes"></span></p></td>
-</tr>
-<tr>
-<td align="left" valign="top"><p>UDP</p></td>
-<td align="left" valign="top"><p><span class="image"><img src="images/green-check.svg" alt="yes"></span></p></td>
-<td align="left" valign="top"><p><span class="image"><img src="images/green-check.svg" alt="yes"></span></p></td>
-<td align="left" valign="top"><p><span class="image"><img src="images/green-check.svg" alt="yes"></span></p></td>
-</tr>
-<tr>
-<td align="left" valign="top"><p>UNIX</p></td>
-<td align="left" valign="top"><p><span class="image"><img src="images/green-check.svg" alt="yes"></span> (beta)</p></td>
-<td align="left" valign="top"><p><span class="image"><img src="images/green-check.svg" alt="yes"></span> (beta)</p></td>
-<td align="left" valign="top"><p><span class="image"><img src="images/green-check.svg" alt="yes"></span> (beta)</p></td>
-</tr>
-</tbody>
-</table>
-</div>
+<p>To find out if an integration is GA, see the
+<a href="https://docs.elastic.co/en/integrations/all_integrations" class="ulink" target="_top">Integrations quick reference table</a>.</p>
 <h3><a id="supported-outputs-beats-and-agent"></a>Supported outputs<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/observability-docs/edit/main/docs/en/ingest-management/beats-agent-comparison.asciidoc">edit</a></h3>
-<p>The following table shows the outputs supported by the Elastic Agent in 8.2.0:</p>
+<p>The following table shows the outputs supported by the Elastic Agent in 8.4.0:</p>
 <div class="note admon">
 <div class="icon"></div>
 <div class="admon_content">
-<p>Endpoint Security has a different output matrix.</p>
+<p>Endpoint and Cloud Security has a different output matrix.</p>
 </div>
 </div>
 <div class="informaltable">
@@ -293,7 +141,7 @@ Fleet and specifically by the integrations.</p>
 <tr>
 <td align="left" valign="top"><p>Logstash</p></td>
 <td align="left" valign="top"><p><span class="image"><img src="images/green-check.svg" alt="yes"></span></p></td>
-<td align="left" valign="top"><p>Under consideration</p></td>
+<td align="left" valign="top"><p><span class="image"><img src="images/green-check.svg" alt="yes"></span> (public Beta)</p></td>
 <td align="left" valign="top"><p><span class="image"><img src="images/green-check.svg" alt="yes"></span></p></td>
 </tr>
 <tr>
@@ -390,7 +238,7 @@ configuration experience.</p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p><a href="/guide/en/beats/filebeat/master/defining-processors.html" class="ulink" target="_top">Processors</a></p></td>
-<td align="left" valign="top"><p>Processors can be defined at the integration level. Global processors are currently not supported.</p></td>
+<td align="left" valign="top"><p>Processors can be defined at the integration level. Global processors, configured at the policy level, are currently under consideration.</p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p><a href="/guide/en/beats/filebeat/master/configuration-autodiscover.html" class="ulink" target="_top">Autodiscover</a></p></td>
@@ -404,8 +252,8 @@ care of configuring the internal queues to accomplish your tuning intent.</p></t
 </tr>
 <tr>
 <td align="left" valign="top"><p><a href="/guide/en/beats/filebeat/master/load-balancing.html" class="ulink" target="_top">Load balance output hosts</a></p></td>
-<td align="left" valign="top"><p>Within the Fleet UI, you can add yaml settings to configure multiple hosts
-per output type, which enables loadbalancing.</p></td>
+<td align="left" valign="top"><p>Within the Fleet UI, you can add YAML settings to configure multiple hosts
+per output type, which enables load balancing.</p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p><a href="/guide/en/beats/filebeat/master/configuration-logging.html" class="ulink" target="_top">Logging</a></p></td>
@@ -423,7 +271,7 @@ per output type, which enables loadbalancing.</p></td>
 </table>
 </div>
 <h3><a id="additional-capabilities-beats-and-agent"></a>Capabilities comparison<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/observability-docs/edit/main/docs/en/ingest-management/beats-agent-comparison.asciidoc">edit</a></h3>
-<p>The following table shows a comparison of capabilities supported by Beats and the Elastic Agent in 8.2.0:</p>
+<p>The following table shows a comparison of capabilities supported by Beats and the Elastic Agent in 8.4.0:</p>
 <div class="informaltable">
 <table border="1" cellpadding="4px">
 <colgroup>
@@ -501,10 +349,10 @@ per output type, which enables loadbalancing.</p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p>Data streams support</p></td>
-<td align="left" valign="top"><p><span class="image"><img src="images/red-x.svg" alt="no"></span></p></td>
 <td align="left" valign="top"><p><span class="image"><img src="images/green-check.svg" alt="yes"></span></p></td>
 <td align="left" valign="top"><p><span class="image"><img src="images/green-check.svg" alt="yes"></span></p></td>
-<td align="left" valign="top"><p>Elastic Agents use <a class="xref" href="data-streams.html" title="Data streams">data streams</a> with easier index life cycle management and the <a href="/blog/an-introduction-to-the-elastic-data-stream-naming-scheme" class="ulink" target="_top">data stream naming scheme</a>. Beats uses a single index with potentially thousands of fields.</p></td>
+<td align="left" valign="top"><p><span class="image"><img src="images/green-check.svg" alt="yes"></span></p></td>
+<td align="left" valign="top"><p>Both Beats (default as of version 8.0) and Elastic Agents use <a class="xref" href="data-streams.html" title="Data streams">data streams</a> with easier index life cycle management and the <a href="/blog/an-introduction-to-the-elastic-data-stream-naming-scheme" class="ulink" target="_top">data stream naming scheme</a>.</p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p>Variables and input conditions</p></td>
@@ -523,23 +371,23 @@ per output type, which enables loadbalancing.</p></td>
 <tr>
 <td align="left" valign="top"><p>Air-gapped network support</p></td>
 <td align="left" valign="top"><p><span class="image"><img src="images/green-check.svg" alt="yes"></span></p></td>
-<td align="left" valign="top"><p><span class="image"><img src="images/red-x.svg" alt="no"></span></p></td>
+<td align="left" valign="top"><p><span class="image"><img src="images/green-check.svg" alt="yes"></span> (with Limits)</p></td>
 <td align="left" valign="top"><p><span class="image"><img src="images/green-check.svg" alt="yes"></span></p></td>
-<td align="left" valign="top"><p>The Integrations app requires a network connection to the <a href="/guide/en/fleet/master/fleet-overview.html#package-registry-intro" class="ulink" target="_top">Elastic Package Registry</a>, or a <a href="/guide/en/fleet/master/air-gapped.html#air-gapped-diy-epr" class="ulink" target="_top">self-managed deployment of the Elastic Package Registry</a>. Fleet-managed Elastic Agents require a connection to our artifact repository for agent binary upgrades. These are not required for standalone Elastic Agents or Beats.</p></td>
+<td align="left" valign="top"><p>The Integrations and Fleet apps can be deployed in an air-gapped environment <a href="/guide/en/fleet/master/air-gapped.html#air-gapped-diy-epr" class="ulink" target="_top">self-managed deployment of the Elastic Package Registry</a>. Fleet-managed Elastic Agents require a connection to our artifact repository for agent binary upgrades. These are not required for standalone Elastic Agents or Beats. Upgrading Fleet-managed Elastic Agents in an air-gapped environment is currently under consideration.</p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p>Run without root on host</p></td>
 <td align="left" valign="top"><p><span class="image"><img src="images/green-check.svg" alt="yes"></span></p></td>
 <td align="left" valign="top"><p><span class="image"><img src="images/red-x.svg" alt="no"></span></p></td>
 <td align="left" valign="top"><p><span class="image"><img src="images/green-check.svg" alt="yes"></span></p></td>
-<td align="left" valign="top"><p>Fleet-managed Elastic Agents require root permission, in particular for Endpoint Security. Standalone Elastic Agents and Beats do not.</p></td>
+<td align="left" valign="top"><p>Fleet-managed Elastic Agents require root permission, in particular for Endpoint and Cloud Security. Standalone Elastic Agents and Beats do not.</p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p>Multiple outputs</p></td>
 <td align="left" valign="top"><p><span class="image"><img src="images/green-check.svg" alt="yes"></span></p></td>
-<td align="left" valign="top"><p><span class="image"><img src="images/red-x.svg" alt="no"></span></p></td>
 <td align="left" valign="top"><p><span class="image"><img src="images/green-check.svg" alt="yes"></span></p></td>
-<td align="left" valign="top"><p>Fleet-managed Elastic Agents only provide a <a class="xref" href="elastic-agent-output-configuration.html" title="Configure outputs for standalone Elastic Agents">single global output</a> to the same Elasticsearch cluster where Fleet is running. We are considering support for <a href="https://github.com/elastic/kibana/issues/104980" class="ulink" target="_top">more outputs</a>.</p></td>
+<td align="left" valign="top"><p><span class="image"><img src="images/green-check.svg" alt="yes"></span></p></td>
+<td align="left" valign="top"><p>The policy for a single Fleet-managed Elastic Agent can specify multiple outputs.</p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p>Separate monitoring cluster</p></td>

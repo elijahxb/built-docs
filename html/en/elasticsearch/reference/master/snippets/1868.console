@@ -1,1 +1,1 @@
-GET _tasks/oTUltX4IQMOUUVeiohTt8A:12345?wait_for_completion=true&timeout=10s
+GET kibana_sample_data_flights,.ds-my-data-stream-2022.06.17-000001?features=settings&flat_settings

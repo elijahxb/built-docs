@@ -18,13 +18,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="search-aggregations.html">Aggregations</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="search-aggregations.html">Aggregations</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="search-aggregations-bucket.html">Bucket aggregations</a></span>
-»
-<span class="breadcrumb-node">Random sampler aggregation</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -36,7 +33,7 @@ Not what you want? See the
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="search-aggregations-random-sampler-aggregation"></a>Random sampler aggregation<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/aggregations/bucket/random-sampler-aggregation.asciidoc">edit</a></h2>
+<h2 class="title"><a id="search-aggregations-random-sampler-aggregation"></a>Random sampler aggregation<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/aggregations/bucket/random-sampler-aggregation.asciidoc">edit</a></h2>
 </div></div></div>
 
 <div class="warning admon">
@@ -82,10 +79,10 @@ documents matched by the query.</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1166.console"></div>
+<div class="console_widget" data-snippet="snippets/1194.console"></div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="random-sampler-top-level-params"></a>Top-level parameters for random_sampler<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/aggregations/bucket/random-sampler-aggregation.asciidoc">edit</a></h3>
+<h3 class="title"><a id="random-sampler-top-level-params"></a>Top-level parameters for random_sampler<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/aggregations/bucket/random-sampler-aggregation.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="variablelist">
 <dl class="variablelist">
@@ -114,7 +111,7 @@ a seed is provided, the random subset of documents is the same between calls.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="random-sampler-inner-workings"></a>How does the sampling work?<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/aggregations/bucket/random-sampler-aggregation.asciidoc">edit</a></h3>
+<h3 class="title"><a id="random-sampler-inner-workings"></a>How does the sampling work?<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/aggregations/bucket/random-sampler-aggregation.asciidoc">edit</a></h3>
 </div></div></div>
 <p>The aggregation is a random sample of all the documents in the index. In other
 words, the sampling is over the background set of documents. If a query is
@@ -157,6 +154,21 @@ higher sampling rates, the relative error is still low.</p>
       cause relative error rates to increase or decrease at a different rate.</p>
 </div>
 </div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="random-sampler-special-cases"></a>Random sampling special cases<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/aggregations/bucket/random-sampler-aggregation.asciidoc">edit</a></h3>
+</div></div></div>
+<p>All counts returned by the random sampler aggregation are scaled to ease visualizations and calculations. For example,
+when randomly sampling a <a class="xref" href="search-aggregations-bucket-datehistogram-aggregation.html" title="Date histogram aggregation">date histogram aggregation</a> every
+<code class="literal">doc_count</code> value for every bucket is scaled by the inverse of the random_sampler <code class="literal">probability</code> value. So, if <code class="literal">doc_count</code>
+for a bucket is <code class="literal">10,000</code> with <code class="literal">probability: 0.1</code>, the actual number of documents aggregated is <code class="literal">1,000</code>.</p>
+<p>An exception to this is <a class="xref" href="search-aggregations-metrics-cardinality-aggregation.html" title="Cardinality aggregation">cardinality aggregation</a>. Unique item
+counts are not suitable for automatic scaling. When interpreting the cardinality count, compare it
+to the number of sampled docs provided in the top level <code class="literal">doc_count</code> within the random_sampler aggregation. It gives
+you an idea of unique values as a percentage of total values. It may not reflect, however, the exact number of unique values
+for the given field.</p>
 </div>
 
 </div>

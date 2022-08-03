@@ -1,1 +1,1 @@
-GET _slm/status
+GET /_security/api_key?name=my-*

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Set the retention period for logging and metrics indices | Elastic Cloud Enterprise Reference [3.2] | Elastic</title>
+<link rel="home" href="index.html" title="Elastic Cloud Enterprise Reference [3.2]"/>
+<link rel="up" href="ece-monitoring-ece.html" title="Monitoring your installation"/>
+<link rel="prev" href="ece-proxy-log-fields.html" title="Proxy Log Fields"/>
+<link rel="next" href="ece-administering-ece.html" title="Administering your installation"/>
+<meta name="DC.type" content="Learn/Docs/CloudEnterprise/Reference/3.2"/>
+<meta name="DC.subject" content="ECE"/>
+<meta name="DC.identifier" content="3.2"/>
+</head>
+<body><div class="page_header">
+A newer version is available. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Cloud Enterprise Reference [3.2]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="ece-monitoring-ece.html">Monitoring your installation</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="ece-proxy-log-fields.html">« Proxy Log Fields</a>
+</span>
+<span class="next">
+<a href="ece-administering-ece.html">Administering your installation »</a>
+</span>
+</div>
+<div class="chapter">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="ece-monitoring-ece-set-retention"></a>Set the retention period for logging and metrics indices<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/cloud-enterprise/ce-monitoring.asciidoc">edit</a></h2>
+</div></div></div>
+<p>Elastic Cloud Enterprise sets up default index lifecycle management (ILM) policies on the logging and metrics indices it collects. By default, metrics indices are kept for one day and logging indices are kept for seven days. This retention period can be adjusted.</p>
+<p>You might need to adjust the retention period for one of the following reasons:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+If your business requires you to retain logs and metrics for longer than the default period.
+</li>
+<li class="listitem">
+If the volume of logs and metrics collected is high enough to require reducing the amount of storage space consumed.
+</li>
+</ul>
+</div>
+<p>To customize the retention period, set up a custom lifecycle policy for logs and metrics indices:</p>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+<a href="/guide/en/elasticsearch/reference/8.3/set-up-lifecycle-policy.html" class="ulink" target="_top">Create a new index lifecycle management (ILM) policy</a> in the logging and metrics cluster.
+</li>
+<li class="listitem">
+Create a new, legacy-style, index template that matches the data view (formerly <em>index pattern</em>) that you wish to customize lifecycle for.
+</li>
+<li class="listitem">
+Specify a lifecycle policy in the index template settings.
+</li>
+<li class="listitem">
+Choose a higher <code class="literal">order</code> for the template so the specified lifecycle policy will be used instead of the default.
+</li>
+</ol>
+</div>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="ece-proxy-log-fields.html">« Proxy Log Fields</a>
+</span>
+<span class="next">
+<a href="ece-administering-ece.html">Administering your installation »</a>
+</span>
+</div>
+</div>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains('stemblock')) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+</body>
+</html>

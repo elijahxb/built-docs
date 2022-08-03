@@ -1,1 +1,10 @@
-POST _watcher/_stop
+GET /_security/_query/api_key
+{
+  "query": {
+    "ids": {
+      "values": [
+        "VuaCfGcBCdbkQm-e5aOx"
+      ]
+    }
+  }
+}

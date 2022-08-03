@@ -11,6 +11,7 @@
 <meta name="DC.type" content="Learn/Docs/Elasticsearch/Reference/8.1"/>
 <meta name="DC.subject" content="Elasticsearch"/>
 <meta name="DC.identifier" content="8.1"/>
+<meta name="robots" content="noindex,nofollow"/>
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -56,7 +57,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,38 +88,30 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
-                  
+                  <div class="page_header">
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.1]</a></span>
-»
-<span class="breadcrumb-link"><a href="modules-scripting.html">Scripting</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.1]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="modules-scripting.html">Scripting</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="modules-scripting-using.html">How to write scripts</a></span>
-»
-<span class="breadcrumb-node">Dissecting data</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -130,7 +123,7 @@
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="dissect"></a>Dissecting data<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/scripting/dissect-syntax.asciidoc">edit</a></h2>
+<h2 class="title"><a id="dissect"></a>Dissecting data<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/scripting/dissect-syntax.asciidoc">edit</a></h2>
 </div></div></div>
 <p>Dissect matches a single text field against a defined pattern. A dissect
 pattern is defined by the parts of the string you want to discard. Paying
@@ -142,7 +135,7 @@ overall. The syntax for dissect is transparent: tell dissect what you want and
 it will return those results to you.</p>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="dissect-syntax"></a>Dissect patterns<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/scripting/dissect-syntax.asciidoc">edit</a></h3>
+<h3 class="title"><a id="dissect-syntax"></a>Dissect patterns<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/scripting/dissect-syntax.asciidoc">edit</a></h3>
 </div></div></div>
 <p>Dissect patterns are comprised of <em>variables</em> and <em>separators</em>. Anything
 defined by a percent sign and curly braces <code class="literal">%{}</code> is considered a variable,
@@ -207,7 +200,7 @@ as part of the pattern.</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="dissect-patterns-test"></a>Test dissect patterns with Painless<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/scripting/dissect-syntax.asciidoc">edit</a></h3>
+<h3 class="title"><a id="dissect-patterns-test"></a>Test dissect patterns with Painless<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/scripting/dissect-syntax.asciidoc">edit</a></h3>
 </div></div></div>
 <p>You can incorporate dissect patterns into Painless scripts to extract
 data. To test your script, use either the <a href="/guide/en/elasticsearch/painless/8.1/painless-execute-api.html#painless-execute-runtime-field-context" class="ulink" target="_top">field contexts</a> of the Painless
@@ -231,7 +224,7 @@ Start by indexing the <code class="literal">message</code> field as a <code clas
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1419.console"></div>
+<div class="console_widget" data-snippet="snippets/1421.console"></div>
 <p>If you want to retrieve the HTTP response code, add your dissect pattern to a
 Painless script that extracts the <code class="literal">response</code> value. To extract values from a
 field, use this function:</p>
@@ -259,7 +252,7 @@ field, use this function:</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1420.console"></div>
+<div class="console_widget" data-snippet="snippets/1422.console"></div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
@@ -301,7 +294,7 @@ field, use this function:</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="dissect-patterns-runtime"></a>Use dissect patterns and scripts in runtime fields<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/scripting/dissect-syntax.asciidoc">edit</a></h3>
+<h3 class="title"><a id="dissect-patterns-runtime"></a>Use dissect patterns and scripts in runtime fields<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/scripting/dissect-syntax.asciidoc">edit</a></h3>
 </div></div></div>
 <p>If you have a functional dissect pattern, you can add it to a runtime field to
 manipulate data. Because runtime fields don&#8217;t require you to index fields, you
@@ -328,7 +321,7 @@ that field for <a class="xref" href="common-script-uses.html" title="Common scri
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1421.console"></div>
+<div class="console_widget" data-snippet="snippets/1423.console"></div>
 <p>If you want to extract the HTTP response code using your dissect pattern, you
 can create a runtime field like <code class="literal">http.response</code>:</p>
 <a id="efa146bf81a9351ba42b92a6decbcfee"></a>
@@ -346,7 +339,7 @@ can create a runtime field like <code class="literal">http.response</code>:</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1422.console"></div>
+<div class="console_widget" data-snippet="snippets/1424.console"></div>
 <p>After mapping the fields you want to retrieve, index a few records from
 your log data into Elasticsearch. The following request uses the <a class="xref" href="docs-bulk.html" title="Bulk API">bulk API</a>
 to index raw log data into <code class="literal">my-index</code>:</p>
@@ -368,7 +361,7 @@ to index raw log data into <code class="literal">my-index</code>:</p>
 {"index":{}}
 {"timestamp":"2020-04-30T14:31:28-05:00","message":"not a valid apache log"}</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1423.console"></div>
+<div class="console_widget" data-snippet="snippets/1425.console"></div>
 <p>You can define a simple query to run a search for a specific HTTP response and
 return all related fields. Use the <code class="literal">fields</code> parameter of the search API to
 retrieve the <code class="literal">http.response</code> runtime field.</p>
@@ -384,7 +377,7 @@ retrieve the <code class="literal">http.response</code> runtime field.</p>
   "fields" : ["http.response"]
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1424.console"></div>
+<div class="console_widget" data-snippet="snippets/1426.console"></div>
 <p>Alternatively, you can define the same runtime field but in the context of a
 search request. The runtime definition and the script are exactly the same as
 the one defined previously in the index mapping. Just copy that definition into
@@ -413,7 +406,7 @@ index mappings, but only in the context of this specific search:</p>
   "fields" : ["http.response"]
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1425.console"></div>
+<div class="console_widget" data-snippet="snippets/1427.console"></div>
 <a id="15706be181f9078d8dc3ca9b11986ac8"></a>
 <div class="pre_wrapper lang-console-result">
 <pre class="programlisting prettyprint lang-console-result">{
@@ -457,15 +450,37 @@ index mappings, but only in the context of this specific search:</p>
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

@@ -5,7 +5,7 @@
 <title>Elastic Agent command reference | Fleet and Elastic Agent Guide [master] | Elastic</title>
 <link rel="home" href="index.html" title="Fleet and Elastic Agent Guide [master]"/>
 <link rel="up" href="index.html" title="Fleet and Elastic Agent Guide [master]"/>
-<link rel="prev" href="elastic-agent-reference-yaml.html" title="Reference yaml"/>
+<link rel="prev" href="elastic-agent-reference-yaml.html" title="Reference YAML"/>
 <link rel="next" href="troubleshooting-intro.html" title="Troubleshoot"/>
 <meta name="DC.type" content="Learn/Docs/Fleet/Guide/Elastic Agent/master"/>
 <meta name="DC.subject" content="Fleet and Elastic Agent"/>
@@ -18,13 +18,12 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="index.html">Fleet and Elastic Agent Guide [master]</a></span>
-»
-<span class="breadcrumb-node">Elastic Agent command reference</span>
 </div>
 <div class="navheader">
 <span class="prev">
-<a href="elastic-agent-reference-yaml.html">« Reference yaml</a>
+<a href="elastic-agent-reference-yaml.html">« Reference YAML</a>
 </span>
 <span class="next">
 <a href="troubleshooting-intro.html">Troubleshoot »</a>
@@ -34,6 +33,7 @@ Not what you want? See the
 <div class="titlepage"><div><div>
 <h1 class="title"><a id="elastic-agent-cmd-options"></a>Elastic Agent command reference<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/observability-docs/edit/main/docs/en/ingest-management/commands.asciidoc">edit</a></h1>
 </div></div></div>
+
 <p>Elastic Agent provides commands for running Elastic Agent, managing Fleet Server, and
 doing common tasks.</p>
 <div class="note admon">
@@ -86,11 +86,11 @@ invoking the wrong binary.</p>
 <h3><a id="elastic-agent-diagnostics-command"></a>elastic-agent diagnostics<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/observability-docs/edit/main/docs/en/ingest-management/commands.asciidoc">edit</a></h3>
 <p>Gather diagnostics information from the Elastic Agent and applications it&#8217;s running.</p>
 <p>If no options are specified, this command displays version numbers and application metadata.</p>
-<p>If <code class="literal">collect</code> is specified, it produces an archive containing application metadata, configuration information, the policy, local logs, and metics data (if the buffer is enabled).</p>
+<p>If <code class="literal">collect</code> is specified, it produces an archive containing application metadata, configuration information, the policy, local logs, and metrics data (if the buffer is enabled).</p>
 <p>Note that <span class="strong strong"><strong>credentials are not redacted</strong></span> in the archive; they may appear in plain text in the configuration or policy files inside the archive.</p>
 <p>This command is intended for debugging purposes only. The output format and structure of the archive produced by <code class="literal">collect</code> may change between releases.</p>
 <p>If <code class="literal">pprof</code> is specified, it gathers specific <code class="literal">pprof</code> data from the Elastic Agent or one of the specified underlying Beats, and displays to <code class="literal">stdout</code>.
-By default it gathers a 30s profile of the Elastic Agent.</p>
+By default it gathers a 30 second profile of the Elastic Agent.</p>
 <h4><a id="_synopsis"></a>Synopsis<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/observability-docs/edit/main/docs/en/ingest-management/commands.asciidoc">edit</a></h4>
 <div class="pre_wrapper lang-shell">
 <pre class="programlisting prettyprint lang-shell">elastic-agent diagnostics [--help] [--output &lt;string&gt;] [global-flags]
@@ -166,7 +166,7 @@ Must be a string that can be parsed as a <code class="literal">time.Duration</co
 </span>
 </dt>
 <dd>
-The pprof data to gather, one of: <code class="literal">allocs</code>, <code class="literal">block</code>, <code class="literal">cmdline</code>, <code class="literal">goroutine</code>, <code class="literal">heap</code>, <code class="literal">mutex</code>, <code class="literal">profile</code>, <code class="literal">threadcreate</code>, or <code class="literal">trace</code> (default: <code class="literal">profile</code>).
+The <code class="literal">pprof</code> data to gather, one of: <code class="literal">allocs</code>, <code class="literal">block</code>, <code class="literal">cmdline</code>, <code class="literal">goroutine</code>, <code class="literal">heap</code>, <code class="literal">mutex</code>, <code class="literal">profile</code>, <code class="literal">threadcreate</code>, or <code class="literal">trace</code> (default: <code class="literal">profile</code>).
 </dd>
 <dt>
 <span class="term">
@@ -219,7 +219,7 @@ Elastic Agent prior to installing it.</p>
 <p>We recommend that you run the <code class="literal">enroll</code> (or <code class="literal">install</code>) command as the root user because some
 integrations require root privileges to collect sensitive data. This command
 overwrites the <code class="literal">elastic-agent.yml</code> file in the agent directory.</p>
-<p>This command includes optional flags to set up <a class="xref" href="fleet-server.html" title="Fleet Server">Fleet Server</a>.</p>
+<p>This command includes optional flags to set up <a class="xref" href="fleet-server.html" title="Set up Fleet Server">Fleet Server</a>.</p>
 <div class="important admon">
 <div class="icon"></div>
 <div class="admon_content">
@@ -240,6 +240,7 @@ to start the agent from a terminal.</p>
                      [--force]
                      [--help]
                      [--insecure ]
+                     [--tag &lt;string&gt;]
                      [global-flags]</pre>
 </div>
 <p>To enroll the Elastic Agent in Fleet and set up Fleet Server:</p>
@@ -249,25 +250,26 @@ to start the agent from a terminal.</p>
                      [--ca-sha256 &lt;string&gt;]
                      [--certificate-authorities &lt;string&gt;]
                      [--delay-enroll]
-                     [--fleet-server-cert &lt;string&gt;] <a id="CO26-1"></a><i class="conum" data-value="1"></i>
+                     [--fleet-server-cert &lt;string&gt;] <a id="CO17-1"></a><i class="conum" data-value="1"></i>
                      [--fleet-server-cert-key &lt;string&gt;]
                      [--fleet-server-es-ca &lt;string&gt;]
-                     [--fleet-server-es-ca-trusted-fingerprint &lt;string&gt;] <a id="CO26-2"></a><i class="conum" data-value="2"></i>
+                     [--fleet-server-es-ca-trusted-fingerprint &lt;string&gt;] <a id="CO17-2"></a><i class="conum" data-value="2"></i>
+                     [--fleet-server-es-insecure]
                      [--fleet-server-host &lt;string&gt;]
                      [--fleet-server-insecure-http]
                      [--fleet-server-policy &lt;string&gt;]
                      [--fleet-server-port &lt;uint16&gt;]
                      [--force]
                      [--help]
-                     [--url &lt;string&gt;] <a id="CO26-3"></a><i class="conum" data-value="3"></i>
-                     [--fleet-server-es-insecure]
+                     [--tag &lt;string&gt;]
+                     [--url &lt;string&gt;] <a id="CO17-3"></a><i class="conum" data-value="3"></i>
                      [global-flags]</pre>
 </div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO26-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO17-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>If no <code class="literal">fleet-server-cert*</code> flags are specified, Elastic Agent auto-generates a
@@ -278,7 +280,7 @@ the <code class="literal">--insecure</code> flag.</p>
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO26-2"><i class="conum" data-value="2"></i></a></p>
+<p><a href="#CO17-2"><i class="conum" data-value="2"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Required when using self-signed certificates with Elasticsearch.</p>
@@ -286,7 +288,7 @@ the <code class="literal">--insecure</code> flag.</p>
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO26-3"><i class="conum" data-value="3"></i></a></p>
+<p><a href="#CO17-3"><i class="conum" data-value="3"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Required when enrolling in a Fleet Server with custom certificates. The
@@ -375,7 +377,7 @@ Path to certificate authority to use to communicate with Elasticsearch.
 </span>
 </dt>
 <dd>
-The SHA2-56 fingerprint (hash) of the certificate authority used to self-sign Elasticsearch certificates.
+The SHA-256 fingerprint (hash) of the certificate authority used to self-sign Elasticsearch certificates.
 This fingerprint will be used to verify self-signed certificates presented by Fleet Server and any inputs started by Elastic Agent for communication.
 This flag is required when using self-signed certificates with Elasticsearch.
 </dd>
@@ -486,6 +488,24 @@ When using self-signed certificates generated by Elastic Agent.
 </ul>
 </div>
 <p>We strongly recommend that you use a secure connection.</p>
+</dd>
+<dt>
+<span class="term">
+<code class="literal">--tag &lt;string&gt;</code>
+</span>
+</dt>
+<dd>
+<p>
+A comma-separated list of tags to apply to Fleet-managed Elastic Agents. You can
+use these tags to filter the list of agents in Fleet.
+</p>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>Currently, there is no way to remove or edit existing tags. To change the
+tags, you must unenroll the Elastic Agent, then re-enroll it using new tags.</p>
+</div>
+</div>
 </dd>
 <dt>
 <span class="term">
@@ -675,6 +695,7 @@ examples, refer to <a class="xref" href="elastic-agent-installation.html" title=
                       [--force]
                       [--help]
                       [--insecure ]
+                      [--tag &lt;string&gt;]
                       [global-flags]</pre>
 </div>
 <p>To install the Elastic Agent as a service, enroll it in Fleet, and start
@@ -685,17 +706,18 @@ a <code class="literal">fleet-server</code> process alongside the <code class="l
                       [--ca-sha256 &lt;string&gt;]
                       [--certificate-authorities &lt;string&gt;]
                       [--delay-enroll]
-                      [--fleet-server-cert &lt;string&gt;] <a id="CO27-1"></a><i class="conum" data-value="1"></i>
+                      [--fleet-server-cert &lt;string&gt;] <a id="CO18-1"></a><i class="conum" data-value="1"></i>
                       [--fleet-server-cert-key &lt;string&gt;]
                       [--fleet-server-es-ca &lt;string&gt;]
-                      [--fleet-server-es-ca-trusted-fingerprint &lt;string&gt;] <a id="CO27-2"></a><i class="conum" data-value="2"></i>
+                      [--fleet-server-es-ca-trusted-fingerprint &lt;string&gt;] <a id="CO18-2"></a><i class="conum" data-value="2"></i>
                       [--fleet-server-host &lt;string&gt;]
                       [--fleet-server-insecure-http]
                       [--fleet-server-policy &lt;string&gt;]
                       [--fleet-server-port &lt;uint16&gt;]
                       [--force]
                       [--help]
-                      [--url &lt;string&gt;] <a id="CO27-3"></a><i class="conum" data-value="3"></i>
+                      [--tag &lt;string&gt;]
+                      [--url &lt;string&gt;] <a id="CO18-3"></a><i class="conum" data-value="3"></i>
                       [--fleet-server-es-insecure]
                       [global-flags]</pre>
 </div>
@@ -703,7 +725,7 @@ a <code class="literal">fleet-server</code> process alongside the <code class="l
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO27-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO18-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>If no <code class="literal">fleet-server-cert*</code> flags are specified, Elastic Agent auto-generates a
@@ -714,7 +736,7 @@ the <code class="literal">--insecure</code> flag.</p>
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO27-2"><i class="conum" data-value="2"></i></a></p>
+<p><a href="#CO18-2"><i class="conum" data-value="2"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Required when using self-signed certificate on Elasticsearch side.</p>
@@ -722,7 +744,7 @@ the <code class="literal">--insecure</code> flag.</p>
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO27-3"><i class="conum" data-value="3"></i></a></p>
+<p><a href="#CO18-3"><i class="conum" data-value="3"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Required when enrolling in a Fleet Server with custom certificates. The
@@ -811,7 +833,7 @@ Path to certificate authority to use to communicate with Elasticsearch.
 </span>
 </dt>
 <dd>
-The SHA2-56 fingerprint (hash) of the certificate authority used to self-sign Elasticsearch certificates.
+The SHA-256 fingerprint (hash) of the certificate authority used to self-sign Elasticsearch certificates.
 This fingerprint will be used to verify self-signed certificates presented by Fleet Server and any inputs started by Elastic Agent for communication.
 This flag is required when using self-signed certificates with Elasticsearch.
 </dd>
@@ -922,6 +944,24 @@ When using self-signed certificates generated by Elastic Agent.
 </ul>
 </div>
 <p>We strongly recommend that you use a secure connection.</p>
+</dd>
+<dt>
+<span class="term">
+<code class="literal">--tag &lt;string&gt;</code>
+</span>
+</dt>
+<dd>
+<p>
+A comma-separated list of tags to apply to Fleet-managed Elastic Agents. You can
+use these tags to filter the list of agents in Fleet.
+</p>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>Currently, there is no way to remove or edit existing tags. To change the
+tags, you must unenroll the Elastic Agent, then re-enroll it using new tags.</p>
+</div>
+</div>
 </dd>
 <dt>
 <span class="term">
@@ -1285,7 +1325,7 @@ Show help for the <code class="literal">version</code> command.
 </div>
 <div class="navfooter">
 <span class="prev">
-<a href="elastic-agent-reference-yaml.html">« Reference yaml</a>
+<a href="elastic-agent-reference-yaml.html">« Reference YAML</a>
 </span>
 <span class="next">
 <a href="troubleshooting-intro.html">Troubleshoot »</a>

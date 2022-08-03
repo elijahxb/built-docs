@@ -1,1 +1,1 @@
-PUT _ml/calendars/planned-outages/jobs/total-requests
+POST my-data-stream/_rollover

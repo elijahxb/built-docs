@@ -18,11 +18,9 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="monitor-elasticsearch-cluster.html">Monitor a cluster</a></span>
-»
-<span class="breadcrumb-node">Monitoring in a production environment</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -34,7 +32,7 @@ Not what you want? See the
 </div>
 <div class="chapter xpack">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="monitoring-production"></a>Monitoring in a production environment<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/monitoring/production.asciidoc">edit</a></h2>
+<h2 class="title"><a id="monitoring-production"></a>Monitoring in a production environment<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/monitoring/production.asciidoc">edit</a></h2>
 </div></div></div>
 <p>In production, you should send monitoring data to a separate <em>monitoring cluster</em>
 so that historical data is available even when the nodes you are monitoring are
@@ -98,7 +96,7 @@ PUT _cluster/settings
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1505.console"></div>
+<div class="console_widget" data-snippet="snippets/1533.console"></div>
 </li>
 <li class="listitem">
 <p>If the Elasticsearch security features are enabled on the monitoring cluster, create
@@ -135,7 +133,7 @@ following request creates a <code class="literal">remote_monitor</code> user tha
   "full_name" : "Internal Agent For Remote Monitoring"
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1506.console"></div>
+<div class="console_widget" data-snippet="snippets/1534.console"></div>
 <p>Alternatively, use the <code class="literal">remote_monitoring_user</code> <a class="xref" href="built-in-users.html" title="Built-in users">built-in user</a>.</p>
 </li>
 </ul>

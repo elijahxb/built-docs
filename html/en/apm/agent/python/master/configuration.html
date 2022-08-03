@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,27 +87,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 You are looking at preliminary documentation for a future release.
@@ -116,9 +107,8 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="index.html">APM Python Agent Reference [master]</a></span>
-»
-<span class="breadcrumb-node">Configuration</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -172,7 +162,7 @@ Default value
 <h3><a id="dynamic-configuration"></a>Dynamic configuration<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/docs/configuration.asciidoc">edit</a></h3>
 <p>Configuration options marked with the <span class="image"><img src="./images/dynamic-config.svg" alt="dynamic config"></span> badge can be changed at runtime
 when set from a supported source.</p>
-<p>The Python Agent supports <a href="/guide/en/kibana/8.1/agent-configuration.html" class="ulink" target="_top">Central configuration</a>,
+<p>The Python Agent supports <a href="/guide/en/kibana/8.3/agent-configuration.html" class="ulink" target="_top">Central configuration</a>,
 which allows you to fine-tune certain configurations from in the APM app.
 This feature is enabled in the Agent by default with <a class="xref" href="configuration.html#config-central_config" title="central_config"><code class="literal">central_config</code></a>.</p>
 <h3><a id="django-configuration"></a>Django<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/docs/configuration.asciidoc">edit</a></h3>
@@ -230,7 +220,9 @@ with something more descriptive and unique across your infrastructure.</p>
 <div class="icon"></div>
 <div class="admon_content">
 <p>The service name must conform to this regular expression: <code class="literal">^[a-zA-Z0-9 _-]+$</code>.
-In other words, the service name must only contain characters from the ASCII alphabet, numbers, dashes, underscores, and spaces.</p>
+In other words, the service name must only contain characters from the ASCII
+alphabet, numbers, dashes, underscores, and spaces. It cannot be an empty string
+or whitespace-only.</p>
 </div>
 </div>
 <h4><a id="config-server-url"></a><code class="literal">server_url</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/docs/configuration.asciidoc">edit</a></h4>
@@ -581,7 +573,7 @@ Server will fall back on <code class="literal">system.container.id</code> if ava
 e.g. "production" or "staging".</p>
 <p>Environments allow you to easily filter data on a global level in the APM app.
 It&#8217;s important to be consistent when naming environments across agents.
-See <a href="/guide/en/kibana/8.1/filters.html#environment-selector" class="ulink" target="_top">environment selector</a> in the APM app for more information.</p>
+See <a href="/guide/en/kibana/8.3/filters.html#environment-selector" class="ulink" target="_top">environment selector</a> in the APM app for more information.</p>
 <div class="note admon">
 <div class="icon"></div>
 <div class="admon_content">
@@ -652,7 +644,7 @@ to <code class="literal">"none"</code>, then no cloud metadata will be collected
 Both the agents and the APM Server have to be configured with the same secret token.
 An example to generate a secure secret token is:</p>
 <div class="pre_wrapper lang-bash">
-<pre class="programlisting prettyprint lang-bash">python -c "import uuid; print(str(uuid.uuid4()))"</pre>
+<pre class="programlisting prettyprint lang-bash">python -c "import secrets; print(secrets.token_urlsafe(32))"</pre>
 </div>
 <div class="warning admon">
 <div class="icon"></div>
@@ -694,7 +686,7 @@ An example to generate a secure secret token is:</p>
 </div>
 </div>
 <p>This base64-encoded string is used to ensure that only your agents can send data to your APM Server.
-The API key must be created using the <a href="/guide/en/apm/guide/8.1/api-key.html" class="ulink" target="_top">APM server command-line tool</a>.</p>
+The API key must be created using the <a href="/guide/en/apm/guide/8.3/api-key.html" class="ulink" target="_top">APM server command-line tool</a>.</p>
 <div class="warning admon">
 <div class="icon"></div>
 <div class="admon_content">
@@ -2187,10 +2179,67 @@ behavior by setting this to <code class="literal">True</code>.</p>
 </tbody>
 </table>
 </div>
-<p>To enable <a href="/guide/en/apm/guide/8.1/distributed-tracing.html" class="ulink" target="_top">distributed tracing</a>,
+<p>To enable <a href="/guide/en/apm/guide/8.3/distributed-tracing.html" class="ulink" target="_top">distributed tracing</a>,
 the agent sets a number of HTTP headers to outgoing requests made with <a class="xref" href="supported-technologies.html#automatic-instrumentation-http" title="External HTTP requests">instrumented HTTP libraries</a>.
 These headers (<code class="literal">traceparent</code> and <code class="literal">tracestate</code>) are defined in the <a href="https://www.w3.org/TR/trace-context-1/" class="ulink" target="_top">W3C Trace Context</a> specification.</p>
 <p>Additionally, when this setting is set to <code class="literal">True</code>, the agent will set <code class="literal">elasticapm-traceparent</code> for backwards compatibility.</p>
+<h4><a id="config-trace-continuation-strategy"></a><code class="literal">trace_continuation_strategy</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/docs/configuration.asciidoc">edit</a></h4>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+<col class="col_3"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Environment</th>
+<th align="left" valign="top">Django/Flask</th>
+<th align="left" valign="top">Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">ELASTIC_APM_TRACE_CONTINUATION_STRATEGY</code></p></td>
+<td align="left" valign="top"><p><code class="literal">TRACE_CONTINUATION_STRATEGY</code></p></td>
+<td align="left" valign="top"><p><code class="literal">continue</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>This option allows some control on how the APM agent handles W3C trace-context headers on incoming requests.
+By default, the <code class="literal">traceparent</code> and <code class="literal">tracestate</code> headers are used per W3C spec for distributed tracing.
+However, in certain cases it can be helpful to <span class="strong strong"><strong>not</strong></span> use the incoming <code class="literal">traceparent</code> header.
+Some example use cases:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+An Elastic-monitored service is receiving requests with <code class="literal">traceparent</code> headers from <span class="strong strong"><strong>unmonitored</strong></span> services.
+</li>
+<li class="listitem">
+An Elastic-monitored service is publicly exposed, and does not want tracing data (trace-ids, sampling decisions) to possibly be spoofed by user requests.
+</li>
+</ul>
+</div>
+<p>Valid values are:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<code class="literal">'continue'</code>: The default behavior. An incoming <code class="literal">traceparent</code> value is used to continue the trace and determine the sampling decision.
+</li>
+<li class="listitem">
+<code class="literal">'restart'</code>: Always ignores the <code class="literal">traceparent</code> header of incoming requests.
+A new trace-id will be generated and the sampling decision will be made based on <a class="xref" href="configuration.html#config-transaction-sample-rate" title="transaction_sample_rate"><code class="literal">transaction_sample_rate</code></a>.
+A <span class="strong strong"><strong>span link</strong></span> will be made to the incoming traceparent.
+</li>
+<li class="listitem">
+<code class="literal">'restart_external'</code>: If an incoming request includes the <code class="literal">es</code> vendor flag in <code class="literal">tracestate</code>, then any <em>traceparent</em> will be considered internal and will be handled as described for <code class="literal">'continue'</code> above.
+Otherwise, any <code class="literal">'traceparent'</code> is considered external and will be handled as described for <code class="literal">'restart'</code> above.
+</li>
+</ul>
+</div>
+<p>Starting with Elastic Observability 8.2, span links will be visible in trace
+views.</p>
 <h4><a id="config-use-elastic-excepthook"></a><code class="literal">use_elastic_excepthook</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/docs/configuration.asciidoc">edit</a></h4>
 <div class="informaltable">
 <table border="1" cellpadding="4px">
@@ -2369,15 +2418,37 @@ The unit is provided as suffix directly after the number, without and separation
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

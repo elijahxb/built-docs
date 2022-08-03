@@ -1,15 +1,28 @@
-GET /imdb/_termvectors
+POST my-index-000001/_delete_by_query
 {
-  "doc": {
-    "plot": "When wealthy industrialist Tony Stark is forced to build an armored suit after a life-threatening incident, he ultimately decides to use its technology to fight against evil."
+  "slice": {
+    "id": 0,
+    "max": 2
   },
-  "term_statistics": true,
-  "field_statistics": true,
-  "positions": false,
-  "offsets": false,
-  "filter": {
-    "max_num_terms": 3,
-    "min_term_freq": 1,
-    "min_doc_freq": 1
+  "query": {
+    "range": {
+      "http.response.bytes": {
+        "lt": 2000000
+      }
+    }
+  }
+}
+POST my-index-000001/_delete_by_query
+{
+  "slice": {
+    "id": 1,
+    "max": 2
+  },
+  "query": {
+    "range": {
+      "http.response.bytes": {
+        "lt": 2000000
+      }
+    }
   }
 }

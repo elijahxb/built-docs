@@ -20,13 +20,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Kibana Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="xpack-apm.html">APM</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Kibana Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="xpack-apm.html">APM</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="apm-app-users.html">APM app users and privileges</a></span>
-»
-<span class="breadcrumb-node">APM app annotation user</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -44,9 +41,9 @@ Not what you want? See the
 <div class="note admon">
 <div class="icon"></div>
 <div class="admon_content">
-<p>By default, the <code class="literal">apm_user</code> built-in role provides access to Observability annotations.
-You only need to create an annotation user if the default annotation index
-defined in <a class="xref" href="apm-settings-kb.html" title="APM settings in Kibana"><code class="literal">xpack.observability.annotations.index</code></a> has been customized.</p>
+<p>By default, the <code class="literal">viewer</code> and <code class="literal">editor</code> built-in roles provide read access to Observability annotations.
+You only need to create an annotation user to write to the annotations index
+(<a class="xref" href="apm-settings-kb.html" title="APM settings in Kibana"><code class="literal">xpack.observability.annotations.index</code></a>).</p>
 </div>
 </div>
 <div class="section">

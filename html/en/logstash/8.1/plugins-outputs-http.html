@@ -11,6 +11,7 @@
 <meta name="DC.type" content="Learn/Docs/Logstash/Reference/8.1"/>
 <meta name="DC.subject" content="Logstash"/>
 <meta name="DC.identifier" content="8.1"/>
+<meta name="robots" content="noindex,nofollow"/>
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -56,7 +57,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,36 +88,29 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
-                  
+                  <div class="page_header">
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Logstash Reference [8.1]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Logstash Reference [8.1]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="output-plugins.html">Output plugins</a></span>
-»
-<span class="breadcrumb-node">Http output plugin</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -128,7 +122,7 @@
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="plugins-outputs-http"></a>Http output plugin<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h2>
+<h2 class="title"><a id="plugins-outputs-http"></a>Http output plugin<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h2>
 </div></div></div>
 
 <div class="ulist itemizedlist">
@@ -148,7 +142,7 @@ Released on: 2022-02-01
 <a href="/guide/en/logstash-versioned-plugins/current/output-http-index.html" class="ulink" target="_top">Versioned plugin docs</a>.</p>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_getting_help_80"></a>Getting Help<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_getting_help_80"></a>Getting Help<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h3>
 </div></div></div>
 <p>For questions about the plugin, open a topic in the <a href="http://discuss.elastic.co" class="ulink" target="_top">Discuss</a> forums. For bugs or feature requests, open an issue in <a href="https://github.com/logstash-plugins/logstash-output-http" class="ulink" target="_top">Github</a>.
 For the list of Elastic supported plugins, please consult the <a href="/support/matrix#matrix_logstash_plugins" class="ulink" target="_top">Elastic Support Matrix</a>.</p>
@@ -156,7 +150,7 @@ For the list of Elastic supported plugins, please consult the <a href="/support/
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_description_79"></a>Description<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_description_79"></a>Description<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h3>
 </div></div></div>
 <p>This output lets you send events to a generic HTTP(S) endpoint.</p>
 <p>This output will execute up to <em>pool_max</em> requests in parallel for performance.
@@ -168,7 +162,7 @@ guaranteed!</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="plugins-outputs-http-options"></a>Http Output Configuration Options<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h3>
+<h3 class="title"><a id="plugins-outputs-http-options"></a>Http Output Configuration Options<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h3>
 </div></div></div>
 <p>This plugin supports the following configuration options plus the <a class="xref" href="plugins-outputs-http.html#plugins-outputs-http-common-options" title="Common Options">Common Options</a> described later.</p>
 <div class="informaltable">
@@ -359,7 +353,7 @@ output plugins.</p>
 <p>&nbsp;</p>
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-outputs-http-automatic_retries"></a><code class="literal">automatic_retries</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-outputs-http-automatic_retries"></a><code class="literal">automatic_retries</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -381,7 +375,7 @@ Note: if <code class="literal">retry_non_idempotent</code> is NOT set only GET, 
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-outputs-http-cacert"></a><code class="literal">cacert</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-outputs-http-cacert"></a><code class="literal">cacert</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -398,7 +392,7 @@ There is no default value for this setting.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-outputs-http-client_cert"></a><code class="literal">client_cert</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-outputs-http-client_cert"></a><code class="literal">client_cert</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -415,7 +409,7 @@ There is no default value for this setting.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-outputs-http-client_key"></a><code class="literal">client_key</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-outputs-http-client_key"></a><code class="literal">client_key</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -432,7 +426,7 @@ There is no default value for this setting.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-outputs-http-connect_timeout"></a><code class="literal">connect_timeout</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-outputs-http-connect_timeout"></a><code class="literal">connect_timeout</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -449,7 +443,7 @@ Default value is <code class="literal">10</code>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-outputs-http-content_type"></a><code class="literal">content_type</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-outputs-http-content_type"></a><code class="literal">content_type</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -480,7 +474,7 @@ if format is "form", "application/x-www-form-urlencoded"
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-outputs-http-cookies"></a><code class="literal">cookies</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-outputs-http-cookies"></a><code class="literal">cookies</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -498,7 +492,7 @@ across requests as a normal web browser would. Enabled by default</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-outputs-http-follow_redirects"></a><code class="literal">follow_redirects</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-outputs-http-follow_redirects"></a><code class="literal">follow_redirects</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -515,7 +509,7 @@ Default value is <code class="literal">true</code>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-outputs-http-format"></a><code class="literal">format</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-outputs-http-format"></a><code class="literal">format</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -539,7 +533,7 @@ into a query parameter string, e.g. <code class="literal">foo=bar&amp;baz=fizz..
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-outputs-http-headers"></a><code class="literal">headers</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-outputs-http-headers"></a><code class="literal">headers</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -557,7 +551,7 @@ format is <code class="literal">headers =&gt; ["X-My-Header", "%{host}"]</code><
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-outputs-http-http_compression"></a><code class="literal">http_compression</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-outputs-http-http_compression"></a><code class="literal">http_compression</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -575,7 +569,7 @@ http requests using gzip.</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-outputs-http-http_method"></a><code class="literal">http_method</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-outputs-http-http_method"></a><code class="literal">http_method</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -595,7 +589,7 @@ There is no default value for this setting.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-outputs-http-ignorable_codes"></a><code class="literal">ignorable_codes</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-outputs-http-ignorable_codes"></a><code class="literal">ignorable_codes</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -613,7 +607,7 @@ enumerate them here. Responses returning these codes will be considered successe
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-outputs-http-keepalive"></a><code class="literal">keepalive</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-outputs-http-keepalive"></a><code class="literal">keepalive</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -631,7 +625,7 @@ one with this to fix interactions with broken keepalive implementations.</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-outputs-http-keystore"></a><code class="literal">keystore</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-outputs-http-keystore"></a><code class="literal">keystore</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -648,7 +642,7 @@ There is no default value for this setting.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-outputs-http-keystore_password"></a><code class="literal">keystore_password</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-outputs-http-keystore_password"></a><code class="literal">keystore_password</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -666,7 +660,7 @@ Note, most .jks files created with keytool require a password!</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-outputs-http-keystore_type"></a><code class="literal">keystore_type</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-outputs-http-keystore_type"></a><code class="literal">keystore_type</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -683,7 +677,7 @@ Default value is <code class="literal">"JKS"</code>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-outputs-http-mapping"></a><code class="literal">mapping</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-outputs-http-mapping"></a><code class="literal">mapping</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -705,7 +699,7 @@ There is no default value for this setting.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-outputs-http-message"></a><code class="literal">message</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-outputs-http-message"></a><code class="literal">message</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -721,7 +715,7 @@ There is no default value for this setting.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-outputs-http-pool_max"></a><code class="literal">pool_max</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-outputs-http-pool_max"></a><code class="literal">pool_max</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -738,7 +732,7 @@ Default value is <code class="literal">50</code>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-outputs-http-pool_max_per_route"></a><code class="literal">pool_max_per_route</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-outputs-http-pool_max_per_route"></a><code class="literal">pool_max_per_route</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -755,7 +749,7 @@ Default value is <code class="literal">25</code>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-outputs-http-proxy"></a><code class="literal">proxy</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-outputs-http-proxy"></a><code class="literal">proxy</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -785,7 +779,7 @@ Proxy host in form: <code class="literal">{url =&gt;  'http://proxy.org:1234', u
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-outputs-http-request_timeout"></a><code class="literal">request_timeout</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-outputs-http-request_timeout"></a><code class="literal">request_timeout</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -805,7 +799,7 @@ Timeout (in seconds) for the entire request</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-outputs-http-retry_failed"></a><code class="literal">retry_failed</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-outputs-http-retry_failed"></a><code class="literal">retry_failed</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -822,7 +816,7 @@ Default value is <code class="literal">true</code>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-outputs-http-retry_non_idempotent"></a><code class="literal">retry_non_idempotent</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-outputs-http-retry_non_idempotent"></a><code class="literal">retry_non_idempotent</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -840,7 +834,7 @@ This only affects connectivity related errors (see related <code class="literal"
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-outputs-http-retryable_codes"></a><code class="literal">retryable_codes</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-outputs-http-retryable_codes"></a><code class="literal">retryable_codes</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -857,7 +851,7 @@ Default value is <code class="literal">[429, 500, 502, 503, 504]</code>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-outputs-http-socket_timeout"></a><code class="literal">socket_timeout</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-outputs-http-socket_timeout"></a><code class="literal">socket_timeout</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -874,7 +868,7 @@ Default value is <code class="literal">10</code>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-outputs-http-ssl_verification_mode"></a><code class="literal">ssl_verification_mode</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-outputs-http-ssl_verification_mode"></a><code class="literal">ssl_verification_mode</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -900,7 +894,7 @@ Using <code class="literal">none</code>  in production environments is strongly 
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-outputs-http-truststore"></a><code class="literal">truststore</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-outputs-http-truststore"></a><code class="literal">truststore</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -917,7 +911,7 @@ There is no default value for this setting.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-outputs-http-truststore_password"></a><code class="literal">truststore_password</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-outputs-http-truststore_password"></a><code class="literal">truststore_password</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -935,7 +929,7 @@ Note, most .jks files created with keytool require a password!</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-outputs-http-truststore_type"></a><code class="literal">truststore_type</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-outputs-http-truststore_type"></a><code class="literal">truststore_type</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -952,7 +946,7 @@ Default value is <code class="literal">"JKS"</code>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-outputs-http-url"></a><code class="literal">url</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-outputs-http-url"></a><code class="literal">url</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -972,7 +966,7 @@ There is no default value for this setting.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-outputs-http-validate_after_inactivity"></a><code class="literal">validate_after_inactivity</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-outputs-http-validate_after_inactivity"></a><code class="literal">validate_after_inactivity</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -995,7 +989,7 @@ See <a href="https://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs/o
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="plugins-outputs-http-common-options"></a>Common Options<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h3>
+<h3 class="title"><a id="plugins-outputs-http-common-options"></a>Common Options<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h3>
 </div></div></div>
 <p>The following configuration options are supported by all output plugins:</p>
 <div class="informaltable">
@@ -1033,7 +1027,7 @@ See <a href="https://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs/o
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-outputs-http-codec"></a><code class="literal">codec</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-outputs-http-codec"></a><code class="literal">codec</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -1050,7 +1044,7 @@ Default value is <code class="literal">"plain"</code>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-outputs-http-enable_metric"></a><code class="literal">enable_metric</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-outputs-http-enable_metric"></a><code class="literal">enable_metric</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -1069,7 +1063,7 @@ for a specific plugin.</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-outputs-http-id"></a><code class="literal">id</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-outputs-http-id"></a><code class="literal">id</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-output-http/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -1116,15 +1110,37 @@ Adding a named ID in this case will help in monitoring Logstash when using the m
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

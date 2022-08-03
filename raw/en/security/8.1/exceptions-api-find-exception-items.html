@@ -10,17 +10,19 @@
 <meta name="DC.type" content="Learn/Docs/Security/Guide/8.1"/>
 <meta name="DC.subject" content="Security"/>
 <meta name="DC.identifier" content="8.1"/>
+<meta name="robots" content="noindex,nofollow"/>
 </head>
-<body>
+<body><div class="page_header">
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elastic Security Solution [8.1]</a></span>
-»
-<span class="breadcrumb-link"><a href="security-apis.html">Elastic Security APIs</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Security Solution [8.1]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="security-apis.html">Elastic Security APIs</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="exceptions-api-overview.html">Exceptions API</a></span>
-»
-<span class="breadcrumb-node">Find exception items</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -32,7 +34,7 @@
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="exceptions-api-find-exception-items"></a>Find exception items<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/8.1/docs/detections/api/exceptions/api-find-exception-items.asciidoc">edit</a></h2>
+<h2 class="title"><a id="exceptions-api-find-exception-items"></a>Find exception items<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/security-docs/edit/8.1/docs/detections/api/exceptions/api-find-exception-items.asciidoc">edit</a></h2>
 </div></div></div>
 <p>Retrieves a paginated subset of exception items in the specified container. By
 default, the first page is returned with 20 results per page.</p>
@@ -44,12 +46,12 @@ default, the first page is returned with 20 results per page.</p>
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_request_url_24"></a>Request URL<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/8.1/docs/detections/api/exceptions/api-find-exception-items.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_request_url_24"></a>Request URL<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/security-docs/edit/8.1/docs/detections/api/exceptions/api-find-exception-items.asciidoc">edit</a></h3>
 </div></div></div>
 <p><code class="literal">GET &lt;kibana host&gt;:&lt;port&gt;/api/exception_lists/items/_find</code></p>
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="_url_query_parameters_7"></a>URL query parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/8.1/docs/detections/api/exceptions/api-find-exception-items.asciidoc">edit</a></h4>
+<h4 class="title"><a id="_url_query_parameters_7"></a>URL query parameters<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/security-docs/edit/8.1/docs/detections/api/exceptions/api-find-exception-items.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="informaltable">
 <table border="1" cellpadding="4px" width="100%">
@@ -115,20 +117,20 @@ See <a href="/guide/en/elasticsearch/reference/8.1/search-request-body.html#requ
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="_example_request_18"></a>Example request<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/8.1/docs/detections/api/exceptions/api-find-exception-items.asciidoc">edit</a></h4>
+<h4 class="title"><a id="_example_request_18"></a>Example request<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/security-docs/edit/8.1/docs/detections/api/exceptions/api-find-exception-items.asciidoc">edit</a></h4>
 </div></div></div>
 <p>Retrieves exception items in the <code class="literal">allowed-processes</code> container:</p>
 <div class="pre_wrapper lang-kibana">
 <pre class="programlisting prettyprint lang-kibana">GET api/exception_lists/items/_find?list_id=allowed-processes</pre>
 </div>
-<div class="kibana_widget" data-snippet="snippets/47.kibana"></div>
+<div class="kibana_widget" data-snippet="snippets/40.kibana"></div>
 </div>
 
 </div>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_response_code_25"></a>Response code<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/8.1/docs/detections/api/exceptions/api-find-exception-items.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_response_code_25"></a>Response code<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/security-docs/edit/8.1/docs/detections/api/exceptions/api-find-exception-items.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="variablelist">
 <dl class="variablelist">
@@ -146,7 +148,7 @@ Indicates a successful call.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_response_payload_18"></a>Response payload<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/8.1/docs/detections/api/exceptions/api-find-exception-items.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_response_payload_18"></a>Response payload<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/security-docs/edit/8.1/docs/detections/api/exceptions/api-find-exception-items.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="pre_wrapper lang-json">
 <pre class="programlisting prettyprint lang-json">{
@@ -157,11 +159,11 @@ Indicates a successful call.
         {
           "comment": "Allowed on all hosts.",
           "created_at": "2020-07-14T13:40:39.804Z",
-          "created_by": "LiverpoolFC"
+          "created_by": "elastic"
         }
       ],
       "created_at": "2020-07-14T13:40:39.804Z",
-      "created_by": "LiverpoolFC",
+      "created_by": "elastic",
       "description": "Global process allowlist",
       "entries": [
         {
@@ -184,7 +186,7 @@ Indicates a successful call.
       "tie_breaker_id": "28c6b069-8e39-4f9a-b93c-95e5a15b46c5",
       "type": "simple",
       "updated_at": "2020-07-14T13:40:39.980Z",
-      "updated_by": "LiverpoolFC"
+      "updated_by": "elastic"
     },
     {
       "_tags": [],
@@ -192,11 +194,11 @@ Indicates a successful call.
         {
           "comment": "Allows maintenance process to run on the specified machines",
           "created_at": "2020-07-14T13:41:24.005Z",
-          "created_by": "LiverpoolFC"
+          "created_by": "elastic"
         }
       ],
       "created_at": "2020-07-14T13:41:24.005Z",
-      "created_by": "LiverpoolFC",
+      "created_by": "elastic",
       "description": "Process allowlist",
       "entries": [
         {
@@ -228,7 +230,7 @@ Indicates a successful call.
       "tie_breaker_id": "a1bacb3d-7ce1-4f03-80f4-d49235b6bbde",
       "type": "simple",
       "updated_at": "2020-07-14T13:41:24.182Z",
-      "updated_by": "LiverpoolFC"
+      "updated_by": "elastic"
     }
   ],
   "page": 1,

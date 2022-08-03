@@ -18,13 +18,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">APM User Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="overview.html">Legacy APM Server Reference</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">APM User Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="overview.html">Legacy APM Server Reference</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="troubleshooting.html">Troubleshoot</a></span>
-»
-<span class="breadcrumb-node">Breaking Changes</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -79,7 +76,7 @@ these changes only impact users ingesting data with
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
 <li class="listitem">
-<p>Leading 0s are no longer removed from Jaeger client trace/span ids.</p>
+<p>Leading zeros are no longer removed from Jaeger client trace/span ids.</p>
 <p>This change ensures distributed tracing continues to work across platforms by creating
 consistent, full trace/span IDs from Jaeger clients, Elastic APM agents,
 and OpenTelemetry SDKs.</p>
@@ -125,7 +122,7 @@ See <a href="/guide/en/apm/guide/master/ilm.html" class="ulink" target="_top">se
 </li>
 <li class="listitem">
 By default, ILM policies will not longer be versioned.
-All event types will switch to the new default policy: rollover after 30 days or when reaching a size 50gb.
+All event types will switch to the new default policy: rollover after 30 days or when reaching a size of 50 GB.
 See <a href="/guide/en/apm/guide/master/ilm.html" class="ulink" target="_top">default policy</a> for more information.
 </li>
 <li class="listitem">

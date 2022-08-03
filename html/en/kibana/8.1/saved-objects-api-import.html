@@ -13,6 +13,7 @@
 <meta name="DC.type" content="Learn/Docs/Kibana/Reference/8.1"/>
 <meta name="DC.subject" content="Kibana"/>
 <meta name="DC.identifier" content="8.1"/>
+<meta name="robots" content="noindex,nofollow"/>
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -58,7 +59,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -89,38 +90,30 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
-                  
+                  <div class="page_header">
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Kibana Guide [8.1]</a></span>
-»
-<span class="breadcrumb-link"><a href="api.html">REST API</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Kibana Guide [8.1]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="api.html">REST API</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="saved-objects-api.html">Saved objects APIs</a></span>
-»
-<span class="breadcrumb-node">Import objects API</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -132,7 +125,7 @@
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="saved-objects-api-import"></a>Import objects API<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/api/saved-objects/import.asciidoc">edit</a></h2>
+<h2 class="title"><a id="saved-objects-api-import"></a>Import objects API<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/api/saved-objects/import.asciidoc">edit</a></h2>
 </div></div></div>
 
 <p><span class="Admonishment Admonishment--preview">
@@ -143,7 +136,7 @@ This functionality is in technical preview and may be changed or removed in a fu
 </span> Create sets of Kibana saved objects from a file created by the export API.</p>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_compatibility_across_versions_2"></a>Compatibility across versions<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/api/saved-objects/import.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_compatibility_across_versions_2"></a>Compatibility across versions<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/api/saved-objects/import.asciidoc">edit</a></h3>
 </div></div></div>
 <p>Saved objects can only be imported into the same version, a newer minor on the same major, or the next major. Exported saved objects are not backwards compatible and cannot be imported into an older version of Kibana. See the table below for compatibility examples:</p>
 <div class="informaltable">
@@ -201,7 +194,7 @@ This functionality is in technical preview and may be changed or removed in a fu
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="saved-objects-api-import-request"></a>Request<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/api/saved-objects/import.asciidoc">edit</a></h3>
+<h3 class="title"><a id="saved-objects-api-import-request"></a>Request<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/api/saved-objects/import.asciidoc">edit</a></h3>
 </div></div></div>
 <p><code class="literal">POST &lt;kibana host&gt;:&lt;port&gt;/api/saved_objects/_import</code></p>
 <p><code class="literal">POST &lt;kibana host&gt;:&lt;port&gt;/s/&lt;space_id&gt;/api/saved_objects/_import</code></p>
@@ -209,7 +202,7 @@ This functionality is in technical preview and may be changed or removed in a fu
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="saved-objects-api-import-path-params"></a>Path parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/api/saved-objects/import.asciidoc">edit</a></h3>
+<h3 class="title"><a id="saved-objects-api-import-path-params"></a>Path parameters<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/api/saved-objects/import.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="variablelist">
 <dl class="variablelist">
@@ -227,7 +220,7 @@ This functionality is in technical preview and may be changed or removed in a fu
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="saved-objects-api-import-query-params"></a>Query parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/api/saved-objects/import.asciidoc">edit</a></h3>
+<h3 class="title"><a id="saved-objects-api-import-query-params"></a>Query parameters<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/api/saved-objects/import.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="variablelist">
 <dl class="variablelist">
@@ -271,7 +264,7 @@ overwriting the destination object.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="saved-objects-api-import-request-body"></a>Request body<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/api/saved-objects/import.asciidoc">edit</a></h3>
+<h3 class="title"><a id="saved-objects-api-import-request-body"></a>Request body<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/api/saved-objects/import.asciidoc">edit</a></h3>
 </div></div></div>
 <p>The request body must include the multipart/form-data type.</p>
 <div class="variablelist">
@@ -301,7 +294,7 @@ size of the file that can be imported.</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="saved-objects-api-import-response-body"></a>Response body<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/api/saved-objects/import.asciidoc">edit</a></h3>
+<h3 class="title"><a id="saved-objects-api-import-response-body"></a>Response body<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/api/saved-objects/import.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="variablelist">
 <dl class="variablelist">
@@ -362,7 +355,7 @@ to resolve errors, refer to the <a class="xref" href="saved-objects-api-import.h
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="saved-objects-api-import-codes"></a>Response code<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/api/saved-objects/import.asciidoc">edit</a></h3>
+<h3 class="title"><a id="saved-objects-api-import-codes"></a>Response code<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/api/saved-objects/import.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="variablelist">
 <dl class="variablelist">
@@ -380,11 +373,11 @@ Indicates a successful call.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="saved-objects-api-import-example"></a>Examples<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/api/saved-objects/import.asciidoc">edit</a></h3>
+<h3 class="title"><a id="saved-objects-api-import-example"></a>Examples<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/api/saved-objects/import.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="saved-objects-api-import-example-1"></a>Successful import with <code class="literal">createNewCopies</code> enabled<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/api/saved-objects/import.asciidoc">edit</a></h4>
+<h4 class="title"><a id="saved-objects-api-import-example-1"></a>Successful import with <code class="literal">createNewCopies</code> enabled<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/api/saved-objects/import.asciidoc">edit</a></h4>
 </div></div></div>
 <p>Import a data view and dashboard:</p>
 <div class="pre_wrapper lang-kibana">
@@ -429,7 +422,7 @@ Indicates a successful call.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="saved-objects-api-import-example-2"></a>Successful import with <code class="literal">createNewCopies</code> disabled<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/api/saved-objects/import.asciidoc">edit</a></h4>
+<h4 class="title"><a id="saved-objects-api-import-example-2"></a>Successful import with <code class="literal">createNewCopies</code> disabled<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/api/saved-objects/import.asciidoc">edit</a></h4>
 </div></div></div>
 <p>Import a data view and dashboard:</p>
 <div class="pre_wrapper lang-kibana">
@@ -471,7 +464,7 @@ Indicates a successful call.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="saved-objects-api-import-example-3"></a>Failed import with conflict errors<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/api/saved-objects/import.asciidoc">edit</a></h4>
+<h4 class="title"><a id="saved-objects-api-import-example-3"></a>Failed import with conflict errors<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/api/saved-objects/import.asciidoc">edit</a></h4>
 </div></div></div>
 <p>Import a data view, visualization, <span class="strong strong"><strong>Canvas</strong></span> workpad, and dashboard that include saved objects:</p>
 <div class="pre_wrapper lang-kibana">
@@ -581,7 +574,7 @@ skip the object.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="saved-objects-api-import-example-4"></a>Failed import with missing reference errors<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/api/saved-objects/import.asciidoc">edit</a></h4>
+<h4 class="title"><a id="saved-objects-api-import-example-4"></a>Failed import with missing reference errors<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/api/saved-objects/import.asciidoc">edit</a></h4>
 </div></div></div>
 <p>Import a visualization and dashboard when the data view for the visualization doesn&#8217;t exist:</p>
 <div class="pre_wrapper lang-kibana">
@@ -668,15 +661,37 @@ skip the object.
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

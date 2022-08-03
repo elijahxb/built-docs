@@ -57,7 +57,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -88,27 +88,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 <strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
@@ -117,11 +108,9 @@ will be released for this version. For the latest information, see the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.0]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.0]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="eql.html">EQL search</a></span>
-»
-<span class="breadcrumb-node">Example: Detect threats with EQL</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -172,7 +161,7 @@ events imitating a Squiblydoo attack. The data has been mapped to
   "priority": 500
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1354.console"></div>
+<div class="console_widget" data-snippet="snippets/1355.console"></div>
 </li>
 <li class="listitem">
 Download <a href="https://raw.githubusercontent.com/elastic/elasticsearch/8.0/docs/src/test/resources/normalized-T1117-AtomicRed-regsvr32.json" class="ulink" target="_top"><code class="literal">normalized-T1117-AtomicRed-regsvr32.json</code></a>.
@@ -189,7 +178,7 @@ Download <a href="https://raw.githubusercontent.com/elastic/elasticsearch/8.0/do
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">GET /_cat/indices/my-data-stream?v=true&amp;h=health,status,index,docs.count</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1355.console"></div>
+<div class="console_widget" data-snippet="snippets/1356.console"></div>
 <p>The response should show a <code class="literal">docs.count</code> of <code class="literal">150</code>.</p>
 <div class="pre_wrapper lang-txt">
 <pre class="programlisting prettyprint lang-txt">health status index                                 docs.count
@@ -210,7 +199,7 @@ yellow open   .ds-my-data-stream-2099.12.07-000001         150</pre>
   "size": 200                                               <a id="CO347-3"></a><i class="conum" data-value="3"></i>
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1356.console"></div>
+<div class="console_widget" data-snippet="snippets/1357.console"></div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
@@ -270,7 +259,7 @@ utility. Narrow your results to processes where the command line was used:</p>
   """
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1357.console"></div>
+<div class="console_widget" data-snippet="snippets/1358.console"></div>
 <p>The query matches one event with an <code class="literal">event.type</code> of <code class="literal">creation</code>, indicating the
 start of a <code class="literal">regsvr32.exe</code> process. Based on the event&#8217;s <code class="literal">process.command_line</code>
 value, <code class="literal">regsvr32.exe</code> used <code class="literal">scrobj.dll</code> to register a script, <code class="literal">RegSvr32.sct</code>.
@@ -330,7 +319,7 @@ This fits the behavior of a Squiblydoo attack.</p>
   """
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1358.console"></div>
+<div class="console_widget" data-snippet="snippets/1359.console"></div>
 <p>The query matches an event, confirming <code class="literal">scrobj.dll</code> was loaded.</p>
 <a id="a0899eee027a3589065fd2c7dab8e63d"></a>
 <div class="pre_wrapper lang-console-result">
@@ -399,7 +388,7 @@ detect similar threats.</p>
   """
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1359.console"></div>
+<div class="console_widget" data-snippet="snippets/1360.console"></div>
 <p>The query matches a sequence, indicating the attack likely succeeded.</p>
 <a id="5c0e004e5dd5d192016e243bb74d069a"></a>
 <div class="pre_wrapper lang-console-result">
@@ -518,15 +507,37 @@ detect similar threats.</p>
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

@@ -15,19 +15,16 @@
 <meta name="robots" content="noindex,nofollow"/>
 </head>
 <body><div class="page_header">
-You are looking at preliminary documentation for a future release.
-Not what you want? See the
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
 <a href="../current/index.html">current release documentation</a>.
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Kibana Guide [8.2]</a></span>
-»
-<span class="breadcrumb-link"><a href="setup.html">Set up</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Kibana Guide [8.2]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="setup.html">Set up</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="configuring-monitoring.html">Configure monitoring in Kibana</a></span>
-»
-<span class="breadcrumb-node">Collect Kibana monitoring data with Metricbeat</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -195,7 +192,7 @@ configuration file (<code class="literal">metricbeat.yml</code>):</p>
 <div class="pre_wrapper lang-yaml">
 <pre class="programlisting prettyprint lang-yaml">output.elasticsearch:
   # Array of hosts to connect to.
-  hosts: ["http://es-mon-1:9200", "http://es-mon2:9200"] <a id="CO8-1"></a><i class="conum" data-value="1"></i>
+  hosts: ["http://es-mon-1:9200", "http://es-mon2:9200"] <a id="CO14-1"></a><i class="conum" data-value="1"></i>
 
   # Optional protocol and basic auth credentials.
   #protocol: "https"
@@ -206,7 +203,7 @@ configuration file (<code class="literal">metricbeat.yml</code>):</p>
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO8-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO14-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>In this example, the data is stored on a monitoring cluster with nodes

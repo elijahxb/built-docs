@@ -1,16 +1,6 @@
-POST _search
+GET _ml/anomaly_detectors/esxi_log/results/categories
 {
-  "suggest": {
-    "text" : "tring out Elasticsearch",
-    "my-suggest-1" : {
-      "term" : {
-        "field" : "message"
-      }
-    },
-    "my-suggest-2" : {
-       "term" : {
-        "field" : "user"
-       }
-    }
+  "page":{
+    "size": 1
   }
 }

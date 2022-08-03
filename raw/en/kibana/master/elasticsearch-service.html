@@ -20,13 +20,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Kibana Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="development.html">Developer guide</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Kibana Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="development.html">Developer guide</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="kibana-architecture.html">Architecture</a></span>
-»
-<span class="breadcrumb-node">Elasticsearch service</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -61,7 +58,7 @@ See <a class="xref" href="patterns.html#scoped-services" title="Scoped services"
 </div>
 <p><a href="https://github.com/elastic/kibana/blob/master/docs/development/core/server/kibana-plugin-core-server.elasticsearchservicestart.md" class="ulink" target="_top">Elasticsearch service API docs</a></p>
 <div class="pre_wrapper lang-typescript">
-<pre class="programlisting prettyprint lang-typescript">import { CoreStart, Plugin } from 'kibana/public';
+<pre class="programlisting prettyprint lang-typescript">import { CoreStart, Plugin } from '@kbn/core/public';
 
 export class MyPlugin implements Plugin {
   public start(core: CoreStart) {

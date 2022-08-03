@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,27 +87,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 You are looking at preliminary documentation for a future release.
@@ -116,13 +107,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="analysis.html">Text analysis</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="analysis.html">Text analysis</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="analysis-tokenizers.html">Tokenizer reference</a></span>
-»
-<span class="breadcrumb-node">Path hierarchy tokenizer</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -134,13 +122,13 @@ Not what you want? See the
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="analysis-pathhierarchy-tokenizer"></a>Path hierarchy tokenizer<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/analysis/tokenizers/pathhierarchy-tokenizer.asciidoc">edit</a></h2>
+<h2 class="title"><a id="analysis-pathhierarchy-tokenizer"></a>Path hierarchy tokenizer<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/analysis/tokenizers/pathhierarchy-tokenizer.asciidoc">edit</a></h2>
 </div></div></div>
 
 <p>The <code class="literal">path_hierarchy</code> tokenizer takes a hierarchical value like a filesystem
 path, splits on the path separator, and emits a term for each component in the
 tree.</p>
-<h3><a id="_example_output_14"></a>Example output<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/analysis/tokenizers/pathhierarchy-tokenizer.asciidoc">edit</a></h3>
+<h3><a id="_example_output_14"></a>Example output<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/analysis/tokenizers/pathhierarchy-tokenizer.asciidoc">edit</a></h3>
 <a id="dc4dcfeae8a5f248639335c2c9809549"></a>
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">POST _analyze
@@ -149,12 +137,12 @@ tree.</p>
   "text": "/one/two/three"
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/414.console"></div>
+<div class="console_widget" data-snippet="snippets/417.console"></div>
 <p>The above text would produce the following terms:</p>
 <div class="pre_wrapper lang-text">
 <pre class="programlisting prettyprint lang-text">[ /one, /one/two, /one/two/three ]</pre>
 </div>
-<h3><a id="_configuration_15"></a>Configuration<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/analysis/tokenizers/pathhierarchy-tokenizer.asciidoc">edit</a></h3>
+<h3><a id="_configuration_15"></a>Configuration<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/analysis/tokenizers/pathhierarchy-tokenizer.asciidoc">edit</a></h3>
 <p>The <code class="literal">path_hierarchy</code> tokenizer accepts the following parameters:</p>
 <div class="informaltable">
 <table border="0" cellpadding="4px">
@@ -229,7 +217,7 @@ The number of initial tokens to skip. Defaults to <code class="literal">0</code>
 </tbody>
 </table>
 </div>
-<h3><a id="_example_configuration_9"></a>Example configuration<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/analysis/tokenizers/pathhierarchy-tokenizer.asciidoc">edit</a></h3>
+<h3><a id="_example_configuration_9"></a>Example configuration<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/analysis/tokenizers/pathhierarchy-tokenizer.asciidoc">edit</a></h3>
 <p>In this example, we configure the <code class="literal">path_hierarchy</code> tokenizer to split on <code class="literal">-</code>
 characters, and to replace them with <code class="literal">/</code>. The first two tokens are skipped:</p>
 <a id="4e2317aa45e87922d07c8ddc67a82d32"></a>
@@ -261,7 +249,7 @@ POST my-index-000001/_analyze
   "text": "one-two-three-four-five"
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/415.console"></div>
+<div class="console_widget" data-snippet="snippets/418.console"></div>
 <p>The above example produces the following terms:</p>
 <div class="pre_wrapper lang-text">
 <pre class="programlisting prettyprint lang-text">[ /three, /three/four, /three/four/five ]</pre>
@@ -270,7 +258,7 @@ POST my-index-000001/_analyze
 <div class="pre_wrapper lang-text">
 <pre class="programlisting prettyprint lang-text">[ one/two/three/, two/three/, three/ ]</pre>
 </div>
-<h3><a id="analysis-pathhierarchy-tokenizer-detailed-examples"></a>Detailed examples<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/analysis/tokenizers/pathhierarchy-tokenizer.asciidoc">edit</a></h3>
+<h3><a id="analysis-pathhierarchy-tokenizer-detailed-examples"></a>Detailed examples<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/analysis/tokenizers/pathhierarchy-tokenizer.asciidoc">edit</a></h3>
 <p>A common use-case for the <code class="literal">path_hierarchy</code> tokenizer is filtering results by
 file paths. If indexing a file path along with the data, the use of the
 <code class="literal">path_hierarchy</code> tokenizer to analyze the path allows filtering the results
@@ -351,7 +339,7 @@ POST file-path-test/_doc/5
   "file_path": "/User/bob/photos/2017/05/16/my_photo1.jpg"
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/416.console"></div>
+<div class="console_widget" data-snippet="snippets/419.console"></div>
 <p>A search for a particular file path string against the text field matches all
 the example documents, with Bob&#8217;s documents ranking highest due to <code class="literal">bob</code> also
 being one of the terms created by the standard analyzer boosting relevance for
@@ -367,7 +355,7 @@ Bob&#8217;s documents.</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/417.console"></div>
+<div class="console_widget" data-snippet="snippets/420.console"></div>
 <p>It&#8217;s simple to match or filter documents with file paths that exist within a
 particular directory using the <code class="literal">file_path.tree</code> field.</p>
 <a id="b724f547c5d67e95bbc0a9920e47033c"></a>
@@ -381,7 +369,7 @@ particular directory using the <code class="literal">file_path.tree</code> field
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/418.console"></div>
+<div class="console_widget" data-snippet="snippets/421.console"></div>
 <p>With the reverse parameter for this tokenizer, it&#8217;s also possible to match
 from the other end of the file path, such as individual file names or a deep
 level subdirectory. The following example shows a search for all files named
@@ -400,7 +388,7 @@ configured to use the reverse parameter in the mapping.</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/419.console"></div>
+<div class="console_widget" data-snippet="snippets/422.console"></div>
 <p>Viewing the tokens generated with both forward and reverse is instructive
 in showing the tokens created for the same file path value.</p>
 <a id="acc52da725a996ae696b00d9f818dfde"></a>
@@ -417,7 +405,7 @@ POST file-path-test/_analyze
   "text": "/User/alice/photos/2017/05/16/my_photo1.jpg"
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/420.console"></div>
+<div class="console_widget" data-snippet="snippets/423.console"></div>
 <p>It&#8217;s also useful to be able to filter with file paths when combined with other
 types of searches, such as this example looking for any files paths with <code class="literal">16</code>
 that also must be in Alice&#8217;s photo directory.</p>
@@ -437,7 +425,7 @@ that also must be in Alice&#8217;s photo directory.</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/421.console"></div>
+<div class="console_widget" data-snippet="snippets/424.console"></div>
 </div>
 <div class="navfooter">
 <span class="prev">
@@ -451,15 +439,37 @@ that also must be in Alice&#8217;s photo directory.</p>
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

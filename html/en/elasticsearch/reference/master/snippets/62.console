@@ -1,5 +1,4 @@
-POST /_security/user/cross-search-user
+PUT test/_settings
 {
-  "password" : "l0ng-r4nd0m-p@ssw0rd",
-  "roles" : [ "remote-search" ]
+  "index.routing.allocation.include._ip": "192.168.2.*"
 }

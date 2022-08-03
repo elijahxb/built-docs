@@ -6,7 +6,7 @@
 <title>Index modules | Elasticsearch Guide [master] | Elastic</title>
 <link rel="home" href="index.html" title="Elasticsearch Guide [master]"/>
 <link rel="up" href="index.html" title="Elasticsearch Guide [master]"/>
-<link rel="prev" href="archived-settings.html" title="Archived settings"/>
+<link rel="prev" href="archive-indices.html" title="Reading indices from older Elasticsearch versions"/>
 <link rel="next" href="index-modules-analysis.html" title="Analysis"/>
 <meta name="DC.type" content="Learn/Docs/Elasticsearch/Reference/master"/>
 <meta name="DC.subject" content="Elasticsearch"/>
@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,27 +87,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 You are looking at preliminary documentation for a future release.
@@ -116,13 +107,12 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span>
-»
-<span class="breadcrumb-node">Index modules</span>
 </div>
 <div class="navheader">
 <span class="prev">
-<a href="archived-settings.html">« Archived settings</a>
+<a href="archive-indices.html">« Reading indices from older Elasticsearch versions</a>
 </span>
 <span class="next">
 <a href="index-modules-analysis.html">Analysis »</a>
@@ -130,13 +120,13 @@ Not what you want? See the
 </div>
 <div class="part">
 <div class="titlepage"><div><div>
-<h1 class="title"><a id="index-modules"></a>Index modules<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/index-modules.asciidoc">edit</a></h1>
+<h1 class="title"><a id="index-modules"></a>Index modules<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/index-modules.asciidoc">edit</a></h1>
 </div></div></div>
 <div class="openblock partintro">
 <div class="content">
 <p>Index Modules are modules created per index and control all aspects related to
 an index.</p>
-<h2><a id="index-modules-settings"></a>Index Settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/index-modules.asciidoc">edit</a></h2>
+<h2><a id="index-modules-settings"></a>Index Settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/index-modules.asciidoc">edit</a></h2>
 <p><a id="index-modules-settings-description"></a>Index level settings can be set per-index. Settings may be:</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -168,7 +158,7 @@ result in incorrect settings that are impossible to rectify without deleting
 and recreating the index.</p>
 </div>
 </div>
-<h3><a id="_static_index_settings"></a>Static index settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/index-modules.asciidoc">edit</a></h3>
+<h3><a id="_static_index_settings"></a>Static index settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/index-modules.asciidoc">edit</a></h3>
 <p>Below is a list of all <em>static</em> index settings that are not associated with any
 specific index module:</p>
 <div class="variablelist">
@@ -383,7 +373,7 @@ contents of the shard which take substantial time, CPU and memory.
 </dd>
 </dl>
 </div>
-<h3><a id="dynamic-index-settings"></a>Dynamic index settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/index-modules.asciidoc">edit</a></h3>
+<h3><a id="dynamic-index-settings"></a>Dynamic index settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/index-modules.asciidoc">edit</a></h3>
 <p>Below is a list of all <em>dynamic</em> index settings that are not associated with any
 specific index module:</p>
 <div class="variablelist">
@@ -643,6 +633,11 @@ search these matching fields by default:</p>
 <p>Defaults to <code class="literal">*</code>, which matches all fields eligible for
 <a class="xref" href="term-level-queries.html" title="Term-level queries">term-level queries</a>, excluding metadata fields.</p>
 </dd>
+</dl>
+</div>
+<div class="variablelist">
+<a id="index-routing-allocation-enable-setting"></a>
+<dl class="variablelist">
 <dt>
 <span class="term">
 <code class="literal">index.routing.allocation.enable</code>
@@ -759,7 +754,7 @@ per request through the use of the <code class="literal">expand_wildcards</code>
 </dd>
 </dl>
 </div>
-<h3><a id="_settings_in_other_index_modules"></a>Settings in other index modules<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/index-modules.asciidoc">edit</a></h3>
+<h3><a id="_settings_in_other_index_modules"></a>Settings in other index modules<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/index-modules.asciidoc">edit</a></h3>
 <p>Other index settings are available in index modules:</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -847,7 +842,7 @@ Configure indexing back pressure limits.
 </dd>
 </dl>
 </div>
-<h3><a id="x-pack-index-settings"></a><span class="xpack">X-Pack index settings</span><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/index-modules.asciidoc">edit</a></h3>
+<h3><a id="x-pack-index-settings"></a><span class="xpack">X-Pack index settings</span><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/index-modules.asciidoc">edit</a></h3>
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -877,7 +872,7 @@ Specify the lifecycle policy and rollover alias for an index.
 </div>
 <div class="navfooter">
 <span class="prev">
-<a href="archived-settings.html">« Archived settings</a>
+<a href="archive-indices.html">« Reading indices from older Elasticsearch versions</a>
 </span>
 <span class="next">
 <a href="index-modules-analysis.html">Analysis »</a>
@@ -887,15 +882,37 @@ Specify the lifecycle policy and rollover alias for an index.
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

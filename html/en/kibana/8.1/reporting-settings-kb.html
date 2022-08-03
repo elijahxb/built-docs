@@ -13,6 +13,7 @@
 <meta name="DC.type" content="Learn/Docs/Kibana/Reference/8.1"/>
 <meta name="DC.subject" content="Kibana"/>
 <meta name="DC.identifier" content="8.1"/>
+<meta name="robots" content="noindex,nofollow"/>
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -58,7 +59,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -89,38 +90,30 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
-                  
+                  <div class="page_header">
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Kibana Guide [8.1]</a></span>
-»
-<span class="breadcrumb-link"><a href="setup.html">Set up</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Kibana Guide [8.1]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="setup.html">Set up</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="settings.html">Configure Kibana</a></span>
-»
-<span class="breadcrumb-node">Reporting settings in Kibana</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -132,7 +125,7 @@
 </div>
 <div class="section xpack">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="reporting-settings-kb"></a>Reporting settings in Kibana<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/settings/reporting-settings.asciidoc">edit</a></h2>
+<h2 class="title"><a id="reporting-settings-kb"></a>Reporting settings in Kibana<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/settings/reporting-settings.asciidoc">edit</a></h2>
 </div></div></div>
 
 <p>You can configure <code class="literal">xpack.reporting</code> settings in your <code class="literal">kibana.yml</code> to:</p>
@@ -161,7 +154,7 @@
 </li>
 </ul>
 </div>
-<h4><a id="general-reporting-settings"></a>Enable reporting<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/settings/reporting-settings.asciidoc">edit</a></h4>
+<h4><a id="general-reporting-settings"></a>Enable reporting<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/settings/reporting-settings.asciidoc">edit</a></h4>
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -183,7 +176,7 @@ configure the roles and spaces in the <a class="xref" href="secure-reporting.htm
 <a class="xref" href="reporting-settings-kb.html#xpack-reportingQueue-pollEnabled"><code class="literal">xpack.reporting.queue.pollEnabled: false</code></a>.</p>
 </div>
 </div>
-<h4><a id="encryption-keys"></a>Encryption key setting<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/settings/reporting-settings.asciidoc">edit</a></h4>
+<h4><a id="encryption-keys"></a>Encryption key setting<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/settings/reporting-settings.asciidoc">edit</a></h4>
 <p>By default, an encryption key is generated for the reporting features each
 time you start Kibana. If a static encryption key is not persisted in
 the Kibana configuration, any pending reports fail when you restart Kibana.</p>
@@ -207,7 +200,7 @@ The static encryption key for reporting. Use an alphanumeric text string that is
 <div class="pre_wrapper lang-yaml">
 <pre class="programlisting prettyprint lang-yaml">xpack.reporting.encryptionKey: "something_secret"</pre>
 </div>
-<h4><a id="reporting-job-queue-settings"></a>Background job settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/settings/reporting-settings.asciidoc">edit</a></h4>
+<h4><a id="reporting-job-queue-settings"></a>Background job settings<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/settings/reporting-settings.asciidoc">edit</a></h4>
 <p>Reporting generates reports in the background and jobs are coordinated using documents
 in Elasticsearch. Depending on how often you generate reports and the overall number of
 reports, you might need to change the following settings.</p>
@@ -223,7 +216,7 @@ How often the index that stores reporting jobs rolls over to a new index. Valid 
 </dd>
 <dt>
 <span class="term">
-<a id="xpack-reportingQueue-pollEnabled"></a> <code class="literal">xpack.reporting.queue.pollEnabled</code> <span class="image"><a class="image" href="https://www.elastic.co/cloud/elasticsearch-service/signup?baymax=docs-body&amp;elektra=docs"><img src="https://doc-icons.s3.us-east-2.amazonaws.com/logo_cloud.svg" alt="logo cloud" title="Supported on Elasticsearch Service"></a></span>
+<a id="xpack-reportingQueue-pollEnabled"></a> <code class="literal">xpack.reporting.queue.pollEnabled</code>
 </span>
 </dt>
 <dd>
@@ -262,7 +255,7 @@ Specifies the <a href="/guide/en/elasticsearch/reference/8.1/api-conventions.htm
 </dd>
 </dl>
 </div>
-<h4><a id="reporting-capture-settings"></a>Capture settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/settings/reporting-settings.asciidoc">edit</a></h4>
+<h4><a id="reporting-capture-settings"></a>Capture settings<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/settings/reporting-settings.asciidoc">edit</a></h4>
 <p>Reporting works by capturing screenshots from Kibana. The following settings control the capturing process.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -321,7 +314,7 @@ Specify the <a href="/guide/en/elasticsearch/reference/8.1/api-conventions.html#
 </dd>
 </dl>
 </div>
-<h4><a id="reporting-chromium-settings"></a>Chromium settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/settings/reporting-settings.asciidoc">edit</a></h4>
+<h4><a id="reporting-chromium-settings"></a>Chromium settings<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/settings/reporting-settings.asciidoc">edit</a></h4>
 <p>For PDF and PNG reports, Reporting spawns a headless Chromium browser process on the server to load and capture a screenshot of the Kibana app. When installing Kibana on Linux and Windows platforms, the Chromium binary comes bundled with the Kibana download. For Mac platforms, the Chromium binary is downloaded the first time Kibana is started.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -359,7 +352,7 @@ An array of hosts that should not go through the proxy server and should use a d
 </dd>
 </dl>
 </div>
-<h3><a id="reporting-network-policy"></a>Network policy settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/settings/reporting-settings.asciidoc">edit</a></h3>
+<h3><a id="reporting-network-policy"></a>Network policy settings<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/settings/reporting-settings.asciidoc">edit</a></h3>
 <p>To generate PDF reports, <span class="strong strong"><strong>Reporting</strong></span> uses the Chromium browser to fully load the Kibana page on the server. This potentially involves sending requests to external hosts. For example, a request might go to an external image server to show a field formatted as an image, or to show an image in a Markdown visualization.</p>
 <p>If the Chromium browser is asked to send a request that violates the network policy, <span class="strong strong"><strong>Reporting</strong></span> stops processing the page before the request goes out, and the report is marked as a failure. Additional information about the event is in the Kibana server logs.</p>
 <div class="note admon">
@@ -428,7 +421,7 @@ xpack.reporting.capture.networkPolicy
 <p>The <code class="literal">file:</code> protocol is always denied, even if no network policy is configured.</p>
 </div>
 </div>
-<h4><a id="reporting-csv-settings"></a>CSV settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/settings/reporting-settings.asciidoc">edit</a></h4>
+<h4><a id="reporting-csv-settings"></a>CSV settings<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/settings/reporting-settings.asciidoc">edit</a></h4>
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -516,7 +509,7 @@ Adds a byte order mark (<code class="literal">\ufeff</code>) at the beginning of
 </dd>
 </dl>
 </div>
-<h4><a id="reporting-advanced-settings"></a>Security settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/settings/reporting-settings.asciidoc">edit</a></h4>
+<h4><a id="reporting-advanced-settings"></a>Security settings<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/settings/reporting-settings.asciidoc">edit</a></h4>
 <p>With Security enabled, Reporting has two forms of access control: each user can only access their own reports, and custom roles determine who has privilege to generate reports. When Reporting is configured with <a class="xref" href="kibana-privileges.html" title="Kibana privileges">Kibana application privileges</a>, you can control the spaces and applications where users are allowed to generate reports.</p>
 <div class="note admon">
 <div class="icon"></div>
@@ -554,7 +547,7 @@ Deprecated in 7.14.0.
 </dd>
 </dl>
 </div>
-<h4><a id="reporting-kibana-server-settings"></a>Kibana server settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/settings/reporting-settings.asciidoc">edit</a></h4>
+<h4><a id="reporting-kibana-server-settings"></a>Kibana server settings<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/settings/reporting-settings.asciidoc">edit</a></h4>
 <p>To generate screenshots for PNG and PDF reports, Reporting opens the Kibana web interface using a local
 connection on the server. In most cases, using a local connection to the Kibana server presents no issue. If
 you prefer the headless browser to connect to Kibana using a specific hostname, there are a number of
@@ -609,15 +602,37 @@ The hostname for accessing Kibana.
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

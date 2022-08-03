@@ -1,1 +1,1 @@
-GET /_ssl/certificates
+POST /_security/api_key/*/_clear_cache

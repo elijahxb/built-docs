@@ -1,5 +1,1 @@
-PATCH api/cases/configure/3297a0f0-b5ec-11ec-b141-0fdb20a7f9a9
-{
-  "closure_type": "close-by-pushing",
-  "version": "WzIwMiwxXQ=="
-}
+GET api/cases/a18b38a0-71b0-11ea-a0b2-c51ea50a58e2/user_actions

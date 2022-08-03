@@ -18,11 +18,9 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elastic Cloud on Kubernetes [master]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Cloud on Kubernetes [master]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="k8s-orchestrating-elastic-stack-applications.html">Orchestrating Elastic Stack applications</a></span>
-»
-<span class="breadcrumb-node">Autoscaling stateless applications</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -59,14 +57,14 @@ Elastic Maps Server
 </li>
 </ul>
 </div>
-<p>These resources expose the <code class="literal">scale</code> subresource which can be used by the Horizontal Pod Autoscaler controller to automatically adjust the number of replicas according to the CPU load or any other custom or external metric. The example below shows how to create an <code class="literal">HorizontalPodAutoscaler</code> resource to adjust the replicas of a Kibana deployment according to the CPU load:</p>
+<p>These resources expose the <code class="literal">scale</code> subresource which can be used by the Horizontal Pod Autoscaler controller to automatically adjust the number of replicas according to the CPU load or any other custom or external metric. This example shows how to create an <code class="literal">HorizontalPodAutoscaler</code> resource to adjust the replicas of a Kibana deployment according to the CPU load:</p>
 <div class="pre_wrapper lang-yaml">
 <pre class="programlisting prettyprint lang-yaml">apiVersion: elasticsearch.k8s.elastic.co/v1
 kind: Elasticsearch
 metadata:
   name: elasticsearch-sample
 spec:
-  version: 8.1.2
+  version: 8.3.3
   nodeSets:
     - name: default
       count: 1
@@ -78,7 +76,7 @@ kind: Kibana
 metadata:
   name: kibana-sample
 spec:
-  version: 8.1.2
+  version: 8.3.3
   count: 1
   elasticsearchRef:
     name: "elasticsearch-sample"

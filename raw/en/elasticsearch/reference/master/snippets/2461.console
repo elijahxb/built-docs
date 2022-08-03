@@ -1,1 +1,14 @@
-GET /my-index-000001/_explain/0?q=message:search
+POST _ml/data_frame/_evaluate
+{
+   "index": "animal_classification",
+   "evaluation": {
+      "classification": {
+         "actual_field": "animal_class",
+         "metrics": {
+            "auc_roc" : {
+              "class_name": "dog"
+            }
+         }
+      }
+   }
+}

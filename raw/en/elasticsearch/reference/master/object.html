@@ -18,13 +18,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="mapping.html">Mapping</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="mapping.html">Mapping</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="mapping-types.html">Field data types</a></span>
-»
-<span class="breadcrumb-node">Object field type</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -36,7 +33,7 @@ Not what you want? See the
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="object"></a>Object field type<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/mapping/types/object.asciidoc">edit</a></h2>
+<h2 class="title"><a id="object"></a>Object field type<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/mapping/types/object.asciidoc">edit</a></h2>
 </div></div></div>
 
 <p>JSON documents are hierarchical in nature: the document may contain inner
@@ -55,7 +52,7 @@ objects which, in turn, may contain inner objects themselves:</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/223.console"></div>
+<div class="console_widget" data-snippet="snippets/220.console"></div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
@@ -119,7 +116,7 @@ pairs, something like this:</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/224.console"></div>
+<div class="console_widget" data-snippet="snippets/221.console"></div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
@@ -151,7 +148,7 @@ pairs, something like this:</p>
 <p>You are not required to set the field <code class="literal">type</code> to <code class="literal">object</code> explicitly, as this is the default value.</p>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="object-params"></a>Parameters for <code class="literal">object</code> fields<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/mapping/types/object.asciidoc">edit</a></h3>
+<h3 class="title"><a id="object-params"></a>Parameters for <code class="literal">object</code> fields<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/mapping/types/object.asciidoc">edit</a></h3>
 </div></div></div>
 <p>The following parameters are accepted by <code class="literal">object</code> fields:</p>
 <div class="informaltable">
@@ -185,6 +182,20 @@ and <code class="literal">strict</code>.
 <p>
 Whether the JSON value given for the object field should be
 parsed and indexed (<code class="literal">true</code>, default) or completely ignored (<code class="literal">false</code>).
+</p>
+</td>
+</tr>
+<tr>
+<td valign="top">
+<p>
+<a class="xref" href="subobjects.html" title="subobjects"><code class="literal">subobjects</code></a>
+</p>
+</td>
+<td valign="top">
+<p>
+Whether the object can hold subobjects (<code class="literal">true</code>, default) or not (<code class="literal">false</code>). If not, sub-fields
+with dots in their names will be treated as leaves instead, otherwise their field names
+would be expanded to their corresponding object structure.
 </p>
 </td>
 </tr>

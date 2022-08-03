@@ -1,13 +1,25 @@
-GET /job-candidates/_search
+GET /_search
 {
   "query": {
-    "terms_set": {
-      "programming_languages": {
-        "terms": [ "c++", "java", "php" ],
-        "minimum_should_match_script": {
-          "source": "Math.min(params.num_terms, doc['required_matches'].value)"
+    "pinned": {
+      "docs": [
+        {
+          "_index": "my-index-000001",
+          "_id": "1"
         },
-        "boost": 1.0
+        {
+          "_index": "my-index-000001",
+          "_id": "4"
+        },
+        {
+          "_index": "my-index-000002",
+          "_id": "100"
+        }
+      ],
+      "organic": {
+        "match": {
+          "description": "iphone"
+        }
       }
     }
   }

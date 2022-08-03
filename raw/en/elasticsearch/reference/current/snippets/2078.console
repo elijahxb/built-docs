@@ -1,6 +1,14 @@
-PUT /analyze_sample
+GET /_mget?routing=key1
 {
-  "settings" : {
-    "index.analyze.max_token_count" : 20000
-  }
+  "docs": [
+    {
+      "_index": "test",
+      "_id": "1",
+      "routing": "key2"
+    },
+    {
+      "_index": "test",
+      "_id": "2"
+    }
+  ]
 }

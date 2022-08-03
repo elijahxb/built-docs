@@ -6,7 +6,7 @@
 <title>Geo-polygon query | Elasticsearch Guide [master] | Elastic</title>
 <link rel="home" href="index.html" title="Elasticsearch Guide [master]"/>
 <link rel="up" href="geo-queries.html" title="Geo queries"/>
-<link rel="prev" href="query-dsl-geo-distance-query.html" title="Geo-distance query"/>
+<link rel="prev" href="query-dsl-geo-grid-query.html" title="Geo-grid query"/>
 <link rel="next" href="query-dsl-geo-shape-query.html" title="Geoshape query"/>
 <meta name="DC.type" content="Learn/Docs/Elasticsearch/Reference/master"/>
 <meta name="DC.subject" content="Elasticsearch"/>
@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,27 +87,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 You are looking at preliminary documentation for a future release.
@@ -116,17 +107,14 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="query-dsl.html">Query DSL</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="query-dsl.html">Query DSL</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="geo-queries.html">Geo queries</a></span>
-»
-<span class="breadcrumb-node">Geo-polygon query</span>
 </div>
 <div class="navheader">
 <span class="prev">
-<a href="query-dsl-geo-distance-query.html">« Geo-distance query</a>
+<a href="query-dsl-geo-grid-query.html">« Geo-grid query</a>
 </span>
 <span class="next">
 <a href="query-dsl-geo-shape-query.html">Geoshape query »</a>
@@ -134,7 +122,7 @@ Not what you want? See the
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="query-dsl-geo-polygon-query"></a>Geo-polygon query<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/query-dsl/geo-polygon-query.asciidoc">edit</a></h2>
+<h2 class="title"><a id="query-dsl-geo-polygon-query"></a>Geo-polygon query<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/query-dsl/geo-polygon-query.asciidoc">edit</a></h2>
 </div></div></div>
 
 <div class="warning admon">
@@ -170,8 +158,8 @@ points. Here is an example:</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/932.console"></div>
-<h4><a id="_query_options_2"></a>Query Options<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/query-dsl/geo-polygon-query.asciidoc">edit</a></h4>
+<div class="console_widget" data-snippet="snippets/958.console"></div>
+<h4><a id="_query_options_2"></a>Query options<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/query-dsl/geo-polygon-query.asciidoc">edit</a></h4>
 <div class="informaltable">
 <table border="1" cellpadding="4px">
 <colgroup>
@@ -198,8 +186,8 @@ or longitude, or <code class="literal">STRICT</code> (default is <code class="li
 </tbody>
 </table>
 </div>
-<h4><a id="_allowed_formats"></a>Allowed Formats<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/query-dsl/geo-polygon-query.asciidoc">edit</a></h4>
-<h5><a id="_lat_long_as_array"></a>Lat Long as Array<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/query-dsl/geo-polygon-query.asciidoc">edit</a></h5>
+<h4><a id="_allowed_formats"></a>Allowed formats<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/query-dsl/geo-polygon-query.asciidoc">edit</a></h4>
+<h5><a id="_lat_long_as_array"></a>Lat long as array<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/query-dsl/geo-polygon-query.asciidoc">edit</a></h5>
 <p>Format as <code class="literal">[lon, lat]</code></p>
 <p>Note: the order of lon/lat here must
 conform with <a href="http://geojson.org/" class="ulink" target="_top">GeoJSON</a>.</p>
@@ -227,8 +215,8 @@ conform with <a href="http://geojson.org/" class="ulink" target="_top">GeoJSON</
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/933.console"></div>
-<h5><a id="_lat_lon_as_string_4"></a>Lat Lon as String<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/query-dsl/geo-polygon-query.asciidoc">edit</a></h5>
+<div class="console_widget" data-snippet="snippets/959.console"></div>
+<h5><a id="_lat_lon_as_string_2"></a>Lat lon as string<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/query-dsl/geo-polygon-query.asciidoc">edit</a></h5>
 <p>Format in <code class="literal">lat,lon</code>.</p>
 <a id="bd1e55b8cb2ca9e496e223e717d76640"></a>
 <div class="pre_wrapper lang-console">
@@ -254,8 +242,8 @@ conform with <a href="http://geojson.org/" class="ulink" target="_top">GeoJSON</
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/934.console"></div>
-<h5><a id="_geohash_4"></a>Geohash<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/query-dsl/geo-polygon-query.asciidoc">edit</a></h5>
+<div class="console_widget" data-snippet="snippets/960.console"></div>
+<h5><a id="_geohash_4"></a>Geohash<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/query-dsl/geo-polygon-query.asciidoc">edit</a></h5>
 <a id="268151ed1f0e12586e66e614b61d7981"></a>
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">GET /_search
@@ -280,11 +268,11 @@ conform with <a href="http://geojson.org/" class="ulink" target="_top">GeoJSON</
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/935.console"></div>
-<h4><a id="_geo_point_type"></a><code class="literal">geo_point</code> type<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/query-dsl/geo-polygon-query.asciidoc">edit</a></h4>
+<div class="console_widget" data-snippet="snippets/961.console"></div>
+<h4><a id="_geo_point_type"></a><code class="literal">geo_point</code> type<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/query-dsl/geo-polygon-query.asciidoc">edit</a></h4>
 <p>The query <span class="strong strong"><strong>requires</strong></span> the <a class="xref" href="geo-point.html" title="Geopoint field type"><code class="literal">geo_point</code></a> type to be set on the
 relevant field.</p>
-<h4><a id="_ignore_unmapped_3"></a>Ignore Unmapped<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/query-dsl/geo-polygon-query.asciidoc">edit</a></h4>
+<h4><a id="_ignore_unmapped_3"></a>Ignore unmapped<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/query-dsl/geo-polygon-query.asciidoc">edit</a></h4>
 <p>When set to <code class="literal">true</code> the <code class="literal">ignore_unmapped</code> option will ignore an unmapped field
 and will not match any documents for this query. This can be useful when
 querying multiple indexes which might have different mappings. When set to
@@ -293,7 +281,7 @@ is not mapped.</p>
 </div>
 <div class="navfooter">
 <span class="prev">
-<a href="query-dsl-geo-distance-query.html">« Geo-distance query</a>
+<a href="query-dsl-geo-grid-query.html">« Geo-grid query</a>
 </span>
 <span class="next">
 <a href="query-dsl-geo-shape-query.html">Geoshape query »</a>
@@ -303,15 +291,37 @@ is not mapped.</p>
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

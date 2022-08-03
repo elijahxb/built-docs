@@ -11,6 +11,7 @@
 <meta name="DC.type" content="Learn/Docs/Metricbeat/Reference/8.1"/>
 <meta name="DC.subject" content="Metricbeat"/>
 <meta name="DC.identifier" content="8.1"/>
+<meta name="robots" content="noindex,nofollow"/>
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -56,7 +57,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,38 +88,30 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
-                  
+                  <div class="page_header">
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Metricbeat Reference [8.1]</a></span>
-»
-<span class="breadcrumb-link"><a href="metricbeat-modules.html">Modules</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Metricbeat Reference [8.1]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="metricbeat-modules.html">Modules</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="metricbeat-module-gcp.html">Google Cloud Platform module</a></span>
-»
-<span class="breadcrumb-node">Google Cloud Platform compute metricset</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -130,7 +123,7 @@
 </div>
 <div class="section xpack">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="metricbeat-metricset-gcp-compute"></a>Google Cloud Platform compute metricset<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/metricbeat/docs/modules/gcp/compute.asciidoc">edit</a></h2>
+<h2 class="title"><a id="metricbeat-metricset-gcp-compute"></a>Google Cloud Platform compute metricset<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/metricbeat/docs/modules/gcp/compute.asciidoc">edit</a></h2>
 </div></div></div>
 <div class="warning admon">
 <div class="icon"></div>
@@ -141,9 +134,9 @@
 <p>Compute metricset to fetch metrics from <a href="https://cloud.google.com/compute/" class="ulink" target="_top">Compute Engine</a> Virtual Machines in Google Cloud Platform. No Monitoring or Logging agent is required in your instances to use this metricset.</p>
 <p>The <code class="literal">compute</code> metricset contains all metrics exported from the <a href="https://cloud.google.com/monitoring/api/metrics_gcp#gcp-compute" class="ulink" target="_top">Stackdriver API</a>. The field names have been left untouched for people already familiar with them.</p>
 <p>Extra labels and metadata are also extracted using the <a href="https://cloud.google.com/compute/docs/reference/rest/v1/instances/get" class="ulink" target="_top">Compute API</a>. This is enough to get most of the info associated with a metric like Compute labels and metadata and metric specific Labels.</p>
-<h3><a id="_metrics_and_labels"></a>Metrics and labels<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/x-pack/metricbeat/module/gcp/compute/_meta/docs.asciidoc">edit</a></h3>
+<h3><a id="_metrics_and_labels"></a>Metrics and labels<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/x-pack/metricbeat/module/gcp/compute/_meta/docs.asciidoc">edit</a></h3>
 <p>Here is a list of metrics collected by <code class="literal">compute</code> metricset:</p>
-<h4><a id="_firewall"></a>firewall<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/x-pack/metricbeat/module/gcp/compute/_meta/docs.asciidoc">edit</a></h4>
+<h4><a id="_firewall"></a>firewall<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/x-pack/metricbeat/module/gcp/compute/_meta/docs.asciidoc">edit</a></h4>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
 <li class="listitem">
@@ -168,7 +161,7 @@
 </li>
 </ul>
 </div>
-<h4><a id="_cpu"></a>cpu<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/x-pack/metricbeat/module/gcp/compute/_meta/docs.asciidoc">edit</a></h4>
+<h4><a id="_cpu"></a>cpu<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/x-pack/metricbeat/module/gcp/compute/_meta/docs.asciidoc">edit</a></h4>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
 <li class="listitem">
@@ -203,7 +196,7 @@
 </li>
 </ul>
 </div>
-<h4><a id="_disk"></a>disk<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/x-pack/metricbeat/module/gcp/compute/_meta/docs.asciidoc">edit</a></h4>
+<h4><a id="_disk"></a>disk<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/x-pack/metricbeat/module/gcp/compute/_meta/docs.asciidoc">edit</a></h4>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
 <li class="listitem">
@@ -284,7 +277,7 @@
 </li>
 </ul>
 </div>
-<h4><a id="_uptime"></a>uptime<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/x-pack/metricbeat/module/gcp/compute/_meta/docs.asciidoc">edit</a></h4>
+<h4><a id="_uptime"></a>uptime<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/x-pack/metricbeat/module/gcp/compute/_meta/docs.asciidoc">edit</a></h4>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
 <li class="listitem">
@@ -299,7 +292,7 @@
 </li>
 </ul>
 </div>
-<h4><a id="_network"></a>network<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/x-pack/metricbeat/module/gcp/compute/_meta/docs.asciidoc">edit</a></h4>
+<h4><a id="_network"></a>network<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/x-pack/metricbeat/module/gcp/compute/_meta/docs.asciidoc">edit</a></h4>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
 <li class="listitem">
@@ -356,7 +349,7 @@
 </li>
 </ul>
 </div>
-<h4><a id="_memory"></a>memory<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/x-pack/metricbeat/module/gcp/compute/_meta/docs.asciidoc">edit</a></h4>
+<h4><a id="_memory"></a>memory<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/x-pack/metricbeat/module/gcp/compute/_meta/docs.asciidoc">edit</a></h4>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
 <li class="listitem">
@@ -404,7 +397,7 @@
 <p>This is a default metricset. If the host module is unconfigured, this metricset is enabled by default.</p>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_fields_97"></a>Fields<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/metricbeat/docs/modules/gcp/compute.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_fields_97"></a>Fields<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/metricbeat/docs/modules/gcp/compute.asciidoc">edit</a></h3>
 </div></div></div>
 <p>For a description of each field in the metricset, see the
 <a class="xref" href="exported-fields-gcp.html" title="Google Cloud Platform fields">exported fields</a> section.</p>
@@ -493,15 +486,37 @@
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

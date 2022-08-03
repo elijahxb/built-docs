@@ -1,1 +1,12 @@
-POST /my_source_index/_clone/my_target_index
+POST my-index-000001/_update_by_query
+{
+  "script": {
+    "source": "ctx._source.count++",
+    "lang": "painless"
+  },
+  "query": {
+    "term": {
+      "user.id": "kimchy"
+    }
+  }
+}

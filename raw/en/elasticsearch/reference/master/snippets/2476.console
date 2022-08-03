@@ -1,1 +1,4 @@
-GET my-index/_mvt/my-geo-field/15/5271/12710
+POST _ml/trained_models/lang_ident_model_1/_infer
+{
+  "docs":[{"text": "The fool doth think he is wise, but the wise man knows himself to be a fool."}]
+}

@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,27 +87,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 You are looking at preliminary documentation for a future release.
@@ -116,11 +107,9 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="rest-apis.html">REST APIs</a></span>
-»
-<span class="breadcrumb-node">Reload search analyzers API</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -132,7 +121,7 @@ Not what you want? See the
 </div>
 <div class="chapter xpack">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="indices-reload-analyzers"></a>Reload search analyzers API<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/indices/apis/reload-analyzers.asciidoc">edit</a></h2>
+<h2 class="title"><a id="indices-reload-analyzers"></a>Reload search analyzers API<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/indices/apis/reload-analyzers.asciidoc">edit</a></h2>
 </div></div></div>
 <p>Reloads an index&#8217;s <a class="xref" href="search-analyzer.html" title="search_analyzer">search analyzers</a> and their resources.
 For data streams, the API reloads search analyzers and resources for the
@@ -142,7 +131,7 @@ stream&#8217;s backing indices.</p>
 <pre class="programlisting prettyprint lang-console">POST /my-index-000001/_reload_search_analyzers
 POST /my-index-000001/_cache/clear?request=true</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/2373.console"></div>
+<div class="console_widget" data-snippet="snippets/2492.console"></div>
 <div class="important admon">
 <div class="icon"></div>
 <div class="admon_content">
@@ -151,10 +140,10 @@ POST /my-index-000001/_cache/clear?request=true</pre>
            previous versions of the analyzer.</p>
 </div>
 </div>
-<h3><a id="indices-reload-analyzers-api-request"></a>Request<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/indices/apis/reload-analyzers.asciidoc">edit</a></h3>
+<h3><a id="indices-reload-analyzers-api-request"></a>Request<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/indices/apis/reload-analyzers.asciidoc">edit</a></h3>
 <p><code class="literal">POST /&lt;target&gt;/_reload_search_analyzers</code></p>
 <p><code class="literal">GET /&lt;target&gt;/_reload_search_analyzers</code></p>
-<h3><a id="indices-reload-analyzers-api-prereqs"></a>Prerequisites<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/indices/apis/reload-analyzers.asciidoc">edit</a></h3>
+<h3><a id="indices-reload-analyzers-api-prereqs"></a>Prerequisites<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/indices/apis/reload-analyzers.asciidoc">edit</a></h3>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
 <li class="listitem">
@@ -164,7 +153,7 @@ or alias.
 </li>
 </ul>
 </div>
-<h3><a id="indices-reload-analyzers-api-desc"></a>Description<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/indices/apis/reload-analyzers.asciidoc">edit</a></h3>
+<h3><a id="indices-reload-analyzers-api-desc"></a>Description<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/indices/apis/reload-analyzers.asciidoc">edit</a></h3>
 <p>You can use the reload search analyzers API
 to pick up changes to synonym files
 used in the <a class="xref" href="analysis-synonym-graph-tokenfilter.html" title="Synonym graph token filter"><code class="literal">synonym_graph</code></a>
@@ -195,7 +184,7 @@ in case shards are relocated
 in the future.</p>
 </div>
 </div>
-<h3><a id="indices-reload-analyzers-api-path-params"></a>Path parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/indices/apis/reload-analyzers.asciidoc">edit</a></h3>
+<h3><a id="indices-reload-analyzers-api-path-params"></a>Path parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/indices/apis/reload-analyzers.asciidoc">edit</a></h3>
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -210,7 +199,7 @@ and indices, use <code class="literal">*</code> or <code class="literal">_all</c
 </dd>
 </dl>
 </div>
-<h3><a id="indices-reload-analyzers-api-query-params"></a>Query parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/indices/apis/reload-analyzers.asciidoc">edit</a></h3>
+<h3><a id="indices-reload-analyzers-api-query-params"></a>Query parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/indices/apis/reload-analyzers.asciidoc">edit</a></h3>
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -299,7 +288,7 @@ missing or closed index. Defaults to <code class="literal">false</code>.
 </dd>
 </dl>
 </div>
-<h3><a id="indices-reload-analyzers-api-example"></a>Examples<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/indices/apis/reload-analyzers.asciidoc">edit</a></h3>
+<h3><a id="indices-reload-analyzers-api-example"></a>Examples<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/indices/apis/reload-analyzers.asciidoc">edit</a></h3>
 <p>Use the <a class="xref" href="indices-create-index.html" title="Create index API">create index API</a>
 to create an index with a search analyzer
 that contains an updateable synonym filter.</p>
@@ -325,8 +314,8 @@ that contains an updateable synonym filter.</p>
         "filter": {
           "synonym": {
             "type": "synonym_graph",
-            "synonyms_path": "analysis/synonym.txt",  <a id="CO651-1"></a><i class="conum" data-value="1"></i>
-            "updateable": true                        <a id="CO651-2"></a><i class="conum" data-value="2"></i>
+            "synonyms_path": "analysis/synonym.txt",  <a id="CO695-1"></a><i class="conum" data-value="1"></i>
+            "updateable": true                        <a id="CO695-2"></a><i class="conum" data-value="2"></i>
           }
         }
       }
@@ -337,18 +326,18 @@ that contains an updateable synonym filter.</p>
       "text": {
         "type": "text",
         "analyzer": "standard",
-        "search_analyzer": "my_synonyms"              <a id="CO651-3"></a><i class="conum" data-value="3"></i>
+        "search_analyzer": "my_synonyms"              <a id="CO695-3"></a><i class="conum" data-value="3"></i>
       }
     }
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/2374.console"></div>
+<div class="console_widget" data-snippet="snippets/2493.console"></div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO651-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO695-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Includes a synonym file.</p>
@@ -356,7 +345,7 @@ that contains an updateable synonym filter.</p>
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO651-2"><i class="conum" data-value="2"></i></a></p>
+<p><a href="#CO695-2"><i class="conum" data-value="2"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Marks the token filter as updateable.</p>
@@ -364,7 +353,7 @@ that contains an updateable synonym filter.</p>
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO651-3"><i class="conum" data-value="3"></i></a></p>
+<p><a href="#CO695-3"><i class="conum" data-value="3"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Marks the analyzer as a search analyzer.</p>
@@ -380,7 +369,7 @@ and pick up the file changes.</p>
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">POST /my-index-000001/_reload_search_analyzers</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/2375.console"></div>
+<div class="console_widget" data-snippet="snippets/2494.console"></div>
 <p>The API returns the following response.</p>
 <a id="6679f86497a8c543af57daf64a8fa3f3"></a>
 <div class="pre_wrapper lang-console-result">
@@ -416,15 +405,37 @@ and pick up the file changes.</p>
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

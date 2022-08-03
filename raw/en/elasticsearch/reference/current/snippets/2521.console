@@ -1,1 +1,14 @@
-GET /security/enroll/node
+POST music/_search?pretty
+{
+  "suggest": {
+    "song-suggest": {
+      "prefix": "nor",
+      "completion": {
+        "field": "suggest",
+        "fuzzy": {
+          "fuzziness": 2
+        }
+      }
+    }
+  }
+}

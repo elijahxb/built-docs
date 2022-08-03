@@ -3,14 +3,14 @@
   <head>
     
 <meta charset="UTF-8">
-<title>Log Fields | Elastic Common Schema (ECS) Reference [8.1] | Elastic</title>
-<link rel="home" href="index.html" title="Elastic Common Schema (ECS) Reference [8.1]"/>
+<title>Log Fields | Elastic Common Schema (ECS) Reference [8.3] | Elastic</title>
+<link rel="home" href="index.html" title="Elastic Common Schema (ECS) Reference [8.3]"/>
 <link rel="up" href="ecs-field-reference.html" title="ECS Field Reference"/>
 <link rel="prev" href="ecs-interface.html" title="Interface Fields"/>
 <link rel="next" href="ecs-network.html" title="Network Fields"/>
-<meta name="DC.type" content="Learn/Docs/Elastic Common Schema (ECS)/Reference/8.1"/>
+<meta name="DC.type" content="Learn/Docs/Elastic Common Schema (ECS)/Reference/8.3"/>
 <meta name="DC.subject" content="Elastic Common Schema (ECS)"/>
-<meta name="DC.identifier" content="8.1"/>
+<meta name="DC.identifier" content="8.3"/>
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,36 +87,25 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elastic Common Schema (ECS) Reference [8.1]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Common Schema (ECS) Reference [8.3]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="ecs-field-reference.html">ECS Field Reference</a></span>
-»
-<span class="breadcrumb-node">Log Fields</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -128,12 +117,12 @@
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="ecs-log"></a>Log Fields<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/ecs/edit/8.1/docs/fields/field-details.asciidoc">edit</a></h2>
+<h2 class="title"><a id="ecs-log"></a>Log Fields<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/ecs/edit/8.3/docs/fields/field-details.asciidoc">edit</a></h2>
 </div></div></div>
 <p>Details about the event&#8217;s logging mechanism or logging transport.</p>
 <p>The log.* fields are typically populated with details about the logging mechanism used to create and/or transport the event. For example, syslog details belong under <code class="literal">log.syslog.*</code>.</p>
 <p>The details specific to your event source are typically not logged under <code class="literal">log.*</code>, but rather in <code class="literal">event.*</code> or in other ECS fields.</p>
-<h4><a id="_log_field_details"></a>Log Field Details<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/ecs/edit/8.1/docs/fields/field-details.asciidoc">edit</a></h4>
+<h4><a id="_log_field_details"></a>Log Field Details<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/ecs/edit/8.3/docs/fields/field-details.asciidoc">edit</a></h4>
 <div class="informaltable">
 <table border="1" cellpadding="4px">
 <colgroup>
@@ -209,6 +198,14 @@
 <td align="left" valign="top"><p>extended</p></td>
 </tr>
 <tr>
+<td align="left" valign="top"><p><a id="field-log-syslog-appname"></a>
+<a class="xref" href="ecs-log.html#field-log-syslog-appname">log.syslog.appname</a></p></td>
+<td align="left" valign="top"><p>The device or application that originated the Syslog message, if available.</p>
+<p>type: keyword</p>
+<p>example: <code class="literal">sshd</code></p></td>
+<td align="left" valign="top"><p>extended</p></td>
+</tr>
+<tr>
 <td align="left" valign="top"><p><a id="field-log-syslog-facility-code"></a>
 <a class="xref" href="ecs-log.html#field-log-syslog-facility-code">log.syslog.facility.code</a></p></td>
 <td align="left" valign="top"><p>The Syslog numeric facility of the log event, if available.</p>
@@ -226,12 +223,36 @@
 <td align="left" valign="top"><p>extended</p></td>
 </tr>
 <tr>
+<td align="left" valign="top"><p><a id="field-log-syslog-hostname"></a>
+<a class="xref" href="ecs-log.html#field-log-syslog-hostname">log.syslog.hostname</a></p></td>
+<td align="left" valign="top"><p>The hostname, FQDN, or IP of the machine that originally sent the Syslog message. This is sourced from the hostname field of the syslog header. Depending on the environment, this value may be different from the host that handled the event, especially if the host handling the events is acting as a collector.</p>
+<p>type: keyword</p>
+<p>example: <code class="literal">example-host</code></p></td>
+<td align="left" valign="top"><p>extended</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><a id="field-log-syslog-msgid"></a>
+<a class="xref" href="ecs-log.html#field-log-syslog-msgid">log.syslog.msgid</a></p></td>
+<td align="left" valign="top"><p>An identifier for the type of Syslog message, if available. Only applicable for RFC 5424 messages.</p>
+<p>type: keyword</p>
+<p>example: <code class="literal">ID47</code></p></td>
+<td align="left" valign="top"><p>extended</p></td>
+</tr>
+<tr>
 <td align="left" valign="top"><p><a id="field-log-syslog-priority"></a>
 <a class="xref" href="ecs-log.html#field-log-syslog-priority">log.syslog.priority</a></p></td>
 <td align="left" valign="top"><p>Syslog numeric priority of the event, if available.</p>
 <p>According to RFCs 5424 and 3164, the priority is 8 * facility + severity. This number is therefore expected to contain a value between 0 and 191.</p>
 <p>type: long</p>
 <p>example: <code class="literal">135</code></p></td>
+<td align="left" valign="top"><p>extended</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><a id="field-log-syslog-procid"></a>
+<a class="xref" href="ecs-log.html#field-log-syslog-procid">log.syslog.procid</a></p></td>
+<td align="left" valign="top"><p>The process name or ID that originated the Syslog message, if available.</p>
+<p>type: keyword</p>
+<p>example: <code class="literal">12345</code></p></td>
 <td align="left" valign="top"><p>extended</p></td>
 </tr>
 <tr>
@@ -252,6 +273,21 @@
 <p>example: <code class="literal">Error</code></p></td>
 <td align="left" valign="top"><p>extended</p></td>
 </tr>
+<tr>
+<td align="left" valign="top"><p><a id="field-log-syslog-structured-data"></a>
+<a class="xref" href="ecs-log.html#field-log-syslog-structured-data">log.syslog.structured_data</a></p></td>
+<td align="left" valign="top"><p>Structured data expressed in RFC 5424 messages, if available. These are key-value pairs formed from the structured data portion of the syslog message, as defined in RFC 5424 Section 6.3.</p>
+<p>type: flattened</p></td>
+<td align="left" valign="top"><p>extended</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><a id="field-log-syslog-version"></a>
+<a class="xref" href="ecs-log.html#field-log-syslog-version">log.syslog.version</a></p></td>
+<td align="left" valign="top"><p>The version of the Syslog protocol specification. Only applicable for RFC 5424 messages.</p>
+<p>type: keyword</p>
+<p>example: <code class="literal">1</code></p></td>
+<td align="left" valign="top"><p>extended</p></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -268,15 +304,37 @@
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

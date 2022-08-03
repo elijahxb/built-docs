@@ -1,18 +1,4 @@
-POST place/_search?pretty
+POST _ml/data_frame/analytics/model-flight-delays/_update
 {
-  "suggest": {
-    "place_suggestion": {
-      "prefix": "tim",
-      "completion": {
-        "field": "suggest",
-        "size": 10,
-        "contexts": {
-          "place_type": [                            
-            { "context": "cafe" },
-            { "context": "restaurants", "boost": 2 }
-          ]
-        }
-      }
-    }
-  }
+  "model_memory_limit": "200mb"
 }

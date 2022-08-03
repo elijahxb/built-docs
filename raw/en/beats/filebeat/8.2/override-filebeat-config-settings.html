@@ -13,17 +13,15 @@
 <meta name="robots" content="noindex,nofollow"/>
 </head>
 <body><div class="page_header">
-You are looking at preliminary documentation for a future release.
-Not what you want? See the
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
 <a href="../current/index.html">current release documentation</a>.
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Filebeat Reference [8.2]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Filebeat Reference [8.2]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="howto-guides.html">How to guides</a></span>
-»
-<span class="breadcrumb-node">Override configuration settings at the command line</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -90,7 +88,7 @@ of a file, use the <code class="literal">-E</code> flag when you run Filebeat:</
 <div class="pre_wrapper lang-yaml">
 <pre class="programlisting prettyprint lang-yaml">- module: nginx
   access:
-    var.paths: ["/var/log/nginx/access.log*"] <a id="CO21-1"></a><i class="conum" data-value="1"></i></pre>
+    var.paths: ["/var/log/nginx/access.log*"] <a id="CO22-1"></a><i class="conum" data-value="1"></i></pre>
 </div>
 <p>To override this setting from the command line, use the <code class="literal">-M</code> flag when you run
 Filebeat. The variable name must include the module and fileset name. For

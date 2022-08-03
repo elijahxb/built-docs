@@ -1,5 +1,6 @@
-POST /_security/oauth2/token
+GET /my-index-000001/_explain/0
 {
-  "grant_type": "refresh_token",
-  "refresh_token": "vLBPvmAB6KvwvJZr27cS"
+  "query" : {
+    "match" : { "message" : "elasticsearch" }
+  }
 }

@@ -7,7 +7,7 @@
 <link rel="home" href="index.html" title="Elasticsearch Guide [master]"/>
 <link rel="up" href="ml-df-trained-models-apis.html" title="Machine learning trained model APIs"/>
 <link rel="prev" href="get-trained-models.html" title="Get trained models API"/>
-<link rel="next" href="infer-trained-model-deployment.html" title="Infer trained model deployment API"/>
+<link rel="next" href="infer-trained-model.html" title="Infer trained model API"/>
 <meta name="DC.type" content="Learn/Docs/Elasticsearch/Reference/master"/>
 <meta name="DC.subject" content="Elasticsearch"/>
 <meta name="DC.identifier" content="master"/>
@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,27 +87,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 You are looking at preliminary documentation for a future release.
@@ -116,31 +107,28 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="rest-apis.html">REST APIs</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="rest-apis.html">REST APIs</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="ml-df-trained-models-apis.html">Machine learning trained model APIs</a></span>
-»
-<span class="breadcrumb-node">Get trained models statistics API</span>
 </div>
 <div class="navheader">
 <span class="prev">
 <a href="get-trained-models.html">« Get trained models API</a>
 </span>
 <span class="next">
-<a href="infer-trained-model-deployment.html">Infer trained model deployment API »</a>
+<a href="infer-trained-model.html">Infer trained model API »</a>
 </span>
 </div>
 <div class="section xpack">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="get-trained-models-stats"></a>Get trained models statistics API<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ml/trained-models/apis/get-trained-models-stats.asciidoc">edit</a></h2>
+<h2 class="title"><a id="get-trained-models-stats"></a>Get trained models statistics API<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ml/trained-models/apis/get-trained-models-stats.asciidoc">edit</a></h2>
 </div></div></div>
 
 <p>Retrieves usage information for trained models.</p>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="ml-get-trained-models-stats-request"></a>Request<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ml/trained-models/apis/get-trained-models-stats.asciidoc">edit</a></h3>
+<h3 class="title"><a id="ml-get-trained-models-stats-request"></a>Request<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ml/trained-models/apis/get-trained-models-stats.asciidoc">edit</a></h3>
 </div></div></div>
 <p><code class="literal">GET _ml/trained_models/_stats</code><br></p>
 <p><code class="literal">GET _ml/trained_models/_all/_stats</code><br></p>
@@ -151,7 +139,7 @@ Not what you want? See the
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="ml-get-trained-models-stats-prereq"></a>Prerequisites<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ml/trained-models/apis/get-trained-models-stats.asciidoc">edit</a></h3>
+<h3 class="title"><a id="ml-get-trained-models-stats-prereq"></a>Prerequisites<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ml/trained-models/apis/get-trained-models-stats.asciidoc">edit</a></h3>
 </div></div></div>
 <p>Requires the <code class="literal">monitor_ml</code> cluster privilege. This privilege is included in the
 <code class="literal">machine_learning_user</code> built-in role.</p>
@@ -159,7 +147,7 @@ Not what you want? See the
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="ml-get-trained-models-stats-desc"></a>Description<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ml/trained-models/apis/get-trained-models-stats.asciidoc">edit</a></h3>
+<h3 class="title"><a id="ml-get-trained-models-stats-desc"></a>Description<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ml/trained-models/apis/get-trained-models-stats.asciidoc">edit</a></h3>
 </div></div></div>
 <p>You can get usage information for multiple trained models in a single API
 request by using a comma-separated list of model IDs or a wildcard expression.</p>
@@ -167,7 +155,7 @@ request by using a comma-separated list of model IDs or a wildcard expression.</
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="ml-get-trained-models-stats-path-params"></a>Path parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ml/trained-models/apis/get-trained-models-stats.asciidoc">edit</a></h3>
+<h3 class="title"><a id="ml-get-trained-models-stats-path-params"></a>Path parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ml/trained-models/apis/get-trained-models-stats.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="variablelist">
 <dl class="variablelist">
@@ -186,7 +174,7 @@ The unique identifier of the trained model or a model alias.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="ml-get-trained-models-stats-query-params"></a>Query parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ml/trained-models/apis/get-trained-models-stats.asciidoc">edit</a></h3>
+<h3 class="title"><a id="ml-get-trained-models-stats-query-params"></a>Query parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ml/trained-models/apis/get-trained-models-stats.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="variablelist">
 <dl class="variablelist">
@@ -243,7 +231,7 @@ is <code class="literal">100</code>.
 
 <div class="section child_attributes">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="ml-get-trained-models-stats-results"></a>Response body<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ml/trained-models/apis/get-trained-models-stats.asciidoc">edit</a></h3>
+<h3 class="title"><a id="ml-get-trained-models-stats-results"></a>Response body<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ml/trained-models/apis/get-trained-models-stats.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="variablelist">
 <dl class="variablelist">
@@ -316,6 +304,15 @@ The current number of nodes where the model is allocated.
 </dd>
 <dt>
 <span class="term">
+<code class="literal">cache_size</code>
+</span>
+</dt>
+<dd>
+(<a class="xref" href="api-conventions.html#byte-units" title="Byte size units">byte value</a>)
+The inference cache size (in memory outside the JVM heap) per node for the model.
+</dd>
+<dt>
+<span class="term">
 <code class="literal">state</code>
 </span>
 </dt>
@@ -372,30 +369,12 @@ The sum of <code class="literal">inference_count</code> for all nodes in the dep
 </dd>
 <dt>
 <span class="term">
-<code class="literal">inference_threads</code>
-</span>
-</dt>
-<dd>
-(integer)
-The number of threads used by the inference process.
-</dd>
-<dt>
-<span class="term">
 <code class="literal">model_id</code>
 </span>
 </dt>
 <dd>
 (string)
 The unique identifier of the trained model.
-</dd>
-<dt>
-<span class="term">
-<code class="literal">model_threads</code>
-</span>
-</dt>
-<dd>
-(integer)
-The number of threads used when sending inference requests to the model.
 </dd>
 <dt>
 <span class="term">
@@ -443,6 +422,26 @@ The number of errors when evaluating the trained model.
 </dd>
 <dt>
 <span class="term">
+<code class="literal">inference_cache_hit_count</code>
+</span>
+</dt>
+<dd>
+(integer)
+The total number of inference calls made against this node for this
+model that were served from the inference cache.
+</dd>
+<dt>
+<span class="term">
+<code class="literal">inference_cache_hit_count_last_minute</code>
+</span>
+</dt>
+<dd>
+(integer)
+The number of inference calls made against this node for this model
+in the last minute that were served from the inference cache.
+</dd>
+<dt>
+<span class="term">
 <code class="literal">inference_count</code>
 </span>
 </dt>
@@ -452,34 +451,12 @@ The total number of inference calls made against this node for this model.
 </dd>
 <dt>
 <span class="term">
-<code class="literal">inference_threads</code>
-</span>
-</dt>
-<dd>
-(integer)
-The number of threads used by the inference process.
-This value is limited by the number of hardware threads on the node;
-it might therefore differ from the <code class="literal">inference_threads</code> value in the <a class="xref" href="start-trained-model-deployment.html" title="Start trained model deployment API">Start trained model deployment</a> API.
-</dd>
-<dt>
-<span class="term">
 <code class="literal">last_access</code>
 </span>
 </dt>
 <dd>
 (long)
 The epoch time stamp of the last inference call for the model on this node.
-</dd>
-<dt>
-<span class="term">
-<code class="literal">model_threads</code>
-</span>
-</dt>
-<dd>
-(integer)
-The number of threads used when sending inference requests to the model.
-This value is limited by the number of hardware threads on the node;
-it might therefore differ from the <code class="literal">model_threads</code> value in the <a class="xref" href="start-trained-model-deployment.html" title="Start trained model deployment API">Start trained model deployment</a> API.
 </dd>
 <dt>
 <span class="term">
@@ -544,6 +521,15 @@ The host and port where transport HTTP connections are accepted.
 </div>
 </div>
 </details>
+</dd>
+<dt>
+<span class="term">
+<code class="literal">number_of_allocations</code>
+</span>
+</dt>
+<dd>
+(integer)
+The number of allocations assigned to this node.
 </dd>
 <dt>
 <span class="term">
@@ -641,6 +627,17 @@ The epoch timestamp when the allocation started.
 </dd>
 <dt>
 <span class="term">
+<code class="literal">threads_per_allocation</code>
+</span>
+</dt>
+<dd>
+(integer)
+The number of threads for each allocation during inference.
+This value is limited by the number of hardware threads on the node;
+it might therefore differ from the <code class="literal">threads_per_allocation</code> value in the <a class="xref" href="start-trained-model-deployment.html" title="Start trained model deployment API">Start trained model deployment</a> API.
+</dd>
+<dt>
+<span class="term">
 <code class="literal">timeout_count</code>
 </span>
 </dt>
@@ -661,6 +658,15 @@ The number of requests processed in the last 1 minute.
 </div>
 </div>
 </details>
+</dd>
+<dt>
+<span class="term">
+<code class="literal">number_of_allocations</code>
+</span>
+</dt>
+<dd>
+(integer)
+The requested number of allocations for the trained model deployment.
 </dd>
 <dt>
 <span class="term">
@@ -727,6 +733,15 @@ The overall state of the deployment. The values may be:
 </li>
 </ul>
 </div>
+</dd>
+<dt>
+<span class="term">
+<code class="literal">threads_per_allocation</code>
+</span>
+</dt>
+<dd>
+(integer)
+The number of threads per allocation used by the inference process.
 </dd>
 <dt>
 <span class="term">
@@ -901,7 +916,7 @@ The number of ingest pipelines that currently refer to the model.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="ml-get-trained-models-stats-response-codes"></a>Response codes<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ml/trained-models/apis/get-trained-models-stats.asciidoc">edit</a></h3>
+<h3 class="title"><a id="ml-get-trained-models-stats-response-codes"></a>Response codes<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ml/trained-models/apis/get-trained-models-stats.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="variablelist">
 <dl class="variablelist">
@@ -920,14 +935,14 @@ resources that match the request or only partial matches for the request.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="ml-get-trained-models-stats-example"></a>Examples<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ml/trained-models/apis/get-trained-models-stats.asciidoc">edit</a></h3>
+<h3 class="title"><a id="ml-get-trained-models-stats-example"></a>Examples<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ml/trained-models/apis/get-trained-models-stats.asciidoc">edit</a></h3>
 </div></div></div>
 <p>The following example gets usage information for all the trained models:</p>
 <a id="9225841fdcddaf83ebdb90c2b0399e20"></a>
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">GET _ml/trained_models/_stats</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/2358.console"></div>
+<div class="console_widget" data-snippet="snippets/2475.console"></div>
 <p>The API returns the following results:</p>
 <a id="b0a253a5d3a2bc2bb5050675c1730f50"></a>
 <div class="pre_wrapper lang-console-result">
@@ -996,22 +1011,44 @@ resources that match the request or only partial matches for the request.
 <a href="get-trained-models.html">« Get trained models API</a>
 </span>
 <span class="next">
-<a href="infer-trained-model-deployment.html">Infer trained model deployment API »</a>
+<a href="infer-trained-model.html">Infer trained model API »</a>
 </span>
 </div>
 </div>
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

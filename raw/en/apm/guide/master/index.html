@@ -24,6 +24,9 @@ Not what you want? See the
 </div>
 <div class="book" lang="en">
 <div class="titlepage">
+<div class="breadcrumbs" id="title-page-breadcrumb">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+</div>
 <div>
 <div><h1 class="title"><a id="apm-user-guide"></a>APM User Guide</h1></div>
 </div>
@@ -33,7 +36,7 @@ Not what you want? See the
 <div id="content">
 <!--START_TOC-->
 <div class="toc">
-<ul class="toc"><li id="book_title"><span>APM Guide: <select id="live_versions"><option value="master" selected>master</option><option value="8.1">8.1 (current)</option><option value="7.17">7.17</option><option value="other">other versions</option></select><span id="other_versions">other versions: <select><option value="master" selected>master</option><option value="8.2">8.2</option><option value="8.1">8.1 (current)</option><option value="8.0">8.0</option><option value="7.17">7.17</option><option value="7.16">7.16</option></select></span></li><li><span class="chapter"><a href="apm-overview.html">What is APM?</a></span>
+<ul class="toc"><li id="book_title"><span>APM Guide: <select id="live_versions"><option value="master" selected>master</option><option value="8.3">8.3 (current)</option><option value="7.17">7.17</option><option value="other">other versions</option></select><span id="other_versions">other versions: <select><option value="master" selected>master</option><option value="8.3">8.3 (current)</option><option value="8.2">8.2</option><option value="8.1">8.1</option><option value="8.0">8.0</option><option value="7.17">7.17</option><option value="7.16">7.16</option></select></span></li><li><span class="chapter"><a href="apm-overview.html">What is APM?</a></span>
 </li>
 <li><span class="chapter"><a href="apm-components.html">Components and documentation</a></span>
 </li>
@@ -56,6 +59,14 @@ Not what you want? See the
 <li><span class="chapter"><a href="features.html">Features</a></span>
 <ul>
 <li><span class="section"><a href="apm-data-security.html">Data security</a></span>
+<ul>
+<li><span class="section"><a href="filtering.html">Built-in data filters</a></span>
+</li>
+<li><span class="section"><a href="custom-filter.html">Custom filters</a></span>
+</li>
+<li><span class="section"><a href="data-security-delete.html">Delete sensitive data</a></span>
+</li>
+</ul>
 </li>
 <li><span class="section"><a href="apm-distributed-tracing.html">Distributed tracing</a></span>
 </li>
@@ -81,7 +92,9 @@ Not what you want? See the
 <ul>
 <li><span class="section"><a href="aws-lambda-arch.html">APM Architecture for AWS Lambda</a></span>
 </li>
-<li><span class="section"><a href="aws-lambda-config-options.html">Configuration Options for APM on AWS Lambda</a></span>
+<li><span class="section"><a href="aws-lambda-config-options.html">Configuration options</a></span>
+</li>
+<li><span class="section"><a href="aws-lambda-secrets-manager.html">Using AWS Secrets Manager to manage APM authentication keys</a></span>
 </li>
 </ul>
 </li>
@@ -155,6 +168,8 @@ Not what you want? See the
 </li>
 <li><span class="chapter"><a href="troubleshoot-apm.html">Troubleshooting</a></span>
 <ul>
+<li><span class="section"><a href="common-problems.html">Common problems</a></span>
+</li>
 <li><span class="section"><a href="processing-and-performance.html">Processing and performance</a></span>
 </li>
 </ul>
@@ -165,7 +180,7 @@ Not what you want? See the
 </li>
 <li><span class="section"><a href="apm-breaking.html">Breaking Changes</a></span>
 </li>
-<li><span class="section"><a href="upgrading-to-8.x.html">Upgrade to version 8.2.0</a></span>
+<li><span class="section"><a href="upgrading-to-8.x.html">Upgrade to version 8.4.0</a></span>
 <ul>
 <li><span class="section"><a href="upgrade-8.0-self-standalone.html">Self-installation standalone (legacy)</a></span>
 </li>
@@ -177,11 +192,11 @@ Not what you want? See the
 </li>
 </ul>
 </li>
-<li><span class="section"><a href="upgrade-to-apm-integration.html">Upgrade to the Elastic APM integration</a></span>
+<li><span class="section"><a href="upgrade-to-apm-integration.html">Switch to the Elastic APM integration</a></span>
 <ul>
-<li><span class="section"><a href="apm-integration-upgrade-steps.html">Upgrade a self-installation</a></span>
+<li><span class="section"><a href="apm-integration-upgrade-steps.html">Switch a self-installation</a></span>
 </li>
-<li><span class="section"><a href="apm-integration-upgrade-steps-ess.html">Upgrade an Elastic Cloud cluster</a></span>
+<li><span class="section"><a href="apm-integration-upgrade-steps-ess.html">Switch an Elastic Cloud cluster</a></span>
 </li>
 </ul>
 </li>
@@ -190,6 +205,12 @@ Not what you want? See the
 <li><span class="chapter"><a href="release-notes.html">Release notes</a></span>
 <ul>
 <li><span class="section"><a href="release-notes-head.html">APM version HEAD</a></span>
+</li>
+<li><span class="section"><a href="release-notes-8.4.0.html">APM version 8.4.0</a></span>
+</li>
+<li><span class="section"><a href="release-notes-8.3.html">APM version 8.3</a></span>
+</li>
+<li><span class="section"><a href="release-notes-8.2.html">APM version 8.2</a></span>
 </li>
 <li><span class="section"><a href="release-notes-8.1.html">APM version 8.1</a></span>
 </li>
@@ -543,7 +564,7 @@ Not what you want? See the
 </li>
 <li><span class="chapter"><a href="troubleshooting.html">Troubleshoot</a></span>
 <ul>
-<li><span class="section"><a href="common-problems.html">Common problems</a></span>
+<li><span class="section"><a href="common-problems-legacy.html">Common problems</a></span>
 </li>
 <li><span class="section"><a href="enable-apm-server-debugging.html">Debug</a></span>
 </li>

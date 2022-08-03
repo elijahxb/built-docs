@@ -1,9 +1,14 @@
-PUT /my-index-000001
+POST _reindex
 {
-  "settings": {
-    "index": {
-      "number_of_shards": 3, 
-      "number_of_replicas": 2
+  "source": {
+    "index": "my-index-000001",
+    "query": {
+      "term": {
+        "user.id": "kimchy"
+      }
     }
+  },
+  "dest": {
+    "index": "my-new-index-000001"
   }
 }

@@ -7,7 +7,7 @@
 <link rel="home" href="index.html" title="APM User Guide [master]"/>
 <link rel="up" href="index.html" title="APM User Guide [master]"/>
 <link rel="prev" href="api-info.html" title="Server information API"/>
-<link rel="next" href="processing-and-performance.html" title="Processing and performance"/>
+<link rel="next" href="common-problems.html" title="Common problems"/>
 <meta name="DC.type" content="Learn/Docs/APM Guide/master"/>
 <meta name="DC.subject" content="APM"/>
 <meta name="DC.identifier" content="master"/>
@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,27 +87,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 You are looking at preliminary documentation for a future release.
@@ -116,56 +107,60 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="index.html">APM User Guide [master]</a></span>
-»
-<span class="breadcrumb-node">Troubleshooting</span>
 </div>
 <div class="navheader">
 <span class="prev">
 <a href="api-info.html">« Server information API</a>
 </span>
 <span class="next">
-<a href="processing-and-performance.html">Processing and performance »</a>
+<a href="common-problems.html">Common problems »</a>
 </span>
 </div>
 <div class="chapter">
 <div class="titlepage"><div><div>
 <h1 class="title"><a id="troubleshoot-apm"></a>Troubleshooting<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-server/edit/main/docs/troubleshoot-apm.asciidoc">edit</a></h1>
 </div></div></div>
-<p>If you run into trouble, there are three places you can look for help.</p>
+<p>This section provides solutions to <a class="xref" href="common-problems.html" title="Common problems">Common problems</a>
+and <a class="xref" href="processing-and-performance.html" title="Processing and performance">Processing and performance</a> guidance.
+For additional help, see the links below.</p>
 <h3><a id="troubleshooting-docs"></a>Troubleshooting documentation<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-server/edit/main/docs/troubleshoot-apm.asciidoc">edit</a></h3>
-<p>Elastic Agent, the APM app, and each APM agent has a troubleshooting guide:</p>
+<p>Elastic Agent, the APM app, and each APM agent has its own troubleshooting guide:</p>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
 <li class="listitem">
-<a href="/guide/en/kibana/master/troubleshooting.html" class="ulink" target="_top">APM app troubleshooting</a>
+<a href="/guide/en/fleet/master/troubleshooting-intro.html" class="ulink" target="_top"><span class="strong strong"><strong>Fleet and Elastic Agent</strong></span> troubleshooting</a>
 </li>
 <li class="listitem">
-<a href="/guide/en/apm/agent/dotnet/1.12/troubleshooting.html" class="ulink" target="_top">.NET agent troubleshooting</a>
+<a href="/guide/en/kibana/master/troubleshooting.html" class="ulink" target="_top"><span class="strong strong"><strong>APM app</strong></span> troubleshooting</a>
 </li>
 <li class="listitem">
-<a href="/guide/en/apm/agent/go/2.x/troubleshooting.html" class="ulink" target="_top">Go agent troubleshooting</a>
+<a href="/guide/en/apm/agent/dotnet/1.12/troubleshooting.html" class="ulink" target="_top"><span class="strong strong"><strong>.NET agent</strong></span> troubleshooting</a>
 </li>
 <li class="listitem">
-<a href="/guide/en/apm/agent/swift/0.x/troubleshooting.html" class="ulink" target="_top">iOS agent troubleshooting</a>
+<a href="/guide/en/apm/agent/go/2.x/troubleshooting.html" class="ulink" target="_top"><span class="strong strong"><strong>Go agent</strong></span> troubleshooting</a>
 </li>
 <li class="listitem">
-<a href="/guide/en/apm/agent/java/1.x/trouble-shooting.html" class="ulink" target="_top">Java agent troubleshooting</a>
+<a href="/guide/en/apm/agent/swift/0.x/troubleshooting.html" class="ulink" target="_top"><span class="strong strong"><strong>iOS agent</strong></span> troubleshooting</a>
 </li>
 <li class="listitem">
-<a href="/guide/en/apm/agent/nodejs/3.x/troubleshooting.html" class="ulink" target="_top">Node.js agent troubleshooting</a>
+<a href="/guide/en/apm/agent/java/1.x/trouble-shooting.html" class="ulink" target="_top"><span class="strong strong"><strong>Java agent</strong></span> troubleshooting</a>
 </li>
 <li class="listitem">
-<a href="/guide/en/apm/agent/php/1.x/troubleshooting.html" class="ulink" target="_top">PHP agent troubleshooting</a>
+<a href="/guide/en/apm/agent/nodejs/3.x/troubleshooting.html" class="ulink" target="_top"><span class="strong strong"><strong>Node.js agent</strong></span> troubleshooting</a>
 </li>
 <li class="listitem">
-<a href="/guide/en/apm/agent/python/6.x/troubleshooting.html" class="ulink" target="_top">Python agent troubleshooting</a>
+<a href="/guide/en/apm/agent/php/1.x/troubleshooting.html" class="ulink" target="_top"><span class="strong strong"><strong>PHP agent</strong></span> troubleshooting</a>
 </li>
 <li class="listitem">
-<a href="/guide/en/apm/agent/ruby/4.x/debugging.html" class="ulink" target="_top">Ruby agent troubleshooting</a>
+<a href="/guide/en/apm/agent/python/6.x/troubleshooting.html" class="ulink" target="_top"><span class="strong strong"><strong>Python agent</strong></span> troubleshooting</a>
 </li>
 <li class="listitem">
-<a href="/guide/en/apm/agent/rum-js/4.x/troubleshooting.html" class="ulink" target="_top">RUM troubleshooting</a>
+<a href="/guide/en/apm/agent/ruby/4.x/debugging.html" class="ulink" target="_top"><span class="strong strong"><strong>Ruby agent</strong></span> troubleshooting</a>
+</li>
+<li class="listitem">
+<a href="/guide/en/apm/agent/rum-js/5.x/troubleshooting.html" class="ulink" target="_top"><span class="strong strong"><strong>RUM agent</strong></span> troubleshooting</a>
 </li>
 </ul>
 </div>
@@ -177,28 +172,51 @@ Our team of professionals <em>speak human and code</em> and love making your day
 <p>For additional questions and feature requests,
 visit our <a href="https://discuss.elastic.co/c/apm" class="ulink" target="_top">discussion forum</a>.</p>
 
+
 </div>
 <div class="navfooter">
 <span class="prev">
 <a href="api-info.html">« Server information API</a>
 </span>
 <span class="next">
-<a href="processing-and-performance.html">Processing and performance »</a>
+<a href="common-problems.html">Common problems »</a>
 </span>
 </div>
 </div>
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

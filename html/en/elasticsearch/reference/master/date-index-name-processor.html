@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,27 +87,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 You are looking at preliminary documentation for a future release.
@@ -116,13 +107,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="ingest.html">Ingest pipelines</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="ingest.html">Ingest pipelines</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="processors.html">Ingest processor reference</a></span>
-»
-<span class="breadcrumb-node">Date index name processor</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -134,7 +122,7 @@ Not what you want? See the
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="date-index-name-processor"></a>Date index name processor<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ingest/processors/date-index-name.asciidoc">edit</a></h2>
+<h2 class="title"><a id="date-index-name-processor"></a>Date index name processor<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ingest/processors/date-index-name.asciidoc">edit</a></h2>
 </div></div></div>
 
 <p>The purpose of this processor is to point documents to the right time based index based
@@ -164,7 +152,7 @@ date in the <code class="literal">date1</code> field:</p>
   ]
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/670.console"></div>
+<div class="console_widget" data-snippet="snippets/686.console"></div>
 <p>Using that pipeline for an index request:</p>
 <a id="672d30eb3af573140d966e88b14814f8"></a>
 <div class="pre_wrapper lang-console">
@@ -173,7 +161,7 @@ date in the <code class="literal">date1</code> field:</p>
   "date1" : "2016-04-25T12:02:01.789Z"
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/671.console"></div>
+<div class="console_widget" data-snippet="snippets/687.console"></div>
 <a id="b38c864d92fffbfa2cfc959277688a60"></a>
 <div class="pre_wrapper lang-console-result">
 <pre class="programlisting prettyprint lang-console-result">{
@@ -220,9 +208,9 @@ indexed into <code class="literal">my-index-2016-04-01</code> we can inspect the
   ]
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/672.console"></div>
+<div class="console_widget" data-snippet="snippets/688.console"></div>
 <p>and the result:</p>
-<a id="0e6703981f7753582c2d6110693b8c3a"></a>
+<a id="73e1b668d0c9578045b7c2f474289a94"></a>
 <div class="pre_wrapper lang-console-result">
 <pre class="programlisting prettyprint lang-console-result">{
   "docs" : [
@@ -230,6 +218,7 @@ indexed into <code class="literal">my-index-2016-04-01</code> we can inspect the
       "doc" : {
         "_id" : "_id",
         "_index" : "&lt;my-index-{2016-04-25||/M{yyyy-MM-dd|UTC}}&gt;",
+        "_version" : "-3",
         "_source" : {
           "date1" : "2016-04-25T12:02:01.789Z"
         },
@@ -245,7 +234,7 @@ indexed into <code class="literal">my-index-2016-04-01</code> we can inspect the
 understands this to mean <code class="literal">2016-04-01</code> as is explained in the <a class="xref" href="date-math-index-names.html" title="Date math support in system and index alias names">date math index name documentation</a></p>
 <div class="table">
 <a id="date-index-name-options"></a>
-<p class="title"><strong>Table 11. Date index name options</strong></p>
+<p class="title"><strong>Table 12. Date index name options</strong></p>
 <div class="table-contents">
 <table border="1" cellpadding="4px" summary="Date index name options">
 <colgroup>
@@ -352,15 +341,37 @@ understands this to mean <code class="literal">2016-04-01</code> as is explained
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

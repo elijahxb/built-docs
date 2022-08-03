@@ -11,6 +11,7 @@
 <meta name="DC.type" content="Learn/Docs/Security/Guide/8.1"/>
 <meta name="DC.subject" content="Security"/>
 <meta name="DC.identifier" content="8.1"/>
+<meta name="robots" content="noindex,nofollow"/>
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -56,7 +57,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,38 +88,30 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
-                  
+                  <div class="page_header">
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elastic Security Solution [8.1]</a></span>
-»
-<span class="breadcrumb-link"><a href="security-apis.html">Elastic Security APIs</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Security Solution [8.1]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="security-apis.html">Elastic Security APIs</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="lists-api-overview.html">Lists API</a></span>
-»
-<span class="breadcrumb-node">Import list items</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -130,7 +123,7 @@
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="lists-api-import-list-items"></a>Import list items<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/8.1/docs/detections/api/lists/api-import-list-items.asciidoc">edit</a></h2>
+<h2 class="title"><a id="lists-api-import-list-items"></a>Import list items<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/security-docs/edit/8.1/docs/detections/api/lists/api-import-list-items.asciidoc">edit</a></h2>
 </div></div></div>
 <p>Imports a list of items from a <code class="literal">.txt</code> or <code class="literal">.csv</code> file.</p>
 <p>You can import items to a new or existing
@@ -143,7 +136,7 @@
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_request_url_37"></a>Request URL<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/8.1/docs/detections/api/lists/api-import-list-items.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_request_url_37"></a>Request URL<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/security-docs/edit/8.1/docs/detections/api/lists/api-import-list-items.asciidoc">edit</a></h3>
 </div></div></div>
 <p><code class="literal">POST &lt;kibana host&gt;:&lt;port&gt;/api/lists/items/_import</code></p>
 <p>The request must include:</p>
@@ -162,14 +155,14 @@ A link to the file containing the list items.
 <pre class="programlisting prettyprint lang-console">curl -X POST "&lt;kibana host&gt;:&lt;port&gt;/api/lists/items/_import"
 -u &lt;username&gt;:&lt;password&gt; -H 'kbn-xsrf: true'
 -H 'Content-Type: multipart/form-data'
---form "file=@&lt;link to file&gt;" <a id="CO21-1"></a><i class="conum" data-value="1"></i></pre>
+--form "file=@&lt;link to file&gt;" <a id="CO20-1"></a><i class="conum" data-value="1"></i></pre>
 </div>
-<div class="console_widget" data-snippet="snippets/63.console"></div>
+<div class="console_widget" data-snippet="snippets/56.console"></div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO21-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO20-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>The relative link to the file containing the list items.</p>
@@ -179,7 +172,7 @@ A link to the file containing the list items.
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="_url_query_parameters_12"></a>URL query parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/8.1/docs/detections/api/lists/api-import-list-items.asciidoc">edit</a></h4>
+<h4 class="title"><a id="_url_query_parameters_12"></a>URL query parameters<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/security-docs/edit/8.1/docs/detections/api/lists/api-import-list-items.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="informaltable">
 <table border="1" cellpadding="4px" width="100%">
@@ -218,7 +211,7 @@ be either <code class="literal">ip</code> or <code class="literal">keyword</code
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="_example_requests_11"></a>Example requests<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/8.1/docs/detections/api/lists/api-import-list-items.asciidoc">edit</a></h4>
+<h4 class="title"><a id="_example_requests_11"></a>Example requests<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/security-docs/edit/8.1/docs/detections/api/lists/api-import-list-items.asciidoc">edit</a></h4>
 </div></div></div>
 <p>Adds the IP addresses in the <code class="literal">internal-IPs.txt</code> to the <code class="literal">internal-ip-excludes</code>
 list container:</p>
@@ -227,21 +220,21 @@ list container:</p>
 -H 'kbn-xsrf: true' -H 'Content-Type: multipart/form-data'
 --form "file=@internal-IPs.txt"</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/64.console"></div>
+<div class="console_widget" data-snippet="snippets/57.console"></div>
 <p>Adds the IP addresses in the <code class="literal">internal-IPs.txt</code> to a new list container:</p>
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">curl -X POST "api/lists/items/_import?type=ip"
 -H 'kbn-xsrf: true' -H 'Content-Type: multipart/form-data'
 --form "file=@internal-IPs.txt"</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/65.console"></div>
+<div class="console_widget" data-snippet="snippets/58.console"></div>
 </div>
 
 </div>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_response_code_38"></a>Response code<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/8.1/docs/detections/api/lists/api-import-list-items.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_response_code_38"></a>Response code<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/security-docs/edit/8.1/docs/detections/api/lists/api-import-list-items.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="variablelist">
 <dl class="variablelist">
@@ -259,7 +252,7 @@ Indicates a successful call.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_response_payload_26"></a>Response payload<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/8.1/docs/detections/api/lists/api-import-list-items.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_response_payload_26"></a>Response payload<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/security-docs/edit/8.1/docs/detections/api/lists/api-import-list-items.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="pre_wrapper lang-json">
 <pre class="programlisting prettyprint lang-json">{
@@ -292,15 +285,37 @@ Indicates a successful call.
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

@@ -1,5 +1,11 @@
-GET /analyze_sample/_analyze
+GET /my-index-000001/_mget
 {
-  "analyzer" : "whitespace",
-  "text" : "this is a test"
+  "docs": [
+    {
+      "_id": "1"
+    },
+    {
+      "_id": "2"
+    }
+  ]
 }

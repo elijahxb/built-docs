@@ -1,1 +1,1 @@
-GET /_shard_stores?status=green
+POST /_features/_reset

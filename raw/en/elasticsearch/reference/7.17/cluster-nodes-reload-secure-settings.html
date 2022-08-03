@@ -17,13 +17,10 @@ A newer version is available. For the latest information, see the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [7.17]</a></span>
-»
-<span class="breadcrumb-link"><a href="rest-apis.html">REST APIs</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [7.17]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="rest-apis.html">REST APIs</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="cluster.html">Cluster APIs</a></span>
-»
-<span class="breadcrumb-node">Nodes reload secure settings API</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -141,7 +138,7 @@ POST _nodes/nodeId1,nodeId2/reload_secure_settings
   "secure_settings_password":"keystore-password"
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1893.console"></div>
+<div class="console_widget" data-snippet="snippets/1895.console"></div>
 <p>The response contains the <code class="literal">nodes</code> object, which is a map, keyed by the
 node id. Each value has the node <code class="literal">name</code> and an optional <code class="literal">reload_exception</code>
 field. The <code class="literal">reload_exception</code> field is a serialization of the exception

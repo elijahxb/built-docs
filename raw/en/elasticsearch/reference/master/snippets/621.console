@@ -1,19 +1,14 @@
-# Creates a component template for index settings
-PUT _component_template/logs-my_app-settings
-{
-  "template": {
-    "settings": {
-      "index.default_pipeline": "logs-my_app-default",
-      "index.lifecycle.name": "logs"
-    }
-  }
-}
+PUT metrics-weather_sensors-dev/_bulk
+{ "create":{ } }
+{ "@timestamp": "2099-05-06T16:21:15.000Z", "sensor_id": "HAL-000001", "location": "plains", "temperature": 26.7,"humidity": 49.9 }
+{ "create":{ } }
+{ "@timestamp": "2099-05-06T16:25:42.000Z", "sensor_id": "SYKENET-000001", "location": "swamp", "temperature": 32.4, "humidity": 88.9 }
 
-# Creates an index template matching `logs-my_app-*`
-PUT _index_template/logs-my_app-template
+POST metrics-weather_sensors-dev/_doc
 {
-  "index_patterns": ["logs-my_app-*"],
-  "data_stream": { },
-  "priority": 500,
-  "composed_of": ["logs-my_app-settings", "logs-my_app-mappings"]
+  "@timestamp": "2099-05-06T16:21:15.000Z",
+  "sensor_id": "SYKENET-000001",
+  "location": "swamp",
+  "temperature": 32.4,
+  "humidity": 88.9
 }

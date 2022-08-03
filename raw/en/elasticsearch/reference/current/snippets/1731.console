@@ -1,1 +1,10 @@
-GET _nodes/stats?filter_path=nodes.*.jvm.mem.pools.old
+GET index/_search
+{
+  "aggs": {
+    "price_ranges": {
+      "terms": {
+        "field": "price_range"
+      }
+    }
+  }
+}

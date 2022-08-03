@@ -17,13 +17,10 @@ A newer version is available. For the latest information, see the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [7.17]</a></span>
-»
-<span class="breadcrumb-link"><a href="query-dsl.html">Query DSL</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [7.17]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="query-dsl.html">Query DSL</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="full-text-queries.html">Full text queries</a></span>
-»
-<span class="breadcrumb-node">Match query</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -58,7 +55,7 @@ including options for fuzzy matching.</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/893.console"></div>
+<div class="console_widget" data-snippet="snippets/895.console"></div>
 </div>
 
 <div class="section">
@@ -273,7 +270,7 @@ parameters. For example:</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/894.console"></div>
+<div class="console_widget" data-snippet="snippets/896.console"></div>
 </div>
 
 <div class="section">
@@ -301,7 +298,7 @@ parameter.</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/895.console"></div>
+<div class="console_widget" data-snippet="snippets/897.console"></div>
 <p>The <code class="literal">analyzer</code> can be set to control which analyzer will perform the
 analysis process on the text. It defaults to the field explicit mapping
 definition, or the default search analyzer.</p>
@@ -346,7 +343,7 @@ which does not support fuzzy expansion.</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/896.console"></div>
+<div class="console_widget" data-snippet="snippets/898.console"></div>
 </div>
 
 <div class="section">
@@ -371,7 +368,7 @@ change that the <code class="literal">zero_terms_query</code> option can be used
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/897.console"></div>
+<div class="console_widget" data-snippet="snippets/899.console"></div>
 </div>
 
 <div class="section">
@@ -415,7 +412,7 @@ documents if in the range from 0 (inclusive) to 1 (exclusive) or absolute if gre
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/898.console"></div>
+<div class="console_widget" data-snippet="snippets/900.console"></div>
 <div class="important admon">
 <div class="icon"></div>
 <div class="admon_content">
@@ -447,7 +444,7 @@ For example, the following synonym: <code class="literal">"ny, new york"</code> 
    }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/899.console"></div>
+<div class="console_widget" data-snippet="snippets/901.console"></div>
 <p>The example above creates a boolean query:</p>
 <p><code class="literal">(ny OR (new AND york)) city</code></p>
 <p>that matches documents with the term <code class="literal">ny</code> or the conjunction <code class="literal">new AND york</code>.

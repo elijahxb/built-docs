@@ -17,13 +17,10 @@ A newer version is available. For the latest information, see the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [7.17]</a></span>
-»
-<span class="breadcrumb-link"><a href="xpack-sql.html">SQL</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [7.17]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="xpack-sql.html">SQL</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="sql-spec.html">SQL Language</a></span>
-»
-<span class="breadcrumb-node">Frozen Indices</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -64,10 +61,10 @@ Explicitly perform the inclusion through the dedicated <code class="literal">FRO
 
  catalog       |     name      | type     |     kind
 ---------------+---------------+----------+---------------
-integTest      |archive        |TABLE     |FROZEN INDEX
-integTest      |emp            |TABLE     |INDEX
-integTest      |employees      |VIEW      |ALIAS
-integTest      |library        |TABLE     |INDEX</pre>
+javaRestTest      |archive        |TABLE     |FROZEN INDEX
+javaRestTest      |emp            |TABLE     |INDEX
+javaRestTest      |employees      |VIEW      |ALIAS
+javaRestTest      |library        |TABLE     |INDEX</pre>
 </div>
 <div class="pre_wrapper lang-sql">
 <pre class="programlisting prettyprint lang-sql">SELECT * FROM FROZEN archive LIMIT 1;

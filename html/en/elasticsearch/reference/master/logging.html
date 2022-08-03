@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,27 +87,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 You are looking at preliminary documentation for a future release.
@@ -116,13 +107,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="setup.html">Set up Elasticsearch</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="setup.html">Set up Elasticsearch</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="settings.html">Configuring Elasticsearch</a></span>
-»
-<span class="breadcrumb-node">Logging</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -134,7 +122,7 @@ Not what you want? See the
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="logging"></a>Logging<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/setup/logging-config.asciidoc">edit</a></h2>
+<h2 class="title"><a id="logging"></a>Logging<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/setup/logging-config.asciidoc">edit</a></h2>
 </div></div></div>
 <p>You can use Elasticsearch&#8217;s application logs to monitor your cluster and diagnose issues.
 If you run Elasticsearch as a service, the default location of the logs varies based on
@@ -239,7 +227,7 @@ See <a class="xref" href="important-settings.html#path-settings" title="Path set
 </div>
 <p>If you run Elasticsearch from the command line, Elasticsearch prints logs to the standard output
 (<code class="literal">stdout</code>).</p>
-<h3><a id="loggin-configuration"></a>Logging configuration<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/setup/logging-config.asciidoc">edit</a></h3>
+<h3><a id="loggin-configuration"></a>Logging configuration<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/setup/logging-config.asciidoc">edit</a></h3>
 <div class="important admon">
 <div class="icon"></div>
 <div class="admon_content">
@@ -528,11 +516,11 @@ Extensive information on how to customize logging and all the supported
 appenders can be found on the
 <a href="https://logging.apache.org/log4j/2.x/manual/configuration.html" class="ulink" target="_top">Log4j
 documentation</a>.</p>
-<h3><a id="configuring-logging-levels"></a>Configuring logging levels<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/setup/logging-config.asciidoc">edit</a></h3>
+<h3><a id="configuring-logging-levels"></a>Configuring logging levels<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/setup/logging-config.asciidoc">edit</a></h3>
 <p>Each Java package in the <a href="https://github.com/elastic/elasticsearch/" class="ulink" target="_top">Elasticsearch source code</a> has a related logger. For
 example, the <code class="literal">org.elasticsearch.discovery</code> package has
 <code class="literal">logger.org.elasticsearch.discovery</code> for logs related to the
-<a class="xref" href="modules-discovery-hosts-providers.html" title="Discovery">discovery</a> process.</p>
+<a class="xref" href="modules-discovery-hosts-providers.html" title="Node discovery">discovery</a> process.</p>
 <p>To get more or less verbose logs, use the <a class="xref" href="cluster-update-settings.html" title="Cluster update settings API">cluster
 update settings API</a> to change the related logger&#8217;s log level. Each logger
 accepts Log4j 2&#8217;s built-in log levels, from least to most verbose: <code class="literal">OFF</code>,
@@ -548,7 +536,7 @@ only intended for expert use.</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/22.console"></div>
+<div class="console_widget" data-snippet="snippets/10.console"></div>
 <p>Other ways to change log levels include:</p>
 <div class="olist orderedlist">
 <ol class="orderedlist">
@@ -571,7 +559,7 @@ particular logger to another file. However, these use cases are rare.</p>
 </li>
 </ol>
 </div>
-<h3><a id="deprecation-logging"></a>Deprecation logging<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/setup/logging-config.asciidoc">edit</a></h3>
+<h3><a id="deprecation-logging"></a>Deprecation logging<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/setup/logging-config.asciidoc">edit</a></h3>
 <p>Elasticsearch also writes deprecation logs to the log directory. These logs record a
 message when you use deprecated Elasticsearch functionality. You can use the deprecation
 logs to update your application before upgrading Elasticsearch to a new major version.</p>
@@ -584,10 +572,22 @@ version. Deprecation log messages at the <code class="literal">WARN</code> level
 critical feature was used, it won&#8217;t be removed in next major version, but might
 be removed in the future.</p>
 <p>To stop writing deprecation log messages, set <code class="literal">logger.deprecation.level</code>
-to <code class="literal">OFF</code>:</p>
+to <code class="literal">OFF</code> in <code class="literal">log4j2.properties</code> :</p>
 <div class="pre_wrapper lang-properties">
 <pre class="programlisting prettyprint lang-properties">logger.deprecation.level = OFF</pre>
 </div>
+<p>Alternatively, you can change the logging level dynamically:</p>
+<a id="8e286a205a1f84f888a6d99f2620c80e"></a>
+<div class="pre_wrapper lang-console">
+<pre class="programlisting prettyprint lang-console">PUT /_cluster/settings
+{
+  "persistent": {
+    "logger.org.elasticsearch.deprecation": "OFF"
+  }
+}</pre>
+</div>
+<div class="console_widget" data-snippet="snippets/11.console"></div>
+<p>Refer to <a class="xref" href="logging.html#configuring-logging-levels" title="Configuring logging levels">Configuring logging levels</a>.</p>
 <p>You can identify what is triggering deprecated functionality if <code class="literal">X-Opaque-Id</code> was used as an HTTP header.
 The user ID is included in the <code class="literal">X-Opaque-ID</code> field in deprecation JSON logs.</p>
 <div class="pre_wrapper lang-js">
@@ -608,7 +608,7 @@ The user ID is included in the <code class="literal">X-Opaque-ID</code> field in
 <code class="literal">cluster.deprecation_indexing.enabled</code> setting is set to true.</p>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_deprecation_logs_throttling"></a>Deprecation logs throttling<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/setup/logging-config.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_deprecation_logs_throttling"></a>Deprecation logs throttling<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/setup/logging-config.asciidoc">edit</a></h3>
 </div></div></div>
 <p>Deprecation logs are deduplicated based on a deprecated feature key
 and x-opaque-id so that if a feature is repeatedly used, it will not overload the deprecation logs.
@@ -616,7 +616,7 @@ This applies to both indexed deprecation logs and logs emitted to log files.
 You can disable the use of <code class="literal">x-opaque-id</code> in throttling by changing
 <code class="literal">cluster.deprecation_indexing.x_opaque_id_used.enabled</code> to false
 See <a href="./server/src/main/java/org/elasticsearch/common/logging/RateLimitingFilter.java" class="ulink" target="_top">RateLimitingFilter</a></p>
-<h3><a id="json-logging"></a>JSON log format<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/setup/logging-config.asciidoc">edit</a></h3>
+<h3><a id="json-logging"></a>JSON log format<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/setup/logging-config.asciidoc">edit</a></h3>
 <p>To make parsing Elasticsearch logs easier, logs are now printed in a JSON format.
 This is configured by a Log4J layout property <code class="literal">appender.rolling.layout.type = ECSJsonLayout</code>.
 This layout requires a <code class="literal">dataset</code> attribute to be set which is used to distinguish
@@ -626,7 +626,7 @@ logs streams when parsing.</p>
 appender.rolling.layout.dataset = elasticsearch.server</pre>
 </div>
 <p>Each line contains a single JSON document with the properties configured in <code class="literal">ECSJsonLayout</code>.
-See this class <a href="https://snapshots.elastic.co/javadoc/org/elasticsearch/elasticsearch/8.2.0-SNAPSHOT/org/elasticsearch/common/logging/ESJsonLayout.html" class="ulink" target="_top">javadoc</a> for more details.
+See this class <a href="https://snapshots.elastic.co/javadoc/org/elasticsearch/elasticsearch/8.4.0-SNAPSHOT/org/elasticsearch/common/logging/ESJsonLayout.html" class="ulink" target="_top">javadoc</a> for more details.
 However if a JSON document contains an exception, it will be printed over multiple lines.
 The first line will contain regular properties and subsequent lines will contain the
 stacktrace formatted as a JSON array.</p>
@@ -660,15 +660,37 @@ appender.rolling.filePattern = ${sys:es.logs.base_path}${sys:file.separator}${sy
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

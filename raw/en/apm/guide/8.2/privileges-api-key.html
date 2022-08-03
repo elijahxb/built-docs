@@ -13,21 +13,17 @@
 <meta name="robots" content="noindex,nofollow"/>
 </head>
 <body><div class="page_header">
-You are looking at preliminary documentation for a future release.
-Not what you want? See the
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
 <a href="../current/index.html">current release documentation</a>.
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">APM User Guide [8.2]</a></span>
-»
-<span class="breadcrumb-link"><a href="overview.html">Legacy APM Server Reference</a></span>
-»
-<span class="breadcrumb-link"><a href="securing-apm-server.html">Secure APM Server</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">APM User Guide [8.2]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="overview.html">Legacy APM Server Reference</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="securing-apm-server.html">Secure APM Server</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="feature-roles.html">Grant users access to secured resources</a></span>
-»
-<span class="breadcrumb-node">Grant privileges and roles needed for API key management</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -45,7 +41,7 @@ Not what you want? See the
 <div class="important admon">
 <div class="icon"></div>
 <div class="admon_content">
-<p>This documentation refers to configuring the standalone (legacy) APM Server. This method of running APM Server will be deprecated and removed in a future release. Please consider <a class="xref" href="upgrade-to-apm-integration.html" title="Upgrade to the Elastic APM integration">upgrading to Fleet and the APM integration</a>.</p>
+<p>This documentation refers to configuring the standalone (legacy) APM Server. This method of running APM Server will be deprecated and removed in a future release. Please consider <a class="xref" href="upgrade-to-apm-integration.html" title="Switch to the Elastic APM integration">upgrading to Fleet and the APM integration</a>.</p>
 </div>
 </div>
 <p>You can configure <a class="xref" href="api-key-legacy.html" title="API keys">API keys</a> to authorize requests to APM Server.
@@ -88,13 +84,13 @@ To <span class="strong strong"><strong>receive Agent configuration</strong></spa
 To <span class="strong strong"><strong>ingest agent data</strong></span>, assign <code class="literal">event:write</code>.
 </li>
 <li class="listitem">
-To <span class="strong strong"><strong>upload sourcemaps</strong></span>, assign <code class="literal">sourcemap:write</code>.
+To <span class="strong strong"><strong>upload source maps</strong></span>, assign <code class="literal">sourcemap:write</code>.
 </li>
 </ul>
 </div>
 </li>
 <li class="listitem">
-Assign the <span class="strong strong"><strong>API key role</strong></span> role to users that need to create and manage API keys.
+Assign the <span class="strong strong"><strong>API key role</strong></span> to users that need to create and manage API keys.
 Users with this role can only create API keys that have the same or lower access rights.
 </li>
 </ol>
@@ -121,7 +117,7 @@ and the ingest agent data <code class="literal">apm</code> API key application p
   ]
 }</pre>
 </div>
-<div class="kibana_widget" data-snippet="snippets/13.kibana"></div>
+<div class="kibana_widget" data-snippet="snippets/16.kibana"></div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>

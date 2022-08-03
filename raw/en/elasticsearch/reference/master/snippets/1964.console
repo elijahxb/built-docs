@@ -1,6 +1,6 @@
-POST test/_update/1
+PUT /_cluster/settings
 {
-  "doc": {
-    "name": "new_name"
+  "transient" : {
+    "indices.recovery.max_bytes_per_sec" : null
   }
 }

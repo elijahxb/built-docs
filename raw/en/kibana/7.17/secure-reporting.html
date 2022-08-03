@@ -19,11 +19,9 @@ A newer version is available. For the latest information, see the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Kibana Guide [7.17]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Kibana Guide [7.17]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="setup.html">Set up</a></span>
-»
-<span class="breadcrumb-node">Configure reporting in Kibana</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -111,11 +109,8 @@ to enable the Kibana server to have screenshotting capabilities.</p>
 </li>
 </ul>
 </div>
-<p>If the system is missing dependencies, a screenshot report job may fail in a non-deterministic way. Kibana runs a self-test at server startup, and
-if it encounters errors, logs them in the Console. The error message does not include
-information about why Chromium failed to run. The most common error message is <code class="literal">Error: connect ECONNREFUSED</code>, which indicates
-that Kibana could not connect to the Chromium process.</p>
-<p>To troubleshoot the problem, start the Kibana server with environment variables that tell Chromium to print verbose logs. For more information, refer to <a class="xref" href="reporting-troubleshooting.html#reporting-troubleshooting-puppeteer-debug-logs" title="Puppeteer debug logs">Puppeteer debug logs</a>.</p>
+<p>The reporting plugin has a built-in utility to check for common issues, such as missing dependencies. See
+<a class="xref" href="reporting-troubleshooting.html#reporting-diagnostics" title="Reporting diagnostics">Reporting diagnostics</a> for more information.</p>
 <h3><a id="grant-user-access"></a>Grant users access to reporting<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/7.17/docs/setup/configuring-reporting.asciidoc">edit</a></h3>
 <p>When security is enabled, you grant users access to reporting features with <a class="xref" href="kibana-privileges.html" title="Kibana privileges">Kibana application privileges</a>, which allow you to create custom roles that control the spaces and applications where users generate reports.</p>
 <div class="olist orderedlist">
@@ -243,20 +238,20 @@ Click <span class="strong strong"><strong>Update user</strong></span>.
       "feature": {
         "dashboard": [
           "minimal_read",
-          "generate_report", <a id="CO11-1"></a><i class="conum" data-value="1"></i>
-          "download_csv_report" <a id="CO11-2"></a><i class="conum" data-value="2"></i>
+          "generate_report", <a id="CO12-1"></a><i class="conum" data-value="1"></i>
+          "download_csv_report" <a id="CO12-2"></a><i class="conum" data-value="2"></i>
         ],
         "discover": [
           "minimal_read",
-          "generate_report" <a id="CO11-3"></a><i class="conum" data-value="3"></i>
+          "generate_report" <a id="CO12-3"></a><i class="conum" data-value="3"></i>
         ],
         "canvas": [
           "minimal_read",
-          "generate_report" <a id="CO11-4"></a><i class="conum" data-value="4"></i>
+          "generate_report" <a id="CO12-4"></a><i class="conum" data-value="4"></i>
         ],
         "visualize": [
           "minimal_read",
-          "generate_report" <a id="CO11-5"></a><i class="conum" data-value="5"></i>
+          "generate_report" <a id="CO12-5"></a><i class="conum" data-value="5"></i>
         ]
       },
       "spaces": [ "*" ]
@@ -270,7 +265,7 @@ Click <span class="strong strong"><strong>Update user</strong></span>.
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO11-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO12-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Grants access to generate PNG and PDF reports in <span class="strong strong"><strong>Dashboard</strong></span>.</p>
@@ -278,7 +273,7 @@ Click <span class="strong strong"><strong>Update user</strong></span>.
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO11-2"><i class="conum" data-value="2"></i></a></p>
+<p><a href="#CO12-2"><i class="conum" data-value="2"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Grants access to download CSV files from saved search panels in <span class="strong strong"><strong>Dashboard</strong></span>.</p>
@@ -286,7 +281,7 @@ Click <span class="strong strong"><strong>Update user</strong></span>.
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO11-3"><i class="conum" data-value="3"></i></a></p>
+<p><a href="#CO12-3"><i class="conum" data-value="3"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Grants access to generate CSV reports from saved searches in <span class="strong strong"><strong>Discover</strong></span>.</p>
@@ -294,7 +289,7 @@ Click <span class="strong strong"><strong>Update user</strong></span>.
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO11-4"><i class="conum" data-value="4"></i></a></p>
+<p><a href="#CO12-4"><i class="conum" data-value="4"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Grants access to generate PDF reports in <span class="strong strong"><strong>Canvas</strong></span>.</p>
@@ -302,7 +297,7 @@ Click <span class="strong strong"><strong>Update user</strong></span>.
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO11-5"><i class="conum" data-value="5"></i></a></p>
+<p><a href="#CO12-5"><i class="conum" data-value="5"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Grants access to generate PNG and PDF reports in <span class="strong strong"><strong>Visualize Library</strong></span>.</p>
@@ -326,8 +321,8 @@ Click <span class="strong strong"><strong>Update user</strong></span>.
     {
       "base": [],
       "feature": {
-        "dashboard": [ "all" ], <a id="CO12-1"></a><i class="conum" data-value="1"></i>
-        "discover": [ "all" ], <a id="CO12-2"></a><i class="conum" data-value="2"></i>
+        "dashboard": [ "all" ], <a id="CO13-1"></a><i class="conum" data-value="1"></i>
+        "discover": [ "all" ], <a id="CO13-2"></a><i class="conum" data-value="2"></i>
       },
       "spaces": [ "*" ]
     }
@@ -340,7 +335,7 @@ Click <span class="strong strong"><strong>Update user</strong></span>.
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO12-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO13-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Grants access to generate CSV reports from saved searches in <span class="strong strong"><strong>Discover</strong></span>.</p>
@@ -348,7 +343,7 @@ Click <span class="strong strong"><strong>Update user</strong></span>.
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO12-2"><i class="conum" data-value="2"></i></a></p>
+<p><a href="#CO13-2"><i class="conum" data-value="2"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Grants access to download CSV reports from saved search panels in <span class="strong strong"><strong>Dashboard</strong></span>.</p>

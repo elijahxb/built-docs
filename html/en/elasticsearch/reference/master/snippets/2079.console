@@ -1,5 +1,10 @@
-GET /_analyze
+POST test/_update/1
 {
-  "filter" : ["lowercase"],
-  "text" : "BaR"
+  "script": {
+    "source": "if (ctx._source.tags.contains(params.tag)) { ctx.op = 'delete' } else { ctx.op = 'none' }",
+    "lang": "painless",
+    "params": {
+      "tag": "green"
+    }
+  }
 }

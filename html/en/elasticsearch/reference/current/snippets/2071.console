@@ -1,6 +1,9 @@
-GET /_analyze
+POST test/_update_by_query?refresh&conflicts=proceed
+POST test/_search?filter_path=hits.total
 {
-  "tokenizer" : "whitespace",
-  "filter" : ["lowercase", {"type": "stop", "stopwords": ["a", "is", "this"]}],
-  "text" : "this is a test"
+  "query": {
+    "match": {
+      "flag": "foo"
+    }
+  }
 }

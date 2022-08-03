@@ -1,5 +1,6 @@
-PUT my-index-000001/_doc/1
+PUT /_cluster/settings
 {
-  "counter": 1,
-  "tags": [ "production" ]
+  "transient" : {
+    "indices.recovery.max_bytes_per_sec" : null
+  }
 }

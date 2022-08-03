@@ -1,23 +1,18 @@
-POST _ml/anomaly_detectors/_estimate_model_memory
+PUT _ml/anomaly_detectors/total-requests
 {
-  "analysis_config": {
-    "bucket_span": "5m",
+  "description" : "Total sum of requests",
+  "analysis_config" : {
+    "bucket_span":"10m",
     "detectors": [
       {
+        "detector_description": "Sum of total",
         "function": "sum",
-        "field_name": "bytes",
-        "by_field_name": "status",
-        "partition_field_name": "app"
+        "field_name": "total"
       }
-    ],
-    "influencers": [ "source_ip", "dest_ip" ]
+    ]
   },
-  "overall_cardinality": {
-    "status": 10,
-    "app": 50
-  },
-  "max_bucket_cardinality": {
-    "source_ip": 300,
-    "dest_ip": 30
+  "data_description" : {
+    "time_field":"timestamp",
+    "time_format": "epoch_ms"
   }
 }

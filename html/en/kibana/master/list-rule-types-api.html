@@ -5,11 +5,11 @@
 <meta charset="UTF-8">
 <meta name="description" content="Conceptual and step-by-step procedures for using runtime fields, scripted fields, and field formatters.">
 <meta name="keywords" content="administrator, data view, data views, management, runtime fields, runtime fields in Kibana, scripted fields, field formatters, data fields, index pattern, index patterns">
-<title>List rule types API | Kibana Guide [master] | Elastic</title>
+<title>Get rule types API | Kibana Guide [master] | Elastic</title>
 <link rel="home" href="index.html" title="Kibana Guide [master]"/>
 <link rel="up" href="alerting-apis.html" title="Alerting APIs"/>
-<link rel="prev" href="find-rules-api.html" title="Find rules API"/>
-<link rel="next" href="enable-rule-api.html" title="Enable rule API"/>
+<link rel="prev" href="get-rule-api.html" title="Get rule API"/>
+<link rel="next" href="update-rule-api.html" title="Update rule API"/>
 <meta name="DC.type" content="Learn/Docs/Kibana/Reference/master"/>
 <meta name="DC.subject" content="Kibana"/>
 <meta name="DC.identifier" content="master"/>
@@ -58,7 +58,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -89,27 +89,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 You are looking at preliminary documentation for a future release.
@@ -118,41 +109,55 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Kibana Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="api.html">REST API</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Kibana Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="api.html">REST API</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="alerting-apis.html">Alerting APIs</a></span>
-»
-<span class="breadcrumb-node">List rule types API</span>
 </div>
 <div class="navheader">
 <span class="prev">
-<a href="find-rules-api.html">« Find rules API</a>
+<a href="get-rule-api.html">« Get rule API</a>
 </span>
 <span class="next">
-<a href="enable-rule-api.html">Enable rule API »</a>
+<a href="update-rule-api.html">Update rule API »</a>
 </span>
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="list-rule-types-api"></a>List rule types API<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/api/alerting/list_rule_types.asciidoc">edit</a></h2>
+<h2 class="title"><a id="list-rule-types-api"></a>Get rule types API<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/api/alerting/list_rule_types.asciidoc">edit</a></h2>
 </div></div></div>
 
 <p>Retrieve a list of rule types that the user is authorized to access.</p>
-<p>Each rule type includes a list of consumer features. Within these features, users are authorized to perform either <code class="literal">read</code> or <code class="literal">all</code> operations on rules of that type. This helps determine which rule types users can read, but not create or modify.</p>
-<div class="note admon">
-<div class="icon"></div>
-<div class="admon_content">
-<p>Some rule types are limited to specific features.  These rule types are not available when <a class="xref" href="create-and-manage-rules.html#create-edit-rules" title="Create and edit rules">defining rules</a> in <a class="xref" href="management.html" title="Stack Management">Stack Management</a>.</p>
-</div>
-</div>
 <div class="section">
 <div class="titlepage"><div><div>
 <h3 class="title"><a id="list-rule-types-api-request"></a>Request<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/api/alerting/list_rule_types.asciidoc">edit</a></h3>
 </div></div></div>
 <p><code class="literal">GET &lt;kibana host&gt;:&lt;port&gt;/api/alerting/rule_types</code></p>
 <p><code class="literal">GET &lt;kibana host&gt;:&lt;port&gt;/s/&lt;space_id&gt;/api/alerting/rule_types</code></p>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="_prerequisites_10"></a>Prerequisites<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/api/alerting/list_rule_types.asciidoc">edit</a></h3>
+</div></div></div>
+<p>If you have <code class="literal">read</code> privileges for one or more Kibana features, the API response
+contains information about the appropriate rule types. For example, there are
+rule types associated with the <span class="strong strong"><strong>Management</strong></span> &gt; <span class="strong strong"><strong>Stack Rules</strong></span> feature,
+<span class="strong strong"><strong>Analytics</strong></span> &gt; <span class="strong strong"><strong>Discover</strong></span> and <span class="strong strong"><strong>Machine Learning</strong></span> features, <span class="strong strong"><strong>Observability</strong></span>, and
+<span class="strong strong"><strong>Security</strong></span> features. To get rule types associated with the
+<span class="strong strong"><strong>Stack Monitoring</strong></span> feature, use the <code class="literal">monitoring_user</code> built-in role.</p>
+<p>For more details, refer to <a class="xref" href="kibana-privileges.html#kibana-feature-privileges" title="Feature privileges">Feature privileges</a>.</p>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="_description_4"></a>Description<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/api/alerting/list_rule_types.asciidoc">edit</a></h3>
+</div></div></div>
+<p>Each rule type includes a list of authorized consumer features. For each feature,
+users are authorized to perform either <code class="literal">read</code> or <code class="literal">all</code> operations on rules of
+that type. This enables you to determine which rule types you can read, create,
+or modify. If you want to create or edit a rule in Kibana, some rule types are
+limited to specific features and apps.</p>
 </div>
 
 <div class="section">
@@ -167,7 +172,8 @@ Not what you want? See the
 </span>
 </dt>
 <dd>
-(Optional, string) An identifier for the space. If <code class="literal">space_id</code> is not provided in the URL, the default space is used.
+(Optional, string) An identifier for the space. If <code class="literal">space_id</code> is not provided in
+the URL, the default space is used.
 </dd>
 </dl>
 </div>
@@ -175,7 +181,124 @@ Not what you want? See the
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="list-rule-types-api-codes"></a>Response code<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/api/alerting/list_rule_types.asciidoc">edit</a></h3>
+<h3 class="title"><a id="list-rule-types-response"></a>Response body<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/api/alerting/list_rule_types.asciidoc">edit</a></h3>
+</div></div></div>
+<p>Each rule type has the following properties in the API response:</p>
+<div class="variablelist">
+<dl class="variablelist">
+<dt>
+<span class="term">
+<code class="literal">action_groups</code>
+</span>
+</dt>
+<dd>
+(array of objects) An explicit list of groups for which the rule type can
+schedule actions, each with the action group&#8217;s unique ID and human readable name.
+Rule <code class="literal">actions</code> validation uses this configuration to ensure that groups are
+valid.
+</dd>
+<dt>
+<span class="term">
+<code class="literal">action_variables</code>
+</span>
+</dt>
+<dd>
+(object) A list of action variables that the rule type makes available via
+context and state in action parameter templates, and a short human readable
+description. When you create a rule in Kibana, it uses this information to prompt
+you for these variables in action parameter editors.
+</dd>
+<dt>
+<span class="term">
+<code class="literal">authorized_consumers</code>
+</span>
+</dt>
+<dd>
+(object) The list of the plugins IDs that have access to the rule type.
+</dd>
+<dt>
+<span class="term">
+<code class="literal">default_action_group_id</code>
+</span>
+</dt>
+<dd>
+(string) The default ID for the rule type group.
+</dd>
+<dt>
+<span class="term">
+<code class="literal">does_set_recovery_context</code>
+</span>
+</dt>
+<dd>
+(boolean) Indicates whether the rule passes context variables to its recovery
+action.
+</dd>
+<dt>
+<span class="term">
+<code class="literal">enabled_in_license</code>
+</span>
+</dt>
+<dd>
+(boolean) Indicates whether the rule type is enabled or disabled based on the
+subscription.
+</dd>
+<dt>
+<span class="term">
+<code class="literal">id</code>
+</span>
+</dt>
+<dd>
+(string) The unique identifier for the rule type.
+</dd>
+<dt>
+<span class="term">
+<code class="literal">is_exportable</code>
+</span>
+</dt>
+<dd>
+(boolean) Indicates whether the rule type is exportable in <span class="strong strong"><strong>Stack Management</strong></span>
+&gt; <span class="strong strong"><strong>Saved Objects</strong></span>.
+</dd>
+<dt>
+<span class="term">
+<code class="literal">minimum_license_required</code>
+</span>
+</dt>
+<dd>
+(string) The <a href="/subscriptions" class="ulink" target="_top">subscriptions</a> required to use the rule type.
+</dd>
+<dt>
+<span class="term">
+<code class="literal">name</code>
+</span>
+</dt>
+<dd>
+(string) The descriptive name of the rule type.
+</dd>
+<dt>
+<span class="term">
+<code class="literal">producer</code>
+</span>
+</dt>
+<dd>
+(string) An identifier for the application that produces this rule type.
+</dd>
+<dt>
+<span class="term">
+<code class="literal">recovery_action_group</code>
+</span>
+</dt>
+<dd>
+(object) An action group to use when an alert goes from an active state to an
+inactive one.
+</dd>
+</dl>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="list-rule-types-api-codes"></a>Response codes<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/api/alerting/list_rule_types.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="variablelist">
 <dl class="variablelist">
@@ -193,152 +316,112 @@ Indicates a successful call.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="list-rule-types-api-example"></a>Example<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/api/alerting/list_rule_types.asciidoc">edit</a></h3>
+<h3 class="title"><a id="list-rule-types-api-example"></a>Examples<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/api/alerting/list_rule_types.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="pre_wrapper lang-kibana">
-<pre class="programlisting prettyprint lang-kibana">$ curl -X GET api/alerting/rule_types</pre>
+<pre class="programlisting prettyprint lang-kibana">GET api/alerting/rule_types</pre>
 </div>
-<div class="kibana_widget" data-snippet="snippets/101.kibana"></div>
-<p>The API returns the following:</p>
+<div class="kibana_widget" data-snippet="snippets/116.kibana"></div>
+<p>For example, if you have <code class="literal">read</code> privileges for the Observability Logs app,
+the API returns the following:</p>
 <div class="pre_wrapper lang-sh">
 <pre class="programlisting prettyprint lang-sh">[
    {
-      "id":".index-threshold",
-      "name":"Index threshold",
+      "id":"logs.alert.document.count",
+      "name":"Log threshold",
+      "producer":"logs",
+      "enabled_in_license":true,
+      "recovery_action_group":{
+         "id":"recovered",
+         "name":"Recovered"
+      },
       "action_groups":[
          {
-            "id":"threshold met",
-            "name":"Threshold met"
+            "id":"logs.threshold.fired",
+            "name":"Fired"
          },
          {
             "id":"recovered",
             "name":"Recovered"
          }
       ],
-      "recovery_action_group":{
-         "id":"recovered",
-         "name":"Recovered"
-      },
-      "default_action_group_id":"threshold met",
+      "default_action_group_id":"logs.threshold.fired",
+      "minimum_license_required":"basic",
+      "is_exportable":true,
+      "rule_task_timeout":"5m",
       "action_variables":{
          "context":[
             {
-               "name":"message",
-               "description":"A pre-constructed message for the alert."
+               "name":"timestamp",
+               "description":"UTC timestamp of when the alert was triggered"
             },
+            {
+               "name":"matchingDocuments",
+               "description":"The number of log entries that matched the conditions provided"
+            },
+            {
+               "name":"conditions",
+               "description":"The conditions that log entries needed to fulfill"
+            },
+            ...
          ],
          "state":[],
-         "params":[
-            {
-               "name":"threshold",
-               "description":"An array of values to use as the threshold; 'between' and 'notBetween' require two values, the others require one."
-            },
-            {
-               "name":"index",
-               "description":"index"
-            },
-         ]
+         "params":[]
       },
-      "producer":"stackAlerts",
-      "minimum_license_required":"basic",
-      "is_exportable":true,
-      "enabled_in_license":true,
       "authorized_consumers":{
-         "alerts":{
-            "read":true,
-            "all":true
-         },
-         "stackAlerts":{
-            "read":true,
-            "all":true
-         },
-         "uptime":{
-            "read":true,
-            "all":true
-         }
-      }
+         "logs":{"read":true,"all":false},
+         "alerts":{"read":true,"all":false}
+      },
+      "does_set_recovery_context":true
    }
 ]</pre>
-</div>
-<p>Each rule type contains the following properties:</p>
-<div class="informaltable">
-<table border="1" cellpadding="4px">
-<colgroup>
-<col class="col_1"/>
-<col class="col_2"/>
-</colgroup>
-<tbody>
-<tr>
-<td align="left" valign="top"><p><code class="literal">name</code></p></td>
-<td align="left" valign="top"><p>The descriptive name of the rule type.</p></td>
-</tr>
-<tr>
-<td align="left" valign="top"><p><code class="literal">id</code></p></td>
-<td align="left" valign="top"><p>The unique ID of the rule type.</p></td>
-</tr>
-<tr>
-<td align="left" valign="top"><p><code class="literal">minimum_license_required</code></p></td>
-<td align="left" valign="top"><p>The license required to use the rule type.</p></td>
-</tr>
-<tr>
-<td align="left" valign="top"><p><code class="literal">is_exportable</code></p></td>
-<td align="left" valign="top"><p>Whether the rule type is exportable through the Saved Objects Management UI.</p></td>
-</tr>
-<tr>
-<td align="left" valign="top"><p><code class="literal">enabled_in_license</code></p></td>
-<td align="left" valign="top"><p>Whether the rule type is enabled or disabled based on the license.</p></td>
-</tr>
-<tr>
-<td align="left" valign="top"><p><code class="literal">action_groups</code></p></td>
-<td align="left" valign="top"><p>An explicit list of groups for which the rule type can schedule actions, each with the action group&#8217;s unique ID and human readable name. Rule <code class="literal">actions</code> validation will use this configuration to ensure that groups are valid. Use <code class="literal">kbn-i18n</code> to translate the names of the action group when registering the rule type.</p></td>
-</tr>
-<tr>
-<td align="left" valign="top"><p><code class="literal">recovery_action_group</code></p></td>
-<td align="left" valign="top"><p>An action group to use when an alert goes from an active state, to an inactive one. Do not specify this action group under the <code class="literal">action_groups</code> property. If <code class="literal">recovery_action_group</code> is not specified, the default <code class="literal">recovered</code> action group is used.</p></td>
-</tr>
-<tr>
-<td align="left" valign="top"><p><code class="literal">default_action_group_od</code></p></td>
-<td align="left" valign="top"><p>The default ID for the rule type group.</p></td>
-</tr>
-<tr>
-<td align="left" valign="top"><p><code class="literal">action_variables</code></p></td>
-<td align="left" valign="top"><p>An explicit list of action variables that the rule type makes available via context and state in action parameter templates, and a short human readable description. The Rule UI  will use this information to prompt users for these variables in action parameter editors. Use <code class="literal">kbn-i18n</code> to translate the descriptions.</p></td>
-</tr>
-<tr>
-<td align="left" valign="top"><p><code class="literal">producer</code></p></td>
-<td align="left" valign="top"><p>The ID of the application producing this rule type.</p></td>
-</tr>
-<tr>
-<td align="left" valign="top"><p><code class="literal">authorized_consumers</code></p></td>
-<td align="left" valign="top"><p>The list of the plugins IDs that have access to the rule type.</p></td>
-</tr>
-</tbody>
-</table>
 </div>
 </div>
 
 </div>
 <div class="navfooter">
 <span class="prev">
-<a href="find-rules-api.html">« Find rules API</a>
+<a href="get-rule-api.html">« Get rule API</a>
 </span>
 <span class="next">
-<a href="enable-rule-api.html">Enable rule API »</a>
+<a href="update-rule-api.html">Update rule API »</a>
 </span>
 </div>
 </div>
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

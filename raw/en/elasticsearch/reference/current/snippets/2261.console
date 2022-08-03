@@ -1,1 +1,1 @@
-GET /_xpack?categories=build,features
+GET /test1,test2/_shard_stores

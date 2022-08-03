@@ -18,13 +18,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="query-dsl.html">Query DSL</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="query-dsl.html">Query DSL</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="term-level-queries.html">Term-level queries</a></span>
-»
-<span class="breadcrumb-node">Terms query</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -36,7 +33,7 @@ Not what you want? See the
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="query-dsl-terms-query"></a>Terms query<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/query-dsl/terms-query.asciidoc">edit</a></h2>
+<h2 class="title"><a id="query-dsl-terms-query"></a>Terms query<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/query-dsl/terms-query.asciidoc">edit</a></h2>
 </div></div></div>
 
 <p>Returns documents that contain one or more <span class="strong strong"><strong>exact</strong></span> terms in a provided field.</p>
@@ -44,7 +41,7 @@ Not what you want? See the
 except you can search for multiple values.</p>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="terms-query-ex-request"></a>Example request<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/query-dsl/terms-query.asciidoc">edit</a></h3>
+<h3 class="title"><a id="terms-query-ex-request"></a>Example request<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/query-dsl/terms-query.asciidoc">edit</a></h3>
 </div></div></div>
 <p>The following search returns documents where the <code class="literal">user.id</code> field contains <code class="literal">kimchy</code>
 or <code class="literal">elkbee</code>.</p>
@@ -60,12 +57,12 @@ or <code class="literal">elkbee</code>.</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1039.console"></div>
+<div class="console_widget" data-snippet="snippets/1065.console"></div>
 </div>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="terms-top-level-params"></a>Top-level parameters for <code class="literal">terms</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/query-dsl/terms-query.asciidoc">edit</a></h3>
+<h3 class="title"><a id="terms-top-level-params"></a>Top-level parameters for <code class="literal">terms</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/query-dsl/terms-query.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="variablelist">
 <dl class="variablelist">
@@ -109,11 +106,11 @@ increases the relevance score.</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="terms-query-notes"></a>Notes<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/query-dsl/terms-query.asciidoc">edit</a></h3>
+<h3 class="title"><a id="terms-query-notes"></a>Notes<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/query-dsl/terms-query.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="query-dsl-terms-query-highlighting"></a>Highlighting <code class="literal">terms</code> queries<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/query-dsl/terms-query.asciidoc">edit</a></h4>
+<h4 class="title"><a id="query-dsl-terms-query-highlighting"></a>Highlighting <code class="literal">terms</code> queries<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/query-dsl/terms-query.asciidoc">edit</a></h4>
 </div></div></div>
 <p><a class="xref" href="highlighting.html" title="Highlighting">Highlighting</a> is best-effort only. Elasticsearch may not
 return highlight results for <code class="literal">terms</code> queries depending on:</p>
@@ -131,7 +128,7 @@ Number of terms in the query
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="query-dsl-terms-lookup"></a>Terms lookup<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/query-dsl/terms-query.asciidoc">edit</a></h4>
+<h4 class="title"><a id="query-dsl-terms-lookup"></a>Terms lookup<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/query-dsl/terms-query.asciidoc">edit</a></h4>
 </div></div></div>
 <p>Terms lookup fetches the field values of an existing document. Elasticsearch then uses
 those values as search terms. This can be helpful when searching for a large set
@@ -153,7 +150,7 @@ across all applicable data nodes to minimize network traffic.</p>
 <p>To perform a terms lookup, use the following parameters.</p>
 <div class="section">
 <div class="titlepage"><div><div>
-<h5 class="title"><a id="query-dsl-terms-lookup-params"></a>Terms lookup parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/query-dsl/terms-query.asciidoc">edit</a></h5>
+<h5 class="title"><a id="query-dsl-terms-lookup-params"></a>Terms lookup parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/query-dsl/terms-query.asciidoc">edit</a></h5>
 </div></div></div>
 <div class="variablelist">
 <dl class="variablelist">
@@ -201,7 +198,7 @@ when the document was indexed, this parameter is required.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h5 class="title"><a id="query-dsl-terms-lookup-example"></a>Terms lookup example<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/query-dsl/terms-query.asciidoc">edit</a></h5>
+<h5 class="title"><a id="query-dsl-terms-lookup-example"></a>Terms lookup example<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/query-dsl/terms-query.asciidoc">edit</a></h5>
 </div></div></div>
 <p>To see how terms lookup works, try the following example.</p>
 <div class="olist orderedlist">
@@ -249,7 +246,7 @@ fmt.Println(res, err)</pre>
   }
 }</pre>
 </div>
-<div class="console_widget has-ruby has-go" data-snippet="snippets/1040.console"></div>
+<div class="console_widget has-ruby has-go" data-snippet="snippets/1066.console"></div>
 </li>
 <li class="listitem">
 <p>Index a document with an ID of 1 and values of <code class="literal">["blue", "green"]</code> in the
@@ -288,7 +285,7 @@ fmt.Println(res, err)</pre>
   "color":   ["blue", "green"]
 }</pre>
 </div>
-<div class="console_widget has-ruby has-go" data-snippet="snippets/1041.console"></div>
+<div class="console_widget has-ruby has-go" data-snippet="snippets/1067.console"></div>
 </li>
 <li class="listitem">
 <p>Index another document with an ID of 2 and value of <code class="literal">blue</code> in the <code class="literal">color</code>
@@ -321,7 +318,7 @@ fmt.Println(res, err)</pre>
   "color":   "blue"
 }</pre>
 </div>
-<div class="console_widget has-ruby has-go" data-snippet="snippets/1042.console"></div>
+<div class="console_widget has-ruby has-go" data-snippet="snippets/1068.console"></div>
 </li>
 <li class="listitem">
 <p>Use the <code class="literal">terms</code> query with terms lookup parameters to find documents
@@ -378,7 +375,7 @@ fmt.Println(res, err)</pre>
   }
 }</pre>
 </div>
-<div class="console_widget has-ruby has-go" data-snippet="snippets/1043.console"></div>
+<div class="console_widget has-ruby has-go" data-snippet="snippets/1069.console"></div>
 <p>Because document 2 and document 1 both contain <code class="literal">blue</code> as a value in the <code class="literal">color</code>
 field, Elasticsearch returns both documents.</p>
 <a id="48a4d2d09e8eaa15673f25f424e66879"></a>

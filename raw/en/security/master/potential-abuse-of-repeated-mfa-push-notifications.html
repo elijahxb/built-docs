@@ -18,13 +18,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elastic Security Solution [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="detection-engine-overview.html">Detections and alerts</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Security Solution [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="detection-engine-overview.html">Detections and alerts</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="prebuilt-rules.html">Prebuilt rule reference</a></span>
-»
-<span class="breadcrumb-node">Potential Abuse of Repeated MFA Push Notifications</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -38,7 +35,7 @@ Not what you want? See the
 <div class="titlepage"><div><div>
 <h2 class="title"><a id="potential-abuse-of-repeated-mfa-push-notifications"></a>Potential Abuse of Repeated MFA Push Notifications<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/main/docs/detections/prebuilt-rules/rule-details/potential-abuse-of-repeated-mfa-push-notifications.asciidoc">edit</a></h2>
 </div></div></div>
-<p>Detect when an attacker abuses the Multi-Factor authentication mechanism by repeatedly issuing login requests until the user eventually accepts the Okta push notification. An adversary may attempt to bypass the Okta MFA policies configured for an organization to obtain unauthorized access.</p>
+<p>Detects when an attacker abuses the Multi-Factor authentication mechanism by repeatedly issuing login requests until the user eventually accepts the Okta push notification. An adversary may attempt to bypass the Okta MFA policies configured for an organization to obtain unauthorized access.</p>
 <p><span class="strong strong"><strong>Rule type</strong></span>: eql</p>
 <p><span class="strong strong"><strong>Rule indices</strong></span>:</p>
 <div class="ulist itemizedlist">
@@ -87,13 +84,14 @@ Identity and Access
 </li>
 </ul>
 </div>
-<p><span class="strong strong"><strong>Version</strong></span>: 1</p>
+<p><span class="strong strong"><strong>Version</strong></span>: 2 (<a class="xref" href="potential-abuse-of-repeated-mfa-push-notifications.html#potential-abuse-of-repeated-mfa-push-notifications-history" title="Rule version history">version history</a>)</p>
 <p><span class="strong strong"><strong>Added (Elastic Stack release)</strong></span>: 8.1.0</p>
+<p><span class="strong strong"><strong>Last modified (Elastic Stack release)</strong></span>: 8.2.0</p>
 <p><span class="strong strong"><strong>Rule authors</strong></span>: Elastic</p>
 <p><span class="strong strong"><strong>Rule license</strong></span>: Elastic License v2</p>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_investigation_guide_193"></a>Investigation guide<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/main/docs/detections/prebuilt-rules/rule-details/potential-abuse-of-repeated-mfa-push-notifications.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_investigation_guide_290"></a>Investigation guide<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/main/docs/detections/prebuilt-rules/rule-details/potential-abuse-of-repeated-mfa-push-notifications.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="pre_wrapper lang-markdown">
 <pre class="programlisting prettyprint lang-markdown">## Config
@@ -104,7 +102,7 @@ The Okta Fleet integration, Filebeat module, or similarly structured data is req
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_rule_query_365"></a>Rule query<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/main/docs/detections/prebuilt-rules/rule-details/potential-abuse-of-repeated-mfa-push-notifications.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_rule_query_374"></a>Rule query<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/main/docs/detections/prebuilt-rules/rule-details/potential-abuse-of-repeated-mfa-push-notifications.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="pre_wrapper lang-js">
 <pre class="programlisting prettyprint lang-js">sequence by user.email with maxspan=10m [any where event.module ==
@@ -117,7 +115,7 @@ and event.action == "user.authentication.sso"]</pre>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_threat_mapping_319"></a>Threat mapping<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/main/docs/detections/prebuilt-rules/rule-details/potential-abuse-of-repeated-mfa-push-notifications.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_threat_mapping_329"></a>Threat mapping<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/main/docs/detections/prebuilt-rules/rule-details/potential-abuse-of-repeated-mfa-push-notifications.asciidoc">edit</a></h3>
 </div></div></div>
 <p><span class="strong strong"><strong>Framework</strong></span>: MITRE ATT&amp;CK<sup>TM</sup></p>
 <div class="ulist itemizedlist">
@@ -155,6 +153,30 @@ Reference URL: <a href="https://attack.mitre.org/techniques/T1110/" class="ulink
 </div>
 </li>
 </ul>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="potential-abuse-of-repeated-mfa-push-notifications-history"></a>Rule version history<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/main/docs/detections/prebuilt-rules/rule-details/potential-abuse-of-repeated-mfa-push-notifications.asciidoc">edit</a></h3>
+</div></div></div>
+<div class="variablelist">
+<dl class="variablelist">
+<dt>
+<span class="term">
+Version 2 (8.2.0 release)
+</span>
+</dt>
+<dd>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Formatting only
+</li>
+</ul>
+</div>
+</dd>
+</dl>
 </div>
 </div>
 

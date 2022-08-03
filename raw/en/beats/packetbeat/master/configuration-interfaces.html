@@ -18,11 +18,9 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Packetbeat Reference [master]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Packetbeat Reference [master]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="configuring-howto-packetbeat.html">Configure Packetbeat</a></span>
-»
-<span class="breadcrumb-node">Configure traffic capturing options</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -137,6 +135,12 @@ first interface in the list:</p>
 <pre class="programlisting prettyprint lang-yaml">packetbeat.interfaces.device: 0</pre>
 </div>
 <p>Specifying the index is especially useful on Windows where device names can be long.</p>
+<p>Alternatively the <code class="literal">default_route</code>, <code class="literal">default_route_ipv4</code> or <code class="literal">default_route_ipv6</code> device
+may be specified. This will set the capture device to be the device that is associated
+with the first default route identified on Packetbeat start-up. <code class="literal">default_route</code> will
+select the first default route from either IPv4 or IPv6 with a preference for the IPv4
+route, while <code class="literal">default_route_ipv4</code> and <code class="literal">default_route_ipv6</code> will only select from the
+specified stack. The selected interface is not altered after it is chosen.</p>
 <h4><a id="_snaplen"></a><code class="literal">snaplen</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/packetbeat/docs/packetbeat-options.asciidoc">edit</a></h4>
 <p>The maximum size of the packets to capture. The
 default is 65535, which is large enough for almost all networks and interface
@@ -268,13 +272,11 @@ Beat1: none
 Beat2: t1
 </li>
 <li class="listitem">
-<p>Beat3: t2</p>
-<pre class="literallayout"> [float]
-==== `internal_networks`</pre>
-
+Beat3: t2
 </li>
 </ul>
 </div>
+<h4><a id="_internal_networks"></a><code class="literal">internal_networks</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/packetbeat/docs/packetbeat-options.asciidoc">edit</a></h4>
 <p>If the <code class="literal">internal_networks</code> option is specified, when monitoring network taps or mirror ports, Packetbeat
 will attempt to classify the network directionality of traffic not intended for this host as it
 relates to a network perimeter. Any CIDR block specified in <code class="literal">internal_networks</code> is treated internal to

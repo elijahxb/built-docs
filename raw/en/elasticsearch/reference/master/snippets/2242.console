@@ -1,1 +1,1 @@
-DELETE _ilm/policy/my_policy
+DELETE /_index_template/my-index-template

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ElasticsearchScriptingUserSettings | Elastic Cloud Enterprise Reference [3.2] | Elastic</title>
+<link rel="home" href="index.html" title="Elastic Cloud Enterprise Reference [3.2]"/>
+<link rel="up" href="definitions.html" title="Definitions"/>
+<link rel="prev" href="ElasticsearchScriptTypeSettings.html" title="ElasticsearchScriptTypeSettings"/>
+<link rel="next" href="ElasticsearchShardElement.html" title="ElasticsearchShardElement"/>
+<meta name="DC.type" content="Learn/Docs/CloudEnterprise/Reference/3.2"/>
+<meta name="DC.subject" content="ECE"/>
+<meta name="DC.identifier" content="3.2"/>
+</head>
+<body><div class="page_header">
+A newer version is available. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Cloud Enterprise Reference [3.2]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="ece-restful-api.html">RESTful API</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="ece-api-reference.html">API reference</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="definitions.html">Definitions</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="ElasticsearchScriptTypeSettings.html">« <code class="literal">ElasticsearchScriptTypeSettings</code></a>
+</span>
+<span class="next">
+<a href="ElasticsearchShardElement.html"><code class="literal">ElasticsearchShardElement</code> »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="ElasticsearchScriptingUserSettings"></a><code class="literal">ElasticsearchScriptingUserSettings</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/cloud-enterprise/ce-api-swagger.asciidoc">edit</a></h3>
+</div></div></div>
+<p>Controls the languages supported by the Elasticsearch cluster, such as Painless, Mustache, and Expressions. Controls how the languages are used, such as file, index, and inline. TIP: For complex configurations, leave these blank and configure these settings in the user YAML or JSON.</p>
+<div class="section">
+<div class="titlepage"><div><div>
+<h4 class="title"><a id="ece_properties_206"></a>Properties<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/cloud-enterprise/ce-api-swagger.asciidoc">edit</a></h4>
+</div></div></div>
+<div class="variablelist">
+<dl class="variablelist">
+<dt>
+<span class="term">
+<code class="literal">expressions_enabled</code> (<code class="literal">boolean</code>)
+</span>
+</dt>
+<dd>
+(5.x&#43; only) If enabled (the default) then the expressions scripting engine is allowed as a sandboxed language. Sandboxed languages are the only ones allowed if &#39;sandbox_mode&#39; is set to true. NOTES: (Corresponds to the parameters &#39;script.engine.expression.[file&#124;stored&#124;inline]&#39;)
+</dd>
+<dt>
+<span class="term">
+<code class="literal">file</code> (<a class="xref" href="ElasticsearchScriptTypeSettings.html" title="ElasticsearchScriptTypeSettings"><code class="literal">ElasticsearchScriptTypeSettings</code></a>)
+</span>
+</dt>
+<dd>
+Enables scripting for the specified type and controls other parameters. Store scripts in indexes (<code class="literal">stored</code>), upload in file bundles (<code class="literal">file</code>), or use in API requests (<code class="literal">inline</code>).
+</dd>
+<dt>
+<span class="term">
+<code class="literal">inline</code> (<a class="xref" href="ElasticsearchScriptTypeSettings.html" title="ElasticsearchScriptTypeSettings"><code class="literal">ElasticsearchScriptTypeSettings</code></a>)
+</span>
+</dt>
+<dd>
+Enables scripting for the specified type and controls other parameters. Store scripts in indexes (<code class="literal">stored</code>), upload in file bundles (<code class="literal">file</code>), or use in API requests (<code class="literal">inline</code>).
+</dd>
+<dt>
+<span class="term">
+<code class="literal">mustache_enabled</code> (<code class="literal">boolean</code>)
+</span>
+</dt>
+<dd>
+(5.x&#43; only) If enabled (the default) then the mustache scripting engine is allowed as a sandboxed language. Sandboxed languages are the only ones allowed if &#39;sandbox_mode&#39; is set to true. NOTES: (Corresponds to the parameters &#39;script.engine.mustache.[file&#124;stored&#124;inline]&#39;)
+</dd>
+<dt>
+<span class="term">
+<code class="literal">painless_enabled</code> (<code class="literal">boolean</code>)
+</span>
+</dt>
+<dd>
+(5.x&#43; only) If enabled (the default) then the painless scripting engine is allowed as a sandboxed language. Sandboxed languages are the only ones allowed if &#39;sandbox_mode&#39; is set to true. NOTES: (Corresponds to the parameters &#39;script.engine.painless.[file&#124;stored&#124;inline]&#39;)
+</dd>
+<dt>
+<span class="term">
+<code class="literal">stored</code> (<a class="xref" href="ElasticsearchScriptTypeSettings.html" title="ElasticsearchScriptTypeSettings"><code class="literal">ElasticsearchScriptTypeSettings</code></a>)
+</span>
+</dt>
+<dd>
+Enables scripting for the specified type and controls other parameters. Store scripts in indexes (<code class="literal">stored</code>), upload in file bundles (<code class="literal">file</code>), or use in API requests (<code class="literal">inline</code>).
+</dd>
+</dl>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h4 class="title"><a id="ece_example_211"></a>Example<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/cloud-enterprise/ce-api-swagger.asciidoc">edit</a></h4>
+</div></div></div>
+<div class="pre_wrapper lang-json">
+<pre class="programlisting prettyprint lang-json">{
+   "expressions_enabled" : true,
+   "file" : {
+      "enabled" : true,
+      "sandbox_mode" : true
+   },
+   "inline" : {
+      "enabled" : true,
+      "sandbox_mode" : true
+   },
+   "mustache_enabled" : true,
+   "painless_enabled" : true,
+   "stored" : {
+      "enabled" : true,
+      "sandbox_mode" : true
+   }
+}</pre>
+</div>
+</div>
+
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="ElasticsearchScriptTypeSettings.html">« <code class="literal">ElasticsearchScriptTypeSettings</code></a>
+</span>
+<span class="next">
+<a href="ElasticsearchShardElement.html"><code class="literal">ElasticsearchShardElement</code> »</a>
+</span>
+</div>
+</div>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains('stemblock')) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+</body>
+</html>

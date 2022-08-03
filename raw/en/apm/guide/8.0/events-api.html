@@ -19,13 +19,10 @@ will be released for this version. For the latest information, see the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">APM User Guide [8.0]</a></span>
-»
-<span class="breadcrumb-link"><a href="overview.html">Legacy APM Server Reference</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">APM User Guide [8.0]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="overview.html">Legacy APM Server Reference</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="intake-api.html">API</a></span>
-»
-<span class="breadcrumb-node">Events Intake API</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -43,7 +40,7 @@ will be released for this version. For the latest information, see the
 <div class="important admon">
 <div class="icon"></div>
 <div class="admon_content">
-<p>This documentation refers to the API of the standalone (legacy) APM Server. This method of running APM Server will be deprecated and removed in a future release. Please consider <a class="xref" href="upgrade-to-apm-integration.html" title="Upgrade to the Elastic APM integration">upgrading to Fleet and the APM integration</a>.
+<p>This documentation refers to the API of the standalone (legacy) APM Server. This method of running APM Server will be deprecated and removed in a future release. Please consider <a class="xref" href="upgrade-to-apm-integration.html" title="Switch to the Elastic APM integration">upgrading to Fleet and the APM integration</a>.
 If you&#8217;ve already upgraded, see <a class="xref" href="api-events.html" title="Events intake API">Events intake API</a>.</p>
 </div>
 </div>
@@ -113,7 +110,7 @@ Once all events have been processed,
 the error response is sent.</p>
 <p>Some errors, not relating to specific events,
 may terminate the request immediately.
-For example: queue is full, IP rate limit reached, wrong metadata, etc.
+For example: IP rate limit reached, wrong metadata, etc.
 If at any point one of these errors is encountered,
 it is added to the internal array and immediately returned.</p>
 <p>An example error response might look something like this:</p>
@@ -130,7 +127,7 @@ it is added to the internal array and immediately returned.</p>
       "message": "&lt;json-decoding-err&gt;",
       "document": "&lt;ndjson-obj&gt;"
     },{
-      "message": "queue is full" <a id="CO85-3"></a><i class="conum" data-value="3"></i>
+      "message": "too many requests" <a id="CO85-3"></a><i class="conum" data-value="3"></i>
     },
   ],
   "accepted": 2320 <a id="CO85-4"></a><i class="conum" data-value="4"></i>

@@ -13,21 +13,17 @@
 <meta name="robots" content="noindex,nofollow"/>
 </head>
 <body><div class="page_header">
-You are looking at preliminary documentation for a future release.
-Not what you want? See the
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
 <a href="../current/index.html">current release documentation</a>.
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">APM User Guide [8.2]</a></span>
-»
-<span class="breadcrumb-link"><a href="overview.html">Legacy APM Server Reference</a></span>
-»
-<span class="breadcrumb-link"><a href="configuring-howto-apm-server.html">Configure APM Server</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">APM User Guide [8.2]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="overview.html">Legacy APM Server Reference</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="configuring-howto-apm-server.html">Configure APM Server</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="configuring-output.html">Configure the output</a></span>
-»
-<span class="breadcrumb-node">Configure the Logstash output</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -45,7 +41,7 @@ Not what you want? See the
 <div class="important admon">
 <div class="icon"></div>
 <div class="admon_content">
-<p>This documentation refers to configuring the standalone (legacy) APM Server. This method of running APM Server will be deprecated and removed in a future release. Please consider <a class="xref" href="upgrade-to-apm-integration.html" title="Upgrade to the Elastic APM integration">upgrading to Fleet and the APM integration</a>.</p>
+<p>This documentation refers to configuring the standalone (legacy) APM Server. This method of running APM Server will be deprecated and removed in a future release. Please consider <a class="xref" href="upgrade-to-apm-integration.html" title="Switch to the Elastic APM integration">upgrading to Fleet and the APM integration</a>.</p>
 </div>
 </div>
 <p>The Logstash output sends events directly to Logstash by using the lumberjack
@@ -87,7 +83,7 @@ use in Logstash for indexing and filtering:</p>
     "@metadata": { <a id="CO68-2"></a><i class="conum" data-value="1"></i>
       "beat": "apm", <a id="CO68-3"></a><i class="conum" data-value="2"></i>
       "pipeline":"apm", <a id="CO68-4"></a><i class="conum" data-value="3"></i>
-      "version": "8.2.0" <a id="CO68-5"></a><i class="conum" data-value="4"></i>
+      "version": "8.2.3" <a id="CO68-5"></a><i class="conum" data-value="4"></i>
     }
 }</pre>
 </div>
@@ -175,7 +171,7 @@ output {
 <code class="literal">%{[@metadata][beat]}</code> sets the first part of the index name to the value of the <code class="literal">metadata.beat</code> field.
 <code class="literal">%{[@metadata][version]}</code> sets the second part to APM Server&#8217;s version.
 <code class="literal">%{[processor][event]}</code> sets the final part based on the APM event type.
-For example: <code class="literal">apm-8.2.0-sourcemap</code>.</p>
+For example: <code class="literal">apm-8.2.3-sourcemap</code>.</p>
 </td>
 </tr>
 <tr>
@@ -184,7 +180,7 @@ For example: <code class="literal">apm-8.2.0-sourcemap</code>.</p>
 </td>
 <td align="left" valign="top">
 <p>In addition to the above rules, this pattern appends a date to the <code class="literal">index</code> name so Logstash creates a new index each day.
-For example: <code class="literal">apm-8.2.0-transaction-2019.10.20</code>.</p>
+For example: <code class="literal">apm-8.2.3-transaction-2019.10.20</code>.</p>
 </td>
 </tr>
 </table>
@@ -224,7 +220,7 @@ output {
 <code class="literal">%{[@metadata][beat]}</code> sets the first part of the index name to the value of the <code class="literal">metadata.beat</code> field.
 <code class="literal">%{[@metadata][version]}</code> sets the second part to APM Server&#8217;s version.
 <code class="literal">%{[processor][event]}</code> sets the final part based on the APM event type.
-For example: <code class="literal">apm-8.2.0-sourcemap</code>.</p>
+For example: <code class="literal">apm-8.2.3-sourcemap</code>.</p>
 </td>
 </tr>
 </table>
@@ -321,7 +317,7 @@ instances.  Specifying a TTL of 0 will disable this feature.</p>
 <div class="note admon">
 <div class="icon"></div>
 <div class="admon_content">
-<p>The "ttl" option is not yet supported on an async Logstash client (one with the "pipelining" option set).</p>
+<p>The "ttl" option is not yet supported on an asynchronous Logstash client (one with the "pipelining" option set).</p>
 </div>
 </div>
 </div>
@@ -369,8 +365,8 @@ that when a proxy is used the name resolution occurs on the proxy server.</p>
 <h5 class="title"><a id="logstash-index"></a><code class="literal">index</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/apm-server/edit/8.2/docs/legacy/copied-from-beats/outputs/logstash/docs/logstash.asciidoc">edit</a></h5>
 </div></div></div>
 <p>The index root name to write events to. The default is the Beat name. For
-example <code class="literal">"apm"</code> generates <code class="literal">"[apm-]8.2.0-YYYY.MM.DD"</code>
-indices (for example, <code class="literal">"apm-8.2.0-2017.04.26"</code>).</p>
+example <code class="literal">"apm"</code> generates <code class="literal">"[apm-]8.2.3-YYYY.MM.DD"</code>
+indices (for example, <code class="literal">"apm-8.2.3-2017.04.26"</code>).</p>
 <div class="note admon">
 <div class="icon"></div>
 <div class="admon_content">
@@ -441,7 +437,7 @@ On error, the number of events per transaction is reduced again.</p>
 a network error. After waiting <code class="literal">backoff.init</code> seconds, APM Server tries to
 reconnect. If the attempt fails, the backoff timer is increased exponentially up
 to <code class="literal">backoff.max</code>. After a successful connection, the backoff timer is reset. The
-default is 1s.</p>
+default is <code class="literal">1s</code>.</p>
 </div>
 
 <div class="section">
@@ -449,7 +445,7 @@ default is 1s.</p>
 <h5 class="title"><a id="_backoff_max_2"></a><code class="literal">backoff.max</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/apm-server/edit/8.2/docs/legacy/copied-from-beats/outputs/logstash/docs/logstash.asciidoc">edit</a></h5>
 </div></div></div>
 <p>The maximum number of seconds to wait before attempting to connect to
-Logstash after a network error. The default is 60s.</p>
+Logstash after a network error. The default is <code class="literal">60s</code>.</p>
 </div>
 
 </div>

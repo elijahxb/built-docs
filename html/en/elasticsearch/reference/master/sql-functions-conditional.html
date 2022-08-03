@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,27 +87,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 You are looking at preliminary documentation for a future release.
@@ -116,13 +107,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="xpack-sql.html">SQL</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="xpack-sql.html">SQL</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="sql-functions.html">Functions and Operators</a></span>
-»
-<span class="breadcrumb-node">Conditional Functions And Expressions</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -134,12 +122,12 @@ Not what you want? See the
 </div>
 <div class="section xpack">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="sql-functions-conditional"></a>Conditional Functions And Expressions<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/sql/functions/conditional.asciidoc">edit</a></h2>
+<h2 class="title"><a id="sql-functions-conditional"></a>Conditional Functions And Expressions<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/sql/functions/conditional.asciidoc">edit</a></h2>
 </div></div></div>
 <p>Functions that return one of their arguments by evaluating in an if-else manner.</p>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="sql-functions-conditional-case"></a><code class="literal">CASE</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/sql/functions/conditional.asciidoc">edit</a></h3>
+<h3 class="title"><a id="sql-functions-conditional-case"></a><code class="literal">CASE</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/sql/functions/conditional.asciidoc">edit</a></h3>
 </div></div></div>
 <p><strong>Synopsis:</strong></p>
 <div class="pre_wrapper lang-sql">
@@ -244,7 +232,7 @@ which does not match the expected data type <span class="strong strong"><strong>
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="sql-functions-conditional-case-groupby-custom-buckets"></a>Conditional bucketing<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/sql/functions/conditional.asciidoc">edit</a></h4>
+<h4 class="title"><a id="sql-functions-conditional-case-groupby-custom-buckets"></a>Conditional bucketing<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/sql/functions/conditional.asciidoc">edit</a></h4>
 </div></div></div>
 <p>CASE can be used as a GROUP BY key in a query to facilitate custom bucketing
 and assign descriptive names to those buckets. If, for example, the values
@@ -271,13 +259,13 @@ descriptive names, and every value <em>&gt;= 4</em> falls into the <em>multiling
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="sql-functions-conditional-coalesce"></a><code class="literal">COALESCE</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/sql/functions/conditional.asciidoc">edit</a></h3>
+<h3 class="title"><a id="sql-functions-conditional-coalesce"></a><code class="literal">COALESCE</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/sql/functions/conditional.asciidoc">edit</a></h3>
 </div></div></div>
 <p><strong>Synopsis:</strong></p>
 <div class="pre_wrapper lang-sql">
 <pre class="programlisting prettyprint lang-sql">COALESCE(
-    expression, <a id="CO464-1"></a><i class="conum" data-value="1"></i>
-    expression, <a id="CO464-2"></a><i class="conum" data-value="2"></i>
+    expression, <a id="CO466-1"></a><i class="conum" data-value="1"></i>
+    expression, <a id="CO466-2"></a><i class="conum" data-value="2"></i>
     ...)</pre>
 </div>
 <p><span class="strong strong"><strong>Input</strong></span>:</p>
@@ -285,7 +273,7 @@ descriptive names, and every value <em>&gt;= 4</em> falls into the <em>multiling
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO464-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO466-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>1st expression</p>
@@ -293,7 +281,7 @@ descriptive names, and every value <em>&gt;= 4</em> falls into the <em>multiling
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO464-2"><i class="conum" data-value="2"></i></a></p>
+<p><a href="#CO466-2"><i class="conum" data-value="2"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>2nd expression</p>
@@ -325,13 +313,13 @@ null</pre>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="sql-functions-conditional-greatest"></a><code class="literal">GREATEST</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/sql/functions/conditional.asciidoc">edit</a></h3>
+<h3 class="title"><a id="sql-functions-conditional-greatest"></a><code class="literal">GREATEST</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/sql/functions/conditional.asciidoc">edit</a></h3>
 </div></div></div>
 <p><strong>Synopsis:</strong></p>
 <div class="pre_wrapper lang-sql">
 <pre class="programlisting prettyprint lang-sql">GREATEST(
-    expression, <a id="CO465-1"></a><i class="conum" data-value="1"></i>
-    expression, <a id="CO465-2"></a><i class="conum" data-value="2"></i>
+    expression, <a id="CO467-1"></a><i class="conum" data-value="1"></i>
+    expression, <a id="CO467-2"></a><i class="conum" data-value="2"></i>
     ...)</pre>
 </div>
 <p><span class="strong strong"><strong>Input</strong></span>:</p>
@@ -339,7 +327,7 @@ null</pre>
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO465-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO467-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>1st expression</p>
@@ -347,7 +335,7 @@ null</pre>
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO465-2"><i class="conum" data-value="2"></i></a></p>
+<p><a href="#CO467-2"><i class="conum" data-value="2"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>2nd expression</p>
@@ -380,20 +368,20 @@ null</pre>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="sql-functions-conditional-ifnull"></a><code class="literal">IFNULL</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/sql/functions/conditional.asciidoc">edit</a></h3>
+<h3 class="title"><a id="sql-functions-conditional-ifnull"></a><code class="literal">IFNULL</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/sql/functions/conditional.asciidoc">edit</a></h3>
 </div></div></div>
 <p><strong>Synopsis:</strong></p>
 <div class="pre_wrapper lang-sql">
 <pre class="programlisting prettyprint lang-sql">IFNULL(
-    expression, <a id="CO466-1"></a><i class="conum" data-value="1"></i>
-    expression) <a id="CO466-2"></a><i class="conum" data-value="2"></i></pre>
+    expression, <a id="CO468-1"></a><i class="conum" data-value="1"></i>
+    expression) <a id="CO468-2"></a><i class="conum" data-value="2"></i></pre>
 </div>
 <p><span class="strong strong"><strong>Input</strong></span>:</p>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO466-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO468-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>1st expression</p>
@@ -401,7 +389,7 @@ null</pre>
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO466-2"><i class="conum" data-value="2"></i></a></p>
+<p><a href="#CO468-2"><i class="conum" data-value="2"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>2nd expression</p>
@@ -431,21 +419,21 @@ search</pre>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="sql-functions-conditional-iif"></a><code class="literal">IIF</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/sql/functions/conditional.asciidoc">edit</a></h3>
+<h3 class="title"><a id="sql-functions-conditional-iif"></a><code class="literal">IIF</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/sql/functions/conditional.asciidoc">edit</a></h3>
 </div></div></div>
 <p><strong>Synopsis:</strong></p>
 <div class="pre_wrapper lang-sql">
 <pre class="programlisting prettyprint lang-sql">IIF(
-    expression,   <a id="CO467-1"></a><i class="conum" data-value="1"></i>
-    expression,   <a id="CO467-2"></a><i class="conum" data-value="2"></i>
-    [expression]) <a id="CO467-3"></a><i class="conum" data-value="3"></i></pre>
+    expression,   <a id="CO469-1"></a><i class="conum" data-value="1"></i>
+    expression,   <a id="CO469-2"></a><i class="conum" data-value="2"></i>
+    [expression]) <a id="CO469-3"></a><i class="conum" data-value="3"></i></pre>
 </div>
 <p><span class="strong strong"><strong>Input</strong></span>:</p>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO467-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO469-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>boolean condition to check</p>
@@ -453,7 +441,7 @@ search</pre>
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO467-2"><i class="conum" data-value="2"></i></a></p>
+<p><a href="#CO469-2"><i class="conum" data-value="2"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>return value if the boolean condition evaluates to <code class="literal">true</code></p>
@@ -461,7 +449,7 @@ search</pre>
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO467-3"><i class="conum" data-value="3"></i></a></p>
+<p><a href="#CO469-3"><i class="conum" data-value="3"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>return value if the boolean condition evaluates <code class="literal">false</code>; optional</p>
@@ -502,20 +490,20 @@ expression. E.g.:</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="sql-functions-conditional-isnull"></a><code class="literal">ISNULL</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/sql/functions/conditional.asciidoc">edit</a></h3>
+<h3 class="title"><a id="sql-functions-conditional-isnull"></a><code class="literal">ISNULL</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/sql/functions/conditional.asciidoc">edit</a></h3>
 </div></div></div>
 <p><strong>Synopsis:</strong></p>
 <div class="pre_wrapper lang-sql">
 <pre class="programlisting prettyprint lang-sql">ISNULL(
-    expression, <a id="CO468-1"></a><i class="conum" data-value="1"></i>
-    expression) <a id="CO468-2"></a><i class="conum" data-value="2"></i></pre>
+    expression, <a id="CO470-1"></a><i class="conum" data-value="1"></i>
+    expression) <a id="CO470-2"></a><i class="conum" data-value="2"></i></pre>
 </div>
 <p><span class="strong strong"><strong>Input</strong></span>:</p>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO468-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO470-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>1st expression</p>
@@ -523,7 +511,7 @@ expression. E.g.:</p>
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO468-2"><i class="conum" data-value="2"></i></a></p>
+<p><a href="#CO470-2"><i class="conum" data-value="2"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>2nd expression</p>
@@ -553,13 +541,13 @@ search</pre>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="sql-functions-conditional-least"></a><code class="literal">LEAST</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/sql/functions/conditional.asciidoc">edit</a></h3>
+<h3 class="title"><a id="sql-functions-conditional-least"></a><code class="literal">LEAST</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/sql/functions/conditional.asciidoc">edit</a></h3>
 </div></div></div>
 <p><strong>Synopsis:</strong></p>
 <div class="pre_wrapper lang-sql">
 <pre class="programlisting prettyprint lang-sql">LEAST(
-    expression, <a id="CO469-1"></a><i class="conum" data-value="1"></i>
-    expression, <a id="CO469-2"></a><i class="conum" data-value="2"></i>
+    expression, <a id="CO471-1"></a><i class="conum" data-value="1"></i>
+    expression, <a id="CO471-2"></a><i class="conum" data-value="2"></i>
     ...)</pre>
 </div>
 <p><span class="strong strong"><strong>Input</strong></span>:</p>
@@ -567,7 +555,7 @@ search</pre>
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO469-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO471-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>1st expression</p>
@@ -575,7 +563,7 @@ search</pre>
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO469-2"><i class="conum" data-value="2"></i></a></p>
+<p><a href="#CO471-2"><i class="conum" data-value="2"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>2nd expression</p>
@@ -608,20 +596,20 @@ null</pre>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="sql-functions-conditional-nullif"></a><code class="literal">NULLIF</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/sql/functions/conditional.asciidoc">edit</a></h3>
+<h3 class="title"><a id="sql-functions-conditional-nullif"></a><code class="literal">NULLIF</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/sql/functions/conditional.asciidoc">edit</a></h3>
 </div></div></div>
 <p><strong>Synopsis:</strong></p>
 <div class="pre_wrapper lang-sql">
 <pre class="programlisting prettyprint lang-sql">NULLIF(
-    expression, <a id="CO470-1"></a><i class="conum" data-value="1"></i>
-    expression) <a id="CO470-2"></a><i class="conum" data-value="2"></i></pre>
+    expression, <a id="CO472-1"></a><i class="conum" data-value="1"></i>
+    expression) <a id="CO472-2"></a><i class="conum" data-value="2"></i></pre>
 </div>
 <p><span class="strong strong"><strong>Input</strong></span>:</p>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO470-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO472-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>1st expression</p>
@@ -629,7 +617,7 @@ null</pre>
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO470-2"><i class="conum" data-value="2"></i></a></p>
+<p><a href="#CO472-2"><i class="conum" data-value="2"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>2nd expression</p>
@@ -657,20 +645,20 @@ null</pre>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="sql-functions-conditional-nvl"></a><code class="literal">NVL</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/sql/functions/conditional.asciidoc">edit</a></h3>
+<h3 class="title"><a id="sql-functions-conditional-nvl"></a><code class="literal">NVL</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/sql/functions/conditional.asciidoc">edit</a></h3>
 </div></div></div>
 <p><strong>Synopsis:</strong></p>
 <div class="pre_wrapper lang-sql">
 <pre class="programlisting prettyprint lang-sql">NVL(
-    expression, <a id="CO471-1"></a><i class="conum" data-value="1"></i>
-    expression) <a id="CO471-2"></a><i class="conum" data-value="2"></i></pre>
+    expression, <a id="CO473-1"></a><i class="conum" data-value="1"></i>
+    expression) <a id="CO473-2"></a><i class="conum" data-value="2"></i></pre>
 </div>
 <p><span class="strong strong"><strong>Input</strong></span>:</p>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO471-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO473-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>1st expression</p>
@@ -678,7 +666,7 @@ null</pre>
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO471-2"><i class="conum" data-value="2"></i></a></p>
+<p><a href="#CO473-2"><i class="conum" data-value="2"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>2nd expression</p>
@@ -719,15 +707,37 @@ search</pre>
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

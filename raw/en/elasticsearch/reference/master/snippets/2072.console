@@ -1,6 +1,5 @@
-GET /_analyze
+PUT test/_doc/1
 {
-  "tokenizer" : "keyword",
-  "filter" : ["lowercase"],
-  "text" : "this is a test"
+  "counter" : 1,
+  "tags" : ["red"]
 }

@@ -1,8 +1,9 @@
-PUT _cluster/settings
+GET index/_search
 {
-  "persistent": {
-    "cluster.routing.allocation.disk.watermark.low": null,
-    "cluster.routing.allocation.disk.watermark.high": null,
-    "cluster.routing.allocation.disk.watermark.flood_stage": null
+  "query": {
+    "simple_query_string": {
+      "fields": [ "body" ],
+      "query": "ski"
+    }
   }
 }

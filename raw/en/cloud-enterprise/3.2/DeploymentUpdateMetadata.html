@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>DeploymentUpdateMetadata | Elastic Cloud Enterprise Reference [3.2] | Elastic</title>
+<link rel="home" href="index.html" title="Elastic Cloud Enterprise Reference [3.2]"/>
+<link rel="up" href="definitions.html" title="Definitions"/>
+<link rel="prev" href="DeploymentTemplateRequestBody.html" title="DeploymentTemplateRequestBody"/>
+<link rel="next" href="DeploymentUpdateRequest.html" title="DeploymentUpdateRequest"/>
+<meta name="DC.type" content="Learn/Docs/CloudEnterprise/Reference/3.2"/>
+<meta name="DC.subject" content="ECE"/>
+<meta name="DC.identifier" content="3.2"/>
+</head>
+<body><div class="page_header">
+A newer version is available. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Cloud Enterprise Reference [3.2]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="ece-restful-api.html">RESTful API</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="ece-api-reference.html">API reference</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="definitions.html">Definitions</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="DeploymentTemplateRequestBody.html">« <code class="literal">DeploymentTemplateRequestBody</code></a>
+</span>
+<span class="next">
+<a href="DeploymentUpdateRequest.html"><code class="literal">DeploymentUpdateRequest</code> »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="DeploymentUpdateMetadata"></a><code class="literal">DeploymentUpdateMetadata</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/cloud-enterprise/ce-api-swagger.asciidoc">edit</a></h3>
+</div></div></div>
+<p>Additional information about the current deployment object.</p>
+<div class="section">
+<div class="titlepage"><div><div>
+<h4 class="title"><a id="ece_properties_161"></a>Properties<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/cloud-enterprise/ce-api-swagger.asciidoc">edit</a></h4>
+</div></div></div>
+<div class="variablelist">
+<dl class="variablelist">
+<dt>
+<span class="term">
+<code class="literal">hidden</code> (<code class="literal">boolean</code>)
+</span>
+</dt>
+<dd>
+Whether or not this deployment is hidden from the normal deployment list
+</dd>
+<dt>
+<span class="term">
+<code class="literal">system_owned</code> (<code class="literal">boolean</code>)
+</span>
+</dt>
+<dd>
+Indicates if a deployment is system owned (restricts the set of operations that can be performed on it)
+</dd>
+<dt>
+<span class="term">
+<code class="literal">tags</code> (<code class="literal">array[</code><a class="xref" href="MetadataItem.html" title="MetadataItem"><code class="literal">MetadataItem</code></a><code class="literal">]</code>)
+</span>
+</dt>
+<dd>
+Arbitrary user-defined metadata associated with this deployment
+</dd>
+</dl>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h4 class="title"><a id="ece_example_166"></a>Example<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/cloud-enterprise/ce-api-swagger.asciidoc">edit</a></h4>
+</div></div></div>
+<div class="pre_wrapper lang-json">
+<pre class="programlisting prettyprint lang-json">{
+   "hidden" : true,
+   "system_owned" : true,
+   "tags" : [
+      {
+         "key" : "string",
+         "value" : "string"
+      }
+   ]
+}</pre>
+</div>
+</div>
+
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="DeploymentTemplateRequestBody.html">« <code class="literal">DeploymentTemplateRequestBody</code></a>
+</span>
+<span class="next">
+<a href="DeploymentUpdateRequest.html"><code class="literal">DeploymentUpdateRequest</code> »</a>
+</span>
+</div>
+</div>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains('stemblock')) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+</body>
+</html>

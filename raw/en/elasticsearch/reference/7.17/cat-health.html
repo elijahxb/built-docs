@@ -17,13 +17,10 @@ A newer version is available. For the latest information, see the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [7.17]</a></span>
-»
-<span class="breadcrumb-link"><a href="rest-apis.html">REST APIs</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [7.17]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="rest-apis.html">REST APIs</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="cat.html">Compact and aligned text (CAT) APIs</a></span>
-»
-<span class="breadcrumb-node">cat health API</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -182,7 +179,7 @@ Defaults to <code class="literal">false</code>.
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">GET /_cat/health?v=true</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1843.console"></div>
+<div class="console_widget" data-snippet="snippets/1845.console"></div>
 <p>The API returns the following response:</p>
 <div class="pre_wrapper lang-txt">
 <pre class="programlisting prettyprint lang-txt">epoch      timestamp cluster       status node.total node.data shards pri relo init unassign pending_tasks max_task_wait_time active_shards_percent
@@ -198,7 +195,7 @@ Defaults to <code class="literal">false</code>.
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">GET /_cat/health?v=true&amp;ts=false</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1844.console"></div>
+<div class="console_widget" data-snippet="snippets/1846.console"></div>
 <p>The API returns the following response:</p>
 <div class="pre_wrapper lang-txt">
 <pre class="programlisting prettyprint lang-txt">cluster       status node.total node.data shards pri relo init unassign pending_tasks max_task_wait_time active_shards_percent

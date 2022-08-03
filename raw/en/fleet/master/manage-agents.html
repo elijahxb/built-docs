@@ -5,7 +5,7 @@
 <title>Elastic Agents | Fleet and Elastic Agent Guide [master] | Elastic</title>
 <link rel="home" href="index.html" title="Fleet and Elastic Agent Guide [master]"/>
 <link rel="up" href="manage-agents-in-fleet.html" title="Centrally manage Elastic Agents in Fleet"/>
-<link rel="prev" href="fleet-server-monitoring.html" title="Monitor a self-managed Fleet Server"/>
+<link rel="prev" href="fleet-settings.html" title="Fleet UI settings"/>
 <link rel="next" href="unenroll-elastic-agent.html" title="Unenroll Elastic Agents"/>
 <meta name="DC.type" content="Learn/Docs/Fleet/Guide/Elastic Agent/master"/>
 <meta name="DC.subject" content="Fleet and Elastic Agent"/>
@@ -18,15 +18,13 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Fleet and Elastic Agent Guide [master]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Fleet and Elastic Agent Guide [master]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="manage-agents-in-fleet.html">Centrally manage Elastic Agents in Fleet</a></span>
-»
-<span class="breadcrumb-node">Elastic Agents</span>
 </div>
 <div class="navheader">
 <span class="prev">
-<a href="fleet-server-monitoring.html">« Monitor a self-managed Fleet Server</a>
+<a href="fleet-settings.html">« Fleet UI settings</a>
 </span>
 <span class="next">
 <a href="unenroll-elastic-agent.html">Unenroll Elastic Agents »</a>
@@ -37,13 +35,12 @@ Not what you want? See the
 <h2 class="title"><a id="manage-agents"></a>Elastic Agents<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/observability-docs/edit/main/docs/en/ingest-management/fleet/fleet-manage-agents.asciidoc">edit</a></h2>
 </div></div></div>
 
-<div class="sidebar">
-<div class="titlepage"></div>
-<p>Elastic Agent is a single, unified agent that you deploy to hosts or containers to
-collect data and send it to the Elastic Stack. Behind the scenes, Elastic Agent runs the
-Beats shippers or Elastic Endpoint required for your configuration.</p>
+<div class="tip admon">
+<div class="icon"></div>
+<div class="admon_content">
 <p>To learn how to add Elastic Agents to Fleet, see
 <a class="xref" href="install-fleet-managed-elastic-agent.html" title="Install Fleet-managed Elastic Agents">Install Fleet-managed Elastic Agents</a>.</p>
+</div>
 </div>
 <p>To manage your Elastic Agents, go to <span class="strong strong"><strong>Management &gt; Fleet &gt; Agents</strong></span> in Kibana. On the
 <span class="strong strong"><strong>Agents</strong></span> tab, you can perform the following actions:</p>
@@ -73,6 +70,11 @@ Beats shippers or Elastic Endpoint required for your configuration.</p>
 <td align="left" valign="top"><p>Upgrade Elastic Agents to the latest version.</p></td>
 </tr>
 <tr>
+<td align="left" valign="top"><p><a class="xref" href="filter-agent-list-by-tags.html" title="Filter list of Agents by tags">Filter list of Agents by tags</a></p></td>
+<td align="left" valign="top"><p>Specify a comma-separated list of tags to apply to the Elastic Agent, then use the
+tags to filter the Agents list in Fleet.</p></td>
+</tr>
+<tr>
 <td align="left" valign="top"><p><a class="xref" href="view-elastic-agent-status.html" title="View Elastic Agent status">View Elastic Agent status</a></p></td>
 <td align="left" valign="top"><p>View the status of Fleet-managed Elastic Agents.</p></td>
 </tr>
@@ -88,10 +90,11 @@ Beats shippers or Elastic Endpoint required for your configuration.</p>
 
 
 
+
 </div>
 <div class="navfooter">
 <span class="prev">
-<a href="fleet-server-monitoring.html">« Monitor a self-managed Fleet Server</a>
+<a href="fleet-settings.html">« Fleet UI settings</a>
 </span>
 <span class="next">
 <a href="unenroll-elastic-agent.html">Unenroll Elastic Agents »</a>

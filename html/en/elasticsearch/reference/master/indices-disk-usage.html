@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,27 +87,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 You are looking at preliminary documentation for a future release.
@@ -116,13 +107,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="rest-apis.html">REST APIs</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="rest-apis.html">REST APIs</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="indices.html">Index APIs</a></span>
-»
-<span class="breadcrumb-node">Analyze index disk usage API</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -134,7 +122,7 @@ Not what you want? See the
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="indices-disk-usage"></a>Analyze index disk usage API<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/indices/diskusage.asciidoc">edit</a></h2>
+<h2 class="title"><a id="indices-disk-usage"></a>Analyze index disk usage API<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/indices/diskusage.asciidoc">edit</a></h2>
 </div></div></div>
 
 <div class="warning admon">
@@ -151,17 +139,17 @@ might not be analyzed by the API.</p>
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">POST /my-index-000001/_disk_usage?run_expensive_tasks=true</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/2083.console"></div>
+<div class="console_widget" data-snippet="snippets/2200.console"></div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="analyze-index-disk-usage-api-request"></a>Request<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/indices/diskusage.asciidoc">edit</a></h3>
+<h3 class="title"><a id="analyze-index-disk-usage-api-request"></a>Request<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/indices/diskusage.asciidoc">edit</a></h3>
 </div></div></div>
 <p><code class="literal">POST /&lt;target&gt;/_disk_usage</code></p>
 </div>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="analyze-index-disk-usage-api-request-prereqs"></a>Prerequisites<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/indices/diskusage.asciidoc">edit</a></h3>
+<h3 class="title"><a id="analyze-index-disk-usage-api-request-prereqs"></a>Prerequisites<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/indices/diskusage.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -176,7 +164,7 @@ or alias.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="analyze-index-disk-usage-api-path-params"></a>Path parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/indices/diskusage.asciidoc">edit</a></h3>
+<h3 class="title"><a id="analyze-index-disk-usage-api-path-params"></a>Path parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/indices/diskusage.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="variablelist">
 <dl class="variablelist">
@@ -197,7 +185,7 @@ resources significantly.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="analyze-index-disk-usage-api-query-params"></a>Query parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/indices/diskusage.asciidoc">edit</a></h3>
+<h3 class="title"><a id="analyze-index-disk-usage-api-query-params"></a>Query parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/indices/diskusage.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="variablelist">
 <dl class="variablelist">
@@ -321,13 +309,13 @@ Default: 1, the primary shard.</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="analyze-index-disk-usage-api-example"></a>Examples<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/indices/diskusage.asciidoc">edit</a></h3>
+<h3 class="title"><a id="analyze-index-disk-usage-api-example"></a>Examples<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/indices/diskusage.asciidoc">edit</a></h3>
 </div></div></div>
 <a id="db8710a9793ae0817a45892d33468160"></a>
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">POST /my-index-000001/_disk_usage?run_expensive_tasks=true</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/2084.console"></div>
+<div class="console_widget" data-snippet="snippets/2201.console"></div>
 <p>The API returns:</p>
 <div class="pre_wrapper lang-console-response">
 <pre class="programlisting prettyprint lang-console-response">{
@@ -337,10 +325,10 @@ Default: 1, the primary shard.</p>
         "failed": 0
     },
     "my-index-000001": {
-        "store_size": "929mb", <a id="CO615-1"></a><i class="conum" data-value="1"></i>
+        "store_size": "929mb", <a id="CO659-1"></a><i class="conum" data-value="1"></i>
         "store_size_in_bytes": 974192723,
         "all_fields": {
-            "total": "928.9mb", <a id="CO615-2"></a><i class="conum" data-value="2"></i>
+            "total": "928.9mb", <a id="CO659-2"></a><i class="conum" data-value="2"></i>
             "total_in_bytes": 973977084,
             "inverted_index": {
                 "total": "107.8mb",
@@ -355,7 +343,9 @@ Default: 1, the primary shard.</p>
             "norms": "2.3kb",
             "norms_in_bytes": 2356,
             "term_vectors": "2.2kb",
-            "term_vectors_in_bytes": 2310
+            "term_vectors_in_bytes": 2310,
+            "knn_vectors": "0b",
+            "knn_vectors_in_bytes": 0
         },
         "fields": {
             "_id": {
@@ -365,7 +355,7 @@ Default: 1, the primary shard.</p>
                     "total": "29.7mb",
                     "total_in_bytes": 31172745
                 },
-                "stored_fields": "19.5mb", <a id="CO615-3"></a><i class="conum" data-value="3"></i>
+                "stored_fields": "19.5mb", <a id="CO659-3"></a><i class="conum" data-value="3"></i>
                 "stored_fields_in_bytes": 20537248,
                 "doc_values": "0b",
                 "doc_values_in_bytes": 0,
@@ -374,7 +364,9 @@ Default: 1, the primary shard.</p>
                 "norms": "0b",
                 "norms_in_bytes": 0,
                 "term_vectors": "0b",
-                "term_vectors_in_bytes": 0
+                "term_vectors_in_bytes": 0,
+                "knn_vectors": "0b",
+                "knn_vectors_in_bytes": 0
             },
             "_primary_term": {...},
             "_seq_no": {...},
@@ -383,7 +375,7 @@ Default: 1, the primary shard.</p>
                 "total": "603.9mb",
                 "total_in_bytes": 633281895,
                 "inverted_index": {...},
-                "stored_fields": "603.9mb", <a id="CO615-4"></a><i class="conum" data-value="4"></i>
+                "stored_fields": "603.9mb", <a id="CO659-4"></a><i class="conum" data-value="4"></i>
                 "stored_fields_in_bytes": 633281895,
                 "doc_values": "0b",
                 "doc_values_in_bytes": 0,
@@ -392,7 +384,9 @@ Default: 1, the primary shard.</p>
                 "norms": "0b",
                 "norms_in_bytes": 0,
                 "term_vectors": "0b",
-                "term_vectors_in_bytes": 0
+                "term_vectors_in_bytes": 0,
+                "knn_vectors": "0b",
+                "knn_vectors_in_bytes": 0
             },
             "context": {
                 "total": "28.6mb",
@@ -410,7 +404,9 @@ Default: 1, the primary shard.</p>
                 "norms": "2.3kb",
                 "norms_in_bytes": 2356,
                 "term_vectors": "2.2kb",
-                "term_vectors_in_bytes": 2310
+                "term_vectors_in_bytes": 2310,
+                "knn_vectors": "0b",
+                "knn_vectors_in_bytes": 0
             },
             "context.keyword": {...},
             "message": {...},
@@ -423,7 +419,7 @@ Default: 1, the primary shard.</p>
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO615-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO659-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>The store size of only analyzed shards of the index.</p>
@@ -431,7 +427,7 @@ Default: 1, the primary shard.</p>
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO615-2"><i class="conum" data-value="2"></i></a></p>
+<p><a href="#CO659-2"><i class="conum" data-value="2"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>The total size of fields of the analyzed shards of the index. This total
@@ -441,7 +437,7 @@ files are ignored and some parts of data files might not be scanned by the API.<
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO615-3"><i class="conum" data-value="3"></i></a></p>
+<p><a href="#CO659-3"><i class="conum" data-value="3"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>The stored size of the <code class="literal">_id</code> field</p>
@@ -449,7 +445,7 @@ files are ignored and some parts of data files might not be scanned by the API.<
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO615-4"><i class="conum" data-value="4"></i></a></p>
+<p><a href="#CO659-4"><i class="conum" data-value="4"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>The stored size of the <code class="literal">_source</code> field. As stored fields are stored
@@ -475,15 +471,37 @@ is likely underestimated while the <code class="literal">_source</code> field is
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

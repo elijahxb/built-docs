@@ -1,14 +1,18 @@
-PUT my-index-000001/_mapping
+PUT my-index-000001/_mappings
 {
   "runtime": {
-    "voltage_corrected": {
-      "type": "double",
-      "script": {
-        "source": """
-        emit(doc['voltage'].value * params['multiplier'])
-        """,
-        "params": {
-          "multiplier": 2
+    "http": {
+      "type": "composite",
+      "script": "emit(grok(\"%{COMMONAPACHELOG}\").extract(doc[\"message\"].value))",
+      "fields": {
+        "clientip": {
+          "type": "ip"
+        },
+        "verb": {
+          "type": "keyword"
+        },
+        "response": {
+          "type": "long"
         }
       }
     }

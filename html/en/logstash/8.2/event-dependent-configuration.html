@@ -57,7 +57,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -88,40 +88,29 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
-You are looking at preliminary documentation for a future release.
-Not what you want? See the
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
 <a href="../current/index.html">current release documentation</a>.
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Logstash Reference [8.2]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Logstash Reference [8.2]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="configuration.html">Configuring Logstash</a></span>
-»
-<span class="breadcrumb-node">Accessing event data and fields in the configuration</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -133,7 +122,7 @@ Not what you want? See the
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="event-dependent-configuration"></a>Accessing event data and fields in the configuration<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/logstash/edit/8.2/docs/static/configuration.asciidoc">edit</a></h2>
+<h2 class="title"><a id="event-dependent-configuration"></a>Accessing event data and fields in the configuration<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/logstash/edit/8.2/docs/static/event-data.asciidoc">edit</a></h2>
 </div></div></div>
 <p>The logstash agent is a processing pipeline with 3 stages: inputs &#8594; filters &#8594;
 outputs. Inputs generate events, filters modify them, outputs ship them
@@ -153,7 +142,7 @@ options will only work within filter and output blocks.</p>
 do not work in an input block.</p>
 </div>
 </div>
-<h4><a id="logstash-config-field-references"></a>Field references<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/logstash/edit/8.2/docs/static/configuration.asciidoc">edit</a></h4>
+<h4><a id="logstash-config-field-references"></a>Field references<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/logstash/edit/8.2/docs/static/event-data.asciidoc">edit</a></h4>
 <p>It is often useful to be able to refer to a field by name. To do this,
 you can use the Logstash <a class="xref" href="field-references-deepdive.html" title="Field References Deep Dive">field reference syntax</a>.</p>
 <p>The basic syntax to access a field is <code class="literal">[fieldname]</code>. If you are referring to a
@@ -179,7 +168,7 @@ ua) and three nested fields (status, bytes, os).</p>
 <p>To reference the <code class="literal">os</code> field, you specify <code class="literal">[ua][os]</code>. To reference a top-level
 field such as <code class="literal">request</code>, you can simply specify the field name.</p>
 <p>For more detailed information, see <a class="xref" href="field-references-deepdive.html" title="Field References Deep Dive"><em>Field References Deep Dive</em></a>.</p>
-<h4><a id="sprintf"></a>sprintf format<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/logstash/edit/8.2/docs/static/configuration.asciidoc">edit</a></h4>
+<h4><a id="sprintf"></a>sprintf format<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/logstash/edit/8.2/docs/static/event-data.asciidoc">edit</a></h4>
 <p>The field reference format is also used in what Logstash calls <em>sprintf format</em>. This format
 enables you to refer to field values from within other strings. For example, the
 statsd output has an <em>increment</em> setting that enables you to keep a count of
@@ -214,7 +203,7 @@ apache logs by status code:</p>
 <p>A Logstash timestamp represents an instant on the UTC-timeline, so using sprintf formatters will produce results that may not align with your machine-local timezone.</p>
 </div>
 </div>
-<h4><a id="conditionals"></a>Conditionals<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/logstash/edit/8.2/docs/static/configuration.asciidoc">edit</a></h4>
+<h4><a id="conditionals"></a>Conditionals<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/logstash/edit/8.2/docs/static/event-data.asciidoc">edit</a></h4>
 <p>Sometimes you want to filter or output an event only under
 certain conditions. For that, you can use a conditional.</p>
 <p>Conditionals in Logstash look and act the same way they do in programming
@@ -342,7 +331,7 @@ A workaround using the <code class="literal">@metadata</code> field is available
 See <a class="xref" href="event-dependent-configuration.html#date-time" title="sprintf date/time format in conditionals">sprintf date/time format in conditionals</a> for more details and an example.</p>
 </div>
 </div>
-<h4><a id="metadata"></a>The @metadata field<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/logstash/edit/8.2/docs/static/configuration.asciidoc">edit</a></h4>
+<h4><a id="metadata"></a>The @metadata field<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/logstash/edit/8.2/docs/static/event-data.asciidoc">edit</a></h4>
 <p>In Logstash, there is a special field called <code class="literal">@metadata</code>.  The contents
 of <code class="literal">@metadata</code> are not part of any of your events at output time, which
 makes it great to use for conditionals, or extending and building event fields
@@ -465,7 +454,7 @@ this:</p>
   }
 }</pre>
 </div>
-<h5><a id="date-time"></a>sprintf date/time format in conditionals<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/logstash/edit/8.2/docs/static/configuration.asciidoc">edit</a></h5>
+<h5><a id="date-time"></a>sprintf date/time format in conditionals<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/logstash/edit/8.2/docs/static/event-data.asciidoc">edit</a></h5>
 <p>Sprintf date/time format in conditionals is not currently supported, but a workaround is available.
 Put the date calculation in a field so that you can use the field reference in a conditional.</p>
 <p><span class="strong strong"><strong>Example</strong></span></p>
@@ -510,15 +499,37 @@ filter{
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

@@ -14,11 +14,9 @@
 <body>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Beats Developer Guide [master]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Beats Developer Guide [master]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="metricbeat-developer-guide.html">Extending Metricbeat</a></span>
-»
-<span class="breadcrumb-node">Creating a Metricset</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -107,7 +105,7 @@ contains the following files:</p>
 <pre class="programlisting prettyprint lang-go">package {metricset}
 
 import (
-	"github.com/elastic/beats/v7/libbeat/common"
+    "github.com/elastic/elastic-agent-libs/mapstr"
 	"github.com/elastic/beats/v7/libbeat/common/cfgwarn"
 	"github.com/elastic/beats/v7/metricbeat/mb"
 )
@@ -150,7 +148,7 @@ func New(base mb.BaseMetricSet) (mb.MetricSet, error) {
 // of an error set the Error field of mb.Event or simply call report.Error().
 func (m *MetricSet) Fetch(report mb.ReporterV2) error {
 	report.Event(mb.Event{
-		MetricSetFields: common.MapStr{
+		MetricSetFields: mapstr.M{
 			"counter": m.counter,
 		},
 	})

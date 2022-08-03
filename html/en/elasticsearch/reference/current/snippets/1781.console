@@ -1,8 +1,4 @@
-PUT /_autoscaling/policy/my_autoscaling_policy
+PUT _settings
 {
-  "roles" : [ "data_hot" ],
-  "deciders": {
-    "fixed": {
-    }
-  }
+  "index.number_of_replicas": 1
 }

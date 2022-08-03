@@ -1,1 +1,1 @@
-GET /_cluster/state?filter_path=routing_table.indices.**.state
+GET _nodes/stats?filter_path=nodes.*.jvm.mem.pools.old

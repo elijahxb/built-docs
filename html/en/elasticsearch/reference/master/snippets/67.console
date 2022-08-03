@@ -1,6 +1,4 @@
-PUT _cluster/settings
+PUT index_4/_settings
 {
-  "persistent": {
-    "archived.*": null
-  }
+  "index.priority": 1
 }

@@ -1,4 +1,15 @@
-GET _ml/anomaly_detectors/high_sum_total_sales/model_snapshots
+POST /my-index-000001/_close
+
+PUT /my-index-000001/_settings
 {
-  "start": "1575402236000"
+  "analysis" : {
+    "analyzer":{
+      "content":{
+        "type":"custom",
+        "tokenizer":"whitespace"
+      }
+    }
+  }
 }
+
+POST /my-index-000001/_open

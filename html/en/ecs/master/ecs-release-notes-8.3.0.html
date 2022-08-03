@@ -6,8 +6,8 @@
 <title>8.3.0 | Elastic Common Schema (ECS) Reference [master] | Elastic</title>
 <link rel="home" href="index.html" title="Elastic Common Schema (ECS) Reference [master]"/>
 <link rel="up" href="ecs-release-notes.html" title="Release Notes"/>
-<link rel="prev" href="ecs-release-notes.html" title="Release Notes"/>
-<link rel="next" href="ecs-release-notes-8.2.0.html" title="8.2.0"/>
+<link rel="prev" href="ecs-release-notes-8.3.1.html" title="8.3.1"/>
+<link rel="next" href="ecs-release-notes-8.2.1.html" title="8.2.1"/>
 <meta name="DC.type" content="Learn/Docs/Elastic Common Schema (ECS)/Reference/master"/>
 <meta name="DC.subject" content="Elastic Common Schema (ECS)"/>
 <meta name="DC.identifier" content="master"/>
@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,27 +87,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 You are looking at preliminary documentation for a future release.
@@ -116,52 +107,98 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elastic Common Schema (ECS) Reference [master]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Common Schema (ECS) Reference [master]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="ecs-release-notes.html">Release Notes</a></span>
-»
-<span class="breadcrumb-node">8.3.0</span>
 </div>
 <div class="navheader">
 <span class="prev">
-<a href="ecs-release-notes.html">« Release Notes</a>
+<a href="ecs-release-notes-8.3.1.html">« 8.3.1</a>
 </span>
 <span class="next">
-<a href="ecs-release-notes-8.2.0.html">8.2.0 »</a>
+<a href="ecs-release-notes-8.2.1.html">8.2.1 »</a>
 </span>
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
 <h2 class="title"><a id="ecs-release-notes-8.3.0"></a>8.3.0<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/ecs/edit/main/docs/release-notes/8.3.asciidoc">edit</a></h2>
 </div></div></div>
-<div class="note admon">
-<div class="icon"></div>
-<div class="admon_content">
-<p>Coming in 8.3.0.</p>
+<h4><a id="schema-changes-8.3.0"></a>Schema changes<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/ecs/edit/main/docs/release-notes/8.3.asciidoc">edit</a></h4>
+<h5><a id="schema-added-8.3.0"></a>Added<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/ecs/edit/main/docs/release-notes/8.3.asciidoc">edit</a></h5>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Added <code class="literal">pattern</code> attribute to <code class="literal">.mac</code> fields. <a href="https://github.com/elastic/ecs/pull/1871" class="ulink" target="_top">#1871</a>
+</li>
+<li class="listitem">
+Add <code class="literal">orchestrator.cluster.id</code>. <a href="https://github.com/elastic/ecs/pull/1875" class="ulink" target="_top">#1875</a>
+</li>
+<li class="listitem">
+Add <code class="literal">orchestrator.resource.id</code>. <a href="https://github.com/elastic/ecs/pull/1878" class="ulink" target="_top">#1878</a>
+</li>
+<li class="listitem">
+Add <code class="literal">orchestrator.resource.parent.type</code>. <a href="https://github.com/elastic/ecs/pull/1889" class="ulink" target="_top">#1889</a>
+</li>
+<li class="listitem">
+Add <code class="literal">orchestrator.resource.ip</code>. <a href="https://github.com/elastic/ecs/pull/1889" class="ulink" target="_top">#1889</a>
+</li>
+<li class="listitem">
+Add <code class="literal">container.image.hash.all</code>. <a href="https://github.com/elastic/ecs/pull/1889" class="ulink" target="_top">#1889</a>
+</li>
+<li class="listitem">
+Add <code class="literal">service.node.role</code>. <a href="https://github.com/elastic/ecs/pull/1916" class="ulink" target="_top">#1916</a>
+</li>
+<li class="listitem">
+Advanced <code class="literal">container.*</code> metric fields to GA. <a href="https://github.com/elastic/ecs/pull/1927" class="ulink" target="_top">#1927</a>
+</li>
+</ul>
 </div>
-</div>
+<h5><a id="schema-important-8.3.0"></a>Important<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/ecs/edit/main/docs/release-notes/8.3.asciidoc">edit</a></h5>
+<p>After adding <code class="literal">service.node.role</code>, it was realized that we intend for this field to have multiple values, and therefore we will be removing <code class="literal">role</code> and replacing with <code class="literal">roles</code> at the earliest opportunity. Please do not use <code class="literal">service.node.role</code>.</p>
 </div>
 <div class="navfooter">
 <span class="prev">
-<a href="ecs-release-notes.html">« Release Notes</a>
+<a href="ecs-release-notes-8.3.1.html">« 8.3.1</a>
 </span>
 <span class="next">
-<a href="ecs-release-notes-8.2.0.html">8.2.0 »</a>
+<a href="ecs-release-notes-8.2.1.html">8.2.1 »</a>
 </span>
 </div>
 </div>
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

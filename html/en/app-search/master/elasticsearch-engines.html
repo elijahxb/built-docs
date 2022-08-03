@@ -3,7 +3,7 @@
   <head>
     
 <meta charset="UTF-8">
-<title>Elasticsearch index engines (technical preview) | Elastic App Search Documentation [master] | Elastic</title>
+<title>Elasticsearch index engines (beta) | Elastic App Search Documentation [master] | Elastic</title>
 <link rel="home" href="index.html" title="Elastic App Search Documentation [master]"/>
 <link rel="up" href="guides.html" title="Guides"/>
 <link rel="prev" href="elasticsearch-search-guide.html" title="Elasticsearch search for App Search Guide"/>
@@ -57,7 +57,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -88,27 +88,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 You are looking at preliminary documentation for a future release.
@@ -117,11 +108,9 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elastic App Search Documentation [master]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic App Search Documentation [master]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="guides.html">Guides</a></span>
-»
-<span class="breadcrumb-node">Elasticsearch index engines (technical preview)</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -133,13 +122,13 @@ Not what you want? See the
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="elasticsearch-engines"></a>Elasticsearch index engines (technical preview)<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/enterprise-search-pubs/edit/main/app-search-docs/guides/elasticsearch-engines.asciidoc">edit</a></h2>
+<h2 class="title"><a id="elasticsearch-engines"></a>Elasticsearch index engines (beta)<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/enterprise-search-pubs/edit/main/app-search-docs/guides/elasticsearch-engines.asciidoc">edit</a></h2>
 </div></div></div>
 <div class="caution admon">
 <div class="icon"></div>
 <div class="admon_content">
-<p>Elasticsearch index engines is a <span class="strong strong"><strong>technical preview</strong></span> feature.
-Technical preview features are subject to change and are not covered by the support SLA of general release (GA) features.
+<p>Elasticsearch index engines is a <span class="strong strong"><strong>beta</strong></span> feature.
+Beta features are subject to change and are not covered by the support SLA of general release (GA) features.
 Elastic plans to promote this feature to GA in a future release.</p>
 </div>
 </div>
@@ -155,6 +144,9 @@ With these engines you can use Enterprise Search features on data that has alrea
 </li>
 <li class="listitem">
 <a class="xref" href="elasticsearch-engines-create.html" title="Create Elasticsearch index engines">Create Elasticsearch index engines</a>
+</li>
+<li class="listitem">
+<a class="xref" href="elasticsearch-engines-text-subfields-support-conventions.html" title="Elasticsearch engines text field conventions">Elasticsearch engines text field conventions</a>
 </li>
 </ol>
 </div>
@@ -172,9 +164,9 @@ With these engines you can use Enterprise Search features on data that has alrea
 </colgroup>
 <tbody>
 <tr>
-<td align="left" valign="top"><p>Feature</p></td>
-<td align="left" valign="top"><p>Engine</p></td>
-<td align="left" valign="top"><p>Elasticsearch Index Engine</p></td>
+<td align="left" valign="top"><p><span class="strong strong"><strong>Feature</strong></span></p></td>
+<td align="left" valign="top"><p><span class="strong strong"><strong>Engine</strong></span></p></td>
+<td align="left" valign="top"><p><span class="strong strong"><strong>Elasticsearch Index Engine</strong></span></p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p><a class="xref" href="documents.html" title="Documents API">Documents API</a></p></td>
@@ -189,12 +181,12 @@ With these engines you can use Enterprise Search features on data that has alrea
 <tr>
 <td align="left" valign="top"><p><a class="xref" href="search-api-precision.html" title="Search API precision (beta)">Search API precision (beta)</a>, <a class="xref" href="precision-tuning.html" title="Precision tuning (beta)">Precision tuning (beta)</a></p></td>
 <td align="left" valign="top"><p>Supported</p></td>
-<td align="left" valign="top"><p>Unsupported</p></td>
+<td align="left" valign="top"><p>Supported for specific fields, see <a class="xref" href="elasticsearch-engines-text-subfields-support-conventions.html" title="Elasticsearch engines text field conventions">Elasticsearch engines text field conventions</a></p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p>Usable as a source engine in <a class="xref" href="meta-engines.html" title="Source engines API">meta engines</a></p></td>
 <td align="left" valign="top"><p>Supported</p></td>
-<td align="left" valign="top"><p>Unsupported</p></td>
+<td align="left" valign="top"><p>Supported</p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p><a class="xref" href="synonyms.html" title="Synonyms API">Synonyms</a></p></td>
@@ -248,8 +240,8 @@ Unsupported field types will be ignored by Enterprise Search, and cannot be used
 </colgroup>
 <tbody>
 <tr>
-<td align="left" valign="top"><p>Elasticsearch field type</p></td>
-<td align="left" valign="top"><p>Corresponding Enterprise Search field type</p></td>
+<td align="left" valign="top"><p><span class="strong strong"><strong>Elasticsearch field type</strong></span></p></td>
+<td align="left" valign="top"><p><span class="strong strong"><strong>Corresponding Enterprise Search field type</strong></span></p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p>keyword</p></td>
@@ -322,6 +314,7 @@ Unsupported field types will be ignored by Enterprise Search, and cannot be used
 <p>Unlike the <code class="literal">text</code> field type in Enterprise Search, not all Elasticsearch text fields above have the same features as Enterprise Search text fields:
 <code class="literal">keyword</code>, <code class="literal">constant_keyword</code>, <code class="literal">wildcard</code> can be filtered, sorted, grouped and faceted. <code class="literal">text</code> fields cannot.
 Having a subfield for <code class="literal">text</code> fields will provide those capabilities to the field.</p>
+<p>This feature does not support the following Elasticsearch field types: <a href="/guide/en/elasticsearch/reference/master/nested.html" class="ulink" target="_blank" rel="noopener">nested field type</a>,  <a href="/guide/en/elasticsearch/reference/master/object.html" class="ulink" target="_blank" rel="noopener">object field type</a>.</p>
 </div>
 
 </div>
@@ -337,15 +330,37 @@ Having a subfield for <code class="literal">text</code> fields will provide thos
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

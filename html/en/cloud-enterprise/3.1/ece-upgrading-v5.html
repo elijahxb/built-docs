@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,38 +87,29 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
-                  
+                  <div class="page_header">
+A newer version is available. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elastic Cloud Enterprise Reference [3.1]</a></span>
-»
-<span class="breadcrumb-link"><a href="ece-administering-deployments.html">Administering deployments</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Cloud Enterprise Reference [3.1]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="ece-administering-deployments.html">Administering deployments</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="ece-upgrade-deployment.html">Upgrade versions</a></span>
-»
-<span class="breadcrumb-node">Upgrade to Elasticsearch 5.x</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -141,12 +132,12 @@
 <p>Elasticsearch 5.x provides major new features and improved usability, but there are a few things you need to keep in mind when upgrading to our latest and greatest software in Elastic Cloud Enterprise.</p>
 <h4><a id="ece_breaking_changes_in_elasticsearch_5_x"></a>Breaking changes in Elasticsearch 5.x<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-70/docs/shared/ec-ce-upgrading-v5.asciidoc">edit</a></h4>
 <p>A number of Elasticsearch queries were deprecated in version 2.0 or later and removed in version 5.x. Applications running deprecated queries might break after upgrading to 5.x.</p>
-<p>Starting in Elasticsearch 2.3, a <a href="/guide/en/elasticsearch/reference/8.1/logging.html#deprecation-logging" class="ulink" target="_top">deprecation log</a> became available that can help you determine if your applications are affected. Before you upgrade, check this deprecation log. If you are using deprecated queries, you will need to update your applications.</p>
+<p>Starting in Elasticsearch 2.3, a <a href="/guide/en/elasticsearch/reference/8.3/logging.html#deprecation-logging" class="ulink" target="_top">deprecation log</a> became available that can help you determine if your applications are affected. Before you upgrade, check this deprecation log. If you are using deprecated queries, you will need to update your applications.</p>
 <p>A number of other items were changed or removed in Elasticsearch 5.0 and later. For more information, check <a href="/guide/en/elasticsearch/reference/5.6/breaking-changes-5.6.html" class="ulink" target="_top">Breaking changes in 5.6</a>.</p>
 <h4><a id="ece-shield-migration-v5"></a>Migrating Shield configurations<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-70/docs/shared/ec-ce-upgrading-v5.asciidoc">edit</a></h4>
 <p>In Elasticsearch 5.0 and later, the security features required to keep your Elastic Cloud Enterprise clusters safe became part of <a href="/guide/en/x-pack/6.2/xpack-introduction.html" class="ulink" target="_top">X-Pack</a>.</p>
 <p>With the move to X-Pack, the biggest changes to security features for the Elastic Stack include the names of the security configuration options, TLS/SSL configuration, and how roles are defined. A few privileges have also been removed.</p>
-<p>When you upgrade an Elasticsearch cluster on Elastic Cloud Enterprise to version 5.x, the upgrade process to the new X-Pack security features is handled for you. As part of the upgrade process, all users, roles, and user-role mappings that exist in your Shield configuration are upgraded to use the new X-Pack security features. In addition, two users are always created on version 5.x clusters, the <code class="literal">elastic</code> superuser and the <code class="literal">anonymous</code> user. Note that in Elasticsearch versions 7.10 and higher the <code class="literal">anonymous</code> user is disabled by default. Check <a href="/guide/en/elasticsearch/reference/8.1/anonymous-access.html" class="ulink" target="_top">Enabling anonymous access</a> to enable it.</p>
+<p>When you upgrade an Elasticsearch cluster on Elastic Cloud Enterprise to version 5.x, the upgrade process to the new X-Pack security features is handled for you. As part of the upgrade process, all users, roles, and user-role mappings that exist in your Shield configuration are upgraded to use the new X-Pack security features. In addition, two users are always created on version 5.x clusters, the <code class="literal">elastic</code> superuser and the <code class="literal">anonymous</code> user. Note that in Elasticsearch versions 7.10 and higher the <code class="literal">anonymous</code> user is disabled by default. Check <a href="/guide/en/elasticsearch/reference/8.3/anonymous-access.html" class="ulink" target="_top">Enabling anonymous access</a> to enable it.</p>
 <p>If your cluster never had an active Shield configuration, or if you are not provided the password during the upgrade process, you might need to
 <a class="xref" href="ece-password-reset-elastic.html" title="Reset the password for the elastic user">reset the password for the <code class="literal">elastic</code> user</a>
 after upgrading to Elasticsearch 5.x. Users and applications will need to authenticate to be able to connect to your cluster.</p>
@@ -300,15 +291,37 @@ MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

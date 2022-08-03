@@ -1,6 +1,6 @@
-PUT /_cluster/settings?flat_settings=true
+PUT /my-index-000001/_settings
 {
-  "transient" : {
-    "indices.recovery.max_bytes_per_sec" : "20mb"
+  "index" : {
+    "number_of_replicas" : 1
   }
 }

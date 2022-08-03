@@ -57,7 +57,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -88,38 +88,26 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Add-On for Heroku Documentation</a></span>
-»
-<span class="breadcrumb-link"><a href="ech-configure.html">Configuring your deployment</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Add-On for Heroku Documentation</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="ech-configure.html">Configuring your deployment</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="ech-editing-user-settings.html">Edit your user settings</a></span>
-»
-<span class="breadcrumb-node">Edit Kibana user settings</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -131,13 +119,13 @@
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="ech-manage-kibana-settings"></a>Edit Kibana user settings<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-71/docs/saas/ec-editing-user-settings.asciidoc">edit</a></h2>
+<h2 class="title"><a id="ech-manage-kibana-settings"></a>Edit Kibana user settings<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-77/docs/saas/ec-editing-user-settings.asciidoc">edit</a></h2>
 </div></div></div>
 <p>Elasticsearch Add-On for Heroku supports most of the standard Kibana and X-Pack settings. Through a YAML editor in the console, you can append Kibana properties to the <code class="literal">kibana.yml</code> file. Your changes to the configuration file are read on startup.</p>
 <div class="important admon">
 <div class="icon"></div>
 <div class="admon_content">
-<p>Be aware that some settings that could break your cluster if set incorrectly and that the syntax might change between major versions. Before upgrading, be sure to review the full list of the <a href="/guide/en/kibana/8.1/settings.html" class="ulink" target="_top">latest Kibana settings and syntax</a>.</p>
+<p>Be aware that some settings that could break your cluster if set incorrectly and that the syntax might change between major versions. Before upgrading, be sure to review the full list of the <a href="/guide/en/kibana/8.3/settings.html" class="ulink" target="_top">latest Kibana settings and syntax</a>.</p>
 </div>
 </div>
 <p>To change Kibana settings:</p>
@@ -171,7 +159,7 @@ Select <span class="strong strong"><strong>Save changes</strong></span>.
 <p>If a setting is not supported by Elasticsearch Add-On for Heroku, you will get an error message when you try to save.</p>
 </div>
 </div>
-<h4><a id="ech-kibana-config"></a>Supported Kibana settings<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-71/docs/saas/ec-editing-user-settings.asciidoc">edit</a></h4>
+<h4><a id="ech-kibana-config"></a>Supported Kibana settings<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-77/docs/saas/ec-editing-user-settings.asciidoc">edit</a></h4>
 <p><span class="strong strong"><strong>For version 7.15.0 and later</strong></span>, the following settings are supported:</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -181,7 +169,7 @@ Select <span class="strong strong"><strong>Save changes</strong></span>.
 </span>
 </dt>
 <dd>
-Defines the maximum payload size for indexing batches of saved objects during upgrade migrations. To learn more, check <a href="/guide/en/kibana/8.1/settings.html" class="ulink" target="_top">Configure Kibana</a>.
+Defines the maximum payload size for indexing batches of saved objects during upgrade migrations. To learn more, check <a href="/guide/en/kibana/8.3/settings.html" class="ulink" target="_top">Configure Kibana</a>.
 </dd>
 </dl>
 </div>
@@ -195,7 +183,7 @@ Defines the maximum payload size for indexing batches of saved objects during up
 </dt>
 <dd>
 The maximum payload size in bytes for incoming server requests. Default: 1048576. To learn more, check
-<a href="/guide/en/kibana/8.1/settings.html#server-maxPayload" class="ulink" target="_top">Configure Kibana</a>.
+<a href="/guide/en/kibana/8.3/settings.html#server-maxPayload" class="ulink" target="_top">Configure Kibana</a>.
 </dd>
 <dt>
 <span class="term">
@@ -206,7 +194,7 @@ The maximum payload size in bytes for incoming server requests. Default: 1048576
 Controls whether the
 <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security" class="ulink" target="_top"><code class="literal">Strict-Transport-Security</code></a> header is used in all
 responses to the client from the Kibana server. To learn more, check
-<a href="/guide/en/kibana/8.1/settings.html#server-securityResponseHeaders-strictTransportSecurity" class="ulink" target="_top">Configure Kibana</a>.
+<a href="/guide/en/kibana/8.3/settings.html#server-securityResponseHeaders-strictTransportSecurity" class="ulink" target="_top">Configure Kibana</a>.
 </dd>
 <dt>
 <span class="term">
@@ -217,7 +205,7 @@ responses to the client from the Kibana server. To learn more, check
 Controls whether the
 <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options" class="ulink" target="_top"><code class="literal">X-Content-Type-Options</code></a> header is used in all responses
 to the client from the Kibana server. To learn more, check
-<a href="/guide/en/kibana/8.1/settings.html#server-securityResponseHeaders-xContentTypeOptions" class="ulink" target="_top">Configure Kibana</a>.
+<a href="/guide/en/kibana/8.3/settings.html#server-securityResponseHeaders-xContentTypeOptions" class="ulink" target="_top">Configure Kibana</a>.
 </dd>
 <dt>
 <span class="term">
@@ -228,7 +216,7 @@ to the client from the Kibana server. To learn more, check
 Controls whether the
 <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy" class="ulink" target="_top"><code class="literal">Referrer-Policy</code></a> header is used in all responses to the client
 from the Kibana server. To learn more, see
-<a href="/guide/en/kibana/8.1/settings.html#server-securityResponseHeaders-referrerPolicy" class="ulink" target="_top">Configure Kibana</a>.
+<a href="/guide/en/kibana/8.3/settings.html#server-securityResponseHeaders-referrerPolicy" class="ulink" target="_top">Configure Kibana</a>.
 </dd>
 <dt>
 <span class="term">
@@ -238,7 +226,7 @@ from the Kibana server. To learn more, see
 <dd>
 Controls whether the <code class="literal">Permissions-Policy</code> header is used in all responses to the
 client from the Kibana server. To learn more, see
-<a href="/guide/en/kibana/8.1/settings.html#server-securityResponseHeaders-permissionsPolicy" class="ulink" target="_top">Configure Kibana</a>.
+<a href="/guide/en/kibana/8.3/settings.html#server-securityResponseHeaders-permissionsPolicy" class="ulink" target="_top">Configure Kibana</a>.
 </dd>
 <dt>
 <span class="term">
@@ -250,21 +238,7 @@ Controls whether the
 <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy" class="ulink" target="_top"><code class="literal">Content-Security-Policy</code></a> and
 <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options" class="ulink" target="_top"><code class="literal">X-Frame-Options</code></a> headers are configured to disable embedding
 Kibana in other webpages using iframes. To learn more, see
-<a href="/guide/en/kibana/8.1/settings.html#server-securityResponseHeaders-disableEmbedding" class="ulink" target="_top">Configure Kibana</a>.
-</dd>
-</dl>
-</div>
-<p><span class="strong strong"><strong>For version 7.11.0 and later</strong></span>, the following settings are supported:</p>
-<div class="variablelist">
-<dl class="variablelist">
-<dt>
-<span class="term">
-<code class="literal">server.publicBaseUrl</code>
-</span>
-</dt>
-<dd>
-Specifies the publicly available URL that end-users access Kibana at. Should be set when using a reverse proxy for a custom URL.
-To learn more, check <a href="/guide/en/kibana/8.1/settings.html" class="ulink" target="_top">Configure Kibana</a>.
+<a href="/guide/en/kibana/8.3/settings.html#server-securityResponseHeaders-disableEmbedding" class="ulink" target="_top">Configure Kibana</a>.
 </dd>
 </dl>
 </div>
@@ -278,7 +252,7 @@ To learn more, check <a href="/guide/en/kibana/8.1/settings.html" class="ulink" 
 </dt>
 <dd>
 Specifies the time in milliseconds to wait for autocomplete suggestions from Elasticsearch. The default is 1000. Allowed values are between 1 and 1200000.
-To learn more, check <a href="/guide/en/kibana/8.1/settings.html" class="ulink" target="_top">Configure Kibana</a>. In stack version 7.14.0 or above, use <code class="literal">data.autocomplete.valueSuggestions.timeout</code> instead.
+To learn more, check <a href="/guide/en/kibana/8.3/settings.html" class="ulink" target="_top">Configure Kibana</a>. In stack version 7.14.0 or above, use <code class="literal">data.autocomplete.valueSuggestions.timeout</code> instead.
 </dd>
 <dt>
 <span class="term">
@@ -287,7 +261,7 @@ To learn more, check <a href="/guide/en/kibana/8.1/settings.html" class="ulink" 
 </dt>
 <dd>
 Specifies the max number of documents loaded by each shard to generate autocomplete suggestions. The default is 100000. Allowed values are between 1 and 10000000.
-To learn more, check <a href="/guide/en/kibana/8.1/settings.html" class="ulink" target="_top">Configure Kibana</a>. In stack version 7.14.0 or above, use <code class="literal">data.autocomplete.valueSuggestions.terminateAfter</code> instead.
+To learn more, check <a href="/guide/en/kibana/8.3/settings.html" class="ulink" target="_top">Configure Kibana</a>. In stack version 7.14.0 or above, use <code class="literal">data.autocomplete.valueSuggestions.terminateAfter</code> instead.
 </dd>
 </dl>
 </div>
@@ -301,7 +275,7 @@ To learn more, check <a href="/guide/en/kibana/8.1/settings.html" class="ulink" 
 </dt>
 <dd>
 Specifies the time in milliseconds to wait for autocomplete suggestions from Elasticsearch. The default is 1000. Allowed values are between 1 and 1200000.
-To learn more, check <a href="/guide/en/kibana/8.1/settings.html" class="ulink" target="_top">Configure Kibana</a>.
+To learn more, check <a href="/guide/en/kibana/8.3/settings.html" class="ulink" target="_top">Configure Kibana</a>.
 </dd>
 <dt>
 <span class="term">
@@ -310,7 +284,7 @@ To learn more, check <a href="/guide/en/kibana/8.1/settings.html" class="ulink" 
 </dt>
 <dd>
 Specifies the max number of documents loaded by each shard to generate autocomplete suggestions. The default is 100000. Allowed values are between 1 and 10000000.
-To learn more, check <a href="/guide/en/kibana/8.1/settings.html" class="ulink" target="_top">Configure Kibana</a>.
+To learn more, check <a href="/guide/en/kibana/8.3/settings.html" class="ulink" target="_top">Configure Kibana</a>.
 </dd>
 </dl>
 </div>
@@ -352,7 +326,7 @@ Specifies the locale for all strings, dates, and number formats that can be loca
 </span>
 </dt>
 <dd>
-Defines the number of documents migrated at a time during saved object upgrade migrations. To learn more, check <a href="/guide/en/kibana/8.1/settings.html" class="ulink" target="_top">Configure Kibana</a>.
+Defines the number of documents migrated at a time during saved object upgrade migrations. To learn more, check <a href="/guide/en/kibana/8.3/settings.html" class="ulink" target="_top">Configure Kibana</a>.
 </dd>
 </dl>
 </div>
@@ -758,7 +732,7 @@ The port number that connects your users to the proxy server (for example, 80 fo
 </dd>
 </dl>
 </div>
-<p>To learn more, check <a href="/guide/en/elasticsearch/reference/8.1/saml-kibana.html" class="ulink" target="_top">configuring Kibana to use SAML</a>.</p>
+<p>To learn more, check <a href="/guide/en/elasticsearch/reference/8.3/saml-kibana.html" class="ulink" target="_top">configuring Kibana to use SAML</a>.</p>
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -813,7 +787,7 @@ Specifies which OpenID Connect realm in Elasticsearch should be used.
 </dd>
 </dl>
 </div>
-<p>To learn more, check <a href="/guide/en/elasticsearch/reference/8.1/oidc-kibana.html" class="ulink" target="_top">configuring Kibana to use OpenID Connect</a>.</p>
+<p>To learn more, check <a href="/guide/en/elasticsearch/reference/8.3/oidc-kibana.html" class="ulink" target="_top">configuring Kibana to use OpenID Connect</a>.</p>
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -822,7 +796,7 @@ Anonymous authentication
 </span>
 </dt>
 <dd>
-If you want to allow anonymous authentication in Kibana, these settings are supported in Elasticsearch Add-On for Heroku. To learn more on how to enable anonymous access, check <a href="/guide/en/elasticsearch/reference/8.1/anonymous-access.html" class="ulink" target="_top">Enabling anonymous access</a>
+If you want to allow anonymous authentication in Kibana, these settings are supported in Elasticsearch Add-On for Heroku. To learn more on how to enable anonymous access, check <a href="/guide/en/elasticsearch/reference/8.3/anonymous-access.html" class="ulink" target="_top">Enabling anonymous access</a>
 </dd>
 <dt>
 <span class="term">
@@ -855,7 +829,7 @@ Specifies which credentials Kibana should use for anonymous users.
 </dd>
 </dl>
 </div>
-<p>To learn more, check <a href="/guide/en/kibana/8.1/kibana-authentication.html#anonymous-authentication" class="ulink" target="_top">configuring Kibana to use anonymous authentication</a>.</p>
+<p>To learn more, check <a href="/guide/en/kibana/8.3/kibana-authentication.html#anonymous-authentication" class="ulink" target="_top">configuring Kibana to use anonymous authentication</a>.</p>
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -865,11 +839,11 @@ Specifies which credentials Kibana should use for anonymous users.
 </dt>
 <dd>
 Specifies the session duration in milliseconds. Allows a value between 15000 (15 seconds) and 86400000 (1 day).
-To learn more, check <a href="/guide/en/kibana/8.1/security-settings-kb.html" class="ulink" target="_top">Security settings in Kibana</a>. Deprecated in versions 7.6+ and removed in versions 8.0+.
+To learn more, check <a href="/guide/en/kibana/8.3/security-settings-kb.html" class="ulink" target="_top">Security settings in Kibana</a>. Deprecated in versions 7.6+ and removed in versions 8.0+.
 </dd>
 </dl>
 </div>
-<h4><a id="ech-xpack-config"></a>X-Pack configuration settings<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-71/docs/saas/ec-editing-user-settings.asciidoc">edit</a></h4>
+<h4><a id="ech-xpack-config"></a>X-Pack configuration settings<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-77/docs/saas/ec-editing-user-settings.asciidoc">edit</a></h4>
 <p>You can configure the following X-Pack settings from the Kibana <span class="strong strong"><strong>User Settings</strong></span> editor.</p>
 
 <p><span class="strong strong"><strong>For version 7.12.1 and later:</strong></span></p>
@@ -894,6 +868,19 @@ Specifies the time allowed for requests to external resources. Requests that tak
 </dl>
 </div>
 
+<p><span class="strong strong"><strong>For versions from 6.8.11 to 7.0.0 and 7.8.1 and later:</strong></span></p>
+<div class="variablelist">
+<dl class="variablelist">
+<dt>
+<span class="term">
+<code class="literal">xpack.security.sameSiteCookies</code>
+</span>
+</dt>
+<dd>
+Sets the <code class="literal">SameSite</code> attribute of <code class="literal">Set-Cookie</code> HTTP header. It allows you to declare whether your cookie should be restricted to a first-party or same-site context. <span class="strong strong"><strong>Not set</strong></span> by default, which makes modern browsers treat it as <code class="literal">Lax</code>. If you use Kibana embedded in an iframe in modern browsers, you might need to set it to <code class="literal">None</code>. Note that <code class="literal">None</code> usage requires secure context: <code class="literal">xpack.security.secureCookies: true</code>. Some old versions of IE11 do not support <code class="literal">SameSite: None</code>, so you should not specify <code class="literal">xpack.security.sameSiteCookies</code> at all.
+</dd>
+</dl>
+</div>
 <p><span class="strong strong"><strong>For version 7.7 and later:</strong></span></p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -921,6 +908,14 @@ Specify how often, in milliseconds, a Kibana should check for more tasks. Defaul
 <dd>
 Specify the name of the index that the task_manager will use. Cannot be set to <code class="literal">.tasks</code> as that is already in use by the Elasticsearch Task Manager. Default: <code class="literal">.kibana_task_manager</code>.
 </dd>
+<dt>
+<span class="term">
+<code class="literal">xpack.eventLog.logEntries</code>
+</span>
+</dt>
+<dd>
+Set to <code class="literal">true</code> to enable logging event log documents from alerting to the Kibana log, in addition to being indexed into the event log index. Default: <code class="literal">false</code>.
+</dd>
 </dl>
 </div>
 <p><span class="strong strong"><strong>For version 7.6 and later:</strong></span></p>
@@ -933,7 +928,7 @@ Specify the name of the index that the task_manager will use. Cannot be set to <
 </dt>
 <dd>
 Set the session duration. The format is a string of <code class="literal">count</code> and <code class="literal">unit</code>, where unit is one of <code class="literal">ms</code>,<code class="literal">s</code>,<code class="literal">m</code>,<code class="literal">h</code>,<code class="literal">d</code>,<code class="literal">w</code>,<code class="literal">M</code>,<code class="literal">Y</code>. For example, <code class="literal">70ms</code>, <code class="literal">5s</code>, <code class="literal">3d</code>, <code class="literal">1Y</code>.
-To learn more, check <a href="/guide/en/kibana/8.1/security-settings-kb.html" class="ulink" target="_top">Security settings in Kibana</a>.
+To learn more, check <a href="/guide/en/kibana/8.3/security-settings-kb.html" class="ulink" target="_top">Security settings in Kibana</a>.
 </dd>
 <dt>
 <span class="term">
@@ -942,7 +937,7 @@ To learn more, check <a href="/guide/en/kibana/8.1/security-settings-kb.html" cl
 </dt>
 <dd>
 Sets the maximum duration, also known as "absolute timeout". After this duration, the session will expire even if it is not idle.
-To learn more, check <a href="/guide/en/kibana/8.1/security-settings-kb.html" class="ulink" target="_top">Security settings in Kibana</a>.
+To learn more, check <a href="/guide/en/kibana/8.3/security-settings-kb.html" class="ulink" target="_top">Security settings in Kibana</a>.
 </dd>
 <dt>
 <span class="term">
@@ -1003,7 +998,7 @@ When enabled, specifies the email address to receive cluster alert notifications
 </span>
 </dt>
 <dd>
-Controls <a href="/guide/en/elasticsearch/reference/8.1/monitoring-settings.html#monitoring-collection-settings" class="ulink" target="_top">how often data samples are collected</a>.
+Controls <a href="/guide/en/elasticsearch/reference/8.3/monitoring-settings.html#monitoring-collection-settings" class="ulink" target="_top">how often data samples are collected</a>.
 </dd>
 <dt>
 <span class="term">
@@ -1041,7 +1036,7 @@ Specifies the spaces where cluster Stack Monitoring alerts can be created. You m
 <p>
 Set to true (default) to enable machine learning.
 </p>
-<p>If set to <code class="literal">false</code> in <code class="literal">kibana.yml</code>, the machine learning icon is hidden in this Kibana instance. If <code class="literal">xpack.ml.enabled</code> is set to <code class="literal">true</code> in <code class="literal">elasticsearch.yml</code>, however, you can still use the machine learning APIs. To disable machine learning entirely, check the <a href="/guide/en/elasticsearch/reference/8.1/ml-settings.html" class="ulink" target="_top">Elasticsearch Machine Learning Settings</a>.</p>
+<p>If set to <code class="literal">false</code> in <code class="literal">kibana.yml</code>, the machine learning icon is hidden in this Kibana instance. If <code class="literal">xpack.ml.enabled</code> is set to <code class="literal">true</code> in <code class="literal">elasticsearch.yml</code>, however, you can still use the machine learning APIs. To disable machine learning entirely, check the <a href="/guide/en/elasticsearch/reference/8.3/ml-settings.html" class="ulink" target="_top">Elasticsearch Machine Learning Settings</a>.</p>
 </dd>
 <dt>
 <span class="term">
@@ -1050,14 +1045,6 @@ Set to true (default) to enable machine learning.
 </dt>
 <dd>
 Set to <code class="literal">false</code> to completely disable reporting.
-</dd>
-<dt>
-<span class="term">
-<code class="literal">xpack.reporting.queue.pollEnabled</code>
-</span>
-</dt>
-<dd>
-Set to <code class="literal">false</code> to stop the Kibana instance from claiming and executing queued reporting jobs. Reports can still be downloaded from the instance.
 </dd>
 <dt>
 <span class="term">
@@ -1072,53 +1059,6 @@ Specifies the time each worker has to produce a report. If your machine is slow 
 </dd>
 <dt>
 <span class="term">
-<code class="literal">xpack.reporting.capture.timeouts.openUrl</code>
-</span>
-</dt>
-<dd>
-<p>
-Specify how long to allow the Reporting browser to wait for the "Loading&#8230;&#8203;" screen to dismiss and find the initial data for the Kibana page.  If the time
-is exceeded, a page screenshot is captured showing the current state, and the download link shows a warning message.
-</p>
-<p>Defaults to <code class="literal">30000</code> (30 seconds).</p>
-</dd>
-<dt>
-<span class="term">
-<code class="literal">xpack.reporting.capture.timeouts.waitForElements</code>
-</span>
-</dt>
-<dd>
-<p>
-Specify how long to allow the Reporting browser to wait for all visualization panels to load on the Kibana page. If the time is exceeded, a page
-screenshot is captured showing the current state, and the download link shows a warning message.
-</p>
-<p>Defaults to <code class="literal">30000</code> (30 seconds).</p>
-</dd>
-<dt>
-<span class="term">
-<code class="literal">xpack.reporting.capture.timeouts.renderComplete</code>
-</span>
-</dt>
-<dd>
-<p>
-Specify how long to allow the Reporting browser to wait for all visualizations to fetch and render the data. If the time is exceeded, a page
-screenshot is captured showing the current state, and the download link shows a warning message.
-</p>
-<p>Defaults to <code class="literal">30000</code> (30 seconds).</p>
-</dd>
-<dt>
-<span class="term">
-<code class="literal">xpack.reporting.capture.browser.type</code>
-</span>
-</dt>
-<dd>
-<p>
-Specifies the browser to use to capture screenshots. Valid options are <code class="literal">phantom</code> and <code class="literal">chromium</code>.
-</p>
-<p>Beginning with version 7.0, <code class="literal">chromium</code> is the only allowed option. Defaults to <code class="literal">phantom</code> for earlier versions.</p>
-</dd>
-<dt>
-<span class="term">
 <code class="literal">xpack.reporting.capture.maxAttempts</code>
 </span>
 </dt>
@@ -1130,12 +1070,59 @@ Specifies how many retries to attempt in case of occasional failures.
 </dd>
 <dt>
 <span class="term">
+<code class="literal">xpack.screenshotting.capture.timeouts.openUrl</code>
+</span>
+</dt>
+<dd>
+<p>
+Specify how long to allow the Reporting browser to wait for the "Loading&#8230;&#8203;" screen to dismiss and find the initial data for the Kibana page.  If the time
+is exceeded, a page screenshot is captured showing the current state, and the download link shows a warning message.
+</p>
+<p>Defaults to <code class="literal">30000</code> (30 seconds).</p>
+</dd>
+<dt>
+<span class="term">
+<code class="literal">xpack.screenshotting.capture.timeouts.waitForElements</code>
+</span>
+</dt>
+<dd>
+<p>
+Specify how long to allow the Reporting browser to wait for all visualization panels to load on the Kibana page. If the time is exceeded, a page
+screenshot is captured showing the current state, and the download link shows a warning message.
+</p>
+<p>Defaults to <code class="literal">30000</code> (30 seconds).</p>
+</dd>
+<dt>
+<span class="term">
+<code class="literal">xpack.screenshotting.capture.timeouts.renderComplete</code>
+</span>
+</dt>
+<dd>
+<p>
+Specify how long to allow the Reporting browser to wait for all visualizations to fetch and render the data. If the time is exceeded, a page
+screenshot is captured showing the current state, and the download link shows a warning message.
+</p>
+<p>Defaults to <code class="literal">30000</code> (30 seconds).</p>
+</dd>
+<dt>
+<span class="term">
+<code class="literal">xpack.screenshotting.capture.browser.type</code>
+</span>
+</dt>
+<dd>
+<p>
+Specifies the browser to use to capture screenshots. Valid options are <code class="literal">phantom</code> and <code class="literal">chromium</code>.
+</p>
+<p>Beginning with version 7.0, <code class="literal">chromium</code> is the only allowed option. Defaults to <code class="literal">phantom</code> for earlier versions.</p>
+</dd>
+<dt>
+<span class="term">
 <code class="literal">xpack.reporting.csv.maxSizeBytes</code>
 </span>
 </dt>
 <dd>
 <p>
-Sets the maximum size of a CSV file before being truncated. This setting exists to prevent large exports from causing performance and storage issues. Maximum allowed value is 50 MB (52428800 Bytes).
+Sets the maximum size of a CSV file before being truncated. This setting exists to prevent large exports from causing performance and storage issues. Until 7.15, maximum allowed value is 50 MB (52428800 Bytes).
 </p>
 <p>Defaults to <code class="literal">10485760</code> (10MB).</p>
 </dd>
@@ -1151,7 +1138,7 @@ Set to any text string. To provide your own encryption key for reports, use this
 </div>
 <p><span class="strong strong"><strong>For version 7.13.0 and later</strong></span>, the following xpack.reporting setting is supported:
 <code class="literal">xpack.reporting.roles.enabled</code>:: When <code class="literal">true</code>, grants users access to the reporting features when they are assigned the <code class="literal">reporting_user</code> role.
-Granting access to users this way is deprecated. Set to <code class="literal">false</code> and use <a href="/guide/en/kibana/8.1/kibana-privileges.html" class="ulink" target="_top">Kibana privileges</a> instead.</p>
+Granting access to users this way is deprecated. Set to <code class="literal">false</code> and use <a href="/guide/en/kibana/8.3/kibana-privileges.html" class="ulink" target="_top">Kibana privileges</a> instead.</p>
 <p>+
 Defaults to <code class="literal">true</code>.</p>
 <div class="variablelist">
@@ -1167,6 +1154,7 @@ NOTE: To change logging settings or to enable auditing you must first <a class="
 </dl>
 </div>
 <p>The following logging settings are supported:</p>
+<p><span class="strong strong"><strong>For 7.6 and later 7.x versions:</strong></span></p>
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -1216,7 +1204,7 @@ When set to <em>"rolling-file"</em> and <code class="literal">xpack.security.aud
 </dd>
 </dl>
 </div>
-<p><span class="strong strong"><strong>For version 7.11 and later:</strong></span></p>
+<p><span class="strong strong"><strong>For 7.11 and later:</strong></span></p>
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -1239,6 +1227,19 @@ List of filters that determine which audit events should be excluded from the EC
 </dt>
 <dd>
 When set to <em>"rolling-file"</em> and <code class="literal">xpack.security.audit.enabled</code> is set to <em>true</em>, Kibana ECS audit logs are enabled.
+</dd>
+</dl>
+</div>
+<p><span class="strong strong"><strong>For 8.0 and later:</strong></span></p>
+<div class="variablelist">
+<dl class="variablelist">
+<dt>
+<span class="term">
+<code class="literal">logging.root.level</code>
+</span>
+</dt>
+<dd>
+Can be used to adjust Kibana&#8217;s logging level. Allowed values are <code class="literal">fatal</code>, <code class="literal">error</code>, <code class="literal">warn</code>, <code class="literal">info</code>, <code class="literal">debug</code>, <code class="literal">trace</code>, and <code class="literal">all</code>. Setting this to <code class="literal">all</code> causes all events to be logged, including system usage information, all requests, and Elasticsearch queries. This has a similar effect to enabling both <code class="literal">logging.verbose</code> and <code class="literal">elasticsearch.logQueries</code> in older 7.x versions. Setting to <code class="literal">error</code> has a similar effect to enabling <code class="literal">logging.quiet</code> in older 7.x versions. Defaults to <code class="literal">info</code>.
 </dd>
 <dt>
 <span class="term">
@@ -1429,7 +1430,7 @@ Set to <code class="literal">false</code> to disable the automatic creation of t
 <p>
 Maximum number of child items displayed when viewing trace details.
 </p>
-<p>Defaults to <code class="literal">1000</code>.  Any positive value is valid. To learn more, check <a href="/guide/en/kibana/8.1/apm-settings-kb.html" class="ulink" target="_top">APM settings in Kibana</a>.</p>
+<p>Defaults to <code class="literal">1000</code>.  Any positive value is valid. To learn more, check <a href="/guide/en/kibana/8.3/apm-settings-kb.html" class="ulink" target="_top">APM settings in Kibana</a>.</p>
 </dd>
 </dl>
 </div>
@@ -1459,15 +1460,37 @@ Set to <code class="literal">false</code> to disable X-Pack APM UI.
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

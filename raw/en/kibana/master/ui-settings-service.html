@@ -20,13 +20,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Kibana Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="development.html">Developer guide</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Kibana Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="development.html">Developer guide</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="kibana-architecture.html">Architecture</a></span>
-»
-<span class="breadcrumb-node">UI settings service</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -89,6 +86,13 @@ Not what you want? See the
 This functionality is in technical preview and may be changed or removed in a future release. Elastic will apply best effort to fix any issues, but features in technical preview are not subject to the support SLA of official GA features.
 </span>
 </span> When a setting is configured as an override in kibana.yml, it will override any other value stored in the config saved object. If an override is misconfigured, it will fail config validation and prevent Kibana from starting up. The override applies to Kibana as a whole for all spaces and users and the option will be disabled in the Advanced Settings page. We refer to these as "global" overrides.</p>
+<p>Use the top-level <code class="literal">uiSettings</code> key for this, for example:</p>
+<div class="pre_wrapper lang-yaml">
+<pre class="programlisting prettyprint lang-yaml"># Display times in UTC
+uiSettings:
+  overrides:
+    "dateFormat:tz": "UTC"</pre>
+</div>
 </div>
 
 <div class="section">
@@ -135,7 +139,7 @@ export class MyPlugin implements Plugin&lt;MyPluginSetup, MyPluginStart&gt; {
 <p>The following example shows how to <a href="https://github.com/elastic/kibana/blob/master/docs/development/core/server/kibana-plugin-core-server.uisettingsservicesetup.register.md" class="ulink" target="_top">register</a> a new <code class="literal">custom</code> setting with a default value of <em>42</em>. When registering a new setting, you must provide a schema against which validations are performed on read and write. All the other <a href="https://github.com/elastic/kibana/blob/master/docs/development/core/server/kibana-plugin-core-server.uisettingsparams.md" class="ulink" target="_top">parameters</a> are optional.</p>
 <div class="pre_wrapper lang-typescript">
 <pre class="programlisting prettyprint lang-typescript">import { schema } from '@kbn/config-schema';
-import type { CoreSetup,Plugin } from 'kibana/server';
+import type { CoreSetup,Plugin } from '@kbn/core/server';
 
 export class MyPlugin implements Plugin {
   public setup(core: CoreSetup) {

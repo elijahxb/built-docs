@@ -1,4 +1,9 @@
-DELETE /_security/oauth2/token
+GET my-index-000001/_validate/query
 {
-  "username" : "myuser"
+  "query": {
+    "query_string": {
+      "query": "@timestamp:foo",
+      "lenient": false
+    }
+  }
 }

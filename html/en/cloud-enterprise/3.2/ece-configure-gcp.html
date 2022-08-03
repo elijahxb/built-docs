@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+<meta charset="UTF-8">
+<title>Google Cloud Platform (GCP) | Elastic Cloud Enterprise Reference [3.2] | Elastic</title>
+<link rel="home" href="index.html" title="Elastic Cloud Enterprise Reference [3.2]"/>
+<link rel="up" href="ece-install-public.html" title="Install ECE on a public cloud"/>
+<link rel="prev" href="ece-configure-ami.html" title="Amazon Machine Images (AMIs)"/>
+<link rel="next" href="ece-configure-azure.html" title="Microsoft Azure virtual machines"/>
+<meta name="DC.type" content="Learn/Docs/CloudEnterprise/Reference/3.2"/>
+<meta name="DC.subject" content="ECE"/>
+<meta name="DC.identifier" content="3.2"/>
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.optimizely.com/js/18132920325.js"></script>
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/android-chrome-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="apple-mobile-web-app-title" content="Elastic">
+    <meta name="application-name" content="Elastic">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="naver-site-verification" content="936882c1853b701b3cef3721758d80535413dbfd" />
+    <meta name="yandex-verification" content="d8a47e95d0972434" />
+    <meta name="localized" content="true" />
+    <meta name="st:robots" content="follow,index" />
+    <meta property="og:image" content="https://www.elastic.co/static/images/elastic-logo-200.png" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon-precomposed" sizes="64x64" href="/favicon_64x64_16bit.png">
+    <link rel="apple-touch-icon-precomposed" sizes="32x32" href="/favicon_32x32.png">
+    <link rel="apple-touch-icon-precomposed" sizes="16x16" href="/favicon_16x16.png">
+    <!-- Give IE8 a fighting chance -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="/guide/static/styles.css" />
+  </head>
+
+  <!--© 2015-2022 Elasticsearch B.V. -->
+  <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
+  <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
+
+  <body>
+    <!-- Google Tag Manager -->
+    <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src= '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f); })(window,document,'script','dataLayer','GTM-58RLH5');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-12395217-16"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-12395217-16');
+    </script>
+
+    <!--BEGIN QUALTRICS WEBSITE FEEDBACK SNIPPET-->
+    <script type='text/javascript'>
+      (function(){var g=function(e,h,f,g){
+      this.get=function(a){for(var a=a+"=",c=document.cookie.split(";"),b=0,e=c.length;b<e;b++){for(var d=c[b];" "==d.charAt(0);)d=d.substring(1,d.length);if(0==d.indexOf(a))return d.substring(a.length,d.length)}return null};
+      this.set=function(a,c){var b="",b=new Date;b.setTime(b.getTime()+6048E5);b="; expires="+b.toGMTString();document.cookie=a+"="+c+b+"; path=/; "};
+      this.check=function(){var a=this.get(f);if(a)a=a.split(":");else if(100!=e)"v"==h&&(e=Math.random()>=e/100?0:100),a=[h,e,0],this.set(f,a.join(":"));else return!0;var c=a[1];if(100==c)return!0;switch(a[0]){case "v":return!1;case "r":return c=a[2]%Math.floor(100/c),a[2]++,this.set(f,a.join(":")),!c}return!0};
+      this.go=function(){if(this.check()){var a=document.createElement("script");a.type="text/javascript";a.src=g;document.body&&document.body.appendChild(a)}};
+      this.start=function(){var a=this;window.addEventListener?window.addEventListener("load",function(){a.go()},!1):window.attachEvent&&window.attachEvent("onload",function(){a.go()})}};
+      try{(new g(100,"r","QSI_S_ZN_emkP0oSe9Qrn7kF","https://znemkp0ose9qrn7kf-elastic.siteintercept.qualtrics.com/WRSiteInterceptEngine/?Q_ZID=ZN_emkP0oSe9Qrn7kF")).start()}catch(i){}})();
+    </script><div id='ZN_emkP0oSe9Qrn7kF'><!--DO NOT REMOVE-CONTENTS PLACED HERE--></div>
+    <!--END WEBSITE FEEDBACK SNIPPET-->
+
+    <div id='elastic-nav' style="display:none;"></div>
+    <script src='https://www.elastic.co/elastic-nav.js'></script>
+
+    <div class="main-container">
+      <section id="content" >
+        <div class="content-wrapper">
+
+          <section id="guide" lang="en">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
+                  <!-- start body -->
+                  <div class="page_header">
+A newer version is available. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Cloud Enterprise Reference [3.2]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="ece-installing.html">Installing Elastic Cloud Enterprise</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="ece-install-public.html">Install ECE on a public cloud</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="ece-configure-ami.html">« Amazon Machine Images (AMIs)</a>
+</span>
+<span class="next">
+<a href="ece-configure-azure.html">Microsoft Azure virtual machines »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="ece-configure-gcp"></a>Google Cloud Platform (GCP)<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/cloud-enterprise/ce-configuring-gcp.asciidoc">edit</a></h2>
+</div></div></div>
+<p>The following steps describe how to create an instance group with virtual machines on Google Compute Engine in preparation for installing Elastic Cloud Enterprise.</p>
+<p>To learn more about the concepts used in this section, check <a href="https://cloud.google.com/docs/" class="ulink" target="_top">Google Cloud Platform Documentation</a>.</p>
+<p>To set up your GCP instance group with virtual machines:</p>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+Log into the <a href="https://console.cloud.google.com" class="ulink" target="_top">Google Cloud Platform console</a>.
+</li>
+<li class="listitem">
+<p>Create an instance template:</p>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+Under <span class="strong strong"><strong>Instance Templates</strong></span>, select <span class="strong strong"><strong>CREATE INSTANCE TEMPLATE</strong></span> and name your template.
+</li>
+<li class="listitem">
+Select a machine type, one of the supported Linux distributions as the boot disk, and specify enough storage. Make sure that the template meets the <a class="xref" href="ece-prereqs.html" title="Preparing your installation">prerequisites</a> for Elastic Cloud Enterprise.
+</li>
+<li class="listitem">
+Set the Firewall to allow both HTTP and HTTPS access.
+</li>
+<li class="listitem">
+On the <span class="strong strong"><strong>Networking</strong></span> tab, set IP forwarding to on.
+</li>
+<li class="listitem">
+On the <span class="strong strong"><strong>SSH keys</strong></span> tab, add your public SSH key.
+</li>
+<li class="listitem">
+Select <span class="strong strong"><strong>Create</strong></span>:
+</li>
+</ol>
+</div>
+</li>
+<li class="listitem">
+<p>Add a firewall rule:</p>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+Under <span class="strong strong"><strong>Instance Templates</strong></span>, select the name of the new template and under <span class="strong strong"><strong>Network</strong></span>, select <span class="strong strong"><strong>default</strong></span>.
+</li>
+<li class="listitem">
+<p>Select <span class="strong strong"><strong>Add firewall rule</strong></span>, then <span class="strong strong"><strong>Allow from any source (0.0.0.0/0)</strong></span>. Enter the following allowed protocols and ports:</p>
+<pre class="screen">tcp:7000; tcp:12375; tcp:12400; tcp:12443;
+tcp:22191-22195; tcp:12191-12301; tcp:12898-12908;
+tcp:13898-13908; tcp:2112; tcp:18000-20000;
+tcp:9200; tcp:9243; tcp:9300; tcp:9343; tcp:9400;</pre>
+</li>
+<li class="listitem">
+Select <span class="strong strong"><strong>Create</strong></span>:
+</li>
+<li class="listitem">
+NOTE: While these firewall rules make it easy for you to get started with your deployment, we recommend locking down your production infrastructure. Firewall rules need to be adapted to your environment. While all of the ports of the preceding list need to be open for internal communication, only ports 12443 (ECE Cloud UI) and 9243 (Elasticsearch) need to be exposed to the outside world.
+</li>
+</ol>
+</div>
+</li>
+<li class="listitem">
+<p>Create an instance group:</p>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+Return to the <span class="strong strong"><strong>Compute Engine</strong></span> panel through the <span class="strong strong"><strong>Products &amp; services</strong></span> menu.
+</li>
+<li class="listitem">
+Select the <span class="strong strong"><strong>Instance groups</strong></span> panel, then <span class="strong strong"><strong>Create instance group</strong></span>, and name your group.
+</li>
+<li class="listitem">
+Under <span class="strong strong"><strong>Location</strong></span>, select <span class="strong strong"><strong>Multi-zone</strong></span> and select a region.
+</li>
+<li class="listitem">
+<p>Select <span class="strong strong"><strong>Specify port name mapping</strong></span> and add port 9243, which is the port used by Kibana and Elasticsearch for HTTPS access.</p>
+<div class="tip admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>If you are using a load balancer or firewall, consider adding port 443. To add a port, select <span class="strong strong"><strong>Add item</strong></span>. On each host in the Elastic Cloud Enterprise cluster, run <code class="literal">sudo iptables -A PREROUTING -t nat -p tcp --dport 443 -j REDIRECT --to-ports 9243</code>.</p>
+</div>
+</div>
+</li>
+<li class="listitem">
+Select the instance template you created earlier.
+</li>
+<li class="listitem">
+Specify the number of instances to create. For high availability, select at least three instances. These instances are placed into separate zones. Check the <a class="xref" href="ece-install-cloud.html" title="Install ECE">various deployment options</a> for how many instances you might need to bring up a production Elastic Cloud Enterprise installation.
+</li>
+<li class="listitem">
+<p>Select <span class="strong strong"><strong>Create</strong></span>:</p>
+<p>Creating the instance group can take a few minutes. After the instances have been created, they appear under <span class="strong strong"><strong>VM instances</strong></span>.</p>
+</li>
+</ol>
+</div>
+</li>
+<li class="listitem">
+<p>Add a disk to use with XFS to each instance:</p>
+<div class="important admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>We recommend that you add disks with a minimum of 100GB of storage each to avoid performance bottlenecks due to GCP IOPS provisioning. To learn more about how increasing your persistent disk size on GCP also increases IOPS and throughput, check <a href="https://cloud.google.com/compute/docs/disks/performance#ssd-pd-performance" class="ulink" target="_top">Optimizing Persistent Disk and Local SSD Performance</a>. If you use XFS, you must use XFS on all allocators.</p>
+</div>
+</div>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+Under <span class="strong strong"><strong>VM instances</strong></span>, select one of the instances and choose <span class="strong strong"><strong>EDIT</strong></span>.
+</li>
+<li class="listitem">
+Under <span class="strong strong"><strong>Additional disk</strong></span>, select to add an item and then select the <span class="strong strong"><strong>Name</strong></span> dropdown to create a new disk.
+</li>
+<li class="listitem">
+Name your disk. If you plan to use the configuration script in a subsequent step, make sure that the additional disks are named <code class="literal">esdata-1</code>, <code class="literal">esdata-2</code>, and so forth.
+</li>
+<li class="listitem">
+Specify the storage type you need for your type of workload.
+</li>
+<li class="listitem">
+Create a blank disk by selecting <span class="strong strong"><strong>None (blank disk)</strong></span> for the source type.
+</li>
+<li class="listitem">
+Select <span class="strong strong"><strong>Create</strong></span> to create the new disks.
+</li>
+<li class="listitem">
+<p>Select <span class="strong strong"><strong>Save</strong></span> to add the new disk to your instance.</p>
+<div class="tip admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>Don&#8217;t forget to save your updated instance after adding the disk to make sure it is available for use. You will set up XFS when you configure the instances.</p>
+</div>
+</div>
+</li>
+<li class="listitem">
+Repeat these steps until you have added disks to all instances.
+</li>
+</ol>
+</div>
+</li>
+<li class="listitem">
+<a class="xref" href="ece-configure-os-cloud.html" title="Configure your operating system">Configure the new instances</a> with a user ID that has sudo permission.
+</li>
+</ol>
+</div>
+<p>When your Google Compute Engine virtual machines are up and running, you can connect to them and <a class="xref" href="ece-install-cloud.html" title="Install ECE">install Elastic Cloud Enterprise</a>. Afterwards, add your load balancer. To learn more about load balancing that is available with GCP, check <a href="https://cloud.google.com/load-balancing/" class="ulink" target="_top">Google Cloud Load Balancing</a>.</p>
+<h4><a id="ece-configure-gcp-lb"></a>GCP load balancer<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/cloud-enterprise/ce-configuring-gcp.asciidoc">edit</a></h4>
+<p>The following steps show you how to configure HTTPS load balancing for your instance group on GCP. Elastic Cloud Enterprise is designed to be used in conjunction with at least one load balancer.</p>
+<p>To learn more about how HTTPS load balancing works on GCP, check <a href="https://cloud.google.com/load-balancing/" class="ulink" target="_top">Google Cloud Load Balancing</a> and <a href="https://cloud.google.com/compute/docs/load-balancing/http/cross-region-example" class="ulink" target="_top">Creating Cross-Region Load Balancing</a>.</p>
+<p>These steps require that you already have a signed SSL certificate that you can use with a wildcard DNS certificate.</p>
+<p>To set up a load balancer with GCP:</p>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+Log into the <a href="https://console.cloud.google.com" class="ulink" target="_top">Google Cloud Platform console</a>.
+</li>
+<li class="listitem">
+Go to the <span class="strong strong"><strong>Networking</strong></span> panel through the <span class="strong strong"><strong>Products &amp; services</strong></span> menu and select <span class="strong strong"><strong>Load balancing</strong></span>.
+</li>
+<li class="listitem">
+Select <span class="strong strong"><strong>Create load balancer</strong></span> and select <span class="strong strong"><strong>Start configuration</strong></span> under <span class="strong strong"><strong>HTTP(S) Load Balancing</strong></span>.
+</li>
+<li class="listitem">
+Name your new load balancer.
+</li>
+<li class="listitem">
+<p>Configure the backend service:</p>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+Select <span class="strong strong"><strong>Backend Configuration</strong></span> and then select <span class="strong strong"><strong>Create a new backend service</strong></span>.
+</li>
+<li class="listitem">
+Name the new service and under <span class="strong strong"><strong>New Backend</strong></span> select the instance group you created earlier.
+</li>
+<li class="listitem">
+When prompted, select <span class="strong strong"><strong>USE EXISTING PORT NAME</strong></span>.
+</li>
+<li class="listitem">
+Under <span class="strong strong"><strong>Health Check</strong></span>, select the dropdown menu to create a health check:
+</li>
+<li class="listitem">
+Set the port to 9200 and leave the other fields at their defaults.
+</li>
+<li class="listitem">
+Select <span class="strong strong"><strong>Save and continue</strong></span>.
+</li>
+</ol>
+</div>
+</li>
+<li class="listitem">
+<p>Set the host and path rules:</p>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+Under <span class="strong strong"><strong>Backends</strong></span>, select the backend you just configured.
+</li>
+</ol>
+</div>
+</li>
+<li class="listitem">
+<p>Configure the frontend:</p>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+Select <span class="strong strong"><strong>Frontend Configuration</strong></span>, set the protocol to <span class="strong strong"><strong>HTTTPS</strong></span>, and for the IP select to <span class="strong strong"><strong>Create IP address</strong></span>.
+</li>
+<li class="listitem">
+When prompted, name the new static IP address and select <span class="strong strong"><strong>RESERVE</strong></span>.
+</li>
+<li class="listitem">
+Under <span class="strong strong"><strong>Certificate</strong></span>, select <span class="strong strong"><strong>Create a new certificate</strong></span>.
+</li>
+<li class="listitem">
+Name the new certificate and upload your wild card certificate details, then select <span class="strong strong"><strong>Create</strong></span>.
+</li>
+</ol>
+</div>
+</li>
+<li class="listitem">
+<p>Select <span class="strong strong"><strong>Create</strong></span> to create the new load balancer:</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/ece-gcp-lb.png" alt="Load balancing configured on GCP">
+</div>
+</div>
+<p>Creating the load balancer takes a few moments.</p>
+</li>
+</ol>
+</div>
+<p>Next steps: If you use a <a class="xref" href="ece-wildcard-dns.html" title="Wildcard DNS record">wildcard DNS record</a>, update the record to point to the IP address of the load balancer. The IP address can be found on the <span class="strong strong"><strong>Load balancing</strong></span> tab when you select the load balancer you just created.</p>
+<div class="tip admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>With a load balancer, connecting to your Elasticsearch and Kibana endpoints might require you to omit the port number from the endpoint URL. For example, if the endpoint shown for Elasticsearch is <code class="literal">https://32807b51a8f34832935d52393.mydomain.com:9243</code>, you might need to connect to the cluster at <code class="literal">https://32807b51a8f34832935d52393.mydomain.com</code> instead.</p>
+</div>
+</div>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="ece-configure-ami.html">« Amazon Machine Images (AMIs)</a>
+</span>
+<span class="next">
+<a href="ece-configure-azure.html">Microsoft Azure virtual machines »</a>
+</span>
+</div>
+</div>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains('stemblock')) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+
+                  <!-- end body -->
+                </div>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+        </div>
+
+
+<div id='elastic-footer'></div>
+<script src='https://www.elastic.co/elastic-footer.js'></script>
+<!-- Footer Section end-->
+
+      </section>
+    </div>
+
+<script src="/guide/static/jquery.js"></script>
+<script type="text/javascript" src="/guide/static/docs.js"></script>
+<script type="text/javascript">
+  window.initial_state = {"alternatives":{"console":{"php":{"hasAny":false},"go":{"hasAny":false},"ruby":{"hasAny":false},"java":{"hasAny":false},"javascript":{"hasAny":false},"python":{"hasAny":false},"csharp":{"hasAny":false}}}}</script>
+  </body>
+</html>

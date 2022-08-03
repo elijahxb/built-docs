@@ -17,11 +17,9 @@ A newer version is available. For the latest information, see the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Fleet and Elastic Agent Guide [7.17]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Fleet and Elastic Agent Guide [7.17]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="troubleshooting-intro.html">Troubleshoot</a></span>
-»
-<span class="breadcrumb-node">Frequently asked questions</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -49,10 +47,11 @@ the <code class="literal">install</code> command. This command starts the Elasti
 <p>The location of Elastic Agent logs varies by platform. In general, Elastic Agent stores
 logs under the <code class="literal">data</code> directory where Elastic Agent was started. For example, on
 macOS, you&#8217;ll find logs for the running Elastic Agent under path similar to:</p>
-<p><code class="literal">/Library/Elastic/Agent/data/elastic-agent-08e204/logs/elastic-agent-json.log</code></p>
+<p><code class="literal">/Library/Elastic/Agent/data/elastic-agent-08e204/logs/elastic-agent-json.log-20220503173131</code></p>
 <p>You&#8217;ll find logs for the Beats shippers, such as Metricbeat, under paths
 like:</p>
-<p><code class="literal">/Library/Elastic/Agent/data/elastic-agent-08e204/logs/default/metricbeat-json.log</code></p>
+<p><code class="literal">/Library/Elastic/Agent/data/elastic-agent-08e204/logs/default/metricbeat-json.log</code> and
+<code class="literal">/Library/Elastic/Agent/data/elastic-agent-08e204/logs/default/metricbeat-json.log-2022-05-03-17-1</code></p>
 <p>If the log path does not exist, Elastic Agent was unable to start Metricbeat, which
 is a higher level problem to triage. Usually you can see these logs in the
 Fleet UI, unless there are problems severe enough that the Elastic Agent or its
@@ -185,10 +184,6 @@ same way as other integrations. Try it out! For more information, see the
 <p>Elastic Security connects to the agent over loopback TLS on port 6788.
 Elastic Security validates that the agent has root (Linux and macOS) or SYSTEM
 (Windows) permissions.</p>
-<h4><a id="how-are-agent-kibana-communications-secured"></a>How are communications secured between Elastic Agent and Kibana?<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/observability-docs/edit/7.17/docs/en/ingest-management/troubleshooting/faq.asciidoc">edit</a></h4>
-<p>Elastic Agent connects to Kibana over TLS and authenticates the certificate
-presented by Kibana. The agent then provides an API key as an authentication
-token, which Kibana validates.</p>
 <h4><a id="how-are-secrets-secured"></a>How are secrets secured when entered into integration policies or agent policies in Kibana?<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/observability-docs/edit/7.17/docs/en/ingest-management/troubleshooting/faq.asciidoc">edit</a></h4>
 <p>Credentials that you provide for an agent or integration policy are stored in
 Elasticsearch. They can be read by any user who has read permissions to the <code class="literal">.fleet-*</code>

@@ -1,1 +1,1 @@
-GET /_slm/stats
+GET /_security/api_key?realm_name=native1

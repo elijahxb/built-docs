@@ -1,9 +1,14 @@
-GET my-index/_search/template
+POST /sales*/_async_search?size=0
 {
-  "id": "my-search-template",
-  "params": {
-    "query_string": "hello world",
-    "from": 0,
-    "size": 10
+  "sort": [
+    { "date": { "order": "asc" } }
+  ],
+  "aggs": {
+    "sale_date": {
+      "date_histogram": {
+        "field": "date",
+        "calendar_interval": "1d"
+      }
+    }
   }
 }

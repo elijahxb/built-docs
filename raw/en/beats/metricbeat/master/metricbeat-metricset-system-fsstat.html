@@ -18,13 +18,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Metricbeat Reference [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="metricbeat-modules.html">Modules</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Metricbeat Reference [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="metricbeat-modules.html">Modules</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="metricbeat-module-system.html">System module</a></span>
-»
-<span class="breadcrumb-node">System fsstat metricset</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -36,7 +33,7 @@ Not what you want? See the
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="metricbeat-metricset-system-fsstat"></a>System fsstat metricset<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/modules/system/fsstat.asciidoc">edit</a></h2>
+<h2 class="title"><a id="metricbeat-metricset-system-fsstat"></a>System fsstat metricset<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/module/system/fsstat/_meta/docs.asciidoc">edit</a></h2>
 </div></div></div>
 <p>The System <code class="literal">fsstat</code> metricset provides overall file system statistics.</p>
 <p>This metricset is available on:</p>
@@ -67,7 +64,7 @@ all types for virtual devices in systems where this information is available (e.
 all types marked as <code class="literal">nodev</code> in <code class="literal">/proc/filesystems</code> in Linux systems).</p>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_fields_221"></a>Fields<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/modules/system/fsstat.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_fields_227"></a>Fields</h3>
 </div></div></div>
 <p>For a description of each field in the metricset, see the
 <a class="xref" href="exported-fields-system.html" title="System fields">exported fields</a> section.</p>
@@ -75,29 +72,26 @@ all types marked as <code class="literal">nodev</code> in <code class="literal">
 <div class="pre_wrapper lang-json">
 <pre class="programlisting prettyprint lang-json">{
     "@timestamp": "2017-10-12T08:05:34.853Z",
-    "agent": {
-        "hostname": "host.example.com",
-        "name": "host.example.com"
-    },
     "event": {
         "dataset": "system.fsstat",
         "duration": 115000,
         "module": "system"
     },
     "metricset": {
-        "name": "fsstat"
+        "name": "fsstat",
+        "period": 10000
     },
     "service": {
         "type": "system"
     },
     "system": {
         "fsstat": {
-            "count": 37,
-            "total_files": 11762339,
+            "count": 4,
+            "total_files": 781546688,
             "total_size": {
-                "free": 168018972672,
-                "total": 379794051072,
-                "used": 211775078400
+                "free": 7694209683456,
+                "total": 7997223641088,
+                "used": 303013957632
             }
         }
     }

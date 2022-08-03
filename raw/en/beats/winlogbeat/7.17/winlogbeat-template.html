@@ -17,11 +17,9 @@ A newer version is available. For the latest information, see the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Winlogbeat Reference [7.17]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Winlogbeat Reference [7.17]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="howto-guides.html">How to guides</a></span>
-»
-<span class="breadcrumb-node">Load the Elasticsearch index template</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -148,11 +146,11 @@ Elasticsearch, you can export the index template to a file, move it to a
 machine that does have connectivity, and then install the template manually.</p>
 <p>To export the index template, run:</p>
 <div class="pre_wrapper lang-sh">
-<pre class="programlisting prettyprint lang-sh">PS &gt; .\winlogbeat.exe export template --es.version 7.17.2 | Out-File -Encoding UTF8 winlogbeat.template.json</pre>
+<pre class="programlisting prettyprint lang-sh">PS &gt; .\winlogbeat.exe export template --es.version 7.17.5 | Out-File -Encoding UTF8 winlogbeat.template.json</pre>
 </div>
 <p>To install the template, run:</p>
 <div class="pre_wrapper lang-sh">
-<pre class="programlisting prettyprint lang-sh">PS &gt; Invoke-RestMethod -Method Put -ContentType "application/json" -InFile winlogbeat.template.json -Uri http://localhost:9200/_index_template/winlogbeat-7.17.2</pre>
+<pre class="programlisting prettyprint lang-sh">PS &gt; Invoke-RestMethod -Method Put -ContentType "application/json" -InFile winlogbeat.template.json -Uri http://localhost:9200/_index_template/winlogbeat-7.17.5</pre>
 </div>
 </div>
 <div class="navfooter">

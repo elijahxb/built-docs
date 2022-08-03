@@ -57,7 +57,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -88,42 +88,30 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
-You are looking at preliminary documentation for a future release.
-Not what you want? See the
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
 <a href="../current/index.html">current release documentation</a>.
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">APM User Guide [8.2]</a></span>
-»
-<span class="breadcrumb-link"><a href="overview.html">Legacy APM Server Reference</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">APM User Guide [8.2]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="overview.html">Legacy APM Server Reference</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="getting-started-apm-server.html">Getting started with APM Server</a></span>
-»
-<span class="breadcrumb-node">Step 1: Install</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -153,16 +141,62 @@ See <a href="/guide/en/elastic-stack-get-started/8.2/get-started-elastic-stack.h
 <p>To download and install APM Server, use the commands below that work with your system.
 If you use <code class="literal">apt</code> or <code class="literal">yum</code>, you can <a class="xref" href="setup-repositories.html" title="Repositories for APT and YUM">install APM Server from our repositories</a>
 to update to the newest version more easily.</p>
+<p>See our <a href="/downloads/apm" class="ulink" target="_top">download page</a>
+for other installation options, such as 32-bit images.</p>
 <p><a id="deb"></a><span class="strong strong"><strong>deb:</strong></span></p>
-<p>Version 8.2.0 of APM Server has not yet been released.</p>
+<div class="pre_wrapper lang-sh">
+<pre class="programlisting prettyprint lang-sh">curl -L -O https://artifacts.elastic.co/downloads/apm-server/apm-server-8.2.3-amd64.deb
+sudo dpkg -i apm-server-8.2.3-amd64.deb</pre>
+</div>
 <p><a id="rpm"></a><span class="strong strong"><strong>RPM:</strong></span></p>
-<p>Version 8.2.0 of APM Server has not yet been released.</p>
+<div class="pre_wrapper lang-sh">
+<pre class="programlisting prettyprint lang-sh">curl -L -O https://artifacts.elastic.co/downloads/apm-server/apm-server-8.2.3-x86_64.rpm
+sudo rpm -vi apm-server-8.2.3-x86_64.rpm</pre>
+</div>
 <p><a id="linux"></a><span class="strong strong"><strong>Other Linux:</strong></span></p>
-<p>Version 8.2.0 of APM Server has not yet been released.</p>
+<div class="pre_wrapper lang-sh">
+<pre class="programlisting prettyprint lang-sh">curl -L -O https://artifacts.elastic.co/downloads/apm-server/apm-server-8.2.3-linux-x86_64.tar.gz
+tar xzvf apm-server-8.2.3-linux-x86_64.tar.gz</pre>
+</div>
 <p><a id="mac"></a><span class="strong strong"><strong>Mac:</strong></span></p>
-<p>Version 8.2.0 of APM Server has not yet been released.</p>
+<div class="pre_wrapper lang-sh">
+<pre class="programlisting prettyprint lang-sh">curl -L -O https://artifacts.elastic.co/downloads/apm-server/apm-server-8.2.3-darwin-x86_64.tar.gz
+tar xzvf apm-server-8.2.3-darwin-x86_64.tar.gz</pre>
+</div>
 <p><a id="installing-on-windows"></a><span class="strong strong"><strong>Windows:</strong></span></p>
-<p>Version 8.2.0 of APM Server has not yet been released.</p>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+Download the APM Server Windows zip file from the
+<a href="/downloads/apm/apm-server" class="ulink" target="_top">downloads page</a>.
+</li>
+<li class="listitem">
+Extract the contents of the zip file into <code class="literal">C:\Program Files</code>.
+</li>
+<li class="listitem">
+Rename the <code class="literal">apm-server-&lt;version&gt;-windows</code> directory to <code class="literal">APM-Server</code>.
+</li>
+<li class="listitem">
+Open a PowerShell prompt as an Administrator (right-click the PowerShell icon and select <span class="strong strong"><strong>Run As Administrator</strong></span>).
+If you are running Windows XP, you may need to download and install PowerShell.
+</li>
+<li class="listitem">
+<p>From the PowerShell prompt, run the following commands to install APM Server as a Windows service:</p>
+<div class="pre_wrapper lang-shell">
+<pre class="programlisting prettyprint lang-shell">PS &gt; cd 'C:\Program Files\APM-Server'
+PS C:\Program Files\APM-Server&gt; .\install-service-apm-server.ps1</pre>
+</div>
+</li>
+</ol>
+</div>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>If script execution is disabled on your system,
+you need to set the execution policy for the current session to allow the script to run.
+For example: <code class="literal">PowerShell.exe -ExecutionPolicy UnRestricted -File .\install-service-apm-server.ps1</code>.</p>
+</div>
+</div>
 <p><a id="docker"></a><span class="strong strong"><strong>Docker:</strong></span></p>
 <p>See <a class="xref" href="running-on-docker.html" title="Run APM Server on Docker">Running on Docker</a> for deploying Docker containers.</p>
 </div>
@@ -178,15 +212,37 @@ to update to the newest version more easily.</p>
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

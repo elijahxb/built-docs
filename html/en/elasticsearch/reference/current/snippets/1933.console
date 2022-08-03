@@ -1,1 +1,6 @@
-GET my-index-000001/_doc/1?stored_fields=tags,counter
+PUT /_cluster/settings
+{
+  "transient" : {
+    "indices.recovery.*" : null
+  }
+}

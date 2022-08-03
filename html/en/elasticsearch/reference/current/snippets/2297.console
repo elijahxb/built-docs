@@ -1,4 +1,6 @@
-POST _ml/anomaly_detectors/total-requests/_flush
+PUT /my_source_index/_settings
 {
-  "advance_time": "1514804400000"
+  "settings": {
+    "index.blocks.write": true
+  }
 }

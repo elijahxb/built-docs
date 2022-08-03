@@ -6,7 +6,7 @@
 <title>Enable threat intelligence integrations | Elastic Security Solution [master] | Elastic</title>
 <link rel="home" href="index.html" title="Elastic Security Solution [master]"/>
 <link rel="up" href="getting-started.html" title="Get started with Elastic Security"/>
-<link rel="prev" href="endpoint-diagnostic-data.html" title="Turn off Endpoint Security diagnostic data"/>
+<link rel="prev" href="endpoint-diagnostic-data.html" title="Turn off diagnostic data for Endpoint and Cloud Security"/>
 <link rel="next" href="advanced-settings.html" title="Configure advanced settings"/>
 <meta name="DC.type" content="Learn/Docs/Security/Guide/master"/>
 <meta name="DC.subject" content="Security"/>
@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,27 +87,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 You are looking at preliminary documentation for a future release.
@@ -116,15 +107,13 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elastic Security Solution [master]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Security Solution [master]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="getting-started.html">Get started with Elastic Security</a></span>
-»
-<span class="breadcrumb-node">Enable threat intelligence integrations</span>
 </div>
 <div class="navheader">
 <span class="prev">
-<a href="endpoint-diagnostic-data.html">« Turn off Endpoint Security diagnostic data</a>
+<a href="endpoint-diagnostic-data.html">« Turn off diagnostic data for Endpoint and Cloud Security</a>
 </span>
 <span class="next">
 <a href="advanced-settings.html">Configure advanced settings »</a>
@@ -139,13 +128,13 @@ Not what you want? See the
 <div class="note admon">
 <div class="icon"></div>
 <div class="admon_content">
-<p>To learn more about alerts with threat intelligence, visit <a class="xref" href="alerts-ui-manage.html#view-alert-details" title="View alert details">View alert details</a>.</p>
+<p>To learn more about alerts with threat intelligence, visit <a class="xref" href="view-alert-details.html" title="View detection alert details">View alert details</a>.</p>
 </div>
 </div>
 <p>You can connect to threat intelligence sources using an <a class="xref" href="es-threat-intel-integrations.html#agent-ti-integration" title="Add an Elastic Agent integration">Elastic Agent integration</a>, the <a class="xref" href="es-threat-intel-integrations.html#ti-mod-integration" title="Add a Filebeat Threat Intel module integration">Threat Intel module</a>, or a <a class="xref" href="es-threat-intel-integrations.html#custom-ti-integration" title="Add a custom integration">custom integration</a>.</p>
 <div class="imageblock screenshot">
 <div class="content">
-<img src="images/threat-intelligence-view.png" alt="threat intelligence view" width="90%][height=90%][Shows the Threat Intelligence view on the Overview page">
+<img src="images/threat-intelligence-view.png" alt="threat intelligence view" width="65%][height=65%][Shows the Threat Intelligence view on the Overview page">
 </div>
 </div>
 <p>There are a few scenarios when data won&#8217;t display in the Threat Intelligence view:</p>
@@ -186,10 +175,13 @@ Anomali
 Cybersixgill
 </li>
 <li class="listitem">
-ThreatQuotient
+MISP
 </li>
 <li class="listitem">
-MISP
+Recorded Future
+</li>
+<li class="listitem">
+ThreatQuotient
 </li>
 </ul>
 </div>
@@ -200,13 +192,7 @@ MISP
 Select an Elastic Agent integration, then complete the installation steps.
 </li>
 <li class="listitem">
-<p>Return to the Threat Intelligence view on the Overview page. Refresh the page if indicator data isn&#8217;t displaying.</p>
-<div class="note admon">
-<div class="icon"></div>
-<div class="admon_content">
-<p>The message about disabled threat intelligence sources disappears when you enable all available Elastic Security integrations.</p>
-</div>
-</div>
+Return to the Threat Intelligence view on the Overview page. Refresh the page if indicator data isn&#8217;t displaying.
 </li>
 </ol>
 </div>
@@ -251,7 +237,7 @@ Set up a way to <a class="xref" href="ingest-data.html" title="Ingest data to El
 <div class="note admon">
 <div class="icon"></div>
 <div class="admon_content">
-<p>Threat intelligence indices aren’t required to be ECS compatible. However, we strongly recommend compatibility if you’d like your alerts to be enriched with relevant threat indicator information. You can find a list of ECS-compliant threat intelligence fields at <a href="/guide/en/ecs/8.3/ecs-threat.html" class="ulink" target="_top">Threat Fields</a>.</p>
+<p>Threat intelligence indices aren’t required to be ECS compatible. However, we strongly recommend compatibility if you’d like your alerts to be enriched with relevant threat indicator information. You can find a list of ECS-compliant threat intelligence fields at <a href="/guide/en/ecs/8.5/ecs-threat.html" class="ulink" target="_top">Threat Fields</a>.</p>
 </div>
 </div>
 </li>
@@ -269,7 +255,7 @@ Set up a way to <a class="xref" href="ingest-data.html" title="Ingest data to El
 </div>
 <div class="navfooter">
 <span class="prev">
-<a href="endpoint-diagnostic-data.html">« Turn off Endpoint Security diagnostic data</a>
+<a href="endpoint-diagnostic-data.html">« Turn off diagnostic data for Endpoint and Cloud Security</a>
 </span>
 <span class="next">
 <a href="advanced-settings.html">Configure advanced settings »</a>
@@ -279,15 +265,37 @@ Set up a way to <a class="xref" href="ingest-data.html" title="Ingest data to El
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

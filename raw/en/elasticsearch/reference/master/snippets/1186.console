@@ -1,10 +1,17 @@
-GET /_search
+PUT /products
 {
-  "aggs": {
-    "tags": {
-      "significant_terms": {
-        "field": "tag",
-        "min_doc_count": 10
+  "mappings": {
+    "properties": {
+      "resellers": {
+        "type": "nested",
+        "properties": {
+          "reseller": {
+            "type": "keyword"
+          },
+          "price": {
+            "type": "double"
+          }
+        }
       }
     }
   }

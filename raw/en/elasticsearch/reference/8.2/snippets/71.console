@@ -1,5 +1,9 @@
-PUT test/_settings
+POST _reindex
 {
-  "index.routing.allocation.require.size": "big",
-  "index.routing.allocation.require.rack": "rack1"
+  "source": {
+    "index": "my-index"
+  },
+  "dest": {
+    "index": "reindexed-my-index"
+  }
 }

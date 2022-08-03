@@ -5,8 +5,8 @@
 <meta charset="UTF-8">
 <title>Upgrade on Elastic Cloud | Elastic Installation and Upgrade Guide [8.2] | Elastic</title>
 <link rel="home" href="index.html" title="Elastic Installation and Upgrade Guide [8.2]"/>
-<link rel="up" href="upgrading-elastic-stack.html" title="Upgrade to Elastic 8.2.0"/>
-<link rel="prev" href="upgrading-elastic-stack.html" title="Upgrade to Elastic 8.2.0"/>
+<link rel="up" href="upgrading-elastic-stack.html" title="Upgrade to Elastic 8.2.3"/>
+<link rel="prev" href="upgrading-elastic-stack.html" title="Upgrade to Elastic 8.2.3"/>
 <link rel="next" href="upgrading-elastic-stack-on-prem.html" title="Upgrade Elastic on-prem"/>
 <meta name="DC.type" content="Learn/Docs/Elastic Stack/Installation and Upgrade/8.2"/>
 <meta name="DC.subject" content="Elastic Stack"/>
@@ -57,7 +57,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -88,44 +88,33 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
-You are looking at preliminary documentation for a future release.
-Not what you want? See the
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
 <a href="../current/index.html">current release documentation</a>.
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elastic Installation and Upgrade Guide [8.2]</a></span>
-»
-<span class="breadcrumb-link"><a href="upgrading-elastic-stack.html">Upgrade to Elastic 8.2.0</a></span>
-»
-<span class="breadcrumb-node">Upgrade on Elastic Cloud</span>
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Installation and Upgrade Guide [8.2]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="upgrading-elastic-stack.html">Upgrade to Elastic 8.2.3</a></span>
 </div>
 <div class="navheader">
 <span class="prev">
-<a href="upgrading-elastic-stack.html">« Upgrade to Elastic 8.2.0</a>
+<a href="upgrading-elastic-stack.html">« Upgrade to Elastic 8.2.3</a>
 </span>
 <span class="next">
 <a href="upgrading-elastic-stack-on-prem.html">Upgrade Elastic on-prem »</a>
@@ -135,12 +124,12 @@ Not what you want? See the
 <div class="titlepage"><div><div>
 <h2 class="title"><a id="upgrade-elastic-stack-for-elastic-cloud"></a>Upgrade on Elastic Cloud<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/stack-docs/edit/8.2/docs/en/install-upgrade/upgrading-stack-cloud.asciidoc">edit</a></h2>
 </div></div></div>
-<p>Once you are <a class="xref" href="upgrading-elastic-stack.html" title="Upgrade to Elastic 8.2.0">prepared to upgrade</a>,
+<p>Once you are <a class="xref" href="upgrading-elastic-stack.html" title="Upgrade to Elastic 8.2.3">prepared to upgrade</a>,
 a single click in the Elastic Cloud console can upgrade a deployment to a newer
 version, add more processing capacity, change plugins, and enable or disable
 high availability, all at the same time. During the upgrade process,
 Elasticsearch, Kibana, and all of your deployment components are upgraded simultaneously.</p>
-<p>Minor version upgrades, upgrades from 7.17 to 8.2.0,
+<p>Minor version upgrades, upgrades from 7.17 to 8.2.3,
 and cluster configuration changes can be performed with no downtime.
 Elastic Cloud only supports upgrades to released versions.
 Preview releases and master snapshots are not supported.</p>
@@ -192,7 +181,7 @@ to ensure that your applications behave as expected after the upgrade.
 Make sure you test against the new version before upgrading existing deployments.
 </p>
 <p>Review the <a class="xref" href="elastic-stack-breaking-changes.html" title="Breaking changes"><em>Breaking changes</em></a> and upgrade your code to work
-with 8.2.0.</p>
+with 8.2.3.</p>
 </dd>
 <dt>
 <span class="term">
@@ -447,14 +436,14 @@ Log in to the <a href="https://cloud.elastic.co/?baymax=docs-body&amp;elektra=do
 In the <span class="strong strong"><strong>Deployment version</strong></span> section, click <span class="strong strong"><strong>Upgrade</strong></span>.
 </li>
 <li class="listitem">
-Select version 8.2.0.
+Select version 8.2.3.
 </li>
 <li class="listitem">
 <p>Click <span class="strong strong"><strong>Upgrade</strong></span> and then <span class="strong strong"><strong>Confirm upgrade</strong></span>. The new configuration takes a few minutes to create.</p>
 <div class="note admon">
 <div class="icon"></div>
 <div class="admon_content">
-<p>If any incompatibilities are detected when you attempt to upgrade to 8.2.0, the UI provides a link to the Upgrade Assistant, which checks for deprecated settings in your cluster and indices and helps you resolve them. After resolving the issues, return to the deployments page and restart the upgrade.</p>
+<p>If any incompatibilities are detected when you attempt to upgrade to 8.2.3, the UI provides a link to the Upgrade Assistant, which checks for deprecated settings in your cluster and indices and helps you resolve them. After resolving the issues, return to the deployments page and restart the upgrade.</p>
 </div>
 </div>
 </li>
@@ -481,12 +470,12 @@ Elastic Agent: <a href="/guide/en/fleet/8.2/upgrade-elastic-agent.html" class="u
 </div>
 <h3><a id="upgrading-reindex"></a>Reindex to upgrade<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/stack-docs/edit/8.2/docs/en/install-upgrade/upgrading-stack-cloud.asciidoc">edit</a></h3>
 <p>If you are running a pre-7.x version, you might need to perform multiple upgrades
-or a full-cluster restart to get to 7.17 to prepare to upgrade to 8.2.0.</p>
-<p>Alternatively, you can create a new 8.2.0 deployment and reindex from remote:</p>
+or a full-cluster restart to get to 7.17 to prepare to upgrade to 8.2.3.</p>
+<p>Alternatively, you can create a new 8.2.3 deployment and reindex from remote:</p>
 <div class="olist orderedlist">
 <ol class="orderedlist">
 <li class="listitem">
-Provision an additional deployment running 8.2.0.
+Provision an additional deployment running 8.2.3.
 </li>
 <li class="listitem">
 Reindex your data into the new Elasticsearch cluster using <a href="/guide/en/elasticsearch/reference/8.2/docs-reindex.html#reindex-from-remote" class="ulink" target="_top">reindex from remote</a>
@@ -507,7 +496,7 @@ Usage is billed on an hourly basis.
 </div>
 <div class="navfooter">
 <span class="prev">
-<a href="upgrading-elastic-stack.html">« Upgrade to Elastic 8.2.0</a>
+<a href="upgrading-elastic-stack.html">« Upgrade to Elastic 8.2.3</a>
 </span>
 <span class="next">
 <a href="upgrading-elastic-stack-on-prem.html">Upgrade Elastic on-prem »</a>
@@ -517,15 +506,37 @@ Usage is billed on an hourly basis.
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

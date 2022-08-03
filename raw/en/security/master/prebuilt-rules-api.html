@@ -18,13 +18,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elastic Security Solution [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="security-apis.html">Elastic Security APIs</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Security Solution [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="security-apis.html">Elastic Security APIs</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="rule-api-overview.html">Detections API</a></span>
-»
-<span class="breadcrumb-node">Prebuilt rules</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -40,12 +37,6 @@ Not what you want? See the
 </div></div></div>
 <p>The prepackaged endpoint is for retrieving rule statuses and loading Elastic
 prebuilt detection rules.</p>
-<div class="note admon">
-<div class="icon"></div>
-<div class="admon_content">
-<p>Console supports only Elasticsearch APIs. Console doesn&#8217;t allow interactions with Kibana APIs. You must use <code class="literal">curl</code> or another HTTP tool instead. For more information, refer to <a href="/guide/en/kibana/master/console-kibana.html" class="ulink" target="_top">Run Elasticsearch API requests</a>.</p>
-</div>
-</div>
 <div class="section">
 <div class="titlepage"><div><div>
 <h3 class="title"><a id="_load_prebuilt_rules"></a>Load prebuilt rules<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/main/docs/detections/api/rules/rules-api-prebuilt.asciidoc">edit</a></h3>
@@ -69,14 +60,14 @@ prebuilt detection rules.</p>
 <div class="pre_wrapper lang-kibana">
 <pre class="programlisting prettyprint lang-kibana">PUT api/detection_engine/rules/prepackaged</pre>
 </div>
-<div class="kibana_widget" data-snippet="snippets/38.kibana"></div>
+<div class="kibana_widget" data-snippet="snippets/32.kibana"></div>
 </div>
 
 </div>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="_response_code_20"></a>Response code<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/main/docs/detections/api/rules/rules-api-prebuilt.asciidoc">edit</a></h4>
+<h4 class="title"><a id="_response_code_21"></a>Response code<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/main/docs/detections/api/rules/rules-api-prebuilt.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="variablelist">
 <dl class="variablelist">
@@ -92,7 +83,7 @@ Indicates a successful call.
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h5 class="title"><a id="_response_payload_13"></a>Response payload<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/main/docs/detections/api/rules/rules-api-prebuilt.asciidoc">edit</a></h5>
+<h5 class="title"><a id="_response_payload_14"></a>Response payload<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/main/docs/detections/api/rules/rules-api-prebuilt.asciidoc">edit</a></h5>
 </div></div></div>
 <p>A JSON object listing the number of loaded and updated prebuilt rules.</p>
 <p>Example response:</p>
@@ -125,14 +116,14 @@ Indicates a successful call.
 <div class="pre_wrapper lang-kibana">
 <pre class="programlisting prettyprint lang-kibana">GET api/detection_engine/rules/prepackaged/_status</pre>
 </div>
-<div class="kibana_widget" data-snippet="snippets/39.kibana"></div>
+<div class="kibana_widget" data-snippet="snippets/33.kibana"></div>
 </div>
 
 </div>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="_response_code_21"></a>Response code<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/main/docs/detections/api/rules/rules-api-prebuilt.asciidoc">edit</a></h4>
+<h4 class="title"><a id="_response_code_22"></a>Response code<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/main/docs/detections/api/rules/rules-api-prebuilt.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="variablelist">
 <dl class="variablelist">
@@ -148,7 +139,7 @@ Indicates a successful call.
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h5 class="title"><a id="_response_payload_14"></a>Response payload<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/main/docs/detections/api/rules/rules-api-prebuilt.asciidoc">edit</a></h5>
+<h5 class="title"><a id="_response_payload_15"></a>Response payload<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/main/docs/detections/api/rules/rules-api-prebuilt.asciidoc">edit</a></h5>
 </div></div></div>
 <p>A JSON object listing rule statuses.</p>
 <p>Example response:</p>

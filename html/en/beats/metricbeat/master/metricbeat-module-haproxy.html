@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,27 +87,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 You are looking at preliminary documentation for a future release.
@@ -116,11 +107,9 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Metricbeat Reference [master]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Metricbeat Reference [master]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="metricbeat-modules.html">Modules</a></span>
-»
-<span class="breadcrumb-node">HAProxy module</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -132,7 +121,7 @@ Not what you want? See the
 </div>
 <div class="chapter">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="metricbeat-module-haproxy"></a>HAProxy module<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/modules/haproxy.asciidoc">edit</a></h2>
+<h2 class="title"><a id="metricbeat-module-haproxy"></a>HAProxy module<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/module/haproxy/_meta/docs.asciidoc">edit</a></h2>
 </div></div></div>
 <div class="sidebar">
 <div class="titlepage"><div><div>
@@ -143,10 +132,10 @@ Not what you want? See the
 <details>
 <summary class="title">Learn more</summary>
 <div class="content">
-<p>Elastic Agent is a single, unified agent that you can deploy to hosts or containers to
-collect data and send it to the Elastic Stack. Elastic Agent uses integrations to connect
-your data to the Elastic Stack. Behind the scenes, Elastic Agent runs the Beats shippers
-required for your configuration. Refer to the documentation for a detailed
+<p>Elastic Agent is a single, unified way to add monitoring for logs, metrics, and
+other types of data to a host. It can also protect hosts from security threats,
+query data from operating systems, forward data from remote services or
+hardware, and more. Refer to the documentation for a detailed
 <a href="/guide/en/fleet/master/beats-agent-comparison.html" class="ulink" target="_top">comparison of Beats and Elastic Agent</a>.</p>
 </div>
 </details>
@@ -156,11 +145,11 @@ collection from TCP sockets, UNIX sockets, or HTTP with or without basic
 authentication.</p>
 <p>Metricbeat can collect two metricsets from HAProxy: <code class="literal">info</code> and <code class="literal">stat</code>. <code class="literal">info</code>
 is not available when using the stats page.</p>
-<h3><a id="_configure_haproxy_to_collect_stats"></a>Configure HAProxy to collect stats<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/modules/haproxy.asciidoc">edit</a></h3>
+<h3><a id="_configure_haproxy_to_collect_stats"></a>Configure HAProxy to collect stats<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/module/haproxy/_meta/docs.asciidoc">edit</a></h3>
 <p>Before you can use Metricbeat to collect stats, you must enable the stats module
 in HAProxy. You can do this a couple of ways: configure HAProxy to
 report stats via a TCP or UNIX socket, or enable the stats page.</p>
-<h4><a id="_tcp_socket"></a>TCP socket<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/modules/haproxy.asciidoc">edit</a></h4>
+<h4><a id="_tcp_socket"></a>TCP socket<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/module/haproxy/_meta/docs.asciidoc">edit</a></h4>
 <p>To enable stats reporting via any local IP on port 14567, add the following line
 to the <code class="literal">global</code> or <code class="literal">default</code> section of the HAProxy config:</p>
 <div class="pre_wrapper lang-shell">
@@ -173,13 +162,13 @@ to the <code class="literal">global</code> or <code class="literal">default</cod
 rule, so that only designated hosts can access this data.</p>
 </div>
 </div>
-<h4><a id="_unix_socket"></a>UNIX socket<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/modules/haproxy.asciidoc">edit</a></h4>
+<h4><a id="_unix_socket"></a>UNIX socket<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/module/haproxy/_meta/docs.asciidoc">edit</a></h4>
 <p>To enable stats reporting via a UNIX socket, add the following line to the
 <code class="literal">global</code> or <code class="literal">default</code> section of the HAProxy config:</p>
 <div class="pre_wrapper lang-shell">
 <pre class="programlisting prettyprint lang-shell"> stats socket /path/to/haproxy.sock mode 660 level admin</pre>
 </div>
-<h4><a id="_stats_page"></a>Stats page<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/modules/haproxy.asciidoc">edit</a></h4>
+<h4><a id="_stats_page"></a>Stats page<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/module/haproxy/_meta/docs.asciidoc">edit</a></h4>
 <p>To enable the HAProxy stats page, add the following lines to the HAProxy config,
 then restart HAProxy. The stats page in this example will be available to any IP
 on port 14567 after authentication.</p>
@@ -190,9 +179,9 @@ on port 14567 after authentication.</p>
    stats uri /stats
    stats auth admin:admin</pre>
 </div>
-<h3><a id="_compatibility_22"></a>Compatibility<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/modules/haproxy.asciidoc">edit</a></h3>
+<h3><a id="_compatibility_22"></a>Compatibility<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/module/haproxy/_meta/docs.asciidoc">edit</a></h3>
 <p>The HAProxy metricsets are tested with HAProxy versions from 1.6 to 1.8.</p>
-<h3><a id="_example_configuration_28"></a>Example configuration<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/modules/haproxy.asciidoc">edit</a></h3>
+<h3><a id="_example_configuration_28"></a>Example configuration</h3>
 <p>The HAProxy module supports the standard configuration options that are described
 in <a class="xref" href="configuration-metricbeat.html" title="Configure modules"><em>Modules</em></a>. Here is an example configuration:</p>
 <div class="pre_wrapper lang-yaml">
@@ -213,7 +202,7 @@ in <a class="xref" href="configuration-metricbeat.html" title="Configure modules
 </div>
 <p>This module supports TLS connections when using <code class="literal">ssl</code> config field, as described in <a class="xref" href="configuration-ssl.html" title="Configure SSL"><em>SSL</em></a>.
 It also supports the options described in <a class="xref" href="configuration-metricbeat.html#module-http-config-options" title="Standard HTTP config options">Standard HTTP config options</a>.</p>
-<h3><a id="_metricsets_32"></a>Metricsets<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/modules/haproxy.asciidoc">edit</a></h3>
+<h3><a id="_metricsets_32"></a>Metricsets</h3>
 <p>The following metricsets are available:</p>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -240,15 +229,37 @@ It also supports the options described in <a class="xref" href="configuration-me
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

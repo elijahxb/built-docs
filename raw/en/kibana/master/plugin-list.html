@@ -20,11 +20,9 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Kibana Guide [master]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Kibana Guide [master]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="development.html">Developer guide</a></span>
-»
-<span class="breadcrumb-node">List of Kibana plugins</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -117,8 +115,8 @@ This API doesn&#8217;t support angular, for registering angular dev tools, boots
 <td align="left" valign="top"><p>Contains the Discover application and the saved search embeddable.</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p><a class="xref" href="embeddable-plugin.html" title="Embeddables plugin">Embeddables plugin</a></p></td>
-<td align="left" valign="top"><p>Embeddables are re-usable widgets that can be rendered on dashboard, but also in other apps. Developers can embed them directly in their plugin. End users can dynamically add them to embeddable <em>containers</em>.</p></td>
+<td align="left" valign="top"><p><a href="https://github.com/elastic/kibana/blob/master/src/plugins/embeddable/README.md" class="ulink" target="_top">embeddable</a></p></td>
+<td align="left" valign="top"><p>The Embeddables Plugin provides an opportunity to expose reusable interactive widgets that can be embedded outside the original plugin.</p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p><a href="https://github.com/elastic/kibana/blob/master/src/plugins/es_ui_shared/README.md" class="ulink" target="_top">esUiShared</a></p></td>
@@ -143,6 +141,10 @@ This API doesn&#8217;t support angular, for registering angular dev tools, boots
 <tr>
 <td align="left" valign="top"><p><a href="https://github.com/elastic/kibana/blob/master/src/plugins/expression_image/README.md" class="ulink" target="_top">expressionImage</a></p></td>
 <td align="left" valign="top"><p>Expression Image plugin adds an image renderer to the expression plugin. The renderer will display the given image.</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><a href="https://github.com/elastic/kibana/blob/master/src/plugins/chart_expressions/expression_legacy_metric/README.md" class="ulink" target="_top">expressionLegacyMetricVis</a></p></td>
+<td align="left" valign="top"><p>Expression MetricVis plugin adds a metric renderer and function to the expression plugin. The renderer will display the metric chart.</p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p><a href="https://github.com/elastic/kibana/blob/master/src/plugins/expression_metric/README.md" class="ulink" target="_top">expressionMetric</a></p></td>
@@ -249,7 +251,7 @@ It also provides a stateful version of it on the start contract.</p></td>
 <tr>
 <td align="left" valign="top"><p><a href="https://github.com/elastic/kibana/blob/master/src/plugins/newsfeed/README.md" class="ulink" target="_top">newsfeed</a></p></td>
 <td align="left" valign="top"><p>The newsfeed plugin adds a NewsfeedNavButton to the top navigation bar and renders the content in the flyout.
-Content is fetched from the remote (<a href="https://feeds.elastic.co" class="ulink" target="_top">https://feeds.elastic.co</a> and <a href="https://feeds-staging.elastic.co" class="ulink" target="_top">https://feeds-staging.elastic.co</a> in dev mode) once a day, with periodic checks if the content needs to be refreshed. All newsfeed content is hosted remotely.</p></td>
+Content is fetched from the remote (<a href="https://feeds.elastic.co" class="ulink" target="_top">https://feeds.elastic.co</a>) once a day, with periodic checks if the content needs to be refreshed. All newsfeed content is hosted remotely.</p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p><a href="https://github.com/elastic/kibana/blob/master/src/plugins/presentation_util/README.mdx" class="ulink" target="_top">presentationUtil</a></p></td>
@@ -312,6 +314,10 @@ popup menu and the user has to chose one.</p>
 - Emitting trigger events.
 - Executing actions attached to a given trigger.
 - Exposing a context menu for the user to choose the appropriate action when there are multiple actions attached to a single trigger.</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><a href="https://github.com/elastic/kibana/blob/master/src/plugins/ui_actions_enhanced/README.md" class="ulink" target="_top">uiActionsEnhanced</a></p></td>
+<td align="left" valign="top"><p>Registers commercially licensed generic actions like per panel time range and contains some code that supports drilldown work.</p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p><a href="https://github.com/elastic/kibana/blob/master/src/plugins/unified_search/README.md" class="ulink" target="_top">unifiedSearch</a></p></td>
@@ -405,6 +411,10 @@ The plugin exposes the static DefaultEditorController class to consume.</p></td>
 <td align="left" valign="top"><p>The Kibana actions plugin provides a framework to create executable actions. You can:</p></td>
 </tr>
 <tr>
+<td align="left" valign="top"><p><a href="https://github.com/elastic/kibana/blob/master/x-pack/plugins/aiops/README.md" class="ulink" target="_top">aiops</a></p></td>
+<td align="left" valign="top"><p>The plugin provides APIs and components for AIOps features, including the “Explain log rate spikes” UI, maintained by the ML team.</p></td>
+</tr>
+<tr>
 <td align="left" valign="top"><p><a href="https://github.com/elastic/kibana/blob/master/x-pack/plugins/alerting/README.md" class="ulink" target="_top">alerting</a></p></td>
 <td align="left" valign="top"><p>The Kibana Alerting plugin provides a common place to set up rules. You can:</p></td>
 </tr>
@@ -439,10 +449,6 @@ The plugin exposes the static DefaultEditorController class to consume.</p></td>
 <tr>
 <td align="left" valign="top"><p><a class="xref" href="dashboard-enhanced-plugin.html" title="Dashboard app enhancements plugin">Dashboard app enhancements plugin</a></p></td>
 <td align="left" valign="top"><p>Adds drilldown capabilities to dashboard.  Owned by the Kibana App team.</p></td>
-</tr>
-<tr>
-<td align="left" valign="top"><p><a href="https://github.com/elastic/kibana/blob/master/x-pack/plugins/data_enhanced/README.md" class="ulink" target="_top">dataEnhanced</a></p></td>
-<td align="left" valign="top"><p>The data_enhanced plugin is the x-pack counterpart to the src/plguins/data plugin.</p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p><a href="https://github.com/elastic/kibana/blob/master/x-pack/plugins/data_visualizer/README.md" class="ulink" target="_top">dataVisualizer</a></p></td>
@@ -524,8 +530,12 @@ the infrastructure monitoring use-case within Kibana.</p></td>
 <td align="left" valign="top"><p>The ingest_pipelines plugin provides Kibana support for Elasticsearch&#8217;s ingest pipelines.</p></td>
 </tr>
 <tr>
+<td align="left" valign="top"><p><a href="https://github.com/elastic/kibana/blob/master/x-pack/plugins/kubernetes_security/README.md" class="ulink" target="_top">kubernetesSecurity</a></p></td>
+<td align="left" valign="top"><p>(under construction)</p></td>
+</tr>
+<tr>
 <td align="left" valign="top"><p><a href="https://github.com/elastic/kibana/blob/master/x-pack/plugins/lens/readme.md" class="ulink" target="_top">lens</a></p></td>
-<td align="left" valign="top"><p>Visualization editor allowing to quickly and easily configure compelling visualizations to use on dashboards and canvas workpads.</p></td>
+<td align="left" valign="top"><p>Lens is a visualization editor allowing to quickly and easily configure compelling visualizations to use on dashboards and canvas workpads.</p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p><a href="https://github.com/elastic/kibana/blob/master/x-pack/plugins/license_api_guard/README.md" class="ulink" target="_top">licenseApiGuard</a></p></td>
@@ -642,6 +652,11 @@ the alertTypes by the Stack in the alerting plugin, register associated HTTP
 routes, etc.</p></td>
 </tr>
 <tr>
+<td align="left" valign="top"><p><a href="https://github.com/elastic/kibana/blob/master/x-pack/plugins/synthetics/README.md" class="ulink" target="_top">synthetics</a></p></td>
+<td align="left" valign="top"><p>The purpose of this plugin is to provide users of Heartbeat more visibility of what&#8217;s happening
+in their infrastructure.</p></td>
+</tr>
+<tr>
 <td align="left" valign="top"><p><a href="https://github.com/elastic/kibana/blob/master/x-pack/plugins/task_manager/README.md" class="ulink" target="_top">taskManager</a></p></td>
 <td align="left" valign="top"><p>The task manager is a generic system for running background tasks.
 Documentation: <a href="/guide/en/kibana/master/task-manager-production-considerations.html" class="ulink" target="_top">https://www.elastic.co/guide/en/kibana/master/task-manager-production-considerations.html</a></p></td>
@@ -649,6 +664,10 @@ Documentation: <a href="/guide/en/kibana/master/task-manager-production-consider
 <tr>
 <td align="left" valign="top"><p><a href="https://github.com/elastic/kibana/blob/master/x-pack/plugins/telemetry_collection_xpack/README.md" class="ulink" target="_top">telemetryCollectionXpack</a></p></td>
 <td align="left" valign="top"><p>Gathers all usage collection, retrieving them from both: OSS and X-Pack plugins.</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><a href="https://github.com/elastic/kibana/blob/master/x-pack/plugins/threat_intelligence/README.md" class="ulink" target="_top">threatIntelligence</a></p></td>
+<td align="left" valign="top"><p>Elastic Threat Intelligence makes it easy to analyze and investigate potential security threats by aggregating data from multiple sources in one place. You’ll be able to view data from all activated threat intelligence feeds and take action.</p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p><a href="https://github.com/elastic/kibana/blob/master/x-pack/plugins/timelines/README.md" class="ulink" target="_top">timelines</a></p></td>
@@ -669,17 +688,8 @@ For adding localizations and instrument a ui to support translated content, see 
 As a developer you can reuse and extend built-in alerts and actions UI functionality:</p></td>
 </tr>
 <tr>
-<td align="left" valign="top"><p><a href="https://github.com/elastic/kibana/blob/master/x-pack/plugins/ui_actions_enhanced/README.md" class="ulink" target="_top">uiActionsEnhanced</a></p></td>
-<td align="left" valign="top"><p>Registers commercially licensed generic actions like per panel time range and contains some code that supports drilldown work.</p></td>
-</tr>
-<tr>
 <td align="left" valign="top"><p><a href="https://github.com/elastic/kibana/blob/master/x-pack/plugins/upgrade_assistant/README.md" class="ulink" target="_top">upgradeAssistant</a></p></td>
 <td align="left" valign="top"><p>Upgrade Assistant helps users prepare their Stack for being upgraded to the next major. It will only be enabled on the last minor before the next major release. This is controlled via the config: xpack.upgrade_assistant.readonly (#101296).</p></td>
-</tr>
-<tr>
-<td align="left" valign="top"><p><a href="https://github.com/elastic/kibana/blob/master/x-pack/plugins/uptime/README.md" class="ulink" target="_top">uptime</a></p></td>
-<td align="left" valign="top"><p>The purpose of this plugin is to provide users of Heartbeat more visibility of what&#8217;s happening
-in their infrastructure.</p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p><a href="https://github.com/elastic/kibana/blob/master/x-pack/plugins/drilldowns/url_drilldown/README.md" class="ulink" target="_top">urlDrilldown</a></p></td>
@@ -696,7 +706,6 @@ in their infrastructure.</p></td>
 </tbody>
 </table>
 </div>
-
 
 
 

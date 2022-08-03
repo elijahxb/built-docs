@@ -1,10 +1,5 @@
-POST /_reindex
+POST /_sql?format=txt
 {
-  "source": {
-    "index": "my_test_scores"
-  },
-  "dest": {
-    "index": "my_test_scores_2",
-    "pipeline": "my_test_scores_pipeline"
-  }
+	"query": "SELECT YEAR(release_date) AS year FROM library WHERE page_count > ? AND author = ? GROUP BY year HAVING COUNT(*) > ?",
+	"params": [300, "Frank Herbert", 0]
 }

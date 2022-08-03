@@ -13,19 +13,16 @@
 <meta name="robots" content="noindex,nofollow"/>
 </head>
 <body><div class="page_header">
-You are looking at preliminary documentation for a future release.
-Not what you want? See the
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
 <a href="../current/index.html">current release documentation</a>.
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.2]</a></span>
-»
-<span class="breadcrumb-link"><a href="data-rollup-transform.html">Roll up or transform your data</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.2]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="data-rollup-transform.html">Roll up or transform your data</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="transforms.html">Transforming data</a></span>
-»
-<span class="breadcrumb-node">Set up transforms</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -176,8 +173,11 @@ destination indices
 <h4><a id="transform-kib-spaces"></a>Kibana spaces<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.2/docs/reference/transform/setup.asciidoc">edit</a></h4>
 <p><a href="/guide/en/kibana/8.2/xpack-spaces.html" class="ulink" target="_top">Spaces</a> enable you to organize your source and
 destination indices and other saved objects in Kibana and to see only the objects
-that belong to your space. However, this limited scope does not apply to
-transforms; they are visible in all spaces.</p>
+that belong to your space. However, a transform is a long running task which
+is managed on cluster level and therefore not limited in scope to certain
+spaces. Space awareness can be implemented for a data view under
+<span class="strong strong"><strong>Stack Management &gt; Kibana</strong></span> which allows privileges to the transform
+destination index.</p>
 <p>To successfully create transforms in Kibana, you must be logged into a space
 where the source indices are visible and the <code class="literal">Data View Management</code> and
 <code class="literal">Stack Monitoring</code> features are visible.</p>

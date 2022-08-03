@@ -18,13 +18,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elastic Security Solution [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="security-apis.html">Elastic Security APIs</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Security Solution [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="security-apis.html">Elastic Security APIs</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="rule-api-overview.html">Detections API</a></span>
-»
-<span class="breadcrumb-node">Update rule</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -45,12 +42,6 @@ Not what you want? See the
 </div>
 </div>
 <p>Updates an existing detection rule.</p>
-<div class="note admon">
-<div class="icon"></div>
-<div class="admon_content">
-<p>Console supports only Elasticsearch APIs. Console doesn&#8217;t allow interactions with Kibana APIs. You must use <code class="literal">curl</code> or another HTTP tool instead. For more information, refer to <a href="/guide/en/kibana/master/console-kibana.html" class="ulink" target="_top">Run Elasticsearch API requests</a>.</p>
-</div>
-</div>
 <p>You can use <code class="literal">PUT</code> or <code class="literal">PATCH</code> methods to update rules, where:</p>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -491,7 +482,7 @@ actions (notifications) taken when alerts are generated.</p></td>
 <td align="left" valign="top"><p>Determines if the rule acts as a building block.
 By default, building-block alerts are not displayed in the UI. These rules are
 used as a foundation for other rules that do generate alerts. Its value must be
-<code class="literal">default</code>. For more information, <a class="xref" href="building-block-rule.html" title="About building block rules"><em>About building block rules</em></a>.</p></td>
+<code class="literal">default</code>. For more information, refer to <a class="xref" href="building-block-rule.html" title="About building block rules"><em>About building block rules</em></a>.</p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p>enabled</p></td>
@@ -535,7 +526,10 @@ single execution. Defaults to <code class="literal">100</code>.</p></td>
 <tr>
 <td align="left" valign="top"><p>meta</p></td>
 <td align="left" valign="top"><p>Object</p></td>
-<td align="left" valign="top"><p>Placeholder for metadata about the rule.</p></td>
+<td align="left" valign="top">
+<p>Placeholder for metadata about the rule.</p>
+<p><span class="strong strong"><strong>NOTE</strong></span>: This field is overwritten when you save changes to the rule&#8217;s settings.</p>
+</td>
 </tr>
 <tr>
 <td align="left" valign="top"><p>note</p></td>
@@ -566,7 +560,7 @@ filter, and search rules. Defaults to an empty array.</p></td>
 <td align="left" valign="top"><p><a class="xref" href="rules-api-create.html#threats-object-create" title="threat schema">threat[]</a></p></td>
 <td align="left" valign="top"><p>Object containing attack
 information about the type of threat the rule monitors, see
-<a href="/guide/en/ecs/8.3/ecs-threat.html" class="ulink" target="_top">ECS threat fields</a>. Defaults to an empty array.</p></td>
+<a href="/guide/en/ecs/8.5/ecs-threat.html" class="ulink" target="_top">ECS threat fields</a>. Defaults to an empty array.</p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p>throttle</p></td>
@@ -832,6 +826,45 @@ must be an Elasticsearch date data type.</p></td>
 
 <div class="section">
 <div class="titlepage"><div><div>
+<h4 class="title"><a id="opt-fields-eql-update"></a>Optional fields for EQL rules<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/main/docs/detections/api/rules/rules-api-update.asciidoc">edit</a></h4>
+</div></div></div>
+<div class="informaltable">
+<table border="1" cellpadding="4px" width="100%">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+<col class="col_3"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Name</th>
+<th align="left" valign="top">Type</th>
+<th align="left" valign="top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p>event_category_field</p></td>
+<td align="left" valign="top"><p>String</p></td>
+<td align="left" valign="top"><p>Contains the event classification, such as <code class="literal">process</code>, <code class="literal">file</code>, or <code class="literal">network</code>. This field is typically mapped as a field type in the <a href="/guide/en/elasticsearch/reference/master/keyword.html" class="ulink" target="_top">keyword family</a>. Defaults to the <code class="literal">event.category</code> ECS field.</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p>tiebreaker_field</p></td>
+<td align="left" valign="top"><p>String</p></td>
+<td align="left" valign="top"><p>Sets a secondary field for sorting events (in ascending, lexicographic order) if they have the same timestamp.</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p>timestamp_field</p></td>
+<td align="left" valign="top"><p>String</p></td>
+<td align="left" valign="top"><p>Contains the event timestamp used for sorting a sequence of events. This is different from <code class="literal">timestamp_override</code>, which is used for querying events within a range. Defaults to the <code class="literal">@timestamp</code> ECS field.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
 <h4 class="title"><a id="actions-object-schema-update"></a><code class="literal">actions</code> schema<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/main/docs/detections/api/rules/rules-api-update.asciidoc">edit</a></h4>
 </div></div></div>
 <p>These fields are required when calling <code class="literal">PUT</code> to modify the <code class="literal">actions</code> object:</p>
@@ -1085,7 +1118,7 @@ name&gt;).</p>
   ]
 }</pre>
 </div>
-<div class="kibana_widget" data-snippet="snippets/18.kibana"></div>
+<div class="kibana_widget" data-snippet="snippets/11.kibana"></div>
 </div>
 
 </div>
@@ -1170,8 +1203,38 @@ incremented version number.</p>
       ]
     }
   ],
+  "execution_summary": {                      <a id="CO8-1"></a><i class="conum" data-value="1"></i>
+    "last_execution": {
+      "date": "2022-03-23T16:06:12.787Z",
+      "status": "partial failure",
+      "status_order": 20,
+      "message": "This rule attempted to query data from Elasticsearch indices listed in the \"Index pattern\" section of the rule definition, but no matching index was found.",
+      "metrics": {
+          "total_search_duration_ms": 135,
+          "total_indexing_duration_ms": 15,
+          "execution_gap_duration_s": 0,
+      }
+    }
+  },
   "version": 2
 }</pre>
+</div>
+<div class="calloutlist">
+<table border="0" summary="Callout list">
+<tr>
+<td align="left" valign="top" width="5%">
+<p><a href="#CO8-1"><i class="conum" data-value="1"></i></a></p>
+</td>
+<td align="left" valign="top">
+<p><span class="Admonishment Admonishment--dev">
+[<span class="Admonishment-title u-mono">dev</span>]
+<span class="Admonishment-detail">
+This functionality is in development and may be changed or removed completely in a future release. These features are unsupported and not subject to the support SLA of official GA features.
+</span>
+</span> <code class="literal">execution_summary</code> is under development and its schema may change.</p>
+</td>
+</tr>
+</table>
 </div>
 </div>
 

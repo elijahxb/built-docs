@@ -11,6 +11,7 @@
 <meta name="DC.type" content="Learn/Docs/Metricbeat/Reference/8.1"/>
 <meta name="DC.subject" content="Metricbeat"/>
 <meta name="DC.identifier" content="8.1"/>
+<meta name="robots" content="noindex,nofollow"/>
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -56,7 +57,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,36 +88,29 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
-                  
+                  <div class="page_header">
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Metricbeat Reference [8.1]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Metricbeat Reference [8.1]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="configuring-howto-metricbeat.html">Configure Metricbeat</a></span>
-»
-<span class="breadcrumb-node">Configure APM instrumentation</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -128,7 +122,7 @@
 </div>
 <div class="chapter">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="configuration-instrumentation"></a>Configure APM instrumentation<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/shared-instrumentation.asciidoc">edit</a></h2>
+<h2 class="title"><a id="configuration-instrumentation"></a>Configure APM instrumentation<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/shared-instrumentation.asciidoc">edit</a></h2>
 </div></div></div>
 
 <p>Libbeat uses the Elastic APM Go Agent to instrument its publishing pipeline.
@@ -143,35 +137,35 @@ To gain insight into the performance of Metricbeat, you can enable this instrume
     - "http://localhost:8200"
   api_key: L5ER6FEvjkmlfalBealQ3f3fLqf03fazfOV</pre>
 </div>
-<h3><a id="_configuration_options_15"></a>Configuration options<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/shared-instrumentation.asciidoc">edit</a></h3>
+<h3><a id="_configuration_options_15"></a>Configuration options<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/shared-instrumentation.asciidoc">edit</a></h3>
 <p>You can specify the following options in the <code class="literal">instrumentation</code> section of the <code class="literal">metricbeat.yml</code> config file:</p>
-<h4><a id="_enabled_9"></a><code class="literal">enabled</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/shared-instrumentation.asciidoc">edit</a></h4>
+<h4><a id="_enabled_9"></a><code class="literal">enabled</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/shared-instrumentation.asciidoc">edit</a></h4>
 <p>Set to <code class="literal">true</code> to enable instrumentation of Metricbeat.
 Defaults to <code class="literal">false</code>.</p>
-<h4><a id="_environment"></a><code class="literal">environment</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/shared-instrumentation.asciidoc">edit</a></h4>
+<h4><a id="_environment"></a><code class="literal">environment</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/shared-instrumentation.asciidoc">edit</a></h4>
 <p>Set the environment in which Metricbeat is running, for example, <code class="literal">staging</code>, <code class="literal">production</code>, <code class="literal">dev</code>, etc.
 Environments can be filtered in the <a href="/guide/en/kibana/8.1/xpack-apm.html" class="ulink" target="_top">APM app</a>.</p>
-<h4><a id="_hosts_4"></a><code class="literal">hosts</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/shared-instrumentation.asciidoc">edit</a></h4>
+<h4><a id="_hosts_4"></a><code class="literal">hosts</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/shared-instrumentation.asciidoc">edit</a></h4>
 <p>The APM integration <a href="/guide/en/apm/guide/8.1/input-apm.html" class="ulink" target="_top">host</a> to report instrumentation data to.
 Defaults to <code class="literal">http://localhost:8200</code>.</p>
-<h4><a id="_api_key_2"></a><code class="literal">api_key</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/shared-instrumentation.asciidoc">edit</a></h4>
+<h4><a id="_api_key_2"></a><code class="literal">api_key</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/shared-instrumentation.asciidoc">edit</a></h4>
 <p>The <a href="/guide/en/apm/guide/8.1/input-apm.html" class="ulink" target="_top">API Key</a> used to secure communication with the APM Integration.
 If <code class="literal">api_key</code> is set then <code class="literal">secret_token</code> will be ignored.</p>
-<h4><a id="_secret_token"></a><code class="literal">secret_token</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/shared-instrumentation.asciidoc">edit</a></h4>
+<h4><a id="_secret_token"></a><code class="literal">secret_token</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/shared-instrumentation.asciidoc">edit</a></h4>
 <p>The <a href="/guide/en/apm/guide/8.1/input-apm.html" class="ulink" target="_top">Secret token</a> used to secure communication with the APM Integration.</p>
-<h4><a id="_profiling_cpu_enabled"></a><code class="literal">profiling.cpu.enabled</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/shared-instrumentation.asciidoc">edit</a></h4>
+<h4><a id="_profiling_cpu_enabled"></a><code class="literal">profiling.cpu.enabled</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/shared-instrumentation.asciidoc">edit</a></h4>
 <p>Set to <code class="literal">true</code> to enable CPU profiling, where profile samples are recorded as events.</p>
 <p>This feature is experimental.</p>
-<h4><a id="_profiling_cpu_interval"></a><code class="literal">profiling.cpu.interval</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/shared-instrumentation.asciidoc">edit</a></h4>
+<h4><a id="_profiling_cpu_interval"></a><code class="literal">profiling.cpu.interval</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/shared-instrumentation.asciidoc">edit</a></h4>
 <p>Configure the CPU profiling interval. Defaults to <code class="literal">60s</code>.</p>
 <p>This feature is experimental.</p>
-<h4><a id="_profiling_cpu_duration"></a><code class="literal">profiling.cpu.duration</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/shared-instrumentation.asciidoc">edit</a></h4>
+<h4><a id="_profiling_cpu_duration"></a><code class="literal">profiling.cpu.duration</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/shared-instrumentation.asciidoc">edit</a></h4>
 <p>Configure the CPU profiling duration. Defaults to <code class="literal">10s</code>.</p>
 <p>This feature is experimental.</p>
-<h4><a id="_profiling_heap_enabled"></a><code class="literal">profiling.heap.enabled</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/shared-instrumentation.asciidoc">edit</a></h4>
+<h4><a id="_profiling_heap_enabled"></a><code class="literal">profiling.heap.enabled</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/shared-instrumentation.asciidoc">edit</a></h4>
 <p>Set to <code class="literal">true</code> to enable heap profiling.</p>
 <p>This feature is experimental.</p>
-<h4><a id="_profiling_heap_interval"></a><code class="literal">profiling.heap.interval</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/shared-instrumentation.asciidoc">edit</a></h4>
+<h4><a id="_profiling_heap_interval"></a><code class="literal">profiling.heap.interval</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/shared-instrumentation.asciidoc">edit</a></h4>
 <p>Configure the heap profiling interval. Defaults to <code class="literal">60s</code>.</p>
 <p>This feature is experimental.</p>
 </div>
@@ -187,15 +181,37 @@ If <code class="literal">api_key</code> is set then <code class="literal">secret
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

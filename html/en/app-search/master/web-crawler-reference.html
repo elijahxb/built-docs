@@ -57,7 +57,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -88,27 +88,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 You are looking at preliminary documentation for a future release.
@@ -117,11 +108,9 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elastic App Search Documentation [master]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic App Search Documentation [master]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="guides.html">Guides</a></span>
-»
-<span class="breadcrumb-node">Web crawler reference</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -135,7 +124,7 @@ Not what you want? See the
 <div class="titlepage"><div><div>
 <h2 class="title"><a id="web-crawler-reference"></a>Web crawler reference<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/enterprise-search-pubs/edit/main/app-search-docs/guides/web-crawler-reference.asciidoc">edit</a></h2>
 </div></div></div>
-<p>See <a class="xref" href="web-crawler.html" title="Web crawler">Web crawler</a> for a guided introduction to the Elastic Enterprise Search web crawler.</p>
+<p>See <a class="xref" href="web-crawler.html" title="App Search web crawler">App Search web crawler</a> for a guided introduction to the Elastic Enterprise Search web crawler.</p>
 <p>Refer to the following sections for terms, definitions, tables, and other detailed information.</p>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -156,6 +145,9 @@ Not what you want? See the
 <p><a class="xref" href="web-crawler-reference.html#web-crawler-reference-content-extraction-and-indexing" title="Content extraction and indexing">Content extraction and indexing</a></p>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
+<li class="listitem">
+<a class="xref" href="web-crawler-reference.html#web-crawler-reference-binary-content-extraction" title="Binary content extraction">Binary content extraction</a>
+</li>
 <li class="listitem">
 <a class="xref" href="web-crawler-reference.html#web-crawler-reference-content-deduplication" title="Duplicate document handling">Duplicate document handling</a>
 </li>
@@ -339,13 +331,64 @@ Each page you have will generate a record in at least one of those indexes, mean
 <div class="titlepage"><div><div>
 <h3 class="title"><a id="web-crawler-reference-content-extraction-and-indexing"></a>Content extraction and indexing<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/enterprise-search-pubs/edit/main/app-search-docs/guides/web-crawler-reference.asciidoc">edit</a></h3>
 </div></div></div>
-<p><em>Content extraction</em> is the process where the web crawler transforms an HTML document into a search document.
+<p><em>Content extraction</em> is the process where the web crawler transforms a web (HTML or binary) document into a search document.
 And <em>indexing</em> is the process where the crawler puts the search document into an App Search engine for searching.</p>
 <p>During content extraction, the web crawler <a class="xref" href="web-crawler-reference.html#web-crawler-reference-content-deduplication" title="Duplicate document handling">handles duplicate documents</a>.
 The crawler indexes duplicate web documents as a single search document.</p>
 <p>The web crawler extracts each web document into a predefined <a class="xref" href="web-crawler-reference.html#web-crawler-reference-web-crawler-schema" title="Web crawler schema">schema</a> before indexing it as a search document.
 Custom field extraction is supported via <a class="xref" href="web-crawler-reference.html#web-crawler-reference-meta-tags-content-extraction" title="Meta tags and data attributes to extract custom fields">meta tags and attributes</a>.</p>
 <p>During a crawl, the web crawler uses <a class="xref" href="web-crawler-reference.html#web-crawler-reference-http-response-status-codes" title="HTTP response status codes handling">HTTP response status codes</a> and <a class="xref" href="web-crawler-reference.html#web-crawler-reference-robots-meta-tags" title="Robots meta tags">robots meta tags</a> to determine which documents it is allowed to index.</p>
+<div class="section">
+<div class="titlepage"><div><div>
+<h4 class="title"><a id="web-crawler-reference-binary-content-extraction"></a>Binary content extraction<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/enterprise-search-pubs/edit/main/app-search-docs/guides/web-crawler-reference.asciidoc">edit</a></h4>
+</div></div></div>
+<p>Since 8.3.0, the web crawler can extract content from downloadable binary files, such as PDF and DOCX files.
+To use this feature:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Enable binary content extraction with the configuration: <code class="literal">crawler.content_extraction.enabled: true</code>.
+</li>
+<li class="listitem">
+<p>Select which MIME types should have their contents extracted. For example: <code class="literal">crawler.content_extraction.mime_types: ["application/pdf", "application/msword"]</code>.</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+The MIME type is determined by the HTTP response&#8217;s <code class="literal">Content-Type</code> header when downloading a given file.
+</li>
+<li class="listitem">
+While intended primarily for PDF and Microsoft Office formats, you can use any of the supported formats documented by <a href="https://tika.apache.org" class="ulink" target="_blank" rel="noopener">Apache Tika</a>.
+</li>
+<li class="listitem">
+No default <code class="literal">mime_types</code> are defined.
+You must configure at least one MIME type in order to extract non-HTML content.
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>The ingest attachment processor does not support compressed files, e.g., an archive file containing a set of PDFs.
+Expand the archive file and make individual uncompressed files available for the web crawler to process.</p>
+</div>
+</div>
+<p>Enterprise Search uses an <a href="/guide/en/elasticsearch/reference/master/ingest.html" class="ulink" target="_blank" rel="noopener">Elasticsearch ingest pipeline</a>
+to power the web crawler&#8217;s binary content extraction.
+This pipeline, named <code class="literal">app_search_crawler</code>, is automatically created when Enterprise Search first starts, if Enterprise Search is configured to enable binary content extraction.</p>
+<p>You can <a href="/guide/en/elasticsearch/reference/master/ingest.html#create-manage-ingest-pipelines" class="ulink" target="_blank" rel="noopener">view and update</a> this pipeline in Kibana or with Elasticsearch APIs.</p>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>If you make changes to the default <code class="literal">app_search_crawler</code> ingest pipeline, these will not be overwritten when you upgrade Enterprise Search.
+Therefore, we recommend comparing the default <code class="literal">app_search_crawler</code> pipeline that comes with the newer version — to determine if you need to
+incorporate the latest changes into your customized pipeline.</p>
+</div>
+</div>
+</div>
+
 </div>
 
 <div class="section">
@@ -967,12 +1010,81 @@ To manually remove obsolete content, create the appropriate <a class="xref" href
   &lt;h1 data-elastic-name="product_name"&gt;Printer&lt;/h1&gt;
 &lt;/body&gt;</pre>
 </div>
-<p>will include 2 additional fields</p>
+<p>will include 2 additional fields.</p>
 <div class="pre_wrapper lang-json">
 <pre class="programlisting prettyprint lang-json">{
   "product_price": "99.99",
   "product_name": "Printer"
 }</pre>
+</div>
+<p>You can specify multiple <code class="literal">class="elastic"</code> and <code class="literal">data-elastic-name</code> tags.</p>
+<p>Template:</p>
+<div class="pre_wrapper lang-html">
+<pre class="programlisting prettyprint lang-html">&lt;head&gt;
+  &lt;meta class="elastic" name="{FIELD_NAME_1}" content="{FIELD_VALUE_1}"&gt;
+  &lt;meta class="elastic" name="{FIELD_NAME_2}" content="{FIELD_VALUE_2}"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div data-elastic-name="{FIELD_NAME_1}"&gt;{FIELD_VALUE_1}&lt;/div&gt;
+  &lt;div data-elastic-name="{FIELD_NAME_2}"&gt;{FIELD_VALUE_2}&lt;/div&gt;
+&lt;/body&gt;</pre>
+</div>
+<p><code class="literal">{FIELD_NAME}</code> must conform to the <a class="xref" href="documents.html#documents-create-field-name-rules" title="Field name rules">field name rules</a> detailed in the Documents API reference.
+Additionally, the web crawler reserves the following fields:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<code class="literal">additional_urls</code>
+</li>
+<li class="listitem">
+<code class="literal">body_content</code>
+</li>
+<li class="listitem">
+<code class="literal">domains</code>
+</li>
+<li class="listitem">
+<code class="literal">headings</code>
+</li>
+<li class="listitem">
+<code class="literal">last_crawled_at</code>
+</li>
+<li class="listitem">
+<code class="literal">links</code>
+</li>
+<li class="listitem">
+<code class="literal">meta_description</code>
+</li>
+<li class="listitem">
+<code class="literal">meta_keywords</code>
+</li>
+<li class="listitem">
+<code class="literal">title</code>
+</li>
+<li class="listitem">
+<code class="literal">url</code>
+</li>
+<li class="listitem">
+<code class="literal">url_host</code>
+</li>
+<li class="listitem">
+<code class="literal">url_path</code>
+</li>
+<li class="listitem">
+<code class="literal">url_path_dir1</code>
+</li>
+<li class="listitem">
+<code class="literal">url_path_dir2</code>
+</li>
+<li class="listitem">
+<code class="literal">url_path_dir3</code>
+</li>
+<li class="listitem">
+<code class="literal">url_port</code>
+</li>
+<li class="listitem">
+<code class="literal">url_scheme</code>
+</li>
+</ul>
 </div>
 <p>For compatibility with Elastic Site Search, the crawler also supports the class value <code class="literal">swiftype</code> on meta elements and the data attribute <code class="literal">data-swiftype-name</code> on elements within the body.</p>
 </div>
@@ -1201,7 +1313,7 @@ Refer to the following guide: <a class="xref" href="crawl-private-network-cloud.
 <div class="important admon">
 <div class="icon"></div>
 <div class="admon_content">
-<p>This feature requires an appropriate Elastic subscription level.
+<p>HTTP proxy with basic authentication requires an appropriate Elastic subscription level.
 Refer to the Elastic subscriptions pages for <a href="/subscriptions/cloud" class="ulink" target="_blank" rel="noopener">Elastic Cloud</a> and <a href="/subscriptions" class="ulink" target="_top">self-managed</a> deployments.</p>
 </div>
 </div>
@@ -1510,15 +1622,37 @@ The scheme of the page&#8217;s URL.
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

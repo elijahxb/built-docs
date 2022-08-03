@@ -18,13 +18,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="mapping.html">Mapping</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="mapping.html">Mapping</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="runtime.html">Runtime fields</a></span>
-»
-<span class="breadcrumb-node">Map a runtime field</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -36,14 +33,14 @@ Not what you want? See the
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="runtime-mapping-fields"></a>Map a runtime field<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/mapping/runtime.asciidoc">edit</a></h2>
+<h2 class="title"><a id="runtime-mapping-fields"></a>Map a runtime field<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/mapping/runtime.asciidoc">edit</a></h2>
 </div></div></div>
 <p>You map runtime fields by adding a <code class="literal">runtime</code> section under the mapping
 definition and defining
 <a class="xref" href="modules-scripting-using.html" title="How to write scripts">a Painless script</a>. This script has access to the
-entire context of a document, including the original <code class="literal">_source</code> and any mapped
-fields plus their values. At query time, the script runs and generates values
-for each scripted field that is required for the query.</p>
+entire context of a document, including the original <code class="literal">_source</code> via <code class="literal">params._source</code>
+and any mapped fields plus their values. At query time, the script runs and
+generates values for each scripted field that is required for the query.</p>
 <div class="sidebar">
 <div class="titlepage"><div><div>
 <p class="title"><strong>Emitting runtime field values</strong></p>
@@ -75,7 +72,7 @@ calculates the day of the week based on the value of <code class="literal">times
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/117.console"></div>
+<div class="console_widget" data-snippet="snippets/107.console"></div>
 <p>The <code class="literal">runtime</code> section can be any of these data types:</p>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -129,10 +126,10 @@ the index mapping as runtime fields:</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/118.console"></div>
+<div class="console_widget" data-snippet="snippets/108.console"></div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="runtime-fields-scriptless"></a>Define runtime fields without a script<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/mapping/runtime.asciidoc">edit</a></h3>
+<h3 class="title"><a id="runtime-fields-scriptless"></a>Define runtime fields without a script<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/mapping/runtime.asciidoc">edit</a></h3>
 </div></div></div>
 <p>Runtime fields typically include a Painless script that manipulates data in some
 way. However, there are instances where you might define a runtime field
@@ -151,7 +148,7 @@ a runtime field without a script, such as <code class="literal">day_of_week</cod
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/119.console"></div>
+<div class="console_widget" data-snippet="snippets/109.console"></div>
 <p>When no script is provided, Elasticsearch implicitly looks in <code class="literal">_source</code> at query time
 for a field with the same name as the runtime field, and returns a value if one
 exists. If a field with the same name doesn’t exist, the response doesn&#8217;t
@@ -177,7 +174,7 @@ recommended option, whenever possible.</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="runtime-updating-scripts"></a>Updating and removing runtime fields<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/mapping/runtime.asciidoc">edit</a></h3>
+<h3 class="title"><a id="runtime-updating-scripts"></a>Updating and removing runtime fields<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/mapping/runtime.asciidoc">edit</a></h3>
 </div></div></div>
 <p>You can update or remove runtime fields at any time. To replace an existing
 runtime field, add a new runtime field to the mappings with the same name. To
@@ -192,7 +189,7 @@ remove a runtime field from the mappings, set the value of the runtime field to
  }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/120.console"></div>
+<div class="console_widget" data-snippet="snippets/110.console"></div>
 <div class="sidebar">
 <div class="titlepage"><div><div>
 <p class="title"><strong>Downstream impacts</strong></p>

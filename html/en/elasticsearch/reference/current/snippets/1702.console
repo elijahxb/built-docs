@@ -1,13 +1,4 @@
-GET index/_search
+PUT .watches/_settings
 {
-  "query": {
-    "script_score": {
-      "query": {
-        "match": { "body": "elasticsearch" }
-      },
-      "script": {
-        "source": "_score * saturation(doc['pagerank'].value, 10)"
-      }
-    }
-  }
+  "index.routing.allocation.include.role": "watcher"
 }

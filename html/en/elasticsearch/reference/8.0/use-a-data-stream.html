@@ -57,7 +57,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -88,27 +88,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 <strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
@@ -117,11 +108,9 @@ will be released for this version. For the latest information, see the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.0]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.0]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="data-streams.html">Data streams</a></span>
-»
-<span class="breadcrumb-node">Use a data stream</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -182,7 +171,7 @@ the following:</p>
   "message": "Login successful"
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/579.console"></div>
+<div class="console_widget" data-snippet="snippets/580.console"></div>
 <p>You cannot add new documents to a data stream using the index API&#8217;s <code class="literal">PUT
 /&lt;target&gt;/_doc/&lt;_id&gt;</code> request format. To specify a document ID, use the <code class="literal">PUT
 /&lt;target&gt;/_create/&lt;_id&gt;</code> format instead. Only an
@@ -199,7 +188,7 @@ Only <code class="literal">create</code> actions are supported.</p>
 {"create":{ }}
 { "@timestamp": "2099-03-09T11:07:08.000Z", "user": { "id": "l7gk7f82" }, "message": "Logout successful" }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/580.console"></div>
+<div class="console_widget" data-snippet="snippets/581.console"></div>
 <h3><a id="search-a-data-stream"></a>Search a data stream<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.0/docs/reference/data-streams/use-a-data-stream.asciidoc">edit</a></h3>
 <p>The following search APIs support data streams:</p>
 <div class="ulist itemizedlist">
@@ -228,7 +217,7 @@ statistics for one or more data streams:</p>
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">GET /_data_stream/my-data-stream/_stats?human=true</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/581.console"></div>
+<div class="console_widget" data-snippet="snippets/582.console"></div>
 <h3><a id="manually-roll-over-a-data-stream"></a>Manually roll over a data stream<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.0/docs/reference/data-streams/use-a-data-stream.asciidoc">edit</a></h3>
 <p>Use the <a class="xref" href="indices-rollover-index.html" title="Rollover API">rollover API</a> to manually
 <a class="xref" href="data-streams.html#data-streams-rollover" title="Rollover">roll over</a> a data stream:</p>
@@ -236,7 +225,7 @@ statistics for one or more data streams:</p>
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">POST /my-data-stream/_rollover/</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/582.console"></div>
+<div class="console_widget" data-snippet="snippets/583.console"></div>
 <h3><a id="open-closed-backing-indices"></a>Open closed backing indices<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.0/docs/reference/data-streams/use-a-data-stream.asciidoc">edit</a></h3>
 <p>You cannot search a <a class="xref" href="indices-close.html" title="Close index API">closed</a> backing index, even by searching
 its data stream. You also cannot <a class="xref" href="use-a-data-stream.html#update-docs-in-a-data-stream-by-query" title="Update documents in a data stream by query">update</a>
@@ -247,14 +236,14 @@ index API request</a> directly to the index:</p>
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">POST /.ds-my-data-stream-2099.03.07-000001/_open/</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/583.console"></div>
+<div class="console_widget" data-snippet="snippets/584.console"></div>
 <p>To re-open all closed backing indices for a data stream, submit an open index
 API request to the stream:</p>
 <a id="fdc8e090293e78e9a6b283650b682517"></a>
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">POST /my-data-stream/_open/</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/584.console"></div>
+<div class="console_widget" data-snippet="snippets/585.console"></div>
 <h3><a id="reindex-with-a-data-stream"></a>Reindex with a data stream<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.0/docs/reference/data-streams/use-a-data-stream.asciidoc">edit</a></h3>
 <p>Use the <a class="xref" href="docs-reindex.html" title="Reindex API">reindex API</a> to copy documents from an existing index,
 alias, or data stream to a data stream. Because data streams are
@@ -274,7 +263,7 @@ stream.</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/585.console"></div>
+<div class="console_widget" data-snippet="snippets/586.console"></div>
 <h3><a id="update-docs-in-a-data-stream-by-query"></a>Update documents in a data stream by query<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.0/docs/reference/data-streams/use-a-data-stream.asciidoc">edit</a></h3>
 <p>Use the <a class="xref" href="docs-update-by-query.html" title="Update By Query API">update by query API</a> to update documents in a
 data stream that match a provided query:</p>
@@ -295,7 +284,7 @@ data stream that match a provided query:</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/586.console"></div>
+<div class="console_widget" data-snippet="snippets/587.console"></div>
 <h3><a id="delete-docs-in-a-data-stream-by-query"></a>Delete documents in a data stream by query<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.0/docs/reference/data-streams/use-a-data-stream.asciidoc">edit</a></h3>
 <p>Use the <a class="xref" href="docs-delete-by-query.html" title="Delete by query API">delete by query API</a> to delete documents in a
 data stream that match a provided query:</p>
@@ -310,7 +299,7 @@ data stream that match a provided query:</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/587.console"></div>
+<div class="console_widget" data-snippet="snippets/588.console"></div>
 <h3><a id="update-delete-docs-in-a-backing-index"></a>Update or delete documents in a backing index<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.0/docs/reference/data-streams/use-a-data-stream.asciidoc">edit</a></h3>
 <p>If needed, you can update or delete documents in a data stream by sending
 requests to the backing index containing the document. You&#8217;ll need:</p>
@@ -341,7 +330,7 @@ and primary term</a>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/588.console"></div>
+<div class="console_widget" data-snippet="snippets/589.console"></div>
 <p>Response:</p>
 <a id="03c3455dc5b460932b91686f9ea4c306"></a>
 <div class="pre_wrapper lang-console-result">
@@ -428,13 +417,13 @@ and primary term</a>
   "message": "Login successful"
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/589.console"></div>
+<div class="console_widget" data-snippet="snippets/590.console"></div>
 <p>To delete the document, use the <a class="xref" href="docs-delete.html" title="Delete API">delete API</a>:</p>
 <a id="79e053326a3a8eec828523a035393f66"></a>
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">DELETE /.ds-my-data-stream-2099.03.08-000003/_doc/bfspvnIBr7VVZlfp2lqX</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/590.console"></div>
+<div class="console_widget" data-snippet="snippets/591.console"></div>
 <p>To delete or update multiple documents with a single request, use the
 <a class="xref" href="docs-bulk.html" title="Bulk API">bulk API</a>'s <code class="literal">delete</code>, <code class="literal">index</code>, and <code class="literal">update</code> actions. For <code class="literal">index</code>
 actions, include valid <a class="xref" href="docs-bulk.html#bulk-optimistic-concurrency-control" title="Optimistic concurrency control"><code class="literal">if_seq_no</code> and
@@ -445,7 +434,7 @@ actions, include valid <a class="xref" href="docs-bulk.html#bulk-optimistic-conc
 { "index": { "_index": ".ds-my-data-stream-2099.03.08-000003", "_id": "bfspvnIBr7VVZlfp2lqX", "if_seq_no": 0, "if_primary_term": 1 } }
 { "@timestamp": "2099-03-08T11:06:07.000Z", "user": { "id": "8a4f500d" }, "message": "Login successful" }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/591.console"></div>
+<div class="console_widget" data-snippet="snippets/592.console"></div>
 </div>
 <div class="navfooter">
 <span class="prev">
@@ -459,15 +448,37 @@ actions, include valid <a class="xref" href="docs-bulk.html#bulk-optimistic-conc
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

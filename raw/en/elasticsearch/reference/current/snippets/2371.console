@@ -1,1 +1,5 @@
-POST /my-index-000001/_reload_search_analyzers
+PUT _ml/datafeeds/datafeed-total-requests
+{
+  "job_id": "total-requests",
+  "indices": ["server-metrics"]
+}

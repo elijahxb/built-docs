@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ElasticsearchPayload | Elastic Cloud Enterprise Reference [3.2] | Elastic</title>
+<link rel="home" href="index.html" title="Elastic Cloud Enterprise Reference [3.2]"/>
+<link rel="up" href="definitions.html" title="Definitions"/>
+<link rel="prev" href="ElasticsearchNodeType.html" title="ElasticsearchNodeType"/>
+<link rel="next" href="ElasticsearchPlanControlConfiguration.html" title="ElasticsearchPlanControlConfiguration"/>
+<meta name="DC.type" content="Learn/Docs/CloudEnterprise/Reference/3.2"/>
+<meta name="DC.subject" content="ECE"/>
+<meta name="DC.identifier" content="3.2"/>
+</head>
+<body><div class="page_header">
+A newer version is available. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Cloud Enterprise Reference [3.2]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="ece-restful-api.html">RESTful API</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="ece-api-reference.html">API reference</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="definitions.html">Definitions</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="ElasticsearchNodeType.html">« <code class="literal">ElasticsearchNodeType</code></a>
+</span>
+<span class="next">
+<a href="ElasticsearchPlanControlConfiguration.html"><code class="literal">ElasticsearchPlanControlConfiguration</code> »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="ElasticsearchPayload"></a><code class="literal">ElasticsearchPayload</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/cloud-enterprise/ce-api-swagger.asciidoc">edit</a></h3>
+</div></div></div>
+<p>An alias for an Elasticsearch Cluster paired with a request for creating one</p>
+<div class="section">
+<div class="titlepage"><div><div>
+<h4 class="title"><a id="ece_properties_201"></a>Properties<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/cloud-enterprise/ce-api-swagger.asciidoc">edit</a></h4>
+</div></div></div>
+<div class="variablelist">
+<dl class="variablelist">
+<dt>
+<span class="term">
+<code class="literal">display_name</code> (<code class="literal">string</code>)
+</span>
+</dt>
+<dd>
+The human readable name for the cluster (defaults to the generated cluster id if not specified)
+</dd>
+<dt>
+<span class="term">
+<code class="literal">plan</code> (<a class="xref" href="ElasticsearchClusterPlan.html" title="ElasticsearchClusterPlan"><code class="literal">ElasticsearchClusterPlan</code></a>, required)
+</span>
+</dt>
+<dd>
+The plan for building this Elasticsearch cluster
+</dd>
+<dt>
+<span class="term">
+<code class="literal">ref_id</code> (<code class="literal">string</code>, required)
+</span>
+</dt>
+<dd>
+A locally-unique user-specified id for this Elasticsearch cluster
+</dd>
+<dt>
+<span class="term">
+<code class="literal">region</code> (<code class="literal">string</code>, required)
+</span>
+</dt>
+<dd>
+The region where this resource exists
+</dd>
+<dt>
+<span class="term">
+<code class="literal">settings</code> (<a class="xref" href="ElasticsearchClusterSettings.html" title="ElasticsearchClusterSettings"><code class="literal">ElasticsearchClusterSettings</code></a>)
+</span>
+</dt>
+<dd>
+The settings for building this Elasticsearch cluster
+</dd>
+</dl>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h4 class="title"><a id="ece_example_206"></a>Example<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/cloud-enterprise/ce-api-swagger.asciidoc">edit</a></h4>
+</div></div></div>
+<div class="pre_wrapper lang-json">
+<pre class="programlisting prettyprint lang-json">{
+   "display_name" : "string",
+   "plan" : {
+      "autoscaling_enabled" : true,
+      "cluster_topology" : [
+         {
+            "autoscaling_max" : {
+               "resource" : "string",
+               "value" : 0
+            },
+            "autoscaling_min" : {
+               "resource" : "string",
+               "value" : 0
+            },
+            "autoscaling_policy_override_json" : {},
+            "elasticsearch" : {
+               "curation" : {
+                  "from_instance_configuration_id" : "string",
+                  "to_instance_configuration_id" : "string"
+               },
+               "docker_image" : "string",
+               "enabled_built_in_plugins" : [
+                  "string"
+               ],
+               "node_attributes" : {
+                  "some_property" : "string"
+               },
+               "system_settings" : {
+                  "auto_create_index" : true,
+                  "default_shards_per_index" : 0,
+                  "destructive_requires_name" : true,
+                  "enable_close_index" : true,
+                  "monitoring_collection_interval" : 0,
+                  "monitoring_history_duration" : "string",
+                  "reindex_whitelist" : [
+                     "string"
+                  ],
+                  "scripting" : {
+                     "expressions_enabled" : true,
+                     "file" : {
+                        "enabled" : true,
+                        "sandbox_mode" : true
+                     },
+                     "inline" : {
+                        "enabled" : true,
+                        "sandbox_mode" : true
+                     },
+                     "mustache_enabled" : true,
+                     "painless_enabled" : true,
+                     "stored" : {
+                        "enabled" : true,
+                        "sandbox_mode" : true
+                     }
+                  },
+                  "use_disk_threshold" : true,
+                  "watcher_trigger_engine" : "string"
+               },
+               "user_bundles" : [
+                  {
+                     "elasticsearch_version" : "string",
+                     "name" : "string",
+                     "url" : "string"
+                  }
+               ],
+               "user_plugins" : [
+                  {
+                     "elasticsearch_version" : "string",
+                     "name" : "string",
+                     "url" : "string"
+                  }
+               ],
+               "user_settings_json" : {},
+               "user_settings_override_json" : {},
+               "user_settings_override_yaml" : "string",
+               "user_settings_yaml" : "string",
+               "version" : "string"
+            },
+            "id" : "string",
+            "instance_configuration_id" : "string",
+            "memory_per_node" : 0,
+            "node_count_per_zone" : 0,
+            "node_roles" : [
+               "string"
+            ],
+            "node_type" : {
+               "data" : true,
+               "ingest" : true,
+               "master" : true,
+               "ml" : true
+            },
+            "size" : {
+               "resource" : "string",
+               "value" : 0
+            },
+            "topology_element_control" : {
+               "min" : {
+                  "resource" : "string",
+                  "value" : 0
+               }
+            },
+            "zone_count" : 0
+         }
+      ],
+      "deployment_template" : {
+         "id" : "string",
+         "version" : "string"
+      },
+      "elasticsearch" : {
+         "curation" : {
+            "from_instance_configuration_id" : "string",
+            "to_instance_configuration_id" : "string"
+         },
+         "docker_image" : "string",
+         "enabled_built_in_plugins" : [
+            "string"
+         ],
+         "node_attributes" : {
+            "some_property" : "string"
+         },
+         "system_settings" : {
+            "auto_create_index" : true,
+            "default_shards_per_index" : 0,
+            "destructive_requires_name" : true,
+            "enable_close_index" : true,
+            "monitoring_collection_interval" : 0,
+            "monitoring_history_duration" : "string",
+            "reindex_whitelist" : [
+               "string"
+            ],
+            "scripting" : {
+               "expressions_enabled" : true,
+               "file" : {
+                  "enabled" : true,
+                  "sandbox_mode" : true
+               },
+               "inline" : {
+                  "enabled" : true,
+                  "sandbox_mode" : true
+               },
+               "mustache_enabled" : true,
+               "painless_enabled" : true,
+               "stored" : {
+                  "enabled" : true,
+                  "sandbox_mode" : true
+               }
+            },
+            "use_disk_threshold" : true,
+            "watcher_trigger_engine" : "string"
+         },
+         "user_bundles" : [
+            {
+               "elasticsearch_version" : "string",
+               "name" : "string",
+               "url" : "string"
+            }
+         ],
+         "user_plugins" : [
+            {
+               "elasticsearch_version" : "string",
+               "name" : "string",
+               "url" : "string"
+            }
+         ],
+         "user_settings_json" : {},
+         "user_settings_override_json" : {},
+         "user_settings_override_yaml" : "string",
+         "user_settings_yaml" : "string",
+         "version" : "string"
+      },
+      "transient" : {
+         "cluster_settings_json" : {},
+         "plan_configuration" : {
+            "calm_wait_time" : 0,
+            "cluster_reboot" : "string",
+            "extended_maintenance" : true,
+            "max_snapshot_age" : 0,
+            "max_snapshot_attempts" : 0,
+            "move_allocators" : [
+               {
+                  "allocator_down" : true,
+                  "from" : "string",
+                  "to" : [
+                     "string"
+                  ]
+               }
+            ],
+            "move_instances" : [
+               {
+                  "from" : "string",
+                  "instance_down" : true,
+                  "to" : [
+                     "string"
+                  ]
+               }
+            ],
+            "move_only" : true,
+            "override_failsafe" : true,
+            "preferred_allocators" : [
+               "string"
+            ],
+            "reallocate_instances" : true,
+            "skip_data_migration" : true,
+            "skip_post_upgrade_steps" : true,
+            "skip_snapshot" : true,
+            "skip_snapshot_post_major_upgrade" : true,
+            "skip_upgrade_checker" : true,
+            "timeout" : 0
+         },
+         "remote_clusters" : {
+            "resources" : [
+               {
+                  "alias" : "string",
+                  "deployment_id" : "string",
+                  "elasticsearch_ref_id" : "string",
+                  "info" : {
+                     "compatible" : true,
+                     "connected" : true,
+                     "healthy" : true,
+                     "trusted" : true,
+                     "trusted_back" : true
+                  },
+                  "skip_unavailable" : true
+               }
+            ]
+         },
+         "restore_snapshot" : {
+            "repository_config" : {
+               "raw_settings" : {}
+            },
+            "repository_name" : "string",
+            "restore_payload" : {
+               "indices" : [
+                  "string"
+               ],
+               "raw_settings" : {}
+            },
+            "snapshot_name" : "string",
+            "source_cluster_id" : "string",
+            "strategy" : "string"
+         },
+         "strategy" : {
+            "autodetect" : {},
+            "grow_and_shrink" : {},
+            "rolling" : {
+               "allow_inline_resize" : true,
+               "group_by" : "string",
+               "shard_init_wait_time" : 0,
+               "skip_synced_flush" : true
+            },
+            "rolling_grow_and_shrink" : {}
+         }
+      }
+   },
+   "ref_id" : "string",
+   "region" : "string",
+   "settings" : {
+      "curation" : {
+         "specs" : [
+            {
+               "index_pattern" : "string",
+               "trigger_interval_seconds" : 0
+            }
+         ]
+      },
+      "dedicated_masters_threshold" : 0,
+      "metadata" : {
+         "contact_email" : "string",
+         "hidden" : true,
+         "name" : "string",
+         "organization_id" : "string",
+         "owner_id" : "string",
+         "resources" : {
+            "cpu" : {
+               "boost" : true,
+               "hard_limit" : true
+            }
+         },
+         "subscription_level" : "string",
+         "system_owned" : true
+      },
+      "monitoring" : {
+         "target_cluster_id" : "string"
+      },
+      "snapshot" : {
+         "cron_expression" : "string",
+         "enabled" : true,
+         "interval" : "string",
+         "pending_interval" : "string",
+         "repository" : {
+            "default" : {},
+            "reference" : {
+               "repository_name" : "string"
+            },
+            "static" : {
+               "repository_type" : "string",
+               "settings" : {}
+            }
+         },
+         "retention" : {
+            "max_age" : "string",
+            "snapshots" : 0
+         },
+         "slm" : true,
+         "suspended" : [
+            "string"
+         ],
+         "wait_time_after_snapshotting" : "string"
+      },
+      "traffic_filter" : {
+         "rulesets" : [
+            "string"
+         ]
+      },
+      "trust" : {
+         "accounts" : [
+            {
+               "account_id" : "string",
+               "trust_all" : true,
+               "trust_allowlist" : [
+                  "string"
+               ]
+            }
+         ],
+         "direct" : [
+            {
+               "additional_node_names" : [
+                  "string"
+               ],
+               "certificates" : [
+                  {
+                     "metadata" : {
+                        "fingerprint" : "string",
+                        "valid_from" : "2019-01-01T00:00:00Z",
+                        "valid_to" : "2019-01-01T00:00:00Z"
+                     },
+                     "pem" : "string"
+                  }
+               ],
+               "name" : "string",
+               "scope_id" : "string",
+               "trust_all" : true,
+               "trust_allowlist" : [
+                  "string"
+               ]
+            }
+         ],
+         "external" : [
+            {
+               "trust_all" : true,
+               "trust_allowlist" : [
+                  "string"
+               ],
+               "trust_relationship_id" : "string"
+            }
+         ]
+      }
+   }
+}</pre>
+</div>
+</div>
+
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="ElasticsearchNodeType.html">« <code class="literal">ElasticsearchNodeType</code></a>
+</span>
+<span class="next">
+<a href="ElasticsearchPlanControlConfiguration.html"><code class="literal">ElasticsearchPlanControlConfiguration</code> »</a>
+</span>
+</div>
+</div>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains('stemblock')) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+</body>
+</html>

@@ -19,13 +19,10 @@ A newer version is available. For the latest information, see the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Kibana Guide [7.17]</a></span>
-»
-<span class="breadcrumb-link"><a href="api.html">REST API</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Kibana Guide [7.17]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="api.html">REST API</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="actions-and-connectors-api.html">Action and connector APIs</a></span>
-»
-<span class="breadcrumb-node">Deprecated 7.x APIs</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -39,7 +36,7 @@ A newer version is available. For the latest information, see the
 <div class="titlepage"><div><div>
 <h2 class="title"><a id="actions-and-connectors-legacy-apis"></a>Deprecated 7.x APIs<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/7.17/docs/api/actions-and-connectors/legacy/index.asciidoc">edit</a></h2>
 </div></div></div>
-<p>These APIs are deprecated and will be removed as of 8.0.</p>
+<p>These APIs are deprecated and will be removed in a future release.</p>
 <div class="section">
 <div class="titlepage"><div><div>
 <h3 class="title"><a id="actions-and-connectors-legacy-api-get"></a>Legacy Get connector API<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/7.17/docs/api/actions-and-connectors/legacy/get.asciidoc">edit</a></h3>
@@ -293,12 +290,12 @@ Indicates a successful call.
 <div class="pre_wrapper lang-sh">
 <pre class="programlisting prettyprint lang-sh">[
   {
-    "id": ".email", <a id="CO51-1"></a><i class="conum" data-value="1"></i>
-    "name": "Email", <a id="CO51-2"></a><i class="conum" data-value="2"></i>
-    "minimumLicenseRequired": "gold", <a id="CO51-3"></a><i class="conum" data-value="3"></i>
-    "enabled": false, <a id="CO51-4"></a><i class="conum" data-value="4"></i>
-    "enabledInConfig": true, <a id="CO51-5"></a><i class="conum" data-value="5"></i>
-    "enabledInLicense": false <a id="CO51-6"></a><i class="conum" data-value="6"></i>
+    "id": ".email", <a id="CO52-1"></a><i class="conum" data-value="1"></i>
+    "name": "Email", <a id="CO52-2"></a><i class="conum" data-value="2"></i>
+    "minimumLicenseRequired": "gold", <a id="CO52-3"></a><i class="conum" data-value="3"></i>
+    "enabled": false, <a id="CO52-4"></a><i class="conum" data-value="4"></i>
+    "enabledInConfig": true, <a id="CO52-5"></a><i class="conum" data-value="5"></i>
+    "enabledInLicense": false <a id="CO52-6"></a><i class="conum" data-value="6"></i>
   },
   {
     "id": ".index",
@@ -314,7 +311,7 @@ Indicates a successful call.
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO51-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO52-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p><code class="literal">id</code> - The unique ID of the connector type.</p>
@@ -322,7 +319,7 @@ Indicates a successful call.
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO51-2"><i class="conum" data-value="2"></i></a></p>
+<p><a href="#CO52-2"><i class="conum" data-value="2"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p><code class="literal">name</code> - The name of the connector type.</p>
@@ -330,7 +327,7 @@ Indicates a successful call.
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO51-3"><i class="conum" data-value="3"></i></a></p>
+<p><a href="#CO52-3"><i class="conum" data-value="3"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p><code class="literal">minimumLicenseRequired</code> - The license required to use the connector type.</p>
@@ -338,7 +335,7 @@ Indicates a successful call.
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO51-4"><i class="conum" data-value="4"></i></a></p>
+<p><a href="#CO52-4"><i class="conum" data-value="4"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p><code class="literal">enabled</code> - Specifies if the connector type is enabled or disabled in Kibana.</p>
@@ -346,7 +343,7 @@ Indicates a successful call.
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO51-5"><i class="conum" data-value="5"></i></a></p>
+<p><a href="#CO52-5"><i class="conum" data-value="5"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p><code class="literal">enabledInConfig</code> - Specifies if the connector type is enabled or enabled in the Kibana .yml file.</p>
@@ -354,7 +351,7 @@ Indicates a successful call.
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO51-6"><i class="conum" data-value="6"></i></a></p>
+<p><a href="#CO52-6"><i class="conum" data-value="6"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p><code class="literal">enabledInLicense</code> - Specifies if the connector type is enabled or disabled in the license.</p>

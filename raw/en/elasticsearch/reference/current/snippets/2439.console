@@ -1,16 +1,1 @@
-POST _search?typed_keys
-{
-  "suggest": {
-    "text" : "some test mssage",
-    "my-first-suggester" : {
-      "term" : {
-        "field" : "message"
-      }
-    },
-    "my-second-suggester" : {
-      "phrase" : {
-        "field" : "message"
-      }
-    }
-  }
-}
+DELETE _ml/trained_models/flight-delay-prediction-1574775339910/model_aliases/flight_delay_model

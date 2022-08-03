@@ -18,13 +18,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Filebeat Reference [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="configuring-howto-filebeat.html">Configure Filebeat</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Filebeat Reference [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="configuring-howto-filebeat.html">Configure Filebeat</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="configuration-filebeat-options.html">Configure inputs</a></span>
-»
-<span class="breadcrumb-node">HTTP JSON input</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -173,10 +170,10 @@ Response transformations
 <code class="literal">url</code>: The last requested URL as a raw <a href="https://pkg.go.dev/net/url#URL" class="ulink" target="_top"><code class="literal">url.URL</code></a> Go type.
 </li>
 <li class="listitem">
-<code class="literal">header</code>: A map containing the headers. References the next request headers when used in <a class="xref" href="filebeat-input-httpjson.html#request-transforms" title="request.rate_limit.early_limit"><code class="literal">request.rate_limit.early_limit</code></a> or <a class="xref" href="filebeat-input-httpjson.html#response-pagination" title="response.pagination"><code class="literal">response.pagination</code></a> configuration sections, and to the last response headers when used in <a class="xref" href="filebeat-input-httpjson.html#response-transforms" title="response.transforms"><code class="literal">response.transforms</code></a>, <a class="xref" href="filebeat-input-httpjson.html#response-split" title="response.split"><code class="literal">response.split</code></a>, or <a class="xref" href="filebeat-input-httpjson.html#request-rate-limit" title="request.rate_limit.limit"><code class="literal">request.rate_limit.limit</code></a> configuration sections.
+<code class="literal">header</code>: A map containing the headers. References the next request headers when used in <a class="xref" href="filebeat-input-httpjson.html#request-transforms-headers" title="request.rate_limit.early_limit"><code class="literal">request.rate_limit.early_limit</code></a> or <a class="xref" href="filebeat-input-httpjson.html#response-pagination" title="response.pagination"><code class="literal">response.pagination</code></a> configuration sections, and to the last response headers when used in <a class="xref" href="filebeat-input-httpjson.html#response-transforms" title="response.transforms"><code class="literal">response.transforms</code></a>, <a class="xref" href="filebeat-input-httpjson.html#response-split" title="response.split"><code class="literal">response.split</code></a>, or <a class="xref" href="filebeat-input-httpjson.html#request-rate-limit" title="request.rate_limit.limit"><code class="literal">request.rate_limit.limit</code></a> configuration sections.
 </li>
 <li class="listitem">
-<code class="literal">body</code>: A map containing the body. References the next request body when used in <a class="xref" href="filebeat-input-httpjson.html#request-transforms" title="request.rate_limit.early_limit"><code class="literal">request.rate_limit.early_limit</code></a> or <a class="xref" href="filebeat-input-httpjson.html#response-pagination" title="response.pagination"><code class="literal">response.pagination</code></a> configuration sections, and to the last response body when used in <a class="xref" href="filebeat-input-httpjson.html#response-transforms" title="response.transforms"><code class="literal">response.transforms</code></a> or <a class="xref" href="filebeat-input-httpjson.html#response-split" title="response.split"><code class="literal">response.split</code></a> configuration sections.
+<code class="literal">body</code>: A map containing the body. References the next request body when used in <a class="xref" href="filebeat-input-httpjson.html#request-transforms-headers" title="request.rate_limit.early_limit"><code class="literal">request.rate_limit.early_limit</code></a> or <a class="xref" href="filebeat-input-httpjson.html#response-pagination" title="response.pagination"><code class="literal">response.pagination</code></a> configuration sections, and to the last response body when used in <a class="xref" href="filebeat-input-httpjson.html#response-transforms" title="response.transforms"><code class="literal">response.transforms</code></a> or <a class="xref" href="filebeat-input-httpjson.html#response-split" title="response.split"><code class="literal">response.split</code></a> configuration sections.
 </li>
 <li class="listitem">
 <code class="literal">cursor</code>: A map containing any data the user configured to be stored between restarts (See <a class="xref" href="filebeat-input-httpjson.html#cursor" title="cursor"><code class="literal">cursor</code></a>).
@@ -280,22 +277,25 @@ Please note that delimiters are changed from the default <code class="literal">{
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
 <li class="listitem">
-<code class="literal">parseDuration</code>: parses duration strings and returns <code class="literal">time.Duration</code>. Example: <code class="literal">[[parseDuration "1h"]]</code>.
+<code class="literal">add</code>: adds a list of integers and returns their sum.
 </li>
 <li class="listitem">
-<code class="literal">now</code>: returns the current <code class="literal">time.Time</code> object in UTC. Optionally, it can receive a <code class="literal">time.Duration</code> as a parameter. Example: <code class="literal">[[now (parseDuration "-1h")]]</code> returns the time at 1 hour before now.
+<code class="literal">base64DecodeNoPad</code>: Decodes the base64 string without padding. Any binary output will be converted to a UTF8 string.
 </li>
 <li class="listitem">
-<code class="literal">parseTimestamp</code>: parses a timestamp in seconds and returns a <code class="literal">time.Time</code> in UTC. Example: <code class="literal">[[parseTimestamp 1604582732]]</code> returns <code class="literal">2020-11-05 13:25:32 +0000 UTC</code>.
+<code class="literal">base64Decode</code>: Decodes the base64 string. Any binary output will be converted to a UTF8 string.
 </li>
 <li class="listitem">
-<code class="literal">parseTimestampMilli</code>: parses a timestamp in milliseconds and returns a <code class="literal">time.Time</code> in UTC. Example: <code class="literal">[[parseTimestamp 1604582732000]]</code> returns <code class="literal">2020-11-05 13:25:32 +0000 UTC</code>.
+<code class="literal">base64EncodeNoPad</code>: Joins and base64 encodes all supplied strings without padding. Example <code class="literal">[[base64EncodeNoPad "string1" "string2"]]</code>
 </li>
 <li class="listitem">
-<code class="literal">parseTimestampNano</code>: parses a timestamp in nanoseconds and returns a <code class="literal">time.Time</code> in UTC. Example: <code class="literal">[[parseTimestamp 1604582732000000000]]</code> returns <code class="literal">2020-11-05 13:25:32 +0000 UTC</code>.
+<code class="literal">base64Encode</code>: Joins and base64 encodes all supplied strings. Example <code class="literal">[[base64Encode "string1" "string2"]]</code>
 </li>
 <li class="listitem">
-<code class="literal">parseDate</code>: parses a date string and returns a <code class="literal">time.Time</code> in UTC. By default the expected layout is <code class="literal">RFC3339</code> but optionally can accept any of the Golang predefined layouts or a custom one. Example: <code class="literal">[[ parseDate "2020-11-05T12:25:32Z" ]]</code>, <code class="literal">[[ parseDate "2020-11-05T12:25:32.1234567Z" "RFC3339Nano" ]]</code>, <code class="literal">[[ (parseDate "Thu Nov  5 12:25:32 +0000 2020" "Mon Jan _2 15:04:05 -0700 2006").UTC ]]</code>.
+<code class="literal">beatInfo</code>: returns a map containing information about the Beat.  Available keys in the map are <code class="literal">goos</code> (running operating system), <code class="literal">goarch</code> (running system architecture), <code class="literal">commit</code> (git commit of current build), <code class="literal">buildtime</code> (compile time of current build), <code class="literal">version</code> (version of current build). Example: <code class="literal">[[ beatInfo.version ]]</code> returns <code class="literal">{version}</code>.
+</li>
+<li class="listitem">
+<code class="literal">div</code>: does the integer division of two integer values.
 </li>
 <li class="listitem">
 <code class="literal">formatDate</code>: formats a <code class="literal">time.Time</code>. By default the format layout is <code class="literal">RFC3339</code> but optionally can accept any of the Golang predefined layouts or a custom one. It will default to UTC timezone when formatting, but you can specify a different timezone. If the timezone is incorrect, it will default to UTC. Example: <code class="literal">[[ formatDate (now) "UnixDate" ]]</code>, <code class="literal">[[ formatDate (now) "UnixDate" "America/New_York" ]]</code>.
@@ -304,52 +304,61 @@ Please note that delimiters are changed from the default <code class="literal">{
 <code class="literal">getRFC5988Link</code>: extracts a specific relation from a list of <a href="https://tools.ietf.org/html/rfc5988" class="ulink" target="_top">RFC5988</a> links. It is useful when parsing header values for pagination. Example: <code class="literal">[[ getRFC5988Link "next" .last_response.header.Link ]]</code>.
 </li>
 <li class="listitem">
-<code class="literal">toInt</code>: converts a value of any type to an integer when possible. Returns 0 if the conversion fails.
+<code class="literal">hashBase64</code>: calculates the hash of a list of strings concatenated together. Returns a base64 encoded hash. Supports sha1 or sha256. Example <code class="literal">[[hash "sha256" "string1" "string2" (formatDate (now) "RFC1123")]]</code>
 </li>
 <li class="listitem">
-<code class="literal">add</code>: adds a list of integers and returns their sum.
+<code class="literal">hash</code>: calculates the hash of a list of strings concatenated together. Returns a hex encoded hash. Supports sha1 or sha256. Example <code class="literal">[[hash "sha256" "string1" "string2" (formatDate (now) "RFC1123")]]</code>
 </li>
 <li class="listitem">
-<code class="literal">mul</code>: multiplies two integers.
-</li>
-<li class="listitem">
-<code class="literal">div</code>: does the integer division of two integer values.
-</li>
-<li class="listitem">
-<code class="literal">hmac</code>: calculates the hmac signature of a list of strings concatenated together. Returns a hex encoded signature. Supports sha1 or sha256. Example <code class="literal">[[hmac "sha256" "secret" "string1" "string2" (formatDate (now) "RFC1123")]]</code>
-</li>
-<li class="listitem">
-<code class="literal">base64Encode</code>: Joins and base64 encodes all supplied strings. Example <code class="literal">[[base64Encode "string1" "string2"]]</code>
-</li>
-<li class="listitem">
-<code class="literal">base64EncodeNoPad</code>: Joins and base64 encodes all supplied strings without padding. Example <code class="literal">[[base64EncodeNoPad "string1" "string2"]]</code>
-</li>
-<li class="listitem">
-<code class="literal">base64Decode</code>: Decodes the base64 string. Any binary output will be converted to a UTF8 string.
-</li>
-<li class="listitem">
-<code class="literal">base64DecodeNoPad</code>: Decodes the base64 string without padding. Any binary output will be converted to a UTF8 string.
-</li>
-<li class="listitem">
-<code class="literal">join</code>: joins a list using the specified separator. Example: <code class="literal">[[join .body.arr ","]]</code>
-</li>
-<li class="listitem">
-<code class="literal">sprintf</code>: formats according to a format specifier and returns the resulting string. Refer to <a href="https://pkg.go.dev/fmt#Sprintf" class="ulink" target="_top">the Go docs</a> for usage. Example: <code class="literal">[[sprintf "%d:%q" 34 "quote this"]]</code>
+<code class="literal">hexDecode</code>: Decodes the hexadecimal string. Any hexadecimal string will be converted to its bytes representation. Example <code class="literal">[[hexDecode "b0a92a08a9b4883aa3aa2d0957be12a678cbdbb32dc5db09fe68239a09872f96"]]</code>; Expected Output: <code class="literal">"\xb0\xa9*\b\xa9\xb4\x88:\xa3\xaa-\tW\xbe\x12\xa6x\xcb۳-\xc5\xdb\t\xfeh#\x9a\t\x87/\x96"</code>
 </li>
 <li class="listitem">
 <code class="literal">hmacBase64</code>: calculates the hmac signature of a list of strings concatenated together. Returns a base64 encoded signature. Supports sha1 or sha256. Example <code class="literal">[[hmac "sha256" "secret" "string1" "string2" (formatDate (now) "RFC1123")]]</code>
 </li>
 <li class="listitem">
-<code class="literal">uuid</code>: returns a random UUID such as <code class="literal">a11e8780-e3e7-46d0-8e76-f66e75acf019</code>. Example: <code class="literal">[[ uuid ]]</code>
+<code class="literal">hmac</code>: calculates the hmac signature of a list of strings concatenated together. Returns a hex encoded signature. Supports sha1 or sha256. Example <code class="literal">[[hmac "sha256" "secret" "string1" "string2" (formatDate (now) "RFC1123")]]</code>
+</li>
+<li class="listitem">
+<code class="literal">join</code>: joins a list using the specified separator. Example: <code class="literal">[[join .body.arr ","]]</code>
+</li>
+<li class="listitem">
+<code class="literal">mul</code>: multiplies two integers.
+</li>
+<li class="listitem">
+<code class="literal">now</code>: returns the current <code class="literal">time.Time</code> object in UTC. Optionally, it can receive a <code class="literal">time.Duration</code> as a parameter. Example: <code class="literal">[[now (parseDuration "-1h")]]</code> returns the time at 1 hour before now.
+</li>
+<li class="listitem">
+<code class="literal">parseDate</code>: parses a date string and returns a <code class="literal">time.Time</code> in UTC. By default the expected layout is <code class="literal">RFC3339</code> but optionally can accept any of the Golang predefined layouts or a custom one. Example: <code class="literal">[[ parseDate "2020-11-05T12:25:32Z" ]]</code>, <code class="literal">[[ parseDate "2020-11-05T12:25:32.1234567Z" "RFC3339Nano" ]]</code>, <code class="literal">[[ (parseDate "Thu Nov  5 12:25:32 +0000 2020" "Mon Jan _2 15:04:05 -0700 2006").UTC ]]</code>.
+</li>
+<li class="listitem">
+<code class="literal">parseDuration</code>: parses duration strings and returns <code class="literal">time.Duration</code>. Example: <code class="literal">[[parseDuration "1h"]]</code>.
+</li>
+<li class="listitem">
+<code class="literal">parseTimestampMilli</code>: parses a timestamp in milliseconds and returns a <code class="literal">time.Time</code> in UTC. Example: <code class="literal">[[parseTimestamp 1604582732000]]</code> returns <code class="literal">2020-11-05 13:25:32 +0000 UTC</code>.
+</li>
+<li class="listitem">
+<code class="literal">parseTimestampNano</code>: parses a timestamp in nanoseconds and returns a <code class="literal">time.Time</code> in UTC. Example: <code class="literal">[[parseTimestamp 1604582732000000000]]</code> returns <code class="literal">2020-11-05 13:25:32 +0000 UTC</code>.
+</li>
+<li class="listitem">
+<code class="literal">parseTimestamp</code>: parses a timestamp in seconds and returns a <code class="literal">time.Time</code> in UTC. Example: <code class="literal">[[parseTimestamp 1604582732]]</code> returns <code class="literal">2020-11-05 13:25:32 +0000 UTC</code>.
+</li>
+<li class="listitem">
+<code class="literal">replaceAll(old, new, s)</code>: replaces all non-overlapping instances of <code class="literal">old</code> with <code class="literal">new</code> in <code class="literal">s</code>. Example: <code class="literal">[[ replaceAll "some" "my" "some value" ]]</code> returns <code class="literal">my value</code>.
+</li>
+<li class="listitem">
+<code class="literal">sprintf</code>: formats according to a format specifier and returns the resulting string. Refer to <a href="https://pkg.go.dev/fmt#Sprintf" class="ulink" target="_top">the Go docs</a> for usage. Example: <code class="literal">[[sprintf "%d:%q" 34 "quote this"]]</code>
+</li>
+<li class="listitem">
+<code class="literal">toInt</code>: converts a value of any type to an integer when possible. Returns 0 if the conversion fails.
+</li>
+<li class="listitem">
+<code class="literal">urlEncode</code>: URL encodes the supplied string. Example <code class="literal">[[urlEncode "string1"]]</code>. Example <code class="literal">[[urlEncode "&lt;string1&gt;"]]</code> will return <code class="literal">%3Cstring1%3E</code>.
 </li>
 <li class="listitem">
 <code class="literal">userAgent</code>: generates the User Agent with optional additional values. If no arguments are provided, it will generate the default User Agent that is added to all requests by default. It is recommended to delete the existing User-Agent header before setting a new one. Example: <code class="literal">[[ userAgent "integration/1.2.3" ]]</code> would generate <code class="literal">Elastic-Filebeat/8.1.0 (darwin; amd64; 9b893e88cfe109e64638d65c58fd75c2ff695402; 2021-12-15 13:20:00 +0000 UTC; integration_name/1.2.3)</code>
 </li>
 <li class="listitem">
-<code class="literal">beatInfo</code>: returns a map containing information about the Beat.  Available keys in the map are <code class="literal">goos</code> (running operating system), <code class="literal">goarch</code> (running system architecture), <code class="literal">commit</code> (git commit of current build), <code class="literal">buildtime</code> (compile time of current build), <code class="literal">version</code> (version of current build). Example: <code class="literal">[[ beatInfo.version ]]</code> returns <code class="literal">{version}</code>.
-</li>
-<li class="listitem">
-<code class="literal">urlEncode</code>: URL encodes the supplied string. Example <code class="literal">[[urlEncode "string1"]]</code>. Example <code class="literal">[[urlEncode "&lt;string1&gt;"]]</code> will return <code class="literal">%3Cstring1%3E</code>.
+<code class="literal">uuid</code>: returns a random UUID such as <code class="literal">a11e8780-e3e7-46d0-8e76-f66e75acf019</code>. Example: <code class="literal">[[ uuid ]]</code>
 </li>
 </ul>
 </div>
@@ -358,7 +367,7 @@ Please note that delimiters are changed from the default <code class="literal">{
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_configuration_options_6"></a>Configuration options<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/x-pack/filebeat/docs/inputs/input-httpjson.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_configuration_options_7"></a>Configuration options<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/x-pack/filebeat/docs/inputs/input-httpjson.asciidoc">edit</a></h3>
 </div></div></div>
 <p>The <code class="literal">httpjson</code> input supports the following configuration options plus the
 <a class="xref" href="filebeat-input-httpjson.html#filebeat-input-httpjson-common-options" title="Common options">Common options</a> described later.</p>
@@ -390,16 +399,16 @@ the <code class="literal">auth.oauth2</code> section is missing.</p>
 <p>Used to configure supported oauth2 providers.
 Each supported provider will require specific settings. It is not set by default.
 Supported providers are: <code class="literal">azure</code>, <code class="literal">google</code>.</p>
-<h4><a id="_auth_oauth2_client_id"></a><code class="literal">auth.oauth2.client.id</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/x-pack/filebeat/docs/inputs/input-httpjson.asciidoc">edit</a></h4>
+<h4><a id="_auth_oauth2_client_id_2"></a><code class="literal">auth.oauth2.client.id</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/x-pack/filebeat/docs/inputs/input-httpjson.asciidoc">edit</a></h4>
 <p>The client ID used as part of the authentication flow. It is always required
 except if using <code class="literal">google</code> as provider. Required for providers: <code class="literal">default</code>, <code class="literal">azure</code>.</p>
-<h4><a id="_auth_oauth2_client_secret"></a><code class="literal">auth.oauth2.client.secret</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/x-pack/filebeat/docs/inputs/input-httpjson.asciidoc">edit</a></h4>
+<h4><a id="_auth_oauth2_client_secret_2"></a><code class="literal">auth.oauth2.client.secret</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/x-pack/filebeat/docs/inputs/input-httpjson.asciidoc">edit</a></h4>
 <p>The client secret used as part of the authentication flow. It is always required
 except if using <code class="literal">google</code> as provider. Required for providers: <code class="literal">default</code>, <code class="literal">azure</code>.</p>
-<h4><a id="_auth_oauth2_user"></a><code class="literal">auth.oauth2.user</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/x-pack/filebeat/docs/inputs/input-httpjson.asciidoc">edit</a></h4>
+<h4><a id="_auth_oauth2_user_2"></a><code class="literal">auth.oauth2.user</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/x-pack/filebeat/docs/inputs/input-httpjson.asciidoc">edit</a></h4>
 <p>The user used as part of the authentication flow. It is required for authentication
  - grant type password. It is only available for provider <code class="literal">default</code>.</p>
-<h4><a id="_auth_oauth2_password"></a><code class="literal">auth.oauth2.password</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/x-pack/filebeat/docs/inputs/input-httpjson.asciidoc">edit</a></h4>
+<h4><a id="_auth_oauth2_password_2"></a><code class="literal">auth.oauth2.password</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/x-pack/filebeat/docs/inputs/input-httpjson.asciidoc">edit</a></h4>
 <p>The password used as part of the authentication flow. It is required for authentication
  - grant type password. It is only available for provider <code class="literal">default</code>.</p>
 <div class="note admon">
@@ -413,7 +422,7 @@ password is not used then it will automatically use the <code class="literal">to
 <h4><a id="_auth_oauth2_scopes"></a><code class="literal">auth.oauth2.scopes</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/x-pack/filebeat/docs/inputs/input-httpjson.asciidoc">edit</a></h4>
 <p>A list of scopes that will be requested during the oauth2 flow.
 It is optional for all providers.</p>
-<h4><a id="_auth_oauth2_token_url"></a><code class="literal">auth.oauth2.token_url</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/x-pack/filebeat/docs/inputs/input-httpjson.asciidoc">edit</a></h4>
+<h4><a id="_auth_oauth2_token_url_2"></a><code class="literal">auth.oauth2.token_url</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/x-pack/filebeat/docs/inputs/input-httpjson.asciidoc">edit</a></h4>
 <p>The endpoint that will be used to generate the tokens during the oauth2 flow. It is required if no provider is specified.</p>
 <div class="note admon">
 <div class="icon"></div>
@@ -473,6 +482,19 @@ default credentials from the environment will be attempted via ADC. For more inf
 how to provide Google credentials, please refer to <a href="https://cloud.google.com/docs/authentication" class="ulink" target="_top">https://cloud.google.com/docs/authentication</a>.</p>
 </div>
 </div>
+<h4><a id="_auth_oauth2_google_jwt_json"></a><code class="literal">auth.oauth2.google.jwt_json</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/x-pack/filebeat/docs/inputs/input-httpjson.asciidoc">edit</a></h4>
+<p>The JWT Account Key file as raw JSON.</p>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>Only one of the credentials settings can be set at once. If none is provided, loading
+default credentials from the environment will be attempted via ADC. For more information about
+how to provide Google credentials, please refer to <a href="https://cloud.google.com/docs/authentication" class="ulink" target="_top">https://cloud.google.com/docs/authentication</a>.</p>
+</div>
+</div>
+<h4><a id="_auth_oauth2_google_delegated_account"></a><code class="literal">auth.oauth2.google.delegated_account</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/x-pack/filebeat/docs/inputs/input-httpjson.asciidoc">edit</a></h4>
+<p>Email of the delegated account used to create the credentials (usually an admin). Used in combination
+with <code class="literal">auth.oauth2.google.jwt_file</code> or <code class="literal">auth.oauth2.google.jwt_json</code>.</p>
 <h4><a id="request-parameters"></a><code class="literal">request.url</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/x-pack/filebeat/docs/inputs/input-httpjson.asciidoc">edit</a></h4>
 <p>The URL of the HTTP API. Required.</p>
 <h4><a id="_request_method"></a><code class="literal">request.method</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/x-pack/filebeat/docs/inputs/input-httpjson.asciidoc">edit</a></h4>
@@ -531,7 +553,7 @@ If the <code class="literal">remaining</code> header is missing from the Respons
 <h4><a id="_request_rate_limit_reset"></a><code class="literal">request.rate_limit.reset</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/x-pack/filebeat/docs/inputs/input-httpjson.asciidoc">edit</a></h4>
 <p>The value of the response that specifies the epoch time when the rate limit will reset.
 It is defined with a Go template value. Can read state from: [<code class="literal">.last_response.header</code>]</p>
-<h4><a id="request-transforms"></a><code class="literal">request.rate_limit.early_limit</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/x-pack/filebeat/docs/inputs/input-httpjson.asciidoc">edit</a></h4>
+<h4><a id="request-transforms-headers"></a><code class="literal">request.rate_limit.early_limit</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/x-pack/filebeat/docs/inputs/input-httpjson.asciidoc">edit</a></h4>
 <p>Optionally start rate-limiting prior to the value specified in the Response.</p>
 <p>Under the default behavior, Requests will continue while the <code class="literal">remaining</code> value is non-zero.
 Specifying an <code class="literal">early_limit</code> will mean that rate-limiting will occur prior to reaching <code class="literal">0</code>.</p>
@@ -551,7 +573,7 @@ e.g. instead of rate-limiting when <code class="literal">remaining</code> hits <
 </ul>
 </div>
 <p>It is not set by default (by default the rate-limiting as specified in the Response is followed).</p>
-<h4><a id="_request_transforms"></a><code class="literal">request.transforms</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/x-pack/filebeat/docs/inputs/input-httpjson.asciidoc">edit</a></h4>
+<h4><a id="request-transforms"></a><code class="literal">request.transforms</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/x-pack/filebeat/docs/inputs/input-httpjson.asciidoc">edit</a></h4>
 <p>List of transforms to apply to the request before each execution.</p>
 <p>Available transforms for request: [<code class="literal">append</code>, <code class="literal">delete</code>, <code class="literal">set</code>].</p>
 <p>Can read state from: [<code class="literal">.last_response.*</code>, <code class="literal">.last_event.*</code>, <code class="literal">.cursor.*</code>, <code class="literal">.header.*</code>, <code class="literal">.url.*</code>, <code class="literal">.body.*</code>].</p>
@@ -566,12 +588,36 @@ e.g. instead of rate-limiting when <code class="literal">remaining</code> hits <
         target: body.from
         value: '[[now (parseDuration "-1h")]]'</pre>
 </div>
+<h4><a id="_request_tracer_filename"></a><code class="literal">request.tracer.filename</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/x-pack/filebeat/docs/inputs/input-httpjson.asciidoc">edit</a></h4>
+<p>It is possible to log httpjson requests and responses to a local file-system for debugging configurations.
+This option is enabled by setting the <code class="literal">request.tracer.filename</code> value. Additional options are available to
+tune log rotation behavior.</p>
+<p>Enabling this option compromises security and should only be used for debugging.</p>
+<h4><a id="_request_tracer_maxsize"></a><code class="literal">request.tracer.maxsize</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/x-pack/filebeat/docs/inputs/input-httpjson.asciidoc">edit</a></h4>
+<p>This value sets the maximum size, in megabytes, the log file will reach before it is rotated. By default
+logs are allowed to reach 1MB before rotation.</p>
+<h4><a id="_request_tracer_maxage"></a><code class="literal">request.tracer.maxage</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/x-pack/filebeat/docs/inputs/input-httpjson.asciidoc">edit</a></h4>
+<p>This specifies the number days to retain rotated log files. If it is not set, log files are retained
+indefinitely.</p>
+<h4><a id="_request_tracer_maxbackups"></a><code class="literal">request.tracer.maxbackups</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/x-pack/filebeat/docs/inputs/input-httpjson.asciidoc">edit</a></h4>
+<p>The number of old logs to retain. If it is not set all old logs are retained subject to the <code class="literal">request.tracer.maxage</code>
+setting.</p>
+<h4><a id="_request_tracer_localtime"></a><code class="literal">request.tracer.localtime</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/x-pack/filebeat/docs/inputs/input-httpjson.asciidoc">edit</a></h4>
+<p>Whether to use the host&#8217;s local time rather that UTC for timestamping rotated log file names.</p>
+<h4><a id="_request_tracer_compress"></a><code class="literal">request.tracer.compress</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/x-pack/filebeat/docs/inputs/input-httpjson.asciidoc">edit</a></h4>
+<p>This determines whether rotated logs should be gzip compressed.</p>
 <h4><a id="_response_decode_as"></a><code class="literal">response.decode_as</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/x-pack/filebeat/docs/inputs/input-httpjson.asciidoc">edit</a></h4>
-<p>ContentType used for decoding the response body. If set it will force the decoding in the specified format regardless of the <code class="literal">Content-Type</code> header value, otherwise it will honor it if possible or fallback to <code class="literal">application/json</code>. Supported values: <code class="literal">application/json, application/x-ndjson</code>, <code class="literal">text/csv</code>. It is not set by default.</p>
+<p>ContentType used for decoding the response body. If set it will force the decoding in the specified format regardless of the <code class="literal">Content-Type</code> header value, otherwise it will honor it if possible or fallback to <code class="literal">application/json</code>. Supported values: <code class="literal">application/json, application/x-ndjson</code>, <code class="literal">text/csv</code>, <code class="literal">application/zip</code>. It is not set by default.</p>
 <div class="note admon">
 <div class="icon"></div>
 <div class="admon_content">
 <p>For <code class="literal">text/csv</code>, one event for each line will be created, using the header values as the object keys. For this reason is always assumed that a header exists.</p>
+</div>
+</div>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>For <code class="literal">application/zip</code>, the <code class="literal">zip</code> file is expected to contain one or more <code class="literal">.json</code> or <code class="literal">.ndjson</code> files. The contents of all of them will be merged into a single list of <code class="literal">JSON</code> objects.</p>
 </div>
 </div>
 <h4><a id="response-transforms"></a><code class="literal">response.transforms</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/x-pack/filebeat/docs/inputs/input-httpjson.asciidoc">edit</a></h4>
@@ -607,7 +653,7 @@ e.g. instead of rate-limiting when <code class="literal">remaining</code> hits <
 <h4><a id="_response_split_type"></a><code class="literal">response.split[].type</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/x-pack/filebeat/docs/inputs/input-httpjson.asciidoc">edit</a></h4>
 <p>Defines the field type of the target. Allowed values: <code class="literal">array</code>, <code class="literal">map</code>, <code class="literal">string</code>. <code class="literal">string</code> requires the use of the <code class="literal">delimiter</code> options to specify what characters to split the string on.  <code class="literal">delimiter</code> always behaves as if <code class="literal">keep_parent</code> is set to <code class="literal">true</code>. Default: <code class="literal">array</code>.</p>
 <h4><a id="_response_split_transforms"></a><code class="literal">response.split[].transforms</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/x-pack/filebeat/docs/inputs/input-httpjson.asciidoc">edit</a></h4>
-<p>A set of transforms can be defined. This list will be applied after <code class="literal">response.transforms</code> and after the object has been modified based on <code class="literal">response.split[].keep_parent</code> and <code class="literal">response.split[].key_field</code>.</p>
+<p>A set of transforms can be defined. This list will be applied after <a class="xref" href="filebeat-input-httpjson.html#response-transforms" title="response.transforms">response.transforms</a> and after the object has been modified based on <code class="literal">response.split[].keep_parent</code> and <code class="literal">response.split[].key_field</code>.</p>
 <p>Available transforms for response: [<code class="literal">append</code>, <code class="literal">delete</code>, <code class="literal">set</code>].</p>
 <p>Can read state from: [<code class="literal">.last_response.*</code>, <code class="literal">.first_event.*</code>, <code class="literal">.last_event.*</code>, <code class="literal">.cursor.*</code>, <code class="literal">.header.*</code>, <code class="literal">.url.*</code>].</p>
 <p>Can write state to: [<code class="literal">body.*</code>].</p>
@@ -630,7 +676,7 @@ e.g. instead of rate-limiting when <code class="literal">remaining</code> hits <
 <h4><a id="_response_request_body_on_pagination"></a><code class="literal">response.request_body_on_pagination</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/x-pack/filebeat/docs/inputs/input-httpjson.asciidoc">edit</a></h4>
 <p>If set to true, the values in <code class="literal">request.body</code> are sent for pagination requests. Default: <code class="literal">false</code>.</p>
 <h4><a id="response-pagination"></a><code class="literal">response.pagination</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/x-pack/filebeat/docs/inputs/input-httpjson.asciidoc">edit</a></h4>
-<p>List of transforms that will be applied to the response to every new page request. All the transforms from <code class="literal">request.transform</code> will be executed and then <code class="literal">response.pagination</code> will be added to modify the next request as needed. For subsequent responses, the usual <code class="literal">response.transforms</code> and <code class="literal">response.split</code> will be executed normally.</p>
+<p>List of transforms that will be applied to the response to every new page request. All the transforms from <code class="literal">request.transform</code> will be executed and then <code class="literal">response.pagination</code> will be added to modify the next request as needed. For subsequent responses, the usual <a class="xref" href="filebeat-input-httpjson.html#response-transforms" title="response.transforms">response.transforms</a> and <a class="xref" href="filebeat-input-httpjson.html#response-split" title="response.split">response.split</a> will be executed normally.</p>
 <p>Available transforms for pagination: [<code class="literal">append</code>, <code class="literal">delete</code>, <code class="literal">set</code>].</p>
 <p>Can read state from: [<code class="literal">.last_response.*</code>, <code class="literal">.first_event.*</code>, <code class="literal">.last_event.*</code>, <code class="literal">.cursor.*</code>, <code class="literal">.header.*</code>, <code class="literal">.url.*</code>, <code class="literal">.body.*</code>].</p>
 <p>Can write state to: [<code class="literal">body.*</code>, <code class="literal">header.*</code>, <code class="literal">url.*</code>].</p>
@@ -888,15 +934,16 @@ e.g. instead of rate-limiting when <code class="literal">remaining</code> hits <
 <h4><a id="_chain_step"></a><code class="literal">chain[].step</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/x-pack/filebeat/docs/inputs/input-httpjson.asciidoc">edit</a></h4>
 <p>Contains basic request and response configuration for chained calls.</p>
 <h4><a id="_chain_step_request"></a><code class="literal">chain[].step.request</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/x-pack/filebeat/docs/inputs/input-httpjson.asciidoc">edit</a></h4>
-<p>Please refer <a class="xref" href="filebeat-input-httpjson.html#request-parameters" title="request.url">request parameters</a>. Required.</p>
+<p>See <a class="xref" href="filebeat-input-httpjson.html#request-parameters" title="request.url">request parameters</a>. Required.</p>
 <p>Example:</p>
 <p>First call: <a href="https://example.com/services/data/v1.0/" class="ulink" target="_top">https://example.com/services/data/v1.0/</a></p>
 <p>Second call: <a href="https://example.com/services/data/v1.0/1/export_ids" class="ulink" target="_top">https://example.com/services/data/v1.0/1/export_ids</a></p>
 <p>Third call: <a href="https://example.com/services/data/v1.0/export_ids/file_1/info" class="ulink" target="_top">https://example.com/services/data/v1.0/export_ids/file_1/info</a></p>
 <h4><a id="_chain_step_response_split"></a><code class="literal">chain[].step.response.split</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/x-pack/filebeat/docs/inputs/input-httpjson.asciidoc">edit</a></h4>
-<p>Please refer <a class="xref" href="filebeat-input-httpjson.html#response-split" title="response.split">response split parameter</a>.</p>
-<h4><a id="_chain_step_replace"></a><code class="literal">chain[].step.replace</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/x-pack/filebeat/docs/inputs/input-httpjson.asciidoc">edit</a></h4>
-<p>A [JSONPath](<a href="https://goessner.net/articles/JsonPath/index.html#e2" class="ulink" target="_top">JSONPath</a>) string to parse values from responses JSON, collected from previous chain steps. Place same replace string in url where collected values from previous call should be placed. Required.</p>
+<p>See <a class="xref" href="filebeat-input-httpjson.html#response-split" title="response.split">response split parameter</a>.</p>
+<p>+</p>
+<h4><a id="chain-step-replace"></a><code class="literal">chain[].step.replace</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/x-pack/filebeat/docs/inputs/input-httpjson.asciidoc">edit</a></h4>
+<p>A <a href="https://goessner.net/articles/JsonPath/index.html#e2" class="ulink" target="_top">JSONPath</a> string to parse values from responses JSON, collected from previous chain steps. Place same replace string in url where collected values from previous call should be placed. Required.</p>
 <p>Example:</p>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -980,10 +1027,122 @@ Third call: <a href="https://example.com/services/data/v1.0/export_ids`/<code cl
 </li>
 </ul>
 </div>
+<h4><a id="_chain_while"></a><code class="literal">chain[].while</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/x-pack/filebeat/docs/inputs/input-httpjson.asciidoc">edit</a></h4>
+<p>Contains basic request and response configuration for chained while calls. Chained while calls will keep making the requests for a given number of times until a condition is met
+or the maximum number of attempts gets exhausted. While chain has an attribute <code class="literal">until</code> which holds the expression to be evaluated. Ideally the <code class="literal">until</code> field should always be used
+together with the attributes <code class="literal">request.retry.max_attempts</code> and <code class="literal">request.retry.wait_min</code> which specifies the maximum number of attempts to evaluate <code class="literal">until</code> before giving up and the
+maximum wait time in between such requests. If <code class="literal">request.retry.max_attempts</code> is not specified, it will only try to evaluate the expression once and give up if it fails. If
+<code class="literal">request.retry.wait_min</code> is not specified the default wait time will always be <code class="literal">0</code> as in successive calls will be made immediately.</p>
+<h4><a id="_chain_while_request"></a><code class="literal">chain[].while.request</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/x-pack/filebeat/docs/inputs/input-httpjson.asciidoc">edit</a></h4>
+<p>See  <a class="xref" href="filebeat-input-httpjson.html#request-parameters" title="request.url">request parameters</a> .</p>
+<p>Example:</p>
+<p>First call: <a href="http://example.com/services/data/v1.0/exports" class="ulink" target="_top">http://example.com/services/data/v1.0/exports</a></p>
+<p>Second call: <a href="http://example.com/services/data/v1.0/9ef0e6a5/export_ids/status" class="ulink" target="_top">http://example.com/services/data/v1.0/9ef0e6a5/export_ids/status</a></p>
+<p>Third call: <a href="http://example.com/services/data/v1.0/export_ids/1/info" class="ulink" target="_top">http://example.com/services/data/v1.0/export_ids/1/info</a></p>
+<h4><a id="_chain_while_response_split"></a><code class="literal">chain[].while.response.split</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/x-pack/filebeat/docs/inputs/input-httpjson.asciidoc">edit</a></h4>
+<p>See  <a class="xref" href="filebeat-input-httpjson.html#response-split" title="response.split">response split parameter</a> .</p>
+<h4><a id="_chain_while_replace"></a><code class="literal">chain[].while.replace</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/x-pack/filebeat/docs/inputs/input-httpjson.asciidoc">edit</a></h4>
+<p>See  <a class="xref" href="filebeat-input-httpjson.html#chain-step-replace" title="chain[].step.replace">chain[].step.replace</a> .</p>
+<p>Example:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<p>First call: <a href="http://example.com/services/data/v1.0/exports" class="ulink" target="_top">http://example.com/services/data/v1.0/exports</a></p>
+<p><a class="xref" href="filebeat-input-httpjson.html#response-json1-while">response</a></p>
+</li>
+<li class="listitem">
+<p>Second call: <a href="http://example.com/services/data/v1.0/<code class="literal">$.exportId</code>/export_ids/status" class="ulink" target="_top">http://example.com/services/data/v1.0/<code class="literal">$.exportId</code>/export_ids/status</a></p>
+<p><a class="xref" href="filebeat-input-httpjson.html#response-json2-while">response</a></p>
+</li>
+<li class="listitem">
+<p>Third call: <a href="http://example.com/services/data/v1.0/export_ids/<code class="literal">$.files[:].id</code>/info" class="ulink" target="_top">http://example.com/services/data/v1.0/export_ids/<code class="literal">$.files[:].id</code>/info</a></p>
+<p><a class="xref" href="filebeat-input-httpjson.html#response-json3-while">response 1</a> , <a class="xref" href="filebeat-input-httpjson.html#response-json4-while">response 2</a></p>
+</li>
+</ul>
+</div>
+<div class="pre_wrapper lang-yaml">
+<pre class="programlisting prettyprint lang-yaml">filebeat.inputs:
+- type: httpjson
+  enabled: true
+  # first call
+  id: my-httpjson-id
+  request.url: http://example.com/services/data/v1.0/exports
+  interval: 1h
+  chain:
+    # second call
+    - while:
+        request.url: http://example.com/services/data/v1.0/$.exportId/export_ids/status
+        request.method: GET
+        replace: $.exportId
+        until: '[[ eq .last_response.body.status "completed" ]]'
+        request.retry.max_attempts: 5
+        request.retry.wait_min: 5s
+    # third call
+    - step:
+        request.url: http://example.com/services/data/v1.0/export_ids/$.files[:].id/info
+        request.method: GET
+        replace: $.files[:].id</pre>
+</div>
+<p>Example:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<p>First call to collect export ids</p>
+<p>request_url: <a href="https://example.com/services/data/v1.0/exports" class="ulink" target="_top">https://example.com/services/data/v1.0/exports</a></p>
+<p>response_json:</p>
+<a id="response-json1-while"></a><div class="pre_wrapper lang-json">
+<pre class="programlisting prettyprint lang-json">{
+    "exportId": "9ef0e6a5"
+}</pre>
+</div>
+</li>
+<li class="listitem">
+<p>Second call to collect <code class="literal">file_ids</code> using collected id from first call when <code class="literal">response.body.sataus == "completed"</code>. This call continues until the condition is satisfied or the maximum number of attempts gets exhausted.</p>
+<p>request_url using id as <em>9ef0e6a5</em>: <a href="https://example.com/services/data/v1.0/9ef0e6a5/export_ids/status" class="ulink" target="_top">https://example.com/services/data/v1.0/9ef0e6a5/export_ids/status</a></p>
+<p>response_json using id as <em>9ef0e6a5</em>:</p>
+<a id="response-json2-while"></a><div class="pre_wrapper lang-json">
+<pre class="programlisting prettyprint lang-json">{
+    "status": "completed",
+    "files": [
+      {
+        "id": 1
+      },
+      {
+        "id": 2
+      },
+      {
+        "id": 3
+      }
+    ]
+}</pre>
+</div>
+</li>
+<li class="listitem">
+<p>Third call to collect <code class="literal">files</code> using collected <code class="literal">file_id</code> from second call.</p>
+<p>request_url using file_id as <em>1</em>: <a href="https://example.com/services/data/v1.0/export_ids/1/info" class="ulink" target="_top">https://example.com/services/data/v1.0/export_ids/1/info</a></p>
+<p>request_url using file_id as <em>2</em>: <a href="https://example.com/services/data/v1.0/export_ids/2/info" class="ulink" target="_top">https://example.com/services/data/v1.0/export_ids/2/info</a></p>
+<p>response_json using id as <em>1</em>:</p>
+<a id="response-json3-while"></a><div class="pre_wrapper lang-json">
+<pre class="programlisting prettyprint lang-json">{
+    "file_name": "file_1",
+    "file_data": "some data"
+}</pre>
+</div>
+<p>response_json using id as <em>2</em>:</p>
+<a id="response-json4-while"></a><div class="pre_wrapper lang-json">
+<pre class="programlisting prettyprint lang-json">{
+    "file_name": "file_2",
+    "file_data": "some data"
+}</pre>
+</div>
+<p>Collect and make events from response in any format supported by httpjson for all calls.</p>
+</li>
+</ul>
+</div>
 <div class="note admon">
 <div class="icon"></div>
 <div class="admon_content">
-<p>httpjson chain will only create and ingest events from last call on chained configurations. Also, the current chain only supports the following: <code class="literal">request.url</code>, <code class="literal">request.method</code>, <code class="literal">request.transforms</code>, <code class="literal">request.body</code>, <code class="literal">response.transforms</code> and <code class="literal">response.split</code>.</p>
+<p>httpjson chain will only create and ingest events from last call on chained configurations. Also, the current chain only supports the following: all <a class="xref" href="filebeat-input-httpjson.html#request-parameters" title="request.url">request parameters</a>, <a class="xref" href="filebeat-input-httpjson.html#response-transforms" title="response.transforms">response.transforms</a> and <a class="xref" href="filebeat-input-httpjson.html#response-split" title="response.split">response.split</a>.</p>
 </div>
 </div>
 <h4><a id="cursor"></a><code class="literal">cursor</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/x-pack/filebeat/docs/inputs/input-httpjson.asciidoc">edit</a></h4>
@@ -1040,7 +1199,7 @@ An <code class="literal">ignore_empty_value</code> flag. When set to <code class
 At every defined interval a new request is created.
 </li>
 <li class="listitem">
-The request is transformed using the configured <code class="literal">request.transforms</code>.
+The request is transformed using the configured <a class="xref" href="filebeat-input-httpjson.html#request-transforms" title="request.transforms">request.transforms</a>.
 </li>
 <li class="listitem">
 The resulting transformed request is executed.
@@ -1049,10 +1208,10 @@ The resulting transformed request is executed.
 The server responds (here is where any retry or rate limit policy takes place when configured).
 </li>
 <li class="listitem">
-The response is transformed using the configured <code class="literal">response.transforms</code> and <code class="literal">response.split</code>.
+The response is transformed using the configured <a class="xref" href="filebeat-input-httpjson.html#response-transforms" title="response.transforms">response.transforms</a> and <a class="xref" href="filebeat-input-httpjson.html#response-split" title="response.split">response.split</a>.
 </li>
 <li class="listitem">
-If a chain step is configured. Each step will generate new requests based on collected IDs from responses. The requests will be transformed using configured <code class="literal">request.transforms</code> and the resulting generated transformed requests will be executed. This process will happen for all the steps mentioned in the chain.
+If a chain step is configured. Each step will generate new requests based on collected IDs from responses. The requests will be transformed using configured <a class="xref" href="filebeat-input-httpjson.html#request-transforms" title="request.transforms">request.transforms</a> and the resulting generated transformed requests will be executed. This process will happen for all the steps mentioned in the chain.
 </li>
 <li class="listitem">
 Each resulting event is published to the output.

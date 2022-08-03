@@ -1,15 +1,18 @@
-POST _ingest/pipeline/my-pipeline/_simulate
+POST /_reindex
 {
-  "docs": [
-    {
-      "_source": {
-        "my-keyword-field": "FOO"
-      }
-    },
-    {
-      "_source": {
-        "my-keyword-field": "BAR"
+  "source": {
+    "index": "my-data-stream",
+    "query": {
+      "range": {
+        "@timestamp": {
+          "gte": "now-7d/d",
+          "lte": "now/d"
+        }
       }
     }
-  ]
+  },
+  "dest": {
+    "index": "new-data-stream",
+    "op_type": "create"
+  }
 }

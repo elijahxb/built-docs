@@ -1,1 +1,8 @@
-GET /<index>/_ccr/stats
+PUT /_autoscaling/policy/<name>
+{
+  "roles": [],
+  "deciders": {
+    "fixed": {
+    }
+  }
+}

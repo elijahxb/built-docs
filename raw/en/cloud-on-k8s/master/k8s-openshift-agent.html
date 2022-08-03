@@ -18,13 +18,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elastic Cloud on Kubernetes [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="k8s-advanced-topics.html">Advanced topics</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Cloud on Kubernetes [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="k8s-advanced-topics.html">Advanced topics</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="k8s-openshift.html">Deploy ECK on OpenShift</a></span>
-»
-<span class="breadcrumb-node">Grant host access permission to Elastic Agent</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -43,7 +40,7 @@ Not what you want? See the
 <div class="note admon">
 <div class="icon"></div>
 <div class="admon_content">
-<p>If you used the examples from the <a href="https://github.com/elastic/cloud-on-k8s/tree/2.1/config/recipes/elastic-agent" class="ulink" target="_top">recipes directory</a>, the ServiceAccount may already exist.</p>
+<p>If you used the examples from the <a href="https://github.com/elastic/cloud-on-k8s/tree/2.3/config/recipes/elastic-agent" class="ulink" target="_top">recipes directory</a>, the ServiceAccount may already exist.</p>
 </div>
 </div>
 <div class="olist orderedlist">
@@ -68,7 +65,7 @@ kind: Agent
 metadata:
   name: my-agent
 spec:
-  version: 8.1.2
+  version: 8.3.3
   daemonSet:
     podTemplate:
       spec:

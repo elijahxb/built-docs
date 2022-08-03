@@ -11,6 +11,7 @@
 <meta name="DC.type" content="Learn/Docs/Winlogbeat/Reference/8.1"/>
 <meta name="DC.subject" content="Winlogbeat"/>
 <meta name="DC.identifier" content="8.1"/>
+<meta name="robots" content="noindex,nofollow"/>
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -56,7 +57,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,38 +88,30 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
-                  
+                  <div class="page_header">
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Winlogbeat Reference [8.1]</a></span>
-»
-<span class="breadcrumb-link"><a href="configuring-howto-winlogbeat.html">Configure Winlogbeat</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Winlogbeat Reference [8.1]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="configuring-howto-winlogbeat.html">Configure Winlogbeat</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="filtering-and-enhancing-data.html">Filter and enhance data with processors</a></span>
-»
-<span class="breadcrumb-node">Define processors</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -130,7 +123,7 @@
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="defining-processors"></a>Define processors<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/processors-using.asciidoc">edit</a></h2>
+<h2 class="title"><a id="defining-processors"></a>Define processors<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/processors-using.asciidoc">edit</a></h2>
 </div></div></div>
 <p>You can use processors to filter and enhance data before sending it to the
 configured output. To define a processor, you specify the processor name, an
@@ -211,7 +204,7 @@ processors to execute when the conditional evaluate to false.</p>
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="where-valid"></a>Where are processors valid?<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/processors-using.asciidoc">edit</a></h3>
+<h3 class="title"><a id="where-valid"></a>Where are processors valid?<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/processors-using.asciidoc">edit</a></h3>
 </div></div></div>
 <p>Processors are valid:</p>
 <div class="ulist itemizedlist">
@@ -239,7 +232,7 @@ collected for that event log shipper.</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="processors"></a>Processors<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/processors-using.asciidoc">edit</a></h3>
+<h3 class="title"><a id="processors"></a>Processors<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/processors-using.asciidoc">edit</a></h3>
 </div></div></div>
 <p>The supported processors are:</p>
 <div class="ulist itemizedlist">
@@ -361,7 +354,7 @@ collected for that event log shipper.</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="conditions"></a>Conditions<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/processors-using.asciidoc">edit</a></h3>
+<h3 class="title"><a id="conditions"></a>Conditions<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/processors-using.asciidoc">edit</a></h3>
 </div></div></div>
 <p>Each condition receives a field to compare. You can specify multiple fields
 under the same condition by using <code class="literal">AND</code> between the fields (for example,
@@ -402,7 +395,7 @@ Winlogbeat.</p>
 </li>
 </ul>
 </div>
-<h5><a id="condition-equals"></a><code class="literal">equals</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/processors-using.asciidoc">edit</a></h5>
+<h5><a id="condition-equals"></a><code class="literal">equals</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/processors-using.asciidoc">edit</a></h5>
 <p>With the <code class="literal">equals</code> condition, you can compare if a field has a certain value.
 The condition accepts only an integer or a string value.</p>
 <p>For example, the following condition checks if the response code of the HTTP
@@ -411,7 +404,7 @@ transaction is 200:</p>
 <pre class="programlisting prettyprint lang-yaml">equals:
   http.response.code: 200</pre>
 </div>
-<h5><a id="condition-contains"></a><code class="literal">contains</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/processors-using.asciidoc">edit</a></h5>
+<h5><a id="condition-contains"></a><code class="literal">contains</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/processors-using.asciidoc">edit</a></h5>
 <p>The <code class="literal">contains</code> condition checks if a value is part of a field. The field can be
 a string or an array of strings. The condition accepts only a string value.</p>
 <p>For example, the following condition checks if an error is part of the
@@ -420,7 +413,7 @@ transaction status:</p>
 <pre class="programlisting prettyprint lang-yaml">contains:
   status: "Specific error"</pre>
 </div>
-<h5><a id="condition-regexp"></a><code class="literal">regexp</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/processors-using.asciidoc">edit</a></h5>
+<h5><a id="condition-regexp"></a><code class="literal">regexp</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/processors-using.asciidoc">edit</a></h5>
 <p>The <code class="literal">regexp</code> condition checks the field against a regular expression. The
 condition accepts only strings.</p>
 <p>For example, the following condition checks if the process name starts with
@@ -429,7 +422,7 @@ condition accepts only strings.</p>
 <pre class="programlisting prettyprint lang-yaml">regexp:
   system.process.name: "^foo.*"</pre>
 </div>
-<h5><a id="condition-range"></a><code class="literal">range</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/processors-using.asciidoc">edit</a></h5>
+<h5><a id="condition-range"></a><code class="literal">range</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/processors-using.asciidoc">edit</a></h5>
 <p>The <code class="literal">range</code> condition checks if the field is in a certain range of values. The
 condition supports <code class="literal">lt</code>, <code class="literal">lte</code>, <code class="literal">gt</code> and <code class="literal">gte</code>. The condition accepts only
 integer or float values.</p>
@@ -452,7 +445,7 @@ between 0.5 and 0.8.</p>
   system.cpu.user.pct.gte: 0.5
   system.cpu.user.pct.lt: 0.8</pre>
 </div>
-<h5><a id="condition-network"></a><code class="literal">network</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/processors-using.asciidoc">edit</a></h5>
+<h5><a id="condition-network"></a><code class="literal">network</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/processors-using.asciidoc">edit</a></h5>
 <p>The <code class="literal">network</code> condition checks if the field is in a certain IP network range.
 Both IPv4 and IPv6 addresses are supported. The network range may be specified
 using CIDR notation, like "192.0.2.0/24" or "2001:db8::/32", or by using one of
@@ -513,7 +506,7 @@ subnets.</p>
 <pre class="programlisting prettyprint lang-yaml">network:
   destination.ip: ['192.168.1.0/24', '10.0.0.0/8', loopback]</pre>
 </div>
-<h5><a id="condition-has_fields"></a><code class="literal">has_fields</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/processors-using.asciidoc">edit</a></h5>
+<h5><a id="condition-has_fields"></a><code class="literal">has_fields</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/processors-using.asciidoc">edit</a></h5>
 <p>The <code class="literal">has_fields</code> condition checks if all the given fields exist in the
 event. The condition accepts a list of string values denoting the field names.</p>
 <p>For example, the following condition checks if the <code class="literal">http.response.code</code> field
@@ -521,7 +514,7 @@ is present in the event.</p>
 <div class="pre_wrapper lang-yaml">
 <pre class="programlisting prettyprint lang-yaml">has_fields: ['http.response.code']</pre>
 </div>
-<h5><a id="condition-or"></a><code class="literal">or</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/processors-using.asciidoc">edit</a></h5>
+<h5><a id="condition-or"></a><code class="literal">or</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/processors-using.asciidoc">edit</a></h5>
 <p>The <code class="literal">or</code> operator receives a list of conditions.</p>
 <div class="pre_wrapper lang-yaml">
 <pre class="programlisting prettyprint lang-yaml">or:
@@ -539,7 +532,7 @@ is present in the event.</p>
   - equals:
       http.response.code: 404</pre>
 </div>
-<h5><a id="condition-and"></a><code class="literal">and</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/processors-using.asciidoc">edit</a></h5>
+<h5><a id="condition-and"></a><code class="literal">and</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/processors-using.asciidoc">edit</a></h5>
 <p>The <code class="literal">and</code> operator receives a list of conditions.</p>
 <div class="pre_wrapper lang-yaml">
 <pre class="programlisting prettyprint lang-yaml">and:
@@ -565,7 +558,7 @@ is present in the event.</p>
     - &lt;condition2&gt;
     - &lt;condition3&gt;</pre>
 </div>
-<h5><a id="condition-not"></a><code class="literal">not</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/processors-using.asciidoc">edit</a></h5>
+<h5><a id="condition-not"></a><code class="literal">not</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/libbeat/docs/processors-using.asciidoc">edit</a></h5>
 <p>The <code class="literal">not</code> operator receives the condition to negate.</p>
 <div class="pre_wrapper lang-yaml">
 <pre class="programlisting prettyprint lang-yaml">not:
@@ -592,15 +585,37 @@ is present in the event.</p>
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

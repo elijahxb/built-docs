@@ -18,13 +18,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="mapping.html">Mapping</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="mapping.html">Mapping</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="mapping-types.html">Field data types</a></span>
-»
-<span class="breadcrumb-node">Boolean field type</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -36,7 +33,7 @@ Not what you want? See the
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="boolean"></a>Boolean field type<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/mapping/types/boolean.asciidoc">edit</a></h2>
+<h2 class="title"><a id="boolean"></a>Boolean field type<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/mapping/types/boolean.asciidoc">edit</a></h2>
 </div></div></div>
 
 <p>Boolean fields accept JSON <code class="literal">true</code> and <code class="literal">false</code> values, but can also accept
@@ -103,7 +100,7 @@ GET my-index-000001/_search
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/163.console"></div>
+<div class="console_widget" data-snippet="snippets/154.console"></div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
@@ -161,10 +158,10 @@ GET my-index-000001/_search
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/164.console"></div>
+<div class="console_widget" data-snippet="snippets/155.console"></div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="boolean-params"></a>Parameters for <code class="literal">boolean</code> fields<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/mapping/types/boolean.asciidoc">edit</a></h3>
+<h3 class="title"><a id="boolean-params"></a>Parameters for <code class="literal">boolean</code> fields<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/mapping/types/boolean.asciidoc">edit</a></h3>
 </div></div></div>
 <p>The following parameters are accepted by <code class="literal">boolean</code> fields:</p>
 <div class="informaltable">
@@ -281,6 +278,40 @@ Metadata about the field.
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="boolean-synthetic-source"></a>Synthetic source<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/mapping/types/boolean.asciidoc">edit</a></h3>
+</div></div></div>
+<p><code class="literal">boolean</code> fields support <a class="xref" href="mapping-source-field.html#synthetic-source" title="Synthetic _source">synthetic <code class="literal">_source</code></a> in their
+default configuration. Synthetic <code class="literal">_source</code> cannot be used together with
+<a class="xref" href="copy-to.html" title="copy_to"><code class="literal">copy_to</code></a> or with <a class="xref" href="doc-values.html" title="doc_values"><code class="literal">doc_values</code></a> disabled.</p>
+<p>Synthetic source always sorts <code class="literal">boolean</code> fields. For example:</p>
+<a id="2826510e4aeb1c0d8dc43d317ed7624a"></a>
+<a id="synthetic-source-boolean-example"></a><div class="pre_wrapper lang-console">
+<pre class="programlisting prettyprint lang-console">PUT idx
+{
+  "mappings": {
+    "_source": { "mode": "synthetic" },
+    "properties": {
+      "bool": { "type": "boolean" }
+    }
+  }
+}
+PUT idx/_doc/1
+{
+  "bool": [true, false, true, false]
+}</pre>
+</div>
+<div class="console_widget" data-snippet="snippets/156.console"></div>
+<p>Will become:</p>
+<a id="d12c9a4aa833545f4b662ca3726c6c90"></a>
+<div class="pre_wrapper lang-console-result">
+<pre class="programlisting prettyprint lang-console-result">{
+  "bool": [false, false, true, true]
+}</pre>
 </div>
 </div>
 

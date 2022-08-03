@@ -1,6 +1,5 @@
-GET .watcher-history*/_search?pretty
+POST /_security/saml/logout
 {
-  "sort" : [
-    { "result.execution_time" : "desc" }
-  ]
+  "token" : "46ToAxZVaXVVZTVKOVF5YU04ZFJVUDVSZlV3",
+  "refresh_token": "mJdXLtmvTUSpoLwMvdBt_w"
 }

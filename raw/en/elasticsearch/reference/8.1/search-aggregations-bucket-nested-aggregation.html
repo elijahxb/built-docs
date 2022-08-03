@@ -10,17 +10,19 @@
 <meta name="DC.type" content="Learn/Docs/Elasticsearch/Reference/8.1"/>
 <meta name="DC.subject" content="Elasticsearch"/>
 <meta name="DC.identifier" content="8.1"/>
+<meta name="robots" content="noindex,nofollow"/>
 </head>
-<body>
+<body><div class="page_header">
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.1]</a></span>
-»
-<span class="breadcrumb-link"><a href="search-aggregations.html">Aggregations</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.1]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="search-aggregations.html">Aggregations</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="search-aggregations-bucket.html">Bucket aggregations</a></span>
-»
-<span class="breadcrumb-node">Nested aggregation</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -32,7 +34,7 @@
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="search-aggregations-bucket-nested-aggregation"></a>Nested aggregation<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/aggregations/bucket/nested-aggregation.asciidoc">edit</a></h2>
+<h2 class="title"><a id="search-aggregations-bucket-nested-aggregation"></a>Nested aggregation<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.1/docs/reference/aggregations/bucket/nested-aggregation.asciidoc">edit</a></h2>
 </div></div></div>
 
 <p>A special single bucket aggregation that enables aggregating nested documents.</p>
@@ -59,7 +61,7 @@ price for the product. The mapping could look like:</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1157.console"></div>
+<div class="console_widget" data-snippet="snippets/1159.console"></div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
@@ -90,7 +92,7 @@ price for the product. The mapping could look like:</p>
   ]
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1158.console"></div>
+<div class="console_widget" data-snippet="snippets/1160.console"></div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
@@ -129,7 +131,7 @@ price for the product. The mapping could look like:</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1159.console"></div>
+<div class="console_widget" data-snippet="snippets/1161.console"></div>
 <p>As you can see above, the nested aggregation requires the <code class="literal">path</code> of the nested documents within the top level documents.
 Then one can define any type of aggregation over these nested documents.</p>
 <p>Response:</p>
@@ -189,7 +191,7 @@ sub-aggregation to return results for a specific reseller.</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1160.console"></div>
+<div class="console_widget" data-snippet="snippets/1162.console"></div>
 <p>The search returns:</p>
 <a id="b5d9ab124a0712dbaaaab7f6cbe99a00"></a>
 <div class="pre_wrapper lang-console-result">

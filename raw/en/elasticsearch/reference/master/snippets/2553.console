@@ -1,1 +1,11 @@
-GET /_security/user/_privileges
+POST music/_search?pretty
+{
+  "suggest": {
+    "song-suggest": {
+      "regex": "n[ever|i]r",
+      "completion": {
+        "field": "suggest"
+      }
+    }
+  }
+}

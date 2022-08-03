@@ -1,4 +1,1 @@
-POST _ml/anomaly_detectors/low_request_rate/model_snapshots/1637092688/_revert
-{
-  "delete_intervening_results": true
-}
+POST /_index_template/_simulate_index/my-index-000001

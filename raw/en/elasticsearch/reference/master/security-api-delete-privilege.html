@@ -18,13 +18,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="rest-apis.html">REST APIs</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="rest-apis.html">REST APIs</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="security-api.html">Security APIs</a></span>
-»
-<span class="breadcrumb-node">Delete application privileges API</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -36,20 +33,20 @@ Not what you want? See the
 </div>
 <div class="section xpack">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="security-api-delete-privilege"></a>Delete application privileges API<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/x-pack/docs/en/rest-api/security/delete-app-privileges.asciidoc">edit</a></h2>
+<h2 class="title"><a id="security-api-delete-privilege"></a>Delete application privileges API<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/x-pack/docs/en/rest-api/security/delete-app-privileges.asciidoc">edit</a></h2>
 </div></div></div>
 
 <p>Removes <a class="xref" href="security-privileges.html#application-privileges" title="Application privileges">application privileges</a>.</p>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="security-api-delete-privilege-request"></a>Request<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/x-pack/docs/en/rest-api/security/delete-app-privileges.asciidoc">edit</a></h3>
+<h3 class="title"><a id="security-api-delete-privilege-request"></a>Request<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/x-pack/docs/en/rest-api/security/delete-app-privileges.asciidoc">edit</a></h3>
 </div></div></div>
 <p><code class="literal">DELETE /_security/privilege/&lt;application&gt;/&lt;privilege&gt;</code></p>
 </div>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="security-api-delete-privilege-prereqs"></a>Prerequisites<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/x-pack/docs/en/rest-api/security/delete-app-privileges.asciidoc">edit</a></h3>
+<h3 class="title"><a id="security-api-delete-privilege-prereqs"></a>Prerequisites<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/x-pack/docs/en/rest-api/security/delete-app-privileges.asciidoc">edit</a></h3>
 </div></div></div>
 <p>To use this API, you must have either:</p>
 <div class="ulist itemizedlist">
@@ -67,7 +64,7 @@ in the request
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="security-api-delete-privilege-path-params"></a>Path parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/x-pack/docs/en/rest-api/security/delete-app-privileges.asciidoc">edit</a></h3>
+<h3 class="title"><a id="security-api-delete-privilege-path-params"></a>Path parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/x-pack/docs/en/rest-api/security/delete-app-privileges.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="variablelist">
 <dl class="variablelist">
@@ -94,7 +91,7 @@ always associated with exactly one application.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="security-api-delete-privilege-example"></a>Examples<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/x-pack/docs/en/rest-api/security/delete-app-privileges.asciidoc">edit</a></h3>
+<h3 class="title"><a id="security-api-delete-privilege-example"></a>Examples<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/x-pack/docs/en/rest-api/security/delete-app-privileges.asciidoc">edit</a></h3>
 </div></div></div>
 <p>The following example deletes the <code class="literal">read</code> application privilege from the
 <code class="literal">myapp</code> application:</p>
@@ -102,7 +99,7 @@ always associated with exactly one application.
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">DELETE /_security/privilege/myapp/read</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/2519.console"></div>
+<div class="console_widget" data-snippet="snippets/2636.console"></div>
 <p>If the privilege is successfully deleted, the request returns <code class="literal">{"found": true}</code>.
 Otherwise, <code class="literal">found</code> is set to false.</p>
 <a id="b8ac8a2f22ee5934b077a82245fa3398"></a>

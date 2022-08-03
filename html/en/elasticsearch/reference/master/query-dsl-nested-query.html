@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,27 +87,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 You are looking at preliminary documentation for a future release.
@@ -116,13 +107,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="query-dsl.html">Query DSL</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="query-dsl.html">Query DSL</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="joining-queries.html">Joining queries</a></span>
-»
-<span class="breadcrumb-node">Nested query</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -134,7 +122,7 @@ Not what you want? See the
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="query-dsl-nested-query"></a>Nested query<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/query-dsl/nested-query.asciidoc">edit</a></h2>
+<h2 class="title"><a id="query-dsl-nested-query"></a>Nested query<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/query-dsl/nested-query.asciidoc">edit</a></h2>
 </div></div></div>
 
 <p>Wraps another query to search <a class="xref" href="nested.html" title="Nested field type">nested</a> fields.</p>
@@ -143,11 +131,11 @@ separate documents. If an object matches the search, the <code class="literal">n
 the root parent document.</p>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="nested-query-ex-request"></a>Example request<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/query-dsl/nested-query.asciidoc">edit</a></h3>
+<h3 class="title"><a id="nested-query-ex-request"></a>Example request<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/query-dsl/nested-query.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="nested-query-index-setup"></a>Index setup<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/query-dsl/nested-query.asciidoc">edit</a></h4>
+<h4 class="title"><a id="nested-query-index-setup"></a>Index setup<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/query-dsl/nested-query.asciidoc">edit</a></h4>
 </div></div></div>
 <p>To use the <code class="literal">nested</code> query, your index must include a <a class="xref" href="nested.html" title="Nested field type">nested</a> field
 mapping. For example:</p>
@@ -194,12 +182,12 @@ fmt.Println(res, err)</pre>
   }
 }</pre>
 </div>
-<div class="console_widget has-ruby has-go" data-snippet="snippets/946.console"></div>
+<div class="console_widget has-ruby has-go" data-snippet="snippets/972.console"></div>
 </div>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="nested-query-ex-query"></a>Example query<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/query-dsl/nested-query.asciidoc">edit</a></h4>
+<h4 class="title"><a id="nested-query-ex-query"></a>Example query<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/query-dsl/nested-query.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="pre_wrapper lang-ruby alternative">
 <pre class="programlisting prettyprint lang-ruby alternative">response = client.search(
@@ -286,14 +274,14 @@ fmt.Println(res, err)</pre>
   }
 }</pre>
 </div>
-<div class="console_widget has-ruby has-go" data-snippet="snippets/947.console"></div>
+<div class="console_widget has-ruby has-go" data-snippet="snippets/973.console"></div>
 </div>
 
 </div>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="nested-top-level-params"></a>Top-level parameters for <code class="literal">nested</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/query-dsl/nested-query.asciidoc">edit</a></h3>
+<h3 class="title"><a id="nested-top-level-params"></a>Top-level parameters for <code class="literal">nested</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/query-dsl/nested-query.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="variablelist">
 <dl class="variablelist">
@@ -394,11 +382,11 @@ field <code class="literal">path</code>.</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="nested-query-notes"></a>Notes<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/query-dsl/nested-query.asciidoc">edit</a></h3>
+<h3 class="title"><a id="nested-query-notes"></a>Notes<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/query-dsl/nested-query.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="nested-query-script-notes"></a>Context of script queries<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/query-dsl/nested-query.asciidoc">edit</a></h4>
+<h4 class="title"><a id="nested-query-script-notes"></a>Context of script queries<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/query-dsl/nested-query.asciidoc">edit</a></h4>
 </div></div></div>
 <p>If you run a <a class="xref" href="query-dsl-script-query.html" title="Script query"><code class="literal">script</code> query</a> within a nested query,
 you can only access doc values from the nested document, not the parent
@@ -407,7 +395,7 @@ or root document.</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="multi-level-nested-query-ex"></a>Multi-level nested queries<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/query-dsl/nested-query.asciidoc">edit</a></h4>
+<h4 class="title"><a id="multi-level-nested-query-ex"></a>Multi-level nested queries<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/query-dsl/nested-query.asciidoc">edit</a></h4>
 </div></div></div>
 <p>To see how multi-level nested queries work,
 first you need an index that has nested fields.
@@ -504,7 +492,7 @@ fmt.Println(res, err)</pre>
   }
 }</pre>
 </div>
-<div class="console_widget has-ruby has-go" data-snippet="snippets/948.console"></div>
+<div class="console_widget has-ruby has-go" data-snippet="snippets/974.console"></div>
 <p>Next, index some documents to the <code class="literal">drivers</code> index.</p>
 <div class="pre_wrapper lang-php alternative">
 <pre class="programlisting prettyprint lang-php alternative">$params = [
@@ -797,7 +785,7 @@ PUT /drivers/_doc/2?refresh
     }
 }</pre>
 </div>
-<div class="console_widget has-php has-csharp has-python has-ruby has-go has-js" data-snippet="snippets/949.console"></div>
+<div class="console_widget has-php has-csharp has-python has-ruby has-go has-js" data-snippet="snippets/975.console"></div>
 <p>You can now use a multi-level nested query
 to match documents based on the <code class="literal">make</code> and <code class="literal">model</code> fields.</p>
 <div class="pre_wrapper lang-ruby alternative">
@@ -893,7 +881,7 @@ fmt.Println(res, err)</pre>
   }
 }</pre>
 </div>
-<div class="console_widget has-ruby has-go" data-snippet="snippets/950.console"></div>
+<div class="console_widget has-ruby has-go" data-snippet="snippets/976.console"></div>
 <p>The search request returns the following response:</p>
 <a id="72fbc50004bd2882be2ca312b24cfe7d"></a>
 <div class="pre_wrapper lang-console-result">
@@ -941,7 +929,7 @@ fmt.Println(res, err)</pre>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="must-not-clauses-and-nested-queries"></a><code class="literal">must_not</code> clauses and <code class="literal">nested</code> queries<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/query-dsl/nested-query.asciidoc">edit</a></h4>
+<h4 class="title"><a id="must-not-clauses-and-nested-queries"></a><code class="literal">must_not</code> clauses and <code class="literal">nested</code> queries<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/query-dsl/nested-query.asciidoc">edit</a></h4>
 </div></div></div>
 <p>If a <code class="literal">nested</code> query matches one or more nested objects in a document, it returns
 the document as a hit. This applies even if other nested objects in the document
@@ -1019,7 +1007,7 @@ POST my-index/_search
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/951.console"></div>
+<div class="console_widget" data-snippet="snippets/977.console"></div>
 <p>The search returns:</p>
 <a id="e39d51202913bf6d861e9e721570cdb8"></a>
 <div class="pre_wrapper lang-console">
@@ -1047,10 +1035,10 @@ POST my-index/_search
         "_source" : {
           "comments" : [
             {
-              "author" : "kimchy"              <a id="CO213-1"></a><i class="conum" data-value="1"></i>
+              "author" : "kimchy"              <a id="CO215-1"></a><i class="conum" data-value="1"></i>
             },
             {
-              "author" : "nik9000"             <a id="CO213-2"></a><i class="conum" data-value="2"></i>
+              "author" : "nik9000"             <a id="CO215-2"></a><i class="conum" data-value="2"></i>
             }
           ]
         }
@@ -1059,12 +1047,12 @@ POST my-index/_search
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/952.console"></div>
+<div class="console_widget" data-snippet="snippets/978.console"></div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO213-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO215-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>This nested object matches the query. As a result, the search returns the
@@ -1073,7 +1061,7 @@ object&#8217;s parent document as a hit.</p>
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO213-2"><i class="conum" data-value="2"></i></a></p>
+<p><a href="#CO215-2"><i class="conum" data-value="2"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>This nested object doesn&#8217;t match the query. Since another nested object in
@@ -1107,7 +1095,7 @@ use an outer <code class="literal">must_not</code> clause.</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/953.console"></div>
+<div class="console_widget" data-snippet="snippets/979.console"></div>
 <p>The search returns:</p>
 <a id="c06b96352e15f0161705fee0b5925776"></a>
 <div class="pre_wrapper lang-console">
@@ -1132,7 +1120,7 @@ use an outer <code class="literal">must_not</code> clause.</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/954.console"></div>
+<div class="console_widget" data-snippet="snippets/980.console"></div>
 </div>
 
 </div>
@@ -1150,15 +1138,37 @@ use an outer <code class="literal">must_not</code> clause.</p>
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

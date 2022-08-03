@@ -13,6 +13,7 @@
 <meta name="DC.type" content="Learn/Docs/Kibana/Reference/8.1"/>
 <meta name="DC.subject" content="Kibana"/>
 <meta name="DC.identifier" content="8.1"/>
+<meta name="robots" content="noindex,nofollow"/>
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -58,7 +59,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -89,36 +90,29 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
-                  
+                  <div class="page_header">
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Kibana Guide [8.1]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Kibana Guide [8.1]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="development.html">Developer guide</a></span>
-»
-<span class="breadcrumb-node">Best practices</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -130,11 +124,11 @@
 </div>
 <div class="chapter">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="development-best-practices"></a>Best practices<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/developer/best-practices/index.asciidoc">edit</a></h2>
+<h2 class="title"><a id="development-best-practices"></a>Best practices<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/developer/best-practices/index.asciidoc">edit</a></h2>
 </div></div></div>
 <p>Consider these best practices, whether developing code directly to the Kibana repo or building your own plugins.
 They are intended to support our <a href="https://github.com/elastic/engineering/blob/master/kibana_dev_principles.md" class="ulink" target="_top">Kibana development principals</a>.</p>
-<h3><a id="_performance"></a>Performance<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/developer/best-practices/index.asciidoc">edit</a></h3>
+<h3><a id="_performance"></a>Performance<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/developer/best-practices/index.asciidoc">edit</a></h3>
 <p>Are you planning with scalability in mind?</p>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -169,7 +163,7 @@ If so, have you considered using the streaming <a href="https://github.com/elast
 </li>
 </ul>
 </div>
-<h3><a id="_accessibility"></a>Accessibility<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/developer/best-practices/index.asciidoc">edit</a></h3>
+<h3><a id="_accessibility"></a>Accessibility<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/developer/best-practices/index.asciidoc">edit</a></h3>
 <p>Did you know Kibana makes a public statement about our commitment to
 creating an accessible product for people with disabilities?
 <a href="/guide/en/kibana/master/accessibility.html" class="ulink" target="_top">We do</a>!
@@ -185,7 +179,7 @@ If you don’t use EUI, follow the same EUI accessibility standards
 </li>
 </ul>
 </div>
-<h3><a id="kibana-localization-best-practices"></a>Localization<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/developer/best-practices/index.asciidoc">edit</a></h3>
+<h3><a id="kibana-localization-best-practices"></a>Localization<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/developer/best-practices/index.asciidoc">edit</a></h3>
 <p>Kibana is translated into other languages. Use our i18n utilities to
 ensure your public facing strings will be translated to ensure all
 Kibana apps are localized.</p>
@@ -198,7 +192,7 @@ guidelines</a>
 </li>
 </ul>
 </div>
-<h3><a id="_conventions"></a>Conventions<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/developer/best-practices/index.asciidoc">edit</a></h3>
+<h3><a id="_conventions"></a>Conventions<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/developer/best-practices/index.asciidoc">edit</a></h3>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
 <li class="listitem">
@@ -230,7 +224,7 @@ components to create a consistent UI experience.
 </li>
 </ul>
 </div>
-<h3><a id="_re_inventing_the_wheel"></a>Re-inventing the wheel<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/developer/best-practices/index.asciidoc">edit</a></h3>
+<h3><a id="_re_inventing_the_wheel"></a>Re-inventing the wheel<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/developer/best-practices/index.asciidoc">edit</a></h3>
 <p>Over-refactoring can be a problem in it’s own right, but it’s still
 important to be aware of the existing services that are out there and
 use them when it makes sense. We have service oriented teams dedicated
@@ -315,7 +309,7 @@ for react specific helpers
 </div>
 <p>Re-using these services will help create a consistent experience across
 Kibana from every solution.</p>
-<h3><a id="_backward_compatibility"></a>Backward compatibility<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/developer/best-practices/index.asciidoc">edit</a></h3>
+<h3><a id="_backward_compatibility"></a>Backward compatibility<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/developer/best-practices/index.asciidoc">edit</a></h3>
 <p>Eventually we want to guarantee to our plugin developers that their plugins will not break from minor to minor.</p>
 <p>Any time you create or change a public API, keep this in mind, and consider potential
 backward compatibility issues. While we have a formal
@@ -342,11 +336,11 @@ data.</p>
 In addition, if users are relying on state stored in your app’s URL as
 part of your public contract, keep in mind that you may also need to
 provide backwards compatibility for bookmarked URLs.</p>
-<h3><a id="_routing_navigation_and_url"></a>Routing, Navigation and URL<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/developer/best-practices/index.asciidoc">edit</a></h3>
+<h3><a id="_routing_navigation_and_url"></a>Routing, Navigation and URL<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/developer/best-practices/index.asciidoc">edit</a></h3>
 <p>The Kibana platform provides a set of tools to help developers build consistent experience around routing and browser navigation.
 Some of that tooling is inside <code class="literal">core</code>, some is available as part of various plugins.</p>
 <p><a class="xref" href="kibana-navigation.html" title="Routing, Navigation and URL">Follow this guide</a> to get an idea of available tools and common approaches for handling routing and browser navigation.</p>
-<h3><a id="_testing_stability"></a>Testing &amp; stability<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/developer/best-practices/index.asciidoc">edit</a></h3>
+<h3><a id="_testing_stability"></a>Testing &amp; stability<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/developer/best-practices/index.asciidoc">edit</a></h3>
 <p>Review:</p>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -382,15 +376,37 @@ Some of that tooling is inside <code class="literal">core</code>, some is availa
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

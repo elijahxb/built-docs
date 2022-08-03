@@ -1,4 +1,6 @@
-POST _ml/anomaly_detectors/low_request_rate/_flush
+POST /my-index-000001/_split/split-my-index-000001
 {
-  "calc_interim": true
+  "settings": {
+    "index.number_of_shards": 2
+  }
 }

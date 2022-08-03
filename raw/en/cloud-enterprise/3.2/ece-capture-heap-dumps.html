@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Deployment heap dumps | Elastic Cloud Enterprise Reference [3.2] | Elastic</title>
+<link rel="home" href="index.html" title="Elastic Cloud Enterprise Reference [3.2]"/>
+<link rel="up" href="ece-administering-deployments.html" title="Administering deployments"/>
+<link rel="prev" href="ece-trust-management.html" title="Trust management"/>
+<link rel="next" href="ece-capture-thread-dumps.html" title="Deployment thread dumps"/>
+<meta name="DC.type" content="Learn/Docs/CloudEnterprise/Reference/3.2"/>
+<meta name="DC.subject" content="ECE"/>
+<meta name="DC.identifier" content="3.2"/>
+</head>
+<body><div class="page_header">
+A newer version is available. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Cloud Enterprise Reference [3.2]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="ece-administering-deployments.html">Administering deployments</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="ece-trust-management.html">« Trust management</a>
+</span>
+<span class="next">
+<a href="ece-capture-thread-dumps.html">Deployment thread dumps »</a>
+</span>
+</div>
+<div class="chapter">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="ece-capture-heap-dumps"></a>Deployment heap dumps<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/cloud-enterprise/ce-heap-dumps.asciidoc">edit</a></h2>
+</div></div></div>
+<p>From the Elastic Cloud Enterprise console you can capture JVM heap dumps from deployment instances. This can aid in debugging memory-related issues. Elastic Cloud Enterprise supports two kinds of heap dumps: out-of-memory and on-demand. Out-of-memory heap dumps are captured when the instance JVM runs out of memory and crashes. On-demand heap dumps can be captured from a running instance at any time.</p>
+<h3><a id="ece-view-heap-dumps"></a>Viewing and downloading heap dumps<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/cloud-enterprise/ce-heap-dumps.asciidoc">edit</a></h3>
+<p>You can view and download captured heap dumps for a given deployment.</p>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+<a class="xref" href="ece-login.html" title="Log into the Cloud UI">Log into the Cloud UI</a>.
+</li>
+<li class="listitem">
+<p>On the deployments page, select your deployment.</p>
+<p>Narrow the list by name, ID, or choose from several other filters. To further define the list, use a combination of filters.</p>
+</li>
+<li class="listitem">
+From your deployment menu go to the <span class="strong strong"><strong>Heap dumps</strong></span> page.
+</li>
+</ol>
+</div>
+<p>From this page, you can view all heap dumps that have been captured on your deployment and download a heap dump for analysis.</p>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>Only one heap dump is retained per instance.</p>
+</div>
+</div>
+<div class="warning admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>Heap dumps contain the unsanitized contents of the instance&#8217;s heap. There are typically secrets and other sensitive data contained in heap dumps, and great care should be taken when handling and sharing them.</p>
+</div>
+</div>
+<h3><a id="ece-capture-on-demand-heap-dump"></a>Capturing a new on-demand heap dump<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/cloud-enterprise/ce-heap-dumps.asciidoc">edit</a></h3>
+<p>You can capture an on-demand heap dump from the deployment overview page.</p>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>The JVM will be paused while the heap dump is being captured, so there may be a temporary performance or availability impact. Only one heap dump can be captured from a given instance at a time.</p>
+</div>
+</div>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+<a class="xref" href="ece-login.html" title="Log into the Cloud UI">Log into the Cloud UI</a>.
+</li>
+<li class="listitem">
+<p>On the deployments page, select your deployment.</p>
+<p>Narrow the list by name, ID, or choose from several other filters. To further define the list, use a combination of filters.</p>
+</li>
+<li class="listitem">
+From the deployment overview, find the instance you want to capture a heap dump from, select the instance context menu, and choose <span class="strong strong"><strong>Capture heap dump</strong></span>
+</li>
+</ol>
+</div>
+<p>Alternatively, you can capture an on-demand heap dump directly from the <span class="strong strong"><strong>Heap dumps</strong></span> page.</p>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+<a class="xref" href="ece-login.html" title="Log into the Cloud UI">Log into the Cloud UI</a>.
+</li>
+<li class="listitem">
+<p>On the deployments page, select your deployment.</p>
+<p>Narrow the list by name, ID, or choose from several other filters. To further define the list, use a combination of filters.</p>
+</li>
+<li class="listitem">
+From your deployment menu, go to the <span class="strong strong"><strong>Heap dumps</strong></span> page.
+</li>
+<li class="listitem">
+From the dropdown, choose the instance you want to capture a heap dump from, and select <span class="strong strong"><strong>Start capture</strong></span>
+</li>
+</ol>
+</div>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="ece-trust-management.html">« Trust management</a>
+</span>
+<span class="next">
+<a href="ece-capture-thread-dumps.html">Deployment thread dumps »</a>
+</span>
+</div>
+</div>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains('stemblock')) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+</body>
+</html>

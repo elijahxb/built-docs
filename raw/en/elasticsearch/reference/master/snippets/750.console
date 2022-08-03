@@ -1,4 +1,18 @@
-DELETE /_pit
+GET /_search
 {
-    "id" : "46ToAwMDaWR5BXV1aWQyKwZub2RlXzMAAAAAAAAAACoBYwADaWR4BXV1aWQxAgZub2RlXzEAAAAAAAAAAAEBYQADaWR5BXV1aWQyKgZub2RlXzIAAAAAAAAAAAwBYgACBXV1aWQyAAAFdXVpZDEAAQltYXRjaF9hbGw_gAAAAA=="
+  "query": {
+    "query_string": {
+      "query": "running scissors",
+      "fields": ["comment", "comment.plain^10"]
+    }
+  },
+  "highlight": {
+    "order": "score",
+    "fields": {
+      "comment": {
+        "matched_fields": ["comment", "comment.plain"],
+        "type" : "fvh"
+      }
+    }
+  }
 }

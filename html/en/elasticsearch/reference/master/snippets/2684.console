@@ -1,9 +1,4 @@
-POST _reindex
+POST /_security/oauth2/token
 {
-  "source": {
-    "index": "my-index-000001"
-  },
-  "dest": {
-    "index": "my-index-000002"
-  }
+  "grant_type" : "client_credentials"
 }

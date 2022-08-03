@@ -18,13 +18,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">APM User Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="overview.html">Legacy APM Server Reference</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">APM User Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="overview.html">Legacy APM Server Reference</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="intake-api.html">API</a></span>
-»
-<span class="breadcrumb-node">Events Intake API</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -42,7 +39,7 @@ Not what you want? See the
 <div class="important admon">
 <div class="icon"></div>
 <div class="admon_content">
-<p>This documentation refers to the API of the standalone (legacy) APM Server. This method of running APM Server will be deprecated and removed in a future release. Please consider <a class="xref" href="upgrade-to-apm-integration.html" title="Upgrade to the Elastic APM integration">upgrading to Fleet and the APM integration</a>.
+<p>This documentation refers to the API of the standalone (legacy) APM Server. This method of running APM Server will be deprecated and removed in a future release. Please consider <a class="xref" href="upgrade-to-apm-integration.html" title="Switch to the Elastic APM integration">upgrading to Fleet and the APM integration</a>.
 If you&#8217;ve already upgraded, see <a class="xref" href="api-events.html" title="Events intake API">Events intake API</a>.</p>
 </div>
 </div>
@@ -112,7 +109,7 @@ Once all events have been processed,
 the error response is sent.</p>
 <p>Some errors, not relating to specific events,
 may terminate the request immediately.
-For example: queue is full, IP rate limit reached, wrong metadata, etc.
+For example: IP rate limit reached, wrong metadata, etc.
 If at any point one of these errors is encountered,
 it is added to the internal array and immediately returned.</p>
 <p>An example error response might look something like this:</p>
@@ -120,8 +117,8 @@ it is added to the internal array and immediately returned.</p>
 <pre class="programlisting prettyprint lang-json">{
   "errors": [
     {
-      "message": "&lt;json-schema-err&gt;", <a id="CO86-1"></a><i class="conum" data-value="1"></i>
-      "document": "&lt;ndjson-obj&gt;" <a id="CO86-2"></a><i class="conum" data-value="2"></i>
+      "message": "&lt;json-schema-err&gt;", <a id="CO85-1"></a><i class="conum" data-value="1"></i>
+      "document": "&lt;ndjson-obj&gt;" <a id="CO85-2"></a><i class="conum" data-value="2"></i>
     },{
       "message": "&lt;json-schema-err&gt;",
       "document": "&lt;ndjson-obj&gt;"
@@ -129,17 +126,17 @@ it is added to the internal array and immediately returned.</p>
       "message": "&lt;json-decoding-err&gt;",
       "document": "&lt;ndjson-obj&gt;"
     },{
-      "message": "queue is full" <a id="CO86-3"></a><i class="conum" data-value="3"></i>
+      "message": "too many requests" <a id="CO85-3"></a><i class="conum" data-value="3"></i>
     },
   ],
-  "accepted": 2320 <a id="CO86-4"></a><i class="conum" data-value="4"></i>
+  "accepted": 2320 <a id="CO85-4"></a><i class="conum" data-value="4"></i>
 }</pre>
 </div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO86-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO85-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>An event related error</p>
@@ -147,7 +144,7 @@ it is added to the internal array and immediately returned.</p>
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO86-2"><i class="conum" data-value="2"></i></a></p>
+<p><a href="#CO85-2"><i class="conum" data-value="2"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>The document causing the error</p>
@@ -155,7 +152,7 @@ it is added to the internal array and immediately returned.</p>
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO86-3"><i class="conum" data-value="3"></i></a></p>
+<p><a href="#CO85-3"><i class="conum" data-value="3"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>An immediately returning non-event related error</p>
@@ -163,7 +160,7 @@ it is added to the internal array and immediately returned.</p>
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO86-4"><i class="conum" data-value="4"></i></a></p>
+<p><a href="#CO85-4"><i class="conum" data-value="4"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>The number of accepted events</p>

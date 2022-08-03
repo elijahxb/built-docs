@@ -1,1 +1,1 @@
-GET _rollup/data/sensor-*
+GET /_xpack?categories=build,features

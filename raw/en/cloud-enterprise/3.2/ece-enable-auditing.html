@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Enable auditing | Elastic Cloud Enterprise Reference [3.2] | Elastic</title>
+<link rel="home" href="index.html" title="Elastic Cloud Enterprise Reference [3.2]"/>
+<link rel="up" href="ece-securing-ece.html" title="Securing your installation"/>
+<link rel="prev" href="ece-manage-system-passwords.html" title="Manage system passwords"/>
+<link rel="next" href="ece-configure-tls-version.html" title="Configuring the TLS version"/>
+<meta name="DC.type" content="Learn/Docs/CloudEnterprise/Reference/3.2"/>
+<meta name="DC.subject" content="ECE"/>
+<meta name="DC.identifier" content="3.2"/>
+</head>
+<body><div class="page_header">
+A newer version is available. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Cloud Enterprise Reference [3.2]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="ece-securing-ece.html">Securing your installation</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="ece-manage-system-passwords.html">« Manage system passwords</a>
+</span>
+<span class="next">
+<a href="ece-configure-tls-version.html">Configuring the TLS version »</a>
+</span>
+</div>
+<div class="chapter">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="ece-enable-auditing"></a>Enable auditing<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/cloud-enterprise/ce-securing-auditing.asciidoc">edit</a></h2>
+</div></div></div>
+<p>With auditing enabled you can keep track of security-related events, such as successful and unsuccessful authorization attempts on the cluster. In Elastic Cloud Enterprise, to get audit events for both Elasticsearch and Kibana, you need to enable auditing for each component separately.</p>
+<p>To enable auditing for Elasticsearch:</p>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+<a class="xref" href="ece-login.html" title="Log into the Cloud UI">Log into the Cloud UI</a>.
+</li>
+<li class="listitem">
+<p>On the <span class="strong strong"><strong>Deployments</strong></span> page, select your deployment.</p>
+<p>Narrow the list by name, ID, or choose from several other filters. To further define the list, use a combination of filters.</p>
+</li>
+<li class="listitem">
+From your deployment menu, go to the <span class="strong strong"><strong>Edit</strong></span> page.
+</li>
+<li class="listitem">
+In the <span class="strong strong"><strong>Elasticsearch</strong></span> section, select <span class="strong strong"><strong>Edit user settings and plugins</strong></span>. For deployments with existing user settings, you may have to expand the <span class="strong strong"><strong>Edit elasticsearch.yml</strong></span> caret for the first node instead.
+</li>
+<li class="listitem">
+Add the setting <code class="literal">xpack.security.audit.enabled: true</code>.
+</li>
+<li class="listitem">
+Select <span class="strong strong"><strong>Save</strong></span>.
+</li>
+</ol>
+</div>
+<p>For more information and other available auditing settings in Elasticsearch, check <a href="/guide/en/elasticsearch/reference/8.3/auditing-settings.html" class="ulink" target="_top">Auditing security settings</a>.</p>
+<p>To enable auditing for Kibana:</p>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+<a class="xref" href="ece-login.html" title="Log into the Cloud UI">Log into the Cloud UI</a>.
+</li>
+<li class="listitem">
+<p>On the <span class="strong strong"><strong>Deployments</strong></span> page, select your deployment.</p>
+<p>Narrow the list by name, ID, or choose from several other filters. To further define the list, use a combination of filters.</p>
+</li>
+<li class="listitem">
+From your deployment menu, go to the <span class="strong strong"><strong>Edit</strong></span> page.
+</li>
+<li class="listitem">
+In the <span class="strong strong"><strong>Kibana</strong></span> section, select <span class="strong strong"><strong>Edit user settings</strong></span>. For deployments with existing user settings, you may have to expand the <span class="strong strong"><strong>Edit kibana.yml</strong></span> caret instead.
+</li>
+<li class="listitem">
+Add the setting <code class="literal">xpack.security.audit.enabled: true</code>.
+</li>
+<li class="listitem">
+If your Elastic Stack version is below 7.6.0, add the setting <code class="literal">logging.quiet: false</code>.
+</li>
+<li class="listitem">
+Select <span class="strong strong"><strong>Save</strong></span>.
+</li>
+</ol>
+</div>
+<p>For more information about audit logging in Kibana, check <a href="/guide/en/kibana/8.3/xpack-security-audit-logging.html" class="ulink" target="_top">Audit Logging</a>.</p>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="ece-manage-system-passwords.html">« Manage system passwords</a>
+</span>
+<span class="next">
+<a href="ece-configure-tls-version.html">Configuring the TLS version »</a>
+</span>
+</div>
+</div>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains('stemblock')) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+</body>
+</html>

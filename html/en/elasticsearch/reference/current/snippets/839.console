@@ -1,23 +1,15 @@
-GET my-exact-knn-index/_search
+PUT my-approx-knn-index
 {
-  "query": {
-    "script_score": {
-      "query" : {
-        "bool" : {
-          "filter" : {
-            "range" : {
-              "my-price" : {
-                "gte": 1000
-              }
-            }
-          }
-        }
+  "mappings": {
+    "properties": {
+      "my-image-vector": {
+        "type": "dense_vector",
+        "dims": 5,
+        "index": true,
+        "similarity": "l2_norm"
       },
-      "script": {
-        "source": "cosineSimilarity(params.queryVector, 'my-product-vector') + 1.0",
-        "params": {
-          "queryVector": [-0.5, 90.0, -10, 14.8, -156.0]
-        }
+      "my-tag": {
+        "type": "keyword"
       }
     }
   }

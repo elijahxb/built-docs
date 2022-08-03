@@ -1,1 +1,1 @@
-GET _tasks?actions=*search&detailed
+GET _snapshot/my_repository/*?verbose=false

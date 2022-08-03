@@ -1,8 +1,12 @@
-GET /_analyze
+GET /test/_mget?stored_fields=field1,field2
 {
-  "tokenizer" : "standard",
-  "filter" : ["snowball"],
-  "text" : "detailed output",
-  "explain" : true,
-  "attributes" : ["keyword"]
+  "docs": [
+    {
+      "_id": "1"
+    },
+    {
+      "_id": "2",
+      "stored_fields": [ "field3", "field4" ]
+    }
+  ]
 }

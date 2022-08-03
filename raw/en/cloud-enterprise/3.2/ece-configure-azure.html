@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Microsoft Azure virtual machines | Elastic Cloud Enterprise Reference [3.2] | Elastic</title>
+<link rel="home" href="index.html" title="Elastic Cloud Enterprise Reference [3.2]"/>
+<link rel="up" href="ece-install-public.html" title="Install ECE on a public cloud"/>
+<link rel="prev" href="ece-configure-gcp.html" title="Google Cloud Platform (GCP)"/>
+<link rel="next" href="ece-configure-os-cloud.html" title="Configure your operating system"/>
+<meta name="DC.type" content="Learn/Docs/CloudEnterprise/Reference/3.2"/>
+<meta name="DC.subject" content="ECE"/>
+<meta name="DC.identifier" content="3.2"/>
+</head>
+<body><div class="page_header">
+A newer version is available. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Cloud Enterprise Reference [3.2]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="ece-installing.html">Installing Elastic Cloud Enterprise</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="ece-install-public.html">Install ECE on a public cloud</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="ece-configure-gcp.html">« Google Cloud Platform (GCP)</a>
+</span>
+<span class="next">
+<a href="ece-configure-os-cloud.html">Configure your operating system »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="ece-configure-azure"></a>Microsoft Azure virtual machines<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/cloud-enterprise/ce-configuring-azure.asciidoc">edit</a></h2>
+</div></div></div>
+<p>With the availability of virtual machines with Linux-based operating systems, you can now use Microsoft Azure to host Elastic Cloud Enterprise.</p>
+<p>The following instructions are for Ubuntu 18.04 LTS virtual machines, but you can use any of the <a class="xref" href="ece-configure-os-cloud.html" title="Configure your operating system">supported operating systems</a> so long as the prerequisites are met.</p>
+<p>You must run these commands from the Azure CLI, version 2.0 or later. You can download and run Azure CLI locally, or you can use the <span class="strong strong"><strong>Cloud Shell &gt;_</strong></span> button to open it in the Azure portal. Alternatively, you can use the Azure portal UI to create your virtual machines.</p>
+<h3><a id="ece-set_up_azure_resource_group_and_networking"></a>Set up Azure resource group and networking<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/cloud-enterprise/ce-configuring-azure.asciidoc">edit</a></h3>
+<p>If you have an existing Azure resource group, you need to configure it to enable the resource group members to connect to the ECE UI. You can create a new resource group if you don&#8217;t already have one.</p>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+<p>Create a resource group:</p>
+<div class="pre_wrapper lang-sh">
+<pre class="programlisting prettyprint lang-sh">az group create
+  --name &lt;resourcename&gt;
+  --location &lt;region&gt;</pre>
+</div>
+</li>
+<li class="listitem">
+<p>Create your network security group:</p>
+<div class="pre_wrapper lang-sh">
+<pre class="programlisting prettyprint lang-sh">az network nsg create
+  --resource-group &lt;resourcename&gt;
+  --name &lt;securityname&gt;
+  --location &lt;region&gt;</pre>
+</div>
+</li>
+<li class="listitem">
+<p>Add several rules for inbound and outbound network traffic.</p>
+<p>These rules make sure that the Cloud UI can be accessed, that the UI components can talk to each other, and that they can reach the internet. You might need to create several rules to enable the <a class="xref" href="ece-networking-prereq.html" title="Networking prerequisites">full list of ports and their uses</a>.</p>
+<p>Depending on the port you want to add, run the corresponding command.</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<p>Add port 22 to connect over SSH for installation and troubleshooting</p>
+<div class="pre_wrapper lang-sh">
+<pre class="programlisting prettyprint lang-sh">az network nsg rule create
+ --resource-group &lt;resourcename&gt;
+ --nsg-name &lt;securityname&gt;
+ --name ssh --access Allow
+ --protocol Tcp
+ --direction Inbound
+ --priority 100
+ --source-address-prefix Internet
+ --source-port-range "*"
+ --destination-address-prefix "*"
+ --destination-port-range 22</pre>
+</div>
+</li>
+<li class="listitem">
+<p>Add port 12443 for HTTPS</p>
+<div class="pre_wrapper lang-sh">
+<pre class="programlisting prettyprint lang-sh">az network nsg rule create
+  --resource-group &lt;resourcename&gt;
+  --nsg-name &lt;securityname&gt;
+  --name https
+  --access Allow
+  --protocol Tcp
+  --direction Inbound
+  --priority 200
+  --source-address-prefix Internet
+  --source-port-range "*"
+  --destination-address-prefix "*"
+  --destination-port-range 12443</pre>
+</div>
+</li>
+<li class="listitem">
+<p>Add port 9243 to access your Elasticsearch clusters and Kibana instances</p>
+<div class="pre_wrapper lang-sh">
+<pre class="programlisting prettyprint lang-sh">az network nsg rule create
+  --resource-group &lt;resourcename&gt;
+  --nsg-name &lt;securityname&gt;
+  --name ece-frontend
+  --access Allow
+  --protocol Tcp
+  --direction Inbound
+  --priority 300
+  --source-address-prefix Internet
+  --source-port-range "*"
+  --destination-address-prefix "*"
+  --destination-port-range 9243</pre>
+</div>
+</li>
+<li class="listitem">
+<p>Add port 12400 to access the Cloud UI</p>
+<div class="pre_wrapper lang-sh">
+<pre class="programlisting prettyprint lang-sh">az network nsg rule create
+  --resource-group &lt;resourcename&gt;
+  --nsg-name &lt;securityname&gt;
+  --name admin-ui
+  --access Allow
+  --protocol Tcp
+  --direction Inbound
+  --priority 400
+  --source-address-prefix Internet
+  --source-port-range "*"
+  --destination-address-prefix "*"
+  --destination-port-range 12400</pre>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li class="listitem">
+<p>Create a virtual network:</p>
+<div class="pre_wrapper lang-sh">
+<pre class="programlisting prettyprint lang-sh">az network vnet create
+  --resource-group &lt;resourcename&gt;
+  --name &lt;vnetname&gt;
+  --address-prefix 10.0.0.0/16
+  --subnet-name &lt;default&gt;</pre>
+</div>
+</li>
+<li class="listitem">
+<p>Associate the virtual network subnet with your network security group.</p>
+<div class="pre_wrapper lang-sh">
+<pre class="programlisting prettyprint lang-sh">az network vnet subnet update
+  --resource-group &lt;resourcename&gt;
+  --vnet-name &lt;vnetname&gt;
+  --name default
+  --network-security-group &lt;securityname&gt;</pre>
+</div>
+</li>
+</ol>
+</div>
+<h3><a id="ece-create_your_hosts"></a>Create your hosts<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/cloud-enterprise/ce-configuring-azure.asciidoc">edit</a></h3>
+<p>Follow these steps to create three Ubuntu 18.04 LTS virtual machines on the Standard DS11 V2 instance types with 16 GB RAM.</p>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+<p>Create your first virtual machine.
+This is the first machine that you install Elastic Cloud Enterprise on and it includes a 128 GB attached data disk. This command sets a status public IP address and generates your SSH keys.</p>
+<div class="pre_wrapper lang-sh">
+<pre class="programlisting prettyprint lang-sh">az vm create
+  --resource-group &lt;resourcename&gt;
+  --name ece-node-01
+  --image Canonical:ubuntuserver:18.04-LTS:latest
+  --size Standard_D11_v2
+  --data-disk-sizes-gb 128
+  --public-ip-address-allocation static
+  --vnet-name &lt;vnetname&gt;
+  --subnet default
+  --nsg &lt;securityname&gt;
+  --generate-ssh-keys</pre>
+</div>
+<p>If you are using machines without permanent storage, back up your keys to a safe location.</p>
+</li>
+<li class="listitem">
+Create two more virtual machines with unique node names.
+</li>
+<li class="listitem">
+Complete the <a class="xref" href="ece-configure-os-cloud.html" title="Configure your operating system">operating system configuration</a> for each virtual machine.
+</li>
+</ol>
+</div>
+<p>When your Microsoft Azure virtual machines are up and running, you can connect to them and <a class="xref" href="ece-install-cloud.html" title="Install ECE">install Elastic Cloud Enterprise</a>.</p>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="ece-configure-gcp.html">« Google Cloud Platform (GCP)</a>
+</span>
+<span class="next">
+<a href="ece-configure-os-cloud.html">Configure your operating system »</a>
+</span>
+</div>
+</div>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains('stemblock')) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+</body>
+</html>

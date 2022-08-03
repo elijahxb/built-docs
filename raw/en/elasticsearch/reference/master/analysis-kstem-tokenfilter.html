@@ -18,13 +18,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="analysis.html">Text analysis</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="analysis.html">Text analysis</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="analysis-tokenfilters.html">Token filter reference</a></span>
-»
-<span class="breadcrumb-node">KStem token filter</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -36,7 +33,7 @@ Not what you want? See the
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="analysis-kstem-tokenfilter"></a>KStem token filter<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/analysis/tokenfilters/kstem-tokenfilter.asciidoc">edit</a></h2>
+<h2 class="title"><a id="analysis-kstem-tokenfilter"></a>KStem token filter<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/analysis/tokenfilters/kstem-tokenfilter.asciidoc">edit</a></h2>
 </div></div></div>
 
 <p>Provides <a href="https://ciir.cs.umass.edu/pubfiles/ir-35.pdf" class="ulink" target="_top">KStem</a>-based stemming for
@@ -49,10 +46,10 @@ filters, such as the <a class="xref" href="analysis-porterstem-tokenfilter.html"
 <a class="xref" href="analysis-stemmer-tokenfilter.html" title="Stemmer token filter"><code class="literal">stemmer</code></a> filter&#8217;s
 <a class="xref" href="analysis-stemmer-tokenfilter.html#analysis-stemmer-tokenfilter-language-parm"><code class="literal">light_english</code></a> variant.</p>
 <p>This filter uses Lucene&#8217;s
-<a href="https://lucene.apache.org/core/9_1_0/analysis/common/org/apache/lucene/analysis/en/KStemFilter.html" class="ulink" target="_top">KStemFilter</a>.</p>
+<a href="https://lucene.apache.org/core/9_3_0/analysis/common/org/apache/lucene/analysis/en/KStemFilter.html" class="ulink" target="_top">KStemFilter</a>.</p>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="analysis-kstem-tokenfilter-analyze-ex"></a>Example<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/analysis/tokenfilters/kstem-tokenfilter.asciidoc">edit</a></h3>
+<h3 class="title"><a id="analysis-kstem-tokenfilter-analyze-ex"></a>Example<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/analysis/tokenfilters/kstem-tokenfilter.asciidoc">edit</a></h3>
 </div></div></div>
 <p>The following analyze API request uses the <code class="literal">kstem</code> filter to stem <code class="literal">the foxes
 jumping quickly</code> to <code class="literal">the fox jump quick</code>:</p>
@@ -65,7 +62,7 @@ jumping quickly</code> to <code class="literal">the fox jump quick</code>:</p>
   "text": "the foxes jumping quickly"
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/489.console"></div>
+<div class="console_widget" data-snippet="snippets/492.console"></div>
 <p>The filter produces the following tokens:</p>
 <div class="pre_wrapper lang-text">
 <pre class="programlisting prettyprint lang-text">[ the, fox, jump, quick ]</pre>
@@ -74,7 +71,7 @@ jumping quickly</code> to <code class="literal">the fox jump quick</code>:</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="analysis-kstem-tokenfilter-analyzer-ex"></a>Add to an analyzer<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/analysis/tokenfilters/kstem-tokenfilter.asciidoc">edit</a></h3>
+<h3 class="title"><a id="analysis-kstem-tokenfilter-analyzer-ex"></a>Add to an analyzer<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/analysis/tokenfilters/kstem-tokenfilter.asciidoc">edit</a></h3>
 </div></div></div>
 <p>The following <a class="xref" href="indices-create-index.html" title="Create index API">create index API</a> request uses the
 <code class="literal">kstem</code> filter to configure a new <a class="xref" href="analysis-custom-analyzer.html" title="Create a custom analyzer">custom
@@ -106,7 +103,7 @@ before the <code class="literal">kstem</code> filter in the analyzer configurati
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/490.console"></div>
+<div class="console_widget" data-snippet="snippets/493.console"></div>
 </div>
 
 </div>

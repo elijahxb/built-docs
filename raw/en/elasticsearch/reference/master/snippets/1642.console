@@ -1,9 +1,7 @@
-PUT /_security/role_mapping/oidc-finance
+GET _cluster/allocation/explain
 {
-  "roles": [ "finance_data" ],
-  "enabled": true,
-  "rules": { "all": [
-        { "field": { "realm.name": "oidc1" } },
-        { "field": { "groups": "finance-team" } }
-  ] }
+  "index": "my-index",
+  "shard": 0,
+  "primary": false,
+  "current_node": "my-node"
 }

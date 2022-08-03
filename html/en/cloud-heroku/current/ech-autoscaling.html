@@ -57,7 +57,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -88,36 +88,25 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Add-On for Heroku Documentation</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Add-On for Heroku Documentation</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="ech-configure.html">Configuring your deployment</a></span>
-»
-<span class="breadcrumb-node">Deployment autoscaling</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -129,7 +118,7 @@
 </div>
 <div class="chapter">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="ech-autoscaling"></a>Deployment autoscaling<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-71/docs/shared/ec-ce-autoscaling.asciidoc">edit</a></h2>
+<h2 class="title"><a id="ech-autoscaling"></a>Deployment autoscaling<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-77/docs/shared/ec-ce-autoscaling.asciidoc">edit</a></h2>
 </div></div></div>
 <p>Autoscaling helps you to more easily manage your deployments by adjusting their available resources automatically. Currently, autoscaling is supported for Elasticsearch data tiers and machine learning nodes. Check the following sections to learn more:</p>
 <div class="ulist itemizedlist">
@@ -155,7 +144,7 @@
 </ul>
 </div>
 <p>You can also have a look at our <a class="xref" href="ech-autoscaling-example.html" title="Autoscaling example">autoscaling example</a>.</p>
-<h3><a id="ech-autoscaling-intro"></a>Overview<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-71/docs/shared/ec-ce-autoscaling.asciidoc">edit</a></h3>
+<h3><a id="ech-autoscaling-intro"></a>Overview<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-77/docs/shared/ec-ce-autoscaling.asciidoc">edit</a></h3>
 <p>When you first create a deployment it can be challenging to determine the amount of storage your data nodes will require. The same is relevant for the amount of memory you want to allocate to your machine learning nodes. It can become even more challenging to predict these requirements for weeks or months into the future.
 In an ideal scenario, these resources should be sized to both ensure efficient performance and resiliency, and to avoid excess costs. Autoscaling can help with this balance by adjusting the resources available to a deployment automatically as loads change over time, reducing the need for monitoring and manual intervention.</p>
 <p>Currently, autoscaling behavior is as follows:</p>
@@ -166,7 +155,7 @@ In an ideal scenario, these resources should be sized to both ensure efficient p
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
 <li class="listitem">
-Each Elasticsearch <a href="/guide/en/elasticsearch/reference/8.1/data-tiers.html" class="ulink" target="_top">data tier</a> scales upward based on the amount of available storage. When we detect more storage is needed, autoscaling will scale up each data tier independently to ensure you can continue and ingest more data to your hot and content tier, or move data to the warm, cold, or frozen data tiers.
+Each Elasticsearch <a href="/guide/en/elasticsearch/reference/8.3/data-tiers.html" class="ulink" target="_top">data tier</a> scales upward based on the amount of available storage. When we detect more storage is needed, autoscaling will scale up each data tier independently to ensure you can continue and ingest more data to your hot and content tier, or move data to the warm, cold, or frozen data tiers.
 </li>
 <li class="listitem">
 In addition to scaling up existing data tiers, a new data tier will be automatically added when necessary, based on your index lifecycle management policies.
@@ -210,7 +199,7 @@ The determination of when to scale is based on the expected memory requirements 
 <p>For any Elasticsearch Add-On for Heroku Elasticsearch component the number of availability zones is not affected by autoscaling. You can always set the number of availability zones manually and the autoscaling mechanism will add or remove capacity per availability zone.</p>
 </div>
 </div>
-<h3><a id="ech-autoscaling-factors"></a>When does autoscaling occur?<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-71/docs/shared/ec-ce-autoscaling.asciidoc">edit</a></h3>
+<h3><a id="ech-autoscaling-factors"></a>When does autoscaling occur?<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-77/docs/shared/ec-ce-autoscaling.asciidoc">edit</a></h3>
 <p>Several factors determine when data tiers or machine learning nodes are scaled.</p>
 <p>For a data tier, an autoscaling event can be triggered in the following cases:</p>
 <div class="ulist itemizedlist">
@@ -219,18 +208,18 @@ The determination of when to scale is based on the expected memory requirements 
 Based on an assessment of how shards are currently allocated, and the amount of storage and buffer space currently available.
 </li>
 <li class="listitem">
-When past behavior on a hot tier, over the duration of the <a class="xref" href="ech-autoscaling.html#ech-autoscaling-update" title="Update your autoscaling settings">forecast window</a>, indicates that the influx of data can increase significantly in the near future. Refer to <a href="/guide/en/elasticsearch/reference/8.1/autoscaling-reactive-storage-decider.html" class="ulink" target="_top">Reactive storage decider</a> and <a href="/guide/en/elasticsearch/reference/8.1/autoscaling-proactive-storage-decider.html" class="ulink" target="_top">Proactive storage decider</a> for more detail.
+When past behavior on a hot tier, over the duration of the <a class="xref" href="ech-autoscaling.html#ech-autoscaling-update" title="Update your autoscaling settings">forecast window</a>, indicates that the influx of data can increase significantly in the near future. Refer to <a href="/guide/en/elasticsearch/reference/8.3/autoscaling-reactive-storage-decider.html" class="ulink" target="_top">Reactive storage decider</a> and <a href="/guide/en/elasticsearch/reference/8.3/autoscaling-proactive-storage-decider.html" class="ulink" target="_top">Proactive storage decider</a> for more detail.
 </li>
 <li class="listitem">
 Through ILM  policies. For example, if a deployment has only hot nodes and autoscaling is enabled, it automatically creates warm or cold nodes, if an ILM policy is trying to move data from hot to warm or cold nodes.
 </li>
 </ul>
 </div>
-<p>On machine learning nodes, scaling is determined by an estimate of the memory requirement for the currently configured jobs. When a new machine learning job tries to start, it looks for a node with adequate native memory capacity. If one cannot be found, it stays in an <code class="literal">opening</code> state. If this waiting job exceeds the queueing limit set in the machine learning decider, a scale up is requested. Conversely, as machine learning jobs run, their memory usage might decrease or other running jobs might finish or close. In this case, if the duration of decreased resource usage exceeds the set value for <code class="literal">down_scale_delay</code>, a scale down is requested. Check <a href="/guide/en/elasticsearch/reference/8.1/autoscaling-machine-learning-decider.html" class="ulink" target="_top">Machine learning decider</a> for more detail. To learn more about machine learning jobs in general, check <a href="/guide/en/machine-learning/8.1/create-jobs.html" class="ulink" target="_top">Create anomaly detection jobs</a>.</p>
+<p>On machine learning nodes, scaling is determined by an estimate of the memory requirement for the currently configured jobs. When a new machine learning job tries to start, it looks for a node with adequate native memory capacity. If one cannot be found, it stays in an <code class="literal">opening</code> state. If this waiting job exceeds the queueing limit set in the machine learning decider, a scale up is requested. Conversely, as machine learning jobs run, their memory usage might decrease or other running jobs might finish or close. In this case, if the duration of decreased resource usage exceeds the set value for <code class="literal">down_scale_delay</code>, a scale down is requested. Check <a href="/guide/en/elasticsearch/reference/8.3/autoscaling-machine-learning-decider.html" class="ulink" target="_top">Machine learning decider</a> for more detail. To learn more about machine learning jobs in general, check <a href="/guide/en/machine-learning/8.3/create-jobs.html" class="ulink" target="_top">Create anomaly detection jobs</a>.</p>
 <p>On a highly available deployment, autoscaling events are always applied to instances in each availability zone simultaneously, to ensure consistency.</p>
-<h3><a id="ech-autoscaling-notifications"></a>Notifications<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-71/docs/shared/ec-ce-autoscaling.asciidoc">edit</a></h3>
+<h3><a id="ech-autoscaling-notifications"></a>Notifications<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-77/docs/shared/ec-ce-autoscaling.asciidoc">edit</a></h3>
 <p>In the event that a data tier or machine learning node scales up to its maximum possible size, you&#8217;ll receive an email, and a notice also appears on the deployment overview page prompting you to adjust your autoscaling settings to ensure optimal performance.</p>
-<h3><a id="ech-autoscaling-restrictions"></a>Restrictions and limitations<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-71/docs/shared/ec-ce-autoscaling.asciidoc">edit</a></h3>
+<h3><a id="ech-autoscaling-restrictions"></a>Restrictions and limitations<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-77/docs/shared/ec-ce-autoscaling.asciidoc">edit</a></h3>
 <p>The following are known limitations and restrictions with autoscaling:</p>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -242,7 +231,7 @@ Autoscaling will not run if the cluster is unhealthy or if the last Elasticsearc
 </li>
 </ul>
 </div>
-<h3><a id="ech-autoscaling-enable"></a>Enable or disable autoscaling<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-71/docs/shared/ec-ce-autoscaling.asciidoc">edit</a></h3>
+<h3><a id="ech-autoscaling-enable"></a>Enable or disable autoscaling<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-77/docs/shared/ec-ce-autoscaling.asciidoc">edit</a></h3>
 <p>To enable or disable autoscaling on a deployment:</p>
 <div class="olist orderedlist">
 <ol class="orderedlist">
@@ -266,7 +255,7 @@ Select <span class="strong strong"><strong>Confirm</strong></span> to have the a
 </div>
 <p>When autoscaling has been enabled, the data tiers and machine learning nodes resize according to the <a class="xref" href="ech-autoscaling.html#ech-autoscaling-update" title="Update your autoscaling settings">autoscaling settings</a>. Current sizes are shown on the deployment overview page.</p>
 <p>When autoscaling has been disabled, you need to adjust the size of data tiers and machine learning nodes manually.</p>
-<h3><a id="ech-autoscaling-update"></a>Update your autoscaling settings<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-71/docs/shared/ec-ce-autoscaling.asciidoc">edit</a></h3>
+<h3><a id="ech-autoscaling-update"></a>Update your autoscaling settings<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-77/docs/shared/ec-ce-autoscaling.asciidoc">edit</a></h3>
 <p>Each autoscaling setting is configured with a default value. You can adjust these if necessary, as follows:</p>
 <div class="olist orderedlist">
 <ol class="orderedlist">
@@ -341,15 +330,37 @@ Select <span class="strong strong"><strong>Save</strong></span> to apply the cha
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

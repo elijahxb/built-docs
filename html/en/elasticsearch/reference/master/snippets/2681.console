@@ -1,4 +1,5 @@
-PUT my-index-000001/_settings
+DELETE /_security/api_key
 {
-  "index.merge.policy.max_merge_at_once_explicit": null
+  "ids" : ["VuaCfGcBCdbkQm-e5aOx"],
+  "owner" : "true"
 }

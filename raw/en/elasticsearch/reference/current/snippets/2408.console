@@ -1,9 +1,4 @@
-GET my-index/_search/template
+POST _ml/anomaly_detectors/low_request_rate/model_snapshots/1637092688/_revert
 {
-  "id": "my-search-template",
-  "params": {
-    "query_string": "hello world",
-    "from": 0,
-    "size": 10
-  }
+  "delete_intervening_results": true
 }

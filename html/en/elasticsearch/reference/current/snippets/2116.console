@@ -1,9 +1,7 @@
-PUT /_template/template_1
+GET /my-index-000001/_termvectors
 {
-  "index_patterns" : ["my-index-*"],
-  "order" : 0,
-  "settings" : {
-    "number_of_shards" : 1
-  },
-  "version": 123
+  "doc" : {
+    "fullname" : "John Doe",
+    "text" : "test test test"
+  }
 }

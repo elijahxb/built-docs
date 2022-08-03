@@ -1,13 +1,5 @@
-PUT music/_doc/1?refresh
+GET _ml/anomaly_detectors/job-*/results/overall_buckets
 {
-  "suggest": [
-    {
-      "input": "Nevermind",
-      "weight": 10
-    },
-    {
-      "input": "Nirvana",
-      "weight": 3
-    }
-  ]
+  "overall_score": 80,
+  "start": "1403532000000"
 }

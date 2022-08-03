@@ -1,35 +1,7 @@
-POST /_security/role_mapping/mapping8
+PUT _scripts/my-stored-script
 {
-  "roles": [ "superuser" ],
-  "enabled": true,
-  "rules": {
-    "all": [
-      {
-        "any": [
-          {
-            "field": {
-              "dn": "*,ou=admin,dc=example,dc=com"
-            }
-          },
-          {
-            "field": {
-              "username": [ "es-admin", "es-system" ]
-            }
-          }
-        ]
-      },
-      {
-        "field": {
-          "groups": "cn=people,dc=example,dc=com"
-        }
-      },
-      {
-        "except": {
-          "field": {
-            "metadata.terminated_date": null
-          }
-        }
-      }
-    ]
+  "script": {
+    "lang": "painless",
+    "source": "Math.log(_score * 2) + params['my_modifier']"
   }
 }

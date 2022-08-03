@@ -1,9 +1,17 @@
-POST /_security/role_mapping/mapping9
+POST _search
 {
-  "rules": { "field": { "realm.name": "cloud-saml" } },
-  "role_templates": [
-    { "template": { "source" : "saml_user" } },
-    { "template": { "source" : "_user_{{username}}" } }
-  ],
-  "enabled": true
+  "suggest": {
+    "my-suggest-1" : {
+      "text" : "tring out Elasticsearch",
+      "term" : {
+        "field" : "message"
+      }
+    },
+    "my-suggest-2" : {
+      "text" : "kmichy",
+      "term" : {
+        "field" : "user.id"
+      }
+    }
+  }
 }

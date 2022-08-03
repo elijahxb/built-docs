@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,27 +87,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 You are looking at preliminary documentation for a future release.
@@ -116,13 +107,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="xpack-sql.html">SQL</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="xpack-sql.html">SQL</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="sql-rest.html">SQL REST API</a></span>
-»
-<span class="breadcrumb-node">Response Data Formats</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -134,7 +122,7 @@ Not what you want? See the
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="sql-rest-format"></a>Response Data Formats<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/sql/endpoints/rest.asciidoc">edit</a></h2>
+<h2 class="title"><a id="sql-rest-format"></a>Response Data Formats<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/sql/endpoints/rest.asciidoc">edit</a></h2>
 </div></div></div>
 <p>While the textual format is nice for humans, computers prefer something
 more structured.</p>
@@ -210,7 +198,7 @@ The tab (<code class="literal">\t</code>) can also not be used, the <code class=
 <p>Here are some examples for the human readable formats:</p>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_csv"></a>CSV<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/sql/endpoints/rest.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_csv"></a>CSV<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/sql/endpoints/rest.asciidoc">edit</a></h3>
 </div></div></div>
 <a id="a97aace57c6442bbb90e1e14effbcda3"></a>
 <div class="pre_wrapper lang-console">
@@ -220,7 +208,7 @@ The tab (<code class="literal">\t</code>) can also not be used, the <code class=
   "fetch_size": 5
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1377.console"></div>
+<div class="console_widget" data-snippet="snippets/1405.console"></div>
 <p>which returns:</p>
 <div class="pre_wrapper lang-text">
 <pre class="programlisting prettyprint lang-text">author,name,page_count,release_date
@@ -239,7 +227,7 @@ James S.A. Corey,Leviathan Wakes,561,2011-06-02T00:00:00.000Z</pre>
     "fetch_size": 5
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1378.console"></div>
+<div class="console_widget" data-snippet="snippets/1406.console"></div>
 <p>which returns:</p>
 <div class="pre_wrapper lang-text">
 <pre class="programlisting prettyprint lang-text">author;name;page_count;release_date
@@ -253,7 +241,7 @@ James S.A. Corey;Leviathan Wakes;561;2011-06-02T00:00:00.000Z</pre>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_json"></a>JSON<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/sql/endpoints/rest.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_json"></a>JSON<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/sql/endpoints/rest.asciidoc">edit</a></h3>
 </div></div></div>
 <a id="d11ea753a5d86f7e630fd69a069948b1"></a>
 <div class="pre_wrapper lang-console">
@@ -263,7 +251,7 @@ James S.A. Corey;Leviathan Wakes;561;2011-06-02T00:00:00.000Z</pre>
   "fetch_size": 5
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1379.console"></div>
+<div class="console_widget" data-snippet="snippets/1407.console"></div>
 <p>Which returns:</p>
 <a id="b670ae25504198d206bcb799c578c3b8"></a>
 <div class="pre_wrapper lang-console-result">
@@ -288,7 +276,7 @@ James S.A. Corey;Leviathan Wakes;561;2011-06-02T00:00:00.000Z</pre>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_tsv"></a>TSV<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/sql/endpoints/rest.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_tsv"></a>TSV<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/sql/endpoints/rest.asciidoc">edit</a></h3>
 </div></div></div>
 <a id="32cd57666bc80b8cf793d06fa1086669"></a>
 <div class="pre_wrapper lang-console">
@@ -298,7 +286,7 @@ James S.A. Corey;Leviathan Wakes;561;2011-06-02T00:00:00.000Z</pre>
   "fetch_size": 5
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1380.console"></div>
+<div class="console_widget" data-snippet="snippets/1408.console"></div>
 <p>Which returns:</p>
 <div class="pre_wrapper lang-text">
 <pre class="programlisting prettyprint lang-text">author	name	page_count	release_date
@@ -312,7 +300,7 @@ James S.A. Corey	Leviathan Wakes	561	2011-06-02T00:00:00.000Z</pre>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_txt"></a>TXT<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/sql/endpoints/rest.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_txt"></a>TXT<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/sql/endpoints/rest.asciidoc">edit</a></h3>
 </div></div></div>
 <a id="c554a1791f29bbbcddda84c64deaba6f"></a>
 <div class="pre_wrapper lang-console">
@@ -322,7 +310,7 @@ James S.A. Corey	Leviathan Wakes	561	2011-06-02T00:00:00.000Z</pre>
   "fetch_size": 5
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1381.console"></div>
+<div class="console_widget" data-snippet="snippets/1409.console"></div>
 <p>Which returns:</p>
 <div class="pre_wrapper lang-text">
 <pre class="programlisting prettyprint lang-text">     author      |        name        |  page_count   |      release_date
@@ -337,7 +325,7 @@ James S.A. Corey |Leviathan Wakes     |561            |2011-06-02T00:00:00.000Z<
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_yaml"></a>YAML<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/sql/endpoints/rest.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_yaml"></a>YAML<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/sql/endpoints/rest.asciidoc">edit</a></h3>
 </div></div></div>
 <a id="050b3947025fee403232b8e6e9112dab"></a>
 <div class="pre_wrapper lang-console">
@@ -347,7 +335,7 @@ James S.A. Corey |Leviathan Wakes     |561            |2011-06-02T00:00:00.000Z<
   "fetch_size": 5
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1382.console"></div>
+<div class="console_widget" data-snippet="snippets/1410.console"></div>
 <p>Which returns:</p>
 <div class="pre_wrapper lang-yaml">
 <pre class="programlisting prettyprint lang-yaml">columns:
@@ -397,15 +385,37 @@ cursor: "sDXF1ZXJ5QW5kRmV0Y2gBAAAAAAAAAAEWWWdrRlVfSS1TbDYtcW9lc1FJNmlYdw==:BAFmB
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

@@ -1,5 +1,6 @@
-POST /_sql?format=tsv
+GET /my-data-stream/_eql/search?filter_path=hits.events._source.@timestamp,hits.events._source.process.pid
 {
-  "query": "SELECT * FROM library ORDER BY page_count DESC",
-  "fetch_size": 5
+  "query": """
+    process where process.name == "regsvr32.exe"
+  """
 }

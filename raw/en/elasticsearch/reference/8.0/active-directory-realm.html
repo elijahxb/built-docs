@@ -19,13 +19,10 @@ will be released for this version. For the latest information, see the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.0]</a></span>
-»
-<span class="breadcrumb-link"><a href="secure-cluster.html">Secure the Elastic Stack</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.0]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="secure-cluster.html">Secure the Elastic Stack</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="setting-up-authentication.html">User authentication</a></span>
-»
-<span class="breadcrumb-node">Active Directory user authentication</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -45,7 +42,7 @@ Directory to authenticate users. See <a class="xref" href="active-directory-real
 <code class="literal">active_directory</code> realms are similar to <a class="xref" href="ldap-realm.html" title="LDAP user authentication"><code class="literal">ldap</code> realms</a>. Like
 LDAP directories, Active Directory stores users and groups hierarchically. The
 directory&#8217;s hierarchy is built from containers such as the <em>organizational unit</em>
-(<code class="literal">ou</code>), <em>organization</em> (<code class="literal">o</code>), and <em>domain controller</em> (<code class="literal">dc</code>).</p>
+(<code class="literal">ou</code>), <em>organization</em> (<code class="literal">o</code>), and <em>domain component</em> (<code class="literal">dc</code>).</p>
 <p>The path to an entry is a <em>Distinguished Name</em> (DN) that uniquely identifies a
 user or group. User and group names typically have attributes such as a
 <em>common name</em> (<code class="literal">cn</code>) or <em>unique ID</em> (<code class="literal">uid</code>). A DN is specified as a string, for
@@ -291,7 +288,7 @@ role.</p>
   "enabled": true
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1609.console"></div>
+<div class="console_widget" data-snippet="snippets/1610.console"></div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
@@ -320,7 +317,7 @@ role.</p>
   "enabled": true
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1610.console"></div>
+<div class="console_widget" data-snippet="snippets/1611.console"></div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>

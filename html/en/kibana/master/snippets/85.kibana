@@ -1,5 +1,10 @@
-$ curl -X POST api/index_patterns/default
+$ curl -X PUT api/data_views/data_view/<data_view_id>/runtime_field
 {
-  "index_pattern_id": "...",
-  "force": true
+  "name": "runtimeFoo",
+  "runtimeField": {
+     "type": "long",
+     "script": {
+        "source": "emit(doc["foo"].value)"
+      }
+  }
 }

@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,38 +87,26 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Service Documentation</a></span>
-»
-<span class="breadcrumb-link"><a href="ec-cloud-ingest-data.html">Indexing data into Elasticsearch</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Service Documentation</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="ec-cloud-ingest-data.html">Indexing data into Elasticsearch</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="ec_ingest_data_from_custom_sources.html">Ingest data from custom sources</a></span>
-»
-<span class="breadcrumb-node">Ingest data from Beats to Elasticsearch Service with Logstash as a proxy</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -130,7 +118,7 @@
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="ec-getting-started-search-use-cases-beats-logstash"></a>Ingest data from Beats to Elasticsearch Service with Logstash as a proxy<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-71/docs/shared/ec-ce-getting-started-use-cases-beats-logstash.asciidoc">edit</a></h2>
+<h2 class="title"><a id="ec-getting-started-search-use-cases-beats-logstash"></a>Ingest data from Beats to Elasticsearch Service with Logstash as a proxy<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-77/docs/shared/ec-ce-getting-started-use-cases-beats-logstash.asciidoc">edit</a></h2>
 </div></div></div>
 <p>This guide explains how to ingest data from Filebeat and Metricbeat to Logstash as an intermediary, and then send that data to Elasticsearch Service. Using Logstash as a proxy limits your Elastic stack traffic through a single, external-facing firewall exception or rule. Consider the following features of this type of setup:</p>
 <div class="ulist itemizedlist">
@@ -184,7 +172,7 @@ This setup is not suitable in simple scenarios when there is only one or a coupl
 </ol>
 </div>
 <p><em>Time required: 1 hour</em></p>
-<h4><a id="ec-beats-logstash-trial"></a>Get Elasticsearch Service<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-71/docs/shared/ec-ce-getting-started-use-cases-beats-logstash.asciidoc">edit</a></h4>
+<h4><a id="ec-beats-logstash-trial"></a>Get Elasticsearch Service<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-77/docs/shared/ec-ce-getting-started-use-cases-beats-logstash.asciidoc">edit</a></h4>
 <div class="olist orderedlist">
 <ol class="orderedlist">
 <li class="listitem">
@@ -202,26 +190,22 @@ Give your deployment a name. You can leave all other settings at their default v
 <li class="listitem">
 Select <span class="strong strong"><strong>Create deployment</strong></span> and save your Elastic deployment credentials. You will need these credentials later on.
 </li>
-<li class="listitem">
-<p>You also need the Cloud ID later on, as it simplifies sending data to Elasticsearch Service. Select the deployment name from the Elasticsearch Service portal or the <span class="strong strong"><strong>Deployments</strong></span> page and copy down the information under <span class="strong strong"><strong>Cloud ID</strong></span>:</p>
-<p><span class="image"><img src="images/ec-cloud-id-scenarios.png" alt="A picture highlighting the Cloud ID information available for the deployment"></span></p>
-</li>
 </ol>
 </div>
 <p>Prefer not to subscribe to yet another service? You can also get Elasticsearch Service through <a class="xref" href="ec-marketplaces.html" title="Subscribing from a marketplace">AWS, Azure, and GCP marketplaces</a>.</p>
-<h4><a id="ec-beats-logstash-connect-securely"></a>Connect securely<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-71/docs/shared/ec-ce-getting-started-use-cases-beats-logstash.asciidoc">edit</a></h4>
-<p>When connecting to Elasticsearch Service you can use a Cloud ID to specify the connection details. You must pass the Cloud ID that you can find in the cloud console.</p>
+<h4><a id="ec-beats-logstash-connect-securely"></a>Connect securely<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-77/docs/shared/ec-ce-getting-started-use-cases-beats-logstash.asciidoc">edit</a></h4>
+<p>When connecting to Elasticsearch Service you can use a Cloud ID to specify the connection details. You must pass the Cloud ID that you can find in the cloud console.  Find your Cloud ID by going to the Kibana main menu and selecting Management &gt; Integrations, and then selecting View deployment details.</p>
 <p>To connect to, stream data to, and issue queries with Elasticsearch Service, you need to think about authentication. Two authentication mechanisms are supported, <em>API key</em> and <em>basic authentication</em>. Here, to get you started quickly, we’ll show you how to use basic authentication, but you can also generate API keys as shown later on. API keys are safer and preferred for production environments.</p>
-<h4><a id="ec-beats-logstash-logstash"></a>Set up Logstash<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-71/docs/shared/ec-ce-getting-started-use-cases-beats-logstash.asciidoc">edit</a></h4>
+<h4><a id="ec-beats-logstash-logstash"></a>Set up Logstash<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-77/docs/shared/ec-ce-getting-started-use-cases-beats-logstash.asciidoc">edit</a></h4>
 <p><a href="/downloads/logstash" class="ulink" target="_top">Download</a> and unpack Logstash on the local machine that hosts Beats or another machine granted access to the Beats machines.</p>
-<h4><a id="ec-beats-logstash-metricbeat"></a>Set up Metricbeat<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-71/docs/shared/ec-ce-getting-started-use-cases-beats-logstash.asciidoc">edit</a></h4>
+<h4><a id="ec-beats-logstash-metricbeat"></a>Set up Metricbeat<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-77/docs/shared/ec-ce-getting-started-use-cases-beats-logstash.asciidoc">edit</a></h4>
 <p>Now that Logstash is downloaded and your Elasticsearch Service deployment is set up, you can configure Metricbeat to send operational data to Logstash.</p>
 <p>Install Metricbeat as close as possible to the service that you want to monitor. For example, if you have four servers with MySQL running, we recommend that you run Metricbeat on each server. This allows Metricbeat to access your service from <em>localhost</em>. This setup does not cause any additional network traffic and enables Metricbeat to collect metrics even in the event of network problems. Metrics from multiple Metricbeat instances are combined on the Logstash server.</p>
 <p>If you have multiple servers with metrics data, repeat the following steps to configure Metricbeat on each server.</p>
 <p><span class="strong strong"><strong>Download Metricbeat</strong></span></p>
 <p><a href="/downloads/beats/metricbeat" class="ulink" target="_top">Download Metricbeat</a> and unpack it on the local server from which you want to collect data.</p>
 <p><span class="strong strong"><strong>About Metricbeat modules</strong></span></p>
-<p>Metricbeat has <a href="/guide/en/beats/metricbeat/8.1/metricbeat-modules.html" class="ulink" target="_top">many modules</a> available that collect common metrics. You can <a href="/guide/en/beats/metricbeat/8.1/configuration-metricbeat.html" class="ulink" target="_top">configure additional modules</a> as needed. For this example we’re using Metricbeat’s default configuration, which has the <a href="/guide/en/beats/metricbeat/8.1/metricbeat-module-system.html" class="ulink" target="_top">System module</a> enabled. The System module allows you to monitor servers with the default set of metrics: <em>cpu</em>, <em>load</em>, <em>memory</em>, <em>network</em>, <em>process</em>, <em>process_summary</em>, <em>socket_summary</em>, <em>filesystem</em>, <em>fsstat</em>, and <em>uptime</em>.</p>
+<p>Metricbeat has <a href="/guide/en/beats/metricbeat/8.3/metricbeat-modules.html" class="ulink" target="_top">many modules</a> available that collect common metrics. You can <a href="/guide/en/beats/metricbeat/8.3/configuration-metricbeat.html" class="ulink" target="_top">configure additional modules</a> as needed. For this example we’re using Metricbeat’s default configuration, which has the <a href="/guide/en/beats/metricbeat/8.3/metricbeat-module-system.html" class="ulink" target="_top">System module</a> enabled. The System module allows you to monitor servers with the default set of metrics: <em>cpu</em>, <em>load</em>, <em>memory</em>, <em>network</em>, <em>process</em>, <em>process_summary</em>, <em>socket_summary</em>, <em>filesystem</em>, <em>fsstat</em>, and <em>uptime</em>.</p>
 <p><span class="strong strong"><strong>Load the Metricbeat Kibana dashboards</strong></span></p>
 <p>Metricbeat comes packaged with example dashboards, visualizations, and searches for visualizing Metricbeat data in Kibana. Before you can use the dashboards, you need to create the data view (formerly <em>index pattern</em>) <em>metricbeat-*</em>, and load the dashboards into Kibana. This needs to be done from a local Beats machine that has access to the Elasticsearch Service deployment.</p>
 <div class="note admon">
@@ -242,29 +226,29 @@ Run the following command:
 </div>
 <div class="pre_wrapper lang-txt">
 <pre class="programlisting prettyprint lang-txt">sudo ./metricbeat setup \
-  -E cloud.id=&lt;cloudID&gt; \ <a id="CO2-1"></a><i class="conum" data-value="1"></i>
-  -E cloud.auth=&lt;username&gt;:&lt;password&gt; <a id="CO2-2"></a><i class="conum" data-value="2"></i></pre>
+  -E cloud.id=&lt;cloudID&gt; \ <a id="CO3-1"></a><i class="conum" data-value="1"></i>
+  -E cloud.auth=&lt;username&gt;:&lt;password&gt; <a id="CO3-2"></a><i class="conum" data-value="2"></i></pre>
 </div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO2-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO3-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
-<p>Specify the Cloud ID of your Elasticsearch Service deployment. You can include or omit the <code class="literal">&lt;Deploymentname&gt;:</code> prefix at the beginning of the Cloud ID. Both versions work fine.</p>
+<p>Specify the Cloud ID of your Elasticsearch Service deployment. You can include or omit the <code class="literal">&lt;Deploymentname&gt;:</code> prefix at the beginning of the Cloud ID. Both versions work fine. Find your Cloud ID by going to the Kibana main menu and selecting Management &gt; Integrations, and then selecting View deployment details.</p>
 </td>
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO2-2"><i class="conum" data-value="2"></i></a></p>
+<p><a href="#CO3-2"><i class="conum" data-value="2"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Specify the username and password provided to you when creating the deployment. Make sure to keep the colon between <em>&lt;username&gt;</em> and <em>&lt;password&gt;</em>.</p>
 <div class="important admon">
 <div class="icon"></div>
 <div class="admon_content">
-<p>Depending on variables including the installation location, environment and local permissions, you might need to <a href="/guide/en/beats/libbeat/8.1/config-file-permissions.html" class="ulink" target="_top">change the ownership</a> of the metricbeat.yml.</p>
+<p>Depending on variables including the installation location, environment and local permissions, you might need to <a href="/guide/en/beats/libbeat/8.3/config-file-permissions.html" class="ulink" target="_top">change the ownership</a> of the metricbeat.yml.</p>
 <p>You might encounter similar permissions hurdles as you work through multiple sections of this document. These permission requirements are there for a good reason, a security safeguard to prevent unauthorized access and modification of key Elastic files.</p>
 <p>If this isn’t a production environment and you want a fast-pass with less permissions hassles, then you can disable strict permission checks from the command line by using <code class="literal">--strict.perms=false</code> when executing Beats (for example, <code class="literal">./metricbeat --strict.perms=false</code>).</p>
 <p>Depending on your system, you may also find that some commands need to be run as root, by prefixing <code class="literal">sudo</code> to the command.</p>
@@ -280,7 +264,7 @@ Run the following command:
 Loading dashboards (Kibana must be running and reachable)
 Loaded dashboards</pre>
 </div>
-<h4><a id="ec-beats-logstash-metricbeat-send"></a>Configure Metricbeat to send data to Logstash<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-71/docs/shared/ec-ce-getting-started-use-cases-beats-logstash.asciidoc">edit</a></h4>
+<h4><a id="ec-beats-logstash-metricbeat-send"></a>Configure Metricbeat to send data to Logstash<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-77/docs/shared/ec-ce-getting-started-use-cases-beats-logstash.asciidoc">edit</a></h4>
 <div id="ec-beats-logstash-configure-metricbeat-for-logstash" class="olist orderedlist">
 <ol class="orderedlist">
 <li class="listitem">
@@ -298,13 +282,13 @@ Scroll down to the <em>Logstash Output</em> section. Remove the comment pound si
 <pre class="programlisting prettyprint lang-txt"># ---------------- Logstash Output -----------------
 output.logstash:
   # The Logstash hosts
-  hosts: ["localhost:5044"] <a id="CO3-1"></a><i class="conum" data-value="1"></i></pre>
+  hosts: ["localhost:5044"] <a id="CO4-1"></a><i class="conum" data-value="1"></i></pre>
 </div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO3-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO4-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Replace <code class="literal">localhost</code> and the port number with the hostname and
@@ -313,12 +297,12 @@ port number where Logstash is listening.</p>
 </tr>
 </table>
 </div>
-<h4><a id="ec-beats-logstash-filebeat"></a>Set up FileBeat<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-71/docs/shared/ec-ce-getting-started-use-cases-beats-logstash.asciidoc">edit</a></h4>
+<h4><a id="ec-beats-logstash-filebeat"></a>Set up FileBeat<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-77/docs/shared/ec-ce-getting-started-use-cases-beats-logstash.asciidoc">edit</a></h4>
 <p>The next step is to configure Filebeat to send operational data to Logstash. As with Metricbeat, install Filebeat as close as possible to the service that you want to monitor.</p>
 <p><span class="strong strong"><strong>Download Filebeat</strong></span></p>
 <p><a href="/downloads/beats/filebeat" class="ulink" target="_top">Download Filebeat</a> and unpack it on the local server from which you want to collect data.</p>
 <p><span class="strong strong"><strong>Enable the Filebeat system module</strong></span></p>
-<p>Filebeat has <a href="/guide/en/beats/filebeat/8.1/filebeat-modules.html" class="ulink" target="_top">many modules</a> available that collect common log types. You can <a href="/guide/en/beats/filebeat/8.1/configuration-filebeat-modules.html" class="ulink" target="_top">configure additional modules</a> as needed. For this example we’re using Filebeat’s <a href="/guide/en/beats/filebeat/8.1/filebeat-module-system.html" class="ulink" target="_top">System module</a>. This module reads in the various system log files (with information including login successes or failures, sudo command usage, and other key usage details) based on the detected operating system. For this example, a Linux-based OS is used and Filebeat ingests logs from the <em>/var/log/</em> folder. It’s important to verify that Filebeat is given permission to access your logs folder through standard file and folder permissions.</p>
+<p>Filebeat has <a href="/guide/en/beats/filebeat/8.3/filebeat-modules.html" class="ulink" target="_top">many modules</a> available that collect common log types. You can <a href="/guide/en/beats/filebeat/8.3/configuration-filebeat-modules.html" class="ulink" target="_top">configure additional modules</a> as needed. For this example we’re using Filebeat’s <a href="/guide/en/beats/filebeat/8.3/filebeat-module-system.html" class="ulink" target="_top">System module</a>. This module reads in the various system log files (with information including login successes or failures, sudo command usage, and other key usage details) based on the detected operating system. For this example, a Linux-based OS is used and Filebeat ingests logs from the <em>/var/log/</em> folder. It’s important to verify that Filebeat is given permission to access your logs folder through standard file and folder permissions.</p>
 <div class="olist orderedlist">
 <ol class="orderedlist">
 <li class="listitem">
@@ -345,29 +329,29 @@ Run the following command:
 </div>
 <div class="pre_wrapper lang-txt">
 <pre class="programlisting prettyprint lang-txt">sudo ./filebeat setup \
-  -E cloud.id=&lt;cloudID&gt; \ <a id="CO4-1"></a><i class="conum" data-value="1"></i>
-  -E cloud.auth=&lt;username&gt;:&lt;password&gt; <a id="CO4-2"></a><i class="conum" data-value="2"></i></pre>
+  -E cloud.id=&lt;cloudID&gt; \ <a id="CO5-1"></a><i class="conum" data-value="1"></i>
+  -E cloud.auth=&lt;username&gt;:&lt;password&gt; <a id="CO5-2"></a><i class="conum" data-value="2"></i></pre>
 </div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO4-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO5-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
-<p>Specify the Cloud ID of your Elasticsearch Service deployment. You can include or omit the <code class="literal">&lt;Deploymentname&gt;:</code> prefix at the beginning of the Cloud ID. Both versions work fine.</p>
+<p>Specify the Cloud ID of your Elasticsearch Service deployment. You can include or omit the <code class="literal">&lt;Deploymentname&gt;:</code> prefix at the beginning of the Cloud ID. Both versions work fine. Find your Cloud ID by going to the Kibana main menu and selecting Management &gt; Integrations, and then selecting View deployment details.</p>
 </td>
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO4-2"><i class="conum" data-value="2"></i></a></p>
+<p><a href="#CO5-2"><i class="conum" data-value="2"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Specify the username and password provided to you when creating the deployment. Make sure to keep the colon between <em>&lt;username&gt;</em> and <em>&lt;password&gt;</em>.</p>
 <div class="important admon">
 <div class="icon"></div>
 <div class="admon_content">
-<p>Depending on variables including the installation location, environment, and local permissions, you might need to <a href="/guide/en/beats/libbeat/8.1/config-file-permissions.html" class="ulink" target="_top">change the ownership</a> of the filebeat.yml.</p>
+<p>Depending on variables including the installation location, environment, and local permissions, you might need to <a href="/guide/en/beats/libbeat/8.3/config-file-permissions.html" class="ulink" target="_top">change the ownership</a> of the filebeat.yml.</p>
 </div>
 </div>
 </td>
@@ -426,13 +410,13 @@ Scroll down to the <em>Logstash Output</em> section. Remove the comment pound si
 <pre class="programlisting prettyprint lang-txt"># ---------------- Logstash Output -----------------
 output.logstash:
   # The Logstash hosts
-  hosts: ["localhost:5044"] <a id="CO5-1"></a><i class="conum" data-value="1"></i></pre>
+  hosts: ["localhost:5044"] <a id="CO6-1"></a><i class="conum" data-value="1"></i></pre>
 </div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO5-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO6-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Replace <code class="literal">localhost</code> and the port number with the hostname and
@@ -441,7 +425,7 @@ port number where Logstash is listening.</p>
 </tr>
 </table>
 </div>
-<h4><a id="ec-beats-logstash-listen"></a>Configure Logstash to listen for Beats<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-71/docs/shared/ec-ce-getting-started-use-cases-beats-logstash.asciidoc">edit</a></h4>
+<h4><a id="ec-beats-logstash-listen"></a>Configure Logstash to listen for Beats<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-77/docs/shared/ec-ce-getting-started-use-cases-beats-logstash.asciidoc">edit</a></h4>
 <p>Now the Filebeat and Metricbeat are set up, let&#8217;s configure a Logstash pipeline to input data from Beats and send results to the standard output. This enables you to verify the data output before sending it for indexing in Elasticsearch.</p>
 <div class="olist orderedlist">
 <ol class="orderedlist">
@@ -454,17 +438,17 @@ that listens for connections from Beats on port 5044 and writes to standard out 
 terminal) with formatting provided by the Logstash rubydebug output plugin.</p>
 <div class="pre_wrapper lang-txt">
 <pre class="programlisting prettyprint lang-txt">input {
-  beats{port =&gt; 5044} <a id="CO6-1"></a><i class="conum" data-value="1"></i>
+  beats{port =&gt; 5044} <a id="CO7-1"></a><i class="conum" data-value="1"></i>
 }
 output {
-  stdout{codec =&gt; rubydebug} <a id="CO6-2"></a><i class="conum" data-value="2"></i>
+  stdout{codec =&gt; rubydebug} <a id="CO7-2"></a><i class="conum" data-value="2"></i>
 }</pre>
 </div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO6-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO7-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Logstash listens for Beats input on the default port of 5044. Only one line is needed to do this. Logstash can handle input from many Beats of the same and also of varying types (Metricbeat, Filebeat, and others).</p>
@@ -472,7 +456,7 @@ output {
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO6-2"><i class="conum" data-value="2"></i></a></p>
+<p><a href="#CO7-2"><i class="conum" data-value="2"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>This sends output to the standard output, which displays through your command line interface. This plugin enables you to verify the data before you send it to Elasticsearch, in a later step.</p>
@@ -482,11 +466,11 @@ output {
 </div>
 </li>
 <li class="listitem">
-Save the new <em>beats.conf</em> file in your Logstash folder. To learn more about the file format and options, check <a href="/guide/en/logstash/8.1/config-examples.html" class="ulink" target="_top">Logstash Configuration Examples</a>.
+Save the new <em>beats.conf</em> file in your Logstash folder. To learn more about the file format and options, check <a href="/guide/en/logstash/8.3/config-examples.html" class="ulink" target="_top">Logstash Configuration Examples</a>.
 </li>
 </ol>
 </div>
-<h4><a id="ec-beats-logstash-stdout"></a>Output Logstash data to stdout<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-71/docs/shared/ec-ce-getting-started-use-cases-beats-logstash.asciidoc">edit</a></h4>
+<h4><a id="ec-beats-logstash-stdout"></a>Output Logstash data to stdout<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-77/docs/shared/ec-ce-getting-started-use-cases-beats-logstash.asciidoc">edit</a></h4>
 <p>Now, let&#8217;s try out the Logstash pipeline with the Metricbeats and Filebeats configurations from the prior steps. Each Beat sends data into a Logstash pipeline, and the results display on the standard output where you can verify that everything looks correct.</p>
 <p><span class="strong strong"><strong>Test Metricbeat to stdout</strong></span></p>
 <div class="olist orderedlist">
@@ -613,7 +597,7 @@ Switch back to the Filebeats CLI. Enter <em>CTRL + C</em> to shut down Filebeat.
 </li>
 </ol>
 </div>
-<h4><a id="ec-beats-logstash-elasticsearch"></a>Output Logstash data to Elasticsearch<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-71/docs/shared/ec-ce-getting-started-use-cases-beats-logstash.asciidoc">edit</a></h4>
+<h4><a id="ec-beats-logstash-elasticsearch"></a>Output Logstash data to Elasticsearch<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-77/docs/shared/ec-ce-getting-started-use-cases-beats-logstash.asciidoc">edit</a></h4>
 <p>In this section, you configure Logstash to send the Metricbeat and Filebeat data to Elasticsearch. You modify the <em>beats.conf</em> created earlier, and specify the output credentials needed for our Elasticsearch Service deployment. Then, you start Logstash to send the Beats data into Elasticsearch.</p>
 <div class="olist orderedlist">
 <ol class="orderedlist">
@@ -627,8 +611,8 @@ In your <em>&lt;localpath&gt;/logstash-&lt;version&gt;/</em> folder, open <em>be
   elasticsearch {
     index =&gt; "%{[@metadata][beat]}-%{[@metadata][version]}"
     ilm_enabled =&gt; true
-    cloud_id =&gt; "&lt;DeploymentName&gt;:&lt;ID&gt;" <a id="CO7-1"></a><i class="conum" data-value="1"></i>
-    cloud_auth =&gt; "elastic:&lt;Password&gt;" <a id="CO7-2"></a><i class="conum" data-value="2"></i>
+    cloud_id =&gt; "&lt;DeploymentName&gt;:&lt;ID&gt;" <a id="CO8-1"></a><i class="conum" data-value="1"></i>
+    cloud_auth =&gt; "elastic:&lt;Password&gt;" <a id="CO8-2"></a><i class="conum" data-value="2"></i>
     ssl =&gt; true
     # api_key =&gt; "&lt;myAPIid:myAPIkey&gt;"
   }
@@ -638,18 +622,18 @@ In your <em>&lt;localpath&gt;/logstash-&lt;version&gt;/</em> folder, open <em>be
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO7-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO8-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
-<p>Use the Cloud ID of your Elasticsearch Service deployment. You can include or omit the <code class="literal">&lt;DeploymentName&gt;:</code> prefix at the beginning of the Cloud ID. Both versions work fine.</p>
+<p>Use the Cloud ID of your Elasticsearch Service deployment. You can include or omit the <code class="literal">&lt;DeploymentName&gt;:</code> prefix at the beginning of the Cloud ID. Both versions work fine. Find your Cloud ID by going to the Kibana main menu and selecting Management &gt; Integrations, and then selecting View deployment details.</p>
 </td>
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO7-2"><i class="conum" data-value="2"></i></a></p>
+<p><a href="#CO8-2"><i class="conum" data-value="2"></i></a></p>
 </td>
 <td align="left" valign="top">
-<p>the default usename is <code class="literal">elastic</code>.  It is not recommended to use the <code class="literal">elastic</code> account for ingesting data as this is a superuser.  We recommend using a user with reduced permissions, or an API Key with permissions specific to the indices or data streams that will be written to.  Check the <a href="/guide/en/beats/filebeat/8.1/feature-roles.html" class="ulink" target="_top">Grant access to secured resources</a> for information on the writer role and API Keys. Use the password provided when you created the deployment if using the <code class="literal">elastic</code> user, or the password used when creating a new ingest user with the roles specified in the <a href="/guide/en/beats/filebeat/8.1/feature-roles.html" class="ulink" target="_top">Grant access to secured resources</a> documentation.</p>
+<p>the default usename is <code class="literal">elastic</code>.  It is not recommended to use the <code class="literal">elastic</code> account for ingesting data as this is a superuser.  We recommend using a user with reduced permissions, or an API Key with permissions specific to the indices or data streams that will be written to.  Check the <a href="/guide/en/beats/filebeat/8.3/feature-roles.html" class="ulink" target="_top">Grant access to secured resources</a> for information on the writer role and API Keys. Use the password provided when you created the deployment if using the <code class="literal">elastic</code> user, or the password used when creating a new ingest user with the roles specified in the <a href="/guide/en/beats/filebeat/8.3/feature-roles.html" class="ulink" target="_top">Grant access to secured resources</a> documentation.</p>
 </td>
 </tr>
 </table>
@@ -678,7 +662,7 @@ In your <em>&lt;localpath&gt;/logstash-&lt;version&gt;/</em> folder, open <em>be
 <em>ssl</em>: This should be set to <code class="literal">true</code> so that Secure Socket Layer (SSL) certificates are used for secure communication between Logstash and your Elasticsearch Service deployment.
 </li>
 <li class="listitem">
-<em>ilm_enabled</em>: Enables and disables Elasticsearch Service <a href="/guide/en/elasticsearch/reference/8.1/index-lifecycle-management.html" class="ulink" target="_top">index lifecycle management</a>.
+<em>ilm_enabled</em>: Enables and disables Elasticsearch Service <a href="/guide/en/elasticsearch/reference/8.3/index-lifecycle-management.html" class="ulink" target="_top">index lifecycle management</a>.
 </li>
 <li class="listitem">
 <em>api_key</em>: If you choose to use an API key to authenticate (as discussed in the next step), you can provide it here.
@@ -694,11 +678,11 @@ In your <em>&lt;localpath&gt;/logstash-&lt;version&gt;/</em> folder, open <em>be
 Log in to the <a href="https://cloud.elastic.co?baymax=docs-body&amp;elektra=docs" class="ulink" target="_top">Elasticsearch Service Console</a>.
 </li>
 <li class="listitem">
-<p>Select your deployment on the home page in the Elasticsearch Service card or go to the deployments page.</p>
-<p>Narrow your deployments by name, ID, or choose from several other filters. To customize your view, use a combination of filters, or change the format from a grid to a list.</p>
+<p>Find your deployment on the home page in the Elasticsearch Service card and click the gear icon to access it directly. Or, select Elasticsearch Service to go to the deployments page to view all of your deployments.</p>
+<p>On the deployments page you can narrow your deployments by name, ID, or choose from several other filters. To customize your view, use a combination of filters, or change the format from a grid to a list.</p>
 </li>
 <li class="listitem">
-From your deployment menu, select <span class="strong strong"><strong>Elasticsearch</strong></span>, then <span class="strong strong"><strong>API Console</strong></span>.
+From your deployment menu, select <span class="strong strong"><strong>Elasticsearch</strong></span>, then <span class="strong strong"><strong>API console</strong></span>.
 </li>
 <li class="listitem">
 Select <span class="strong strong"><strong>Post</strong></span> from the drop-down list and enter <code class="literal">/_security/api_key</code> in the field.
@@ -782,19 +766,19 @@ Logstash now outputs the Filebeat and Metricbeat data to your Elasticsearch Serv
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
 <li class="listitem">
-<a href="/guide/en/logstash/8.1/running-logstash.html" class="ulink" target="_top">Running Logstash as a service on Debian or RPM</a>
+<a href="/guide/en/logstash/8.3/running-logstash.html" class="ulink" target="_top">Running Logstash as a service on Debian or RPM</a>
 </li>
 <li class="listitem">
-<a href="/guide/en/beats/metricbeat/8.1/running-with-systemd.html" class="ulink" target="_top">Metricbeat and systemd</a>
+<a href="/guide/en/beats/metricbeat/8.3/running-with-systemd.html" class="ulink" target="_top">Metricbeat and systemd</a>
 </li>
 <li class="listitem">
-<a href="/guide/en/beats/filebeat/8.1/filebeat-starting.html" class="ulink" target="_top">Start filebeat</a>
+<a href="/guide/en/beats/filebeat/8.3/filebeat-starting.html" class="ulink" target="_top">Start filebeat</a>
 </li>
 </ul>
 </div>
 </div>
 </div>
-<h4><a id="ec-beats-logstash-view-kibana"></a>View data in Kibana<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-71/docs/shared/ec-ce-getting-started-use-cases-beats-logstash.asciidoc">edit</a></h4>
+<h4><a id="ec-beats-logstash-view-kibana"></a>View data in Kibana<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-77/docs/shared/ec-ce-getting-started-use-cases-beats-logstash.asciidoc">edit</a></h4>
 <p>In this section, you log into Elasticsearch Service, open Kibana, and view the Kibana dashboards populated with our Metricbeat and Filebeat data.</p>
 <p><span class="strong strong"><strong>View the Metricbeat dashboard</strong></span></p>
 <div class="olist orderedlist">
@@ -843,15 +827,37 @@ In the search results, choose <em>[Filebeat System] Syslog dashboard ECS</em>. A
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

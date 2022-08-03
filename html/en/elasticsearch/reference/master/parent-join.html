@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,27 +87,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 You are looking at preliminary documentation for a future release.
@@ -116,13 +107,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="mapping.html">Mapping</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="mapping.html">Mapping</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="mapping-types.html">Field data types</a></span>
-»
-<span class="breadcrumb-node">Join field type</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -134,7 +122,7 @@ Not what you want? See the
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="parent-join"></a>Join field type<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/mapping/types/parent-join.asciidoc">edit</a></h2>
+<h2 class="title"><a id="parent-join"></a>Join field type<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/mapping/types/parent-join.asciidoc">edit</a></h2>
 </div></div></div>
 
 <p>The <code class="literal">join</code> data type is a special field that creates
@@ -170,7 +158,7 @@ instead.</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/204.console"></div>
+<div class="console_widget" data-snippet="snippets/198.console"></div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
@@ -214,7 +202,7 @@ PUT my-index-000001/_doc/2?refresh
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/205.console"></div>
+<div class="console_widget" data-snippet="snippets/199.console"></div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
@@ -245,7 +233,7 @@ PUT my-index-000001/_doc/2?refresh
   "my_join_field": "question"
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/206.console"></div>
+<div class="console_widget" data-snippet="snippets/200.console"></div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
@@ -290,7 +278,7 @@ PUT my-index-000001/_doc/4?routing=1&amp;refresh
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/207.console"></div>
+<div class="console_widget" data-snippet="snippets/201.console"></div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
@@ -321,7 +309,7 @@ PUT my-index-000001/_doc/4?routing=1&amp;refresh
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_parent_join_and_performance"></a>Parent-join and performance<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/mapping/types/parent-join.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_parent_join_and_performance"></a>Parent-join and performance<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/mapping/types/parent-join.asciidoc">edit</a></h3>
 </div></div></div>
 <p>The join field shouldn&#8217;t be used like joins in a relation database. In Elasticsearch the key to good performance
 is to de-normalize your data into documents. Each join field, <code class="literal">has_child</code> or <code class="literal">has_parent</code> query adds a
@@ -334,7 +322,7 @@ it makes sense to model the product as parent document and the offer as child do
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_parent_join_restrictions"></a>Parent-join restrictions<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/mapping/types/parent-join.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_parent_join_restrictions"></a>Parent-join restrictions<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/mapping/types/parent-join.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -363,7 +351,7 @@ but only if the element is already a parent.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_searching_with_parent_join"></a>Searching with parent-join<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/mapping/types/parent-join.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_searching_with_parent_join"></a>Searching with parent-join<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/mapping/types/parent-join.asciidoc">edit</a></h3>
 </div></div></div>
 <p>The parent-join creates one field to index the name of the relation
 within the document (<code class="literal">my_parent</code>, <code class="literal">my_child</code>, &#8230;&#8203;).</p>
@@ -387,7 +375,7 @@ returned in the search response:</p>
   "sort": ["my_id"]
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/208.console"></div>
+<div class="console_widget" data-snippet="snippets/202.console"></div>
 <p>Will return:</p>
 <a id="d147a18e52cae41d483601eaff2ec1e1"></a>
 <div class="pre_wrapper lang-console-result">
@@ -504,7 +492,7 @@ returned in the search response:</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_parent_join_queries_and_aggregations"></a>Parent-join queries and aggregations<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/mapping/types/parent-join.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_parent_join_queries_and_aggregations"></a>Parent-join queries and aggregations<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/mapping/types/parent-join.asciidoc">edit</a></h3>
 </div></div></div>
 <p>See the <a class="xref" href="query-dsl-has-child-query.html" title="Has child query"><code class="literal">has_child</code></a> and
 <a class="xref" href="query-dsl-has-parent-query.html" title="Has parent query"><code class="literal">has_parent</code></a> queries,
@@ -544,7 +532,7 @@ and scripts, and may be queried with the
   ]
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/209.console"></div>
+<div class="console_widget" data-snippet="snippets/203.console"></div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
@@ -577,7 +565,7 @@ and scripts, and may be queried with the
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_global_ordinals"></a>Global ordinals<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/mapping/types/parent-join.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_global_ordinals"></a>Global ordinals<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/mapping/types/parent-join.asciidoc">edit</a></h3>
 </div></div></div>
 <p>The <code class="literal">join</code> field uses <a class="xref" href="eager-global-ordinals.html" title="eager_global_ordinals">global ordinals</a> to speed up joins.
 Global ordinals need to be rebuilt after any change to a shard. The more
@@ -610,7 +598,7 @@ make sense to disable eager loading:</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/210.console"></div>
+<div class="console_widget" data-snippet="snippets/204.console"></div>
 <p>The amount of heap used by global ordinals can be checked per parent relation
 as follows:</p>
 <a id="2c090fe7ec7b66b3f5c178d71c46323b"></a>
@@ -621,12 +609,12 @@ GET _stats/fielddata?human&amp;fields=my_join_field#question
 # Per-node per-index
 GET _nodes/stats/indices/fielddata?human&amp;fields=my_join_field#question</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/211.console"></div>
+<div class="console_widget" data-snippet="snippets/205.console"></div>
 </div>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_multiple_children_per_parent"></a>Multiple children per parent<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/mapping/types/parent-join.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_multiple_children_per_parent"></a>Multiple children per parent<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/mapping/types/parent-join.asciidoc">edit</a></h3>
 </div></div></div>
 <p>It is also possible to define multiple children for a single parent:</p>
 <a id="331caebf810a923644eb6de26e5a97f4"></a>
@@ -645,7 +633,7 @@ GET _nodes/stats/indices/fielddata?human&amp;fields=my_join_field#question</pre>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/212.console"></div>
+<div class="console_widget" data-snippet="snippets/206.console"></div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
@@ -662,7 +650,7 @@ GET _nodes/stats/indices/fielddata?human&amp;fields=my_join_field#question</pre>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_multiple_levels_of_parent_join"></a>Multiple levels of parent join<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/mapping/types/parent-join.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_multiple_levels_of_parent_join"></a>Multiple levels of parent join<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/mapping/types/parent-join.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="warning admon">
 <div class="icon"></div>
@@ -691,7 +679,7 @@ instead.</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/213.console"></div>
+<div class="console_widget" data-snippet="snippets/207.console"></div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
@@ -734,7 +722,7 @@ to the grand-parent (the greater parent of the lineage):</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/214.console"></div>
+<div class="console_widget" data-snippet="snippets/208.console"></div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
@@ -770,15 +758,37 @@ to the grand-parent (the greater parent of the lineage):</p>
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

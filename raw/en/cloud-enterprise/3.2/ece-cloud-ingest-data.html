@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Indexing data into Elasticsearch | Elastic Cloud Enterprise Reference [3.2] | Elastic</title>
+<link rel="home" href="index.html" title="Elastic Cloud Enterprise Reference [3.2]"/>
+<link rel="up" href="ece-stack-getting-started.html" title="Getting started with deployments"/>
+<link rel="prev" href="ece-getting-started-next-steps.html" title="Next steps"/>
+<link rel="next" href="ece-migrating-data.html" title="Migrating data"/>
+<meta name="DC.type" content="Learn/Docs/CloudEnterprise/Reference/3.2"/>
+<meta name="DC.subject" content="ECE"/>
+<meta name="DC.identifier" content="3.2"/>
+</head>
+<body><div class="page_header">
+A newer version is available. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Cloud Enterprise Reference [3.2]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="ece-stack-getting-started.html">Getting started with deployments</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="ece-getting-started-next-steps.html">« Next steps</a>
+</span>
+<span class="next">
+<a href="ece-migrating-data.html">Migrating data »</a>
+</span>
+</div>
+<div class="chapter">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="ece-cloud-ingest-data"></a>Indexing data into Elasticsearch<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/shared/ec-ce-cloud-ingest-data.asciidoc">edit</a></h2>
+</div></div></div>
+<p>By now you&#8217;ve probably spun up a deployment and might be wondering what&#8217;s next. Congratulations on completing that first big step! Now let&#8217;s help you <em>do</em> something with it. You likely have data that you want to add, known as <em>ingesting</em> or <em>indexing</em>, to Elasticsearch, so let&#8217;s explore some options.</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<a class="xref" href="ece-cloud-ingest-data.html#ece-best-practices-data" title="Best practices for managing your data">Best practices for managing data</a>
+</li>
+<li class="listitem">
+<a class="xref" href="ece-migrating-data.html" title="Migrating data">Migrating data</a>
+</li>
+<li class="listitem">
+<a class="xref" href="ece-ingest-methods.html" title="Ingestion methods">Explore ingestion methods</a>
+</li>
+<li class="listitem">
+<a class="xref" href="ece-ingest-methods.html#ece-ingest-sample-data" title="Try out sample data">Try out sample data</a>
+</li>
+<li class="listitem">
+<a class="xref" href="ece-ingest-methods.html#ece-ingest-solutions" title="Ingest data with Elastic solutions">Ingest data with Elastic solutions</a>
+</li>
+<li class="listitem">
+<a class="xref" href="ece-ingest-methods.html#ece-ingest-guides" title="Ingest from custom sources">Ingest from custom sources</a>
+</li>
+</ul>
+</div>
+<h3><a id="ece-best-practices-data"></a>Best practices for managing your data<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/shared/ec-ce-best-practices-data.asciidoc">edit</a></h3>
+<p>This section provides some best practices for managing your data to help you set up a production environment that matches your workloads, policies, and deployment needs.</p>
+<h3><a id="ece_plan_your_data_structure_availability_and_formatting"></a>Plan your data structure, availability, and formatting<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/shared/ec-ce-best-practices-data.asciidoc">edit</a></h3>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Build a <a href="/guide/en/elasticsearch/reference/8.3/data-tiers.html" class="ulink" target="_top">data architecture</a> that best fits your needs. Your Elastic Cloud Enterprise deployment comes with default hot tier Elasticsearch nodes that store your most frequently accessed data. Based on your own access and retention policies, you can add warm, cold, frozen data tiers, and automated deletion of old data.
+</li>
+<li class="listitem">
+Make your data <a href="/guide/en/elasticsearch/reference/8.3/high-availability.html" class="ulink" target="_top">highly available</a> for production environments or otherwise critical data stores, and take regular
+<a class="xref" href="ece-snapshots.html" title="Work with snapshots">backup snapshots</a>.
+</li>
+<li class="listitem">
+Normalize event data to better analyze, visualize, and correlate your events by adopting the <a href="/guide/en/ecs/8.3/ecs-getting-started.html" class="ulink" target="_top">Elastic Common Schema</a> (ECS). Elastic integrations use ECS out-of-the-box. If you are writing your own integrations, ECS is recommended.
+</li>
+</ul>
+</div>
+<h3><a id="ece_add_your_data"></a>Add your data<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/shared/ec-ce-best-practices-data.asciidoc">edit</a></h3>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<a class="xref" href="ece-migrating-data.html#ece-migrate-data2" title="Migrate your Elasticsearch data">Migrate and upload existing data</a>  into your deployment.
+</li>
+<li class="listitem">
+<p>Add inbound integrations for new data sources. You can either use Elastic provided integrations, or create your own:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+To use Elastic provided integrations, check the <a href="/integrations" class="ulink" target="_top">Elastic integrations</a> page.
+</li>
+<li class="listitem">
+To integrate with Cloud Service Provider log and metric services, check these tutorials: <a href="/guide/en/observability/8.3/monitor-aws.html" class="ulink" target="_top">AWS</a>, <a href="/guide/en/observability/8.3/monitor-gcp.html" class="ulink" target="_top">GCP</a>, <a href="/guide/en/observability/8.3/monitor-azure.html" class="ulink" target="_top">Azure</a>.
+</li>
+<li class="listitem">
+To write your own, <a class="xref" href="ece-ingest-methods.html" title="Ingestion methods">choose an ingestion method</a>.
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3><a id="ece_optimize_data_storage_and_retention"></a>Optimize data storage and retention<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/shared/ec-ce-best-practices-data.asciidoc">edit</a></h3>
+<p>Once you have your data tiers deployed and you have data flowing, you can <a href="/guide/en/elasticsearch/reference/8.3/index-lifecycle-management.html" class="ulink" target="_top">manage the index lifecycle</a>.</p>
+<div class="tip admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p><a href="/integrations" class="ulink" target="_top">Elastic integrations</a> provide default index lifecycle policies, and you can <a href="/guide/en/elasticsearch/reference/8.3/getting-started-index-lifecycle-management.html" class="ulink" target="_top">build your own policies for your custom integrations</a>.</p>
+</div>
+</div>
+
+
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="ece-getting-started-next-steps.html">« Next steps</a>
+</span>
+<span class="next">
+<a href="ece-migrating-data.html">Migrating data »</a>
+</span>
+</div>
+</div>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains('stemblock')) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+</body>
+</html>

@@ -1,1 +1,1 @@
-PUT /_security/user/jacknich/_enable
+GET /_nodes/stats/indices/search

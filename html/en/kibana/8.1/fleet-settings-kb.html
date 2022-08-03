@@ -11,6 +11,7 @@
 <meta name="DC.type" content="Learn/Docs/Kibana/Reference/8.1"/>
 <meta name="DC.subject" content="Kibana"/>
 <meta name="DC.identifier" content="8.1"/>
+<meta name="robots" content="noindex,nofollow"/>
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -56,7 +57,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,38 +88,30 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
-                  
+                  <div class="page_header">
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Kibana Guide [8.1]</a></span>
-»
-<span class="breadcrumb-link"><a href="setup.html">Set up</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Kibana Guide [8.1]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="setup.html">Set up</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="settings.html">Configure Kibana</a></span>
-»
-<span class="breadcrumb-node">Fleet settings in Kibana</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -130,7 +123,7 @@
 </div>
 <div class="section xpack">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="fleet-settings-kb"></a>Fleet settings in Kibana<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/settings/fleet-settings.asciidoc">edit</a></h2>
+<h2 class="title"><a id="fleet-settings-kb"></a>Fleet settings in Kibana<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/settings/fleet-settings.asciidoc">edit</a></h2>
 </div></div></div>
 
 <div class="note admon">
@@ -144,98 +137,103 @@ By default, Fleet is enabled. To use Fleet, you also need to configure Kibana an
 <p>See the <a href="/guide/en/fleet/8.1/index.html" class="ulink" target="_top">Fleet</a> docs for more information.</p>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="general-fleet-settings-kb"></a>General Fleet settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/settings/fleet-settings.asciidoc">edit</a></h3>
+<h3 class="title"><a id="general-fleet-settings-kb"></a>General Fleet settings<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/settings/fleet-settings.asciidoc">edit</a></h3>
 </div></div></div>
-<div class="informaltable">
-<table border="1" cellpadding="4px">
-<colgroup>
-<col class="col_1"/>
-<col class="col_2"/>
-</colgroup>
-<tbody>
-<tr>
-<td align="left" valign="top"><p><code class="literal">xpack.fleet.agents.enabled</code> <span class="image"><a class="image" href="https://www.elastic.co/cloud/elasticsearch-service/signup?baymax=docs-body&amp;elektra=docs"><img src="https://doc-icons.s3.us-east-2.amazonaws.com/logo_cloud.svg" alt="logo cloud" title="Supported on Elasticsearch Service"></a></span></p></td>
-<td align="left" valign="top"><p>Set to <code class="literal">true</code> (default) to enable Fleet.</p></td>
-</tr>
-</tbody>
-</table>
+<div class="variablelist">
+<dl class="variablelist">
+<dt>
+<span class="term">
+<code class="literal">xpack.fleet.agents.enabled</code> <span class="image"><a class="image" href="https://www.elastic.co/cloud/elasticsearch-service/signup?baymax=docs-body&amp;elektra=docs"><img src="https://doc-icons.s3.us-east-2.amazonaws.com/logo_cloud.svg" alt="logo cloud" title="Supported on Elasticsearch Service"></a></span>
+</span>
+</dt>
+<dd>
+Set to <code class="literal">true</code> (default) to enable Fleet.
+</dd>
+</dl>
 </div>
 </div>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="fleet-data-visualizer-settings"></a>Elastic Package Manager settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/settings/fleet-settings.asciidoc">edit</a></h3>
+<h3 class="title"><a id="fleet-data-visualizer-settings"></a>Elastic Package Manager settings<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/settings/fleet-settings.asciidoc">edit</a></h3>
 </div></div></div>
-<div class="informaltable">
-<table border="1" cellpadding="4px">
-<colgroup>
-<col class="col_1"/>
-<col class="col_2"/>
-</colgroup>
-<tbody>
-<tr>
-<td align="left" valign="top"><p><code class="literal">xpack.fleet.registryUrl</code></p></td>
-<td align="left" valign="top"><p>The address to use to reach the Elastic Package Manager registry.</p></td>
-</tr>
-<tr>
-<td align="left" valign="top"><p><code class="literal">xpack.fleet.registryProxyUrl</code></p></td>
-<td align="left" valign="top"><p>The proxy address to use to reach the Elastic Package Manager registry if an internet connection is not directly available.
-  Refer to <a href="/guide/en/fleet/8.1/air-gapped.html" class="ulink" target="_top">Air-gapped environments</a> for details.</p></td>
-</tr>
-</tbody>
-</table>
+<div class="variablelist">
+<dl class="variablelist">
+<dt>
+<span class="term">
+<code class="literal">xpack.fleet.registryUrl</code>
+</span>
+</dt>
+<dd>
+The address to use to reach the Elastic Package Manager registry.
+</dd>
+<dt>
+<span class="term">
+<code class="literal">xpack.fleet.registryProxyUrl</code>
+</span>
+</dt>
+<dd>
+The proxy address to use to reach the Elastic Package Manager registry if an internet connection is not directly available.
+Refer to <a href="/guide/en/fleet/8.1/air-gapped.html" class="ulink" target="_top">Air-gapped environments</a> for details.
+</dd>
+</dl>
 </div>
 </div>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_fleet_settings"></a>Fleet settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/settings/fleet-settings.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_fleet_settings"></a>Fleet settings<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/settings/fleet-settings.asciidoc">edit</a></h3>
 </div></div></div>
-<div class="informaltable">
-<table border="1" cellpadding="4px">
-<colgroup>
-<col class="col_1"/>
-<col class="col_2"/>
-</colgroup>
-<tbody>
-<tr>
-<td align="left" valign="top"><p><code class="literal">xpack.fleet.agents.fleet_server.hosts</code></p></td>
-<td align="left" valign="top"><p>Hostnames used by Elastic Agent for accessing Fleet Server.</p></td>
-</tr>
-<tr>
-<td align="left" valign="top"><p><code class="literal">xpack.fleet.agents.elasticsearch.hosts</code></p></td>
-<td align="left" valign="top"><p>Hostnames used by Elastic Agent for accessing Elasticsearch.</p></td>
-</tr>
-<tr>
-<td align="left" valign="top"><p><code class="literal">xpack.fleet.agents.elasticsearch.ca_sha256</code></p></td>
-<td align="left" valign="top"><p>Hash pin used for certificate verification. The pin is a base64-encoded
-    string of the SHA-256 fingerprint.</p></td>
-</tr>
-</tbody>
-</table>
+<div class="variablelist">
+<dl class="variablelist">
+<dt>
+<span class="term">
+<code class="literal">xpack.fleet.agents.fleet_server.hosts</code>
+</span>
+</dt>
+<dd>
+Hostnames used by Elastic Agent for accessing Fleet Server.
+</dd>
+<dt>
+<span class="term">
+<code class="literal">xpack.fleet.agents.elasticsearch.hosts</code>
+</span>
+</dt>
+<dd>
+Hostnames used by Elastic Agent for accessing Elasticsearch.
+</dd>
+<dt>
+<span class="term">
+<code class="literal">xpack.fleet.agents.elasticsearch.ca_sha256</code>
+</span>
+</dt>
+<dd>
+Hash pin used for certificate verification. The pin is a base64-encoded string of the SHA-256 fingerprint.
+</dd>
+</dl>
 </div>
 </div>
 
-<div class="section">
+<div class="section child_attributes">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_preconfiguration_settings_for_advanced_use_cases"></a>Preconfiguration settings (for advanced use cases)<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/settings/fleet-settings.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_preconfiguration_settings_for_advanced_use_cases"></a>Preconfiguration settings (for advanced use cases)<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/settings/fleet-settings.asciidoc">edit</a></h3>
 </div></div></div>
 <p>Use these settings to pre-define integrations and agent policies that you
 want Fleet to load up by default.</p>
-<div class="informaltable">
-<table border="1" cellpadding="4px">
-<colgroup>
-<col class="col_1"/>
-<col class="col_2"/>
-</colgroup>
-<tbody>
-<tr>
-<td align="left" valign="top">
-<p><code class="literal">xpack.fleet.packages</code></p>
-</td>
-<td align="left" valign="top">
-<p>List of integrations that are installed when the Fleet app starts
-  up for the first time. Required properties are:</p>
+<div class="variablelist">
+<dl class="variablelist">
+<dt>
+<span class="term">
+<code class="literal">xpack.fleet.packages</code>
+</span>
+</dt>
+<dd>
+<p>
+List of integrations that are installed when the Fleet app starts up for the first time.
+</p>
+<details open>
+<summary class="title">Required properties of <code class="literal">xpack.fleet.packages</code></summary>
+<div class="content">
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -252,20 +250,25 @@ Name of the integration from the package registry.
 </span>
 </dt>
 <dd>
-Either an exact semantic version, or the keyword <code class="literal">latest</code> to fetch
-the latest integration version.
+Either an exact semantic version, or the keyword <code class="literal">latest</code> to fetch the latest integration version.
 </dd>
 </dl>
 </div>
-</td>
-</tr>
-<tr>
-<td align="left" valign="top">
-<p><code class="literal">xpack.fleet.agentPolicies</code></p>
-</td>
-<td align="left" valign="top">
-<p>List of agent policies that are configured when the Fleet app starts.
-Required properties are:</p>
+</div>
+</details>
+</dd>
+<dt>
+<span class="term">
+<code class="literal">xpack.fleet.agentPolicies</code>
+</span>
+</dt>
+<dd>
+<p>
+List of agent policies that are configured when the Fleet app starts.
+</p>
+<details open>
+<summary class="title">Required properties of <code class="literal">xpack.fleet.agentPolicies</code></summary>
+<div class="content">
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -286,7 +289,11 @@ Policy name.
 </dd>
 </dl>
 </div>
-<p>Optional properties are:</p>
+</div>
+</details>
+<details open>
+<summary class="title">Optional properties of <code class="literal">xpack.fleet.agentPolicies</code></summary>
+<div class="content">
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -311,8 +318,7 @@ String identifying this policy&#8217;s namespace.
 </span>
 </dt>
 <dd>
-List of keywords that specify the monitoring data to collect.
-Valid values include <code class="literal">['logs']</code>, <code class="literal">['metrics']</code>, and <code class="literal">['logs', 'metrics']</code>.
+List of keywords that specify the monitoring data to collect. Valid values include <code class="literal">['logs']</code>, <code class="literal">['metrics']</code>, and <code class="literal">['logs', 'metrics']</code>.
 </dd>
 <dt>
 <span class="term">
@@ -320,8 +326,7 @@ Valid values include <code class="literal">['logs']</code>, <code class="literal
 </span>
 </dt>
 <dd>
-If <code class="literal">true</code>, this policy is not editable by the user and can only
-be changed by updating the Kibana config.
+If <code class="literal">true</code>, this policy is not editable by the user and can only be changed by updating the Kibana config.
 </dd>
 <dt>
 <span class="term">
@@ -345,7 +350,7 @@ If <code class="literal">true</code>, this policy is the default Fleet Server ag
 </span>
 </dt>
 <dd>
-ID of the output to send data (Need to be identical to <code class="literal">monitoring_output_id</code>)
+ID of the output to send data. (Need to be identical to <code class="literal">monitoring_output_id</code>)
 </dd>
 <dt>
 <span class="term">
@@ -364,6 +369,9 @@ ID of the output to send monitoring data. (Need to be identical to <code class="
 <p>
 List of integration policies to add to this policy.
 </p>
+<details open>
+<summary class="title">Properties of <code class="literal">package_policies</code></summary>
+<div class="content">
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -389,8 +397,11 @@ Unique ID of the integration policy. The ID may be a number or string.
 </dt>
 <dd>
 <p>
-(required) Integration that this policy configures
+(required) Integration that this policy configures.
 </p>
+<details open>
+<summary class="title">Properties of <code class="literal">package</code></summary>
+<div class="content">
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -403,6 +414,8 @@ Name of the integration associated with this policy.
 </dd>
 </dl>
 </div>
+</div>
+</details>
 </dd>
 <dt>
 <span class="term">
@@ -426,25 +439,30 @@ String identifying this policy&#8217;s namespace.
 </span>
 </dt>
 <dd>
-Array that overrides any default input settings for this
-integration. Follows the same schema as integration inputs, with the
-exception that any object in <code class="literal">vars</code> can be passed <code class="literal">frozen: true</code> in order to
-prevent that specific <code class="literal">var</code> from being edited by the user.
+Array that overrides any default input settings for this integration. Follows the same schema as integration inputs, with the exception that any object in <code class="literal">vars</code> can be passed <code class="literal">frozen: true</code> in order to prevent that specific <code class="literal">var</code> from being edited by the user.
 </dd>
 </dl>
 </div>
+</div>
+</details>
 </dd>
 </dl>
 </div>
-</td>
-</tr>
-<tr>
-<td align="left" valign="top">
-<p><code class="literal">xpack.fleet.outputs</code></p>
-</td>
-<td align="left" valign="top">
-<p>List of outputs that are configured when the Fleet app starts.
-Required properties are:</p>
+</div>
+</details>
+</dd>
+<dt>
+<span class="term">
+<code class="literal">xpack.fleet.outputs</code>
+</span>
+</dt>
+<dd>
+<p>
+List of outputs that are configured when the Fleet app starts.
+</p>
+<details open>
+<summary class="title">Required properties of <code class="literal">xpack.fleet.outputs</code></summary>
+<div class="content">
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -489,7 +507,11 @@ Extra config for that output.
 </dd>
 </dl>
 </div>
-<p>Optional properties are:</p>
+</div>
+</details>
+<details open>
+<summary class="title">Optional properties of <code class="literal">xpack.fleet.outputs</code></summary>
+<div class="content">
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -502,11 +524,8 @@ If <code class="literal">true</code>, this output is the default output.
 </dd>
 </dl>
 </div>
-</td>
-</tr>
-</tbody>
-</table>
 </div>
+</details>
 <p>Example configuration:</p>
 <div class="pre_wrapper lang-yaml">
 <pre class="programlisting prettyprint lang-yaml">xpack.fleet.packages:
@@ -538,6 +557,9 @@ xpack.fleet.agentPolicies:
           - type: winlog
             enabled: false</pre>
 </div>
+</dd>
+</dl>
+</div>
 </div>
 
 </div>
@@ -553,15 +575,37 @@ xpack.fleet.agentPolicies:
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

@@ -1,1 +1,1 @@
-GET /_xpack
+GET /test/_shard_stores

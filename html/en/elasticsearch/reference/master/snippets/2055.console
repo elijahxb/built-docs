@@ -1,6 +1,1 @@
-GET /my-data-stream/_eql/search
-{
-  "query": """
-    process where process.name == "regsvr32.exe"
-  """
-}
+DELETE /my-index-000001/_doc/1?routing=shard-1

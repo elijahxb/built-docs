@@ -13,6 +13,7 @@
 <meta name="DC.type" content="Learn/Docs/Kibana/Reference/8.1"/>
 <meta name="DC.subject" content="Kibana"/>
 <meta name="DC.identifier" content="8.1"/>
+<meta name="robots" content="noindex,nofollow"/>
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -58,7 +59,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -89,38 +90,30 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
-                  
+                  <div class="page_header">
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Kibana Guide [8.1]</a></span>
-»
-<span class="breadcrumb-link"><a href="management.html">Stack Management</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Kibana Guide [8.1]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="management.html">Stack Management</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="action-types.html">Connectors</a></span>
-»
-<span class="breadcrumb-node">IBM Resilient connector and action</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -132,11 +125,11 @@
 </div>
 <div class="section xpack">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="resilient-action-type"></a>IBM Resilient connector and action<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/management/connectors/action-types/resilient.asciidoc">edit</a></h2>
+<h2 class="title"><a id="resilient-action-type"></a>IBM Resilient connector and action<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/management/connectors/action-types/resilient.asciidoc">edit</a></h2>
 </div></div></div>
 
 <p>The IBM Resilient connector uses the <a href="https://developer.ibm.com/security/resilient/rest/" class="ulink" target="_top">RESILIENT REST v2</a> to create IBM Resilient incidents.</p>
-<h4><a id="resilient-connector-configuration"></a>Connector configuration<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/management/connectors/action-types/resilient.asciidoc">edit</a></h4>
+<h4><a id="resilient-connector-configuration"></a>Connector configuration<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/management/connectors/action-types/resilient.asciidoc">edit</a></h4>
 <p>IBM Resilient connectors have the following configuration properties.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -182,9 +175,9 @@ The authentication key secret for HTTP Basic authentication.
 </dd>
 </dl>
 </div>
-<h4><a id="resilient-connector-networking-configuration"></a>Connector networking configuration<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/management/connectors/action-types/resilient.asciidoc">edit</a></h4>
+<h4><a id="resilient-connector-networking-configuration"></a>Connector networking configuration<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/management/connectors/action-types/resilient.asciidoc">edit</a></h4>
 <p>Use the <a class="xref" href="alert-action-settings-kb.html#action-settings" title="Action settings">Action configuration settings</a> to customize connector networking configurations, such as proxies, certificates, or TLS settings. You can set configurations that apply to all your connectors or use <code class="literal">xpack.actions.customHostSettings</code> to set per-host configurations.</p>
-<h4><a id="Preconfigured-resilient-configuration"></a>Preconfigured connector type<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/management/connectors/action-types/resilient.asciidoc">edit</a></h4>
+<h4><a id="Preconfigured-resilient-configuration"></a>Preconfigured connector type<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/management/connectors/action-types/resilient.asciidoc">edit</a></h4>
 <div class="pre_wrapper lang-text">
 <pre class="programlisting prettyprint lang-text"> my-resilient:
    name: preconfigured-resilient-connector-type
@@ -238,7 +231,7 @@ A string that corresponds to <span class="strong strong"><strong>API Key secret<
 </dd>
 </dl>
 </div>
-<h4><a id="define-resilient-ui"></a>Define connector in Stack Management<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/management/connectors/action-types/resilient.asciidoc">edit</a></h4>
+<h4><a id="define-resilient-ui"></a>Define connector in Stack Management<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/management/connectors/action-types/resilient.asciidoc">edit</a></h4>
 <p>Define IBM Resilient connector properties.</p>
 <div class="imageblock screenshot">
 <div class="content">
@@ -251,7 +244,7 @@ A string that corresponds to <span class="strong strong"><strong>API Key secret<
 <img src="management/connectors/images/resilient-params-test.png" alt="IBM Resilient params test">
 </div>
 </div>
-<h4><a id="resilient-action-configuration"></a>Action configuration<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/management/connectors/action-types/resilient.asciidoc">edit</a></h4>
+<h4><a id="resilient-action-configuration"></a>Action configuration<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/management/connectors/action-types/resilient.asciidoc">edit</a></h4>
 <p>IBM Resilient actions have the following configuration properties.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -297,7 +290,7 @@ Additional information for the client, such as how to troubleshoot the issue.
 </dd>
 </dl>
 </div>
-<h4><a id="configuring-resilient"></a>Configure IBM Resilient<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/8.1/docs/management/connectors/action-types/resilient.asciidoc">edit</a></h4>
+<h4><a id="configuring-resilient"></a>Configure IBM Resilient<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.1/docs/management/connectors/action-types/resilient.asciidoc">edit</a></h4>
 <p>IBM Resilient offers <a href="https://www.ibm.com/security/intelligent-orchestration/resilient" class="ulink" target="_top">Instances</a>, which you can use to test incidents.</p>
 </div>
 <div class="navfooter">
@@ -312,15 +305,37 @@ Additional information for the client, such as how to troubleshoot the issue.
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

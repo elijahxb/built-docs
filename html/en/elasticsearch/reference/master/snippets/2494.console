@@ -1,1 +1,1 @@
-POST /_security/privilege/myapp,my-other-app/_clear_cache
+POST /my-index-000001/_reload_search_analyzers

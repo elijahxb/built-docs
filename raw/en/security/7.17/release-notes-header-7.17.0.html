@@ -17,11 +17,9 @@ A newer version is available. For the latest information, see the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elastic Security Solution [7.17]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Security Solution [7.17]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="release-notes.html">Release notes</a></span>
-»
-<span class="breadcrumb-node">7.17</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -35,6 +33,33 @@ A newer version is available. For the latest information, see the
 <div class="titlepage"><div><div>
 <h2 class="title"><a id="release-notes-header-7.17.0"></a>7.17<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/7.17/docs/release-notes/7.17.asciidoc">edit</a></h2>
 </div></div></div>
+<h3><a id="release-notes-7.17.5"></a>7.17.5<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/7.17/docs/release-notes/7.17.asciidoc">edit</a></h3>
+<h4><a id="bug-fixes-7.17.5"></a>Bug fixes and enhancements<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/7.17/docs/release-notes/7.17.asciidoc">edit</a></h4>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Fixes a sorting and tooltip issue in Timeline for non-ECS fields without nested values (<a href="https://github.com/elastic/kibana/pull/132570" class="ulink" target="_top">#132570</a>).
+</li>
+<li class="listitem">
+Fixes a bug that interfered with Windows' boot up process if Elastic Endpoint&#8217;s Protected Process Light (PPL) service wasn&#8217;t fully uninstalled on the machine (<a href="https://github.com/elastic/endpoint/issues/20" class="ulink" target="_top">#20</a>).
+</li>
+</ul>
+</div>
+<h3><a id="release-notes-7.17.4"></a>7.17.4<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/7.17/docs/release-notes/7.17.asciidoc">edit</a></h3>
+<h4><a id="bug-fixes-7.17.4"></a>Bug fixes and enhancements<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/7.17/docs/release-notes/7.17.asciidoc">edit</a></h4>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Allows <a href="/guide/en/kibana/7.17/pre-configured-connectors.html" class="ulink" target="_top">preconfigured connectors</a> to be used with cases (<a href="https://github.com/elastic/kibana/pull/130372" class="ulink" target="_top">#130372</a>).
+</li>
+<li class="listitem">
+Fixes a trusted applications path bug that caused a timeout error when users defined a matching <code class="literal">Path</code> value without wildcards (<a href="https://github.com/elastic/kibana/pull/131085" class="ulink" target="_top">#131085</a>).
+</li>
+<li class="listitem">
+Fixes sorting issues that were related to unmapped fields (<a href="https://github.com/elastic/kibana/pull/132190" class="ulink" target="_top">#132190</a>).
+</li>
+</ul>
+</div>
 <h3><a id="release-notes-7.17.3"></a>7.17.3<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/7.17/docs/release-notes/7.17.asciidoc">edit</a></h3>
 <h4><a id="bug-fixes-7.17.3"></a>Bug fixes and enhancements<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/7.17/docs/release-notes/7.17.asciidoc">edit</a></h4>
 <div class="ulist itemizedlist">
@@ -72,6 +97,14 @@ An Endpoint Security integration bug prevents benign Windows files from being de
 </ul>
 </div>
 <h3><a id="release-notes-7.17.0"></a>7.17.0<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/7.17/docs/release-notes/7.17.asciidoc">edit</a></h3>
+<h4><a id="known-issue-7.17.0"></a>Known issues<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/7.17/docs/release-notes/7.17.asciidoc">edit</a></h4>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+On macOS versions before 12.4, if Elastic Endpoint is used with other products that monitor or manage network traffic (such as antivirus programs, firewalls, or VPNs), users might experience network connection issues. To resolve this issue, upgrade to macOS 12.4 or later.
+</li>
+</ul>
+</div>
 <h4><a id="breaking-changes-7.17.0"></a>Breaking changes<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/7.17/docs/release-notes/7.17.asciidoc">edit</a></h4>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">

@@ -20,13 +20,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Kibana Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="development.html">Developer guide</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Kibana Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="development.html">Developer guide</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="development-best-practices.html">Best practices</a></span>
-»
-<span class="breadcrumb-node">Keep Kibana fast</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -59,7 +56,7 @@ handlers). Even if their size may seem negligible, they are likely using
 some heavy-weight libraries that will also be removed from the initial
 plugin bundle, therefore, reducing its size by a significant amount.</p>
 <div class="pre_wrapper lang-typescript">
-<pre class="programlisting prettyprint lang-typescript">import type { Plugin, CoreSetup, AppMountParameters } from 'kibana/public';
+<pre class="programlisting prettyprint lang-typescript">import type { Plugin, CoreSetup, AppMountParameters } from '@kbn/core/public';
 export class MyPlugin implements Plugin&lt;MyPluginSetup&gt; {
   setup(core: CoreSetup, plugins: SetupDeps) {
     core.application.register({

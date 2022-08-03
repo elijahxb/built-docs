@@ -18,13 +18,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="analysis.html">Text analysis</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="analysis.html">Text analysis</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="analysis-tokenfilters.html">Token filter reference</a></span>
-»
-<span class="breadcrumb-node">Uppercase token filter</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -36,13 +33,13 @@ Not what you want? See the
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="analysis-uppercase-tokenfilter"></a>Uppercase token filter<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/analysis/tokenfilters/uppercase-tokenfilter.asciidoc">edit</a></h2>
+<h2 class="title"><a id="analysis-uppercase-tokenfilter"></a>Uppercase token filter<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/analysis/tokenfilters/uppercase-tokenfilter.asciidoc">edit</a></h2>
 </div></div></div>
 
 <p>Changes token text to uppercase. For example, you can use the <code class="literal">uppercase</code> filter
 to change <code class="literal">the Lazy DoG</code> to <code class="literal">THE LAZY DOG</code>.</p>
 <p>This filter uses Lucene&#8217;s
-<a href="https://lucene.apache.org/core/9_1_0/analysis/common/org/apache/lucene/analysis/core/UpperCaseFilter.html" class="ulink" target="_top">UpperCaseFilter</a>.</p>
+<a href="https://lucene.apache.org/core/9_3_0/analysis/common/org/apache/lucene/analysis/core/UpperCaseFilter.html" class="ulink" target="_top">UpperCaseFilter</a>.</p>
 <div class="warning admon">
 <div class="icon"></div>
 <div class="admon_content">
@@ -55,7 +52,7 @@ lowercase character information.</p>
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="analysis-uppercase-tokenfilter-analyze-ex"></a>Example<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/analysis/tokenfilters/uppercase-tokenfilter.asciidoc">edit</a></h3>
+<h3 class="title"><a id="analysis-uppercase-tokenfilter-analyze-ex"></a>Example<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/analysis/tokenfilters/uppercase-tokenfilter.asciidoc">edit</a></h3>
 </div></div></div>
 <p>The following <a class="xref" href="indices-analyze.html" title="Analyze API">analyze API</a> request uses the default
 <code class="literal">uppercase</code> filter to change the <code class="literal">the Quick FoX JUMPs</code> to uppercase:</p>
@@ -68,7 +65,7 @@ lowercase character information.</p>
   "text" : "the Quick FoX JUMPs"
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/552.console"></div>
+<div class="console_widget" data-snippet="snippets/555.console"></div>
 <p>The filter produces the following tokens:</p>
 <div class="pre_wrapper lang-text">
 <pre class="programlisting prettyprint lang-text">[ THE, QUICK, FOX, JUMPS ]</pre>
@@ -77,7 +74,7 @@ lowercase character information.</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="analysis-uppercase-tokenfilter-analyzer-ex"></a>Add to an analyzer<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/analysis/tokenfilters/uppercase-tokenfilter.asciidoc">edit</a></h3>
+<h3 class="title"><a id="analysis-uppercase-tokenfilter-analyzer-ex"></a>Add to an analyzer<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/analysis/tokenfilters/uppercase-tokenfilter.asciidoc">edit</a></h3>
 </div></div></div>
 <p>The following <a class="xref" href="indices-create-index.html" title="Create index API">create index API</a> request uses the
 <code class="literal">uppercase</code> filter to configure a new
@@ -98,7 +95,7 @@ lowercase character information.</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/553.console"></div>
+<div class="console_widget" data-snippet="snippets/556.console"></div>
 </div>
 
 </div>

@@ -1,31 +1,19 @@
-GET museums/_mvt/location/13/4207/2692
+POST _ml/trained_models/model2/_infer
 {
-  "grid_agg": "geotile",
-  "grid_precision": 2,
-  "fields": [
-    "name",
-    "price"
-  ],
-  "query": {
-    "term": {
-      "included": true
+  "docs": [
+    {
+      "text_field": "This is a very happy person"
     }
-  },
-  "aggs": {
-    "min_price": {
-      "min": {
-        "field": "price"
-      }
-    },
-    "max_price": {
-      "max": {
-        "field": "price"
-      }
-    },
-    "avg_price": {
-      "avg": {
-        "field": "price"
-      }
+  ],
+  "inference_config": {
+    "zero_shot_classification": {
+      "labels": [
+        "glad",
+        "sad",
+        "bad",
+        "rad"
+      ],
+      "multi_label": false
     }
   }
 }

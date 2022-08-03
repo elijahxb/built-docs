@@ -18,13 +18,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="mapping.html">Mapping</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="mapping.html">Mapping</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="mapping-types.html">Field data types</a></span>
-»
-<span class="breadcrumb-node">Dense vector field type</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -36,7 +33,7 @@ Not what you want? See the
 </div>
 <div class="section xpack">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="dense-vector"></a>Dense vector field type<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/mapping/types/dense-vector.asciidoc">edit</a></h2>
+<h2 class="title"><a id="dense-vector"></a>Dense vector field type<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/mapping/types/dense-vector.asciidoc">edit</a></h2>
 </div></div></div>
 
 <p>The <code class="literal">dense_vector</code> field type stores dense vectors of float values. Dense
@@ -84,7 +81,7 @@ PUT my-index/_doc/2
   "my_vector" : [-0.5, 10, 10]
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/169.console"></div>
+<div class="console_widget" data-snippet="snippets/161.console"></div>
 <div class="note admon">
 <div class="icon"></div>
 <div class="admon_content">
@@ -94,7 +91,7 @@ It is not possible to store multiple values in one <code class="literal">dense_v
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="index-vectors-knn-search"></a>Index vectors for kNN search<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/mapping/types/dense-vector.asciidoc">edit</a></h3>
+<h3 class="title"><a id="index-vectors-knn-search"></a>Index vectors for kNN search<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/mapping/types/dense-vector.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="warning admon">
 <div class="icon"></div>
@@ -129,7 +126,7 @@ data structure to support fast kNN retrieval through the
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/170.console"></div>
+<div class="console_widget" data-snippet="snippets/162.console"></div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
@@ -159,7 +156,7 @@ can take substantial time to ingest documents that contain vector fields with
 
 <div class="section child_attributes">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="dense-vector-params"></a>Parameters for dense vector fields<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/mapping/types/dense-vector.asciidoc">edit</a></h3>
+<h3 class="title"><a id="dense-vector-params"></a>Parameters for dense vector fields<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/mapping/types/dense-vector.asciidoc">edit</a></h3>
 </div></div></div>
 <p>The following mapping parameters are accepted:</p>
 <div class="variablelist">
@@ -259,6 +256,7 @@ a distinct set of options.</p>
 </div>
 </div>
 <div class="variablelist">
+<a id="dense-vector-index-options"></a>
 <dl class="variablelist">
 <dt>
 <span class="term">

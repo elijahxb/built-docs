@@ -14,9 +14,8 @@
 <body>
 <div id="content">
 <div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="index.html">Integrations Developer Guide</a></span>
-»
-<span class="breadcrumb-node">Package specification</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -133,11 +132,10 @@ fields.yml
 <p>Included from the package-spec repository. This will update when the spec is updated.</p>
 <div class="pre_wrapper lang-yaml">
 <pre class="programlisting prettyprint lang-yaml">##
-## Entrypoint of package specification.
+## Entrypoint of "integration packages" specification.
 ##
 ## Describes the folders and files that make up a package.
 ##
-version: 1.1.1-next
 spec:
   additionalContents: true
   totalContentsLimit: 65535
@@ -164,6 +162,11 @@ spec:
     type: file
     contentMediaType: "text/plain"
     name: "NOTICE.txt"
+    required: false
+  - description: The package's license file
+    type: file
+    contentMediaType: "text/plain"
+    name: "LICENSE.txt"
     required: false
   - description: Folder containing data stream definitions
     type: folder

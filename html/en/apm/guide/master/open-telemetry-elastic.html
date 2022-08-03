@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,27 +87,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 You are looking at preliminary documentation for a future release.
@@ -116,13 +107,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">APM User Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="legacy-apm-overview.html">Legacy APM Overview</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">APM User Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="legacy-apm-overview.html">Legacy APM Overview</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="apm-features.html">Elastic APM features</a></span>
-»
-<span class="breadcrumb-node">OpenTelemetry integration</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -139,7 +127,7 @@ Not what you want? See the
 <div class="important admon">
 <div class="icon"></div>
 <div class="admon_content">
-<p>This documentation refers to the standalone (legacy) method of running APM Server. This method of running APM Server will be deprecated and removed in a future release. Please consider <a class="xref" href="upgrade-to-apm-integration.html" title="Upgrade to the Elastic APM integration">upgrading to the Elastic APM integration</a>.
+<p>This documentation refers to the standalone (legacy) method of running APM Server. This method of running APM Server will be deprecated and removed in a future release. Please consider <a class="xref" href="upgrade-to-apm-integration.html" title="Switch to the Elastic APM integration">upgrading to the Elastic APM integration</a>.
 If you&#8217;ve already upgraded, see <a class="xref" href="open-telemetry.html" title="OpenTelemetry integration">OpenTelemetry integration</a>.</p>
 </div>
 </div>
@@ -151,15 +139,6 @@ OpenTelemetry project, see the <a href="https://github.com/open-telemetry/opente
 instrumentation to quickly analyze distributed traces and metrics to help you monitor
 business KPIs and technical components with the Elastic Stack.</p>
 <h4><a id="open-telemetry-elastic-protocol"></a>APM Server native support of OpenTelemetry protocol<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-server/edit/main/docs/legacy/guide/opentelemetry-elastic.asciidoc">edit</a></h4>
-<div class="important admon">
-<div class="icon"></div>
-<div class="admon_content">
-<p>The <a href="https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter/elasticexporter#legacy-opentelemetry-collector-exporter-for-elastic" class="ulink" target="_top">OpenTelemetry Collector exporter for Elastic</a>
-was deprecated in 7.13 and replaced by the native support of the OpenTelemetry Line Protocol in
-Elastic Observability (OTLP). To learn more, see
-<a href="https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter/elasticexporter#migration" class="ulink" target="_top">migration</a>.</p>
-</div>
-</div>
 <p>Elastic APM Server natively supports the OpenTelemetry protocol.
 This means trace data and metrics collected from your applications and infrastructure can
 be sent directly to Elastic APM Server using the OpenTelemetry protocol.</p>
@@ -191,7 +170,7 @@ java -javaagent:/path/to/opentelemetry-javaagent-all.jar \
 <tbody>
 <tr>
 <td align="left" valign="top"><p><code class="literal">OTEL_RESOURCE_ATTRIBUTES</code></p></td>
-<td align="left" valign="top"><p>The service name to identify your application.</p></td>
+<td align="left" valign="top"><p>Fields that describe the service and the environment that the service runs in. See <a class="xref" href="open-telemetry-elastic.html#elastic-open-telemetry-resource-attributes" title="Resource attributes">Resource attributes</a> for more information.</p></td>
 </tr>
 <tr>
 <td align="left" valign="top"><p><code class="literal">OTEL_EXPORTER_OTLP_ENDPOINT</code></p></td>
@@ -205,7 +184,7 @@ java -javaagent:/path/to/opentelemetry-javaagent-all.jar \
 </tr>
 <tr>
 <td align="left" valign="top"><p><code class="literal">OTEL_EXPORTER_OTLP_CERTIFICATE</code></p></td>
-<td align="left" valign="top"><p>Certificate for TLS credentials of the gRPC client. (optional)</p></td>
+<td align="left" valign="top"><p>The trusted certificate used to verify the TLS credentials of the client. (optional)</p></td>
 </tr>
 </tbody>
 </table>
@@ -215,11 +194,11 @@ and <a class="xref" href="open-telemetry-elastic.html#open-telemetry-elastic-kib
 <h5><a id="open-telemetry-collector"></a>Connect OpenTelemetry Collector instances<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-server/edit/main/docs/legacy/guide/opentelemetry-elastic.asciidoc">edit</a></h5>
 <p>Using the OpenTelemetry collector instances in your architecture, you can connect them to Elastic Observability using the OTLP exporter.</p>
 <div class="pre_wrapper lang-yaml">
-<pre class="programlisting prettyprint lang-yaml">receivers: <a id="CO55-1"></a><i class="conum" data-value="1"></i>
+<pre class="programlisting prettyprint lang-yaml">receivers: <a id="CO54-1"></a><i class="conum" data-value="1"></i>
   # ...
   otlp:
 
-processors: <a id="CO55-2"></a><i class="conum" data-value="2"></i>
+processors: <a id="CO54-2"></a><i class="conum" data-value="2"></i>
   # ...
   memory_limiter:
     check_interval: 1s
@@ -228,13 +207,13 @@ processors: <a id="CO55-2"></a><i class="conum" data-value="2"></i>
 
 exporters:
   logging:
-    loglevel: warn <a id="CO55-3"></a><i class="conum" data-value="3"></i>
-  otlp/elastic: <a id="CO55-4"></a><i class="conum" data-value="4"></i>
+    loglevel: warn <a id="CO54-3"></a><i class="conum" data-value="3"></i>
+  otlp/elastic: <a id="CO54-4"></a><i class="conum" data-value="4"></i>
     # Elastic APM server https endpoint without the "https://" prefix
-    endpoint: "${ELASTIC_APM_SERVER_ENDPOINT}" <a id="CO55-5"></a><i class="conum" data-value="5"></i> <a id="CO55-6"></a><i class="conum" data-value="7"></i>
+    endpoint: "${ELASTIC_APM_SERVER_ENDPOINT}" <a id="CO54-5"></a><i class="conum" data-value="5"></i> <a id="CO54-6"></a><i class="conum" data-value="7"></i>
     headers:
       # Elastic APM Server secret token
-      Authorization: "Bearer ${ELASTIC_APM_SERVER_TOKEN}" <a id="CO55-7"></a><i class="conum" data-value="6"></i> <a id="CO55-8"></a><i class="conum" data-value="7"></i>
+      Authorization: "Bearer ${ELASTIC_APM_SERVER_TOKEN}" <a id="CO54-7"></a><i class="conum" data-value="6"></i> <a id="CO54-8"></a><i class="conum" data-value="7"></i>
 
 service:
   pipelines:
@@ -244,7 +223,7 @@ service:
     metrics:
       receivers: [otlp]
       exporters: [logging, otlp/elastic]
-    logs: <a id="CO55-9"></a><i class="conum" data-value="8"></i>
+    logs: <a id="CO54-9"></a><i class="conum" data-value="8"></i>
       receivers: [otlp]
       exporters: [logging, otlp/elastic]</pre>
 </div>
@@ -252,7 +231,7 @@ service:
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO55-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO54-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>The receivers, such as
@@ -261,7 +240,7 @@ the <a href="https://github.com/open-telemetry/opentelemetry-collector/tree/main
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO55-2"><i class="conum" data-value="2"></i></a></p>
+<p><a href="#CO54-2"><i class="conum" data-value="2"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>We recommend using the <a href="https://github.com/open-telemetry/opentelemetry-collector/blob/main/processor/batchprocessor/README.md" class="ulink" target="_top">Batch processor</a> and also suggest using the <a href="https://github.com/open-telemetry/opentelemetry-collector/blob/main/processor/memorylimiter/README.md" class="ulink" target="_top">memory limiter processor</a>. For more information, see <a href="https://github.com/open-telemetry/opentelemetry-collector/blob/main/processor/README.md#recommended-processors" class="ulink" target="_top">Recommended processors</a>.</p>
@@ -269,7 +248,7 @@ the <a href="https://github.com/open-telemetry/opentelemetry-collector/tree/main
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO55-3"><i class="conum" data-value="3"></i></a></p>
+<p><a href="#CO54-3"><i class="conum" data-value="3"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>The <a href="https://github.com/open-telemetry/opentelemetry-collector/tree/main/exporter/loggingexporter" class="ulink" target="_top">logging exporter</a> is helpful for troubleshooting and supports various logging levels: <code class="literal">debug</code>, <code class="literal">info</code>, <code class="literal">warn</code>, and <code class="literal">error</code>.</p>
@@ -277,15 +256,20 @@ the <a href="https://github.com/open-telemetry/opentelemetry-collector/tree/main
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO55-4"><i class="conum" data-value="4"></i></a></p>
+<p><a href="#CO54-4"><i class="conum" data-value="4"></i></a></p>
 </td>
 <td align="left" valign="top">
-<p>Elastic Observability endpoint configuration. To learn more, see <a href="https://github.com/open-telemetry/opentelemetry-collector/tree/main/exporter/otlpexporter" class="ulink" target="_top">OpenTelemetry Collector &gt; OTLP gRPC exporter</a>.</p>
+<p>Elastic Observability endpoint configuration.
+APM Server supports a ProtoBuf payload via both the OTLP protocol over gRPC transport <a href="https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/protocol/otlp.md#otlpgrpc" class="ulink" target="_top">(OTLP/gRPC)</a>
+and the OTLP protocol over HTTP transport <a href="https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/protocol/otlp.md#otlphttp" class="ulink" target="_top">(OTLP/HTTP)</a>.
+To learn more about these exporters, see the OpenTelemetry Collector documentation:
+<a href="https://github.com/open-telemetry/opentelemetry-collector/tree/main/exporter/otlphttpexporter" class="ulink" target="_top">OTLP/HTTP Exporter</a> or
+<a href="https://github.com/open-telemetry/opentelemetry-collector/tree/main/exporter/otlpexporter" class="ulink" target="_top">OTLP/gRPC exporter</a>.</p>
 </td>
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO55-5"><i class="conum" data-value="5"></i></a></p>
+<p><a href="#CO54-5"><i class="conum" data-value="5"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Hostname and port of the APM Server endpoint. For example, <code class="literal">elastic-apm-server:8200</code>.</p>
@@ -293,7 +277,7 @@ the <a href="https://github.com/open-telemetry/opentelemetry-collector/tree/main
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO55-7"><i class="conum" data-value="6"></i></a></p>
+<p><a href="#CO54-7"><i class="conum" data-value="6"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Credential for Elastic APM <a href="/guide/en/apm/guide/master/secret-token.html" class="ulink" target="_top">secret token authorization</a> (<code class="literal">Authorization: "Bearer a_secret_token"</code>) or <a href="/guide/en/apm/guide/master/api-key.html" class="ulink" target="_top">API key authorization</a> (<code class="literal">Authorization: "ApiKey an_api_key"</code>).</p>
@@ -301,7 +285,7 @@ the <a href="https://github.com/open-telemetry/opentelemetry-collector/tree/main
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO55-6"><i class="conum" data-value="7"></i></a><a href="#CO55-8"></a></p>
+<p><a href="#CO54-6"><i class="conum" data-value="7"></i></a><a href="#CO54-8"></a></p>
 </td>
 <td align="left" valign="top">
 <p>Environment-specific configuration parameters can be conveniently passed in as environment variables documented <a href="https://opentelemetry.io/docs/collector/configuration/#configuration-environment-variables" class="ulink" target="_top">here</a> (e.g. <code class="literal">ELASTIC_APM_SERVER_ENDPOINT</code> and <code class="literal">ELASTIC_APM_SERVER_TOKEN</code>).</p>
@@ -309,7 +293,7 @@ the <a href="https://github.com/open-telemetry/opentelemetry-collector/tree/main
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO55-9"><i class="conum" data-value="8"></i></a></p>
+<p><a href="#CO54-9"><i class="conum" data-value="8"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>To send OpenTelemetry logs to Elastic Stack version 8.0+, declare a <code class="literal">logs</code> pipeline.</p>
@@ -437,7 +421,7 @@ Click <span class="strong strong"><strong>Create new</strong></span> and then se
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
 <li class="listitem">
-Aggregation: <code class="literal">Positive Rate</code>.
+Aggregation: <code class="literal">Counter Rate</code>.
 </li>
 <li class="listitem">
 Field: <code class="literal">order_sum</code>.
@@ -558,10 +542,10 @@ exporters:
     loglevel: debug
   otlp/elastic:
     # Elastic APM server https endpoint without the "https://" prefix
-    endpoint: "${ELASTIC_OTLP_ENDPOINT}" <a id="CO56-1"></a><i class="conum" data-value="1"></i>
+    endpoint: "${ELASTIC_OTLP_ENDPOINT}" <a id="CO55-1"></a><i class="conum" data-value="1"></i>
     headers:
       # Elastic APM Server secret token
-      Authorization: "Bearer ${ELASTIC_OTLP_TOKEN}" <a id="CO56-2"></a><i class="conum" data-value="1"></i>
+      Authorization: "Bearer ${ELASTIC_OTLP_TOKEN}" <a id="CO55-2"></a><i class="conum" data-value="1"></i>
 
 service:
   pipelines:
@@ -579,7 +563,7 @@ service:
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO56-1"><i class="conum" data-value="1"></i></a><a href="#CO56-2"></a></p>
+<p><a href="#CO55-1"><i class="conum" data-value="1"></i></a><a href="#CO55-2"></a></p>
 </td>
 <td align="left" valign="top">
 <p>Environment-specific configuration parameters can be conveniently passed in as environment variables: <code class="literal">ELASTIC_OTLP_ENDPOINT</code> and <code class="literal">ELASTIC_OTLP_TOKEN</code></p>
@@ -598,10 +582,10 @@ layer</a>: The latest <a href="https://aws-otel.github.io/docs/getting-started/l
 Lambda layer for OpenTelemetry</a> (e.g. <code class="literal">arn:aws:lambda:eu-west-1:901920570463:layer:aws-otel-java-wrapper-ver-1-2-0:1</code>)
 </li>
 <li class="listitem">
-<a href="https://docs.aws.amazon.com/lambda/latest/dg/API_TracingConfig.html" class="ulink" target="_top">TracingConfig / Mode</a> set to <code class="literal">PassTrough</code>
+<a href="https://docs.aws.amazon.com/lambda/latest/dg/API_TracingConfig.html" class="ulink" target="_top"><code class="literal">TracingConfig</code> / Mode</a> set to <code class="literal">PassTrough</code>
 </li>
 <li class="listitem">
-<a href="https://docs.aws.amazon.com/lambda/latest/dg/API_FunctionConfiguration.html" class="ulink" target="_top">FunctionConfiguration / Timeout</a> set to more than 10 seconds to support the longer cold start inherent to the Lambda Java Runtime
+<a href="https://docs.aws.amazon.com/lambda/latest/dg/API_FunctionConfiguration.html" class="ulink" target="_top"><code class="literal">FunctionConfiguration</code> / Timeout</a> set to more than 10 seconds to support the longer cold start inherent to the Lambda Java Runtime
 </li>
 <li class="listitem">
 <p>Export the environment variables:</p>
@@ -644,7 +628,7 @@ Note that the Terraform code to manage the HTTP API Gateway (<a href="https://gi
 <p>For a better startup time, we recommend using SDK-based instrumentation for manual instrumentation of the code rather than auto instrumentation.</p>
 </div>
 </div>
-<p>To instrument AWS Lambda Node.js functions, see <a href="https://aws-otel.github.io/docs/getting-started/lambda/lambda-js" class="ulink" target="_top">AWS Distro for OpenTelemetry Lambda Support For JS</a>.</p>
+<p>To instrument AWS Lambda Node.js functions, see <a href="https://aws-otel.github.io/docs/getting-started/lambda/lambda-js" class="ulink" target="_top">AWS Distro for OpenTelemetry Lambda Support For JavaScript</a>.</p>
 <p>The configuration of the OpenTelemetry Collector, with the definition of the Elastic Observability endpoint, can be added to the root directory of the Lambda binaries: <code class="literal">src/main/resources/opentelemetry-collector.yaml</code>.</p>
 <div class="pre_wrapper lang-yaml">
 <pre class="programlisting prettyprint lang-yaml"># Copy opentelemetry-collector.yaml in the root directory of the lambda function
@@ -660,10 +644,10 @@ exporters:
     loglevel: debug
   otlp/elastic:
     # Elastic APM server https endpoint without the "https://" prefix
-    endpoint: "${ELASTIC_OTLP_ENDPOINT}" <a id="CO57-1"></a><i class="conum" data-value="1"></i>
+    endpoint: "${ELASTIC_OTLP_ENDPOINT}" <a id="CO56-1"></a><i class="conum" data-value="1"></i>
     headers:
       # Elastic APM Server secret token
-      Authorization: "Bearer ${ELASTIC_OTLP_TOKEN}" <a id="CO57-2"></a><i class="conum" data-value="1"></i>
+      Authorization: "Bearer ${ELASTIC_OTLP_TOKEN}" <a id="CO56-2"></a><i class="conum" data-value="1"></i>
 
 service:
   pipelines:
@@ -681,7 +665,7 @@ service:
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO57-1"><i class="conum" data-value="1"></i></a><a href="#CO57-2"></a></p>
+<p><a href="#CO56-1"><i class="conum" data-value="1"></i></a><a href="#CO56-2"></a></p>
 </td>
 <td align="left" valign="top">
 <p>Environment-specific configuration parameters can be conveniently passed in as environment variables: <code class="literal">ELASTIC_OTLP_ENDPOINT</code> and <code class="literal">ELASTIC_OTLP_TOKEN</code></p>
@@ -698,10 +682,10 @@ layer</a>: The latest <a href="https://aws-otel.github.io/docs/getting-started/l
 Lambda layer for OpenTelemetry</a>. For example, <code class="literal">arn:aws:lambda:eu-west-1:901920570463:layer:aws-otel-nodejs-ver-0-23-0:1</code>)
 </li>
 <li class="listitem">
-<a href="https://docs.aws.amazon.com/lambda/latest/dg/API_TracingConfig.html" class="ulink" target="_top">TracingConfig / Mode</a> set to <code class="literal">PassTrough</code>
+<a href="https://docs.aws.amazon.com/lambda/latest/dg/API_TracingConfig.html" class="ulink" target="_top"><code class="literal">TracingConfig</code> / Mode</a> set to <code class="literal">PassTrough</code>
 </li>
 <li class="listitem">
-<a href="https://docs.aws.amazon.com/lambda/latest/dg/API_FunctionConfiguration.html" class="ulink" target="_top">FunctionConfiguration / Timeout</a> set to more than 10 seconds to support the cold start of the Lambda JS Runtime
+<a href="https://docs.aws.amazon.com/lambda/latest/dg/API_FunctionConfiguration.html" class="ulink" target="_top"><code class="literal">FunctionConfiguration</code> / Timeout</a> set to more than 10 seconds to support the cold start of the Lambda JavaScript Runtime
 </li>
 <li class="listitem">
 <p>Export the environment variables:</p>
@@ -737,6 +721,46 @@ Lambda layer for OpenTelemetry</a>. For example, <code class="literal">arn:aws:l
 </li>
 </ul>
 </div>
+<h4><a id="elastic-open-telemetry-resource-attributes"></a>Resource attributes<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-server/edit/main/docs/legacy/guide/opentelemetry-elastic.asciidoc">edit</a></h4>
+<p>A resource attribute is a key/value pair containing information about the entity producing telemetry.
+Resource attributes are mapped to Elastic Common Schema (ECS) fields like <code class="literal">service.*</code>, <code class="literal">cloud.*</code>, <code class="literal">process.*</code>, etc.
+These fields describe the service and the environment that the service runs in.</p>
+<p>The examples below set the Elastic (ECS) <code class="literal">service.environment</code> field for the resource, i.e. service, that is producing trace events.
+Note that Elastic maps the OpenTelemetry <code class="literal">deployment.environment</code> field to
+the ECS <code class="literal">service.environment</code> field on ingestion.</p>
+<p><span class="strong strong"><strong>OpenTelemetry agent</strong></span></p>
+<p>Use the <code class="literal">OTEL_RESOURCE_ATTRIBUTES</code> environment variable to pass resource attributes at process invocation.</p>
+<div class="pre_wrapper lang-bash">
+<pre class="programlisting prettyprint lang-bash">export OTEL_RESOURCE_ATTRIBUTES=deployment.environment=production</pre>
+</div>
+<p><span class="strong strong"><strong>OpenTelemetry collector</strong></span></p>
+<p>Use the <a href="https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/processor/resourceprocessor" class="ulink" target="_top">resource processor</a> to set or apply changes to resource attributes.</p>
+<div class="pre_wrapper lang-yaml">
+<pre class="programlisting prettyprint lang-yaml">...
+processors:
+  resource:
+    attributes:
+    - key: deployment.environment
+      action: insert
+      value: production
+...</pre>
+</div>
+<div class="tip admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>Need to add event attributes instead?
+Use attributes&#8212;&#8203;not to be confused with resource attributes&#8212;&#8203;to add data to span, log, or metric events.
+Attributes can be added as a part of the OpenTelemetry instrumentation process or with the <a href="https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/processor/attributesprocessor" class="ulink" target="_top">attributes processor</a>.</p>
+</div>
+</div>
+<h4><a id="elastic-open-telemetry-proxy-apm"></a>Proxy requests to APM Server<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-server/edit/main/docs/legacy/guide/opentelemetry-elastic.asciidoc">edit</a></h4>
+<p>APM Server supports both the <a href="https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/protocol/otlp.md#otlpgrpc" class="ulink" target="_top">(OTLP/gRPC)</a> and <a href="https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/protocol/otlp.md#otlphttp" class="ulink" target="_top">(OTLP/HTTP)</a> protocol on the same port as Elastic APM agent requests. For ease of setup, we recommend using OTLP/HTTP when proxying or load balancing requests to the APM Server.</p>
+<p>If you use the OTLP/gRPC protocol, requests to the APM Server must use either HTTP/2 over TLS or HTTP/2 Cleartext (H2C). No matter which protocol is used, OTLP/gRPC requests will have the header: <code class="literal">"Content-Type: application/grpc"</code>.</p>
+<p>When using a layer 7 (L7) proxy like AWS ALB, requests must be proxied in a way that ensures requests to the APM Server follow the rules outlined above. For example, with ALB you can create rules to select an alternative backend protocol based on the headers of requests coming into ALB. In this example, you&#8217;d select the gRPC protocol when the  <code class="literal">"Content-Type: application/grpc"</code> header exists on a request.</p>
+<p>For more information on how to configure an AWS ALB to support gRPC, see this AWS blog post:
+<a href="https://aws.amazon.com/blogs/aws/new-application-load-balancer-support-for-end-to-end-http-2-and-grpc/" class="ulink" target="_top">Application Load Balancer Support for End-to-End HTTP/2 and gRPC</a>.</p>
+<p>For more information on how APM Server services gRPC requests, see
+<a href="https://github.com/elastic/apm-server/blob/main/dev_docs/otel.md#muxing-grpc-and-http11" class="ulink" target="_top">Muxing gRPC and HTTP/1.1</a>.</p>
 <h4><a id="elastic-open-telemetry-known-limitations"></a>Limitations<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-server/edit/main/docs/legacy/guide/opentelemetry-elastic.asciidoc">edit</a></h4>
 <h5><a id="elastic-open-telemetry-traces-limitations"></a>OpenTelemetry traces<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-server/edit/main/docs/legacy/guide/opentelemetry-elastic.asciidoc">edit</a></h5>
 <div class="ulist itemizedlist">
@@ -751,7 +775,7 @@ Inability to see Stack traces in spans
 Inability in APM views to view the "Time Spent by Span Type" <a href="https://github.com/elastic/apm-server/issues/5747" class="ulink" target="_top">#5747</a>
 </li>
 <li class="listitem">
-Metrics derived from traces (throughput, latency, and errors) are not accurate when traces are sampled before being ingested by Elastic Observability (ie by an OpenTelemetry Collector or OpenTelemetry APM agent or SDK) <a href="https://github.com/elastic/apm/issues/472" class="ulink" target="_top">#472</a>
+Metrics derived from traces (throughput, latency, and errors) are not accurate when traces are sampled before being ingested by Elastic Observability (for example, by an OpenTelemetry Collector or OpenTelemetry APM agent or SDK) <a href="https://github.com/elastic/apm/issues/472" class="ulink" target="_top">#472</a>
 </li>
 </ul>
 </div>
@@ -771,6 +795,14 @@ OpenTelemetry logs are not yet supported <a href="https://github.com/elastic/apm
 </li>
 </ul>
 </div>
+<h5><a id="elastic-open-telemetry-otlp-limitations"></a>OpenTelemetry Line Protocol (OTLP)<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-server/edit/main/docs/legacy/guide/opentelemetry-elastic.asciidoc">edit</a></h5>
+<p>APM Server supports both the <a href="https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/protocol/otlp.md#otlpgrpc" class="ulink" target="_top">(OTLP/gRPC)</a> and <a href="https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/protocol/otlp.md#otlphttp" class="ulink" target="_top">(OTLP/HTTP)</a> protocol with ProtoBuf payload.
+APM Server does not yet support JSON Encoding for OTLP/HTTP.</p>
+<h5><a id="elastic-open-telemetry-collector-exporter"></a>OpenTelemetry Collector exporter for Elastic<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-server/edit/main/docs/legacy/guide/opentelemetry-elastic.asciidoc">edit</a></h5>
+<p>The <a href="https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter/elasticexporter#legacy-opentelemetry-collector-exporter-for-elastic" class="ulink" target="_top">OpenTelemetry Collector exporter for Elastic</a>
+was deprecated in 7.13 and replaced by the native support of the OpenTelemetry Line Protocol in
+Elastic Observability (OTLP). To learn more, see
+<a href="https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter/elasticexporter#migration" class="ulink" target="_top">migration</a>.</p>
 </div>
 <div class="navfooter">
 <span class="prev">
@@ -784,15 +816,37 @@ OpenTelemetry logs are not yet supported <a href="https://github.com/elastic/apm
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

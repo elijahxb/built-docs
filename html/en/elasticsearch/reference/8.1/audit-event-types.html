@@ -11,6 +11,7 @@
 <meta name="DC.type" content="Learn/Docs/Elasticsearch/Reference/8.1"/>
 <meta name="DC.subject" content="Elasticsearch"/>
 <meta name="DC.identifier" content="8.1"/>
+<meta name="robots" content="noindex,nofollow"/>
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -56,7 +57,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,38 +88,30 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
-                  
+                  <div class="page_header">
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.1]</a></span>
-»
-<span class="breadcrumb-link"><a href="secure-cluster.html">Secure the Elastic Stack</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.1]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="secure-cluster.html">Secure the Elastic Stack</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="enable-audit-logging.html">Enable audit logging</a></span>
-»
-<span class="breadcrumb-node">Audit events</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -130,7 +123,7 @@
 </div>
 <div class="section xpack">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="audit-event-types"></a>Audit events<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.1/x-pack/docs/en/security/auditing/event-types.asciidoc">edit</a></h2>
+<h2 class="title"><a id="audit-event-types"></a>Audit events<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.1/x-pack/docs/en/security/auditing/event-types.asciidoc">edit</a></h2>
 </div></div></div>
 <p>When you are <a class="xref" href="enable-audit-logging.html" title="Enable audit logging">auditing security events</a>, a single client
 request might generate multiple audit events, across multiple cluster nodes.
@@ -943,7 +936,7 @@ believed to have been tampered with.
 </dd>
 </dl>
 </div>
-<h3><a id="audit-event-attributes"></a>Audit event attributes<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.1/x-pack/docs/en/security/auditing/event-types.asciidoc">edit</a></h3>
+<h3><a id="audit-event-attributes"></a>Audit event attributes<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.1/x-pack/docs/en/security/auditing/event-types.asciidoc">edit</a></h3>
 <p>The audit events are formatted as JSON documents, and each event is printed on a separate
 line in the audit log. The entries themselves do not contain an end-of-line delimiter.
 For more details, see <a class="xref" href="audit-log-output.html#audit-log-entry-format" title="Log entry format">Log entry format</a>.</p>
@@ -1108,7 +1101,7 @@ designated by the <code class="literal">origin.address</code> field).
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_audit_event_attributes_of_the_rest_event_type"></a>Audit event attributes of the <code class="literal">rest</code> event type<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.1/x-pack/docs/en/security/auditing/event-types.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_audit_event_attributes_of_the_rest_event_type"></a>Audit event attributes of the <code class="literal">rest</code> event type<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.1/x-pack/docs/en/security/auditing/event-types.asciidoc">edit</a></h3>
 </div></div></div>
 <p>The events with <code class="literal">event.type</code> equal to <code class="literal">rest</code> have one of the following <code class="literal">event.action</code>
 attribute values: <code class="literal">authentication_success</code>, <code class="literal">anonymous_access_denied</code>, <code class="literal">authentication_failed</code>,
@@ -1162,7 +1155,7 @@ The body is escaped as a string value according to the JSON RFC 4627.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_audit_event_attributes_of_the_transport_event_type"></a>Audit event attributes of the <code class="literal">transport</code> event type<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.1/x-pack/docs/en/security/auditing/event-types.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_audit_event_attributes_of_the_transport_event_type"></a>Audit event attributes of the <code class="literal">transport</code> event type<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.1/x-pack/docs/en/security/auditing/event-types.asciidoc">edit</a></h3>
 </div></div></div>
 <p>The events with <code class="literal">event.type</code> equal to <code class="literal">transport</code> have one of the following <code class="literal">event.action</code>
 attribute values: <code class="literal">authentication_success</code>, <code class="literal">anonymous_access_denied</code>, <code class="literal">authentication_failed</code>,
@@ -1204,7 +1197,7 @@ The name of the request handler that was executed.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_audit_event_attributes_of_the_ip_filter_event_type"></a>Audit event attributes of the <code class="literal">ip_filter</code> event type<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.1/x-pack/docs/en/security/auditing/event-types.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_audit_event_attributes_of_the_ip_filter_event_type"></a>Audit event attributes of the <code class="literal">ip_filter</code> event type<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.1/x-pack/docs/en/security/auditing/event-types.asciidoc">edit</a></h3>
 </div></div></div>
 <p>The events with <code class="literal">event.type</code> equal to <code class="literal">ip_filter</code> have one of the following <code class="literal">event.action</code>
 attribute values: <code class="literal">connection_granted</code> or <code class="literal">connection_denied</code>.
@@ -1235,7 +1228,7 @@ the request.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="security-config-change"></a>Audit event attributes of the <code class="literal">security_config_change</code> event type<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.1/x-pack/docs/en/security/auditing/event-types.asciidoc">edit</a></h3>
+<h3 class="title"><a id="security-config-change"></a>Audit event attributes of the <code class="literal">security_config_change</code> event type<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.1/x-pack/docs/en/security/auditing/event-types.asciidoc">edit</a></h3>
 </div></div></div>
 <p>The events with the <code class="literal">event.type</code> attribute equal to <code class="literal">security_config_change</code> have one of the following
 <code class="literal">event.action</code> attribute values: <code class="literal">put_user</code>, <code class="literal">change_password</code>, <code class="literal">put_role</code>, <code class="literal">put_role_mapping</code>,
@@ -1474,7 +1467,7 @@ An object like:
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_extra_audit_event_attributes_for_specific_events"></a>Extra audit event attributes for specific events<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/8.1/x-pack/docs/en/security/auditing/event-types.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_extra_audit_event_attributes_for_specific_events"></a>Extra audit event attributes for specific events<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.1/x-pack/docs/en/security/auditing/event-types.asciidoc">edit</a></h3>
 </div></div></div>
 <p>There are a few events that have some more attributes in addition to those
 that have been previously described:</p>
@@ -1833,15 +1826,37 @@ This attribute is only provided for authentication using a service account token
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

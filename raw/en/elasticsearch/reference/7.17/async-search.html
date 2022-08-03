@@ -17,13 +17,10 @@ A newer version is available. For the latest information, see the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [7.17]</a></span>
-»
-<span class="breadcrumb-link"><a href="rest-apis.html">REST APIs</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [7.17]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="rest-apis.html">REST APIs</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="search.html">Search APIs</a></span>
-»
-<span class="breadcrumb-node">Async search</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -61,7 +58,7 @@ request body as the <a class="xref" href="search-search.html" title="Search API"
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/2431.console"></div>
+<div class="console_widget" data-snippet="snippets/2433.console"></div>
 <p>The response contains an identifier of the search being executed. You can use
 this ID to later retrieve the search&#8217;s final results. The currently available
 search results are returned as part of the
@@ -236,7 +233,7 @@ access to the results of a specific async search is restricted to
 <a id="get-async-search-date-histogram-example"></a><div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">GET /_async_search/FmRldE8zREVEUzA2ZVpUeGs2ejJFUFEaMkZ5QTVrSTZSaVN3WlNFVmtlWHJsdzoxMDc=</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/2432.console"></div>
+<div class="console_widget" data-snippet="snippets/2434.console"></div>
 <div class="pre_wrapper lang-console-result">
 <pre class="programlisting prettyprint lang-console-result">{
   "id" : "FmRldE8zREVEUzA2ZVpUeGs2ejJFUFEaMkZ5QTVrSTZSaVN3WlNFVmtlWHJsdzoxMDc=",
@@ -354,7 +351,7 @@ API is restricted to the <a class="xref" href="built-in-roles.html" title="Built
 <a id="get-async-search-status-example"></a><div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">GET /_async_search/status/FmRldE8zREVEUzA2ZVpUeGs2ejJFUFEaMkZ5QTVrSTZSaVN3WlNFVmtlWHJsdzoxMDc=</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/2433.console"></div>
+<div class="console_widget" data-snippet="snippets/2435.console"></div>
 <div class="pre_wrapper lang-console-result">
 <pre class="programlisting prettyprint lang-console-result">{
   "id" : "FmRldE8zREVEUzA2ZVpUeGs2ejJFUFEaMkZ5QTVrSTZSaVN3WlNFVmtlWHJsdzoxMDc=",
@@ -453,7 +450,7 @@ Otherwise, the saved search results are deleted.</p>
 <a id="delete-async-search-date-histogram-example"></a><div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">DELETE /_async_search/FmRldE8zREVEUzA2ZVpUeGs2ejJFUFEaMkZ5QTVrSTZSaVN3WlNFVmtlWHJsdzoxMDc=</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/2434.console"></div>
+<div class="console_widget" data-snippet="snippets/2436.console"></div>
 <p>If the Elasticsearch security features are enabled, the deletion of a specific async
 search is restricted to:
   * The authenticated user that submitted the original search request.

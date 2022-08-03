@@ -18,13 +18,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Plugins and Integrations [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="repository.html">Snapshot/Restore Repository Plugins</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Plugins and Integrations [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="repository.html">Snapshot/Restore Repository Plugins</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="repository-hdfs.html">Hadoop HDFS Repository Plugin</a></span>
-»
-<span class="breadcrumb-node">Configuration Properties</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -36,7 +33,7 @@ Not what you want? See the
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="repository-hdfs-config"></a>Configuration Properties<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/plugins/repository-hdfs.asciidoc">edit</a></h3>
+<h3 class="title"><a id="repository-hdfs-config"></a>Configuration Properties<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/plugins/repository-hdfs.asciidoc">edit</a></h3>
 </div></div></div>
 <p>Once installed, define the configuration for the <code class="literal">hdfs</code> repository through the
 <a href="/guide/en/elasticsearch/reference/master/modules-snapshots.html" class="ulink" target="_top">REST API</a>:</p>
@@ -51,7 +48,7 @@ Not what you want? See the
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/45.console"></div>
+<div class="console_widget" data-snippet="snippets/38.console"></div>
 <p>The following settings are supported:</p>
 <div class="informaltable">
 <table border="0" cellpadding="4px">
@@ -189,7 +186,7 @@ the pattern with the hostname of the node at runtime (see
 </tbody>
 </table>
 </div>
-<h5><a id="repository-hdfs-availability"></a>A Note on HDFS Availability<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/plugins/repository-hdfs.asciidoc">edit</a></h5>
+<h5><a id="repository-hdfs-availability"></a>A Note on HDFS Availability<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/plugins/repository-hdfs.asciidoc">edit</a></h5>
 <p>When you initialize a repository, its settings are persisted in the cluster state. When a node comes online, it will
 attempt to initialize all repositories for which it has settings. If your cluster has an HDFS repository configured, then
 all nodes in the cluster must be able to reach HDFS when starting. If not, then the node will fail to initialize the

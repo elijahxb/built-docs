@@ -1,7 +1,6 @@
-PUT _scripts/my-stored-script
+GET _ml/anomaly_detectors/esxi_log/results/categories
 {
-  "script": {
-    "lang": "painless",
-    "source": "Math.log(_score * 2) + params['my_modifier']"
+  "page":{
+    "size": 1
   }
 }

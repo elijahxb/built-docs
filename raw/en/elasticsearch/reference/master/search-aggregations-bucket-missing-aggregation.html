@@ -18,13 +18,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="search-aggregations.html">Aggregations</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="search-aggregations.html">Aggregations</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="search-aggregations-bucket.html">Bucket aggregations</a></span>
-»
-<span class="breadcrumb-node">Missing aggregation</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -36,7 +33,7 @@ Not what you want? See the
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="search-aggregations-bucket-missing-aggregation"></a>Missing aggregation<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/aggregations/bucket/missing-aggregation.asciidoc">edit</a></h2>
+<h2 class="title"><a id="search-aggregations-bucket-missing-aggregation"></a>Missing aggregation<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/aggregations/bucket/missing-aggregation.asciidoc">edit</a></h2>
 </div></div></div>
 
 <p>A field data based single bucket aggregation, that creates a bucket of all documents in the current document set context that are missing a field value (effectively, missing a field or having the configured NULL value set). This aggregator will often be used in conjunction with other field data bucket aggregators (such as ranges) to return information for all the documents that could not be placed in any of the other buckets due to missing field data values.</p>
@@ -52,7 +49,7 @@ Not what you want? See the
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1153.console"></div>
+<div class="console_widget" data-snippet="snippets/1181.console"></div>
 <p>In the above example, we get the total number of products that do not have a price.</p>
 <p>Response:</p>
 <a id="0bd0e0af805fc7919308e237d4c9bf59"></a>

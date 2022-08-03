@@ -13,19 +13,16 @@
 <meta name="robots" content="noindex,nofollow"/>
 </head>
 <body><div class="page_header">
-You are looking at preliminary documentation for a future release.
-Not what you want? See the
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
 <a href="../current/index.html">current release documentation</a>.
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.2]</a></span>
-»
-<span class="breadcrumb-link"><a href="setup.html">Set up Elasticsearch</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.2]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="setup.html">Set up Elasticsearch</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="install-elasticsearch.html">Installing Elasticsearch</a></span>
-»
-<span class="breadcrumb-node">Install Elasticsearch with <code class="literal">.zip</code> on Windows</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -72,7 +69,13 @@ see the <a class="xref" href="setup.html#jvm-version" title="Java (JVM) Version"
 <div class="titlepage"><div><div>
 <h3 class="title"><a id="install-windows"></a>Download and install the <code class="literal">.zip</code> package<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.2/docs/reference/setup/install/zip-windows.asciidoc">edit</a></h3>
 </div></div></div>
-<p>Version 8.2.0 of Elasticsearch has not yet been released.</p>
+<p>Download the <code class="literal">.zip</code> archive for Elasticsearch 8.2.3 from: <a href="https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-8.2.3-windows-x86_64.zip" class="ulink" target="_top">https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-8.2.3-windows-x86_64.zip</a></p>
+<p>Unzip it with your favorite unzip tool. This will create a folder called
+<code class="literal">elasticsearch-8.2.3</code>, which we will refer to as <code class="literal">%ES_HOME%</code>. In a terminal
+window, <code class="literal">cd</code> to the <code class="literal">%ES_HOME%</code> directory, for instance:</p>
+<div class="pre_wrapper lang-sh">
+<pre class="programlisting prettyprint lang-sh">cd C:\elasticsearch-8.2.3</pre>
+</div>
 </div>
 
 <div class="section xpack">
@@ -246,13 +249,13 @@ such as <code class="literal">node.name</code> could be specified on the command
 <p>You can test that your Elasticsearch node is running by sending an HTTPS request to port
 <code class="literal">9200</code> on <code class="literal">localhost</code>:</p>
 <div class="pre_wrapper lang-sh">
-<pre class="programlisting prettyprint lang-sh">curl --cacert $ES_PATH_CONF\certs\http_ca.crt -u elastic https://localhost:9200 <a id="CO2-1"></a><i class="conum" data-value="1"></i></pre>
+<pre class="programlisting prettyprint lang-sh">curl --cacert %ES_HOME%\config\certs\http_ca.crt -u elastic https://localhost:9200 <a id="CO4-1"></a><i class="conum" data-value="1"></i></pre>
 </div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO2-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO4-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Ensure that you use <code class="literal">https</code> in your call, or the request will fail.</p>
@@ -280,7 +283,7 @@ installation, which should return a response like this:</p>
   "cluster_name" : "elasticsearch",
   "cluster_uuid" : "AT69_T_DTp-1qgIJlatQqA",
   "version" : {
-    "number" : "8.2.0-SNAPSHOT",
+    "number" : "8.2.3",
     "build_flavor" : "default",
     "build_type" : "tar",
     "build_hash" : "f27399d",
@@ -307,7 +310,7 @@ automatically at boot time without user interaction.</p>
 <p>Install Elasticsearch as a service. The name of the service and the value of
 <code class="literal">ES_JAVA_HOME</code> will be made available during install:</p>
 <div class="pre_wrapper lang-sh">
-<pre class="programlisting prettyprint lang-sh">C:\elasticsearch-8.2.0\bin&gt;elasticsearch-service.bat install
+<pre class="programlisting prettyprint lang-sh">C:\elasticsearch-8.2.3\bin&gt;elasticsearch-service.bat install
 Installing service      :  "elasticsearch-service-x64"
 Using ES_JAVA_HOME (64-bit):  "C:\jvm\jdk1.8"
 The service 'elasticsearch-service-x64' has been installed.</pre>
@@ -317,7 +320,7 @@ The service 'elasticsearch-service-x64' has been installed.</pre>
 <p>Start Elasticsearch as a service. When Elasticsearch starts, authentication is enabled by
 default:</p>
 <div class="pre_wrapper lang-sh">
-<pre class="programlisting prettyprint lang-sh">C:\elasticsearch-8.2.0\bin&gt;bin\elasticsearch-service.bat start</pre>
+<pre class="programlisting prettyprint lang-sh">C:\elasticsearch-8.2.3\bin&gt;bin\elasticsearch-service.bat start</pre>
 </div>
 <div class="note admon">
 <div class="icon"></div>
@@ -331,7 +334,7 @@ default:</p>
 <a class="xref" href="reset-password.html" title="elasticsearch-reset-password"><code class="literal">elasticsearch-reset-password</code></a> tool. The password is output
 to the command line.</p>
 <div class="pre_wrapper lang-sh">
-<pre class="programlisting prettyprint lang-sh">C:\elasticsearch-8.2.0\bin&gt;\bin\elasticsearch-reset-password -u elastic</pre>
+<pre class="programlisting prettyprint lang-sh">C:\elasticsearch-8.2.3\bin&gt;\bin\elasticsearch-reset-password -u elastic</pre>
 </div>
 </li>
 </ol>
@@ -363,7 +366,7 @@ not supported, and does require the service to be reinstalled.</p>
 remove, manage, or configure the service and potentially start and stop the
 service from the command line.</p>
 <div class="pre_wrapper lang-sh">
-<pre class="programlisting prettyprint lang-sh">C:\elasticsearch-8.2.0\bin&gt;elasticsearch-service.bat
+<pre class="programlisting prettyprint lang-sh">C:\elasticsearch-8.2.3\bin&gt;elasticsearch-service.bat
 
 Usage: elasticsearch-service.bat install|remove|start|stop|manager [SERVICE_ID]</pre>
 </div>
@@ -645,8 +648,11 @@ It is also possible to configure the service after it&#8217;s been installed usi
 <h3 class="title"><a id="_connect_clients_to_elasticsearch_2"></a>Connect clients to Elasticsearch<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.2/docs/reference/setup/install/connect-clients.asciidoc">edit</a></h3>
 </div></div></div>
 <p>When you start Elasticsearch for the first time, TLS is configured automatically for the
-HTTP layer. A CA certificate is generated and stored on disk at
-<code class="literal">$ES_HOME/config/certs/http_ca.crt</code>. The hex-encoded SHA-256 fingerprint of this
+HTTP layer. A CA certificate is generated and stored on disk at:</p>
+<div class="pre_wrapper lang-sh">
+<pre class="programlisting prettyprint lang-sh">%ES_HOME%\config\certs\http_ca.crt</pre>
+</div>
+<p>The hex-encoded SHA-256 fingerprint of this
 certificate is also output to the terminal. Any clients that connect to Elasticsearch,
 such as the
 <a href="/guide/en/elasticsearch/client/index.html" class="ulink" target="_top">Elasticsearch Clients</a>,
@@ -676,9 +682,12 @@ SHA256 Fingerprint=&lt;fingerprint&gt;</pre>
 </div>
 <h5><a id="_use_the_ca_certificate_2"></a>Use the CA certificate<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.2/docs/reference/setup/install/connect-clients.asciidoc">edit</a></h5>
 <p>If your library doesn&#8217;t support a method of validating the fingerprint, the
-auto-generated CA certificate is created in the
-<code class="literal">$ES_HOME/config/certs/</code> directory on each Elasticsearch node. Copy the
-<code class="literal">http_ca.crt</code> file to your machine and configure your client to use this
+auto-generated CA certificate is created in the following directory on each Elasticsearch
+node:</p>
+<div class="pre_wrapper lang-sh">
+<pre class="programlisting prettyprint lang-sh">%ES_HOME%\config\certs\http_ca.crt</pre>
+</div>
+<p>Copy the <code class="literal">http_ca.crt</code> file to your machine and configure your client to use this
 certificate to establish trust when it connects to Elasticsearch.</p>
 </div>
 

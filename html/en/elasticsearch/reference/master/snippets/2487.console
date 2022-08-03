@@ -1,1 +1,6 @@
-POST /_security/realm/default_file/_clear_cache?usernames=rdeniro,alpacino
+PUT /_nodes/USpTGYaBSIKbgSUJR2Z9lg/shutdown
+{
+  "type": "restart",
+  "reason": "Demonstrating how the node shutdown API works",
+  "allocation_delay": "20m"
+}

@@ -57,7 +57,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -88,38 +88,28 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
-You are looking at preliminary documentation for a future release.
-Not what you want? See the
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
 <a href="../current/index.html">current release documentation</a>.
 </div>
 <div id="content">
 <div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.2]</a></span>
-»
-<span class="breadcrumb-node">Secure the Elastic Stack</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -141,15 +131,14 @@ agents, and clients all communicating with the cluster. To keep your cluster
 safe, adhere to the <a class="xref" href="es-security-principles.html" title="Elasticsearch security principles">Elasticsearch security principles</a>.</p>
 <p>The first principle is to run Elasticsearch with security enabled. Configuring security
 can be complicated, so we made it easy to
-<a class="xref" href="configuring-stack-security.html" title="Start the Elastic Stack with security enabled">start the Elastic Stack with security enabled</a> by
-default. Just start Elasticsearch to enable and configure the Elastic Stack security features.
-You can then connect a Kibana instance to your
-secured Elasticsearch cluster and enroll additional nodes. You&#8217;ll have password
-protection, internode communication secured with Transport Layer Security (TLS),
-and encrypted connections between Elasticsearch and Kibana.</p>
-<p>If you prefer to manage security on your own, you can
-<a class="xref" href="manually-configure-security.html" title="Manually configure security">manually configure security</a> to secure Elasticsearch
-clusters and any clients that communicate with your clusters. You can also
+<a class="xref" href="configuring-stack-security.html" title="Start the Elastic Stack with security enabled automatically">start the Elastic Stack with security enabled and configured</a>.
+For any new clusters, just start Elasticsearch to automatically enable password protection,
+secure internode communication with Transport Layer Security (TLS), and encrypt
+connections between Elasticsearch and Kibana.</p>
+<p>If you have an existing, unsecured cluster (or prefer to manage security on your
+own), you can
+<a class="xref" href="manually-configure-security.html" title="Manually configure security">manually enable and configure security</a> to secure
+Elasticsearch clusters and any clients that communicate with your clusters. You can also
 implement additional security measures, such as role-based access control, IP
 filtering, and auditing.</p>
 <p>Enabling security protects Elasticsearch clusters by:</p>
@@ -207,7 +196,7 @@ interception. The Elastic Stack security features use TLS to preserve the <em>in
 of your data against tampering, while also providing <em>confidentiality</em> by
 encrypting communications to, from, and within the cluster. For even	greater
 protection, you can increase the <a class="xref" href="ciphers.html" title="Enabling cipher suites for stronger encryption">encryption strength</a>.</p>
-<p>See <a class="xref" href="configuring-stack-security.html" title="Start the Elastic Stack with security enabled">Configure security for the Elastic Stack</a>.</p>
+<p>See <a class="xref" href="configuring-stack-security.html" title="Start the Elastic Stack with security enabled automatically">Configure security for the Elastic Stack</a>.</p>
 <h2><a id="maintaining-audit-trail"></a>Maintaining an audit trail<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.2/x-pack/docs/en/security/index.asciidoc">edit</a></h2>
 <p>Keeping a system secure takes vigilance. By using Elastic Stack security features to
 maintain an audit trail, you can easily see who is accessing your cluster and
@@ -245,15 +234,37 @@ the activity in your cluster can also help diagnose operational issues.</p>
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

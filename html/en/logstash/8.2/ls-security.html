@@ -57,7 +57,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -88,38 +88,28 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
-You are looking at preliminary documentation for a future release.
-Not what you want? See the
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
 <a href="../current/index.html">current release documentation</a>.
 </div>
 <div id="content">
 <div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="index.html">Logstash Reference [8.2]</a></span>
-»
-<span class="breadcrumb-node">Secure your connection to Elasticsearch</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -148,10 +138,12 @@ to grant authorized users permission to access the Logstash indices.</p>
 <p>Security is enabled by default on the Elasticsearch cluster (starting in 8.0).
 You must enable TLS/SSL in the Elasticsearch output section of the Logstash configuration in order to allow Logstash to communicate with the Elasticsearch cluster.</p>
 <h2><a id="es-security-on"></a>Elasticsearch security on by default<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/logstash/edit/8.2/docs/static/security/es-security.asciidoc">edit</a></h2>
-<p>Elasticsearch <a href="/guide/en/elasticsearch/reference/8.2/configuring-stack-security.html" class="ulink" target="_top">security is on by default</a> starting in 8.0.
-Elasticsearch generates its own default self-signed Secure Sockets Layer (SSL) certificates at startup.</p>
-<p>For an on-premise Elasticsearch cluster, Logstash must establish a secure connection using the self-signed SSL certificate before it can transfer data.
-On the other hand, Elasticsearch Service uses standard publicly trusted certificates, and therefore setting a cacert is not necessary.</p>
+<p>Elasticsearch generates its own default self-signed Secure Sockets Layer (SSL) certificates at startup.</p>
+<p>Logstash must establish a Secure Sockets Layer (SSL) connection before it can transfer data to a secured Elasticsearch cluster.
+Logstash must have a copy of the certificate authority (CA) that signed the Elasticsearch cluster&#8217;s certificates.
+When a new Elasticsearch cluster is started up <em>without</em> dedicated certificates, it generates its own default self-signed Certificate Authority at startup.
+See <a href="/guide/en/elasticsearch/reference/8.2/configuring-stack-security.html" class="ulink" target="_top">Starting the Elastic Stack with security enabled</a> for more info.</p>
+<p>Elasticsearch Service uses certificates signed by standard publicly trusted certificate authorities, and therefore setting a cacert is not necessary.</p>
 <div class="note admon">
 <div class="icon"></div>
 <div class="admon_content">
@@ -861,15 +853,37 @@ through Kibana.</p>
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

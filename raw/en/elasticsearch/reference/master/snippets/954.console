@@ -1,20 +1,12 @@
+GET /my_locations/_search
 {
-  ...
-  "hits" : {
-    ...
-    "hits" : [
-      {
-        "_index" : "my-index",
-        "_id" : "1",
-        "_score" : 0.0,
-        "_source" : {
-          "comments" : [
-            {
-              "author" : "kimchy"
-            }
-          ]
+  "size" : 0,
+  "aggs" : {
+     "grouped" : {
+        "geotile_grid" : {
+           "field" : "location",
+           "precision" : 6
         }
-      }
-    ]
+     }
   }
 }

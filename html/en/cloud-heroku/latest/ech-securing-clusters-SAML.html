@@ -57,7 +57,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -88,36 +88,25 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Add-On for Heroku Documentation</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Add-On for Heroku Documentation</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="ech-security.html">Securing your deployment</a></span>
-»
-<span class="breadcrumb-node">Secure your clusters with SAML</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -129,12 +118,12 @@
 </div>
 <div class="chapter">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="ech-securing-clusters-SAML"></a>Secure your clusters with SAML<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-71/docs/shared/ec-ce-securing-clusters-saml.asciidoc">edit</a></h2>
+<h2 class="title"><a id="ech-securing-clusters-SAML"></a>Secure your clusters with SAML<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-77/docs/shared/ec-ce-securing-clusters-saml.asciidoc">edit</a></h2>
 </div></div></div>
 <p>These steps show how you can secure your Elasticsearch clusters, Kibana, and Enterprise Search instances in a deployment by using a Security Assertion Markup Language (SAML) identity provider (IdP) for cross-domain, single sign-on authentication.</p>
-<h3><a id="echbefore_you_begin_10"></a>Before you begin<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-71/docs/shared/ec-ce-securing-clusters-saml.asciidoc">edit</a></h3>
+<h3><a id="echbefore_you_begin_10"></a>Before you begin<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-77/docs/shared/ec-ce-securing-clusters-saml.asciidoc">edit</a></h3>
 <p>Elasticsearch Add-On for Heroku supports SAML with Elastic Stack version 6.4 and later.</p>
-<h3><a id="echconfigure_your_7_0_or_above_cluster_to_use_saml"></a>Configure your 7.0 or above cluster to use SAML<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-71/docs/shared/ec-ce-securing-clusters-saml.asciidoc">edit</a></h3>
+<h3><a id="echconfigure_your_8_0_or_above_cluster_to_use_saml"></a>Configure your 8.0 or above cluster to use SAML<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-77/docs/shared/ec-ce-securing-clusters-saml.asciidoc">edit</a></h3>
 <p>You must edit your cluster configuration, sometimes also referred to as the deployment plan, to point to the SAML IdP before you can complete the configuration in Kibana. If you are using machine learning or a deployment with hot-warm architecture, you must include this SAML IdP configuration in the user settings section for each node type.</p>
 <div class="olist orderedlist">
 <ol class="orderedlist">
@@ -193,7 +182,7 @@ Copy the Kibana endpoint URL.
 <p><a href="#CO1-4"><i class="conum" data-value="4"></i></a></p>
 </td>
 <td align="left" valign="top">
-<p>Defines the SAML attribute that is going to be mapped to the principal (username) of the authenticated user in Kibana. In this  non-normative example, <code class="literal">nameid:persistent</code> maps the <code class="literal">NameID</code> with the <code class="literal">urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</code> format from the Subject of the SAML Assertion. You can use any SAML attribute that carries the necessary value for your use case in this setting, such as <code class="literal">uid</code> or <code class="literal">mail</code>. Refer to <a href="/guide/en/elasticsearch/reference/8.1/saml-guide-stack.html#saml-attributes-mapping" class="ulink" target="_top">the attribute mapping documentation</a> for details and available options.</p>
+<p>Defines the SAML attribute that is going to be mapped to the principal (username) of the authenticated user in Kibana. In this  non-normative example, <code class="literal">nameid:persistent</code> maps the <code class="literal">NameID</code> with the <code class="literal">urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</code> format from the Subject of the SAML Assertion. You can use any SAML attribute that carries the necessary value for your use case in this setting, such as <code class="literal">uid</code> or <code class="literal">mail</code>. Refer to <a href="/guide/en/elasticsearch/reference/8.3/saml-guide-stack.html#saml-attributes-mapping" class="ulink" target="_top">the attribute mapping documentation</a> for details and available options.</p>
 </td>
 </tr>
 <tr>
@@ -201,7 +190,7 @@ Copy the Kibana endpoint URL.
 <p><a href="#CO1-5"><i class="conum" data-value="5"></i></a></p>
 </td>
 <td align="left" valign="top">
-<p>Defines the SAML attribute used for role mapping when configured in Kibana. Common choices are <code class="literal">groups</code> or <code class="literal">roles</code>. The values for both <code class="literal">attributes.principal</code> and <code class="literal">attributes.groups</code> depend on the IdP provider, so be sure to review their documentation. Refer to <a href="/guide/en/elasticsearch/reference/8.1/saml-guide-stack.html#saml-attributes-mapping" class="ulink" target="_top">the attribute mapping documentation</a> for details and available options.</p>
+<p>Defines the SAML attribute used for role mapping when configured in Kibana. Common choices are <code class="literal">groups</code> or <code class="literal">roles</code>. The values for both <code class="literal">attributes.principal</code> and <code class="literal">attributes.groups</code> depend on the IdP provider, so be sure to review their documentation. Refer to <a href="/guide/en/elasticsearch/reference/8.3/saml-guide-stack.html#saml-attributes-mapping" class="ulink" target="_top">the attribute mapping documentation</a> for details and available options.</p>
 </td>
 </tr>
 <tr>
@@ -234,7 +223,7 @@ Copy the Kibana endpoint URL.
 <li class="listitem">
 <p>By default, users authenticating through SAML have no roles assigned to them. For example, if you want all your users authenticating with SAML to get access to Kibana, issue the following request to Elasticsearch:</p>
 <div class="pre_wrapper lang-sh">
-<pre class="programlisting prettyprint lang-sh">POST /_xpack/security/role_mapping/CLOUD_SAML_TO_KIBANA_ADMIN <a id="CO2-1"></a><i class="conum" data-value="1"></i>
+<pre class="programlisting prettyprint lang-sh">POST /_security/role_mapping/CLOUD_SAML_TO_KIBANA_ADMIN <a id="CO2-1"></a><i class="conum" data-value="1"></i>
 {
    "enabled": true,
     "roles": [ "kibana_admin" ], <a id="CO2-2"></a><i class="conum" data-value="2"></i>
@@ -284,7 +273,7 @@ Copy the Kibana endpoint URL.
 <li class="listitem">
 <p>Alternatively, if you want the users that belong to the group <code class="literal">elasticadmins</code> in your identity provider to be assigned the <code class="literal">superuser</code> role in your Elasticsearch cluster, issue the following request to Elasticsearch:</p>
 <div class="pre_wrapper lang-sh">
-<pre class="programlisting prettyprint lang-sh">POST /_xpack/security/role_mapping/CLOUD_SAML_ELASTICADMIN_TO_SUPERUSER <a id="CO3-1"></a><i class="conum" data-value="1"></i>
+<pre class="programlisting prettyprint lang-sh">POST /_security/role_mapping/CLOUD_SAML_ELASTICADMIN_TO_SUPERUSER <a id="CO3-1"></a><i class="conum" data-value="1"></i>
 {
    "enabled": true,
     "roles": [ "superuser" ], <a id="CO3-2"></a><i class="conum" data-value="2"></i>
@@ -516,7 +505,10 @@ Use the Kibana endpoint URL to log in.
 </li>
 </ol>
 </div>
-<h3><a id="ech-6x-saml"></a>Configure your 6.x cluster to use SAML<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-71/docs/shared/ec-ce-securing-clusters-saml.asciidoc">edit</a></h3>
+<h3><a id="ech-7x-saml"></a>Configure your 7.x cluster to use SAML<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-77/docs/shared/ec-ce-securing-clusters-saml.asciidoc">edit</a></h3>
+<p>For 7.x deployments, the instructions are similar to those for 8.x, but your Elasticsearch request should use <code class="literal">POST /_xpack/security/role_mapping/CLOUD_SAML_TO_KIBANA_ADMIN</code> (for Step 4) or <code class="literal">POST /_xpack/xsecurity/role_mapping/CLOUD_SAML_ELASTICADMIN_TO_SUPERUSER</code> (for Step 5).</p>
+<p>All of the other steps are the same.</p>
+<h3><a id="ech-6x-saml"></a>Configure your 6.x cluster to use SAML<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-77/docs/shared/ec-ce-securing-clusters-saml.asciidoc">edit</a></h3>
 <p>For 6.x deployments the configuration is slightly different. For <a class="xref" href="ech-securing-clusters-SAML.html#step-3">step 3</a>, you must specify the realm name, then define the realm <code class="literal">type</code> using the following example:</p>
 <div class="pre_wrapper lang-sh">
 <pre class="programlisting prettyprint lang-sh">xpack:
@@ -562,15 +554,37 @@ Use the Kibana endpoint URL to log in.
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

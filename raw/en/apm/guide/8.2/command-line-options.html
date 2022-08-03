@@ -13,19 +13,16 @@
 <meta name="robots" content="noindex,nofollow"/>
 </head>
 <body><div class="page_header">
-You are looking at preliminary documentation for a future release.
-Not what you want? See the
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
 <a href="../current/index.html">current release documentation</a>.
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">APM User Guide [8.2]</a></span>
-»
-<span class="breadcrumb-link"><a href="overview.html">Legacy APM Server Reference</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">APM User Guide [8.2]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="overview.html">Legacy APM Server Reference</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="setting-up-and-running.html">Set up APM Server</a></span>
-»
-<span class="breadcrumb-node">APM Server command reference</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -43,7 +40,7 @@ Not what you want? See the
 <div class="important admon">
 <div class="icon"></div>
 <div class="admon_content">
-<p>This documentation refers to configuring the standalone (legacy) APM Server. This method of running APM Server will be deprecated and removed in a future release. Please consider <a class="xref" href="upgrade-to-apm-integration.html" title="Upgrade to the Elastic APM integration">upgrading to Fleet and the APM integration</a>.</p>
+<p>This documentation refers to configuring the standalone (legacy) APM Server. This method of running APM Server will be deprecated and removed in a future release. Please consider <a class="xref" href="upgrade-to-apm-integration.html" title="Switch to the Elastic APM integration">upgrading to Fleet and the APM integration</a>.</p>
 </div>
 </div>
 <p>APM Server provides a command-line interface for starting APM Server and
@@ -131,7 +128,7 @@ and you must ensure that <code class="literal">apm-server.api_key</code> or <cod
 <div class="pre_wrapper lang-sh">
 <pre class="programlisting prettyprint lang-sh">apm-server apikey SUBCOMMAND [FLAGS]</pre>
 </div>
-<p><span class="strong strong"><strong>SUBCOMMANDS</strong></span></p>
+<p><span class="strong strong"><strong><code class="literal">SUBCOMMAND</code></strong></span></p>
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -193,7 +190,7 @@ When used with <code class="literal">verify</code>, asks for the <code class="li
 </span>
 </dt>
 <dd>
-Required for the <code class="literal">verify</code> subcommand. Specifies the credentials for which to to check privileges.
+Required for the <code class="literal">verify</code> subcommand. Specifies the credentials for which to check privileges.
 Credentials are the base64 encoded representation of the API key&#8217;s <code class="literal">id:api_key</code>.
 </dd>
 <dt>
@@ -250,7 +247,7 @@ When used with <code class="literal">invalidate</code>, specifies the API key to
 </span>
 </dt>
 <dd>
-Required for uploading sourcemaps. Valid with the <code class="literal">create</code> and <code class="literal">verify</code> subcommands.
+Required for uploading source maps. Valid with the <code class="literal">create</code> and <code class="literal">verify</code> subcommands.
 When used with <code class="literal">create</code>, gives the <code class="literal">sourcemap:write</code> privilege to the created key.
 When used with <code class="literal">verify</code>, asks for the <code class="literal">sourcemap:write</code> privilege.
 </dd>
@@ -280,7 +277,7 @@ template or the ILM policy.</p>
 <div class="pre_wrapper lang-sh">
 <pre class="programlisting prettyprint lang-sh">apm-server export SUBCOMMAND [FLAGS]</pre>
 </div>
-<p><span class="strong strong"><strong>SUBCOMMANDS</strong></span></p>
+<p><span class="strong strong"><strong><code class="literal">SUBCOMMAND</code></strong></span></p>
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -366,7 +363,7 @@ as files instead of printing them to <code class="literal">stdout</code>.
 <p><span class="strong strong"><strong>EXAMPLES</strong></span></p>
 <div class="pre_wrapper lang-sh">
 <pre class="programlisting prettyprint lang-sh">apm-server export config
-apm-server export template --es.version 8.2.0 --index myindexname</pre>
+apm-server export template --es.version 8.2.3 --index myindexname</pre>
 </div>
 <h4><a id="help-command"></a><code class="literal">help</code> command<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/apm-server/edit/8.2/docs/legacy/copied-from-beats/docs/command-reference.asciidoc">edit</a></h4>
 <p>Shows help for any command.
@@ -411,7 +408,7 @@ Shows help for the <code class="literal">help</code> command.
 <div class="pre_wrapper lang-sh">
 <pre class="programlisting prettyprint lang-sh">apm-server keystore SUBCOMMAND [FLAGS]</pre>
 </div>
-<p><span class="strong strong"><strong>SUBCOMMANDS</strong></span></p>
+<p><span class="strong strong"><strong><code class="literal">SUBCOMMAND</code></strong></span></p>
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
@@ -534,7 +531,7 @@ Shows help for the <code class="literal">run</code> command.
 </span>
 </dt>
 <dd>
-Starts an http server for profiling. This option is useful for troubleshooting
+Starts an HTTP server for profiling. This option is useful for troubleshooting
 and profiling APM Server.
 </dd>
 <dt>
@@ -552,7 +549,7 @@ for troubleshooting APM Server.
 </span>
 </dt>
 <dd>
-Specifies the mount point of the host&#8217;s filesystem for use in monitoring a host.
+Specifies the mount point of the host&#8217;s file system for use in monitoring a host.
 </dd>
 </dl>
 </div>
@@ -571,7 +568,7 @@ Specifies the mount point of the host&#8217;s filesystem for use in monitoring a
 <div class="pre_wrapper lang-sh">
 <pre class="programlisting prettyprint lang-sh">apm-server test SUBCOMMAND [FLAGS]</pre>
 </div>
-<p><span class="strong strong"><strong>SUBCOMMANDS</strong></span></p>
+<p><span class="strong strong"><strong><code class="literal">SUBCOMMAND</code></strong></span></p>
 <div class="variablelist">
 <dl class="variablelist">
 <dt>

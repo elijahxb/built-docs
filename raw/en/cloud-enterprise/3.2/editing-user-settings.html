@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Editing your user settings | Elastic Cloud Enterprise Reference [3.2] | Elastic</title>
+<link rel="home" href="index.html" title="Elastic Cloud Enterprise Reference [3.2]"/>
+<link rel="up" href="ece-administering-deployments.html" title="Administering deployments"/>
+<link rel="prev" href="ece-appsearch-readonly2.html" title="Read-only mode"/>
+<link rel="next" href="ece-add-user-settings.html" title="Add Elasticsearch user settings"/>
+<meta name="DC.type" content="Learn/Docs/CloudEnterprise/Reference/3.2"/>
+<meta name="DC.subject" content="ECE"/>
+<meta name="DC.identifier" content="3.2"/>
+</head>
+<body><div class="page_header">
+A newer version is available. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Cloud Enterprise Reference [3.2]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="ece-administering-deployments.html">Administering deployments</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="ece-appsearch-readonly2.html">« Read-only mode</a>
+</span>
+<span class="next">
+<a href="ece-add-user-settings.html">Add Elasticsearch user settings »</a>
+</span>
+</div>
+<div class="chapter">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="editing-user-settings"></a>Editing your user settings<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/cloud-enterprise/ce-editing-user-settings.asciidoc">edit</a></h2>
+</div></div></div>
+<p>From the Elastic Cloud Enterprise console you can customize Elasticsearch, Kibana, and other supported stack components to suit your needs. These editors append your changes to the appropriate YAML configuration file and they affect all users of that cluster. In each editor you can:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<a class="xref" href="ece-add-user-settings.html" title="Add Elasticsearch user settings">Dictate the behavior of Elasticsearch and its security features</a>.
+</li>
+<li class="listitem">
+<a class="xref" href="ece-manage-kibana-settings.html" title="Add Kibana user settings">Manage Kibana&#8217;s settings</a>.
+</li>
+<li class="listitem">
+<a class="xref" href="ece-manage-apm-settings.html" title="Add APM user settings">Tune your APM Server</a>.
+</li>
+<li class="listitem">
+<a class="xref" href="ece-manage-appsearch-settings.html" title="Add App Search user settings">Configure App Search</a>.
+</li>
+<li class="listitem">
+<a class="xref" href="ece-manage-enterprise-search-settings.html" title="Add Enterprise Search user settings">Configure Enterprise Search</a>.
+</li>
+</ul>
+</div>
+
+
+
+
+
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="ece-appsearch-readonly2.html">« Read-only mode</a>
+</span>
+<span class="next">
+<a href="ece-add-user-settings.html">Add Elasticsearch user settings »</a>
+</span>
+</div>
+</div>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains('stemblock')) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+</body>
+</html>

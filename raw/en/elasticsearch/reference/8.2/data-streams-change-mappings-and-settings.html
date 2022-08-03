@@ -13,17 +13,15 @@
 <meta name="robots" content="noindex,nofollow"/>
 </head>
 <body><div class="page_header">
-You are looking at preliminary documentation for a future release.
-Not what you want? See the
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
 <a href="../current/index.html">current release documentation</a>.
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.2]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.2]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="data-streams.html">Data streams</a></span>
-»
-<span class="breadcrumb-node">Change mappings and settings for a data stream</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -93,7 +91,7 @@ for a new field, <code class="literal">message</code>, to the template.</p>
   "template": {
     "mappings": {
       "properties": {
-        "message": {                              <a id="CO166-1"></a><i class="conum" data-value="1"></i>
+        "message": {                              <a id="CO170-1"></a><i class="conum" data-value="1"></i>
           "type": "text"
         }
       }
@@ -101,12 +99,12 @@ for a new field, <code class="literal">message</code>, to the template.</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/596.console"></div>
+<div class="console_widget" data-snippet="snippets/598.console"></div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO166-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO170-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Adds a mapping for the new <code class="literal">message</code> field.</p>
@@ -132,7 +130,7 @@ backing indices, including the write index.</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/597.console"></div>
+<div class="console_widget" data-snippet="snippets/599.console"></div>
 <p>To add the mapping only to the stream&#8217;s write index, set the update mapping API&#8217;s
 <code class="literal">write_index_only</code> query parameter to <code class="literal">true</code>.</p>
 <p>The following update mapping request adds the new <code class="literal">message</code> field mapping only to
@@ -149,7 +147,7 @@ the stream&#8217;s other backing indices.</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/598.console"></div>
+<div class="console_widget" data-snippet="snippets/600.console"></div>
 </li>
 </ol>
 </div>
@@ -182,7 +180,7 @@ mapping parameter to <code class="literal">true</code>.</p>
           "properties": {
             "ip": {
               "type": "ip",
-              "ignore_malformed": true            <a id="CO167-1"></a><i class="conum" data-value="1"></i>
+              "ignore_malformed": true            <a id="CO171-1"></a><i class="conum" data-value="1"></i>
             }
           }
         }
@@ -191,12 +189,12 @@ mapping parameter to <code class="literal">true</code>.</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/599.console"></div>
+<div class="console_widget" data-snippet="snippets/601.console"></div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO167-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO171-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Changes the <code class="literal">host.ip</code> field&#8217;s <code class="literal">ignore_malformed</code> value to <code class="literal">true</code>.</p>
@@ -228,7 +226,7 @@ field&#8217;s <code class="literal">ignore_malformed</code> mapping parameter to
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/600.console"></div>
+<div class="console_widget" data-snippet="snippets/602.console"></div>
 <p>To apply the mapping changes only to the stream&#8217;s write index, set the put
 mapping API&#8217;s <code class="literal">write_index_only</code> query parameter to <code class="literal">true</code>.</p>
 <p>The following update mapping request changes the <code class="literal">host.ip</code> field&#8217;s mapping only for
@@ -250,7 +248,7 @@ stream&#8217;s other backing indices.</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/601.console"></div>
+<div class="console_widget" data-snippet="snippets/603.console"></div>
 </li>
 </ol>
 </div>
@@ -282,17 +280,17 @@ template&#8217;s <code class="literal">index.refresh_interval</code> index setti
   "priority": 500,
   "template": {
     "settings": {
-      "index.refresh_interval": "30s"             <a id="CO168-1"></a><i class="conum" data-value="1"></i>
+      "index.refresh_interval": "30s"             <a id="CO172-1"></a><i class="conum" data-value="1"></i>
     }
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/602.console"></div>
+<div class="console_widget" data-snippet="snippets/604.console"></div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO168-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO172-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Changes the <code class="literal">index.refresh_interval</code> setting to <code class="literal">30s</code> (30 seconds).</p>
@@ -316,7 +314,7 @@ the stream&#8217;s existing backing indices, including the write index.</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/603.console"></div>
+<div class="console_widget" data-snippet="snippets/605.console"></div>
 </li>
 </ol>
 </div>
@@ -348,18 +346,18 @@ adds new <code class="literal">sort.field</code> and <code class="literal">sort.
   "priority": 500,
   "template": {
     "settings": {
-      "sort.field": [ "@timestamp"],             <a id="CO169-1"></a><i class="conum" data-value="1"></i>
-      "sort.order": [ "desc"]                    <a id="CO169-2"></a><i class="conum" data-value="2"></i>
+      "sort.field": [ "@timestamp"],             <a id="CO173-1"></a><i class="conum" data-value="1"></i>
+      "sort.order": [ "desc"]                    <a id="CO173-2"></a><i class="conum" data-value="2"></i>
     }
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/604.console"></div>
+<div class="console_widget" data-snippet="snippets/606.console"></div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO169-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO173-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Adds the <code class="literal">sort.field</code> index setting.</p>
@@ -367,7 +365,7 @@ adds new <code class="literal">sort.field</code> and <code class="literal">sort.
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO169-2"><i class="conum" data-value="2"></i></a></p>
+<p><a href="#CO173-2"><i class="conum" data-value="2"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Adds the <code class="literal">sort.order</code> index setting.</p>
@@ -408,7 +406,7 @@ aliases, or data streams that start with <code class="literal">new-data-stream</
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">GET /_resolve/index/new-data-stream*</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/605.console"></div>
+<div class="console_widget" data-snippet="snippets/607.console"></div>
 <p>The API returns the following response, indicating no existing targets match
 this pattern.</p>
 <a id="4a056693dcd998a6b66a73f115d43239"></a>
@@ -468,23 +466,23 @@ not in the original <code class="literal">my-data-stream-template</code> templat
     "mappings": {
       "properties": {
         "@timestamp": {
-          "type": "date_nanos"                 <a id="CO170-1"></a><i class="conum" data-value="1"></i>
+          "type": "date_nanos"                 <a id="CO174-1"></a><i class="conum" data-value="1"></i>
         }
       }
     },
     "settings": {
-      "sort.field": [ "@timestamp"],          <a id="CO170-2"></a><i class="conum" data-value="2"></i>
-      "sort.order": [ "desc"]                 <a id="CO170-3"></a><i class="conum" data-value="3"></i>
+      "sort.field": [ "@timestamp"],          <a id="CO174-2"></a><i class="conum" data-value="2"></i>
+      "sort.order": [ "desc"]                 <a id="CO174-3"></a><i class="conum" data-value="3"></i>
     }
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/606.console"></div>
+<div class="console_widget" data-snippet="snippets/608.console"></div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO170-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO174-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Changes the <code class="literal">@timestamp</code> field mapping to the <code class="literal">date_nanos</code> field data type.</p>
@@ -492,7 +490,7 @@ not in the original <code class="literal">my-data-stream-template</code> templat
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO170-2"><i class="conum" data-value="2"></i></a></p>
+<p><a href="#CO174-2"><i class="conum" data-value="2"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Adds the <code class="literal">sort.field</code> index setting.</p>
@@ -500,7 +498,7 @@ not in the original <code class="literal">my-data-stream-template</code> templat
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO170-3"><i class="conum" data-value="3"></i></a></p>
+<p><a href="#CO174-3"><i class="conum" data-value="3"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Adds the <code class="literal">sort.order</code> index setting.</p>
@@ -535,7 +533,7 @@ the <code class="literal">new-data-stream</code> data stream.</p>
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">PUT /_data_stream/new-data-stream</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/607.console"></div>
+<div class="console_widget" data-snippet="snippets/609.console"></div>
 </li>
 <li class="listitem">
 If you do not want to mix new and old data in your new data stream, pause the
@@ -559,7 +557,7 @@ lowers the <code class="literal">indices.lifecycle.poll_interval</code> setting 
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/608.console"></div>
+<div class="console_widget" data-snippet="snippets/610.console"></div>
 </li>
 <li class="listitem">
 <p>Reindex your data to the new data stream using an <code class="literal">op_type</code> of <code class="literal">create</code>.</p>
@@ -578,7 +576,7 @@ This preserves the order in which the data was originally indexed.</p>
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">GET /_data_stream/my-data-stream</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/609.console"></div>
+<div class="console_widget" data-snippet="snippets/611.console"></div>
 <p>The response&#8217;s <code class="literal">indices</code> property contains an array of the stream&#8217;s current
 backing indices. The first item in the array contains information about the
 stream&#8217;s oldest backing index.</p>
@@ -593,7 +591,7 @@ stream&#8217;s oldest backing index.</p>
       },
       "indices": [
         {
-          "index_name": ".ds-my-data-stream-2099.03.07-000001", <a id="CO171-1"></a><i class="conum" data-value="1"></i>
+          "index_name": ".ds-my-data-stream-2099.03.07-000001", <a id="CO175-1"></a><i class="conum" data-value="1"></i>
           "index_uuid": "Gpdiyq8sRuK9WuthvAdFbw"
         },
         {
@@ -616,7 +614,7 @@ stream&#8217;s oldest backing index.</p>
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO171-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO175-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>First item in the <code class="literal">indices</code> array for <code class="literal">my-data-stream</code>. This item contains
@@ -642,7 +640,7 @@ information about the stream&#8217;s oldest backing index,
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/610.console"></div>
+<div class="console_widget" data-snippet="snippets/612.console"></div>
 <p>You can also use a query to reindex only a subset of documents with each
 request.</p>
 <p>The following <a class="xref" href="docs-reindex.html" title="Reindex API">reindex API</a> request copies documents from
@@ -670,7 +668,7 @@ timestamp within the last week. Note the request&#8217;s <code class="literal">o
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/611.console"></div>
+<div class="console_widget" data-snippet="snippets/613.console"></div>
 </li>
 <li class="listitem">
 <p>If you previously changed your ILM poll interval, change it back to its
@@ -687,7 +685,7 @@ the master node.</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/612.console"></div>
+<div class="console_widget" data-snippet="snippets/614.console"></div>
 </li>
 <li class="listitem">
 Resume indexing using the new data stream. Searches on this stream will now
@@ -703,7 +701,7 @@ backing indices and any data they contain.</p>
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">DELETE /_data_stream/my-data-stream</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/613.console"></div>
+<div class="console_widget" data-snippet="snippets/615.console"></div>
 </li>
 </ol>
 </div>

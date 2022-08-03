@@ -1,15 +1,18 @@
-POST /my-index-000001/_close
-
-PUT /my-index-000001/_settings
+PUT _component_template/template_1
 {
-  "analysis" : {
-    "analyzer":{
-      "content":{
-        "type":"custom",
-        "tokenizer":"whitespace"
-      }
+  "template": {
+    "settings" : {
+        "number_of_shards" : 1
+    },
+    "aliases" : {
+        "alias1" : {},
+        "alias2" : {
+            "filter" : {
+                "term" : {"user.id" : "kimchy" }
+            },
+            "routing" : "shard-1"
+        },
+        "{index}-alias" : {}
     }
   }
 }
-
-POST /my-index-000001/_open

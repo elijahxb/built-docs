@@ -57,7 +57,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -88,27 +88,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 <strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
@@ -117,13 +108,10 @@ will be released for this version. For the latest information, see the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.0]</a></span>
-»
-<span class="breadcrumb-link"><a href="query-dsl.html">Query DSL</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.0]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="query-dsl.html">Query DSL</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="full-text-queries.html">Full text queries</a></span>
-»
-<span class="breadcrumb-node">Multi-match query</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -241,7 +229,7 @@ console.log(response)</pre>
   }
 }</pre>
 </div>
-<div class="console_widget has-php has-csharp has-python has-ruby has-go has-js" data-snippet="snippets/875.console"></div>
+<div class="console_widget has-php has-csharp has-python has-ruby has-go has-js" data-snippet="snippets/876.console"></div>
 <div class="calloutlist default has-php has-csharp has-python has-ruby has-go has-js lang-console">
 <table border="0" summary="Callout list">
 <tr>
@@ -365,7 +353,7 @@ console.log(response)</pre>
   }
 }</pre>
 </div>
-<div class="console_widget has-php has-csharp has-python has-ruby has-go has-js" data-snippet="snippets/876.console"></div>
+<div class="console_widget has-php has-csharp has-python has-ruby has-go has-js" data-snippet="snippets/877.console"></div>
 <div class="calloutlist default has-php has-csharp has-python has-ruby has-go has-js lang-console">
 <table border="0" summary="Callout list">
 <tr>
@@ -480,7 +468,7 @@ console.log(response)</pre>
   }
 }</pre>
 </div>
-<div class="console_widget has-php has-csharp has-python has-ruby has-go has-js" data-snippet="snippets/877.console"></div>
+<div class="console_widget has-php has-csharp has-python has-ruby has-go has-js" data-snippet="snippets/878.console"></div>
 <div class="calloutlist default has-php has-csharp has-python has-ruby has-go has-js lang-console">
 <table border="0" summary="Callout list">
 <tr>
@@ -727,7 +715,7 @@ console.log(response)</pre>
   }
 }</pre>
 </div>
-<div class="console_widget has-php has-csharp has-python has-ruby has-go has-js" data-snippet="snippets/878.console"></div>
+<div class="console_widget has-php has-csharp has-python has-ruby has-go has-js" data-snippet="snippets/879.console"></div>
 <p>would be executed as:</p>
 <div class="pre_wrapper lang-php alternative">
 <pre class="programlisting prettyprint lang-php alternative">$params = [
@@ -871,7 +859,7 @@ console.log(response)</pre>
   }
 }</pre>
 </div>
-<div class="console_widget has-php has-csharp has-python has-ruby has-go has-js" data-snippet="snippets/879.console"></div>
+<div class="console_widget has-php has-csharp has-python has-ruby has-go has-js" data-snippet="snippets/880.console"></div>
 <p>Normally the <code class="literal">best_fields</code> type uses the score of the <span class="strong strong"><strong>single</strong></span> best matching
 field, but if <code class="literal">tie_breaker</code> is specified, then it calculates the score as
 follows:</p>
@@ -1013,7 +1001,7 @@ console.log(response)</pre>
   }
 }</pre>
 </div>
-<div class="console_widget has-php has-csharp has-python has-ruby has-go has-js" data-snippet="snippets/880.console"></div>
+<div class="console_widget has-php has-csharp has-python has-ruby has-go has-js" data-snippet="snippets/881.console"></div>
 <div class="calloutlist default has-php has-csharp has-python has-ruby has-go has-js lang-console">
 <table border="0" summary="Callout list">
 <tr>
@@ -1164,7 +1152,7 @@ console.log(response)</pre>
   }
 }</pre>
 </div>
-<div class="console_widget has-php has-csharp has-python has-ruby has-go has-js" data-snippet="snippets/881.console"></div>
+<div class="console_widget has-php has-csharp has-python has-ruby has-go has-js" data-snippet="snippets/882.console"></div>
 <p>would be executed as:</p>
 <div class="pre_wrapper lang-php alternative">
 <pre class="programlisting prettyprint lang-php alternative">$params = [
@@ -1324,7 +1312,7 @@ console.log(response)</pre>
   }
 }</pre>
 </div>
-<div class="console_widget has-php has-csharp has-python has-ruby has-go has-js" data-snippet="snippets/882.console"></div>
+<div class="console_widget has-php has-csharp has-python has-ruby has-go has-js" data-snippet="snippets/883.console"></div>
 <p>The score from each <code class="literal">match</code> clause is added together, then divided by the
 number of <code class="literal">match</code> clauses.</p>
 <p>Also, accepts <code class="literal">analyzer</code>, <code class="literal">boost</code>, <code class="literal">operator</code>, <code class="literal">minimum_should_match</code>,
@@ -1447,7 +1435,7 @@ console.log(response)</pre>
   }
 }</pre>
 </div>
-<div class="console_widget has-php has-csharp has-python has-ruby has-go has-js" data-snippet="snippets/883.console"></div>
+<div class="console_widget has-php has-csharp has-python has-ruby has-go has-js" data-snippet="snippets/884.console"></div>
 <p>would be executed as:</p>
 <div class="pre_wrapper lang-php alternative">
 <pre class="programlisting prettyprint lang-php alternative">$params = [
@@ -1584,7 +1572,7 @@ console.log(response)</pre>
   }
 }</pre>
 </div>
-<div class="console_widget has-php has-csharp has-python has-ruby has-go has-js" data-snippet="snippets/884.console"></div>
+<div class="console_widget has-php has-csharp has-python has-ruby has-go has-js" data-snippet="snippets/885.console"></div>
 <p>Also, accepts <code class="literal">analyzer</code>, <code class="literal">boost</code>, <code class="literal">lenient</code> and <code class="literal">zero_terms_query</code> as explained
 in <a class="xref" href="query-dsl-match-query.html" title="Match query">Match</a>, as well as <code class="literal">slop</code> which is explained in <a class="xref" href="query-dsl-match-query-phrase.html" title="Match phrase query">Match phrase</a>.
 Type <code class="literal">phrase_prefix</code> additionally accepts <code class="literal">max_expansions</code>.</p>
@@ -1744,7 +1732,7 @@ console.log(response)</pre>
   }
 }</pre>
 </div>
-<div class="console_widget has-php has-csharp has-python has-ruby has-go has-js" data-snippet="snippets/885.console"></div>
+<div class="console_widget has-php has-csharp has-python has-ruby has-go has-js" data-snippet="snippets/886.console"></div>
 <p>is executed as:</p>
 <pre class="literallayout">+(first_name:will last_name:will)
 +(first_name:smith last_name:smith)</pre>
@@ -1910,7 +1898,7 @@ console.log(response)</pre>
   }
 }</pre>
 </div>
-<div class="console_widget has-php has-csharp has-python has-ruby has-go has-js" data-snippet="snippets/886.console"></div>
+<div class="console_widget has-php has-csharp has-python has-ruby has-go has-js" data-snippet="snippets/887.console"></div>
 <p>would be executed as:</p>
 <pre class="literallayout">    blended("jon", fields: [first, last])
 | (
@@ -1955,7 +1943,7 @@ parameter to just one of them:</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/887.console"></div>
+<div class="console_widget" data-snippet="snippets/888.console"></div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
@@ -2090,7 +2078,7 @@ console.log(response)</pre>
   }
 }</pre>
 </div>
-<div class="console_widget has-php has-csharp has-python has-ruby has-go has-js" data-snippet="snippets/888.console"></div>
+<div class="console_widget has-php has-csharp has-python has-ruby has-go has-js" data-snippet="snippets/889.console"></div>
 <div class="calloutlist default has-php has-csharp has-python has-ruby has-go has-js lang-console">
 <table border="0" summary="Callout list">
 <tr>
@@ -2292,7 +2280,7 @@ console.log(response)</pre>
   }
 }</pre>
 </div>
-<div class="console_widget has-php has-csharp has-python has-ruby has-go has-js" data-snippet="snippets/889.console"></div>
+<div class="console_widget has-php has-csharp has-python has-ruby has-go has-js" data-snippet="snippets/890.console"></div>
 <p>The <code class="literal">analyzer</code>, <code class="literal">boost</code>, <code class="literal">operator</code>, <code class="literal">minimum_should_match</code>, <code class="literal">lenient</code>,
 <code class="literal">zero_terms_query</code>, and <code class="literal">auto_generate_synonyms_phrase_query</code> parameters as
 explained in <a class="xref" href="query-dsl-match-query.html" title="Match query">match query</a> are supported. The
@@ -2316,15 +2304,37 @@ constructed from the final term.</p>
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

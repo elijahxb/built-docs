@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,27 +87,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 You are looking at preliminary documentation for a future release.
@@ -116,13 +107,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elastic Security Solution [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="detection-engine-overview.html">Detections and alerts</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Security Solution [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="detection-engine-overview.html">Detections and alerts</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="prebuilt-rules.html">Prebuilt rule reference</a></span>
-»
-<span class="breadcrumb-node">AdFind Command Activity</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -200,57 +188,71 @@ Discovery
 </li>
 </ul>
 </div>
-<p><span class="strong strong"><strong>Version</strong></span>: 6 (<a class="xref" href="adfind-command-activity.html#adfind-command-activity-history" title="Rule version history">version history</a>)</p>
+<p><span class="strong strong"><strong>Version</strong></span>: 8 (<a class="xref" href="adfind-command-activity.html#adfind-command-activity-history" title="Rule version history">version history</a>)</p>
 <p><span class="strong strong"><strong>Added (Elastic Stack release)</strong></span>: 7.11.0</p>
-<p><span class="strong strong"><strong>Last modified (Elastic Stack release)</strong></span>: 8.1.0</p>
+<p><span class="strong strong"><strong>Last modified (Elastic Stack release)</strong></span>: 8.3.0</p>
 <p><span class="strong strong"><strong>Rule authors</strong></span>: Elastic</p>
 <p><span class="strong strong"><strong>Rule license</strong></span>: Elastic License v2</p>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_investigation_guide_55"></a>Investigation guide<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/main/docs/detections/prebuilt-rules/rule-details/adfind-command-activity.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_investigation_guide_61"></a>Investigation guide<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/main/docs/detections/prebuilt-rules/rule-details/adfind-command-activity.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="pre_wrapper lang-markdown">
 <pre class="programlisting prettyprint lang-markdown">## Triage and analysis
 
 ### Investigating AdFind Command Activity
 
-[AdFind](http://www.joeware.net/freetools/tools/adfind/) is a freely available command-line tool used to retrieve information from
-Active Directory (AD). Network discovery and enumeration tools like `AdFind` are useful to adversaries in the same ways
-they are effective for network administrators. This tool provides quick ability to scope AD person/computer objects and
-understand subnets and domain information. There are many [examples](https://thedfirreport.com/category/adfind/)
-observed where this tool has been adopted by ransomware and criminal groups and used in compromises.
+[AdFind](http://www.joeware.net/freetools/tools/adfind/) is a freely available command-line tool used to retrieve information
+from Active Directory (AD). Network discovery and enumeration tools like `AdFind` are useful to adversaries in the same
+ways they are effective for network administrators. This tool provides quick ability to scope AD person/computer objects
+and understand subnets and domain information. There are many [examples](https://thedfirreport.com/category/adfind/) of
+this tool being adopted by ransomware and criminal groups and used in compromises.
 
-#### Possible investigation steps:
-- `AdFind` is a legitimate Active Directory enumeration tool used by network administrators, it's important to understand
-the source of the activity.  This could involve identifying the account using `AdFind` and determining based on the command-lines
-what information was retrieved, then further determining if these actions are in scope of that user's traditional responsibilities.
-- In multiple public references, `AdFind` is leveraged after initial access is achieved, review previous activity on impacted
-machine looking for suspicious indicators such as previous anti-virus/EDR alerts, phishing emails received, or network traffic
-to suspicious infrastructure.
+#### Possible investigation steps
 
-### False Positive Analysis
-- This rule has the high chance to produce false positives as it is a legitimate tool used by network administrators. One
-option could be allowlisting specific users or groups who use the tool as part of their daily responsibilities. This can
-be done by leveraging the exception workflow in the Kibana Security App or Elasticsearch API to tune this rule to your environment
+- Investigate the process execution chain (parent process tree) for unknown processes. Examine their executable files
+for prevalence, whether they are located in expected locations, and if they are signed with valid digital signatures.
+- Identify the user account that performed the action and whether it should perform this kind of action.
+- Examine the command line to determine what information was retrieved by the tool.
+- Contact the account owner and confirm whether they are aware of this activity.
+- Investigate other alerts associated with the user/host during the past 48 hours.
+
+### False positive analysis
+
+- This rule has a high chance to produce false positives as it is a legitimate tool used by network administrators.
+- If this activity is expected and noisy in your environment, consider adding exceptions — preferably with a combination
+of user and command line conditions.
 - Malicious behavior with `AdFind` should be investigated as part of a step within an attack chain. It doesn't happen in
-isolation, so reviewing previous logs/activity from impacted machines could be very telling.
+isolation, so reviewing previous logs/activity from impacted machines can be very telling.
 
-### Related Rules
-- Windows Network Enumeration
-- Enumeration of Administrator Accounts
-- Enumeration Command Spawned via WMIPrvSE
+### Related rules
 
-### Response and Remediation
-- take immediate action to validate activity, investigate and potentially isolate activity to prevent further
-post-compromise behavior
-- It's important to understand that `AdFind` is an Active Directory enumeration tool and can be used for malicious or legitimate
-purposes, so understanding the intent behind the activity will help determine the appropropriate response.</pre>
+- Windows Network Enumeration - 7b8bfc26-81d2-435e-965c-d722ee397ef1
+- Enumeration of Administrator Accounts - 871ea072-1b71-4def-b016-6278b505138d
+- Enumeration Command Spawned via WMIPrvSE - 770e0c4d-b998-41e5-a62e-c7901fd7f470
+
+### Response and remediation
+
+- Initiate the incident response process based on the outcome of the triage.
+- Isolate the involved host to prevent further post-compromise behavior.
+- Investigate credential exposure on systems compromised or used by the attacker to ensure all compromised accounts are
+identified. Reset passwords for these accounts and other potentially compromised credentials, such as email, business
+systems, and web services.
+- Run a full antimalware scan. This may reveal additional artifacts left in the system, persistence mechanisms, and
+malware components.
+- Determine the initial vector abused by the attacker and take action to prevent reinfection through the same vector.
+- Using the incident response data, update logging and audit policies to improve the mean time to detect (MTTD) and the
+mean time to respond (MTTR).
+
+## Config
+
+If enabling an EQL rule on a non-elastic-agent index (such as beats) for versions &lt;8.2, events will not define `event.ingested` and default fallback for EQL rules was not added until 8.2, so you will need to add a custom pipeline to populate `event.ingested` to @timestamp for this rule to work.</pre>
 </div>
 </div>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_rule_query_58"></a>Rule query<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/main/docs/detections/prebuilt-rules/rule-details/adfind-command-activity.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_rule_query_62"></a>Rule query<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/main/docs/detections/prebuilt-rules/rule-details/adfind-command-activity.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="pre_wrapper lang-js">
 <pre class="programlisting prettyprint lang-js">process where event.type in ("start", "process_started") and
@@ -270,7 +272,7 @@ purposes, so understanding the intent behind the activity will help determine th
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_threat_mapping_58"></a>Threat mapping<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/main/docs/detections/prebuilt-rules/rule-details/adfind-command-activity.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_threat_mapping_62"></a>Threat mapping<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/main/docs/detections/prebuilt-rules/rule-details/adfind-command-activity.asciidoc">edit</a></h3>
 </div></div></div>
 <p><span class="strong strong"><strong>Framework</strong></span>: MITRE ATT&amp;CK<sup>TM</sup></p>
 <div class="ulist itemizedlist">
@@ -296,13 +298,13 @@ Reference URL: <a href="https://attack.mitre.org/tactics/TA0007/" class="ulink" 
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
 <li class="listitem">
-Name: Permission Groups Discovery
+Name: Remote System Discovery
 </li>
 <li class="listitem">
-ID: T1069
+ID: T1018
 </li>
 <li class="listitem">
-Reference URL: <a href="https://attack.mitre.org/techniques/T1069/" class="ulink" target="_top">https://attack.mitre.org/techniques/T1069/</a>
+Reference URL: <a href="https://attack.mitre.org/techniques/T1018/" class="ulink" target="_top">https://attack.mitre.org/techniques/T1018/</a>
 </li>
 </ul>
 </div>
@@ -317,6 +319,34 @@ Reference URL: <a href="https://attack.mitre.org/techniques/T1069/" class="ulink
 </div></div></div>
 <div class="variablelist">
 <dl class="variablelist">
+<dt>
+<span class="term">
+Version 8 (8.3.0 release)
+</span>
+</dt>
+<dd>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Formatting only
+</li>
+</ul>
+</div>
+</dd>
+<dt>
+<span class="term">
+Version 7 (8.2.0 release)
+</span>
+</dt>
+<dd>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Formatting only
+</li>
+</ul>
+</div>
+</dd>
 <dt>
 <span class="term">
 Version 6 (8.1.0 release)
@@ -404,15 +434,37 @@ Formatting only
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

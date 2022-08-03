@@ -58,7 +58,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -89,27 +89,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 You are looking at preliminary documentation for a future release.
@@ -118,13 +109,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Kibana Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="setup.html">Set up</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Kibana Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="setup.html">Set up</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="settings.html">Configure Kibana</a></span>
-»
-<span class="breadcrumb-node">Reporting settings in Kibana</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -219,6 +207,14 @@ reports, you might need to change the following settings.</p>
 <dl class="variablelist">
 <dt>
 <span class="term">
+<code class="literal">xpack.reporting.capture.maxAttempts</code> <span class="image"><a class="image" href="https://www.elastic.co/cloud/elasticsearch-service/signup?baymax=docs-body&amp;elektra=docs"><img src="https://doc-icons.s3.us-east-2.amazonaws.com/logo_cloud.svg" alt="logo cloud" title="Supported on Elasticsearch Service"></a></span>
+</span>
+</dt>
+<dd>
+If capturing a report fails for any reason, Kibana will re-queue the report job for retry, as many times as this setting. Defaults to <code class="literal">3</code>.
+</dd>
+<dt>
+<span class="term">
 <code class="literal">xpack.reporting.queue.indexInterval</code>
 </span>
 </dt>
@@ -227,7 +223,7 @@ How often the index that stores reporting jobs rolls over to a new index. Valid 
 </dd>
 <dt>
 <span class="term">
-<a id="xpack-reportingQueue-pollEnabled"></a> <code class="literal">xpack.reporting.queue.pollEnabled</code> <span class="image"><a class="image" href="https://www.elastic.co/cloud/elasticsearch-service/signup?baymax=docs-body&amp;elektra=docs"><img src="https://doc-icons.s3.us-east-2.amazonaws.com/logo_cloud.svg" alt="logo cloud" title="Supported on Elasticsearch Service"></a></span>
+<a id="xpack-reportingQueue-pollEnabled"></a> <code class="literal">xpack.reporting.queue.pollEnabled</code>
 </span>
 </dt>
 <dd>
@@ -267,12 +263,12 @@ Specifies the <a href="/guide/en/elasticsearch/reference/master/api-conventions.
 </dl>
 </div>
 <h4><a id="reporting-capture-settings"></a>Capture settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/settings/reporting-settings.asciidoc">edit</a></h4>
-<p>Reporting works by capturing screenshots from Kibana. The following settings control the capturing process.</p>
+<p>Reporting uses an internal "screenshotting" plugin to capture screenshots from Kibana. The following settings control the capturing process.</p>
 <div class="variablelist">
 <dl class="variablelist">
 <dt>
 <span class="term">
-<code class="literal">xpack.reporting.capture.timeouts.openUrl</code> <span class="image"><a class="image" href="https://www.elastic.co/cloud/elasticsearch-service/signup?baymax=docs-body&amp;elektra=docs"><img src="https://doc-icons.s3.us-east-2.amazonaws.com/logo_cloud.svg" alt="logo cloud" title="Supported on Elasticsearch Service"></a></span>
+<code class="literal">xpack.screenshotting.capture.timeouts.openUrl</code> <span class="image"><a class="image" href="https://www.elastic.co/cloud/elasticsearch-service/signup?baymax=docs-body&amp;elektra=docs"><img src="https://doc-icons.s3.us-east-2.amazonaws.com/logo_cloud.svg" alt="logo cloud" title="Supported on Elasticsearch Service"></a></span>
 </span>
 </dt>
 <dd>
@@ -280,7 +276,7 @@ Specify the <a href="/guide/en/elasticsearch/reference/master/api-conventions.ht
 </dd>
 <dt>
 <span class="term">
-<code class="literal">xpack.reporting.capture.timeouts.waitForElements</code> <span class="image"><a class="image" href="https://www.elastic.co/cloud/elasticsearch-service/signup?baymax=docs-body&amp;elektra=docs"><img src="https://doc-icons.s3.us-east-2.amazonaws.com/logo_cloud.svg" alt="logo cloud" title="Supported on Elasticsearch Service"></a></span>
+<code class="literal">xpack.screenshotting.capture.timeouts.waitForElements</code> <span class="image"><a class="image" href="https://www.elastic.co/cloud/elasticsearch-service/signup?baymax=docs-body&amp;elektra=docs"><img src="https://doc-icons.s3.us-east-2.amazonaws.com/logo_cloud.svg" alt="logo cloud" title="Supported on Elasticsearch Service"></a></span>
 </span>
 </dt>
 <dd>
@@ -288,7 +284,7 @@ Specify the <a href="/guide/en/elasticsearch/reference/master/api-conventions.ht
 </dd>
 <dt>
 <span class="term">
-<code class="literal">xpack.reporting.capture.timeouts.renderComplete</code> <span class="image"><a class="image" href="https://www.elastic.co/cloud/elasticsearch-service/signup?baymax=docs-body&amp;elektra=docs"><img src="https://doc-icons.s3.us-east-2.amazonaws.com/logo_cloud.svg" alt="logo cloud" title="Supported on Elasticsearch Service"></a></span>
+<code class="literal">xpack.screenshotting.capture.timeouts.renderComplete</code> <span class="image"><a class="image" href="https://www.elastic.co/cloud/elasticsearch-service/signup?baymax=docs-body&amp;elektra=docs"><img src="https://doc-icons.s3.us-east-2.amazonaws.com/logo_cloud.svg" alt="logo cloud" title="Supported on Elasticsearch Service"></a></span>
 </span>
 </dt>
 <dd>
@@ -299,7 +295,7 @@ Specify the <a href="/guide/en/elasticsearch/reference/master/api-conventions.ht
 <div class="note admon">
 <div class="icon"></div>
 <div class="admon_content">
-<p>If any timeouts from <code class="literal">xpack.reporting.capture.timeouts.*</code> settings occur when
+<p>If any timeouts from <code class="literal">xpack.screenshotting.capture.timeouts.*</code> settings occur when
 running a report job, Reporting will log the error and try to continue
 capturing the page with a screenshot. As a result, a download will be
 available, but there will likely be errors in the visualizations in the report.</p>
@@ -309,15 +305,7 @@ available, but there will likely be errors in the visualizations in the report.<
 <dl class="variablelist">
 <dt>
 <span class="term">
-<code class="literal">xpack.reporting.capture.maxAttempts</code> <span class="image"><a class="image" href="https://www.elastic.co/cloud/elasticsearch-service/signup?baymax=docs-body&amp;elektra=docs"><img src="https://doc-icons.s3.us-east-2.amazonaws.com/logo_cloud.svg" alt="logo cloud" title="Supported on Elasticsearch Service"></a></span>
-</span>
-</dt>
-<dd>
-If capturing a report fails for any reason, Kibana will re-attempt other reporting job, as many times as this setting. Defaults to <code class="literal">3</code>.
-</dd>
-<dt>
-<span class="term">
-<code class="literal">xpack.reporting.capture.loadDelay</code>
+<code class="literal">xpack.screenshotting.capture.loadDelay</code>
 </span>
 </dt>
 <dd>
@@ -336,7 +324,7 @@ Deprecated in 8.0.0. This setting has no effect.
 <dl class="variablelist">
 <dt>
 <span class="term">
-<code class="literal">xpack.reporting.capture.browser.chromium.disableSandbox</code>
+<code class="literal">xpack.screenshotting.browser.chromium.disableSandbox</code>
 </span>
 </dt>
 <dd>
@@ -344,15 +332,15 @@ It is recommended that you research the feasibility of enabling unprivileged use
 </dd>
 <dt>
 <span class="term">
-<code class="literal">xpack.reporting.capture.browser.chromium.proxy.enabled</code>
+<code class="literal">xpack.screenshotting.browser.chromium.proxy.enabled</code>
 </span>
 </dt>
 <dd>
-Enables the proxy for Chromium to use. When set to <code class="literal">true</code>, you must also specify the <code class="literal">xpack.reporting.capture.browser.chromium.proxy.server</code> setting. Defaults to <code class="literal">false</code>.
+Enables the proxy for Chromium to use. When set to <code class="literal">true</code>, you must also specify the <code class="literal">xpack.screenshotting.browser.chromium.proxy.server</code> setting. Defaults to <code class="literal">false</code>.
 </dd>
 <dt>
 <span class="term">
-<code class="literal">xpack.reporting.capture.browser.chromium.proxy.server</code>
+<code class="literal">xpack.screenshotting.browser.chromium.proxy.server</code>
 </span>
 </dt>
 <dd>
@@ -360,7 +348,7 @@ The uri for the proxy server. Providing the username and password for the proxy 
 </dd>
 <dt>
 <span class="term">
-<code class="literal">xpack.reporting.capture.browser.chromium.proxy.bypass</code>
+<code class="literal">xpack.screenshotting.browser.chromium.proxy.bypass</code>
 </span>
 </dt>
 <dd>
@@ -381,7 +369,7 @@ An array of hosts that should not go through the proxy server and should use a d
 <dl class="variablelist">
 <dt>
 <span class="term">
-<code class="literal">xpack.reporting.capture.networkPolicy</code>
+<code class="literal">xpack.screenshotting.networkPolicy</code>
 </span>
 </dt>
 <dd>
@@ -389,7 +377,7 @@ Capturing a screenshot from a Kibana page involves sending out requests for all 
 </dd>
 <dt>
 <span class="term">
-<code class="literal">xpack.reporting.capture.networkPolicy.enabled</code>
+<code class="literal">xpack.screenshotting.networkPolicy.enabled</code>
 </span>
 </dt>
 <dd>
@@ -397,7 +385,7 @@ When <code class="literal">false</code>, disables the <span class="strong strong
 </dd>
 <dt>
 <span class="term">
-<code class="literal">xpack.reporting.capture.networkPolicy.rules</code>
+<code class="literal">xpack.screenshotting.networkPolicy.rules</code>
 </span>
 </dt>
 <dd>
@@ -408,24 +396,24 @@ A policy is specified as an array of objects that describe what to allow or deny
 <p>The rule objects are evaluated sequentially from the beginning to the end of the array, and continue until there is a matching rule. If no rules allow a request, the request is denied.</p>
 <div class="pre_wrapper lang-yaml">
 <pre class="programlisting prettyprint lang-yaml"># Only allow requests to placeholder.com
-xpack.reporting.capture.networkPolicy:
+xpack.screenshotting.networkPolicy:
   rules: [ { allow: true, host: "placeholder.com" } ]</pre>
 </div>
 <div class="pre_wrapper lang-yaml">
 <pre class="programlisting prettyprint lang-yaml"># Only allow requests to https://placeholder.com
-xpack.reporting.capture.networkPolicy:
+xpack.screenshotting.networkPolicy:
   rules: [ { allow: true, host: "placeholder.com", protocol: "https:" } ]</pre>
 </div>
 <p>A final <code class="literal">allow</code> rule with no host or protocol allows all requests that are not explicitly denied:</p>
 <div class="pre_wrapper lang-yaml">
 <pre class="programlisting prettyprint lang-yaml"># Denies requests from http://placeholder.com, but anything else is allowed.
-xpack.reporting.capture.networkPolicy:
+xpack.screenshotting.networkPolicy:
   rules: [{ allow: false, host: "placeholder.com", protocol: "http:" }, { allow: true }];</pre>
 </div>
 <p>A network policy can be composed of multiple rules:</p>
 <div class="pre_wrapper lang-yaml">
 <pre class="programlisting prettyprint lang-yaml"># Allow any request to http://placeholder.com but for any other host, https is required
-xpack.reporting.capture.networkPolicy
+xpack.screenshotting.networkPolicy
   rules: [
     { allow: true, host: "placeholder.com", protocol: "http:" },
     { allow: true, protocol: "https:" },
@@ -622,15 +610,37 @@ The hostname for accessing Kibana.
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

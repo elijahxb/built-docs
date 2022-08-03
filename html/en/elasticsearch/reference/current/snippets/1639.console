@@ -1,9 +1,8 @@
-PUT /_security/role_mapping/oidc-finance
+PUT /_security/role_mapping/basic_users
 {
-  "roles": [ "finance_data" ],
-  "enabled": true,
-  "rules": { "all": [
-        { "field": { "realm.name": "oidc1" } },
-        { "field": { "groups": "finance-team" } }
-  ] }
+  "roles" : [ "user" ],
+  "rules" : { "field" : {
+    "groups" : "cn=users,dc=example,dc=com"
+  } },
+  "enabled": true
 }

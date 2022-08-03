@@ -15,17 +15,15 @@
 <meta name="robots" content="noindex,nofollow"/>
 </head>
 <body><div class="page_header">
-You are looking at preliminary documentation for a future release.
-Not what you want? See the
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
 <a href="../current/index.html">current release documentation</a>.
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Kibana Guide [8.2]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Kibana Guide [8.2]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="alerting-getting-started.html">Alerting</a></span>
-»
-<span class="breadcrumb-node">Alerting set up</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -99,7 +97,7 @@ Also note that a user will need <code class="literal">read</code> privileges for
 <h3><a id="alerting-spaces"></a>Space isolation<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.2/docs/user/alerting/alerting-setup.asciidoc">edit</a></h3>
 <p>Rules and connectors are isolated to the Kibana space in which they were created. A rule or connector created in one space will not be visible in another.</p>
 <h3><a id="alerting-authorization"></a>Authorization<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.2/docs/user/alerting/alerting-setup.asciidoc">edit</a></h3>
-<p>Rules are authorized using an <a class="xref" href="api-keys.html" title="API Keys">API key</a> associated with the last user to edit the rule. This API key captures a snapshot of the user&#8217;s privileges at the time of edit and is subsequently used to run all background tasks associated with the rule, including condition checks, like Elasticsearch queries, and action executions. The following rule actions will re-generate the API key:</p>
+<p>Rules are authorized using an <a class="xref" href="api-keys.html" title="API Keys">API key</a> associated with the last user to edit the rule. This API key captures a snapshot of the user&#8217;s privileges at the time of edit and is subsequently used to run all background tasks associated with the rule, including condition checks like Elasticsearch queries and triggered actions. The following rule actions will re-generate the API key:</p>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
 <li class="listitem">

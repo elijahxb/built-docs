@@ -1,4 +1,7 @@
-GET /analyze_sample/_analyze
+POST test/_update/1
 {
-  "text" : "this is a test"
+  "doc": {
+    "name": "new_name"
+  },
+  "detect_noop": false
 }

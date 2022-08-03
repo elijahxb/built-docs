@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Securing your installation | Elastic Cloud Enterprise Reference [3.2] | Elastic</title>
+<link rel="home" href="index.html" title="Elastic Cloud Enterprise Reference [3.2]"/>
+<link rel="up" href="index.html" title="Elastic Cloud Enterprise Reference [3.2]"/>
+<link rel="prev" href="ece-configuring-allocator-affinity.html" title="Configure allocator affinity"/>
+<link rel="next" href="ece-securing-considerations.html" title="Security considerations"/>
+<meta name="DC.type" content="Learn/Docs/CloudEnterprise/Reference/3.2"/>
+<meta name="DC.subject" content="ECE"/>
+<meta name="DC.identifier" content="3.2"/>
+</head>
+<body><div class="page_header">
+A newer version is available. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Cloud Enterprise Reference [3.2]</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="ece-configuring-allocator-affinity.html">« Configure allocator affinity</a>
+</span>
+<span class="next">
+<a href="ece-securing-considerations.html">Security considerations »</a>
+</span>
+</div>
+<div class="part">
+<div class="titlepage"><div><div>
+<h1 class="title"><a id="ece-securing-ece"></a>Securing your installation<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/cloud-enterprise/ce-securing-ece.asciidoc">edit</a></h1>
+</div></div></div>
+<div class="openblock partintro">
+<div class="content">
+<p>Learn about security considerations and security-related tasks you should be aware of when deploying Elastic Cloud Enterprise:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<a class="xref" href="ece-securing-considerations.html" title="Security considerations">Security Considerations</a> - Covers information about current limitations, access control, encryption, and possible attack vectors.
+</li>
+<li class="listitem">
+<a class="xref" href="ece-generate-roles-token.html" title="Generate roles tokens">Generate Roles Tokens</a> - For automation purposes, generate a new ephemeral or persistent token with the right role permissions, so that you can install ECE on hosts and add the right roles at the same time.
+</li>
+<li class="listitem">
+<a class="xref" href="ece-revoke-roles-token.html" title="Revoke roles tokens">Revoke Roles Tokens</a> - Roles tokens enable additional hosts to join an ECE installation. If a token is no longer needed, it should be revoked to improve security.
+</li>
+<li class="listitem">
+<a class="xref" href="ece-manage-certificates.html" title="Manage security certificates">Manage Security Certificates</a> - Provide your own certificates for ECE to avoid a security warning when connecting to the Cloud UI or when using the API over HTTPS.
+</li>
+<li class="listitem">
+<a class="xref" href="ece-traffic-filtering-deployment-configuration.html" title="Traffic Filtering">Set up traffic filters</a> to restrict traffic to your deployment to only trusted IP addresses or VPCs.
+</li>
+<li class="listitem">
+<a class="xref" href="ece-manage-system-passwords.html#ece-retrieve-passwords" title="Retrieve user passwords">Retrieve User Passwords</a> - Retrieve the credentials for the administration console users <code class="literal">admin</code> and <code class="literal">readonly</code>.
+</li>
+<li class="listitem">
+<a class="xref" href="ece-manage-system-passwords.html#ece-reset-passwords" title="Reset user passwords">Reset User Passwords</a> - Reset the passwords for the <code class="literal">admin</code> and <code class="literal">readonly</code> administration console users that you use to log into the Cloud UI.
+</li>
+<li class="listitem">
+<a class="xref" href="ece-configure-tls-version.html" title="Configuring the TLS version">Configuring the TLS version</a> - Revert back to the pre-2.4.0 behavior and allow TLS v1.0 clients to connect to Elastic Cloud Enterprise.
+</li>
+<li class="listitem">
+* <a class="xref" href="ece-configure-cors.html" title="Configure Cross-Origin Resource Sharing (CORS)">Configuring Cross-origin resource sharing (CORS)</a> - Revert to the pre-2.4.0 behavior and allow TLS v1.0 clients to connect to Elastic Cloud Enterprise.
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="ece-configuring-allocator-affinity.html">« Configure allocator affinity</a>
+</span>
+<span class="next">
+<a href="ece-securing-considerations.html">Security considerations »</a>
+</span>
+</div>
+</div>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains('stemblock')) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+</body>
+</html>

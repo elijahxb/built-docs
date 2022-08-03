@@ -18,13 +18,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elastic Cloud on Kubernetes [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="k8s-orchestrating-elastic-stack-applications.html">Orchestrating Elastic Stack applications</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Cloud on Kubernetes [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="k8s-orchestrating-elastic-stack-applications.html">Orchestrating Elastic Stack applications</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="k8s-elasticsearch-specification.html">Run Elasticsearch on ECK</a></span>
-»
-<span class="breadcrumb-node">Elasticsearch autoscaling</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -133,7 +130,7 @@ If each individual node has reached the limits specified in the autoscaling poli
 <div class="warning admon">
 <div class="icon"></div>
 <div class="admon_content">
-<p>Scaling up (vertically) is only supported if the actual storage capacity of the persistent volumes matches the capacity claimed. If the physical capacity of a PersistentVolume may be greater than the capacity claimed in the PersistentVolumeClaim, it is advised to set the same value for the <code class="literal">min</code> and the <code class="literal">max</code> setting of each resource. It is however still possible to let the operator scale out the NodeSets automatically, as in the example below:</p>
+<p>Scaling up (vertically) is only supported if the actual storage capacity of the persistent volumes matches the capacity claimed. If the physical capacity of a PersistentVolume may be greater than the capacity claimed in the PersistentVolumeClaim, it is advised to set the same value for the <code class="literal">min</code> and the <code class="literal">max</code> setting of each resource. It is however still possible to let the operator scale out the NodeSets automatically, as in the following example:</p>
 </div>
 </div>
 <div class="pre_wrapper lang-json">
@@ -177,7 +174,7 @@ If each individual node has reached the limits specified in the autoscaling poli
     }]
 }</pre>
 </div>
-<p>You can find <a href="https://github.com/elastic/cloud-on-k8s/blob/2.1/config/recipes/autoscaling/elasticsearch.yaml" class="ulink" target="_top">a complete example in the ECK GitHub repository</a> which will also show you how to fine-tune the <a href="/guide/en/elasticsearch/reference/current/autoscaling-deciders.html" class="ulink" target="_top">autoscaling deciders</a>.</p>
+<p>You can find <a href="https://github.com/elastic/cloud-on-k8s/blob/2.3/config/recipes/autoscaling/elasticsearch.yaml" class="ulink" target="_top">a complete example in the ECK GitHub repository</a> which will also show you how to fine-tune the <a href="/guide/en/elasticsearch/reference/current/autoscaling-deciders.html" class="ulink" target="_top">autoscaling deciders</a>.</p>
 <h5><a id="k8s-autoscaling-polling-interval"></a>Change the polling interval<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/cloud-on-k8s/edit/main/docs/orchestrating-elastic-stack-applications/elasticsearch/autoscaling.asciidoc">edit</a></h5>
 <p>The Elasticsearch autoscaling capacity endpoint is polled every minute by the operator. This interval duration can be controlled using the <code class="literal">pollingPeriod</code> field in the autoscaling specification:</p>
 <div class="pre_wrapper lang-json">

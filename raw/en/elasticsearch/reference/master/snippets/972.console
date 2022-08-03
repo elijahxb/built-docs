@@ -1,10 +1,11 @@
-GET /_search
+PUT /my-index-000001
 {
-  "query": {
-    "span_multi": {
-      "match": {
-        "prefix": { "user.id": { "value": "ki", "boost": 1.08 } }
+  "mappings": {
+    "properties": {
+      "obj1": {
+        "type": "nested"
       }
     }
   }
 }
+

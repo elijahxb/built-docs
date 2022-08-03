@@ -18,11 +18,9 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Filebeat Reference [master]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Filebeat Reference [master]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="exported-fields.html">Exported fields</a></span>
-»
-<span class="breadcrumb-node">Checkpoint fields</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -34,10 +32,10 @@ Not what you want? See the
 </div>
 <div class="chapter">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="exported-fields-checkpoint"></a>Checkpoint fields<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/filebeat/docs/fields.asciidoc">edit</a></h2>
+<h2 class="title"><a id="exported-fields-checkpoint"></a>Checkpoint fields</h2>
 </div></div></div>
 <p>Some checkpoint module</p>
-<h3><a id="_checkpoint_2"></a>checkpoint<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/filebeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_checkpoint_2"></a>checkpoint</h3>
 <p>Module for parsing Checkpoint syslog.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -148,6 +146,15 @@ Not what you want? See the
 <dd>
 <p>Override application ID.</p>
 <p>type: integer</p>
+</dd>
+<dt>
+<span class="term">
+<span class="strong strong"><strong><code class="literal">checkpoint.identity_src</code></strong></span>
+</span>
+</dt>
+<dd>
+<p>The source for authentication identity information.</p>
+<p>type: keyword</p>
 </dd>
 <dt>
 <span class="term">
@@ -669,6 +676,15 @@ Not what you want? See the
 </dt>
 <dd>
 <p>Risk level we got from the engine.</p>
+<p>type: keyword</p>
+</dd>
+<dt>
+<span class="term">
+<span class="strong strong"><strong><code class="literal">checkpoint.roles</code></strong></span>
+</span>
+</dt>
+<dd>
+<p>The role of identity.</p>
 <p>type: keyword</p>
 </dd>
 <dt>
@@ -2869,6 +2885,15 @@ Not what you want? See the
 </dd>
 <dt>
 <span class="term">
+<span class="strong strong"><strong><code class="literal">checkpoint.snid</code></strong></span>
+</span>
+</dt>
+<dd>
+<p>The Check Point session ID.</p>
+<p>type: keyword</p>
+</dd>
+<dt>
+<span class="term">
 <span class="strong strong"><strong><code class="literal">checkpoint.source_object</code></strong></span>
 </span>
 </dt>
@@ -3342,6 +3367,15 @@ Not what you want? See the
 </dt>
 <dd>
 <p>Password authentication protocol used (PAP or EAP).</p>
+<p>type: keyword</p>
+</dd>
+<dt>
+<span class="term">
+<span class="strong strong"><strong><code class="literal">checkpoint.auth_status</code></strong></span>
+</span>
+</dt>
+<dd>
+<p>The authentication status for an event.</p>
 <p>type: keyword</p>
 </dd>
 <dt>

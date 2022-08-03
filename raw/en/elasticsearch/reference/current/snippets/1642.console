@@ -1,4 +1,8 @@
-POST /_security/oidc/prepare
+POST /_security/role_mapping/kerbrolemapping
 {
-  "realm" : "oidc1"
+  "roles" : [ "monitoring_user" ],
+  "enabled": true,
+  "rules" : {
+    "field" : { "username" : "user@REALM" }
+  }
 }

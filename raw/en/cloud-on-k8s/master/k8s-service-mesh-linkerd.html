@@ -18,13 +18,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elastic Cloud on Kubernetes [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="k8s-advanced-topics.html">Advanced topics</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Cloud on Kubernetes [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="k8s-advanced-topics.html">Advanced topics</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="k8s-service-meshes.html">Service meshes</a></span>
-»
-<span class="breadcrumb-node">Linkerd</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -51,8 +48,8 @@ Not what you want? See the
 </div></div></div>
 <p>In order to connect the operator to the service mesh, Linkerd sidecar must be injected into the ECK deployment. This can be done during installation as follows:</p>
 <div class="pre_wrapper lang-sh">
-<pre class="programlisting prettyprint lang-sh">kubectl create -f https://download.elastic.co/downloads/eck/2.1.0/crds.yaml
-linkerd inject https://download.elastic.co/downloads/eck/2.1.0/operator.yaml | kubectl apply -f -</pre>
+<pre class="programlisting prettyprint lang-sh">kubectl create -f https://download.elastic.co/downloads/eck/2.3.0/crds.yaml
+linkerd inject https://download.elastic.co/downloads/eck/2.3.0/operator.yaml | kubectl apply -f -</pre>
 </div>
 <p>Confirm that the operator is now meshed:</p>
 <div class="pre_wrapper lang-sh">
@@ -88,7 +85,7 @@ kind: Elasticsearch
 metadata:
   name: elastic-linkerd
 spec:
-  version: 8.1.2
+  version: 8.3.3
   http:
     tls: <a id="CO15-1"></a><i class="conum" data-value="1"></i>
       selfSignedCertificate:
@@ -146,7 +143,7 @@ kind: ...
 metadata:
   name: elastic-linkerd
 spec:
-  version: 8.1.2
+  version: 8.3.3
   count: 1
   elasticsearchRef:
     name: elastic-linkerd

@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,27 +87,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 You are looking at preliminary documentation for a future release.
@@ -116,11 +107,9 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elastic Security Solution [master]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Security Solution [master]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="detection-engine-overview.html">Detections and alerts</a></span>
-»
-<span class="breadcrumb-node">Create a detection rule</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -175,7 +164,7 @@ the rule&#8217;s search results.</p>
 <a href="/guide/en/elasticsearch/reference/master/eql.html" class="ulink" target="_top">Event Query Language (EQL)</a> query.
 </li>
 <li class="listitem">
-<a class="xref" href="rules-ui-create.html#create-indicator-rule" title="Create an indicator match rule"><span class="strong strong"><strong>Indicator match</strong></span></a>: Creates an alert when Elastic Security index field values match field values defined in the specified indicator index patterns. For example, you can create an indicator index for IP addresses and use this index to create an alert whenever an event&#8217;s <code class="literal">destination.ip</code> equals a value in the index. Indicator index field mappings should be <a href="/guide/en/ecs/8.3" class="ulink" target="_top">ECS-compliant</a>. For information on creating Elasticsearch indices and field types, see
+<a class="xref" href="rules-ui-create.html#create-indicator-rule" title="Create an indicator match rule"><span class="strong strong"><strong>Indicator match</strong></span></a>: Creates an alert when Elastic Security index field values match field values defined in the specified indicator index patterns. For example, you can create an indicator index for IP addresses and use this index to create an alert whenever an event&#8217;s <code class="literal">destination.ip</code> equals a value in the index. Indicator index field mappings should be <a href="/guide/en/ecs/8.5" class="ulink" target="_top">ECS-compliant</a>. For information on creating Elasticsearch indices and field types, see
 <a href="/guide/en/elasticsearch/reference/master/getting-started-index.html" class="ulink" target="_top">Index some documents</a>,
 <a href="/guide/en/elasticsearch/reference/master/indices-create-index.html" class="ulink" target="_top">Create index API</a>, and
 <a href="/guide/en/elasticsearch/reference/master/mapping-types.html" class="ulink" target="_top">Field data types</a>. If you have indicators in a standard file format, such as CSV or JSON, you can also use the Machine Learning Data Visualizer to import your indicators into an indicator index. See <a href="/guide/en/machine-learning/7.10/ml-gs-visualizer.html" class="ulink" target="_top">https://www.elastic.co/guide/en/machine-learning/7.10/ml-gs-visualizer.html</a> and use the Import Data option to import your indicators.
@@ -223,8 +212,8 @@ the rule&#8217;s search results.</p>
 <div class="important admon">
 <div class="icon"></div>
 <div class="admon_content">
-<p>After you activate a rule, you can periodically check the rule is running as expected
-in the <a class="xref" href="alerts-ui-monitor.html" title="Monitor and troubleshoot rule executions">Monitoring tab</a> on the All rules page. If you see
+<p>After you activate a rule, you can check if it is running as expected
+using the <a class="xref" href="alerts-ui-monitor.html" title="Monitor and troubleshoot rule executions">Monitoring tab</a> on the Rules page. If you see
 values in the <code class="literal">Gap</code> column, you can <a class="xref" href="alerts-ui-monitor.html#troubleshoot-signals" title="Troubleshoot missing alerts">Troubleshoot missing alerts</a>.</p>
 <p>When a rule fails to run, the Elastic Security app tries to rerun it at its next
 scheduled run time.</p>
@@ -415,13 +404,7 @@ Use the <code class="literal">Group by</code> and <code class="literal">Threshol
 <div class="important admon">
 <div class="icon"></div>
 <div class="admon_content">
-<p>Signals created by <span class="strong strong"><strong>threshold</strong></span> rules are synthetic signals that do not resemble the source documents. The signal itself only contains data about the fields that were aggregated over (the <code class="literal">Group by</code> fields). Additionally, the signal contains "lookup" data for retrieving a <span class="strong strong"><strong>Timeline</strong></span> of all of the source events that caused the threshold to be exceeded.
-If you wish to create an <a class="xref" href="rules-ui-create.html#rule-notifications" title="Set up alert notifications (optional)"><span class="strong strong"><strong>Action</strong></span></a> based on a threshold rule, you can obtain values of the fields that were aggregated over by entering the following:</p>
-<pre class="screen">{{#context.alerts}}
-  {{#signal.threshold_result.terms}}
-    {{value}}
-  {{/signal.threshold_result.terms}}
-{{/context.alerts}}</pre>
+<p>Alerts created by threshold rules are synthetic alerts that do not resemble the source documents. The alert itself only contains data about the fields that were aggregated over (the <code class="literal">Group by</code> fields). Other fields are omitted, because they can vary across all source documents that were counted toward the threshold. Additionally, you can reference the actual count of documents that exceeded the threshold from the <code class="literal">kibana.alert.threshold_result.count</code> field.</p>
 </div>
 </div>
 </li>
@@ -451,11 +434,7 @@ network connection:</p>
 <ul class="itemizedlist">
 <li class="listitem">
 <p><span class="strong strong"><strong>Index patterns</strong></span>: <code class="literal">winlogbeat-*</code></p>
-<div class="quoteblock">
-<blockquote>
 <p>Winlogbeat ships Windows events to Elastic Security.</p>
-</blockquote>
-</div>
 </li>
 <li class="listitem">
 <p><span class="strong strong"><strong>EQL query</strong></span>:</p>
@@ -488,6 +467,22 @@ event followed by an outbound network connection event that was started by the
 </div>
 </li>
 </ol>
+</div>
+</li>
+<li class="listitem">
+<p>(Optional) Click the EQL settings icon (<span class="image"><img src="images/eql-settings-icon.png" alt="EQL settings icon" width="16" height="16"></span>) to configure additional fields used by <a href="/guide/en/elasticsearch/reference/master/eql.html#specify-a-timestamp-or-event-category-field" class="ulink" target="_top">EQL search</a>:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<span class="strong strong"><strong>Event category field</strong></span>: Contains the event classification, such as <code class="literal">process</code>, <code class="literal">file</code>, or <code class="literal">network</code>. This field is typically mapped as a field type in the <a href="/guide/en/elasticsearch/reference/master/keyword.html" class="ulink" target="_top">keyword family</a>. Defaults to the <code class="literal">event.category</code> ECS field.
+</li>
+<li class="listitem">
+<span class="strong strong"><strong>Tiebreaker field</strong></span>: Sets a secondary field for sorting events (in ascending, lexicographic order) if they have the same timestamp.
+</li>
+<li class="listitem">
+<span class="strong strong"><strong>Timestamp field</strong></span>: Contains the event timestamp used for sorting a sequence of events. This is different from the <span class="strong strong"><strong>Timestamp override</strong></span> advanced setting, which is used for querying events within a range. Defaults to the <code class="literal">@timestamp</code> ECS field.
+</li>
+</ul>
 </div>
 </li>
 <li class="listitem">
@@ -582,7 +577,7 @@ Continue with <a class="xref" href="rules-ui-create.html#preview-rules" title="P
 </ol>
 </div>
 <h3><a id="preview-rules"></a>Preview your rule (optional)<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/main/docs/detections/rules-ui-create.asciidoc">edit</a></h3>
-<p>You can preview any rule to learn how noisy it will be before submitting it. If necessary, you can then adjust the rule&#8217;s query.</p>
+<p>You can preview any rule to learn how noisy it will be before saving it. If necessary, you can then adjust the rule&#8217;s query.</p>
 <div class="note admon">
 <div class="icon"></div>
 <div class="admon_content">
@@ -599,21 +594,20 @@ Write the rule query.
 Select a timeframe of data to preview query results&#8201;&#8212;&#8201;<span class="strong strong"><strong>Last hour</strong></span>, <span class="strong strong"><strong>Last day</strong></span>, or <span class="strong strong"><strong>Last month</strong></span>&#8201;&#8212;&#8201;from the <span class="strong strong"><strong>Quick query preview</strong></span> drop-down.
 </li>
 <li class="listitem">
-Click <span class="strong strong"><strong>Preview results</strong></span>. A histogram shows the number of alerts you can expect based on the defined rule parameters and historical events in your indices.
-</li>
-</ol>
+<p>Click <span class="strong strong"><strong>Preview results</strong></span>. The rule preview shows a histogram and alerts table with the alerts you can expect, based on the defined rule parameters and historical events in your indices. You can view the details of a particular alert by clicking the <span class="strong strong"><strong>View details</strong></span> button in the alerts table.</p>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>The preview excludes the effects of rule exceptions and timestamp overrides. In the preview histogram, alerts are stacked by <code class="literal">event.category</code> (or <code class="literal">host.name</code> for machine learning rules), and events with multiple values are counted more than once.</p>
 </div>
-<p>A "noise warning" is displayed if the preview generates more than one alert per hour.</p>
+</div>
 <div class="imageblock screenshot">
 <div class="content">
 <img src="images/preview-rule.png" alt="preview rule">
 </div>
 </div>
-<div class="note admon">
-<div class="icon"></div>
-<div class="admon_content">
-<p>The preview excludes the effects of rule exceptions and timestamp overrides.</p>
-</div>
+</li>
+</ol>
 </div>
 <h3><a id="rule-ui-basic-params"></a>Configure basic rule settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/main/docs/detections/rules-ui-create.asciidoc">edit</a></h3>
 <div class="olist orderedlist">
@@ -762,7 +756,7 @@ rule exceptions to this rule (see <a class="xref" href="detections-ui-exceptions
 <div class="icon"></div>
 <div class="admon_content">
 <p>If you select this option, you can add
-<a class="xref" href="detections-ui-exceptions.html#endpoint-rule-exceptions" title="Add Elastic Endpoint Security exceptions">Endpoint exceptions</a> on the Rule details page.
+<a class="xref" href="detections-ui-exceptions.html#endpoint-rule-exceptions" title="Add Elastic Endpoint exceptions">Endpoint exceptions</a> on the Rule details page.
 Additionally, all future exceptions added to the Elastic Endpoint Security rule
 also affect this rule.</p>
 </div>
@@ -1164,15 +1158,37 @@ Upload a value list of indicators.
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

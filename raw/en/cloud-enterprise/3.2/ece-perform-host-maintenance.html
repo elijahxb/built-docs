@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Perform host maintenance | Elastic Cloud Enterprise Reference [3.2] | Elastic</title>
+<link rel="home" href="index.html" title="Elastic Cloud Enterprise Reference [3.2]"/>
+<link rel="up" href="ece-administering-ece.html" title="Administering your installation"/>
+<link rel="prev" href="ece-delete-runner.html" title="Delete hosts"/>
+<link rel="next" href="ece-manage-elastic-stack.html" title="Manage Elastic Stack versions"/>
+<meta name="DC.type" content="Learn/Docs/CloudEnterprise/Reference/3.2"/>
+<meta name="DC.subject" content="ECE"/>
+<meta name="DC.identifier" content="3.2"/>
+</head>
+<body><div class="page_header">
+A newer version is available. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Cloud Enterprise Reference [3.2]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="ece-administering-ece.html">Administering your installation</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="ece-delete-runner.html">« Delete hosts</a>
+</span>
+<span class="next">
+<a href="ece-manage-elastic-stack.html">Manage Elastic Stack versions »</a>
+</span>
+</div>
+<div class="chapter">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="ece-perform-host-maintenance"></a>Perform host maintenance<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/cloud-enterprise/ce-performing-host-maintenance.asciidoc">edit</a></h2>
+</div></div></div>
+<p>These steps show how you can safely perform maintenance on hosts in your ECE installation. Host maintenance refers to actions that are not part of taking care of Elastic Cloud Enterprise itself and that you might need to perform for a number of different reasons, including:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+To apply urgent operating system patches or hot fixes
+</li>
+<li class="listitem">
+To perform regularly scheduled software or hardware upgrades
+</li>
+<li class="listitem">
+To enable new features, such as encryption of data at rest
+</li>
+<li class="listitem">
+To meet updated installation prerequisites
+</li>
+</ul>
+</div>
+<p>You can perform these maintenance actions on the hosts in your ECE installation using one of these methods:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<a class="xref" href="ece-perform-host-maintenance.html#ece-perform-host-maintenance-docker-disable" title="By disabling the Docker daemon">By disabling the Docker daemon (nondestructive)</a>
+</li>
+<li class="listitem">
+<a class="xref" href="ece-perform-host-maintenance.html#ece-perform-host-maintenance-delete-runner" title="By deleting the host (destructive)">By deleting the host (destructive)</a>
+</li>
+<li class="listitem">
+<a class="xref" href="ece-perform-host-maintenance.html#ece-perform-host-maintenance-delete-runner" title="By deleting the host (destructive)">By shutting down the host (less destructive)</a>
+</li>
+</ul>
+</div>
+<p>Which method you choose depends on how invasive your host maintenance needs to be. If your host maintenance could affect ECE, use the destructive method that first deletes the host from your installation. These methods include a step that moves any hosted Elasticsearch clusters and Kibana instances off the affected hosts and are generally considered safe, provided that your ECE installation still has sufficient resources available to operate after the host has been removed.</p>
+<h3><a id="ece-perform-host-maintenance-docker-disable"></a>By disabling the Docker daemon<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/cloud-enterprise/ce-performing-host-maintenance.asciidoc">edit</a></h3>
+<p>This method lets you perform maintenance actions on hosts without first removing the associated host from your Elastic Cloud Enterprise installation. It works by disabling the Docker daemon. The host remains a part of your ECE installation throughout these steps but will be offline and the resources it provides will not be available.</p>
+<p>To perform host maintenance:</p>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+<p>Recommended: If the host holds the allocator role and you have enough spare capacity:</p>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+<a class="xref" href="ece-maintenance-mode.html" title="Enable maintenance mode">Enable maintenance mode</a> on the allocator.
+</li>
+<li class="listitem">
+<a class="xref" href="ece-move-nodes.html" title="Move nodes or instances from allocators">Move all nodes off the allocator</a> and to other allocators in your installation. Moving all nodes lets you retain the same level of redundancy for highly available Elasticsearch clusters and ensures that other clusters without high availability remain available.
+</li>
+</ol>
+</div>
+<div class="important admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>Skipping Step 1 will affect the availability of clusters with nodes on the allocator.</p>
+</div>
+</div>
+</li>
+<li class="listitem">
+<p>Disable the Docker daemon:</p>
+<div class="pre_wrapper lang-sh">
+<pre class="programlisting prettyprint lang-sh">sudo systemctl disable docker
+sudo systemctl disable docker.socket</pre>
+</div>
+</li>
+<li class="listitem">
+<p>Reboot the host:</p>
+<div class="pre_wrapper lang-sh">
+<pre class="programlisting prettyprint lang-sh">sudo reboot</pre>
+</div>
+</li>
+<li class="listitem">
+Perform your maintenance on the host, such as patching the operating system.
+</li>
+<li class="listitem">
+<p>Enable the Docker daemon:</p>
+<div class="pre_wrapper lang-sh">
+<pre class="programlisting prettyprint lang-sh">sudo systemctl enable docker
+sudo systemctl enable docker.socket</pre>
+</div>
+</li>
+<li class="listitem">
+<p>Reboot the host again:</p>
+<div class="pre_wrapper lang-sh">
+<pre class="programlisting prettyprint lang-sh">sudo reboot</pre>
+</div>
+</li>
+<li class="listitem">
+If you enabled maintenance mode in Step 1: Take the allocator out of maintenance mode.
+</li>
+<li class="listitem">
+Optional for allocators: ECE will start using the allocator again as you create new or change existing clusters, but it will not automatically redistribute nodes to an allocator after it becomes available. If you want to move nodes back to the same allocator after host maintenance, you need to manually <a class="xref" href="ece-move-nodes.html" title="Move nodes or instances from allocators">move the nodes</a> and specify the allocator as a target.
+</li>
+<li class="listitem">
+Verify that all ECE services and deployments are back up by checking that the host shows a green status in the Cloud UI.
+</li>
+</ol>
+</div>
+<p>After the host shows a green status in the Cloud UI, it is fully functional again and can be used as before.</p>
+<h3><a id="ece-perform-host-maintenance-delete-runner"></a>By deleting the host (destructive)<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/cloud-enterprise/ce-performing-host-maintenance.asciidoc">edit</a></h3>
+<p>This method lets you perform potentially destructive maintenance actions on hosts. It works by deleting the associated host, which removes the host from your Elastic Cloud Enterprise installation. To add the host to your ECE installation again after host maintenance is complete, you must reinstall ECE.</p>
+<p>To perform host maintenance:</p>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+<p>If the host holds the allocator role:</p>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+<a class="xref" href="ece-maintenance-mode.html" title="Enable maintenance mode">Enable maintenance mode</a> on the allocator.
+</li>
+<li class="listitem">
+<a class="xref" href="ece-move-nodes.html" title="Move nodes or instances from allocators">Move all nodes off the allocator</a> and to other allocators in your installation. Moving all nodes lets you retain the same level of redundancy for highly available clusters and ensures that other clusters without high availability remain available.
+</li>
+</ol>
+</div>
+<div class="important admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>Do not skip this step or you will affect the availability of clusters with nodes on the allocator. You are in the process of removing the host from your installation and whatever ECE artifacts are stored on it will be lost.</p>
+</div>
+</div>
+</li>
+<li class="listitem">
+<a class="xref" href="ece-delete-runner.html" title="Delete hosts">Delete the host from your ECE installation</a>.
+</li>
+<li class="listitem">
+Perform the maintenance on your host, such as enabling encryption of data at rest.
+</li>
+<li class="listitem">
+<a class="xref" href="ece-installing-additional.html" title="Install ECE on additional hosts">Reinstall ECE on the host as if it were a new host and assign the same roles as before</a>.
+</li>
+<li class="listitem">
+Optional for allocators: ECE will start using the allocator again as you create new or change existing clusters, but it will not automatically redistribute nodes to an allocator after it becomes available. If you want to move nodes back to the same allocator after host maintenance, you need to manually <a class="xref" href="ece-move-nodes.html" title="Move nodes or instances from allocators">move the nodes</a> and specify the allocator as a target.
+</li>
+</ol>
+</div>
+<p>After the host shows a green status in the Cloud UI, the host is part of your ECE installation again and can be used as before.</p>
+<h3><a id="ece-perform-host-maintenance-shutdown-host"></a>By shutting down the host (less destructive)<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/cloud-enterprise/ce-performing-host-maintenance.asciidoc">edit</a></h3>
+<p>This method lets you perform potentially destructive maintenance actions on hosts.
+It works by temporarily shutting down an ECE host, e.g. for data center moves or
+planned power outages. It is offered as an non-guaranteed and less destructive alternative to fully
+<a class="xref" href="ece-perform-host-maintenance.html#ece-perform-host-maintenance-delete-runner" title="By deleting the host (destructive)">deleting a host</a> from your ECE installation.</p>
+<p>To shut down the host:</p>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+Disable traffic from load balancers.
+</li>
+<li class="listitem">
+<p>Shut down all allocators:</p>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+<a class="xref" href="ece-maintenance-mode.html" title="Enable maintenance mode">Enable maintenance mode</a> on the allocator.
+</li>
+<li class="listitem">
+<a class="xref" href="ece-move-nodes.html" title="Move nodes or instances from allocators">Move all nodes off the allocator</a> and to other allocators in your installation. Moving all nodes lets you retain the same level of redundancy for highly available clusters and ensures that other clusters without high availability remain available.
+</li>
+</ol>
+</div>
+<div class="important admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>Do not skip this step or you will affect the availability of clusters with nodes on the allocator. You are in the process of removing the host from your installation and whatever ECE artifacts are stored on it will be lost.</p>
+</div>
+</div>
+</li>
+<li class="listitem">
+Shut down all non-director hosts.
+</li>
+<li class="listitem">
+Shut down directors.
+</li>
+</ol>
+</div>
+<p>After performing maintenance, start up the host:</p>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+Start all directors.
+</li>
+<li class="listitem">
+<p>Verify that there is a healthy Zookeeper quorum (at least one <code class="literal">zk_server_state leader</code>, and <code class="literal">zk_followers</code> + <code class="literal">zk_synced_followers</code> should match the number of Zookeeper followers):</p>
+<div class="pre_wrapper lang-sh">
+<pre class="programlisting prettyprint lang-sh">docker exec frc-zookeeper-servers-zookeeper sh -c 'for i in $(seq 2191 2199); do echo "$(hostname) port is $i" &amp;&amp; echo mntr | nc localhost ${i}; done'</pre>
+</div>
+</li>
+<li class="listitem">
+Start all remaining hosts.
+</li>
+<li class="listitem">
+Re-enable traffic from load balancers.
+</li>
+</ol>
+</div>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="ece-delete-runner.html">« Delete hosts</a>
+</span>
+<span class="next">
+<a href="ece-manage-elastic-stack.html">Manage Elastic Stack versions »</a>
+</span>
+</div>
+</div>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains('stemblock')) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+</body>
+</html>

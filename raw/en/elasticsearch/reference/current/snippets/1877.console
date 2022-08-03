@@ -1,1 +1,1 @@
-DELETE /_internal/desired_nodes
+GET _cat/ml/anomaly_detectors?h=id,s,dpr,mb&v=true

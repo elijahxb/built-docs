@@ -18,13 +18,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elastic Cloud on Kubernetes [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="k8s-orchestrating-elastic-stack-applications.html">Orchestrating Elastic Stack applications</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Cloud on Kubernetes [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="k8s-orchestrating-elastic-stack-applications.html">Orchestrating Elastic Stack applications</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="k8s-elasticsearch-specification.html">Run Elasticsearch on ECK</a></span>
-»
-<span class="breadcrumb-node">Create automated snapshots</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -55,7 +52,13 @@ Set up a <a href="https://kubernetes.io/docs/concepts/workloads/controllers/cron
 </li>
 </ol>
 </div>
-<p>The examples below use the <a href="/guide/en/elasticsearch/plugins/7.17/repository-gcs.html" class="ulink" target="_top">Google Cloud Storage Repository Plugin</a>.</p>
+<p>The examples described in the following sections use the <a href="/guide/en/elasticsearch/plugins/7.17/repository-gcs.html" class="ulink" target="_top">Google Cloud Storage Repository Plugin</a>.</p>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>Support for S3, GCS and Azure repositories is bundled in Elasticsearch by default from version 8.0.</p>
+</div>
+</div>
 <p>For more information on Elasticsearch snapshots, check <a href="/guide/en/elasticsearch/reference/current/modules-snapshots.html" class="ulink" target="_top">Snapshot and Restore</a>.</p>
 <div class="section">
 <div class="titlepage"><div><div>
@@ -70,7 +73,7 @@ kind: Elasticsearch
 metadata:
   name: elasticsearch-sample
 spec:
-  version: 8.1.2
+  version: 8.3.3
   image: your/custom/image:tag
   nodeSets:
   - name: default
@@ -83,7 +86,7 @@ kind: Elasticsearch
 metadata:
   name: elasticsearch-sample
 spec:
-  version: 8.1.2
+  version: 8.3.3
   nodeSets:
   - name: default
     count: 1
@@ -107,7 +110,7 @@ spec:
 <div class="titlepage"><div><div>
 <h3 class="title"><a id="k8s-secure-settings"></a>Configure GCS credentials through the Elasticsearch keystore<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/cloud-on-k8s/edit/main/docs/orchestrating-elastic-stack-applications/elasticsearch/snapshots.asciidoc">edit</a></h3>
 </div></div></div>
-<p>The Elasticsearch GCS repository plugin requires a JSON file that contains service account credentials. These need to be added as secure settings to the Elasticsearch keystore. For more details, check <a href="/guide/en/elasticsearch/plugins/7.17/repository-gcs-usage.html" class="ulink" target="_top">Google Cloud Storage Repository Plugin</a>.</p>
+<p>The Elasticsearch GCS repository plugin requires a JSON file that contains service account credentials. These need to be added as secure settings to the Elasticsearch keystore. For more details, check <a href="/guide/en/elasticsearch/reference/current/repository-gcs.html" class="ulink" target="_top">Google Cloud Storage Repository</a>.</p>
 <p>Using ECK, you can automatically inject secure settings into a cluster node by providing them through a secret in the Elasticsearch Spec.</p>
 <div class="olist orderedlist">
 <ol class="orderedlist">
@@ -142,12 +145,12 @@ kind: Elasticsearch
 metadata:
   name: elasticsearch-sample
 spec:
-  version: 8.1.2
+  version: 8.3.3
   # Inject secure settings into Elasticsearch nodes from a k8s secret reference
   secureSettings:
   - secretName: gcs-credentials</pre>
 </div>
-<p>If you did not follow the instructions above and named your GCS credentials file differently, you can still map it to the expected name now. Check <a class="xref" href="k8s-es-secure-settings.html" title="Secure settings">Secure Settings</a> for details.</p>
+<p>If you haven&#8217;t followed these instructions and named your GCS credentials file differently, you can still map it to the expected name now. Check <a class="xref" href="k8s-es-secure-settings.html" title="Secure settings">Secure Settings</a> for details.</p>
 </li>
 <li class="listitem">
 <p>Apply the modifications:</p>
@@ -208,7 +211,7 @@ spec:
 <p>Make an HTTP request against the appropriate endpoint, using a daily snapshot naming format. Elasticsearch credentials are mounted as a volume into the job&#8217;s Pod:</p>
 <div class="pre_wrapper lang-yaml">
 <pre class="programlisting prettyprint lang-yaml"># snapshotter.yml
-apiVersion: batch/v1beta1
+apiVersion: batch/v1
 kind: CronJob
 metadata:
   name: elasticsearch-sample-snapshotter

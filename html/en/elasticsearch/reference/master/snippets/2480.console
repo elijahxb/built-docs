@@ -1,9 +1,13 @@
-POST /_snapshot/my_repository/my_snapshot/_mount?wait_for_completion=true
+POST _ml/trained_models/model2/_infer
 {
-  "index": "my_docs",
-  "renamed_index": "docs",
-  "index_settings": {
-    "index.number_of_replicas": 0
-  },
-  "ignore_index_settings": [ "index.refresh_interval" ]
+  "docs": [
+    {
+      "text_field": "<long text to extract answer>"
+    }
+  ],
+  "inference_config": {
+    "question_answering": {
+      "question": "<question to be answered>"
+    }
+  }
 }

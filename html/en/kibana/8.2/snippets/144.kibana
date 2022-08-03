@@ -1,1 +1,1 @@
-GET api/cases/configure/connectors/_find
+$ curl -X GET api/actions/list_action_types

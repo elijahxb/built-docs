@@ -1,21 +1,10 @@
-POST clicklogs/_graph/explore
+POST my-index-000001/_delete_by_query?refresh&slices=5
 {
-   "vertices": [
-      {
-         "field": "product",
-         "include": [ "1854873" ]
+  "query": {
+    "range": {
+      "http.response.bytes": {
+        "lt": 2000000
       }
-   ],
-   "connections": {
-      "vertices": [
-         {
-            "field": "query.raw",
-            "exclude": [
-               "midi keyboard",
-               "midi",
-               "synth"
-            ]
-         }
-      ]
-   }
+    }
+  }
 }

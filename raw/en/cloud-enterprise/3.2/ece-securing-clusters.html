@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Secure your clusters | Elastic Cloud Enterprise Reference [3.2] | Elastic</title>
+<link rel="home" href="index.html" title="Elastic Cloud Enterprise Reference [3.2]"/>
+<link rel="up" href="ece-administering-deployments.html" title="Administering deployments"/>
+<link rel="prev" href="ece-deployment-no-op.html" title="Scenario: How do I resolve deployment health warnings?"/>
+<link rel="next" href="ece-password-reset-elastic.html" title="Reset the password for the elastic user"/>
+<meta name="DC.type" content="Learn/Docs/CloudEnterprise/Reference/3.2"/>
+<meta name="DC.subject" content="ECE"/>
+<meta name="DC.identifier" content="3.2"/>
+</head>
+<body><div class="page_header">
+A newer version is available. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Cloud Enterprise Reference [3.2]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="ece-administering-deployments.html">Administering deployments</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="ece-deployment-no-op.html">« Scenario: How do I resolve deployment health warnings?</a>
+</span>
+<span class="next">
+<a href="ece-password-reset-elastic.html">Reset the password for the <code class="literal">elastic</code> user »</a>
+</span>
+</div>
+<div class="chapter">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="ece-securing-clusters"></a>Secure your clusters<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/cloud-enterprise/ce-securing-clusters.asciidoc">edit</a></h2>
+</div></div></div>
+<p>Elastic Cloud Enterprise supports most of the security features that are part of the Elastic Stack. These features are designed to:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<p>Prevent unauthorized access with password protection and role-based access control:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Reset the <a class="xref" href="ece-password-reset-elastic.html" title="Reset the password for the elastic user"><code class="literal">elastic</code> user password</a>.
+</li>
+<li class="listitem">
+Use third-party authentication providers like <a class="xref" href="ece-securing-clusters-SAML.html" title="Secure your clusters with SAML">SAML</a>, <a class="xref" href="ece-securing-clusters-ldap.html" title="Secure your 7.x clusters with LDAP">LDAP</a>,
+<a class="xref" href="ece-securing-clusters-ad.html" title="Secure your 7.x clusters with Active Directory">Active Directory</a>, <a class="xref" href="ece-secure-clusters-oidc.html" title="Secure your clusters with OpenID Connect">OpenID Connect</a>, or <a class="xref" href="ece-secure-clusters-kerberos.html" title="Secure your clusters with Kerberos">Kerberos</a> to provide dynamic <a href="/guide/en/elasticsearch/reference/8.3/mapping-roles.html" class="ulink" target="_top">role mappings</a> for role based or attribute based access control.
+</li>
+<li class="listitem">
+Use Kibana Spaces and roles to <a href="/guide/en/kibana/8.3/tutorial-secure-access-to-kibana.html" class="ulink" target="_top">secure access to Kibana</a>.
+</li>
+<li class="listitem">
+Authorize and authenticate service accounts for Beats by <a href="/guide/en/beats/filebeat/8.3/beats-api-keys.html" class="ulink" target="_top">granting access using API keys</a>.
+</li>
+</ul>
+</div>
+</li>
+<li class="listitem">
+Establish trust relationships between your deployments, and across organizations with <a class="xref" href="ece-trust-management.html" title="Trust management">trust management</a>.
+</li>
+<li class="listitem">
+Block unwanted traffic with <a class="xref" href="ece-traffic-filtering-deployment-configuration.html" title="Traffic Filtering">traffic filter</a>.
+</li>
+<li class="listitem">
+Secure your settings with the Elasticsearch <a class="xref" href="ece-configuring-keystore.html" title="Secure your settings">keystore</a>.
+</li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="ece-deployment-no-op.html">« Scenario: How do I resolve deployment health warnings?</a>
+</span>
+<span class="next">
+<a href="ece-password-reset-elastic.html">Reset the password for the <code class="literal">elastic</code> user »</a>
+</span>
+</div>
+</div>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains('stemblock')) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+</body>
+</html>

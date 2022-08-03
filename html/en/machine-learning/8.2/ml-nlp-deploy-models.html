@@ -59,7 +59,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -90,40 +90,29 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
-You are looking at preliminary documentation for a future release.
-Not what you want? See the
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
 <a href="../current/index.html">current release documentation</a>.
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Machine Learning in the Elastic Stack [8.2]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Machine Learning in the Elastic Stack [8.2]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="ml-nlp.html">Natural language processing</a></span>
-»
-<span class="breadcrumb-node">Deploy trained models</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -166,10 +155,10 @@ type of analysis that you want to perform. For example, there are models and
 data sets available for specific NLP tasks on
 <a href="https://huggingface.co/models" class="ulink" target="_top">Hugging Face</a>. These instructions assume you&#8217;re
 using one of those models and do not describe how to create new models. For the
-current list of supported model architectures, refer to <a class="xref" href="ml-nlp-model-ref.html" title="Third party NLP models">Third party NLP models</a>.</p>
-<p>If you choose to perform language identification by using
-the <code class="literal">lang_ident_model_1</code> that is provided in the cluster, no further steps are
-required to import or deploy the model. You can skip to using the model in
+current list of supported model architectures, refer to <a class="xref" href="ml-nlp-model-ref.html" title="Compatible third party NLP models"><em>Compatible third party models</em></a>.</p>
+<p>If you choose to perform language identification by using the <code class="literal">lang_ident_model_1</code> that is
+provided in the cluster, no further steps are required to import or deploy the
+model. You can skip to using the model in
 <a class="xref" href="ml-nlp-inference.html" title="Add NLP inference to ingest pipelines">ingestion pipelines</a>.</p>
 <h3><a id="ml-nlp-import-model"></a>Import the trained model and vocabulary<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/stack-docs/edit/8.2/docs/en/stack/ml/nlp/ml-nlp-deploy-models.asciidoc">edit</a></h3>
 <p>After you choose a model, you must import it and its tokenizer vocabulary to
@@ -188,17 +177,20 @@ method; it is therefore the recommended import method.</p>
 <div class="olist orderedlist">
 <ol class="orderedlist">
 <li class="listitem">
-<a href="/guide/en/elasticsearch/client/eland/current/installation.html" class="ulink" target="_top">Install the Eland Python client</a>.
+<p>Install the <a href="/guide/en/elasticsearch/client/eland/current/installation.html" class="ulink" target="_top">Eland Python client</a> with PyTorch
+extra dependencies.</p>
+<div class="pre_wrapper lang-shell">
+<pre class="programlisting prettyprint lang-shell">python -m pip install 'eland[pytorch]'</pre>
+</div>
 </li>
 <li class="listitem">
 <p>Run the <code class="literal">eland_import_hub_model</code> script. For example:</p>
-<div class="pre_wrapper lang-js">
-<pre class="programlisting prettyprint lang-js">eland_import_hub_model --url &lt;clusterUrl&gt; \ <a id="CO26-1"></a><i class="conum" data-value="1"></i>
---hub-model-id elastic/distilbert-base-cased-finetuned-conll03-english \ <a id="CO26-2"></a><i class="conum" data-value="2"></i>
---task-type ner <a id="CO26-3"></a><i class="conum" data-value="3"></i></pre>
-</div>
-</li>
-</ol>
+<div class="pre_wrapper lang-shell">
+<pre class="programlisting prettyprint lang-shell">eland_import_hub_model
+--cloud-id &lt;cloud-id&gt; \ <a id="CO26-1"></a><i class="conum" data-value="1"></i>
+-u &lt;username&gt; -p &lt;password&gt; \ <a id="CO26-2"></a><i class="conum" data-value="2"></i>
+--hub-model-id elastic/distilbert-base-cased-finetuned-conll03-english \ <a id="CO26-3"></a><i class="conum" data-value="3"></i>
+--task-type ner \ <a id="CO26-4"></a><i class="conum" data-value="4"></i></pre>
 </div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
@@ -207,8 +199,7 @@ method; it is therefore the recommended import method.</p>
 <p><a href="#CO26-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
-<p>Specify the URL to access your cluster. For example,
-<code class="literal">https://&lt;user&gt;:&lt;password&gt;@&lt;hostname&gt;:&lt;port&gt;</code>.</p>
+<p>Specify the Elastic Cloud identifier. Alternatively, use <code class="literal">--url</code>.</p>
 </td>
 </tr>
 <tr>
@@ -216,12 +207,21 @@ method; it is therefore the recommended import method.</p>
 <p><a href="#CO26-2"><i class="conum" data-value="2"></i></a></p>
 </td>
 <td align="left" valign="top">
-<p>Specify the identifier for the model in the Hugging Face model hub.</p>
+<p>Provide authentication details to access your cluster. Refer to
+<a class="xref" href="ml-nlp-deploy-models.html#authentication" title="Authentication methods">Authentication methods</a> to learn more.</p>
 </td>
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
 <p><a href="#CO26-3"><i class="conum" data-value="3"></i></a></p>
+</td>
+<td align="left" valign="top">
+<p>Specify the identifier for the model in the Hugging Face model hub.</p>
+</td>
+</tr>
+<tr>
+<td align="left" valign="top" width="5%">
+<p><a href="#CO26-4"><i class="conum" data-value="4"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Specify the type of NLP task. Supported values are <code class="literal">fill_mask</code>, <code class="literal">ner</code>,
@@ -230,13 +230,49 @@ method; it is therefore the recommended import method.</p>
 </tr>
 </table>
 </div>
+</li>
+</ol>
+</div>
 <p>For more details, refer to <a href="https://github.com/elastic/eland#nlp-with-pytorch" class="ulink" target="_top">https://github.com/elastic/eland#nlp-with-pytorch</a>.</p>
+<h4><a id="authentication"></a>Authentication methods<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/stack-docs/edit/8.2/docs/en/stack/ml/nlp/ml-nlp-deploy-models.asciidoc">edit</a></h4>
+<p>The following authentication options are available when using the import script:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<p>username/password authentication (specified with the <code class="literal">-u</code> and <code class="literal">-p</code> options):</p>
+<div class="pre_wrapper lang-shell">
+<pre class="programlisting prettyprint lang-shell">eland_import_hub_model --url https://&lt;hostname&gt;:&lt;port&gt; -u &lt;username&gt; -p &lt;password&gt; ...</pre>
+</div>
+</li>
+<li class="listitem">
+<p>username/password authentication (embedded in the URL):</p>
+<div class="pre_wrapper lang-shell">
+<pre class="programlisting prettyprint lang-shell">eland_import_hub_model --url https://&lt;user&gt;:&lt;password&gt;@&lt;hostname&gt;:&lt;port&gt; ...</pre>
+</div>
+</li>
+<li class="listitem">
+<p>API key authentication:</p>
+<div class="pre_wrapper lang-shell">
+<pre class="programlisting prettyprint lang-shell">eland_import_hub_model --url https://&lt;hostname&gt;:&lt;port&gt; --es-api-key &lt;api-key&gt; ...</pre>
+</div>
+</li>
+</ul>
+</div>
 <h3><a id="ml-nlp-deploy-model"></a>Deploy the model in your cluster<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/stack-docs/edit/8.2/docs/en/stack/ml/nlp/ml-nlp-deploy-models.asciidoc">edit</a></h3>
 <p>After you import the model and vocabulary, you can use Kibana to view and manage
 their deployment across your cluster under <span class="strong strong"><strong>Machine Learning</strong></span> &gt; <span class="strong strong"><strong>Model Management</strong></span>.
 Alternatively, you can use the
 <a href="/guide/en/elasticsearch/reference/8.2/start-trained-model-deployment.html" class="ulink" target="_top">start trained model deployment API</a> or
 specify the <code class="literal">--start</code> option when you run the <code class="literal">eland_import_hub_model</code> script.</p>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>Since eland uses APIs to deploy the models, you cannot see the models in
+Kibana until the saved objects are synchronized. You can follow the prompts in
+Kibana, wait for automatic synchronization, or use the
+<a href="/guide/en/kibana/8.2/machine-learning-api-sync.html" class="ulink" target="_top">sync machine learning saved objects API</a>.</p>
+</div>
+</div>
 <p>When you deploy the model, it is allocated to all available machine learning nodes. The
 model is loaded into memory in a native process that encapsulates <code class="literal">libtorch</code>,
 which is the underlying machine learning library of PyTorch.</p>
@@ -258,6 +294,21 @@ perform inference. <em>Inference</em> is a machine learning feature that enables
 trained models to perform NLP tasks (such as text extraction, classification, or
 embeddings) on incoming data.</p>
 <p>The simplest method to test your model against new data is to use the
+<span class="strong strong"><strong>Test model</strong></span> action in Kibana:</p>
+<div class="imageblock screenshot">
+<div class="content">
+<img src="images/ml-nlp-test-lang-ident.png" alt="Testing a French phrase against the language identification trained model in the *machine learning* app">
+</div>
+</div>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>This Kibana functionality is currently available only for the
+<code class="literal">lang_ident_model_1</code> model and for supported
+<a class="xref" href="ml-nlp-model-ref.html#ml-nlp-model-ref-ner" title="Third party named entity recognition models">third party named entity recognition models</a>.</p>
+</div>
+</div>
+<p>Alternatively, you can use the
 <a href="/guide/en/elasticsearch/reference/8.2/infer-trained-model-deployment.html" class="ulink" target="_top">infer trained model deployment API</a>.
 For example, to try a named entity recognition task, provide some sample text:</p>
 <div class="pre_wrapper lang-console">
@@ -331,15 +382,37 @@ MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

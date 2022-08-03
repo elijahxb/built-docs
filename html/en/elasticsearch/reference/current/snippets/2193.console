@@ -1,8 +1,10 @@
-POST my-data-stream/_rollover
+PUT /_index_template/template_1
 {
-  "conditions": {
-    "max_age": "7d",
-    "max_docs": 1000,
-    "max_primary_shard_size": "50gb"
+  "index_patterns" : ["te*"],
+  "priority" : 1,
+  "template": {
+    "settings" : {
+      "number_of_shards" : 2
+    }
   }
 }

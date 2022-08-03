@@ -17,13 +17,10 @@ A newer version is available. For the latest information, see the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elastic Cloud on Kubernetes [1.2]</a></span>
-»
-<span class="breadcrumb-link"><a href="k8s-orchestrating-elastic-stack-applications.html">Orchestrating Elastic Stack applications</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Cloud on Kubernetes [1.2]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="k8s-orchestrating-elastic-stack-applications.html">Orchestrating Elastic Stack applications</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="k8s-elasticsearch-specification.html">Run Elasticsearch on ECK</a></span>
-»
-<span class="breadcrumb-node">Advanced Elasticsearch node scheduling</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -66,7 +63,7 @@ kind: Elasticsearch
 metadata:
   name: quickstart
 spec:
-  version: 8.1.2
+  version: 8.3.3
   nodeSets:
   # 3 dedicated master nodes
   - name: master
@@ -102,7 +99,7 @@ kind: Elasticsearch
 metadata:
   name: quickstart
 spec:
-  version: 8.1.2
+  version: 8.3.3
   nodesSets:
   - name: default
     count: 3
@@ -126,7 +123,7 @@ kind: Elasticsearch
 metadata:
   name: quickstart
 spec:
-  version: 8.1.2
+  version: 8.3.3
   nodeSets:
   - name: default
     count: 3
@@ -141,7 +138,7 @@ kind: Elasticsearch
 metadata:
   name: quickstart
 spec:
-  version: 8.1.2
+  version: 8.3.3
   nodeSets:
   - name: default
     count: 3
@@ -185,7 +182,7 @@ kind: Elasticsearch
 metadata:
   name: quickstart
 spec:
-  version: 8.1.2
+  version: 8.3.3
   nodeSets:
   - name: default
     count: 3
@@ -202,7 +199,7 @@ kind: Elasticsearch
 metadata:
   name: quickstart
 spec:
-  version: 8.1.2
+  version: 8.3.3
   nodeSets:
   - name: default
     count: 3
@@ -243,7 +240,7 @@ kind: Elasticsearch
 metadata:
   name: quickstart
 spec:
-  version: 8.1.2
+  version: 8.3.3
   nodeSets:
   - name: zone-a
     count: 1
@@ -305,7 +302,7 @@ kind: Elasticsearch
 metadata:
   name: quickstart
 spec:
-  version: 8.1.2
+  version: 8.3.3
   nodeSets:
   # hot nodes, with high CPU and fast IO
   - name: hot

@@ -55,7 +55,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -86,32 +86,23 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   
 <div class="page_header">
-You are looking at preliminary documentation for a future release.
-Not what you want? See the
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
 <a href="../current/index.html">current release documentation</a>.
 </div>
 <div class="navheader">
@@ -123,6 +114,9 @@ Not what you want? See the
 </div>
 <div class="book" lang="en">
 <div class="titlepage">
+<div class="breadcrumbs" id="title-page-breadcrumb">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+</div>
 <div>
 <div><h1 class="title"><a id="id-1"></a>Elasticsearch Java API Client</h1></div>
 </div>
@@ -132,7 +126,7 @@ Not what you want? See the
 <div id="content">
 <!--START_TOC-->
 <div class="toc">
-<ul class="toc"><li id="book_title"><span>Java Client: <select id="live_versions"><option value="master">master</option><option value="8.2" selected>8.2</option><option value="8.1">8.1 (current)</option><option value="7.17">7.17</option><option value="other">other versions</option></select><span id="other_versions">other versions: <select><option value="master">master</option><option value="8.2" selected>8.2</option><option value="8.1">8.1 (current)</option><option value="8.0">8.0</option><option value="7.17">7.17</option><option value="7.16">7.16</option></select></span></li><li><span class="chapter"><a href="introduction.html">Introduction</a></span>
+<ul class="toc"><li id="book_title"><span>Java Client: <select id="live_versions"><option value="master">master</option><option value="8.3">8.3 (current)</option><option value="8.2" selected>8.2</option><option value="7.17">7.17</option><option value="other">other versions</option></select><span id="other_versions">other versions: <select><option value="master">master</option><option value="8.3">8.3 (current)</option><option value="8.2" selected>8.2</option><option value="8.1">8.1</option><option value="8.0">8.0</option><option value="7.17">7.17</option><option value="7.16">7.16</option></select></span></li><li><span class="chapter"><a href="introduction.html">Introduction</a></span>
 </li>
 <li><span class="chapter"><a href="_getting_started.html">Getting started</a></span>
 <ul>
@@ -162,7 +156,7 @@ Not what you want? See the
 </li>
 <li><span class="section"><a href="loading-json.html">Creating API objects from JSON data</a></span>
 </li>
-<li><span class="section"><a href="exceptions.html">Exceptions</a></span>
+<li><span class="section"><a href="exception-conventions.html">Exceptions</a></span>
 </li>
 </ul>
 </li>
@@ -177,6 +171,12 @@ Not what you want? See the
 <li><span class="section"><a href="searching.html">Searching for documents</a></span>
 </li>
 <li><span class="section"><a href="aggregations.html">Aggregations</a></span>
+</li>
+</ul>
+</li>
+<li><span class="chapter"><a href="troubleshooting.html">Troubleshooting</a></span>
+<ul>
+<li><span class="section"><a href="missing-required-property.html"><code class="literal">MissingRequiredPropertyException</code> in a response</a></span>
 </li>
 </ul>
 </li>
@@ -258,6 +258,7 @@ Not what you want? See the
 
 
 
+
 </div>
 </div><div class="navfooter">
 <span class="prev">
@@ -269,15 +270,37 @@ Not what you want? See the
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

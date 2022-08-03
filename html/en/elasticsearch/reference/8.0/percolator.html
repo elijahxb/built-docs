@@ -57,7 +57,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -88,27 +88,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 <strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
@@ -117,13 +108,10 @@ will be released for this version. For the latest information, see the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.0]</a></span>
-»
-<span class="breadcrumb-link"><a href="mapping.html">Mapping</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.0]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="mapping.html">Mapping</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="mapping-types.html">Field data types</a></span>
-»
-<span class="breadcrumb-node">Percolator field type</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -163,7 +151,7 @@ query.</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/224.console"></div>
+<div class="console_widget" data-snippet="snippets/225.console"></div>
 <p>Then you can index a query:</p>
 <a id="17f8a8990b0166befa3bc2b10fd28134"></a>
 <div class="pre_wrapper lang-console">
@@ -176,7 +164,7 @@ query.</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/225.console"></div>
+<div class="console_widget" data-snippet="snippets/226.console"></div>
 <div class="important admon">
 <div class="icon"></div>
 <div class="admon_content">
@@ -227,7 +215,7 @@ PUT queries/_doc/1?refresh
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/226.console"></div>
+<div class="console_widget" data-snippet="snippets/227.console"></div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
@@ -287,7 +275,7 @@ POST _aliases
   ]
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/227.console"></div>
+<div class="console_widget" data-snippet="snippets/228.console"></div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
@@ -315,7 +303,7 @@ POST _aliases
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/228.console"></div>
+<div class="console_widget" data-snippet="snippets/229.console"></div>
 <p>now returns matches from the new index:</p>
 <a id="8bb3c37f6c007d069b7107b6c1e306b2"></a>
 <div class="pre_wrapper lang-console-result">
@@ -421,7 +409,7 @@ Using this approach the expensive text analysis is performed once instead of man
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/229.console"></div>
+<div class="console_widget" data-snippet="snippets/230.console"></div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
@@ -443,7 +431,7 @@ Using this approach the expensive text analysis is performed once instead of man
   "text" : "missing bicycles"
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/230.console"></div>
+<div class="console_widget" data-snippet="snippets/231.console"></div>
 <p>This results the following response:</p>
 <a id="d674b0d80bef84b374861ff1023e8ac6"></a>
 <div class="pre_wrapper lang-console-result">
@@ -481,7 +469,7 @@ Using this approach the expensive text analysis is performed once instead of man
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/231.console"></div>
+<div class="console_widget" data-snippet="snippets/232.console"></div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
@@ -512,7 +500,7 @@ needs to be used, it needs to be configured first in the index&#8217;s settings.
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/232.console"></div>
+<div class="console_widget" data-snippet="snippets/233.console"></div>
 <p>This results in a response like this:</p>
 <a id="6c36ac2864631f76aa6b04ac6b4d18a4"></a>
 <div class="pre_wrapper lang-console-result">
@@ -605,7 +593,7 @@ query on a field where the <code class="literal">edge_ngram</code> token filter 
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/233.console"></div>
+<div class="console_widget" data-snippet="snippets/234.console"></div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
@@ -657,7 +645,7 @@ with a <code class="literal">term</code> or <code class="literal">match</code> q
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/234.console"></div>
+<div class="console_widget" data-snippet="snippets/235.console"></div>
 <p>This way can handle the second query more efficiently than the first query.</p>
 <p>The following search request will match with the previously indexed
 percolator query:</p>
@@ -675,7 +663,7 @@ percolator query:</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/235.console"></div>
+<div class="console_widget" data-snippet="snippets/236.console"></div>
 <a id="c314bccc7efd6cdf7fed6aa2585900c7"></a>
 <div class="pre_wrapper lang-console-result">
 <pre class="programlisting prettyprint lang-console-result">{
@@ -771,7 +759,7 @@ before the <code class="literal">edge_ngram</code> token filter.</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/236.console"></div>
+<div class="console_widget" data-snippet="snippets/237.console"></div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
@@ -808,7 +796,7 @@ with the reserved suffix tokens.</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/237.console"></div>
+<div class="console_widget" data-snippet="snippets/238.console"></div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
@@ -838,7 +826,7 @@ percolator query:</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/238.console"></div>
+<div class="console_widget" data-snippet="snippets/239.console"></div>
 <h4><a id="_dedicated_percolator_index"></a>Dedicated Percolator Index<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.0/docs/reference/mapping/types/percolator.asciidoc">edit</a></h4>
 <p>Percolate queries can be added to any index. Instead of adding percolate queries to the index the data resides in,
 these queries can also be added to a dedicated index. The advantage of this is that this dedicated percolator index
@@ -888,15 +876,37 @@ the field alias, the percolator query must be explicitly reindexed.</p>
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

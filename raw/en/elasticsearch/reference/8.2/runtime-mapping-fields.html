@@ -13,19 +13,16 @@
 <meta name="robots" content="noindex,nofollow"/>
 </head>
 <body><div class="page_header">
-You are looking at preliminary documentation for a future release.
-Not what you want? See the
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
 <a href="../current/index.html">current release documentation</a>.
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.2]</a></span>
-»
-<span class="breadcrumb-link"><a href="mapping.html">Mapping</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.2]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="mapping.html">Mapping</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="runtime.html">Runtime fields</a></span>
-»
-<span class="breadcrumb-node">Map a runtime field</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -42,9 +39,9 @@ Not what you want? See the
 <p>You map runtime fields by adding a <code class="literal">runtime</code> section under the mapping
 definition and defining
 <a class="xref" href="modules-scripting-using.html" title="How to write scripts">a Painless script</a>. This script has access to the
-entire context of a document, including the original <code class="literal">_source</code> and any mapped
-fields plus their values. At query time, the script runs and generates values
-for each scripted field that is required for the query.</p>
+entire context of a document, including the original <code class="literal">_source</code> via <code class="literal">params._source</code>
+and any mapped fields plus their values. At query time, the script runs and
+generates values for each scripted field that is required for the query.</p>
 <div class="sidebar">
 <div class="titlepage"><div><div>
 <p class="title"><strong>Emitting runtime field values</strong></p>
@@ -76,7 +73,7 @@ calculates the day of the week based on the value of <code class="literal">times
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/117.console"></div>
+<div class="console_widget" data-snippet="snippets/119.console"></div>
 <p>The <code class="literal">runtime</code> section can be any of these data types:</p>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -130,7 +127,7 @@ the index mapping as runtime fields:</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/118.console"></div>
+<div class="console_widget" data-snippet="snippets/120.console"></div>
 <div class="section">
 <div class="titlepage"><div><div>
 <h3 class="title"><a id="runtime-fields-scriptless"></a>Define runtime fields without a script<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch/edit/8.2/docs/reference/mapping/runtime.asciidoc">edit</a></h3>
@@ -152,7 +149,7 @@ a runtime field without a script, such as <code class="literal">day_of_week</cod
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/119.console"></div>
+<div class="console_widget" data-snippet="snippets/121.console"></div>
 <p>When no script is provided, Elasticsearch implicitly looks in <code class="literal">_source</code> at query time
 for a field with the same name as the runtime field, and returns a value if one
 exists. If a field with the same name doesn’t exist, the response doesn&#8217;t
@@ -193,7 +190,7 @@ remove a runtime field from the mappings, set the value of the runtime field to
  }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/120.console"></div>
+<div class="console_widget" data-snippet="snippets/122.console"></div>
 <div class="sidebar">
 <div class="titlepage"><div><div>
 <p class="title"><strong>Downstream impacts</strong></p>

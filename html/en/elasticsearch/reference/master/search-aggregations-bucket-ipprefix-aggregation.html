@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,27 +87,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 You are looking at preliminary documentation for a future release.
@@ -116,13 +107,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="search-aggregations.html">Aggregations</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="search-aggregations.html">Aggregations</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="search-aggregations-bucket.html">Bucket aggregations</a></span>
-»
-<span class="breadcrumb-node">IP prefix aggregation</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -134,13 +122,13 @@ Not what you want? See the
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="search-aggregations-bucket-ipprefix-aggregation"></a>IP prefix aggregation<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/aggregations/bucket/ipprefix-aggregation.asciidoc">edit</a></h2>
+<h2 class="title"><a id="search-aggregations-bucket-ipprefix-aggregation"></a>IP prefix aggregation<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/aggregations/bucket/ipprefix-aggregation.asciidoc">edit</a></h2>
 </div></div></div>
 
 <p>A bucket aggregation that groups documents based on the network or sub-network of an IP address. An IP address consists of two groups of bits: the most significant bits which represent the network prefix, and the least significant bits which represent the host.</p>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="ipprefix-agg-ex"></a>Example<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/aggregations/bucket/ipprefix-aggregation.asciidoc">edit</a></h3>
+<h3 class="title"><a id="ipprefix-agg-ex"></a>Example<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/aggregations/bucket/ipprefix-aggregation.asciidoc">edit</a></h3>
 </div></div></div>
 <p>For example, consider the following index:</p>
 <a id="7c5aed55a2a1dce4b63c18e1ce8146ff"></a>
@@ -175,7 +163,7 @@ POST /network-traffic/_bulk?refresh
 {"index":{"_id":8}}
 {"ipv4":"192.168.3.107","ipv6":"2001:db8:a4f8:114f:6001:0:12:7307"}</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1143.console"></div>
+<div class="console_widget" data-snippet="snippets/1171.console"></div>
 <p>The following aggregation groups documents into buckets. Each bucket identifies a different sub-network. The sub-network is calculated by applying a netmask with prefix length of <code class="literal">24</code> to each IP address in the <code class="literal">ipv4</code> field:</p>
 <a id="5a754dcc854b9154296550a0b581cb9d"></a>
 <a id="ip-prefix-ipv4-example"></a><div class="pre_wrapper lang-console">
@@ -192,7 +180,7 @@ POST /network-traffic/_bulk?refresh
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1144.console"></div>
+<div class="console_widget" data-snippet="snippets/1172.console"></div>
 <p>Response:</p>
 <a id="9d413061e61b51498e7d21f68bddc8b3"></a>
 <div class="pre_wrapper lang-console-result">
@@ -245,7 +233,7 @@ POST /network-traffic/_bulk?refresh
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1145.console"></div>
+<div class="console_widget" data-snippet="snippets/1173.console"></div>
 <p>If <code class="literal">is_ipv6</code> is <code class="literal">true</code>, the response doesn&#8217;t include a <code class="literal">netmask</code> for each bucket.</p>
 <a id="6a16b05416d7fe2681cf39faf2eb47dd"></a>
 <div class="pre_wrapper lang-console-result">
@@ -282,7 +270,7 @@ POST /network-traffic/_bulk?refresh
 
 <div class="section child_attributes">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="ip-prefix-agg-params"></a>Parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/aggregations/bucket/ipprefix-aggregation.asciidoc">edit</a></h3>
+<h3 class="title"><a id="ip-prefix-agg-params"></a>Parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/aggregations/bucket/ipprefix-aggregation.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="variablelist">
 <dl class="variablelist">
@@ -346,7 +334,7 @@ Defines the minimum number of documents for buckets to be included in the respon
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="ipprefix-agg-response"></a>Response body<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/aggregations/bucket/ipprefix-aggregation.asciidoc">edit</a></h3>
+<h3 class="title"><a id="ipprefix-agg-response"></a>Response body<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/aggregations/bucket/ipprefix-aggregation.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="variablelist">
 <dl class="variablelist">
@@ -401,7 +389,7 @@ The IPv4 netmask. If <code class="literal">is_ipv6</code> is <code class="litera
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="ipprefix-agg-keyed-response"></a>Keyed Response<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/aggregations/bucket/ipprefix-aggregation.asciidoc">edit</a></h3>
+<h3 class="title"><a id="ipprefix-agg-keyed-response"></a>Keyed Response<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/aggregations/bucket/ipprefix-aggregation.asciidoc">edit</a></h3>
 </div></div></div>
 <p>Set the <code class="literal">keyed</code> flag of <code class="literal">true</code> to associate an unique IP address key with each bucket and return sub-networks as a hash rather than an array.</p>
 <p>Example:</p>
@@ -421,7 +409,7 @@ The IPv4 netmask. If <code class="literal">is_ipv6</code> is <code class="litera
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1146.console"></div>
+<div class="console_widget" data-snippet="snippets/1174.console"></div>
 <p>Response:</p>
 <a id="302d8b2499946dc3cf6e8f2b2a411ff0"></a>
 <div class="pre_wrapper lang-console-result">
@@ -458,7 +446,7 @@ The IPv4 netmask. If <code class="literal">is_ipv6</code> is <code class="litera
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="ipprefix-agg-append-prefix-length"></a>Append the prefix length to the IP address key<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/aggregations/bucket/ipprefix-aggregation.asciidoc">edit</a></h3>
+<h3 class="title"><a id="ipprefix-agg-append-prefix-length"></a>Append the prefix length to the IP address key<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/aggregations/bucket/ipprefix-aggregation.asciidoc">edit</a></h3>
 </div></div></div>
 <p>Set the <code class="literal">append_prefix_length</code> flag to <code class="literal">true</code> to catenate IP address keys with the prefix length of the sub-network.</p>
 <p>Example:</p>
@@ -478,7 +466,7 @@ The IPv4 netmask. If <code class="literal">is_ipv6</code> is <code class="litera
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1147.console"></div>
+<div class="console_widget" data-snippet="snippets/1175.console"></div>
 <p>Response:</p>
 <a id="046cb749b74dc843528feac0fbd1d879"></a>
 <div class="pre_wrapper lang-console-result">
@@ -518,7 +506,7 @@ The IPv4 netmask. If <code class="literal">is_ipv6</code> is <code class="litera
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="ipprefix-agg-min-doc-count"></a>Minimum document count<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/aggregations/bucket/ipprefix-aggregation.asciidoc">edit</a></h3>
+<h3 class="title"><a id="ipprefix-agg-min-doc-count"></a>Minimum document count<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/aggregations/bucket/ipprefix-aggregation.asciidoc">edit</a></h3>
 </div></div></div>
 <p>Use the <code class="literal">min_doc_count</code> parameter to only return buckets with a minimum number of documents.</p>
 <a id="26419320085434680142567d5fda9c35"></a>
@@ -537,7 +525,7 @@ The IPv4 netmask. If <code class="literal">is_ipv6</code> is <code class="litera
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1148.console"></div>
+<div class="console_widget" data-snippet="snippets/1176.console"></div>
 <p>Response:</p>
 <a id="f60009e1a7f4aa91603049cb5cd9ba63"></a>
 <div class="pre_wrapper lang-console-result">
@@ -581,15 +569,37 @@ The IPv4 netmask. If <code class="literal">is_ipv6</code> is <code class="litera
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

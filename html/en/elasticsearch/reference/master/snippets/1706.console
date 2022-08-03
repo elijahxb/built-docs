@@ -1,18 +1,7 @@
-GET _search
+POST /_security/user/admin_user?refresh=true
 {
-  "query": {
-    "bool": {
-      "must": {
-        "match": { "body": "elasticsearch" }
-      },
-      "should": {
-        "rank_feature": {
-          "field": "pagerank",
-          "saturation": {
-            "pivot": 10
-          }
-        }
-      }
-    }
-  }
+  "password": "l0ng-r4nd0m-p@ssw0rd",
+  "roles": [ "my_admin_role" ],
+  "full_name": "Eirian Zola",
+  "metadata": { "intelligence" : 7}
 }

@@ -1,1 +1,4 @@
-$ curl -X GET api/index_patterns/index_pattern/my-pattern
+$ curl -X POST api/data_views/default
+{
+  "data_view_id": "..."
+}

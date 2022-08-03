@@ -57,7 +57,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -88,38 +88,26 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Add-On for Heroku Documentation</a></span>
-»
-<span class="breadcrumb-link"><a href="ech-configure.html">Configuring your deployment</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Add-On for Heroku Documentation</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="ech-configure.html">Configuring your deployment</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="ech-upgrade-deployment.html">Upgrade versions</a></span>
-»
-<span class="breadcrumb-node">Upgrade to Elasticsearch 7.x</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -131,10 +119,10 @@
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="ech-upgrading-v7"></a>Upgrade to Elasticsearch 7.x<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-71/docs/shared/ec-ce-upgrading-v7.asciidoc">edit</a></h2>
+<h2 class="title"><a id="ech-upgrading-v7"></a>Upgrade to Elasticsearch 7.x<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-77/docs/shared/ec-ce-upgrading-v7.asciidoc">edit</a></h2>
 </div></div></div>
 <p>If you have a cluster and want to upgrade to version 7.x, there are a few things you must do to prepare for the upgrade. Preparing for your upgrade ahead of time ensures that you can enjoy the new features and improved usability of Elasticsearch 7.x as quickly as possible.</p>
-<h3><a id="echbefore_you_begin_8"></a>Before you begin<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-71/docs/shared/ec-ce-upgrading-v7.asciidoc">edit</a></h3>
+<h3><a id="echbefore_you_begin_8"></a>Before you begin<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-77/docs/shared/ec-ce-upgrading-v7.asciidoc">edit</a></h3>
 <p>Elasticsearch Add-On for Heroku upgrades differ from your on-premise installation because all major configuration changes for Elasticsearch, Kibana, and the security features are handled for you.</p>
 <p>When you upgrade, Elasticsearch Add-On for Heroku automatically runs the deprecation API to retrieve information about the cluster, node, and index-level settings that need to be removed or changed. If there are any deprecation issues that would prevent the upgraded deployment from successfully performing, the upgrade fails. To resolve the deprecation issues, use the Upgrade Assistant in Kibana.</p>
 <p>If your cluster does not include a Kibana instance yet, you can
@@ -151,10 +139,10 @@ then use the Upgrade Assistant. After you resolve the deprecation issues, try th
 </li>
 </ul>
 </div>
-<h4><a id="echsnapshot_behavior_during_upgrades"></a>Snapshot behavior during upgrades<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-71/docs/shared/ec-ce-upgrading-v7.asciidoc">edit</a></h4>
+<h4><a id="echsnapshot_behavior_during_upgrades"></a>Snapshot behavior during upgrades<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-77/docs/shared/ec-ce-upgrading-v7.asciidoc">edit</a></h4>
 <p>To keep your data safe, Elasticsearch Add-On for Heroku takes a snapshot before making any changes to your cluster. After a major version upgrade is complete, and the first successful snapshot with the new major version is available, all snapshots taken with the previous version of Elasticsearch are removed.</p>
 <p>For example, before upgrading from Elasticsearch version 6.7 to version 7.x, a snapshot is taken. After the upgrade to version 7.x is complete, and a snapshot is available, all snapshots taken with version 6.x are removed.</p>
-<h4><a id="ech-upgrading-v7-reindex"></a>Reindex indices<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-71/docs/shared/ec-ce-upgrading-v7.asciidoc">edit</a></h4>
+<h4><a id="ech-upgrading-v7-reindex"></a>Reindex indices<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-77/docs/shared/ec-ce-upgrading-v7.asciidoc">edit</a></h4>
 <p>Elasticsearch 7.x is compatible with indices created in version 6.0 or later. If you have indices from version 5.x or earlier, you must remove or reindex them before you upgrade.</p>
 <div class="tip admon">
 <div class="icon"></div>
@@ -162,10 +150,10 @@ then use the Upgrade Assistant. After you resolve the deprecation issues, try th
 <p>If prompted by Elasticsearch Add-On for Heroku, use the Upgrade Assistant in Kibana to reindex your data.</p>
 </div>
 </div>
-<h4><a id="ech-upgrading-v7-breaking"></a>Review breaking changes<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-71/docs/shared/ec-ce-upgrading-v7.asciidoc">edit</a></h4>
+<h4><a id="ech-upgrading-v7-breaking"></a>Review breaking changes<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-77/docs/shared/ec-ce-upgrading-v7.asciidoc">edit</a></h4>
 <p>Major version upgrades can include changes that expose the upgrading process to possible risk. A breaking change is the result of a functional change between major Elasticsearch versions, and requires you to perform additional steps to ensure that you can use the new version as intended.</p>
 <p>For more information, refer to <a href="/guide/en/elasticsearch/reference/7.17/breaking-changes.html" class="ulink" target="_top">Breaking changes in 7.17</a>.</p>
-<h4><a id="ech-upgrading-v7-issues"></a>Review the known issues<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-71/docs/shared/ec-ce-upgrading-v7.asciidoc">edit</a></h4>
+<h4><a id="ech-upgrading-v7-issues"></a>Review the known issues<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-77/docs/shared/ec-ce-upgrading-v7.asciidoc">edit</a></h4>
 <p>The following known issues apply to the Elastic Stack 7.x releases:</p>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -177,9 +165,9 @@ Elasticsearch Add-On for Heroku does not support the ability to upgrade to or fr
 </li>
 </ul>
 </div>
-<h4><a id="ech-log-in-kibana"></a>Log in to Kibana<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-71/docs/shared/ec-ce-upgrading-v7.asciidoc">edit</a></h4>
+<h4><a id="ech-log-in-kibana"></a>Log in to Kibana<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-77/docs/shared/ec-ce-upgrading-v7.asciidoc">edit</a></h4>
 <p>When you upgrade from version 6.7 to 7.0, you must first <a class="xref" href="ech-access-kibana.html" title="Access Kibana">log in to Kibana</a> to make sure that your upgrade is successful.</p>
-<h4><a id="ech-update-security-realm-settings"></a>Update the security realm settings<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-71/docs/shared/ec-ce-upgrading-v7.asciidoc">edit</a></h4>
+<h4><a id="ech-update-security-realm-settings"></a>Update the security realm settings<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-77/docs/shared/ec-ce-upgrading-v7.asciidoc">edit</a></h4>
 <p>During the upgrade process, you are prompted to update the security realm settings when your <code class="literal">user_settings</code> include a <code class="literal">xpack.security.authc.realms</code> value.</p>
 <p>There are two settings that prompt you to update:</p>
 <div class="ulist itemizedlist">
@@ -203,7 +191,7 @@ Select <span class="strong strong"><strong>Update settings</strong></span>.
 </li>
 </ol>
 </div>
-<h4><a id="echa_note_about_x_pack"></a>A note about X-Pack<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-71/docs/shared/ec-ce-upgrading-v7.asciidoc">edit</a></h4>
+<h4><a id="echa_note_about_x_pack"></a>A note about X-Pack<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-77/docs/shared/ec-ce-upgrading-v7.asciidoc">edit</a></h4>
 <p><span class="strong strong"><strong>In Elasticsearch version 7.0 and later</strong></span>, the security features to keep your Elasticsearch Add-On for Heroku deployments safe are now referred to simply as security features instead of X-Pack.</p>
 <p>For information about the security features in Elasticsearch version 7.0 and earlier, refer to
 <a class="xref" href="ech-security.html" title="Securing your deployment">Securing your deployment</a>.</p>
@@ -220,15 +208,37 @@ Select <span class="strong strong"><strong>Update settings</strong></span>.
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

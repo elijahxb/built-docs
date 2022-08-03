@@ -11,6 +11,7 @@
 <meta name="DC.type" content="Learn/Docs/APM Guide/8.1"/>
 <meta name="DC.subject" content="APM"/>
 <meta name="DC.identifier" content="8.1"/>
+<meta name="robots" content="noindex,nofollow"/>
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -56,7 +57,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,38 +88,30 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
-                  
+                  <div class="page_header">
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">APM User Guide [8.1]</a></span>
-»
-<span class="breadcrumb-link"><a href="overview.html">Legacy APM Server Reference</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">APM User Guide [8.1]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="overview.html">Legacy APM Server Reference</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="howto-guides.html">How-to guides</a></span>
-»
-<span class="breadcrumb-node">How to apply source maps to error stack traces when using minified bundles</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -130,13 +123,13 @@
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="sourcemaps"></a>How to apply source maps to error stack traces when using minified bundles<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-server/edit/8.1/docs/legacy/sourcemaps.asciidoc">edit</a></h2>
+<h2 class="title"><a id="sourcemaps"></a>How to apply source maps to error stack traces when using minified bundles<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/apm-server/edit/8.1/docs/legacy/sourcemaps.asciidoc">edit</a></h2>
 </div></div></div>
 
 <div class="important admon">
 <div class="icon"></div>
 <div class="admon_content">
-<p>This documentation refers to the standalone (legacy) method of running APM Server. This method of running APM Server will be deprecated and removed in a future release. Please consider <a class="xref" href="upgrade-to-apm-integration.html" title="Upgrade to the Elastic APM integration">upgrading to the Elastic APM integration</a>.
+<p>This documentation refers to the standalone (legacy) method of running APM Server. This method of running APM Server will be deprecated and removed in a future release. Please consider <a class="xref" href="upgrade-to-apm-integration.html" title="Switch to the Elastic APM integration">upgrading to the Elastic APM integration</a>.
 If you&#8217;ve already upgraded, please see <a class="xref" href="source-map-how-to.html" title="Create and upload source maps (RUM)">Create and upload source maps (RUM)</a> instead.</p>
 </div>
 </div>
@@ -180,7 +173,7 @@ Here&#8217;s the same example as before, but with a source map uploaded and appl
 </li>
 </ul>
 </div>
-<h4><a id="sourcemap-rum-initialize"></a>Initialize the RUM Agent<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-server/edit/8.1/docs/legacy/sourcemaps.asciidoc">edit</a></h4>
+<h4><a id="sourcemap-rum-initialize"></a>Initialize the RUM Agent<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/apm-server/edit/8.1/docs/legacy/sourcemaps.asciidoc">edit</a></h4>
 <p>Set the service name and version of your application when initializing the RUM Agent.
 To make uploading subsequent source maps easier, the <code class="literal">serviceVersion</code> you choose might be the
 <code class="literal">version</code> from your <code class="literal">package.json</code>. For example:</p>
@@ -200,7 +193,7 @@ const serviceVersion = git.short()</pre>
 </div>
 <p>It can also be any other unique string that indicates a specific version of your application.
 The APM integration uses the service name and version to match the correct source map file to each stack trace.</p>
-<h4 class="child_attributes"><a id="sourcemap-rum-generate"></a>Generate a source map<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-server/edit/8.1/docs/legacy/sourcemaps.asciidoc">edit</a></h4>
+<h4 class="child_attributes"><a id="sourcemap-rum-generate"></a>Generate a source map<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/apm-server/edit/8.1/docs/legacy/sourcemaps.asciidoc">edit</a></h4>
 <p>To be compatible with Elastic APM, source maps must follow the
 <a href="https://sourcemaps.info/spec.html" class="ulink" target="_top">source map revision 3 proposal spec</a>.</p>
 <p>Source maps can be generated and configured in many different ways.
@@ -237,7 +230,7 @@ module.exports = {
 </tr>
 </table>
 </div>
-<h4><a id="sourcemap-rum-configure"></a>Configure the Kibana endpoint in APM Server<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-server/edit/8.1/docs/legacy/sourcemaps.asciidoc">edit</a></h4>
+<h4><a id="sourcemap-rum-configure"></a>Configure the Kibana endpoint in APM Server<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/apm-server/edit/8.1/docs/legacy/sourcemaps.asciidoc">edit</a></h4>
 <div class="tabs" data-tab-group="kibana-endpoint">
   <div role="tablist" aria-label="Kibana endpoint">
     <button role="tab"
@@ -276,7 +269,7 @@ apm-server.kibana.password: "pass"</pre>
 <p>See <a class="xref" href="setup-kibana-endpoint.html" title="Configure the Kibana endpoint">Kibana endpoint</a> for a full list of configuration options.</p>
   </div>
 </div>
-<h4><a id="sourcemap-rum-upload"></a>Upload the source map to Kibana<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-server/edit/8.1/docs/legacy/sourcemaps.asciidoc">edit</a></h4>
+<h4><a id="sourcemap-rum-upload"></a>Upload the source map to Kibana<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/apm-server/edit/8.1/docs/legacy/sourcemaps.asciidoc">edit</a></h4>
 <p>Kibana exposes a <a href="/guide/en/kibana/8.1/rum-sourcemap-api.html" class="ulink" target="_top">source map endpoint</a> for uploading source maps.
 Source maps can be uploaded as a string, or as a file upload.</p>
 <p>Let&#8217;s look at two different ways to upload a source map: curl and a custom application.
@@ -298,7 +291,7 @@ If you have multiple source maps, you&#8217;ll need to upload each individually.
 </li>
 </ul>
 </div>
-<h5><a id="sourcemap-curl"></a>Upload via curl<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-server/edit/8.1/docs/legacy/sourcemaps.asciidoc">edit</a></h5>
+<h5><a id="sourcemap-curl"></a>Upload via curl<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/apm-server/edit/8.1/docs/legacy/sourcemaps.asciidoc">edit</a></h5>
 <p>Here’s an example curl request that uploads the source map file created in the previous step.
 This request uses an API key for authentication.</p>
 <div class="pre_wrapper lang-console">
@@ -333,7 +326,7 @@ curl -X POST "http://localhost:5601/api/apm/sourcemaps" \
 </tr>
 </table>
 </div>
-<h5><a id="sourcemap-custom-app"></a>Upload via a custom app<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-server/edit/8.1/docs/legacy/sourcemaps.asciidoc">edit</a></h5>
+<h5><a id="sourcemap-custom-app"></a>Upload via a custom app<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/apm-server/edit/8.1/docs/legacy/sourcemaps.asciidoc">edit</a></h5>
 <p>To ensure uploading source maps become a part of your deployment process,
 consider automating the process with a custom application.
 Here&#8217;s an example Node.js application that uploads the source map file created in the previous step:</p>
@@ -375,15 +368,37 @@ Don&#8217;t forget to enable RUM support in the APM integration if you haven&#82
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

@@ -19,13 +19,10 @@ will be released for this version. For the latest information, see the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.0]</a></span>
-»
-<span class="breadcrumb-link"><a href="setup.html">Set up Elasticsearch</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.0]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="setup.html">Set up Elasticsearch</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="settings.html">Configuring Elasticsearch</a></span>
-»
-<span class="breadcrumb-node">Security settings in Elasticsearch</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -69,6 +66,22 @@ It also affects all Kibana instances that connect to this Elasticsearch instance
 not need to disable security features in those <code class="literal">kibana.yml</code> files. For more
 information about disabling security features in specific Kibana instances, see
 <a href="/guide/en/kibana/8.0/security-settings-kb.html" class="ulink" target="_top">Kibana security settings</a>.</p>
+</dd>
+<dt>
+<span class="term">
+<code class="literal">xpack.security.autoconfiguration.enabled</code>
+</span>
+</dt>
+<dd>
+<p>
+(<a class="xref" href="settings.html#static-cluster-setting">Static</a>)
+Defaults to <code class="literal">true</code>, which enables
+<a class="xref" href="configuring-stack-security.html" title="Start the Elastic Stack with security enabled">security auto configuration</a>.
+</p>
+<p>If set to <code class="literal">false</code>, security auto configuration is disabled, which is not
+recommended. When disabled, security is not configured automatically when
+starting Elasticsearch for the first time, which means that you must
+<a class="xref" href="manually-configure-security.html" title="Manually configure security">manually configure security</a>.</p>
 </dd>
 <dt>
 <span class="term">
@@ -3189,7 +3202,7 @@ or <code class="literal">client_secret_jwt</code>. Defaults to <code class="lite
 <dl class="variablelist">
 <dt>
 <span class="term">
-<code class="literal">rp.client_auth_signature_algorithm</code> <span class="image"><a class="image" href="https://www.elastic.co/cloud/elasticsearch-service/signup?baymax=docs-body&amp;elektra=docs"><img src="https://doc-icons.s3.us-east-2.amazonaws.com/logo_cloud.svg" alt="logo cloud" title="Supported on Elasticsearch Service"></a></span>
+<code class="literal">rp.client_auth_jwt_signature_algorithm</code> <span class="image"><a class="image" href="https://www.elastic.co/cloud/elasticsearch-service/signup?baymax=docs-body&amp;elektra=docs"><img src="https://doc-icons.s3.us-east-2.amazonaws.com/logo_cloud.svg" alt="logo cloud" title="Supported on Elasticsearch Service"></a></span>
 </span>
 </dt>
 <dd>
@@ -3242,7 +3255,9 @@ or one of <code class="literal">id_token</code>, <code class="literal">id_token 
 (<a class="xref" href="settings.html#static-cluster-setting">Static</a>)
 The signature algorithm that will be used by Elasticsearch in order to verify the
 signature of the id tokens it will receive from the OpenID Connect Provider.
-Defaults to <code class="literal">RSA256</code>.
+Allowed values are <code class="literal">HS256</code>, <code class="literal">HS384</code>, <code class="literal">HS512</code>, <code class="literal">ES256</code>, <code class="literal">ES384</code>, <code class="literal">ES512</code>,
+<code class="literal">RS256</code>, <code class="literal">RS384</code>, <code class="literal">RS512</code>, <code class="literal">PS256</code>, <code class="literal">PS384</code>, <code class="literal">PS512</code>.
+Defaults to <code class="literal">RS256</code>.
 </dd>
 </dl>
 </div>
@@ -3421,6 +3436,7 @@ As per <code class="literal">claim_patterns.principal</code>, but for the <em>dn
 (<a class="xref" href="settings.html#static-cluster-setting">Static</a>)
 The maximum allowed clock skew to be taken into consideration when validating
 id tokens with regards to their creation and expiration times.
+Defaults to <code class="literal">60s</code>.
 </dd>
 </dl>
 </div>
@@ -3532,7 +3548,7 @@ a maximum period inactivity between two consecutive data packets). Defaults to
 (<a class="xref" href="settings.html#static-cluster-setting">Static</a>)
 Controls the behavior of the http client used for back-channel communication to
 the OpenID Connect Provider endpoints. Specifies the maximum number of
-connections allowed across all endpoints.
+connections allowed across all endpoints. Defaults to <code class="literal">200</code>.
 </dd>
 </dl>
 </div>
@@ -3547,7 +3563,7 @@ connections allowed across all endpoints.
 (<a class="xref" href="settings.html#static-cluster-setting">Static</a>)
 Controls the behavior of the http client used for back-channel communication to
 the OpenID Connect Provider endpoints. Specifies the maximum number of
-connections allowed per endpoint.
+connections allowed per endpoint. Defaults to <code class="literal">200</code>.
 </dd>
 </dl>
 </div>

@@ -18,13 +18,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="analysis.html">Text analysis</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="analysis.html">Text analysis</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="analysis-tokenfilters.html">Token filter reference</a></span>
-»
-<span class="breadcrumb-node">Apostrophe token filter</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -36,17 +33,17 @@ Not what you want? See the
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="analysis-apostrophe-tokenfilter"></a>Apostrophe token filter<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/analysis/tokenfilters/apostrophe-tokenfilter.asciidoc">edit</a></h2>
+<h2 class="title"><a id="analysis-apostrophe-tokenfilter"></a>Apostrophe token filter<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/analysis/tokenfilters/apostrophe-tokenfilter.asciidoc">edit</a></h2>
 </div></div></div>
 
 <p>Strips all characters after an apostrophe, including the apostrophe itself.</p>
 <p>This filter is included in Elasticsearch&#8217;s built-in <a class="xref" href="analysis-lang-analyzer.html#turkish-analyzer" title="turkish analyzer">Turkish language
 analyzer</a>. It uses Lucene&#8217;s
-<a href="https://lucene.apache.org/core/9_1_0/analysis/common/org/apache/lucene/analysis/tr/ApostropheFilter.html" class="ulink" target="_top">ApostropheFilter</a>, which was
+<a href="https://lucene.apache.org/core/9_3_0/analysis/common/org/apache/lucene/analysis/tr/ApostropheFilter.html" class="ulink" target="_top">ApostropheFilter</a>, which was
 built for the Turkish language.</p>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="analysis-apostrophe-tokenfilter-analyze-ex"></a>Example<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/analysis/tokenfilters/apostrophe-tokenfilter.asciidoc">edit</a></h3>
+<h3 class="title"><a id="analysis-apostrophe-tokenfilter-analyze-ex"></a>Example<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/analysis/tokenfilters/apostrophe-tokenfilter.asciidoc">edit</a></h3>
 </div></div></div>
 <p>The following <a class="xref" href="indices-analyze.html" title="Analyze API">analyze API</a> request demonstrates how the
 apostrophe token filter works.</p>
@@ -59,7 +56,7 @@ apostrophe token filter works.</p>
   "text" : "Istanbul'a veya Istanbul'dan"
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/433.console"></div>
+<div class="console_widget" data-snippet="snippets/436.console"></div>
 <p>The filter produces the following tokens:</p>
 <div class="pre_wrapper lang-text">
 <pre class="programlisting prettyprint lang-text">[ Istanbul, veya, Istanbul ]</pre>
@@ -68,7 +65,7 @@ apostrophe token filter works.</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="analysis-apostrophe-tokenfilter-analyzer-ex"></a>Add to an analyzer<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/analysis/tokenfilters/apostrophe-tokenfilter.asciidoc">edit</a></h3>
+<h3 class="title"><a id="analysis-apostrophe-tokenfilter-analyzer-ex"></a>Add to an analyzer<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/analysis/tokenfilters/apostrophe-tokenfilter.asciidoc">edit</a></h3>
 </div></div></div>
 <p>The following <a class="xref" href="indices-create-index.html" title="Create index API">create index API</a> request uses the
 apostrophe token filter to configure a new
@@ -89,7 +86,7 @@ apostrophe token filter to configure a new
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/434.console"></div>
+<div class="console_widget" data-snippet="snippets/437.console"></div>
 </div>
 
 </div>

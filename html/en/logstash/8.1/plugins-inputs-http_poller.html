@@ -11,6 +11,7 @@
 <meta name="DC.type" content="Learn/Docs/Logstash/Reference/8.1"/>
 <meta name="DC.subject" content="Logstash"/>
 <meta name="DC.identifier" content="8.1"/>
+<meta name="robots" content="noindex,nofollow"/>
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -56,7 +57,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,36 +88,29 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
-                  
+                  <div class="page_header">
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Logstash Reference [8.1]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Logstash Reference [8.1]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="input-plugins.html">Input plugins</a></span>
-»
-<span class="breadcrumb-node">Http_poller input plugin</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -128,7 +122,7 @@
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="plugins-inputs-http_poller"></a>Http_poller input plugin<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h2>
+<h2 class="title"><a id="plugins-inputs-http_poller"></a>Http_poller input plugin<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h2>
 </div></div></div>
 
 <div class="ulist itemizedlist">
@@ -148,7 +142,7 @@ Released on: 2022-02-16
 <a href="/guide/en/logstash-versioned-plugins/current/input-http_poller-index.html" class="ulink" target="_top">Versioned plugin docs</a>.</p>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_getting_help_23"></a>Getting Help<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_getting_help_23"></a>Getting Help<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h3>
 </div></div></div>
 <p>For questions about the plugin, open a topic in the <a href="http://discuss.elastic.co" class="ulink" target="_top">Discuss</a> forums. For bugs or feature requests, open an issue in <a href="https://github.com/logstash-plugins/logstash-input-http_poller" class="ulink" target="_top">Github</a>.
 For the list of Elastic supported plugins, please consult the <a href="/support/matrix#matrix_logstash_plugins" class="ulink" target="_top">Elastic Support Matrix</a>.</p>
@@ -156,7 +150,7 @@ For the list of Elastic supported plugins, please consult the <a href="/support/
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_description_22"></a>Description<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_description_22"></a>Description<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h3>
 </div></div></div>
 <p>This Logstash input plugin allows you to call an HTTP API, decode the output of it into event(s), and
 send them on their merry way. The idea behind this plugins came from a need to read springboot
@@ -165,7 +159,7 @@ metrics endpoint, instead of configuring jmx to monitor my java application memo
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_example"></a>Example<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_example"></a>Example<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h3>
 </div></div></div>
 <p>Reads from a list of urls and decodes the body of the response with a codec.
 The config should look like this:</p>
@@ -220,7 +214,7 @@ output {
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="plugins-inputs-http_poller-ecs_metadata"></a>Event Metadata and the Elastic Common Schema (ECS)<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h3>
+<h3 class="title"><a id="plugins-inputs-http_poller-ecs_metadata"></a>Event Metadata and the Elastic Common Schema (ECS)<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h3>
 </div></div></div>
 <p>This input will add metadata about the HTTP connection itself to each event.</p>
 <p>When ECS compatibility is disabled, metadata was added to a variety of non-standard top-level fields, which has the potential to create confusion and schema conflicts downstream.</p>
@@ -334,7 +328,7 @@ output {
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="plugins-inputs-http_poller-options"></a>Http_poller Input Configuration Options<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h3>
+<h3 class="title"><a id="plugins-inputs-http_poller-options"></a>Http_poller Input Configuration Options<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h3>
 </div></div></div>
 <p>This plugin supports the following configuration options plus the <a class="xref" href="plugins-inputs-http_poller.html#plugins-inputs-http_poller-common-options" title="Common Options">Common Options</a> described later.</p>
 <div class="informaltable">
@@ -505,7 +499,7 @@ input plugins.</p>
 <p>&nbsp;</p>
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-inputs-http_poller-automatic_retries"></a><code class="literal">automatic_retries</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-inputs-http_poller-automatic_retries"></a><code class="literal">automatic_retries</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -524,7 +518,7 @@ Note: if <code class="literal">retry_non_idempotent</code> is set only GET, HEAD
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-inputs-http_poller-cacert"></a><code class="literal">cacert</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-inputs-http_poller-cacert"></a><code class="literal">cacert</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -541,7 +535,7 @@ There is no default value for this setting.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-inputs-http_poller-client_cert"></a><code class="literal">client_cert</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-inputs-http_poller-client_cert"></a><code class="literal">client_cert</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -558,7 +552,7 @@ There is no default value for this setting.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-inputs-http_poller-client_key"></a><code class="literal">client_key</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-inputs-http_poller-client_key"></a><code class="literal">client_key</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -575,7 +569,7 @@ There is no default value for this setting.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-inputs-http_poller-connect_timeout"></a><code class="literal">connect_timeout</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-inputs-http_poller-connect_timeout"></a><code class="literal">connect_timeout</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -592,7 +586,7 @@ Default value is <code class="literal">10</code>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-inputs-http_poller-cookies"></a><code class="literal">cookies</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-inputs-http_poller-cookies"></a><code class="literal">cookies</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -610,7 +604,7 @@ across requests as a normal web browser would. Enabled by default</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-inputs-http_poller-ecs_compatibility"></a><code class="literal">ecs_compatibility</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-inputs-http_poller-ecs_compatibility"></a><code class="literal">ecs_compatibility</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -695,7 +689,7 @@ See <a class="xref" href="plugins-inputs-http_poller.html#plugins-inputs-http_po
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-inputs-http_poller-follow_redirects"></a><code class="literal">follow_redirects</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-inputs-http_poller-follow_redirects"></a><code class="literal">follow_redirects</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -712,7 +706,7 @@ Default value is <code class="literal">true</code>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-inputs-http_poller-keepalive"></a><code class="literal">keepalive</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-inputs-http_poller-keepalive"></a><code class="literal">keepalive</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -730,7 +724,7 @@ one with this to fix interactions with broken keepalive implementations.</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-inputs-http_poller-keystore"></a><code class="literal">keystore</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-inputs-http_poller-keystore"></a><code class="literal">keystore</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -747,7 +741,7 @@ There is no default value for this setting.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-inputs-http_poller-keystore_password"></a><code class="literal">keystore_password</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-inputs-http_poller-keystore_password"></a><code class="literal">keystore_password</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -765,7 +759,7 @@ Note, most .jks files created with keytool require a password!</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-inputs-http_poller-keystore_type"></a><code class="literal">keystore_type</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-inputs-http_poller-keystore_type"></a><code class="literal">keystore_type</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -782,7 +776,7 @@ Default value is <code class="literal">"JKS"</code>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-inputs-http_poller-metadata_target"></a><code class="literal">metadata_target</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-inputs-http_poller-metadata_target"></a><code class="literal">metadata_target</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -801,7 +795,7 @@ hash of metadata.</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-inputs-http_poller-password"></a><code class="literal">password</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-inputs-http_poller-password"></a><code class="literal">password</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -818,7 +812,7 @@ There is no default value for this setting.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-inputs-http_poller-pool_max"></a><code class="literal">pool_max</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-inputs-http_poller-pool_max"></a><code class="literal">pool_max</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -835,7 +829,7 @@ Default value is <code class="literal">50</code>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-inputs-http_poller-pool_max_per_route"></a><code class="literal">pool_max_per_route</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-inputs-http_poller-pool_max_per_route"></a><code class="literal">pool_max_per_route</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -852,7 +846,7 @@ Default value is <code class="literal">25</code>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-inputs-http_poller-proxy"></a><code class="literal">proxy</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-inputs-http_poller-proxy"></a><code class="literal">proxy</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -882,7 +876,7 @@ Proxy host in form: <code class="literal">{url =&gt;  'http://proxy.org:1234', u
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-inputs-http_poller-request_timeout"></a><code class="literal">request_timeout</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-inputs-http_poller-request_timeout"></a><code class="literal">request_timeout</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -899,7 +893,7 @@ Default value is <code class="literal">60</code>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-inputs-http_poller-retry_non_idempotent"></a><code class="literal">retry_non_idempotent</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-inputs-http_poller-retry_non_idempotent"></a><code class="literal">retry_non_idempotent</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -916,7 +910,7 @@ Default value is <code class="literal">false</code>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-inputs-http_poller-schedule"></a><code class="literal">schedule</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-inputs-http_poller-schedule"></a><code class="literal">schedule</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -940,7 +934,7 @@ See: rufus/scheduler for details about different schedule options and value stri
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-inputs-http_poller-socket_timeout"></a><code class="literal">socket_timeout</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-inputs-http_poller-socket_timeout"></a><code class="literal">socket_timeout</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -957,7 +951,7 @@ Default value is <code class="literal">10</code>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-inputs-http_poller-ssl_verification_mode"></a><code class="literal">ssl_verification_mode</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-inputs-http_poller-ssl_verification_mode"></a><code class="literal">ssl_verification_mode</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -983,7 +977,7 @@ Using <code class="literal">none</code>  in production environments is strongly 
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-inputs-http_poller-target"></a><code class="literal">target</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-inputs-http_poller-target"></a><code class="literal">target</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -1007,7 +1001,7 @@ Example: <code class="literal">codec =&gt; json { target =&gt; "TARGET_FIELD_NAM
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-inputs-http_poller-truststore"></a><code class="literal">truststore</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-inputs-http_poller-truststore"></a><code class="literal">truststore</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -1024,7 +1018,7 @@ There is no default value for this setting.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-inputs-http_poller-truststore_password"></a><code class="literal">truststore_password</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-inputs-http_poller-truststore_password"></a><code class="literal">truststore_password</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -1042,7 +1036,7 @@ Note, most .jks files created with keytool require a password!</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-inputs-http_poller-truststore_type"></a><code class="literal">truststore_type</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-inputs-http_poller-truststore_type"></a><code class="literal">truststore_type</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -1059,7 +1053,7 @@ Default value is <code class="literal">"JKS"</code>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-inputs-http_poller-urls"></a><code class="literal">urls</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-inputs-http_poller-urls"></a><code class="literal">urls</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -1141,7 +1135,7 @@ as anything other than true
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-inputs-http_poller-user"></a><code class="literal">user</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-inputs-http_poller-user"></a><code class="literal">user</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -1159,7 +1153,7 @@ If you set this you must also set the <a class="xref" href="plugins-inputs-http_
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-inputs-http_poller-validate_after_inactivity"></a><code class="literal">validate_after_inactivity</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-inputs-http_poller-validate_after_inactivity"></a><code class="literal">validate_after_inactivity</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -1186,7 +1180,7 @@ stale (half-closed) while kept inactive in the pool."</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="plugins-inputs-http_poller-common-options"></a>Common Options<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h3>
+<h3 class="title"><a id="plugins-inputs-http_poller-common-options"></a>Common Options<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h3>
 </div></div></div>
 <p>The following configuration options are supported by all input plugins:</p>
 <div class="informaltable">
@@ -1241,12 +1235,12 @@ stale (half-closed) while kept inactive in the pool."</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_details_19"></a>Details<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_details_19"></a>Details<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h3>
 </div></div></div>
 <p>&nbsp;</p>
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-inputs-http_poller-add_field"></a><code class="literal">add_field</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-inputs-http_poller-add_field"></a><code class="literal">add_field</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -1263,7 +1257,7 @@ Default value is <code class="literal">{}</code>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-inputs-http_poller-codec"></a><code class="literal">codec</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-inputs-http_poller-codec"></a><code class="literal">codec</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -1280,7 +1274,7 @@ Default value is <code class="literal">"json"</code>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-inputs-http_poller-enable_metric"></a><code class="literal">enable_metric</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-inputs-http_poller-enable_metric"></a><code class="literal">enable_metric</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -1299,7 +1293,7 @@ for a specific plugin.</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-inputs-http_poller-id"></a><code class="literal">id</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-inputs-http_poller-id"></a><code class="literal">id</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -1333,7 +1327,7 @@ Adding a named ID in this case will help in monitoring Logstash when using the m
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-inputs-http_poller-tags"></a><code class="literal">tags</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-inputs-http_poller-tags"></a><code class="literal">tags</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -1351,7 +1345,7 @@ There is no default value for this setting.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="plugins-inputs-http_poller-type"></a><code class="literal">type</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h4>
+<h4 class="title"><a id="plugins-inputs-http_poller-type"></a><code class="literal">type</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/logstash-plugins/logstash-input-http_poller/edit/main/docs/index.asciidoc">edit</a></h4>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -1389,15 +1383,37 @@ when sent to another Logstash server.</p>
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

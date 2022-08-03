@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,27 +87,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 You are looking at preliminary documentation for a future release.
@@ -116,11 +107,9 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Metricbeat Reference [master]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Metricbeat Reference [master]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="exported-fields.html">Exported fields</a></span>
-»
-<span class="breadcrumb-node">Docker fields</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -132,12 +121,12 @@ Not what you want? See the
 </div>
 <div class="chapter">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="exported-fields-docker"></a>Docker fields<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/fields.asciidoc">edit</a></h2>
+<h2 class="title"><a id="exported-fields-docker"></a>Docker fields</h2>
 </div></div></div>
 <p>Docker stats collected from Docker.</p>
-<h3><a id="_docker_4"></a>docker<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_docker_4"></a>docker</h3>
 <p>Information and statistics about docker&#8217;s running containers.</p>
-<h3><a id="_container_3"></a>container<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_container_3"></a>container</h3>
 <p>Docker container metrics.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -179,7 +168,7 @@ Not what you want? See the
 </dd>
 </dl>
 </div>
-<h3><a id="_size"></a>size<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_size"></a>size</h3>
 <p>Container size metrics.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -212,7 +201,7 @@ Not what you want? See the
 </dd>
 </dl>
 </div>
-<h3><a id="_cpu_6"></a>cpu<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_cpu_6"></a>cpu</h3>
 <p>Runtime CPU metrics.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -354,9 +343,9 @@ Not what you want? See the
 </dd>
 </dl>
 </div>
-<h3><a id="_diskio_3"></a>diskio<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_diskio_3"></a>diskio</h3>
 <p>Disk I/O metrics.</p>
-<h3><a id="_read_5"></a>read<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_read_5"></a>read</h3>
 <p>Accumulated reads during the life of the container</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -417,7 +406,7 @@ Not what you want? See the
 </dd>
 </dl>
 </div>
-<h3><a id="_write_5"></a>write<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_write_5"></a>write</h3>
 <p>Accumulated writes during the life of the container</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -478,7 +467,7 @@ Not what you want? See the
 </dd>
 </dl>
 </div>
-<h3><a id="_summary_3"></a>summary<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_summary_3"></a>summary</h3>
 <p>Accumulated reads and writes during the life of the container</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -539,7 +528,7 @@ Not what you want? See the
 </dd>
 </dl>
 </div>
-<h3><a id="_event"></a>event<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_event"></a>event</h3>
 <p>Docker event</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -590,7 +579,7 @@ Not what you want? See the
 </dd>
 </dl>
 </div>
-<h3><a id="_actor"></a>actor<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_actor"></a>actor</h3>
 <p>Actor</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -614,7 +603,7 @@ Not what you want? See the
 </dd>
 </dl>
 </div>
-<h3><a id="_healthcheck"></a>healthcheck<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_healthcheck"></a>healthcheck</h3>
 <p>Docker healthcheck metrics.
 Healthcheck data will only be available from docker containers where the docker <code class="literal">HEALTHCHECK</code> instruction has been used to build the docker image.</p>
 <div class="variablelist">
@@ -639,7 +628,7 @@ Healthcheck data will only be available from docker containers where the docker 
 </dd>
 </dl>
 </div>
-<h3><a id="_event_2"></a>event<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_event_2"></a>event</h3>
 <p>event fields.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -681,9 +670,9 @@ Healthcheck data will only be available from docker containers where the docker 
 </dd>
 </dl>
 </div>
-<h3><a id="_image"></a>image<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_image"></a>image</h3>
 <p>Docker image metrics.</p>
-<h3><a id="_id"></a>id<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_id"></a>id</h3>
 <p>The image layers identifier.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -716,7 +705,7 @@ Healthcheck data will only be available from docker containers where the docker 
 </dd>
 </dl>
 </div>
-<h3><a id="_size_2"></a>size<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_size_2"></a>size</h3>
 <p>Image size layers.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -758,9 +747,9 @@ Healthcheck data will only be available from docker containers where the docker 
 </dd>
 </dl>
 </div>
-<h3><a id="_info_2"></a>info<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_info_2"></a>info</h3>
 <p>Info metrics based on <a href="https://docs.docker.com/engine/reference/api/docker_remote_api_v1.24/#/display-system-wide-information" class="ulink" target="_top">https://docs.docker.com/engine/reference/api/docker_remote_api_v1.24/#/display-system-wide-information</a>.</p>
-<h3><a id="_containers"></a>containers<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_containers"></a>containers</h3>
 <p>Overall container stats.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -820,7 +809,7 @@ Healthcheck data will only be available from docker containers where the docker 
 </dd>
 </dl>
 </div>
-<h3><a id="_memory_6"></a>memory<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_memory_6"></a>memory</h3>
 <p>Memory metrics.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -835,7 +824,7 @@ Healthcheck data will only be available from docker containers where the docker 
 </dd>
 </dl>
 </div>
-<h3><a id="_commit"></a>commit<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_commit_2"></a>commit</h3>
 <p>Committed bytes on Windows</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -890,7 +879,7 @@ Healthcheck data will only be available from docker containers where the docker 
 </dd>
 </dl>
 </div>
-<h3><a id="_rss"></a>rss<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_rss_2"></a>rss</h3>
 <p>RSS memory stats.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -916,7 +905,7 @@ Healthcheck data will only be available from docker containers where the docker 
 </dd>
 </dl>
 </div>
-<h3><a id="_usage_12"></a>usage<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_usage_13"></a>usage</h3>
 <p>Usage memory stats.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -952,7 +941,7 @@ Healthcheck data will only be available from docker containers where the docker 
 </dd>
 </dl>
 </div>
-<h3><a id="_network_4"></a>network<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_network_3"></a>network</h3>
 <p>Network metrics.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -967,7 +956,7 @@ Healthcheck data will only be available from docker containers where the docker 
 </dd>
 </dl>
 </div>
-<h3><a id="_inbound_2"></a>inbound<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_inbound"></a>inbound</h3>
 <p>Incoming network stats since the container started.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -1010,7 +999,7 @@ Healthcheck data will only be available from docker containers where the docker 
 </dd>
 </dl>
 </div>
-<h3><a id="_outbound_2"></a>outbound<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_outbound"></a>outbound</h3>
 <p>Outgoing network stats since the container started.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -1053,7 +1042,7 @@ Healthcheck data will only be available from docker containers where the docker 
 </dd>
 </dl>
 </div>
-<h3><a id="_network_summary"></a>network_summary<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/metricbeat/docs/fields.asciidoc">edit</a></h3>
+<h3><a id="_network_summary"></a>network_summary</h3>
 <p>network_summary</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -1135,15 +1124,37 @@ Healthcheck data will only be available from docker containers where the docker 
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

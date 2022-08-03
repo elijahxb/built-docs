@@ -18,11 +18,9 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">APM Node.js Agent Reference [master]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">APM Node.js Agent Reference [master]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="api.html">API Reference</a></span>
-»
-<span class="breadcrumb-node"><code class="literal">Agent</code> API</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -36,25 +34,7 @@ Not what you want? See the
 <div class="titlepage"><div><div>
 <h2 class="title"><a id="agent-api"></a><code class="literal">Agent</code> API<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-nodejs/edit/main/docs/agent-api.asciidoc">edit</a></h2>
 </div></div></div>
-<div class="note admon">
-<div class="icon"></div>
-<div class="admon_content">
-<p>This is the API documentation for the Elastic APM Node.js Agent.
-For getting started,
-we recommend that you take a look at our framework specific documentation for either <a class="xref" href="express.html" title="Get started with Express">Express</a>,
-<a class="xref" href="hapi.html" title="Get started with hapi">hapi</a>,
-<a class="xref" href="koa.html" title="Get started with Koa">Koa</a>,
-<a class="xref" href="restify.html" title="Get started with Restify">Restify</a>,
-<a class="xref" href="fastify.html" title="Get started with Fastify">Fastify</a>,
-or <a class="xref" href="custom-stack.html" title="Get started with a custom Node.js stack">custom frameworks</a>.</p>
-</div>
-</div>
-<p>The Elastic APM agent for Node.js is a singleton.
-You get the agent instance by either requiring <code class="literal">elastic-apm-node</code> or <code class="literal">elastic-apm-node/start</code>.
-For details on the two approaches,
-see the <a class="xref" href="advanced-setup.html" title="Configuration">Setup and Configuration</a> guide.</p>
-<p>The agent is also returned by the <code class="literal">start()</code> function,
-which allows you to require and start the agent on the same line:</p>
+<p>The Elastic APM Node.js agent is a singleton. You get the agent instance by requiring either <code class="literal">elastic-apm-node</code> or <code class="literal">elastic-apm-node/start</code>. The agent is also returned by the <a class="xref" href="agent-api.html#apm-start" title="apm.start([options])"><code class="literal">.start()</code></a> method, which allows you to require and start the agent on the same line:</p>
 <div class="pre_wrapper lang-js">
 <pre class="programlisting prettyprint lang-js">const apm = require('elastic-apm-node').start(...)</pre>
 </div>
@@ -69,11 +49,7 @@ You therefore don&#8217;t need to manage or pass around the started <code class=
 <div class="important admon">
 <div class="icon"></div>
 <div class="admon_content">
-<p>Put the call to this function at the very top of your main app file - before requiring any other modules.</p>
-<p>If you are using Babel calling this function will not have the desired effect.
-See the <a class="xref" href="es-modules.html" title="ES Modules support">Babel / ES Modules support documentation</a> for details.</p>
-<p>If you are using Typescript the import statement may be removed if it is not used.
-It is recommended to use <code class="literal">-r elastic-apm-node/start</code> when starting the app to avoid this.</p>
+<p>For the APM agent to automatically instrument Node.js modules, it must be started before those modules are loaded. See <a class="xref" href="starting-the-agent.html" title="Starting the agent">Starting the agent</a> for details and possible surprises with compilers/transpilers/bundlers.</p>
 </div>
 </div>
 <p>See the <a class="xref" href="configuration.html" title="Configuration options">Configuration documentation</a> for available options.</p>
@@ -147,7 +123,7 @@ and will receive a <code class="literal">payload</code> object as the only argum
 containing the data about to be sent to the APM Server.</p>
 <p>The format of the payload depends on the event type being sent.
 For details about the different formats,
-see the <a href="/guide/en/apm/guide/8.1/intake-api.html" class="ulink" target="_top">APM Server intake API documentation</a>.</p>
+see the <a href="/guide/en/apm/guide/8.3/intake-api.html" class="ulink" target="_top">APM Server intake API documentation</a>.</p>
 <p>The filter function is synchronous and should return the manipulated payload object.
 If a filter function doesn&#8217;t return any value or returns a falsy value,
 the remaining filter functions will not be called and the payload <span class="strong strong"><strong>will not</strong></span> be sent to the APM Server.</p>
@@ -205,7 +181,7 @@ but the <code class="literal">fn</code> will only be called with span payloads.<
 </div></div></div>
 <p><span class="small">Added in: v3.14.0</span></p>
 <p>Use <code class="literal">addMetadataFilter(fn)</code> to supply a filter function for the
-<a href="/guide/en/apm/guide/8.1/metadata-api.html" class="ulink" target="_top">metadata object</a>
+<a href="/guide/en/apm/guide/8.3/metadata-api.html" class="ulink" target="_top">metadata object</a>
 sent to the APM Server. This will allow you to manipulate the data being
 sent, for instance to remove possibly sensitive information.</p>
 <p>Each filter function will be called in the order they were added, and will
@@ -221,7 +197,7 @@ synchronous and must return the manipulated object. Example usage:</p>
 </div>
 <p>Warning: It is the responsibility of the author to ensure the returned object
 conforms to the
-<a href="/guide/en/apm/guide/8.1/metadata-api.html#metadata-schema" class="ulink" target="_top">metadata schema</a>
+<a href="/guide/en/apm/guide/8.3/metadata-api.html#metadata-schema" class="ulink" target="_top">metadata schema</a>
 otherwise all APM data injest will fail. A metadata filter that breaks the
 metadata will result in error logging from the agent, something like:</p>
 <div class="pre_wrapper lang-text">
@@ -300,7 +276,7 @@ and any custom context given as the 2nd argument to <a class="xref" href="agent-
 <div class="icon"></div>
 <div class="admon_content">
 <p>Before using custom context, ensure you understand the different types of
-<a href="/guide/en/apm/guide/8.1/metadata.html" class="ulink" target="_top">metadata</a> that are available.</p>
+<a href="/guide/en/apm/guide/8.3/metadata.html" class="ulink" target="_top">metadata</a> that are available.</p>
 </div>
 </div>
 </div>
@@ -339,7 +315,7 @@ it will also get tagged with the same label.</p>
 <p>Labels are key/value pairs that are indexed by Elasticsearch and therefore searchable
 (as opposed to data set via <a class="xref" href="agent-api.html#apm-set-custom-context" title="apm.setCustomContext(context)"><code class="literal">apm.setCustomContext()</code></a>).
 Before using custom labels, ensure you understand the different types of
-<a href="/guide/en/apm/guide/8.1/metadata.html" class="ulink" target="_top">metadata</a> that are available.</p>
+<a href="/guide/en/apm/guide/8.3/metadata.html" class="ulink" target="_top">metadata</a> that are available.</p>
 </div>
 </div>
 <div class="warning admon">
@@ -347,7 +323,7 @@ Before using custom labels, ensure you understand the different types of
 <div class="admon_content">
 <p>Avoid defining too many user-specified labels.
 Defining too many unique fields in an index is a condition that can lead to a
-<a href="/guide/en/elasticsearch/reference/8.1/mapping.html#mapping-limit-settings" class="ulink" target="_top">mapping explosion</a>.</p>
+<a href="/guide/en/elasticsearch/reference/8.3/mapping.html#mapping-limit-settings" class="ulink" target="_top">mapping explosion</a>.</p>
 </div>
 </div>
 </div>
@@ -393,7 +369,7 @@ it will also get tagged with the same labels.</p>
 <p>Labels are key/value pairs that are indexed by Elasticsearch and therefore searchable
 (as opposed to data set via <a class="xref" href="agent-api.html#apm-set-custom-context" title="apm.setCustomContext(context)"><code class="literal">apm.setCustomContext()</code></a>).
 Before using custom labels, ensure you understand the different types of
-<a href="/guide/en/apm/guide/8.1/metadata.html" class="ulink" target="_top">metadata</a> that are available.</p>
+<a href="/guide/en/apm/guide/8.3/metadata.html" class="ulink" target="_top">metadata</a> that are available.</p>
 </div>
 </div>
 <div class="warning admon">
@@ -401,7 +377,7 @@ Before using custom labels, ensure you understand the different types of
 <div class="admon_content">
 <p>Avoid defining too many user-specified labels.
 Defining too many unique fields in an index is a condition that can lead to a
-<a href="/guide/en/elasticsearch/reference/8.1/mapping.html#mapping-limit-settings" class="ulink" target="_top">mapping explosion</a>.</p>
+<a href="/guide/en/elasticsearch/reference/8.3/mapping.html#mapping-limit-settings" class="ulink" target="_top">mapping explosion</a>.</p>
 </div>
 </div>
 </div>
@@ -515,7 +491,7 @@ you can supply a special parameterized message object:</p>
 The APM Server intake API supports a lot of different metadata fields,
 most of which are automatically managed by the Elastic APM Node.js Agent.
 But if you wish you can supply some extra details using <code class="literal">user</code> or <code class="literal">custom</code>.
-For more details on the properties accepted by the events intake API see the <a href="/guide/en/apm/guide/8.1/events-api.html" class="ulink" target="_top">events intake API docs</a>.</p>
+For more details on the properties accepted by the events intake API see the <a href="/guide/en/apm/guide/8.3/events-api.html" class="ulink" target="_top">events intake API docs</a>.</p>
 <p>To supply any of these extra fields,
 use the optional options argument when calling <code class="literal">apm.captureError()</code>.</p>
 <p>Here are some examples:</p>
@@ -655,6 +631,14 @@ the current time will be used
 </li>
 <li class="listitem">
 <code class="literal">childOf</code> <code class="literal"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="ulink" target="_top">&lt;string&gt;</a></code> The traceparent header received from a remote service.
+</li>
+<li class="listitem">
+<code class="literal">links</code> <code class="literal"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array" class="ulink" target="_top">&lt;Array&gt;</a></code> Span links.
+A transaction can refer to zero or more other transactions or spans (separate
+from its parent). Span links will be shown in the Kibana APM app trace view.
+The <code class="literal">links</code> argument is an array of objects with a single "context" field
+that is a <code class="literal">Transaction</code>, <code class="literal">Span</code>, or W3C trace-context <em>traceparent</em> string.
+For example: <code class="literal">apm.startTransaction('aName', { links: [{ context: anotherSpan }] })</code>.
 </li>
 </ul>
 </div>
@@ -801,9 +785,17 @@ the current time will be used
 <li class="listitem">
 <code class="literal">exitSpan</code> <code class="literal"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type" class="ulink" target="_top">&lt;boolean&gt;</a></code> Make an "exit span".
 Exit spans represent outgoing communication. They are used to create a node
-in the <a href="/guide/en/kibana/8.1/service-maps.html" class="ulink" target="_top">Service Map</a> and a downstream service
-in the <a href="/guide/en/kibana/8.1/dependencies.html" class="ulink" target="_top">Dependencies Table</a>. The provided subtype
+in the <a href="/guide/en/kibana/8.3/service-maps.html" class="ulink" target="_top">Service Map</a> and a downstream service
+in the <a href="/guide/en/kibana/8.3/dependencies.html" class="ulink" target="_top">Dependencies Table</a>. The provided subtype
 will be used as the downstream service name.
+</li>
+<li class="listitem">
+<code class="literal">links</code> <code class="literal"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array" class="ulink" target="_top">&lt;Array&gt;</a></code> Span links.
+A span can refer to zero or more other transactions or spans (separate from
+its parent). Span links will be shown in the Kibana APM app trace view. The
+<code class="literal">links</code> argument is an array of objects with a single "context" field that is a
+<code class="literal">Transaction</code>, <code class="literal">Span</code>, or W3C trace-context <em>traceparent</em> string.  For example:
+<code class="literal">apm.startSpan('aName', { links: [{ context: anotherSpan }] })</code>.
 </li>
 </ul>
 </div>

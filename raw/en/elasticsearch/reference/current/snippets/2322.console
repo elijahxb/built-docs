@@ -1,4 +1,10 @@
-POST _ml/datafeeds/datafeed-low_request_rate/_stop
+PUT /my-index-000001
 {
-  "timeout": "30s"
+  "mappings": {
+    "properties": {
+      "user_identifier": {
+        "type": "keyword"
+      }
+    }
+  }
 }

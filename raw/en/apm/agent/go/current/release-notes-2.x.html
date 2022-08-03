@@ -14,11 +14,9 @@
 <body>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">APM Go Agent Reference [2.x]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">APM Go Agent Reference [2.x]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="release-notes.html">Release notes</a></span>
-»
-<span class="breadcrumb-node">Go Agent version 2.x</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -32,6 +30,25 @@
 <div class="titlepage"><div><div>
 <h2 class="title"><a id="release-notes-2.x"></a>Go Agent version 2.x<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-go/edit/2.x/CHANGELOG.asciidoc">edit</a></h2>
 </div></div></div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="release-notes-2.1.0"></a>2.1.0 - 2022/05/20<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-go/edit/2.x/CHANGELOG.asciidoc">edit</a></h3>
+</div></div></div>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Replace <code class="literal">authorization</code> with <code class="literal">*auth*</code> pattern for sanitizing field names <a href="https://github.com/elastic/apm-agent-go/pull/1230" class="ulink" target="_top">#(1230)</a>
+</li>
+<li class="listitem">
+Fetch initial server version async to prevent blocking NewTracer for 10 seconds <a href="https://github.com/elastic/apm-agent-go/pull/1239" class="ulink" target="_top">#(1239)</a>
+</li>
+<li class="listitem">
+Fix race in <code class="literal">apm.DefaultTracer</code> which could lead to multiple tracers being created <a href="https://github.com/elastic/apm-agent-go/pull/1248" class="ulink" target="_top">#(1248)</a>
+</li>
+</ul>
+</div>
+</div>
+
 <div class="section">
 <div class="titlepage"><div><div>
 <h3 class="title"><a id="release-notes-2.0.0"></a>2.0.0 - 2022/03/17<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-go/edit/2.x/CHANGELOG.asciidoc">edit</a></h3>

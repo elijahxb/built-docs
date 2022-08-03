@@ -1,1 +1,1 @@
-GET /_stats/merge,refresh
+PUT /my-index-000001

@@ -55,7 +55,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -86,34 +86,24 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   
 <div id="content">
 <div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="index.html">Eland Python Client</a></span>
-»
-<span class="breadcrumb-node">Machine Learning</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -154,16 +144,60 @@ model in Elasticsearch.</p>
 [0 1 1 0 1 0 0 0 1 0]</pre>
 </div>
 <h3><a id="ml-nlp-pytorch"></a>Natural language processing (NLP) with PyTorch<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/eland/edit/main/docs/guide/machine-learning.asciidoc">edit</a></h3>
+<div class="important admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>You need to use PyTorch <code class="literal">1.11.0</code> or earlier to import an NLP model.
+Run <code class="literal">pip install torch==1.11</code> to install the aproppriate version of PyTorch.</p>
+</div>
+</div>
 <p>For NLP tasks, Eland enables you to import PyTorch trained BERT models into Elasticsearch.
 Models can be either plain PyTorch models, or supported
 <a href="https://huggingface.co/transformers" class="ulink" target="_top">transformers</a> models from the
-<a href="https://huggingface.co/models" class="ulink" target="_top">Hugging Face model hub</a>.</p>
+<a href="https://huggingface.co/models" class="ulink" target="_top">Hugging Face model hub</a>. For example:</p>
 <div class="pre_wrapper lang-bash">
-<pre class="programlisting prettyprint lang-bash">$ eland_import_hub_model \
-  --url http://localhost:9200/ \
-  --hub-model-id elastic/distilbert-base-cased-finetuned-conll03-english \
-  --task-type ner \
+<pre class="programlisting prettyprint lang-bash">$ eland_import_hub_model &lt;authentication&gt; \ <a id="CO1-1"></a><i class="conum" data-value="1"></i>
+  --url http://localhost:9200/ \ <a id="CO1-2"></a><i class="conum" data-value="2"></i>
+  --hub-model-id elastic/distilbert-base-cased-finetuned-conll03-english \ <a id="CO1-3"></a><i class="conum" data-value="3"></i>
+  --task-type ner \ <a id="CO1-4"></a><i class="conum" data-value="4"></i>
   --start</pre>
+</div>
+<div class="calloutlist">
+<table border="0" summary="Callout list">
+<tr>
+<td align="left" valign="top" width="5%">
+<p><a href="#CO1-1"><i class="conum" data-value="1"></i></a></p>
+</td>
+<td align="left" valign="top">
+<p>Use an authentication method to access your cluster. Refer to <a class="xref" href="machine-learning.html#ml-nlp-pytorch-auth" title="Authentication methods">Authentication methods</a>.</p>
+</td>
+</tr>
+<tr>
+<td align="left" valign="top" width="5%">
+<p><a href="#CO1-2"><i class="conum" data-value="2"></i></a></p>
+</td>
+<td align="left" valign="top">
+<p>The cluster URL. Alternatively, use <code class="literal">--cloud-id</code>.</p>
+</td>
+</tr>
+<tr>
+<td align="left" valign="top" width="5%">
+<p><a href="#CO1-3"><i class="conum" data-value="3"></i></a></p>
+</td>
+<td align="left" valign="top">
+<p>Specify the identifier for the model in the Hugging Face model hub.</p>
+</td>
+</tr>
+<tr>
+<td align="left" valign="top" width="5%">
+<p><a href="#CO1-4"><i class="conum" data-value="4"></i></a></p>
+</td>
+<td align="left" valign="top">
+<p>Specify the type of NLP task. Supported values are <code class="literal">fill_mask</code>, <code class="literal">ner</code>,
+<code class="literal">question_answering</code>, text_classification`, <code class="literal">text_embedding</code>, and <code class="literal">zero_shot_classification</code>.</p>
+</td>
+</tr>
+</table>
 </div>
 <div class="pre_wrapper lang-python">
 <pre class="programlisting prettyprint lang-python">&gt;&gt;&gt; import elasticsearch
@@ -179,16 +213,65 @@ Downloading: 100%|██████████| 208k/208k [00:00&lt;00:00, 668
 Downloading: 100%|██████████| 112/112 [00:00&lt;00:00, 43.9kB/s]
 Downloading: 100%|██████████| 249M/249M [00:23&lt;00:00, 11.2MB/s]
 
-# Export the model in a TorchScrpt representation which Elasticsearch uses
+# Export the model in a TorchScript representation which Elasticsearch uses
 &gt;&gt;&gt; tmp_path = "models"
 &gt;&gt;&gt; Path(tmp_path).mkdir(parents=True, exist_ok=True)
-&gt;&gt;&gt; model_path, config_path, vocab_path = tm.save(tmp_path)
+&gt;&gt;&gt; model_path, config, vocab_path = tm.save(tmp_path)
 
 # Import model into Elasticsearch
 &gt;&gt;&gt; es = elasticsearch.Elasticsearch("http://elastic:mlqa_admin@localhost:9200", timeout=300)  # 5 minute timeout
 &gt;&gt;&gt; ptm = PyTorchModel(es, tm.elasticsearch_model_id())
-&gt;&gt;&gt; ptm.import_model(model_path, config_path, vocab_path)
+&gt;&gt;&gt; ptm.import_model(model_path=model_path, config_path=None, vocab_path=vocab_path, config=config)
 100%|██████████| 63/63 [00:12&lt;00:00,  5.02it/s]</pre>
+</div>
+<h4><a id="ml-nlp-pytorch-docker"></a>Import model with Docker<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/eland/edit/main/docs/guide/machine-learning.asciidoc">edit</a></h4>
+<div class="important admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>To use the Docker container, you need to clone the Eland repository: <a href="https://github.com/elastic/eland" class="ulink" target="_top">https://github.com/elastic/eland</a></p>
+</div>
+</div>
+<p>If you want to use Eland without installing it, you can build the Docker container to run the available scripts:</p>
+<div class="pre_wrapper lang-bash">
+<pre class="programlisting prettyprint lang-bash">$ docker build -t elastic/eland .</pre>
+</div>
+<p>You can now use the container interactively:</p>
+<div class="pre_wrapper lang-bash">
+<pre class="programlisting prettyprint lang-bash">$ docker run -it --rm --network host elastic/eland</pre>
+</div>
+<p>Running installed scripts is also possible without an interactive shell, for example:</p>
+<div class="pre_wrapper lang-bash">
+<pre class="programlisting prettyprint lang-bash">docker run -it --rm elastic/eland \
+    eland_import_hub_model \
+      --url $ELASTICSEARCH_URL \
+      --hub-model-id elastic/distilbert-base-uncased-finetuned-conll03-english \
+      --start</pre>
+</div>
+<p>Replace the <code class="literal">$ELASTICSEARCH_URL</code> with the URL for your Elasticsearch cluster. For authentication purposes, include an administrator username and password in the URL in the following format: <code class="literal">https://username:password@host:port</code>.</p>
+<h4><a id="ml-nlp-pytorch-auth"></a>Authentication methods<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/eland/edit/main/docs/guide/machine-learning.asciidoc">edit</a></h4>
+<p>The following authentication options are available when using the import script:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<p>username and password authentication (specified with the <code class="literal">-u</code> and <code class="literal">-p</code> options):</p>
+<div class="pre_wrapper lang-bash">
+<pre class="programlisting prettyprint lang-bash">eland_import_hub_model -u &lt;username&gt; -p &lt;password&gt; --cloud-id &lt;cloud-id&gt; ...</pre>
+</div>
+<p>These <code class="literal">-u</code> and <code class="literal">-p</code> options also work when you use <code class="literal">--url</code>.</p>
+</li>
+<li class="listitem">
+<p>username and password authentication (embedded in the URL):</p>
+<div class="pre_wrapper lang-bash">
+<pre class="programlisting prettyprint lang-bash">eland_import_hub_model --url https://&lt;user&gt;:&lt;password&gt;@&lt;hostname&gt;:&lt;port&gt; ...</pre>
+</div>
+</li>
+<li class="listitem">
+<p>API key authentication:</p>
+<div class="pre_wrapper lang-bash">
+<pre class="programlisting prettyprint lang-bash">eland_import_hub_model --es-api-key &lt;api-key&gt; --url https://&lt;hostname&gt;:&lt;port&gt; ...</pre>
+</div>
+</li>
+</ul>
 </div>
 </div>
 <div class="navfooter">
@@ -202,15 +285,37 @@ Downloading: 100%|██████████| 249M/249M [00:23&lt;00:00, 11.
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

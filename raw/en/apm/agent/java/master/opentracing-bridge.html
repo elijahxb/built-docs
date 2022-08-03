@@ -5,8 +5,8 @@
 <title>OpenTracing bridge | APM Java Agent Reference [master] | Elastic</title>
 <link rel="home" href="index.html" title="APM Java Agent Reference [master]"/>
 <link rel="up" href="apis.html" title="Tracing APIs"/>
-<link rel="prev" href="opentelementry-bridge.html" title="OpenTelemetry bridge"/>
-<link rel="next" href="metrics.html" title="Metrics"/>
+<link rel="prev" href="opentelemetry-bridge.html" title="OpenTelemetry bridge"/>
+<link rel="next" href="plugin-api.html" title="Plugin API"/>
 <meta name="DC.type" content="Learn/Docs/APM Java Agent/Reference/master"/>
 <meta name="DC.subject" content="APM"/>
 <meta name="DC.identifier" content="master"/>
@@ -18,18 +18,16 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">APM Java Agent Reference [master]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">APM Java Agent Reference [master]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="apis.html">Tracing APIs</a></span>
-»
-<span class="breadcrumb-node">OpenTracing bridge</span>
 </div>
 <div class="navheader">
 <span class="prev">
-<a href="opentelementry-bridge.html">« OpenTelemetry bridge</a>
+<a href="opentelemetry-bridge.html">« OpenTelemetry bridge</a>
 </span>
 <span class="next">
-<a href="metrics.html">Metrics »</a>
+<a href="plugin-api.html">Plugin API »</a>
 </span>
 </div>
 <div class="section">
@@ -39,7 +37,7 @@ Not what you want? See the
 <div class="note admon">
 <div class="icon"></div>
 <div class="admon_content">
-<p>OpenTracing is discontinued in favor of OpenTelemetry. Consider using the <a class="xref" href="opentelementry-bridge.html" title="OpenTelemetry bridge">OpenTelemetry bridge</a> instead.<br>
+<p>OpenTracing is discontinued in favor of OpenTelemetry. Consider using the <a class="xref" href="opentelemetry-bridge.html" title="OpenTelemetry bridge">OpenTelemetry bridge</a> instead.<br>
 Latest supported OpenTracing version: 0.33 (as of agent and OpenTracing-bridge version 1.9.0)</p>
 </div>
 </div>
@@ -48,9 +46,9 @@ using the OpenTracing API.
 In other words,
 it translates the calls to the OpenTracing API to Elastic APM and thus allows for reusing existing instrumentation.</p>
 <p>The first span of a service will be converted to an Elastic APM
-<a href="/guide/en/apm/guide/8.1/data-model-transactions.html" class="ulink" target="_top"><code class="literal">Transaction</code></a>,
+<a href="/guide/en/apm/guide/8.3/data-model-transactions.html" class="ulink" target="_top"><code class="literal">Transaction</code></a>,
 subsequent spans are mapped to Elastic APM
-<a href="/guide/en/apm/guide/8.1/data-model-spans.html" class="ulink" target="_top"><code class="literal">Span</code></a>.</p>
+<a href="/guide/en/apm/guide/8.3/data-model-spans.html" class="ulink" target="_top"><code class="literal">Span</code></a>.</p>
 <h4><a id="opentracing-getting-started"></a>Getting started<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-java/edit/main/docs/api-opentracing.asciidoc">edit</a></h4>
 <p>The first step in getting started with the OpenTracing API bridge is to declare a dependency to the API:</p>
 <p><strong>pom.xml.</strong></p>
@@ -132,7 +130,7 @@ Baggage items are silently dropped.</p>
 <h5><a id="opentracing-logs"></a>Logs<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-java/edit/main/docs/api-opentracing.asciidoc">edit</a></h5>
 <p>Only exception logging is supported.
 Logging an Exception on the OpenTracing span will create an Elastic APM
-<a href="/guide/en/apm/guide/8.1/data-model-errors.html" class="ulink" target="_top"><code class="literal">Error</code></a>.
+<a href="/guide/en/apm/guide/8.3/data-model-errors.html" class="ulink" target="_top"><code class="literal">Error</code></a>.
 Example:</p>
 <div class="pre_wrapper lang-java">
 <pre class="programlisting prettyprint lang-java">Exception e = ...
@@ -147,10 +145,10 @@ span.log(
 </div>
 <div class="navfooter">
 <span class="prev">
-<a href="opentelementry-bridge.html">« OpenTelemetry bridge</a>
+<a href="opentelemetry-bridge.html">« OpenTelemetry bridge</a>
 </span>
 <span class="next">
-<a href="metrics.html">Metrics »</a>
+<a href="plugin-api.html">Plugin API »</a>
 </span>
 </div>
 </div>

@@ -19,13 +19,10 @@ will be released for this version. For the latest information, see the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.0]</a></span>
-»
-<span class="breadcrumb-link"><a href="analysis.html">Text analysis</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.0]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="analysis.html">Text analysis</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="analysis-tokenfilters.html">Token filter reference</a></span>
-»
-<span class="breadcrumb-node">Shingle token filter</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -73,7 +70,7 @@ filter to add two-word shingles to the token stream for <code class="literal">qu
   "text": "quick brown fox jumps"
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/515.console"></div>
+<div class="console_widget" data-snippet="snippets/516.console"></div>
 <p>The filter produces the following tokens:</p>
 <div class="pre_wrapper lang-text">
 <pre class="programlisting prettyprint lang-text">[ quick, quick brown, brown, brown fox, fox, fox jumps, jumps ]</pre>
@@ -105,7 +102,7 @@ request:</p>
   "text": "quick brown fox jumps"
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/516.console"></div>
+<div class="console_widget" data-snippet="snippets/517.console"></div>
 <p>The filter produces the following tokens:</p>
 <div class="pre_wrapper lang-text">
 <pre class="programlisting prettyprint lang-text">[ quick, quick brown, quick brown fox, brown, brown fox, brown fox jumps, fox, fox jumps, jumps ]</pre>
@@ -128,7 +125,7 @@ request:</p>
   "text": "quick brown fox jumps"
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/517.console"></div>
+<div class="console_widget" data-snippet="snippets/518.console"></div>
 <p>The filter produces the following tokens:</p>
 <div class="pre_wrapper lang-text">
 <pre class="programlisting prettyprint lang-text">[ quick brown, quick brown fox, brown fox, brown fox jumps, fox jumps ]</pre>
@@ -158,7 +155,7 @@ analyzer</a>.</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/518.console"></div>
+<div class="console_widget" data-snippet="snippets/519.console"></div>
 </div>
 
 <div class="section">
@@ -284,7 +281,7 @@ plus sign (<code class="literal">+</code>) in shingles.</p>
   "text": "fox jumps a lazy dog"
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/519.console"></div>
+<div class="console_widget" data-snippet="snippets/520.console"></div>
 <p>The filter produces the following tokens:</p>
 <div class="pre_wrapper lang-text">
 <pre class="programlisting prettyprint lang-text">[ fox, fox jumps, jumps, jumps +, + lazy, lazy, lazy dog, dog ]</pre>
@@ -334,7 +331,7 @@ only shingles are included in the output.</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/520.console"></div>
+<div class="console_widget" data-snippet="snippets/521.console"></div>
 </div>
 
 </div>

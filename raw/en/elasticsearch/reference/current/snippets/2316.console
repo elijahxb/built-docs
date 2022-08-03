@@ -1,1 +1,11 @@
-GET _ml/datafeeds/datafeed-high_sum_total_sales/_preview
+PUT /my-index-000001
+{
+  "mappings": {
+    "properties": {
+      "user_id": {
+        "type": "keyword",
+        "ignore_above": 20
+      }
+    }
+  }
+}

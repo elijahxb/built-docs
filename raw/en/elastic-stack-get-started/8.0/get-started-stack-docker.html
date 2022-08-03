@@ -19,9 +19,8 @@ will be released for this version. For the latest information, see the
 </div>
 <div id="content">
 <div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="index.html">Getting Started [8.0]</a></span>
-»
-<span class="breadcrumb-node">Running the Elastic Stack ("ELK") on Docker</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -342,12 +341,12 @@ services:
           echo "Set the KIBANA_PASSWORD environment variable in the .env file";
           exit 1;
         fi;
-        if [ ! -f certs/ca.zip ]; then
+        if [ ! -f config/certs/ca.zip ]; then
           echo "Creating CA";
           bin/elasticsearch-certutil ca --silent --pem -out config/certs/ca.zip;
           unzip config/certs/ca.zip -d config/certs;
         fi;
-        if [ ! -f certs/certs.zip ]; then
+        if [ ! -f config/certs/certs.zip ]; then
           echo "Creating certs";
           echo -ne \
           "instances:\n"\
@@ -579,7 +578,8 @@ configuring Kibana.</p>
 </li>
 <li class="listitem">
 When the deployment has started, open a browser and navigate to <a href="http://localhost:5601" class="ulink" target="_top">http://localhost:5601</a> to
-access Kibana, where you can load sample data and interact with your cluster.
+access Kibana, where you can load sample data and interact with your cluster. Log in as the <code class="literal">elastic</code> user with
+the <code class="literal">ELASTIC_PASSWORD</code> value to get access.
 </li>
 </ol>
 </div>

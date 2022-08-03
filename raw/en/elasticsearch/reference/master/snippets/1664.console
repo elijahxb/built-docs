@@ -1,6 +1,9 @@
-PUT /_security/role_mapping/admin_user
+PUT /_security/role_mapping/jwt8_users?refresh=true
 {
-  "roles" : [ "monitoring" ],
-  "rules" : { "field" : { "dn" : "cn=Admin,ou=example,o=com" } },
+  "roles" : [ "user" ],
+  "rules" : { "all" : [
+      { "field": { "realm.name": "jwt8" } },
+      { "field": { "username": "principalname1" } }
+  ] },
   "enabled": true
 }

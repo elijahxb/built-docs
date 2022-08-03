@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Enable cross-cluster search and cross-cluster replication | Elastic Cloud Enterprise Reference [3.2] | Elastic</title>
+<link rel="home" href="index.html" title="Elastic Cloud Enterprise Reference [3.2]"/>
+<link rel="up" href="ece-administering-deployments.html" title="Administering deployments"/>
+<link rel="prev" href="ece-restrictions-monitoring.html" title="Restrictions and limitations"/>
+<link rel="next" href="ece-migrate-ccs.html" title="Migrate the cross-cluster search deployment template"/>
+<meta name="DC.type" content="Learn/Docs/CloudEnterprise/Reference/3.2"/>
+<meta name="DC.subject" content="ECE"/>
+<meta name="DC.identifier" content="3.2"/>
+</head>
+<body><div class="page_header">
+A newer version is available. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Cloud Enterprise Reference [3.2]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="ece-administering-deployments.html">Administering deployments</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="ece-restrictions-monitoring.html">« Restrictions and limitations</a>
+</span>
+<span class="next">
+<a href="ece-migrate-ccs.html">Migrate the cross-cluster search deployment template »</a>
+</span>
+</div>
+<div class="chapter">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="ece-enable-ccs"></a>Enable cross-cluster search and cross-cluster replication<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/shared/ec-ce-enable-ccs.asciidoc">edit</a></h2>
+</div></div></div>
+<p>Cross-cluster search (CCS) allows you to configure multiple remote clusters across different ECE environments, and enable federated search queries across all of the configured clusters.</p>
+<p><a href="/guide/en/elasticsearch/reference/8.3/xpack-ccr.html" class="ulink" target="_top">Cross-cluster replication (CCR)</a> allows you to replicate indices across multiple clusters regardless of where they’re located. This provides tremendous benefit in scenarios of disaster recovery or data locality.</p>
+<p>These steps describe how to configure remote clusters. Once that&#8217;s done, you&#8217;ll be able to <a href="/guide/en/elasticsearch/reference/8.3/modules-cross-cluster-search.html" class="ulink" target="_top">run CCS queries from Elasticsearch</a> or <a href="/guide/en/elasticsearch/reference/8.3/ccr-getting-started.html" class="ulink" target="_top">set up CCR</a>.</p>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>You no longer need to use the dedicated cross-cluster search template to search across clusters. You can now use any template to configure remote clusters and search across them when using stack version 6.7 or above. We&#8217;ve deprecated the cross-cluster search template. Existing deployments created using this template are not affected by this change, but they need to <a class="xref" href="ece-migrate-ccs.html" title="Migrate the cross-cluster search deployment template">migrate to another template</a> before upgrading to the next 8.0 major version.</p>
+</div>
+</div>
+<h3><a id="ece-ccs-ccr-prerequisites"></a>Before you begin<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/shared/ec-ce-enable-ccs.asciidoc">edit</a></h3>
+<p>To use CCS or CCR, your environment must meet the following criteria:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<p>Deployments must be version 6.7.x (to use CCS) or later and be compatible:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Review the <a href="/guide/en/elasticsearch/reference/8.3/remote-clusters.html#sniff-mode" class="ulink" target="_top">Elasticsearch version compatibility</a> table.
+</li>
+<li class="listitem">
+System deployments can not be used as remote clusters or have remote clusters.
+</li>
+</ul>
+</div>
+</li>
+<li class="listitem">
+To use CCR, deployments must be at version 6.8.9 or higher (in the 6.x branch), or 7.7.1 or higher (in the 7.x branch).
+</li>
+<li class="listitem">
+Deployments must <a class="xref" href="ece-trust-management.html" title="Trust management">trust each other</a>.
+</li>
+<li class="listitem">
+Proxies must answer TCP requests on the port 9400. Check the <a class="xref" href="ece-networking-prereq.html" title="Networking prerequisites">prerequisites for the ports that must permit outbound or inbound traffic</a>.
+</li>
+<li class="listitem">
+Load balancers must pass-through TCP requests on port 9400. Check the <a class="xref" href="ece-load-balancers.html" title="Load balancers">configuration details</a>.
+</li>
+</ul>
+</div>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>The deprecated CCS Deployment Template supports CCS for deployments in version 6.1.x and above without the need to have proxies and load balancers answer on port 9400. However, these remote clusters must be in the same ECE environment and they do not support Cross-cluster Replication. Read more about <a class="xref" href="ece-trust-management.html" title="Trust management">migrating your deployments using the CCS Deployment Template</a>.</p>
+</div>
+</div>
+<h3><a id="ece-add-remotes-with-kibana"></a>Configure remote clusters using Kibana<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/shared/ec-ce-enable-ccs.asciidoc">edit</a></h3>
+<p>You can configure <a href="/guide/en/elasticsearch/reference/8.3/remote-clusters.html#sniff-mode" class="ulink" target="_top">remote clusters</a> in Kibana starting with version 7.7.0 (for any deployment except deployments using the deprecated CCS deployment template):</p>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+<p>Open the Stack Management section and select <span class="strong strong"><strong>Remote Clusters</strong></span> from the side navigation.</p>
+<div class="imageblock screenshot">
+<div class="content">
+<img src="images/ec-ce-configure-remote-cluster.png" alt="Remote Clusters UI in Kibana">
+</div>
+</div>
+</li>
+<li class="listitem">
+<p>To add a new remote cluster, fill in the following fields:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<span class="strong strong"><strong>Name</strong></span>: this is the alias you will use to run CCS queries.
+</li>
+<li class="listitem">
+<span class="strong strong"><strong>Proxy Address</strong></span>: This value can be found on the <span class="strong strong"><strong>Security</strong></span> page of the deployment you want to use as a remote.
+</li>
+<li class="listitem">
+<span class="strong strong"><strong>Server Name</strong></span>: This value can be found on the <span class="strong strong"><strong>Security</strong></span> page of the deployment you want to use as a remote.
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>This mechanism will work for remote clusters in other ECE environments as long as they <a class="xref" href="ece-trust-management.html" title="Trust management">trust each other</a>.</p>
+</div>
+</div>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>This configuration of remote clusters uses the <a href="/guide/en/elasticsearch/reference/8.3/remote-clusters.html#proxy-mode" class="ulink" target="_top">Proxy mode</a> and it requires that the allocators can communicate via http with the proxies.</p>
+</div>
+</div>
+<div class="imageblock screenshot">
+<div class="content">
+<img src="images/ce-copy-remote-cluster-parameters.png" alt="Remote Cluster Parameters in Deployment">
+</div>
+</div>
+<h3><a id="ece-add-remotes-with-cloud-api"></a>Configure remote clusters in the same ECE environment using the Cloud RESTful API<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/shared/ec-ce-enable-ccs.asciidoc">edit</a></h3>
+<p>The following PUT request configures a remote cluster from the same ECE environment:</p>
+<div class="pre_wrapper lang-sh">
+<pre class="programlisting prettyprint lang-sh">curl -k -H 'Content-Type: application/json' -X PUT -H "Authorization: ApiKey $ECE_API_KEY" https://COORDINATOR_HOST:12443/api/v1/deployments/$DEPLOYMENT_ID/elasticsearch/$REF_ID/remote-clusters -d '
+{
+  "resources" : [
+    {
+      "deployment_id": "$DEPLOYMENT_ID_REMOTE",
+      "elasticsearch_ref_id": "$REF_ID_REMOTE",
+      "alias": "alias-your-remote",
+      "skip_unavailable" : true
+    }
+  ]
+}'</pre>
+</div>
+<div class="variablelist">
+<dl class="variablelist">
+<dt>
+<span class="term">
+<code class="literal">DEPLOYMENT_ID_REMOTE</code>
+</span>
+</dt>
+<dd>
+The ID of your remote deployment, as shown in the Cloud UI or obtained through the API.
+</dd>
+<dt>
+<span class="term">
+<code class="literal">REF_ID_REMOTE</code>
+</span>
+</dt>
+<dd>
+The unique ID of the Elasticsearch resources inside your remote deployment (you can obtain these values through the API).
+</dd>
+</dl>
+</div>
+<p>Note the following when using the API:</p>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+A cluster alias must contain only letters, numbers, dashes (-), or underscores (_).
+</li>
+<li class="listitem">
+To learn about skipping disconnected clusters, refer to the <a href="/guide/en/elasticsearch/reference/8.3/modules-cross-cluster-search.html#skip-unavailable-clusters" class="ulink" target="_top">Elasticsearch documentation</a>.
+</li>
+<li class="listitem">
+When remote clusters are already configured for a deployment, the <code class="literal">PUT</code> request replaces the existing configuration with the new configuration passed. Passing an empty array of resources will remove all remote clusters.
+</li>
+</ol>
+</div>
+<p>The following API request retrieves the remote clusters configuration:</p>
+<div class="pre_wrapper lang-sh">
+<pre class="programlisting prettyprint lang-sh">curl -k -X GET -H "Authorization: ApiKey $ECE_API_KEY" https://COORDINATOR_HOST:12443/api/v1/deployments/$DEPLOYMENT_ID/elasticsearch/$REF_ID/remote-clusters</pre>
+</div>
+<h3><a id="ece-add-remotes-with-elasticsearch-api"></a>Configure remote clusters in other ECE environment using the Elasticsearch API<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/shared/ec-ce-enable-ccs.asciidoc">edit</a></h3>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>Usage of this API is incompatible with the <a class="xref" href="ece-enable-ccs.html#ece-add-remotes-with-ccs-deployment-template" title="Configure remote clusters using the CCS deployment template (deprecated)">CCS deployment template</a>. Use the <a class="xref" href="ece-enable-ccs.html#ece-add-remotes-with-cloud-api" title="Configure remote clusters in the same ECE environment using the Cloud RESTful API">remote Cloud API</a> instead if you are using this template.</p>
+</div>
+</div>
+<p>Elasticsearch provides an API to manage <a href="/guide/en/elasticsearch/reference/8.3/modules-cross-cluster-search.html" class="ulink" target="_top">remote clusters</a>.
+This API supports two different modes to configure the remote clusters, and depending on the version of the remote cluster you need to use the following parameters:</p>
+<h4><a id="ece_stack_version_7_6_0_and_above"></a>Stack Version 7.6.0 and above<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/shared/ec-ce-enable-ccs.asciidoc">edit</a></h4>
+<p>Remote clusters must be configured using <a href="/guide/en/elasticsearch/reference/8.3/remote-clusters.html#proxy-mode" class="ulink" target="_top">proxy mode</a>.
+For each remote cluster you need to pass the following fields:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<span class="strong strong"><strong>Proxy address</strong></span>: This value can be found on the <span class="strong strong"><strong>Security</strong></span> page of the deployment you want to use as a remote. Also, using the API, this value can be obtained from the elasticsearch resource info, concatenating the fields <code class="literal">metadata.endpoint</code> and <code class="literal">metadata.ports.transport_passthrough</code> using a semicolon.
+</li>
+<li class="listitem">
+<span class="strong strong"><strong>Server name</strong></span>: This value can be found on the <span class="strong strong"><strong>Security</strong></span> page of the deployment you want to use as a remote. Also, using the API, this can be obtained from the Elasticsearch resource info field <code class="literal">metadata.endpoint</code>.
+</li>
+</ul>
+</div>
+<p>This is an example of the API call to <code class="literal">_cluster/settings</code>:</p>
+<div class="pre_wrapper lang-json">
+<pre class="programlisting prettyprint lang-json">{
+  "persistent": {
+    "cluster": {
+      "remote": {
+         "my-remote-cluster-1": {
+         "mode":"proxy",
+         "proxy_address": "a542184a7a7d45b88b83f95392f450ab.192.168.44.10.ip.es.io:9400",
+         "server_name": "a542184a7a7d45b88b83f95392f450ab.192.168.44.10.ip.es.io"
+        }
+      }
+    }
+  }
+}</pre>
+</div>
+<h4><a id="ece_stack_version_above_6_7_0_and_below_7_6_0"></a>Stack Version above 6.7.0 and below 7.6.0<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/shared/ec-ce-enable-ccs.asciidoc">edit</a></h4>
+<p>Remote clusters must be configured using <a href="/guide/en/elasticsearch/reference/8.3/remote-clusters.html#sniff-mode" class="ulink" target="_top">sniff mode</a> with the proxy field.
+For each remote cluster you need to pass the following fields:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<span class="strong strong"><strong>Proxy</strong></span>: This value can be found on the <span class="strong strong"><strong>Security</strong></span> page of the deployment you want to use as a remote under the name <code class="literal">Proxy Address</code>. Also, using the API, this can be obtained from the elasticsearch resource info, concatenating the fields <code class="literal">metadata.endpoint</code> and <code class="literal">metadata.ports.transport_passthrough</code> using a semicolon.
+</li>
+<li class="listitem">
+<span class="strong strong"><strong>Seeds</strong></span>: This field is an array that must contain only one value, which is the <code class="literal">server name</code> that can be found on the <span class="strong strong"><strong>Security</strong></span> page of the deployment you want to use as a remote concatenated with <code class="literal">:1</code>. Also, using the API, this can be obtained from the Elasticsearch resource info, concatenating the fields <code class="literal">metadata.endpoint</code> and <code class="literal">1</code> with a semicolon.
+</li>
+</ul>
+</div>
+<p>This is an example of the API call to <code class="literal">_cluster/settings</code>:</p>
+<div class="pre_wrapper lang-json">
+<pre class="programlisting prettyprint lang-json">{
+  "persistent": {
+    "cluster": {
+      "remote": {
+        "my-remote-cluster-1": {
+          "seeds": [
+            "a542184a7a7d45b88b83f95392f450ab.192.168.44.10.ip.es.io:1"
+          ],
+          "proxy": "a542184a7a7d45b88b83f95392f450ab.192.168.44.10.ip.es.io:9400"
+        }
+      }
+    }
+  }
+}</pre>
+</div>
+<h3><a id="ece-add-remotes-with-ccs-deployment-template"></a>Configure remote clusters using the CCS deployment template (deprecated)<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/shared/ec-ce-enable-ccs.asciidoc">edit</a></h3>
+<p>Elastic Cloud Enterprise currently includes a Cross Cluster Search deployment template, which is now deprecated and will be removed in ECE version <code class="literal">3.0</code>.
+This deployment template allows you to configure remote clusters for deployments with Elastic stack version 6.1.x or later. However, it does not support remote clusters in other remote ECE environments and it does not support Cross Cluster Replication.</p>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>The Cross-cluster search deployment template is not supported for AWS Marketplace accounts.</p>
+</div>
+</div>
+<p>This deployment template configures remote clusters using <a href="/guide/en/elasticsearch/reference/8.3/remote-clusters.html#sniff-mode" class="ulink" target="_top">sniff mode</a>, which stores in the cluster settings the IP address of the nodes of the remote clusters.
+This deployment template automatically takes care of that configuration, and the cluster settings are automatically maintained and updated when cluster topologies change. For example, all connected clusters are updated when:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+A cluster is deleted.
+</li>
+<li class="listitem">
+A node is added or removed from a cluster.
+</li>
+</ul>
+</div>
+<p>The Cross-cluster search deployment acts as a hub that manages all of the remote deployment connections.</p>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+<a class="xref" href="ece-login.html" title="Log into the Cloud UI">Log into the Cloud UI</a>.
+</li>
+<li class="listitem">
+Select <span class="strong strong"><strong>Create deployment</strong></span>.
+</li>
+<li class="listitem">
+Select the <span class="strong strong"><strong>Elastic Stack</strong></span> solution
+</li>
+<li class="listitem">
+Select the <span class="strong strong"><strong>Cross Cluster Search</strong></span> hardware profile.
+</li>
+<li class="listitem">
+<p>Decide when to add the remote connections:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+If you know the deployments that you want to include, select <span class="strong strong"><strong>Customize deployment</strong></span> to define the remotes while creating the deployment.
+</li>
+<li class="listitem">
+After the deployment is spun up, you can add remotes from the deployment overview page.
+</li>
+</ul>
+</div>
+</li>
+<li class="listitem">
+Select <span class="strong strong"><strong>Add deployment</strong></span>.
+</li>
+<li class="listitem">
+<p>Select a target deployment from the <span class="strong strong"><strong>Deployment name</strong></span> drop-down list.</p>
+<div class="tip admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>Only the compatible deployments appear on this list.</p>
+</div>
+</div>
+</li>
+<li class="listitem">
+Optional: Update the generated alias to something meaningful to you.
+</li>
+<li class="listitem">
+Save your changes.
+</li>
+<li class="listitem">
+Verify the configuration by running <a href="/guide/en/elasticsearch/reference/8.3/modules-cross-cluster-search.html" class="ulink" target="_top">CCS queries from Elasticsearch</a>.
+</li>
+<li class="listitem">
+As needed, from the Elasticsearch API or Kibana, update the <a href="/guide/en/elasticsearch/reference/8.3/cross-cluster-configuring.html" class="ulink" target="_top">Elasticsearch cluster security</a> and user access roles
+to allow them to access the remote deployments.
+</li>
+</ol>
+</div>
+<p>The target deployment overview page shows which CCS deployments can search the target.</p>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>Deployments using this template are also compatible with the <a class="xref" href="ece-enable-ccs.html#ece-add-remotes-with-cloud-api" title="Configure remote clusters in the same ECE environment using the Cloud RESTful API">remotes Cloud API</a>, so you can use the API too to manage the remote clusters.</p>
+</div>
+</div>
+<h3><a id="ece-enable-ccr"></a>Enable CCR and the Remote Clusters UI in Kibana<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/shared/ec-ce-enable-ccs.asciidoc">edit</a></h3>
+<p>If your deployment was created before ECE version <code class="literal">2.9.0</code>, CCR won&#8217;t be enabled and you won&#8217;t find the Remote Clusters UI in Kibana even though your deployment meets all the <a class="xref" href="ece-enable-ccs.html#ece-ccs-ccr-prerequisites" title="Before you begin">criteria</a>.</p>
+<p>To enable these features, go to the <span class="strong strong"><strong>Security</strong></span> page of your deployment and under <span class="strong strong"><strong>Trust management</strong></span> select <span class="strong strong"><strong>Enable CCR</strong></span>.</p>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>CCR is not supported for indices used by Enterprise Search.</p>
+</div>
+</div>
+<h3><a id="ece-ccs-ccr-traffic-filtering"></a>Remote Clusters and Traffic Filtering<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/shared/ec-ce-enable-ccs.asciidoc">edit</a></h3>
+<p><a class="xref" href="ece-traffic-filtering-deployment-configuration.html" title="Traffic Filtering">Traffic filtering</a> can be enabled to restrict access to deployments
+that are used as a local or remote cluster without any impact to cross-cluster search or cross-cluster replication.</p>
+
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="ece-restrictions-monitoring.html">« Restrictions and limitations</a>
+</span>
+<span class="next">
+<a href="ece-migrate-ccs.html">Migrate the cross-cluster search deployment template »</a>
+</span>
+</div>
+</div>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains('stemblock')) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+</body>
+</html>

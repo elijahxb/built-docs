@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,27 +87,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 A newer version is available. For the latest information, see the
@@ -115,13 +106,10 @@ A newer version is available. For the latest information, see the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [7.17]</a></span>
-»
-<span class="breadcrumb-link"><a href="search-aggregations.html">Aggregations</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [7.17]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="search-aggregations.html">Aggregations</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="search-aggregations-bucket.html">Bucket aggregations</a></span>
-»
-<span class="breadcrumb-node">Significant terms aggregation</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -181,7 +169,7 @@ set used for statistical comparisons is the index or indices from which the resu
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1218.console"></div>
+<div class="console_widget" data-snippet="snippets/1220.console"></div>
 <p>Response:</p>
 <div class="pre_wrapper lang-console-result">
 <pre class="programlisting prettyprint lang-console-result">{
@@ -233,7 +221,7 @@ To discover all the other police forces' anomalies we would have to repeat the q
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1219.console"></div>
+<div class="console_widget" data-snippet="snippets/1221.console"></div>
 <p>Response:</p>
 <div class="pre_wrapper lang-console-result">
 <pre class="programlisting prettyprint lang-console-result">{
@@ -303,7 +291,7 @@ area to identify unusual hot-spots of a particular crime type:</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1220.console"></div>
+<div class="console_widget" data-snippet="snippets/1222.console"></div>
 <p>This example uses the <code class="literal">geohash_grid</code> aggregation to create result buckets that represent geographic areas, and inside each
 bucket we can identify anomalous levels of a crime type in these tightly-focused areas e.g.</p>
 <div class="ulist itemizedlist">
@@ -589,7 +577,7 @@ scaled down by a factor of <code class="literal">1000/term_count</code>.</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1221.console"></div>
+<div class="console_widget" data-snippet="snippets/1223.console"></div>
 </div>
 
 </div>
@@ -738,7 +726,7 @@ will cause extra network traffic and RAM usage so this is quality/cost trade off
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1222.console"></div>
+<div class="console_widget" data-snippet="snippets/1224.console"></div>
 <p>The above aggregation would only return tags which have been found in 10 hits or more. Default value is <code class="literal">3</code>.</p>
 <p>Terms that score highly will be collected on a shard level and merged with the terms collected from other shards in a second step. However, the shard does not have the information about the global term frequencies available. The decision if a term is added to a candidate list depends only on the score computed on the shard using local shard frequencies, not the global frequencies of the word. The <code class="literal">min_doc_count</code> criterion is only applied after merging local terms statistics of all shards. In a way the decision to add the term as a candidate is made without being very <em>certain</em> about if the term will actually reach the required <code class="literal">min_doc_count</code>. This might cause many (globally) high frequent terms to be missing in the final result if low frequent but high scoring terms populated the candidate lists. To avoid this, the <code class="literal">shard_size</code> parameter can be increased to allow more candidate terms on the shards. However, this increases memory consumption and network traffic.</p>
 </div>
@@ -787,7 +775,7 @@ context:</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1223.console"></div>
+<div class="console_widget" data-snippet="snippets/1225.console"></div>
 <p>The above filter would help focus in on terms that were peculiar to the city of Madrid rather than revealing
 terms like "Spanish" that are unusual in the full index&#8217;s worldwide context but commonplace in the subset of documents containing the
 word "Spain".</p>
@@ -853,7 +841,7 @@ ordinals.</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1224.console"></div>
+<div class="console_widget" data-snippet="snippets/1226.console"></div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
@@ -882,15 +870,37 @@ ordinals.</p>
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>Debug standalone Elastic Agents | Fleet and Elastic Agent Guide [master] | Elastic</title>
 <link rel="home" href="index.html" title="Fleet and Elastic Agent Guide [master]"/>
-<link rel="up" href="elastic-agent-configuration.html" title="Elastic Agent standalone configuration"/>
+<link rel="up" href="elastic-agent-configuration.html" title="Configure standalone Elastic Agents"/>
 <link rel="prev" href="grant-access-to-elasticsearch.html" title="Grant standalone Elastic Agents access to Elasticsearch"/>
 <link rel="next" href="elastic-agent-input-configuration.html" title="Configure inputs for standalone Elastic Agents"/>
 <meta name="DC.type" content="Learn/Docs/Fleet/Guide/Elastic Agent/master"/>
@@ -18,11 +18,9 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Fleet and Elastic Agent Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="elastic-agent-configuration.html">Elastic Agent standalone configuration</a></span>
-»
-<span class="breadcrumb-node">Debug standalone Elastic Agents</span>
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Fleet and Elastic Agent Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="elastic-agent-configuration.html">Configure standalone Elastic Agents</a></span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -72,8 +70,7 @@ Applications:
 of the running Elastic Agent.</p>
 <p>The log location varies by platform. Elastic Agent logs are in the folders described
 in <a class="xref" href="installation-layout.html" title="Installation layout">Installation layout</a>. Beats and Fleet Server logs are in folders named
-for the output (for example, <code class="literal">default</code>). Elastic Endpoint logs are in the
-installation directory.</p>
+for the output (for example, <code class="literal">default</code>).</p>
 <p>Start by investigating any errors you see in the Elastic Agent and related logs. Also
 look for repeated lines that might indicate problems like connection issues. If
 the Elastic Agent and related logs look clean, check the host operating system logs
@@ -101,12 +98,12 @@ agent.logging.files:
 <p>Profiling data produced by the <code class="literal">/debug/pprof/</code> endpoints can be useful for
 debugging, but presents a security risk. Do not expose these endpoints if the
 monitoring endpoint is accessible over a network. (By default, the monitoring
-endpoint is bound to a local unix socket or Windows npipe and not accessible
+endpoint is bound to a local Unix socket or Windows npipe and not accessible
 over a network.)</p>
 <p>To expose the <code class="literal">/debug/pprof/</code> endpoints, set <code class="literal">agent.monitoring.pprof: true</code> in
 the <code class="literal">elastic-agent.yml</code> file. For more information about monitoring settings,
 refer to <a class="xref" href="elastic-agent-monitoring-configuration.html" title="Configure monitoring for standalone Elastic Agents">Monitoring</a>.</p>
-<p>After exposing the endpoints, you can access the http handler bound to a socket
+<p>After exposing the endpoints, you can access the HTTP handler bound to a socket
 for Beats or the Elastic Agent. For example:</p>
 <div class="pre_wrapper lang-shell">
 <pre class="programlisting prettyprint lang-shell">sudo curl --unix-socket /Library/Elastic/Agent/data/tmp/default/filebeat/filebeat.sock http://socket/ | json_pp</pre>
@@ -215,7 +212,7 @@ filebeat:
     meta:
       package:
         name: system
-        version: 8.2.0
+        version: 8.4.0
     multiline:
       match: after
       pattern: ^\s
@@ -239,7 +236,7 @@ filebeat:
         fields:
           id: 3c4a8f14-561a-449f-8935-7485cd494bac
           snapshot: false
-          version: 8.2.0
+          version: 8.4.0
         target: elastic_agent
     - add_fields:
         fields:
@@ -278,7 +275,7 @@ filebeat:
         fields:
           id: 3c4a8f14-561a-449f-8935-7485cd494bac
           snapshot: false
-          version: 8.2.0
+          version: 8.4.0
         target: elastic_agent
     - add_fields:
         fields:

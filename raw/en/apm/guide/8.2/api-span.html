@@ -13,19 +13,16 @@
 <meta name="robots" content="noindex,nofollow"/>
 </head>
 <body><div class="page_header">
-You are looking at preliminary documentation for a future release.
-Not what you want? See the
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
 <a href="../current/index.html">current release documentation</a>.
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">APM User Guide [8.2]</a></span>
-»
-<span class="breadcrumb-link"><a href="api.html">API</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">APM User Guide [8.2]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="api.html">API</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="api-events.html">Events intake API</a></span>
-»
-<span class="breadcrumb-node">Spans</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -42,7 +39,7 @@ Not what you want? See the
 <p>Spans are events captured by an agent occurring in a monitored service.</p>
 <h4><a id="api-span-schema"></a>Span Schema<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/apm-server/edit/8.2/docs/api-span.asciidoc">edit</a></h4>
 <p>APM Server uses JSON Schema to validate requests. The specification for spans is defined on
-<a href="https://github.com/elastic/apm-server/blob/v8.2.0/docs/spec/v2/span.json" class="ulink" target="_top">GitHub</a> and included below:</p>
+<a href="https://github.com/elastic/apm-server/blob/v8.2.3/docs/spec/v2/span.json" class="ulink" target="_top">GitHub</a> and included below:</p>
 <div class="pre_wrapper lang-json">
 <pre class="programlisting prettyprint lang-json">{
   "$id": "docs/spec/v2/span",
@@ -449,6 +446,13 @@ Not what you want? See the
                 }
               }
             },
+            "id": {
+              "description": "ID holds a unique identifier for the service.",
+              "type": [
+                "null",
+                "string"
+              ]
+            },
             "language": {
               "description": "Language holds information about the programming language of the monitored service.",
               "type": [
@@ -554,13 +558,6 @@ Not what you want? See the
                   "maxLength": 1024
                 }
               }
-            },
-            "string": {
-              "description": "ID holds a unique identifier for the service.",
-              "type": [
-                "null",
-                "string"
-              ]
             },
             "version": {
               "description": "Version of the monitored service.",

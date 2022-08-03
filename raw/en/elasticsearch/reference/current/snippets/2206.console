@@ -1,1 +1,1 @@
-POST /_index_template/_simulate/template_1
+DELETE /_dangling/<index-uuid>?accept_data_loss=true

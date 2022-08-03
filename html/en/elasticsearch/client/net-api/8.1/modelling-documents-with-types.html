@@ -11,6 +11,7 @@
 <meta name="DC.type" content="Learn/Docs/Clients/.Net/8.1"/>
 <meta name="DC.subject" content="Clients"/>
 <meta name="DC.identifier" content="8.1"/>
+<meta name="robots" content="noindex,nofollow"/>
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -56,7 +57,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,38 +88,30 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
-                  
+                  <div class="page_header">
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch .NET Client [8.1]</a></span>
-»
-<span class="breadcrumb-link"><a href="nest.html">NEST - High level client</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch .NET Client [8.1]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="nest.html">NEST - High level client</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="serialization.html">Serialization</a></span>
-»
-<span class="breadcrumb-node">Modelling documents with types</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -130,7 +123,7 @@
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="modelling-documents-with-types"></a>Modelling documents with types<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/client-concepts/high-level/serialization/modelling-documents-with-types.asciidoc">edit</a></h2>
+<h2 class="title"><a id="modelling-documents-with-types"></a>Modelling documents with types<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/client-concepts/high-level/serialization/modelling-documents-with-types.asciidoc">edit</a></h2>
 </div></div></div>
 <p>Elasticsearch provides search and aggregation capabilities on the documents that it is sent and indexes. These documents are sent as
 JSON objects within the request body of a HTTP request. It is natural to model documents within NEST and Elasticsearch.Net using
@@ -138,7 +131,7 @@ JSON objects within the request body of a HTTP request. It is natural to model d
 <p>This section provides an overview of how types and type hierarchies can be used to model documents.</p>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="default-behaviour"></a>Default behaviour<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/client-concepts/high-level/serialization/modelling-documents-with-types.asciidoc">edit</a></h3>
+<h3 class="title"><a id="default-behaviour"></a>Default behaviour<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/client-concepts/high-level/serialization/modelling-documents-with-types.asciidoc">edit</a></h3>
 </div></div></div>
 <p>NEST&#8217;s default behaviour is to serialize type property names as camelcase JSON object members.
 Given the POCO</p>
@@ -164,7 +157,7 @@ Given the POCO</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="default-field-name-inferrer"></a><code class="literal">DefaultFieldNameInferrer</code> setting<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/client-concepts/high-level/serialization/modelling-documents-with-types.asciidoc">edit</a></h3>
+<h3 class="title"><a id="default-field-name-inferrer"></a><code class="literal">DefaultFieldNameInferrer</code> setting<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/client-concepts/high-level/serialization/modelling-documents-with-types.asciidoc">edit</a></h3>
 </div></div></div>
 <p>Many different systems may be indexing documents into Elasticsearch, using a different
 convention than camelcase for JSON object members. How NEST serializes
@@ -237,7 +230,7 @@ var indexResponse = client.Index(
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="propertyname-attribute"></a><code class="literal">PropertyName</code> attribute<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/client-concepts/high-level/serialization/modelling-documents-with-types.asciidoc">edit</a></h3>
+<h3 class="title"><a id="propertyname-attribute"></a><code class="literal">PropertyName</code> attribute<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/client-concepts/high-level/serialization/modelling-documents-with-types.asciidoc">edit</a></h3>
 </div></div></div>
 <p>Sometimes there may be a need to change only how specific POCO properties are serialized. The
 <code class="literal">PropertyName</code> attribute can be applied to POCO properties to control the name that the POCO
@@ -264,7 +257,7 @@ var indexResponse = Client.Index(
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="nest-property-attributes"></a>NEST property attributes<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/client-concepts/high-level/serialization/modelling-documents-with-types.asciidoc">edit</a></h3>
+<h3 class="title"><a id="nest-property-attributes"></a>NEST property attributes<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/client-concepts/high-level/serialization/modelling-documents-with-types.asciidoc">edit</a></h3>
 </div></div></div>
 <p>The <code class="literal">PropertyName</code> attribute can be used to control how a POCO property is serialized. NEST contains
 a collection of other attributes, such as <code class="literal">Text</code> attribute, that not only control how a POCO property is serialized,
@@ -292,7 +285,7 @@ var indexResponse = Client.Index(
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="data-member-attribute"></a>DataMember attribute<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/client-concepts/high-level/serialization/modelling-documents-with-types.asciidoc">edit</a></h3>
+<h3 class="title"><a id="data-member-attribute"></a>DataMember attribute<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/client-concepts/high-level/serialization/modelling-documents-with-types.asciidoc">edit</a></h3>
 </div></div></div>
 <p>The <code class="literal">System.Runtime.Serialization.DataMember</code> attribute can be used to control how a POCO property is serialized. in a similar
 fashion to <code class="literal">PropertyName</code> attribute. The <code class="literal">DataMember</code> attribute may be preferred over <code class="literal">PropertyName</code> attribute in situations where
@@ -320,7 +313,7 @@ var indexResponse = Client.Index(
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="default-mapping-for"></a><code class="literal">DefaultMappingFor&lt;TDocument&gt;</code> setting<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/client-concepts/high-level/serialization/modelling-documents-with-types.asciidoc">edit</a></h3>
+<h3 class="title"><a id="default-mapping-for"></a><code class="literal">DefaultMappingFor&lt;TDocument&gt;</code> setting<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-net/edit/8.1/docs/client-concepts/high-level/serialization/modelling-documents-with-types.asciidoc">edit</a></h3>
 </div></div></div>
 <p>Whilst <code class="literal">DefaultFieldNameInferrer</code> applies a convention to all POCO properties, there may be occasions where
 only particular properties of a specific POCO are serialized differently. The <code class="literal">DefaultMappingFor&lt;TDocument&gt;</code> setting
@@ -584,15 +577,37 @@ that are indexed in Elasticsearch. It is generally recommended to stick to simpl
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

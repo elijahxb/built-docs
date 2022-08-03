@@ -21,11 +21,9 @@ will be released for this version. For the latest information, see the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Kibana Guide [7.16]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Kibana Guide [7.16]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="release-notes.html">Release notes</a></span>
-»
-<span class="breadcrumb-node">Kibana 7.16.0</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -40,6 +38,16 @@ will be released for this version. For the latest information, see the
 <h2 class="title"><a id="release-notes-7.16.0"></a>Kibana 7.16.0<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/7.16/docs/CHANGELOG.asciidoc">edit</a></h2>
 </div></div></div>
 <p>For information about the Kibana 7.16.0 release, review the following information.</p>
+<h3><a id="known-issue-7.16.0"></a>Known issue<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/7.16/docs/CHANGELOG.asciidoc">edit</a></h3>
+<details>
+<summary class="title">Hidden dashboard titles now appear</summary>
+<div class="content">
+<p><span class="strong strong"><strong>Details</strong></span> <br>
+If you are using Kibana 7.9.x and earlier, and you upgrade to 7.10.0 to 7.17.2, all hidden panel titles now appear on your dashboards.
+<span class="strong strong"><strong>Impact</strong></span><br>
+Upgrade to Kibana 7.17.3 or later.</p>
+</div>
+</details>
 <h3><a id="breaking-changes-7.16.0"></a>Breaking changes<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/7.16/docs/CHANGELOG.asciidoc">edit</a></h3>
 <p>Breaking changes can prevent your application from optimal operation and performance.
 Before you upgrade to 7.16.0, review the breaking changes, then mitigate the impact to your application.</p>
@@ -203,6 +211,24 @@ Before you upgrade to 8.0.0, remove <code class="literal">console.proxyFilter</c
 The <code class="literal">KIBANA_PATH_CONF</code> environment variable is deprecated and will be removed in 8.0.0. For more information, refer to <a href="https://github.com/elastic/kibana/pull/111550" class="ulink" target="_top">#111550</a>.</p>
 <p><span class="strong strong"><strong>Impact</strong></span><br>
 Use <a class="xref" href="settings.html" title="Configure Kibana"><code class="literal">KBN_PATH_CONF</code></a>.</p>
+</div>
+</details>
+<details id="deprecation-105440">
+<summary class="title">Deprecates ServiceNow connectors</summary>
+<div class="content">
+<p><span class="strong strong"><strong>Details</strong></span><br>
+ServiceNow ITSM and ServiceNow SecOps connectors created in Elastic Stack version 7.15.0 or earlier
+are marked as deprecated after you upgrade to version 7.16.0 or later.
+Deprecated connectors have a yellow icon after their name and display a warning
+message when selected.</p>
+<p><span class="strong strong"><strong>Impact</strong></span><br>
+Deprecated connectors will continue to function with the rules they were added
+to and can be assigned to new rules. However, it is strongly recommended to
+update deprecated connectors or create new ones to ensure you have access to
+connector enhancements, such as updating incidents.
+For more information, refer to <a href="https://github.com/elastic/kibana/pull/105440" class="ulink" target="_top">#105440</a>,
+<a href="/guide/en/kibana/7.16/servicenow-action-type.html#servicenow-itsm-connector-update" class="ulink" target="_top">Update a deprecated ServiceNow ITSM connector</a>, and
+<a href="/guide/en/kibana/7.16/servicenow-sir-action-type.html#servicenow-sir-connector-update" class="ulink" target="_top">Update a deprecated ServiceNow SecOps connector</a>.</p>
 </div>
 </details>
 <h3><a id="features-7.16.0"></a>Features<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/7.16/docs/CHANGELOG.asciidoc">edit</a></h3>

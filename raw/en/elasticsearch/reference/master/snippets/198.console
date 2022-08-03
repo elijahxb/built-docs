@@ -1,12 +1,15 @@
 PUT my-index-000001
 {
-  "mappings" : {
-    "properties" : {
-      "my_histogram" : {
-        "type" : "histogram"
+  "mappings": {
+    "properties": {
+      "my_id": {
+        "type": "keyword"
       },
-      "my_text" : {
-        "type" : "keyword"
+      "my_join_field": {
+        "type": "join",
+        "relations": {
+          "question": "answer"
+        }
       }
     }
   }

@@ -1,1 +1,1 @@
-GET /_autoscaling/capacity/
+GET _cat/nodes?v=true&s=cpu:desc

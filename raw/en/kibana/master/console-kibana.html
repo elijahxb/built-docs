@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="description" content="Kibana provides you with several options to share *Discover* saved searches, dashboards, *Visualize Library* visualizations, and *Canvas* workpads with others, or on a website.">
 <meta name="keywords" content="analyst, concept, task, reporting">
-<title>Run Elasticsearch API requests | Kibana Guide [master] | Elastic</title>
+<title>Run API requests | Kibana Guide [master] | Elastic</title>
 <link rel="home" href="index.html" title="Kibana Guide [master]"/>
 <link rel="up" href="devtools-kibana.html" title="Dev Tools"/>
 <link rel="prev" href="devtools-kibana.html" title="Dev Tools"/>
@@ -20,11 +20,9 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Kibana Guide [master]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Kibana Guide [master]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="devtools-kibana.html">Dev Tools</a></span>
-»
-<span class="breadcrumb-node">Run Elasticsearch API requests</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -36,13 +34,13 @@ Not what you want? See the
 </div>
 <div class="chapter">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="console-kibana"></a>Run Elasticsearch API requests<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/dev-tools/console/console.asciidoc">edit</a></h2>
+<h2 class="title"><a id="console-kibana"></a>Run API requests<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/dev-tools/console/console.asciidoc">edit</a></h2>
 </div></div></div>
-<p>Interact with the REST API of Elasticsearch with <span class="strong strong"><strong>Console</strong></span>. You can:</p>
+<p>Interact with the REST APIs of Elasticsearch and Kibana with <span class="strong strong"><strong>Console</strong></span>. With <span class="strong strong"><strong>Console</strong></span>, you can:</p>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
 <li class="listitem">
-Send requests to Elasticsearch and view the responses
+Send requests and view the responses
 </li>
 <li class="listitem">
 View API documentation
@@ -56,12 +54,6 @@ Get your request history
 <div class="imageblock screenshot">
 <div class="content">
 <img src="dev-tools/console/images/console.png" alt="Console">
-</div>
-</div>
-<div class="note admon">
-<div class="icon"></div>
-<div class="admon_content">
-<p>You cannot to interact with the REST API of Kibana with the Console.</p>
 </div>
 </div>
 <h3><a id="console-api"></a>Write requests<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/dev-tools/console/console.asciidoc">edit</a></h3>
@@ -84,6 +76,10 @@ For example, the following is a <code class="literal">GET</code> request to the 
   }
 }'</pre>
 </div>
+<p>Prepend requests to a Kibana API endpoint with <code class="literal">kbn:</code></p>
+<div class="pre_wrapper lang-bash">
+<pre class="programlisting prettyprint lang-bash">GET kbn:/api/index_management/indices</pre>
+</div>
 <p>When you paste the command into <span class="strong strong"><strong>Console</strong></span>, Kibana automatically converts it
 to <span class="strong strong"><strong>Console</strong></span> syntax.  Alternatively, if you want to see <span class="strong strong"><strong>Console</strong></span> syntax in cURL,
 click the action icon (<span class="image"><img src="dev-tools/console/images/wrench.png" alt="wrench"></span>) and select <span class="strong strong"><strong>Copy as cURL</strong></span>.
@@ -94,6 +90,51 @@ for the calls to work from external environments.</p>
 These suggestions show you the parameters for each API and speed up your typing.
 To configure your preferences for autocomplete, go to
 <a class="xref" href="console-kibana.html#configuring-console" title="Configure Console settings">Settings</a>.</p>
+<h4><a id="console-comments"></a>Comments<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/dev-tools/console/console.asciidoc">edit</a></h4>
+<p>You can write comments or temporarily disable parts of a request by using double forward slashes
+or pound signs to create single-line comments.</p>
+<div class="pre_wrapper lang-js">
+<pre class="programlisting prettyprint lang-js"># This request searches all of your indices.
+GET /_search
+{
+  // The query parameter indicates query context.
+  "query": {
+    "match_all": {} // Matches all documents.
+  }
+}</pre>
+</div>
+<p>You can also use a forward slash followed by an asterisk to mark the beginning of multi-line
+comments. An asterisk followed by a forward slash marks the end.</p>
+<div class="pre_wrapper lang-js">
+<pre class="programlisting prettyprint lang-js">GET /_search
+{
+  "query": {
+    /*"match_all": {
+      "boost": 1.2
+    }*/
+    "match_none": {}
+  }
+}</pre>
+</div>
+<h4><a id="console-variables"></a>Variables<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/dev-tools/console/console.asciidoc">edit</a></h4>
+<p>Click <span class="strong strong"><strong>Variables</strong></span> to create, edit, and delete variables.</p>
+<div class="imageblock screenshot">
+<div class="content">
+<img src="dev-tools/console/images/variables.png" alt="Variables" width="60%">
+</div>
+</div>
+<p>You can refer to these variables in the paths and bodies of your requests.
+Each variable can be referenced multiple times.</p>
+<div class="pre_wrapper lang-js">
+<pre class="programlisting prettyprint lang-js">GET ${pathVariable}
+{
+  "query": {
+    "match": {
+      "${bodyNameVariable}": "${bodyValueVariable}"
+    }
+  }
+}</pre>
+</div>
 <h4><a id="auto-formatting"></a>Auto-formatting<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/dev-tools/console/console.asciidoc">edit</a></h4>
 <p>The auto-formatting
 capability can help you format requests. Select one or more requests that you
@@ -102,22 +143,20 @@ and then select <span class="strong strong"><strong>Auto indent</strong></span>.
 <p>For example, you might have a request formatted like this:</p>
 <div class="imageblock screenshot">
 <div class="content">
-<img src="dev-tools/console/images/copy-curl.png" alt="Console close-up" width="75%">
+<img src="dev-tools/console/images/unformatted-request.png" alt="Unformatted request" width="75%">
 </div>
 </div>
-<p>]</p>
 <p><span class="strong strong"><strong>Console</strong></span> adjusts the JSON body of the request to apply the indents.</p>
 <div class="imageblock screenshot">
 <div class="content">
-<img src="dev-tools/console/images/request.png" alt="Console close-up" width="75%">
+<img src="dev-tools/console/images/formatted-request.png" alt="Formatted request" width="75%">
 </div>
 </div>
 <p>If you select <span class="strong strong"><strong>Auto indent</strong></span> on a request that is already well formatted,
 <span class="strong strong"><strong>Console</strong></span> collapses the request body to a single line per document.
 This is helpful when working with the Elasticsearch <a href="/guide/en/elasticsearch/reference/master/docs-bulk.html" class="ulink" target="_top">bulk APIs</a>.</p>
 <h3><a id="console-request"></a>Submit requests<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/dev-tools/console/console.asciidoc">edit</a></h3>
-<p>When you&#8217;re ready to submit the request to Elasticsearch, click the
-green triangle.</p>
+<p>When you&#8217;re ready to submit the request to Elasticsearch, click the green triangle.</p>
 <p>You can select multiple requests and submit them together.
 <span class="strong strong"><strong>Console</strong></span> sends the requests to Elasticsearch one by one and shows the output
 in the response pane. Submitting multiple requests is helpful

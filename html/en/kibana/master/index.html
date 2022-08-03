@@ -54,7 +54,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -85,27 +85,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   
 <div class="page_header">
@@ -122,6 +113,9 @@ Not what you want? See the
 </div>
 <div class="book" lang="en">
 <div class="titlepage">
+<div class="breadcrumbs" id="title-page-breadcrumb">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+</div>
 <div>
 <div><h1 class="title"><a id="kibana-guide"></a>Kibana Guide</h1></div>
 <div>
@@ -285,7 +279,7 @@ Not what you want? See the
 <div id="content">
 <!--START_TOC-->
 <div class="toc">
-<ul class="toc"><li id="book_title"><span>Kibana Guide: <select id="live_versions"><option value="master" selected>master</option><option value="8.1">8.1 (current)</option><option value="7.17">7.17</option><option value="other">other versions</option></select><span id="other_versions">other versions: <select><option value="master" selected>master</option><option value="8.2">8.2</option><option value="8.1">8.1 (current)</option><option value="8.0">8.0</option><option value="7.17">7.17</option><option value="7.16">7.16</option><option value="7.15">7.15</option><option value="7.14">7.14</option><option value="7.13">7.13</option><option value="7.12">7.12</option><option value="7.11">7.11</option><option value="7.10">7.10</option><option value="7.9">7.9</option><option value="7.8">7.8</option><option value="7.7">7.7</option><option value="7.6">7.6</option><option value="7.5">7.5</option><option value="7.4">7.4</option><option value="7.3">7.3</option><option value="7.2">7.2</option><option value="7.1">7.1</option><option value="7.0">7.0</option><option value="6.8">6.8</option><option value="6.7">6.7</option><option value="6.6">6.6</option><option value="6.5">6.5</option><option value="6.4">6.4</option><option value="6.3">6.3</option><option value="6.2">6.2</option><option value="6.1">6.1</option><option value="6.0">6.0</option><option value="5.6">5.6</option><option value="5.5">5.5</option><option value="5.4">5.4</option><option value="5.3">5.3</option><option value="5.2">5.2</option><option value="5.1">5.1</option><option value="5.0">5.0</option><option value="4.6">4.6</option><option value="4.5">4.5</option><option value="4.4">4.4</option><option value="4.3">4.3</option><option value="4.2">4.2</option><option value="4.1">4.1</option><option value="4.0">4.0</option><option value="3.0">3.0</option></select></span></li><li><span class="chapter"><a href="introduction.html">What is Kibana?</a></span>
+<ul class="toc"><li id="book_title"><span>Kibana Guide: <select id="live_versions"><option value="master" selected>master</option><option value="8.3">8.3 (current)</option><option value="7.17">7.17</option><option value="other">other versions</option></select><span id="other_versions">other versions: <select><option value="master" selected>master</option><option value="8.3">8.3 (current)</option><option value="8.2">8.2</option><option value="8.1">8.1</option><option value="8.0">8.0</option><option value="7.17">7.17</option><option value="7.16">7.16</option><option value="7.15">7.15</option><option value="7.14">7.14</option><option value="7.13">7.13</option><option value="7.12">7.12</option><option value="7.11">7.11</option><option value="7.10">7.10</option><option value="7.9">7.9</option><option value="7.8">7.8</option><option value="7.7">7.7</option><option value="7.6">7.6</option><option value="7.5">7.5</option><option value="7.4">7.4</option><option value="7.3">7.3</option><option value="7.2">7.2</option><option value="7.1">7.1</option><option value="7.0">7.0</option><option value="6.8">6.8</option><option value="6.7">6.7</option><option value="6.6">6.6</option><option value="6.5">6.5</option><option value="6.4">6.4</option><option value="6.3">6.3</option><option value="6.2">6.2</option><option value="6.1">6.1</option><option value="6.0">6.0</option><option value="5.6">5.6</option><option value="5.5">5.5</option><option value="5.4">5.4</option><option value="5.3">5.3</option><option value="5.2">5.2</option><option value="5.1">5.1</option><option value="5.0">5.0</option><option value="4.6">4.6</option><option value="4.5">4.5</option><option value="4.4">4.4</option><option value="4.3">4.3</option><option value="4.2">4.2</option><option value="4.1">4.1</option><option value="4.0">4.0</option><option value="3.0">3.0</option></select></span></li><li><span class="chapter"><a href="introduction.html">What is Kibana?</a></span>
 </li>
 <li><span class="chapter"><a href="whats-new.html">What&#8217;s new in 8.0</a></span>
 </li>
@@ -479,11 +473,15 @@ Not what you want? See the
 </li>
 <li><span class="chapter"><a href="drilldowns.html">Make dashboards interactive</a></span>
 <ul>
-<li><span class="section"><a href="url_templating-language.html">URL templating</a></span>
+<li><span class="section"><a href="add-controls.html">Filter dashboard data with controls</a></span>
+</li>
+<li><span class="section"><a href="explore-the-underlying-documents.html">Open panel data in Discover</a></span>
+</li>
+<li><span class="section"><a href="create-drilldowns.html">Customize interactions with drilldowns</a></span>
 </li>
 </ul>
 </li>
-<li><span class="chapter"><a href="dashboard-troubleshooting.html">Troubleshooting</a></span>
+<li><span class="chapter"><a href="dashboard-troubleshooting.html">Improve dashboard loading time</a></span>
 </li>
 </ul>
 </li>
@@ -619,7 +617,7 @@ Not what you want? See the
 </li>
 </ul>
 </li>
-<li><span class="chapter"><a href="alerting-troubleshooting.html">Troubleshooting</a></span>
+<li><span class="chapter"><a href="alerting-troubleshooting.html">Troubleshooting and limitations</a></span>
 <ul>
 <li><span class="section"><a href="alerting-common-issues.html">Common Issues</a></span>
 </li>
@@ -663,6 +661,8 @@ Not what you want? See the
 <ul>
 <li><span class="section"><a href="agent-configuration.html">Configure APM agents with central config</a></span>
 </li>
+<li><span class="section"><a href="apm-spaces.html">Control access to APM data</a></span>
+</li>
 <li><span class="section"><a href="apm-alerts.html">Create an alert</a></span>
 </li>
 <li><span class="section"><a href="custom-links.html">Create custom links</a></span>
@@ -672,6 +672,8 @@ Not what you want? See the
 <li><span class="section"><a href="correlations.html">Find transaction latency and failure correlations</a></span>
 </li>
 <li><span class="section"><a href="machine-learning-integration.html">Integrate with machine learning</a></span>
+</li>
+<li><span class="section"><a href="apm-lambda.html">Observe Lambda functions</a></span>
 </li>
 <li><span class="section"><a href="advanced-queries.html">Query your data</a></span>
 </li>
@@ -713,7 +715,7 @@ Not what you want? See the
 </li>
 <li><span class="part"><a href="devtools-kibana.html">Dev Tools</a></span>
 <ul>
-<li><span class="chapter"><a href="console-kibana.html">Run Elasticsearch API requests</a></span>
+<li><span class="chapter"><a href="console-kibana.html">Run API requests</a></span>
 </li>
 <li><span class="chapter"><a href="xpack-profiler.html">Profile queries and aggregations</a></span>
 </li>
@@ -727,11 +729,13 @@ Not what you want? See the
 </li>
 <li><span class="part"><a href="osquery.html">Osquery</a></span>
 <ul>
-<li><span class="chapter"><a href="advanced-osquery.html">Advanced Osquery</a></span>
-</li>
 <li><span class="chapter"><a href="manage-osquery-integration.html">Manage the integration</a></span>
 </li>
 <li><span class="chapter"><a href="exported-fields-osquery.html">Exported fields reference</a></span>
+</li>
+<li><span class="chapter"><a href="prebuilt-packs.html">Prebuilt packs reference</a></span>
+</li>
+<li><span class="chapter"><a href="osquery-faq.html">Osquery FAQ</a></span>
 </li>
 </ul>
 </li>
@@ -911,6 +915,8 @@ Not what you want? See the
 </li>
 <li><span class="chapter"><a href="data-views-api.html">Data views API</a></span>
 <ul>
+<li><span class="section"><a href="data-views-api-get-all.html">Get all data views</a></span>
+</li>
 <li><span class="section"><a href="data-views-api-get.html">Get data view</a></span>
 </li>
 <li><span class="section"><a href="data-views-api-create.html">Create data view</a></span>
@@ -969,19 +975,21 @@ Not what you want? See the
 <ul>
 <li><span class="section"><a href="create-rule-api.html">Create rule</a></span>
 </li>
-<li><span class="section"><a href="update-rule-api.html">Update rule</a></span>
-</li>
-<li><span class="section"><a href="get-rule-api.html">Get rule</a></span>
-</li>
 <li><span class="section"><a href="delete-rule-api.html">Delete rule</a></span>
 </li>
-<li><span class="section"><a href="find-rules-api.html">Find rules</a></span>
-</li>
-<li><span class="section"><a href="list-rule-types-api.html">List rule types</a></span>
+<li><span class="section"><a href="disable-rule-api.html">Disable rule</a></span>
 </li>
 <li><span class="section"><a href="enable-rule-api.html">Enable rule</a></span>
 </li>
-<li><span class="section"><a href="disable-rule-api.html">Disable rule</a></span>
+<li><span class="section"><a href="find-rules-api.html">Find rules</a></span>
+</li>
+<li><span class="section"><a href="get-alerting-framework-health-api.html">Get alerting framework health</a></span>
+</li>
+<li><span class="section"><a href="get-rule-api.html">Get rule</a></span>
+</li>
+<li><span class="section"><a href="list-rule-types-api.html">Get rule types</a></span>
+</li>
+<li><span class="section"><a href="update-rule-api.html">Update rule</a></span>
 </li>
 <li><span class="section"><a href="mute-all-alerts-api.html">Mute all alerts</a></span>
 </li>
@@ -991,27 +999,27 @@ Not what you want? See the
 </li>
 <li><span class="section"><a href="unmute-alert-api.html">Unmute alert</a></span>
 </li>
-<li><span class="section"><a href="get-alerting-framework-health-api.html">Get Alerting framework health</a></span>
-</li>
 <li><span class="section"><a href="alerts-api.html">Deprecated 7.x APIs</a></span>
 </li>
 </ul>
 </li>
 <li><span class="chapter"><a href="actions-and-connectors-api.html">Action and connector APIs</a></span>
 <ul>
+<li><span class="section"><a href="create-connector-api.html">Create connector</a></span>
+</li>
+<li><span class="section"><a href="delete-connector-api.html">Delete connector</a></span>
+</li>
 <li><span class="section"><a href="get-connector-api.html">Get connector</a></span>
 </li>
 <li><span class="section"><a href="get-all-connectors-api.html">Get all connectors</a></span>
 </li>
 <li><span class="section"><a href="list-connector-types-api.html">List all connector types</a></span>
 </li>
-<li><span class="section"><a href="create-connector-api.html">Create connector</a></span>
+<li><span class="section"><a href="list-connector-types-api-query-params.html">Query parameters</a></span>
+</li>
+<li><span class="section"><a href="execute-connector-api.html">Run connector</a></span>
 </li>
 <li><span class="section"><a href="update-connector-api.html">Update connector</a></span>
-</li>
-<li><span class="section"><a href="execute-connector-api.html">Execute connector</a></span>
-</li>
-<li><span class="section"><a href="delete-connector-api.html">Delete connector</a></span>
 </li>
 <li><span class="section"><a href="actions-and-connectors-legacy-apis.html">Deprecated 7.x APIs</a></span>
 </li>
@@ -1081,9 +1089,11 @@ Not what you want? See the
 </li>
 </ul>
 </li>
-<li><span class="chapter"><a href="machine-learning-api.html">Machine learning APIs</a></span>
+<li><span class="chapter"><a href="Machine_learning_APIs.html">Machine learning APIs</a></span>
 <ul>
-<li><span class="section"><a href="machine-learning-api-sync.html">Sync machine learning saved objects</a></span>
+<li><span class="section"><a href="ml-sync.html">Sync machine learning objects</a></span>
+</li>
+<li><span class="section"><a href="Machine_learning_APIs-definitions.html">Definitions</a></span>
 </li>
 </ul>
 </li>
@@ -1285,8 +1295,6 @@ Not what you want? See the
 <ul>
 <li><span class="section"><a href="kibana-dashboard-plugin.html">Dashboard plugin</a></span>
 </li>
-<li><span class="section"><a href="embeddable-plugin.html">Embeddables plugin</a></span>
-</li>
 <li><span class="section"><a href="kibana-expressions-plugin.html"><code class="literal">expressions</code> plugin</a></span>
 </li>
 <li><span class="section"><a href="uiactions-plugin.html">UI Actions</a></span>
@@ -1347,15 +1355,37 @@ Not what you want? See the
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

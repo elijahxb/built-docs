@@ -1,10 +1,11 @@
-GET /my-index-000001/_search?typed_keys
+GET /_search
 {
-  "aggs": {
-    "my-agg-name": {
-      "histogram": {
-        "field": "my-field",
-        "interval": 1000
+  "query": {
+    "range": {
+      "age": {
+        "gte": 10,
+        "lte": 20,
+        "boost": 2.0
       }
     }
   }

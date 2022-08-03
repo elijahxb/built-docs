@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,27 +87,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 You are looking at preliminary documentation for a future release.
@@ -116,13 +107,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="data-management.html">Data management</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="data-management.html">Data management</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="ilm-actions.html">Index lifecycle actions</a></span>
-»
-<span class="breadcrumb-node">Allocate</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -134,7 +122,7 @@ Not what you want? See the
 </div>
 <div class="section xpack">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="ilm-allocate"></a>Allocate<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ilm/actions/ilm-allocate.asciidoc">edit</a></h2>
+<h2 class="title"><a id="ilm-allocate"></a>Allocate<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ilm/actions/ilm-allocate.asciidoc">edit</a></h2>
 </div></div></div>
 <p>Phases allowed: warm, cold.</p>
 <p>Updates the index settings to change which nodes are allowed to host the index shards
@@ -149,7 +137,7 @@ For more information about how Elasticsearch uses replicas for scaling, see
 controlling where Elasticsearch allocates shards of a particular index.</p>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="ilm-allocate-options"></a>Options<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ilm/actions/ilm-allocate.asciidoc">edit</a></h3>
+<h3 class="title"><a id="ilm-allocate-options"></a>Options<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ilm/actions/ilm-allocate.asciidoc">edit</a></h3>
 </div></div></div>
 <p>You must specify the number of replicas or at least one
 <code class="literal">include</code>, <code class="literal">exclude</code>, or <code class="literal">require</code> option.
@@ -210,7 +198,7 @@ Assigns an index to nodes that have <em>all</em> of the specified custom attribu
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="ilm-allocate-ex"></a>Example<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ilm/actions/ilm-allocate.asciidoc">edit</a></h3>
+<h3 class="title"><a id="ilm-allocate-ex"></a>Example<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ilm/actions/ilm-allocate.asciidoc">edit</a></h3>
 </div></div></div>
 <p>The allocate action in the following policy changes the index&#8217;s number of replicas to <code class="literal">2</code>.
 No more than 200 shards for the index will be placed on any single node. Otherwise the index
@@ -233,10 +221,10 @@ allocation rules are not changed.</p>
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1455.console"></div>
+<div class="console_widget" data-snippet="snippets/1483.console"></div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="ilm-allocate-assign-index-attribute-ex"></a>Assign index to nodes using a custom attribute<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ilm/actions/ilm-allocate.asciidoc">edit</a></h4>
+<h4 class="title"><a id="ilm-allocate-assign-index-attribute-ex"></a>Assign index to nodes using a custom attribute<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ilm/actions/ilm-allocate.asciidoc">edit</a></h4>
 </div></div></div>
 <p>The allocate action in the following policy assigns the index to nodes
 that have a <code class="literal">box_type</code> of <em>hot</em> or <em>warm</em>.</p>
@@ -262,12 +250,12 @@ For more information, see <a class="xref" href="shard-allocation-filtering.html#
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1456.console"></div>
+<div class="console_widget" data-snippet="snippets/1484.console"></div>
 </div>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="ilm-allocate-assign-index-multi-attribute-ex"></a>Assign index to nodes based on multiple attributes<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ilm/actions/ilm-allocate.asciidoc">edit</a></h4>
+<h4 class="title"><a id="ilm-allocate-assign-index-multi-attribute-ex"></a>Assign index to nodes based on multiple attributes<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ilm/actions/ilm-allocate.asciidoc">edit</a></h4>
 </div></div></div>
 <p>The allocate action can also assign indices to nodes based on multiple node
 attributes. The following action assigns indices based on the <code class="literal">box_type</code> and
@@ -292,12 +280,12 @@ attributes. The following action assigns indices based on the <code class="liter
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1457.console"></div>
+<div class="console_widget" data-snippet="snippets/1485.console"></div>
 </div>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="ilm-allocate-assign-index-node-ex"></a>Assign index to a specific node and update replica settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/ilm/actions/ilm-allocate.asciidoc">edit</a></h4>
+<h4 class="title"><a id="ilm-allocate-assign-index-node-ex"></a>Assign index to a specific node and update replica settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/ilm/actions/ilm-allocate.asciidoc">edit</a></h4>
 </div></div></div>
 <p>The allocate action in the following policy updates the index to have one replica per shard
 and be allocated to nodes that have a <code class="literal">box_type</code> of <em>cold</em>.</p>
@@ -324,7 +312,7 @@ For more information, see <a class="xref" href="shard-allocation-filtering.html#
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1458.console"></div>
+<div class="console_widget" data-snippet="snippets/1486.console"></div>
 </div>
 
 </div>
@@ -342,15 +330,37 @@ For more information, see <a class="xref" href="shard-allocation-filtering.html#
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

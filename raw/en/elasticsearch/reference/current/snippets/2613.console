@@ -1,1 +1,1 @@
-GET _slm/policy
+GET /security/enroll/node

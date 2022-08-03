@@ -1,1 +1,1 @@
-GET /_cat/fielddata?v=true&fields=body
+GET /_cat/thread_pool?v=true&h=id,name,active,rejected,completed

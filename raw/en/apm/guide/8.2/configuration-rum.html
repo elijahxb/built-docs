@@ -13,19 +13,16 @@
 <meta name="robots" content="noindex,nofollow"/>
 </head>
 <body><div class="page_header">
-You are looking at preliminary documentation for a future release.
-Not what you want? See the
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
 <a href="../current/index.html">current release documentation</a>.
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">APM User Guide [8.2]</a></span>
-»
-<span class="breadcrumb-link"><a href="overview.html">Legacy APM Server Reference</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">APM User Guide [8.2]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="overview.html">Legacy APM Server Reference</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="configuring-howto-apm-server.html">Configure APM Server</a></span>
-»
-<span class="breadcrumb-node">Configure Real User Monitoring (RUM)</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -43,17 +40,17 @@ Not what you want? See the
 <div class="important admon">
 <div class="icon"></div>
 <div class="admon_content">
-<p>This documentation refers to configuring the standalone (legacy) APM Server. This method of running APM Server will be deprecated and removed in a future release. Please consider <a class="xref" href="upgrade-to-apm-integration.html" title="Upgrade to the Elastic APM integration">upgrading to Fleet and the APM integration</a>.
+<p>This documentation refers to configuring the standalone (legacy) APM Server. This method of running APM Server will be deprecated and removed in a future release. Please consider <a class="xref" href="upgrade-to-apm-integration.html" title="Switch to the Elastic APM integration">upgrading to Fleet and the APM integration</a>.
 If you&#8217;re using Fleet and the Elastic APM integration, please see <a class="xref" href="apm-rum.html" title="Real User Monitoring (RUM)">Real User Monitoring (RUM)</a> instead.</p>
 </div>
 </div>
-<p>The <a href="/guide/en/apm/agent/rum-js/4.x/index.html" class="ulink" target="_top">Real User Monitoring (RUM) agent</a> captures user interactions with clients such as web browsers.
+<p>The <a href="/guide/en/apm/agent/rum-js/5.x/index.html" class="ulink" target="_top">Real User Monitoring (RUM) agent</a> captures user interactions with clients such as web browsers.
 These interactions are sent as events to the APM Server.
 Because the RUM agent runs on the client side, the connection between agent and server is unauthenticated.
 As a security precaution, RUM is therefore disabled by default.
 To enable it, set <code class="literal">apm-server.rum.enabled</code> to <code class="literal">true</code> in your APM Server configuration file.</p>
 <p>In addition, if APM Server is deployed in an origin different than the page’s origin,
-you will need to configure <a href="/guide/en/apm/agent/rum-js/4.x/configuring-cors.html" class="ulink" target="_top">Cross-Origin Resource Sharing (CORS)</a> in the Agent.</p>
+you will need to configure <a href="/guide/en/apm/agent/rum-js/5.x/configuring-cors.html" class="ulink" target="_top">Cross-Origin Resource Sharing (CORS)</a> in the Agent.</p>
 <p>Example config with RUM enabled:</p>
 <div class="pre_wrapper lang-yaml">
 <pre class="programlisting prettyprint lang-yaml">apm-server.rum.enabled: true
@@ -133,18 +130,18 @@ This can be useful for security policy compliance.</p>
 <p>Values set for the same key will be concatenated.</p>
 <p>Default: Not set</p>
 <h5><a id="rum-library-pattern"></a><code class="literal">library_pattern</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/apm-server/edit/8.2/docs/legacy/configuration-rum.asciidoc">edit</a></h5>
-<p>RegExp to be matched against a stacktrace frame&#8217;s <code class="literal">file_name</code> and <code class="literal">abs_path</code> attributes.
-If the RegExp matches, the stacktrace frame is considered to be a library frame.
+<p>RegExp to be matched against a stack trace frame&#8217;s <code class="literal">file_name</code> and <code class="literal">abs_path</code> attributes.
+If the RegExp matches, the stack trace frame is considered to be a library frame.
 When source mapping is applied, the <code class="literal">error.culprit</code> is set to reflect the <em>function</em> and the <em>filename</em>
 of the first non library frame.
 This aims to provide an entry point for identifying issues.</p>
 <p>Default: <code class="literal">"node_modules|bower_components|~"</code></p>
 <h5><a id="_exclude_from_grouping"></a><code class="literal">exclude_from_grouping</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/apm-server/edit/8.2/docs/legacy/configuration-rum.asciidoc">edit</a></h5>
-<p>RegExp to be matched against a stacktrace frame&#8217;s <code class="literal">file_name</code>.
-If the RegExp matches, the stacktrace frame is excluded from being used for calculating error groups.</p>
-<p>Default: <code class="literal">"^/webpack"</code> (excludes stacktrace frames that have a filename starting with <code class="literal">/webpack</code>)</p>
+<p>RegExp to be matched against a stack trace frame&#8217;s <code class="literal">file_name</code>.
+If the RegExp matches, the stack trace frame is excluded from being used for calculating error groups.</p>
+<p>Default: <code class="literal">"^/webpack"</code> (excludes stack trace frames that have a filename starting with <code class="literal">/webpack</code>)</p>
 <h5><a id="config-sourcemapping-enabled"></a><code class="literal">source_mapping.enabled</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/apm-server/edit/8.2/docs/legacy/configuration-rum.asciidoc">edit</a></h5>
-<p>Used to enable/disable <a class="xref" href="sourcemaps.html" title="How to apply source maps to error stack traces when using minified bundles">sourcemapping</a> for RUM events.
+<p>Used to enable/disable <a class="xref" href="sourcemaps.html" title="How to apply source maps to error stack traces when using minified bundles">source mapping</a> for RUM events.
 When enabled, the APM Server needs additional privileges to read source maps.
 See <a class="xref" href="privileges-to-publish-events.html" title="Grant privileges and roles needed for writing events">Create a <em>writer</em> user</a> for more details.</p>
 <p>Default: <code class="literal">true</code></p>
@@ -164,7 +161,7 @@ Search source maps stored in an older version with this setting.</p>
 <p>Default: <code class="literal">"apm-*-sourcemap*"</code></p>
 <h4><a id="_ingest_pipelines"></a>Ingest pipelines<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/apm-server/edit/8.2/docs/legacy/configuration-rum.asciidoc">edit</a></h4>
 <p>The default APM Server pipeline includes processors that enrich RUM data prior to indexing in Elasticsearch.
-See <a class="xref" href="ingest-pipelines.html" title="Parse data using ingest pipelines">Parse data using ingest pipelines</a> for details on how to locate, edit, or disable this pre-processing.</p>
+See <a class="xref" href="ingest-pipelines.html" title="Parse data using ingest pipelines">Parse data using ingest pipelines</a> for details on how to locate, edit, or disable this preprocessing.</p>
 </div>
 <div class="navfooter">
 <span class="prev">

@@ -11,6 +11,7 @@
 <meta name="DC.type" content="Learn/Docs/APM Guide/8.1"/>
 <meta name="DC.subject" content="APM"/>
 <meta name="DC.identifier" content="8.1"/>
+<meta name="robots" content="noindex,nofollow"/>
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -56,7 +57,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,38 +88,30 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
-                  
+                  <div class="page_header">
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">APM User Guide [8.1]</a></span>
-»
-<span class="breadcrumb-link"><a href="features.html">Elastic APM features</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">APM User Guide [8.1]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="features.html">Elastic APM features</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="monitoring-aws-lambda.html">Monitoring AWS Lambda Functions</a></span>
-»
-<span class="breadcrumb-node">Configuration Options for APM on AWS Lambda</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -130,7 +123,7 @@
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="aws-lambda-config-options"></a>Configuration Options for APM on AWS Lambda<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-aws-lambda/edit/8.1/docs/monitoring-aws-lambda.asciidoc">edit</a></h3>
+<h3 class="title"><a id="aws-lambda-config-options"></a>Configuration Options for APM on AWS Lambda<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/apm-aws-lambda/edit/8.1/docs/monitoring-aws-lambda.asciidoc">edit</a></h3>
 </div></div></div>
 <p>The recommended way of configuring the APM Lambda Extension and the APM Agents on AWS Lambda is through the Lambda function&#8217;s environment variables.</p>
 <p>The configuration options for the APM Agents are documented in the corresponding language agents:</p>
@@ -150,49 +143,49 @@
 <p>The following configuration options are particularly relevant for Elastic&#8217;s APM on AWS Lambda:</p>
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="_elastic_apm_lambda_apm_server"></a><code class="literal">ELASTIC_APM_LAMBDA_APM_SERVER</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-aws-lambda/edit/8.1/docs/monitoring-aws-lambda.asciidoc">edit</a></h4>
+<h4 class="title"><a id="_elastic_apm_lambda_apm_server"></a><code class="literal">ELASTIC_APM_LAMBDA_APM_SERVER</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/apm-aws-lambda/edit/8.1/docs/monitoring-aws-lambda.asciidoc">edit</a></h4>
 </div></div></div>
 <p>This required config option controls where the Lambda extension will ship data. This should be the URL of the final APM Server destination for your telemetry.</p>
 </div>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="_elastic_apm_secret_token_or_elastic_apm_api_key"></a><code class="literal">ELASTIC_APM_SECRET_TOKEN</code> or <code class="literal">ELASTIC_APM_API_KEY</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-aws-lambda/edit/8.1/docs/monitoring-aws-lambda.asciidoc">edit</a></h4>
+<h4 class="title"><a id="_elastic_apm_secret_token_or_elastic_apm_api_key"></a><code class="literal">ELASTIC_APM_SECRET_TOKEN</code> or <code class="literal">ELASTIC_APM_API_KEY</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/apm-aws-lambda/edit/8.1/docs/monitoring-aws-lambda.asciidoc">edit</a></h4>
 </div></div></div>
 <p>One of these needs to be set as the authentication method that the extension uses when sending data to the URL configured via <code class="literal">ELASTIC_APM_LAMBDA_APM_SERVER</code>.</p>
 </div>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="_elastic_apm_service_name"></a><code class="literal">ELASTIC_APM_SERVICE_NAME</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-aws-lambda/edit/8.1/docs/monitoring-aws-lambda.asciidoc">edit</a></h4>
+<h4 class="title"><a id="_elastic_apm_service_name"></a><code class="literal">ELASTIC_APM_SERVICE_NAME</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/apm-aws-lambda/edit/8.1/docs/monitoring-aws-lambda.asciidoc">edit</a></h4>
 </div></div></div>
 <p>The configured name of your application or service.  The APM Agent will use this value when reporting data to the APM Server. If unset, the APM Agent will automatically set the value based on the Lambda function name. Use this config option if you want to group multiple Lambda functions under a single service entity in APM.</p>
 </div>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="_elastic_apm_data_receiver_timeout_seconds"></a><code class="literal">ELASTIC_APM_DATA_RECEIVER_TIMEOUT_SECONDS</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-aws-lambda/edit/8.1/docs/monitoring-aws-lambda.asciidoc">edit</a></h4>
+<h4 class="title"><a id="_elastic_apm_data_receiver_timeout_seconds"></a><code class="literal">ELASTIC_APM_DATA_RECEIVER_TIMEOUT_SECONDS</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/apm-aws-lambda/edit/8.1/docs/monitoring-aws-lambda.asciidoc">edit</a></h4>
 </div></div></div>
 <p>The APM Lambda Extension&#8217;s timeout value, in seconds, for receiving data from the APM Agent. The <em>default</em> is <code class="literal">15</code>.</p>
 </div>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="_elastic_apm_data_receiver_server_port"></a><code class="literal">ELASTIC_APM_DATA_RECEIVER_SERVER_PORT</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-aws-lambda/edit/8.1/docs/monitoring-aws-lambda.asciidoc">edit</a></h4>
+<h4 class="title"><a id="_elastic_apm_data_receiver_server_port"></a><code class="literal">ELASTIC_APM_DATA_RECEIVER_SERVER_PORT</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/apm-aws-lambda/edit/8.1/docs/monitoring-aws-lambda.asciidoc">edit</a></h4>
 </div></div></div>
 <p>The port on which the APM Lambda Extension listens to receive data from the APM Agent. The <em>default</em> is <code class="literal">8200</code>.</p>
 </div>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="_elastic_apm_data_forwarder_timeout_seconds"></a><code class="literal">ELASTIC_APM_DATA_FORWARDER_TIMEOUT_SECONDS</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-aws-lambda/edit/8.1/docs/monitoring-aws-lambda.asciidoc">edit</a></h4>
+<h4 class="title"><a id="_elastic_apm_data_forwarder_timeout_seconds"></a><code class="literal">ELASTIC_APM_DATA_FORWARDER_TIMEOUT_SECONDS</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/apm-aws-lambda/edit/8.1/docs/monitoring-aws-lambda.asciidoc">edit</a></h4>
 </div></div></div>
 <p>The timeout value, in seconds, for the Lambda Extension&#8217;s HTTP client sending data to the APM Server. The <em>default</em> is <code class="literal">3</code>. If the Extension&#8217;s attempt to send APM data during this time interval is not successful, the extension queues back the data. Further attempts at sending the data are governed by an exponential backoff algorithm: data will be sent after a increasingly large grace period of 0, then circa 1, 4, 9, 16, 25 and 36 seconds, provided that the Lambda function execution is ongoing.</p>
 </div>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="_elastic_apm_send_strategy"></a><code class="literal">ELASTIC_APM_SEND_STRATEGY</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-aws-lambda/edit/8.1/docs/monitoring-aws-lambda.asciidoc">edit</a></h4>
+<h4 class="title"><a id="_elastic_apm_send_strategy"></a><code class="literal">ELASTIC_APM_SEND_STRATEGY</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/apm-aws-lambda/edit/8.1/docs/monitoring-aws-lambda.asciidoc">edit</a></h4>
 </div></div></div>
 <p>Whether to synchronously flush APM agent data from the extension to the APM Server at the end of the function invocation.
 The two accepted values are <code class="literal">background</code> and <code class="literal">syncflush</code>. The <em>default</em> is <code class="literal">syncflush</code>.</p>
@@ -218,7 +211,7 @@ though it ensures that all APM data is sent to the APM server.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="_elastic_apm_log_level"></a><code class="literal">ELASTIC_APM_LOG_LEVEL</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-aws-lambda/edit/8.1/docs/monitoring-aws-lambda.asciidoc">edit</a></h4>
+<h4 class="title"><a id="_elastic_apm_log_level"></a><code class="literal">ELASTIC_APM_LOG_LEVEL</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/apm-aws-lambda/edit/8.1/docs/monitoring-aws-lambda.asciidoc">edit</a></h4>
 </div></div></div>
 <p>The logging level to be used by both the APM Agent and the Lambda Extension. Supported values are <code class="literal">trace</code>, <code class="literal">debug</code>, <code class="literal">info</code>, <code class="literal">warning</code>, <code class="literal">error</code>, <code class="literal">fatal</code> and <code class="literal">panic</code>.</p>
 </div>
@@ -236,15 +229,37 @@ though it ensures that all APM data is sent to the APM server.
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

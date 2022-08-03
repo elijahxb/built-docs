@@ -18,13 +18,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="xpack-sql.html">SQL</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="xpack-sql.html">SQL</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="sql-functions.html">Functions and Operators</a></span>
-»
-<span class="breadcrumb-node">System Functions</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -36,12 +33,12 @@ Not what you want? See the
 </div>
 <div class="section xpack">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="sql-functions-system"></a>System Functions<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/sql/functions/system.asciidoc">edit</a></h2>
+<h2 class="title"><a id="sql-functions-system"></a>System Functions<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/sql/functions/system.asciidoc">edit</a></h2>
 </div></div></div>
 <p>These functions return metadata type of information about the system being queried.</p>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="sql-functions-system-database"></a><code class="literal">DATABASE</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/sql/functions/system.asciidoc">edit</a></h3>
+<h3 class="title"><a id="sql-functions-system-database"></a><code class="literal">DATABASE</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/sql/functions/system.asciidoc">edit</a></h3>
 </div></div></div>
 <p><strong>Synopsis:</strong></p>
 <div class="pre_wrapper lang-sql">
@@ -63,7 +60,7 @@ elasticsearch</pre>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="sql-functions-system-user"></a><code class="literal">USER</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/sql/functions/system.asciidoc">edit</a></h3>
+<h3 class="title"><a id="sql-functions-system-user"></a><code class="literal">USER</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/sql/functions/system.asciidoc">edit</a></h3>
 </div></div></div>
 <p><strong>Synopsis:</strong></p>
 <div class="pre_wrapper lang-sql">
@@ -72,7 +69,7 @@ elasticsearch</pre>
 <p><span class="strong strong"><strong>Input</strong></span>: <em>none</em></p>
 <p><span class="strong strong"><strong>Output</strong></span>: string</p>
 <p><span class="strong strong"><strong>Description</strong></span>: Returns the username of the authenticated user executing the query. This function can
-return <code class="literal">null</code> in case <a class="xref" href="configuring-stack-security.html" title="Start the Elastic Stack with security enabled">security</a> is disabled.</p>
+return <code class="literal">null</code> in case <a class="xref" href="configuring-stack-security.html" title="Start the Elastic Stack with security enabled automatically">security</a> is disabled.</p>
 <div class="pre_wrapper lang-sql">
 <pre class="programlisting prettyprint lang-sql">SELECT USER();
 

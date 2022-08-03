@@ -19,11 +19,9 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elastic App Search Documentation [master]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic App Search Documentation [master]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="guides.html">Guides</a></span>
-»
-<span class="breadcrumb-node">Precision tuning (beta)</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -49,6 +47,12 @@ Elastic plans to promote this feature to GA in a future release.</p>
 <div class="icon"></div>
 <div class="admon_content">
 <p>Precision tuning has no effect in queries that contain <a class="xref" href="synonyms-guide.html" title="Synonyms Guide">synonyms</a>.</p>
+</div>
+</div>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>To use precision tuning with an <a class="xref" href="elasticsearch-engines.html" title="Elasticsearch index engines (beta)">Elasticsearch based engine</a>, you must define text subfields that conform to the following: <a class="xref" href="elasticsearch-engines-text-subfields-support-conventions.html" title="Elasticsearch engines text field conventions">Elasticsearch engines text field conventions</a>.</p>
 </div>
 </div>
 <p>App Search defaults to high recall results: we cast a wide net on your searches.

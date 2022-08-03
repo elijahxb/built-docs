@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Enable maintenance mode | Elastic Cloud Enterprise Reference [3.2] | Elastic</title>
+<link rel="home" href="index.html" title="Elastic Cloud Enterprise Reference [3.2]"/>
+<link rel="up" href="ece-administering-ece.html" title="Administering your installation"/>
+<link rel="prev" href="ece-change-roles.html" title="Assign roles to hosts"/>
+<link rel="next" href="ece-move-nodes.html" title="Move nodes or instances from allocators"/>
+<meta name="DC.type" content="Learn/Docs/CloudEnterprise/Reference/3.2"/>
+<meta name="DC.subject" content="ECE"/>
+<meta name="DC.identifier" content="3.2"/>
+</head>
+<body><div class="page_header">
+A newer version is available. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Cloud Enterprise Reference [3.2]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="ece-administering-ece.html">Administering your installation</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="ece-change-roles.html">« Assign roles to hosts</a>
+</span>
+<span class="next">
+<a href="ece-move-nodes.html">Move nodes or instances from allocators »</a>
+</span>
+</div>
+<div class="chapter">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="ece-maintenance-mode"></a>Enable maintenance mode<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/cloud-enterprise/ce-administering-ece.asciidoc">edit</a></h2>
+</div></div></div>
+<p>Maintenance mode lets you perform actions on an allocator safely that might otherwise carry some risk. For example, if you want to remove the allocator role from a host, enabling maintenance mode prevents new Elasticsearch clusters and Kibana instances from being provisioned on the allocator whilst you are moving the existing nodes to another allocator or whilst you are removing the role.</p>
+<p>To put an allocator into maintenance mode:</p>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+<a class="xref" href="ece-login.html" title="Log into the Cloud UI">Log into the Cloud UI</a>.
+</li>
+<li class="listitem">
+From the <span class="strong strong"><strong>Platform</strong></span> menu, select <span class="strong strong"><strong>Allocators</strong></span>.
+</li>
+<li class="listitem">
+<p>Choose the allocator you want to work with and select <span class="strong strong"><strong>Enable Maintenance Mode</strong></span>. Confirm the action.</p>
+<p>Narrow the list by name, ID, or choose from several other filters. To further define the list, use a combination of filters.</p>
+</li>
+</ol>
+</div>
+<p>After the allocator enters maintenance mode, no new Elasticsearch nodes or Kibana instances will be started on the allocator. Existing nodes will continue to work as expected. You can now safely perform actions like <a class="xref" href="ece-move-nodes.html" title="Move nodes or instances from allocators">moving nodes off the allocator</a>.</p>
+<p>If you want to make the allocator fully active again, select <span class="strong strong"><strong>Disable Maintenance Mode</strong></span>. Confirm the action.</p>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="ece-change-roles.html">« Assign roles to hosts</a>
+</span>
+<span class="next">
+<a href="ece-move-nodes.html">Move nodes or instances from allocators »</a>
+</span>
+</div>
+</div>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains('stemblock')) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+</body>
+</html>

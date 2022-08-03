@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,27 +87,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 You are looking at preliminary documentation for a future release.
@@ -116,13 +107,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="mapping.html">Mapping</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="mapping.html">Mapping</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="mapping-types.html">Field data types</a></span>
-»
-<span class="breadcrumb-node">Nested field type</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -134,7 +122,7 @@ Not what you want? See the
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="nested"></a>Nested field type<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/mapping/types/nested.asciidoc">edit</a></h2>
+<h2 class="title"><a id="nested"></a>Nested field type<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/mapping/types/nested.asciidoc">edit</a></h2>
 </div></div></div>
 
 <p>The <code class="literal">nested</code> type is a specialised version of the <a class="xref" href="object.html" title="Object field type"><code class="literal">object</code></a> data type
@@ -149,7 +137,7 @@ Nested documents and queries are typically expensive, so using the <code class="
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="nested-arrays-flattening-objects"></a>How arrays of objects are flattened<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/mapping/types/nested.asciidoc">edit</a></h3>
+<h3 class="title"><a id="nested-arrays-flattening-objects"></a>How arrays of objects are flattened<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/mapping/types/nested.asciidoc">edit</a></h3>
 </div></div></div>
 <p>Elasticsearch has no concept of inner objects. Therefore, it flattens object
 hierarchies into a simple list of field names and values. For instance, consider the
@@ -212,7 +200,7 @@ fmt.Println(res, err)</pre>
   ]
 }</pre>
 </div>
-<div class="console_widget has-ruby has-go" data-snippet="snippets/219.console"></div>
+<div class="console_widget has-ruby has-go" data-snippet="snippets/214.console"></div>
 <div class="calloutlist default has-ruby has-go lang-console">
 <table border="0" summary="Callout list">
 <tr>
@@ -299,12 +287,12 @@ fmt.Println(res, err)</pre>
   }
 }</pre>
 </div>
-<div class="console_widget has-ruby has-go" data-snippet="snippets/220.console"></div>
+<div class="console_widget has-ruby has-go" data-snippet="snippets/215.console"></div>
 </div>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="nested-fields-array-objects"></a>Using <code class="literal">nested</code> fields for arrays of objects<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/mapping/types/nested.asciidoc">edit</a></h3>
+<h3 class="title"><a id="nested-fields-array-objects"></a>Using <code class="literal">nested</code> fields for arrays of objects<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/mapping/types/nested.asciidoc">edit</a></h3>
 </div></div></div>
 <p>If you need to index arrays of objects and to maintain the independence of
 each object in the array, use the <code class="literal">nested</code> data type instead of the
@@ -587,7 +575,7 @@ GET my-index-000001/_search
   }
 }</pre>
 </div>
-<div class="console_widget has-ruby has-go" data-snippet="snippets/221.console"></div>
+<div class="console_widget has-ruby has-go" data-snippet="snippets/216.console"></div>
 <div class="calloutlist default has-ruby has-go lang-console">
 <table border="0" summary="Callout list">
 <tr>
@@ -628,7 +616,7 @@ GET my-index-000001/_search
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="nested-accessing-documents"></a>Interacting with <code class="literal">nested</code> documents<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/mapping/types/nested.asciidoc">edit</a></h3>
+<h3 class="title"><a id="nested-accessing-documents"></a>Interacting with <code class="literal">nested</code> documents<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/mapping/types/nested.asciidoc">edit</a></h3>
 </div></div></div>
 <p>Nested documents can be:</p>
 <div class="ulist itemizedlist">
@@ -667,7 +655,7 @@ fields during a search through <a class="xref" href="search-fields.html#docvalue
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="nested-params"></a>Parameters for <code class="literal">nested</code> fields<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/mapping/types/nested.asciidoc">edit</a></h3>
+<h3 class="title"><a id="nested-params"></a>Parameters for <code class="literal">nested</code> fields<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/mapping/types/nested.asciidoc">edit</a></h3>
 </div></div></div>
 <p>The following parameters are accepted by <code class="literal">nested</code> fields:</p>
 <div class="variablelist">
@@ -715,7 +703,7 @@ document as standard (flat) fields. Defaults to <code class="literal">false</cod
 </dd>
 </dl>
 </div>
-<h3><a id="_limits_on_nested_mappings_and_objects"></a>Limits on <code class="literal">nested</code> mappings and objects<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/mapping/types/nested.asciidoc">edit</a></h3>
+<h3><a id="_limits_on_nested_mappings_and_objects"></a>Limits on <code class="literal">nested</code> mappings and objects<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/mapping/types/nested.asciidoc">edit</a></h3>
 <p>As described earlier, each nested object is indexed as a separate Lucene document.
 Continuing with the previous example, if we indexed a single document containing 100 <code class="literal">user</code> objects,
 then 101 Lucene documents would be created: one for the parent document, and one for each
@@ -768,15 +756,37 @@ objects it contains must be below the limit.</p>
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

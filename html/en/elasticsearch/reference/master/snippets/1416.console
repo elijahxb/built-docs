@@ -1,8 +1,5 @@
-PUT /my_test_scores/_mapping
+POST /_sql?format=json
 {
-  "properties": {
-    "total_score": {
-      "type": "long"
-    }
-  }
+  "cursor": "sDXF1ZXJ5QW5kRmV0Y2gBAAAAAAAAAAEWWWdrRlVfSS1TbDYtcW9lc1FJNmlYdw==:BAFmBmF1dGhvcgFmBG5hbWUBZgpwYWdlX2NvdW50AWYMcmVsZWFzZV9kYXRl+v///w8=",
+  "columnar": true
 }

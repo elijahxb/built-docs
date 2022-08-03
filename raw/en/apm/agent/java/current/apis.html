@@ -14,9 +14,8 @@
 <body>
 <div id="content">
 <div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="index.html">APM Java Agent Reference [1.x]</a></span>
-»
-<span class="breadcrumb-node">Tracing APIs</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -39,7 +38,7 @@ A simple and stable API that is most native to the agent.
 Contains annotations to declaratively create spans.
 </li>
 <li class="listitem">
-<a class="xref" href="opentelementry-bridge.html" title="OpenTelemetry bridge">OpenTelemetry bridge</a><br>
+<a class="xref" href="opentelemetry-bridge.html" title="OpenTelemetry bridge">OpenTelemetry bridge</a><br>
 A vendor neutral API.
 If you plan to do a lot of manual instrumentation and want to reduce vendor lock-in this is probably what you&#8217;re looking for.
 </li>
@@ -49,6 +48,7 @@ A vendor neutral API that is discontinued in favor of OpenTelemetry.
 </li>
 </ol>
 </div>
+<p>A further option is the <a class="xref" href="plugin-api.html" title="Plugin API">plugin api</a> which uses the OpenTelemetry API and allows you to add in custom instrumentation without modifying the application.</p>
 <h2><a id="apis-operation-modes"></a>Operation Modes<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-java/edit/1.x/docs/apis.asciidoc">edit</a></h2>
 <p>All APIs allow for different operation modes in combination with the Elastic APM agent</p>
 <div class="variablelist">

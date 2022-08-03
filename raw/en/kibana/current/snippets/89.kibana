@@ -1,8 +1,8 @@
-$ curl -X POST api/saved_objects/index-pattern/my-pattern/fields
+$ curl -X POST api/index_patterns/index_pattern
 {
-    "fields": {
-        "foo": {
-            "customLabel": null
-        }
-    }
+  "override": false,
+  "refresh_fields": true,
+  "index_pattern": {
+     "title": "hello"
+  }
 }

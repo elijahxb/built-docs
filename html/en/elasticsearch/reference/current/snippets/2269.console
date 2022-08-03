@@ -1,1 +1,1 @@
-POST /_license/start_basic?acknowledge=true
+HEAD /_template/template_1

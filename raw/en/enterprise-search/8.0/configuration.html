@@ -19,9 +19,8 @@ will be released for this version. For the latest information, see the
 </div>
 <div id="content">
 <div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="index.html">Elastic Enterprise Search Documentation [8.0]</a></span>
-»
-<span class="breadcrumb-node">Configuration</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -1827,6 +1826,37 @@ Each item in this list could be a file name of a certificate in PEM format or a 
 </dd>
 </dl>
 </div>
+<div class="variablelist">
+<a id="configuration-setting-crawler-security-auth-allow-http"></a>
+<dl class="variablelist">
+<dt>
+<span class="term">
+<code class="literal">crawler.security.auth.allow_http</code> <span class="image"><a class="image" href="https://www.elastic.co/cloud/elasticsearch-service/signup?baymax=docs-body&amp;elektra=docs"><img src="https://doc-icons.s3.us-east-2.amazonaws.com/logo_cloud.svg" alt="logo cloud" title="Supported on Elasticsearch Service"></a></span>
+</span>
+</dt>
+<dd>
+<p>Allow/Disallow <em>authenticated</em> crawling of non-HTTPS URLs:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<code class="literal">false</code> - Do not allow crawling non-HTTPS URLs (this is the default and the recommended value)
+</li>
+<li class="listitem">
+<code class="literal">true</code> - Allow crawling non-HTTPS URLs
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+<div class="warning admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>Enabling this setting could expose your Authorization headers to a man-in-the-middle attack and
+should never be used in production deployments.
+See <a href="https://en.wikipedia.org/wiki/Man-in-the-middle_attack" class="ulink" target="_top">https://en.wikipedia.org/wiki/Man-in-the-middle_attack</a> for more details.</p>
+</div>
+</div>
 <h5><a id="configuration-settings-elastic-crawler-dns-security"></a>Crawler DNS Security Controls<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/enterprise-search-pubs/edit/8.0/enterprise-search-docs/configuration.asciidoc">edit</a></h5>
 <div class="warning admon">
 <div class="icon"></div>
@@ -1941,6 +1971,35 @@ If your proxy server is running on a private address or a loopback address, you 
 <dd>
 <p>The password portion of the Basic HTTP credentials to be used when connecting to the <a class="xref" href="configuration.html#configuration-settings-elastic-crawler-http-proxy" title="Crawler HTTP proxy settings">proxy</a>.</p>
 <p><code class="literal">crawler.http.proxy.password: A3renEWhGVxgYFIqfPAV73ncUtPN1b</code></p>
+</dd>
+</dl>
+</div>
+<h5><a id="configuration-settings-elastic-crawler-advanced-tuning"></a>Advanced crawler tuning<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/enterprise-search-pubs/edit/8.0/enterprise-search-docs/configuration.asciidoc">edit</a></h5>
+<div class="variablelist">
+<a id="configuration-settings-elastic-crawler-advanced-tuning-http-compression"></a>
+<dl class="variablelist">
+<dt>
+<span class="term">
+<code class="literal">crawler.http.compression.enabled</code>
+</span>
+</dt>
+<dd>
+<p>Enable/disable HTTP content (gzip/deflate) compression in Crawler requests.</p>
+<p><code class="literal">crawler.http.compression.enabled: true</code></p>
+</dd>
+</dl>
+</div>
+<div class="variablelist">
+<a id="configuration-settings-elastic-crawler-advanced-tuning-http-default-encoding"></a>
+<dl class="variablelist">
+<dt>
+<span class="term">
+<code class="literal">crawler.http.default_encoding</code>
+</span>
+</dt>
+<dd>
+<p>Default encoding used for responses that do not specify a charset.</p>
+<p><code class="literal">crawler.http.default_encoding: UTF-8</code></p>
 </dd>
 </dl>
 </div>

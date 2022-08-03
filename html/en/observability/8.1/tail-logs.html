@@ -11,6 +11,7 @@
 <meta name="DC.type" content="Learn/Docs/Observability/Guide/8.1"/>
 <meta name="DC.subject" content="Observability"/>
 <meta name="DC.identifier" content="8.1"/>
+<meta name="robots" content="noindex,nofollow"/>
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -56,7 +57,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,36 +88,29 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
-                  
+                  <div class="page_header">
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Observability Guide [8.1]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Observability Guide [8.1]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="monitor-logs.html">Log monitoring</a></span>
-»
-<span class="breadcrumb-node">Tail log files</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -128,24 +122,14 @@
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="tail-logs"></a>Tail log files<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/observability-docs/edit/8.1/docs/en/observability/tail-logs.asciidoc">edit</a></h2>
+<h2 class="title"><a id="tail-logs"></a>Tail log files<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/observability-docs/edit/8.1/docs/en/observability/tail-logs.asciidoc">edit</a></h2>
 </div></div></div>
 <p>Within the Logs app, the <span class="strong strong"><strong>Stream</strong></span> page enables you to monitor all of the log events flowing in from your
 servers, virtual machines, and containers in a centralized view. You can consider this as a <code class="literal">tail -f</code> in your browser,
 along with the power of search.</p>
 <p>Click <span class="strong strong"><strong>Stream Live</strong></span> to view a continuous flow of log messages in real time, or
 click <span class="strong strong"><strong>Stop streaming</strong></span> to view historical logs from a specified time range.</p>
-<script type="text/javascript" async src="https://play.vidyard.com/embed/v4.js"></script>
-<img
-  style="width: 100%; margin: auto; display: block;"
-  class="vidyard-player-embed"
-  src="https://play.vidyard.com/TSusZfvvRvg78qRaeYTfey.jpg"
-  data-uuid="TSusZfvvRvg78qRaeYTfey"
-  data-v="4"
-  data-type="inline"
-/>
-</br>
-<h4><a id="filter-logs"></a>Filter logs<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/observability-docs/edit/8.1/docs/en/observability/tail-logs.asciidoc">edit</a></h4>
+<h4><a id="filter-logs"></a>Filter logs<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/observability-docs/edit/8.1/docs/en/observability/tail-logs.asciidoc">edit</a></h4>
 <p>To help you get started with your analysis faster and extract fields from your logs, use the search bar
 to create structured queries using <a href="/guide/en/kibana/8.1/kuery-query.html" class="ulink" target="_top">Kibana Query Language</a>.
 For example, enter <code class="literal">host.hostname : "host1"</code> to see only the information for <code class="literal">host1</code>.</p>
@@ -153,7 +137,7 @@ For example, enter <code class="literal">host.hostname : "host1"</code> to see o
 histogram, located to the right, highlights the number of discovered terms and when the log event was ingested.
 This helps you quickly jump between potential areas of interest in large amounts of logs, or from a high level,
 view when a large number of events occurred.</p>
-<h4><a id="inspect-log-event"></a>Inspect log event details<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/observability-docs/edit/8.1/docs/en/observability/tail-logs.asciidoc">edit</a></h4>
+<h4><a id="inspect-log-event"></a>Inspect log event details<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/observability-docs/edit/8.1/docs/en/observability/tail-logs.asciidoc">edit</a></h4>
 <p>When you have searched and filtered your logs for a specific log event, you may want to examine the
 metadata and the structured fields associated with that event. To view the <span class="strong strong"><strong>Log event document details</strong></span> fly-out,
 hover over the log event, click <span class="strong strong"><strong>View actions for line</strong></span>, and then select <span class="strong strong"><strong>View details</strong></span>. To further enhance
@@ -163,7 +147,7 @@ the workflow of monitoring logs, the icons next to each field value enable you t
 <img src="images/log-event-details.png" alt="Log event details">
 </div>
 </div>
-<h4><a id="view-contextual-logs"></a>View contextual logs<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/observability-docs/edit/8.1/docs/en/observability/tail-logs.asciidoc">edit</a></h4>
+<h4><a id="view-contextual-logs"></a>View contextual logs<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/observability-docs/edit/8.1/docs/en/observability/tail-logs.asciidoc">edit</a></h4>
 <p>Once your logs are filtered, and you find an interesting log line, the real context you are looking for is
 what happened before and after that log line within that data source. For example, you are running
 containerized applications on a Kubernetes cluster, you filter the logs for the term <code class="literal">error</code>, and you find an
@@ -176,7 +160,7 @@ preserved and helps you find the root cause as soon as possible.</p>
 <img src="images/contextual-logs.png" alt="Contextual log event">
 </div>
 </div>
-<h4><a id="uptime-apm-integration"></a>Integrate with Uptime and APM<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/observability-docs/edit/8.1/docs/en/observability/tail-logs.asciidoc">edit</a></h4>
+<h4><a id="uptime-apm-integration"></a>Integrate with Uptime and APM<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/observability-docs/edit/8.1/docs/en/observability/tail-logs.asciidoc">edit</a></h4>
 <p>To see other actions related to a log event, click <span class="strong strong"><strong>Actions</strong></span> in the <span class="strong strong"><strong>Log event document details</strong></span> fly-out.
 Depending on the event and the features you have configured, you can:</p>
 <div class="ulist itemizedlist">
@@ -202,15 +186,37 @@ Select <span class="strong strong"><strong>View in APM</strong></span> to <a hre
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

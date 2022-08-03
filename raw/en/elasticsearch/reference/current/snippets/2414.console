@@ -1,16 +1,6 @@
-POST my-index-000001/_search
+POST
+_ml/anomaly_detectors/it_ops_new_logs/model_snapshots/1491852978/_update
 {
-  "query" : {
-    "match": {
-      "message": "tring out Elasticsearch"
-    }
-  },
-  "suggest" : {
-    "my-suggestion" : {
-      "text" : "tring out Elasticsearch",
-      "term" : {
-        "field" : "message"
-      }
-    }
-  }
+  "description": "Snapshot 1",
+  "retain": true
 }

@@ -18,13 +18,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Functionbeat Reference [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="configuring-howto-functionbeat.html">Configure Functionbeat</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Functionbeat Reference [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="configuring-howto-functionbeat.html">Configure Functionbeat</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="filtering-and-enhancing-data.html">Filter and enhance data with processors</a></span>
-»
-<span class="breadcrumb-node">Drop fields from events</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -62,6 +59,16 @@ are dropped.</p>
 <p>The <code class="literal">drop_fields</code> processor has the following configuration settings:</p>
 <div class="variablelist">
 <dl class="variablelist">
+<dt>
+<span class="term">
+<code class="literal">fields</code>
+</span>
+</dt>
+<dd>
+If non-empty, a list of matching field names will be removed.
+Any element in array can contain a regular expression delimited by two
+slashes (<em>/reg_exp/</em>), in order to match (name) and remove more than one field.
+</dd>
 <dt>
 <span class="term">
 <code class="literal">ignore_missing</code>

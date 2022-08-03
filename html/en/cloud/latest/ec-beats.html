@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,38 +87,26 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Service Documentation</a></span>
-»
-<span class="breadcrumb-link"><a href="ec-cloud-ingest-data.html">Indexing data into Elasticsearch</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Service Documentation</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="ec-cloud-ingest-data.html">Indexing data into Elasticsearch</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="ec-cloud-id.html">Configure Beats and Logstash with Cloud ID</a></span>
-»
-<span class="breadcrumb-node">Configure Beats (without Cloud ID)</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -130,7 +118,7 @@
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="ec-beats"></a>Configure Beats (without Cloud ID)<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-71/docs/saas/ec-beats.asciidoc">edit</a></h2>
+<h2 class="title"><a id="ec-beats"></a>Configure Beats (without Cloud ID)<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-77/docs/saas/ec-beats.asciidoc">edit</a></h2>
 </div></div></div>
 <div class="tip admon">
 <div class="icon"></div>
@@ -141,7 +129,7 @@
 <p><span class="strong strong"><strong>For versions of Beats before 6.0</strong></span>: <a href="/products/beats" class="ulink" target="_top">Beats</a> are lightweight data shippers that you install as agents on your servers to send specific types of operational data to Elasticsearch. Different Beats are available for different purposes, such as Packetbeat, Metricbeat, Winlogbeat, and Filebeat, each supported on different operating systems. All of these Beats can be configured to send events to a cluster in Elasticsearch Service, where you can analyze the data with Kibana.</p>
 <p>Configuring your Beats agents to send events to your cluster in the Elasticsearch Service is easy. At a minimum, you need to install and configure one of the Beats on a server somewhere and have an Elasticsearch cluster in Elasticsearch Service that you can send operational data to.</p>
 <p>To send Beats events to a secured cluster in Elasticsearch Service, you should use a user that can manage index templates, monitor the cluster, create indices, and read and write to the indices it creates. For more information on Beats users with the right privileges, check <a href="/guide/en/x-pack/5.6/beats.html" class="ulink" target="_top">Beats and Security</a>.</p>
-<h3><a id="ec-beats-filebeat"></a>Example: Send Filebeat events to Elasticsearch Service<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-71/docs/saas/ec-beats.asciidoc">edit</a></h3>
+<h3><a id="ec-beats-filebeat"></a>Example: Send Filebeat events to Elasticsearch Service<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-77/docs/saas/ec-beats.asciidoc">edit</a></h3>
 <p>The following example shows how you can send operational data from Filebeat 5.6 running on a CentOS 7.1 server to a 5.6 cluster hosted on Elasticsearch Service.</p>
 <p>If you want to learn more about how Filebeat works, check <a href="/guide/en/beats/filebeat/5.6/filebeat-getting-started.html" class="ulink" target="_top">Getting started with Filebeat</a>.</p>
 <div class="tip admon">
@@ -246,15 +234,37 @@ If it isn&#8217;t enabled already, go to your deployment and then the <span clas
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

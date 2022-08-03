@@ -10,19 +10,20 @@
 <meta name="DC.type" content="Learn/Docs/APM Guide/8.1"/>
 <meta name="DC.subject" content="APM"/>
 <meta name="DC.identifier" content="8.1"/>
+<meta name="robots" content="noindex,nofollow"/>
 </head>
-<body>
+<body><div class="page_header">
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">APM User Guide [8.1]</a></span>
-»
-<span class="breadcrumb-link"><a href="overview.html">Legacy APM Server Reference</a></span>
-»
-<span class="breadcrumb-link"><a href="securing-apm-server.html">Secure APM Server</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">APM User Guide [8.1]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="overview.html">Legacy APM Server Reference</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="securing-apm-server.html">Secure APM Server</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="secure-communication-agents.html">Secure communication with APM agents</a></span>
-»
-<span class="breadcrumb-node">SSL/TLS communication</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -34,12 +35,12 @@
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="ssl-setup"></a>SSL/TLS communication<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-server/edit/8.1/docs/legacy/secure-communication-agents.asciidoc">edit</a></h3>
+<h3 class="title"><a id="ssl-setup"></a>SSL/TLS communication<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/apm-server/edit/8.1/docs/legacy/secure-communication-agents.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="important admon">
 <div class="icon"></div>
 <div class="admon_content">
-<p>This documentation refers to configuring the standalone (legacy) APM Server. This method of running APM Server will be deprecated and removed in a future release. Please consider <a class="xref" href="upgrade-to-apm-integration.html" title="Upgrade to the Elastic APM integration">upgrading to Fleet and the APM integration</a>.
+<p>This documentation refers to configuring the standalone (legacy) APM Server. This method of running APM Server will be deprecated and removed in a future release. Please consider <a class="xref" href="upgrade-to-apm-integration.html" title="Switch to the Elastic APM integration">upgrading to Fleet and the APM integration</a>.
 If you&#8217;ve already upgraded, see <a class="xref" href="agent-tls.html" title="APM agent TLS communication">APM agent TLS communication</a>.</p>
 </div>
 </div>
@@ -64,7 +65,7 @@ additional settings due to <a class="xref" href="ssl-setup.html#ssl-server-authe
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="self-signed-cert"></a>Creating a self-signed certificate<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-server/edit/8.1/docs/legacy/ssl-input.asciidoc">edit</a></h4>
+<h4 class="title"><a id="self-signed-cert"></a>Creating a self-signed certificate<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/apm-server/edit/8.1/docs/legacy/ssl-input.asciidoc">edit</a></h4>
 </div></div></div>
 <p>The Elasticsearch distribution offers the <code class="literal">certutil</code> tool for the creation of self-signed certificates:</p>
 <div class="olist orderedlist">
@@ -89,7 +90,7 @@ Extract the certificate and key from the resulted zip archive.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="ssl-server-authentication"></a>Server certificate authentication<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-server/edit/8.1/docs/legacy/ssl-input.asciidoc">edit</a></h4>
+<h4 class="title"><a id="ssl-server-authentication"></a>Server certificate authentication<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/apm-server/edit/8.1/docs/legacy/ssl-input.asciidoc">edit</a></h4>
 </div></div></div>
 <p>By default, when SSL is enabled for APM Server inbound communication, agents will verify the identity
 of the APM Server by authenticating its certificate.</p>
@@ -149,7 +150,7 @@ however it is possible through agents configuration:</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h4 class="title"><a id="ssl-client-authentication"></a>Client certificate authentication<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-server/edit/8.1/docs/legacy/ssl-input.asciidoc">edit</a></h4>
+<h4 class="title"><a id="ssl-client-authentication"></a>Client certificate authentication<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/apm-server/edit/8.1/docs/legacy/ssl-input.asciidoc">edit</a></h4>
 </div></div></div>
 <p>By default, the APM Server does not require agents to provide a certificate for authentication.
 This can be changed through the <code class="literal">ssl.client_authentication</code> configuration.</p>

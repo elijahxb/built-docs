@@ -1,1 +1,1 @@
-GET /_security/api_key
+GET /my-index-000001/_search_shards

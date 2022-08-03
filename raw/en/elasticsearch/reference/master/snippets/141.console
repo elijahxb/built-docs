@@ -1,14 +1,12 @@
-POST my-index-000001/_search
+PUT my-index-000001/_mappings
 {
-  "query": {
-    "range": {
-      "voltage_corrected": {
-        "gte": 16,
-        "lte": 20,
-        "boost": 1.0
-      }
+  "runtime": {
+    "http.responses": {
+      "type": "long",
+      "script": """
+        String response=dissect('%{clientip} %{ident} %{auth} [%{@timestamp}] "%{verb} %{request} HTTP/%{httpversion}" %{response} %{size}').extract(doc["message"].value)?.response;
+        if (response != null) emit(Integer.parseInt(response));
+      """
     }
-  },
-  "fields": [
-    "voltage_corrected", "node"]
+  }
 }

@@ -1,1 +1,11 @@
-GET /_index_template/template_1
+POST _aliases
+{
+  "actions": [
+    {
+      "add": {
+        "index": "my-data-stream",
+        "alias": "my-alias"
+      }
+    }
+  ]
+}

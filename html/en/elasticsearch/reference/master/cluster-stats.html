@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,27 +87,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 You are looking at preliminary documentation for a future release.
@@ -116,13 +107,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="rest-apis.html">REST APIs</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="rest-apis.html">REST APIs</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="cluster.html">Cluster APIs</a></span>
-»
-<span class="breadcrumb-node">Cluster stats API</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -134,13 +122,13 @@ Not what you want? See the
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="cluster-stats"></a>Cluster stats API<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/cluster/stats.asciidoc">edit</a></h2>
+<h2 class="title"><a id="cluster-stats"></a>Cluster stats API<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/cluster/stats.asciidoc">edit</a></h2>
 </div></div></div>
 
 <p>Returns cluster statistics.</p>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="cluster-stats-api-request"></a>Request<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/cluster/stats.asciidoc">edit</a></h3>
+<h3 class="title"><a id="cluster-stats-api-request"></a>Request<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/cluster/stats.asciidoc">edit</a></h3>
 </div></div></div>
 <p><code class="literal">GET /_cluster/stats</code><br></p>
 <p><code class="literal">GET /_cluster/stats/nodes/&lt;node_filter&gt;</code></p>
@@ -148,7 +136,7 @@ Not what you want? See the
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="cluster-stats-api-prereqs"></a>Prerequisites<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/cluster/stats.asciidoc">edit</a></h3>
+<h3 class="title"><a id="cluster-stats-api-prereqs"></a>Prerequisites<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/cluster/stats.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -162,7 +150,7 @@ If the Elasticsearch security features are enabled, you must have the <code clas
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="cluster-stats-api-desc"></a>Description<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/cluster/stats.asciidoc">edit</a></h3>
+<h3 class="title"><a id="cluster-stats-api-desc"></a>Description<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/cluster/stats.asciidoc">edit</a></h3>
 </div></div></div>
 <p>The Cluster Stats API allows to retrieve statistics from a cluster wide
 perspective. The API returns basic index metrics (shard numbers, store size,
@@ -172,7 +160,7 @@ memory usage) and information about the current nodes that form the cluster
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="cluster-stats-api-path-params"></a>Path parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/cluster/stats.asciidoc">edit</a></h3>
+<h3 class="title"><a id="cluster-stats-api-path-params"></a>Path parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/cluster/stats.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="variablelist">
 <dl class="variablelist">
@@ -192,7 +180,7 @@ information. Defaults to all nodes in the cluster.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="cluster-stats-api-query-params"></a>Query parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/cluster/stats.asciidoc">edit</a></h3>
+<h3 class="title"><a id="cluster-stats-api-query-params"></a>Query parameters<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/cluster/stats.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="variablelist">
 <dl class="variablelist">
@@ -214,7 +202,7 @@ timeout.
 
 <div class="section child_attributes">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="cluster-stats-api-response-body"></a>Response body<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/cluster/stats.asciidoc">edit</a></h3>
+<h3 class="title"><a id="cluster-stats-api-response-body"></a>Response body<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/cluster/stats.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="variablelist">
 <dl class="variablelist">
@@ -1177,6 +1165,42 @@ Contains statistics about <a class="xref" href="mapping.html" title="Mapping">fi
 <dl class="variablelist">
 <dt>
 <span class="term">
+<code class="literal">total_field_count</code>
+</span>
+</dt>
+<dd>
+(integer)
+Total number of fields in all non-system indices.
+</dd>
+<dt>
+<span class="term">
+<code class="literal">total_deduplicated_field_count</code>
+</span>
+</dt>
+<dd>
+(integer)
+Total number of fields in all non-system indices, accounting for mapping deduplication.
+</dd>
+<dt>
+<span class="term">
+<code class="literal">total_deduplicated_mapping_size</code>
+</span>
+</dt>
+<dd>
+(<a class="xref" href="api-conventions.html#byte-units" title="Byte size units">byte units</a>)
+Total size of all mappings after deduplication and compression.
+</dd>
+<dt>
+<span class="term">
+<code class="literal">total_deduplicated_mapping_size_in_bytes</code>
+</span>
+</dt>
+<dd>
+(integer)
+Total size of all mappings, in bytes, after deduplication and compression.
+</dd>
+<dt>
+<span class="term">
 <code class="literal">field_types</code>
 </span>
 </dt>
@@ -1217,6 +1241,33 @@ Number of fields mapped to the field data type in selected nodes.
 <dd>
 (integer)
 Number of indices containing a mapping of the field data type in selected nodes.
+</dd>
+<dt>
+<span class="term">
+<code class="literal">indexed_vector_count</code>
+</span>
+</dt>
+<dd>
+(integer)
+For dense_vector field types, number of indexed vector types in selected nodes.
+</dd>
+<dt>
+<span class="term">
+<code class="literal">indexed_vector_dim_min</code>
+</span>
+</dt>
+<dd>
+(integer)
+For dense_vector field types, the minimum dimension of all indexed vector types in selected nodes.
+</dd>
+<dt>
+<span class="term">
+<code class="literal">indexed_vector_dim_max</code>
+</span>
+</dt>
+<dd>
+(integer)
+For dense_vector field types, the maximum dimension of all indexed vector types in selected nodes.
 </dd>
 <dt>
 <span class="term">
@@ -2815,7 +2866,7 @@ Number of selected nodes using the HTTP type.
 <dd>
 <p>
 (object)
-Contains statistics about the <a class="xref" href="modules-discovery-hosts-providers.html" title="Discovery">discovery
+Contains statistics about the <a class="xref" href="modules-discovery-hosts-providers.html" title="Node discovery">discovery
 types</a> used by selected nodes.
 </p>
 <details open>
@@ -2830,7 +2881,7 @@ types</a> used by selected nodes.
 </dt>
 <dd>
 (integer)
-Number of selected nodes using the <a class="xref" href="modules-discovery-hosts-providers.html" title="Discovery">discovery
+Number of selected nodes using the <a class="xref" href="modules-discovery-hosts-providers.html" title="Node discovery">discovery
 type</a> to find other nodes.
 </dd>
 </dl>
@@ -2896,13 +2947,13 @@ Number of selected nodes using the distribution flavor and file type.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="cluster-stats-api-example"></a>Examples<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/docs/reference/cluster/stats.asciidoc">edit</a></h3>
+<h3 class="title"><a id="cluster-stats-api-example"></a>Examples<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/cluster/stats.asciidoc">edit</a></h3>
 </div></div></div>
 <a id="861f5f61409dc87f3671293b87839ff7"></a>
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">GET /_cluster/stats?human&amp;pretty</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1846.console"></div>
+<div class="console_widget" data-snippet="snippets/1960.console"></div>
 <p>The API returns the following response:</p>
 <div class="pre_wrapper lang-js">
 <pre class="programlisting prettyprint lang-js">{
@@ -2996,6 +3047,10 @@ Number of selected nodes using the distribution flavor and file type.
          "file_sizes": {}
       },
       "mappings": {
+        "total_field_count": 0,
+        "total_deduplicated_field_count": 0,
+        "total_deduplicated_mapping_size": "0b",
+        "total_deduplicated_mapping_size_in_bytes": 0,
         "field_types": [],
         "runtime_field_types": []
       },
@@ -3029,7 +3084,7 @@ Number of selected nodes using the distribution flavor and file type.
          "voting_only": 0
       },
       "versions": [
-         "8.2.0"
+         "8.4.0"
       ],
       "os": {
          "available_processors": 8,
@@ -3108,7 +3163,7 @@ Number of selected nodes using the distribution flavor and file type.
       "plugins": [
         {
           "name": "analysis-icu",
-          "version": "8.2.0",
+          "version": "8.4.0",
           "description": "The ICU Analysis plugin integrates Lucene ICU module into elasticsearch, adding ICU relates analysis components.",
           "classname": "org.elasticsearch.plugin.analysis.icu.AnalysisICUPlugin",
           "has_native_controller": false
@@ -3174,7 +3229,7 @@ filters</a>:</p>
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">GET /_cluster/stats/nodes/node1,node*,master:false</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1847.console"></div>
+<div class="console_widget" data-snippet="snippets/1961.console"></div>
 </div>
 
 </div>
@@ -3190,15 +3245,37 @@ filters</a>:</p>
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

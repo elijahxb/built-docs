@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,27 +87,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 You are looking at preliminary documentation for a future release.
@@ -116,11 +107,9 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Observability Guide [master]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Observability Guide [master]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="observability-tutorials.html">Tutorials</a></span>
-»
-<span class="breadcrumb-node">Monitor Microsoft Azure</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -208,6 +197,10 @@ Here you can see and configure your deployment details.
 To access the cluster, click <span class="strong strong"><strong>Kibana</strong></span>.</p>
 <p class="screenshot"><span class="image"><img src="monitor-azure-elastic-deployment.png" alt="Elastic resource"></span></p>
 </li>
+</ol>
+</div>
+<div class="olist orderedlist">
+<ol class="orderedlist">
 <li class="listitem">
 To single sign-on directly
 into Elastic, select your Azure account.
@@ -215,7 +208,7 @@ into Elastic, select your Azure account.
 <li class="listitem">
 <p>To see if there is any available data, click <span class="strong strong"><strong>Observability</strong></span>.
 There should be no data yet, but next, you will ingest logs.</p>
-<p class="screenshot"><span class="image"><img src="monitor-azure-kibana-observability-page-empty.png" alt="Kibana observability page (no data)"></span></p>
+<p class="screenshot"><span class="image"><img src="monitor-azure-kibana-observability-page-empty.png" alt="Kibana Observability page (no data)"></span></p>
 </li>
 </ol>
 </div>
@@ -251,7 +244,7 @@ later.</p>
 <p>Within Kibana, click <span class="strong strong"><strong>Observability</strong></span> until you
 see some data.
 This may take a few minutes.</p>
-<p class="screenshot"><span class="image"><img src="monitor-azure-kibana-observability-page-data.png" alt="Kibana observability page (with data)"></span></p>
+<p class="screenshot"><span class="image"><img src="monitor-azure-kibana-observability-page-data.png" alt="Kibana Observability page (with data)"></span></p>
 </li>
 <li class="listitem">
 <p>To access the Logs app and analyze all your subscription
@@ -442,48 +435,48 @@ Azure VM, <span class="strong strong"><strong>B2s</strong></span> (2 vCPUs, 4 GB
        role="tabpanel"
        id="deb-tab-install-metricbeat"
        aria-labelledby="deb-install-metricbeat">
-<p>Version 8.2.0 of Metricbeat has not yet been released.</p>
+<p>Version 8.4.0 of Metricbeat has not yet been released.</p>
   </div>
   <div tabindex="0"
        role="tabpanel"
        id="rpm-tab-install-metricbeat"
        aria-labelledby="rpm-install-metricbeat"
        hidden="">
-<p>Version 8.2.0 of Metricbeat has not yet been released.</p>
+<p>Version 8.4.0 of Metricbeat has not yet been released.</p>
   </div>
   <div tabindex="0"
        role="tabpanel"
        id="mac-tab-install-metricbeat"
        aria-labelledby="mac-install-metricbeat"
        hidden="">
-<p>Version 8.2.0 of Metricbeat has not yet been released.</p>
+<p>Version 8.4.0 of Metricbeat has not yet been released.</p>
   </div>
   <div tabindex="0"
        role="tabpanel"
        id="linux-tab-install-metricbeat"
        aria-labelledby="linux-install-metricbeat"
        hidden="">
-<p>Version 8.2.0 of Metricbeat has not yet been released.</p>
+<p>Version 8.4.0 of Metricbeat has not yet been released.</p>
   </div>
   <div tabindex="0"
        role="tabpanel"
        id="win-tab-install-metricbeat"
        aria-labelledby="win-install-metricbeat"
        hidden="">
-<p>Version 8.2.0 of Metricbeat has not yet been released.</p>
+<p>Version 8.4.0 of Metricbeat has not yet been released.</p>
   </div>
 </div>
 <h4><a id="_set_up_assets_5"></a>Set up assets<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/observability-docs/edit/main/docs/en/shared/install-configure-metricbeat.asciidoc">edit</a></h4>
 <p>Metricbeat comes with predefined assets for parsing, indexing, and visualizing your data.
 Run the following command to load these assets. It may take a few minutes.</p>
 <div class="pre_wrapper lang-bash">
-<pre class="programlisting prettyprint lang-bash">./metricbeat setup -e -E 'cloud.id=YOUR_DEPLOYMENT_CLOUD_ID' -E 'cloud.auth=elastic:YOUR_SUPER_SECRET_PASS' <a id="CO74-1"></a><i class="conum" data-value="1"></i></pre>
+<pre class="programlisting prettyprint lang-bash">./metricbeat setup -e -E 'cloud.id=YOUR_DEPLOYMENT_CLOUD_ID' -E 'cloud.auth=elastic:YOUR_SUPER_SECRET_PASS' <a id="CO62-1"></a><i class="conum" data-value="1"></i></pre>
 </div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO74-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO62-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Substitute your Cloud ID and an administrator&#8217;s <code class="literal">username:password</code> in this command.
@@ -515,8 +508,8 @@ echo -n "&lt;Your Deployment Cloud ID&gt;" | ./metricbeat keystore add CLOUD_ID 
 <li class="listitem">
 <p>To store metrics in Elasticsearch with minimal permissions, create an API key to send
 data from Metricbeat to Elasticsearch Service. Log into Kibana (you can do so from the Cloud
-Console without typing in any permissions) and select <span class="strong strong"><strong>Management</strong></span> &#8594; <span class="strong strong"><strong>Dev
-Tools</strong></span>. Send the following request:</p>
+Console without typing in any permissions) and select <span class="strong strong"><strong>Management</strong></span> &#8594; <span class="strong strong"><strong>Dev Tools</strong></span>.
+Send the following request:</p>
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">POST /_security/api_key
 {
@@ -619,9 +612,9 @@ You can find the <code class="literal">subscription_id</code> in the main Subscr
 <div class="pre_wrapper lang-yml">
 <pre class="programlisting prettyprint lang-yml">- module: azure
   metricsets:
-  - billing  <a id="CO75-1"></a><i class="conum" data-value="1"></i>
+  - billing  <a id="CO63-1"></a><i class="conum" data-value="1"></i>
   enabled: true
-  period: 24h  <a id="CO75-2"></a><i class="conum" data-value="2"></i>
+  period: 24h  <a id="CO63-2"></a><i class="conum" data-value="2"></i>
   client_id: '${AZURE_CLIENT_ID:""}'
   client_secret: '${AZURE_CLIENT_SECRET:""}'
   tenant_id: '${AZURE_TENANT_ID:""}'
@@ -632,7 +625,7 @@ You can find the <code class="literal">subscription_id</code> in the main Subscr
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO75-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO63-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>The <code class="literal">billing</code> metricset is a predefined metricset that collects relevant
@@ -641,11 +634,11 @@ usage data and forecast information of the subscription configured.</p>
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO75-2"><i class="conum" data-value="2"></i></a></p>
+<p><a href="#CO63-2"><i class="conum" data-value="2"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Collects metrics every 24 hours. The period for <code class="literal">billing</code> metricset
-should be 24h or multiples of 24h.</p>
+should be <code class="literal">24h</code> or multiples of <code class="literal">24h</code>.</p>
 </td>
 </tr>
 </table>
@@ -692,15 +685,37 @@ dashboard. Keep in mind it collects data every 24 hours.</p>
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

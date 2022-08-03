@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Assign roles to hosts | Elastic Cloud Enterprise Reference [3.2] | Elastic</title>
+<link rel="home" href="index.html" title="Elastic Cloud Enterprise Reference [3.2]"/>
+<link rel="up" href="ece-administering-ece.html" title="Administering your installation"/>
+<link rel="prev" href="ece-add-capacity.html" title="Scale out your installation"/>
+<link rel="next" href="ece-maintenance-mode.html" title="Enable maintenance mode"/>
+<meta name="DC.type" content="Learn/Docs/CloudEnterprise/Reference/3.2"/>
+<meta name="DC.subject" content="ECE"/>
+<meta name="DC.identifier" content="3.2"/>
+</head>
+<body><div class="page_header">
+A newer version is available. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Cloud Enterprise Reference [3.2]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="ece-administering-ece.html">Administering your installation</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="ece-add-capacity.html">« Scale out your installation</a>
+</span>
+<span class="next">
+<a href="ece-maintenance-mode.html">Enable maintenance mode »</a>
+</span>
+</div>
+<div class="chapter">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="ece-change-roles"></a>Assign roles to hosts<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/cloud-enterprise/ce-administering-ece.asciidoc">edit</a></h2>
+</div></div></div>
+<p>Assigning roles might be required after you <a class="xref" href="ece-installing.html" title="Installing Elastic Cloud Enterprise">install Elastic Cloud Enterprise on hosts</a> to make sure the new hosts can be used for their intended purpose and to remove roles from the initial host to implement a recommended ECE installation. Similarly, if you need more processing capacity for Elasticsearch nodes in your deployment, change the role of a new runner to <code class="literal">allocator</code> to add its capacity to your installation.</p>
+<p>These steps describe how to assign roles from the Cloud UI. For automation purposes, assigning roles with a <a class="xref" href="ece-generate-roles-token.html" title="Generate roles tokens">token you generate</a> is preferred.</p>
+<p>Each Elastic Cloud Enterprise runner can take on several roles:</p>
+<div class="variablelist">
+<dl class="variablelist">
+<dt>
+<span class="term">
+<code class="literal">allocator</code>
+</span>
+</dt>
+<dd>
+Allocates the available computing resources to Elasticsearch nodes or Kibana instances. In larger installations, a majority of the machines will be allocators.
+</dd>
+<dt>
+<span class="term">
+<code class="literal">coordinator</code>
+</span>
+</dt>
+<dd>
+Serves as a distributed coordination system and resource scheduler.
+</dd>
+<dt>
+<span class="term">
+<code class="literal">proxy</code>
+</span>
+</dt>
+<dd>
+Manages communication between a user and an Elasticsearch or Kibana instance.
+</dd>
+<dt>
+<span class="term">
+<code class="literal">director</code>
+</span>
+</dt>
+<dd>
+Manages the ZooKeeper datastore. This role is typically shared with the coordinator role. In production deployments it can be separated from a coordinator.
+</dd>
+</dl>
+</div>
+<div class="important admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>Once the <code class="literal">director</code> role is assigned to a runner, the Zookeeper service starts on that host. The Zookeeper service continues even after the  director role is removed from the runner. Therefore, if you remove the <code class="literal">director</code> role from any host that has ever had it, we highly recommend also <a class="xref" href="ece-delete-runner.html" title="Delete hosts">deleting the runner</a> and re-installing it.</p>
+</div>
+</div>
+<p>Each role is associated with a set of Docker containers that provide the specific functionality.</p>
+<p>There are some additional roles shown in the Cloud UI, such as the <a class="xref" href="ece-glossary.html#beats-runner"><code class="literal">beats-runner</code></a> and <a class="xref" href="ece-glossary.html#services-forwarder"><code class="literal">services-forwarder</code></a> roles, that are required by Elastic Cloud Enterprise and that you cannot modify.</p>
+<p>To assign roles to hosts:</p>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+<a class="xref" href="ece-login.html" title="Log into the Cloud UI">Log into the Cloud UI</a>.
+</li>
+<li class="listitem">
+<p>From the <span class="strong strong"><strong>Platform</strong></span> menu, select <span class="strong strong"><strong>Hosts</strong></span>.</p>
+<p>The roles for each host are shown.</p>
+<p>Narrow the list by name, ID, or choose from several other filters. To further define the list, use a combination of filters.</p>
+</li>
+<li class="listitem">
+To update the roles, select the host IP address and then choose <span class="strong strong"><strong>Manage roles</strong></span> from the <span class="strong strong"><strong>Manage host</strong></span> menu.
+</li>
+<li class="listitem">
+Select the role assignments for the host and choose <span class="strong strong"><strong>Update roles</strong></span>.
+</li>
+</ol>
+</div>
+<p>Elastic Cloud Enterprise automatically starts managing the node in its new role and makes it available for use.</p>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="ece-add-capacity.html">« Scale out your installation</a>
+</span>
+<span class="next">
+<a href="ece-maintenance-mode.html">Enable maintenance mode »</a>
+</span>
+</div>
+</div>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains('stemblock')) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+</body>
+</html>

@@ -11,6 +11,7 @@
 <meta name="DC.type" content="Learn/Docs/Clients/Java/8.1"/>
 <meta name="DC.subject" content="Clients"/>
 <meta name="DC.identifier" content="8.1"/>
+<meta name="robots" content="noindex,nofollow"/>
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -56,7 +57,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,36 +88,29 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
-                  
+                  <div class="page_header">
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Java API Client [8.1]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Java API Client [8.1]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="usage.html">Using the Java API Client</a></span>
-»
-<span class="breadcrumb-node">Bulk: indexing multiple documents</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -128,7 +122,7 @@
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="indexing-bulk"></a>Bulk: indexing multiple documents<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch-java/edit/8.1/docs/usage/indexing-bulk.asciidoc">edit</a></h2>
+<h2 class="title"><a id="indexing-bulk"></a>Bulk: indexing multiple documents<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-java/edit/8.1/docs/usage/indexing-bulk.asciidoc">edit</a></h2>
 </div></div></div>
 <p>Bulk requests allow sending multiple document-related operations to Elasticsearch in one request. When you have multiple documents to ingest, this is more efficient than sending each document with a separate request.</p>
 <p>A bulk request can contain several kinds of operations:</p>
@@ -154,7 +148,7 @@ delete a document.
 <p>See the <a href="/guide/en/elasticsearch/reference/8.1/docs-bulk.html" class="ulink" target="_top">Elasticsearch API documentation</a> for a full explanation of bulk requests.</p>
 </div>
 </div>
-<h4><a id="_indexing_application_objects"></a>Indexing application objects<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch-java/edit/8.1/docs/usage/indexing-bulk.asciidoc">edit</a></h4>
+<h4><a id="_indexing_application_objects"></a>Indexing application objects<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-java/edit/8.1/docs/usage/indexing-bulk.asciidoc">edit</a></h4>
 <p>A <code class="literal">BulkRequest</code> contains a collection of operations, each operation being a <a class="xref" href="variant-types.html" title="Variant types">type with several variants</a>. To create this request, it is convenient to use a builder object for the main request, and the fluent DSL for each operation.</p>
 <p>The example below shows how to index a list or application objects.</p>
 <div class="pre_wrapper lang-java">
@@ -163,9 +157,9 @@ delete a document.
 BulkRequest.Builder br = new BulkRequest.Builder();
 
 for (Product product : products) {
-    br.operations(op -&gt; op           <a id="CO11-1"></a><i class="conum" data-value="1"></i>
-        .index(idx -&gt; idx            <a id="CO11-2"></a><i class="conum" data-value="2"></i>
-            .index("products")       <a id="CO11-3"></a><i class="conum" data-value="3"></i>
+    br.operations(op -&gt; op           <a id="CO10-1"></a><i class="conum" data-value="1"></i>
+        .index(idx -&gt; idx            <a id="CO10-2"></a><i class="conum" data-value="2"></i>
+            .index("products")       <a id="CO10-3"></a><i class="conum" data-value="3"></i>
             .id(product.getSku())
             .document(product)
         )
@@ -188,7 +182,7 @@ if (result.errors()) {
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO11-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO10-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Adds an operation (remember that <a class="xref" href="lists-and-maps.html" title="Lists and maps">list properties are additive</a>). <code class="literal">op</code> is is a builder for <code class="literal">BulkOperation</code> which is a <a class="xref" href="variant-types.html" title="Variant types">variant type</a>. This type has <code class="literal">index</code>, <code class="literal">create</code>, <code class="literal">update</code> and <code class="literal">delete</code> variants.</p>
@@ -196,7 +190,7 @@ if (result.errors()) {
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO11-2"><i class="conum" data-value="2"></i></a></p>
+<p><a href="#CO10-2"><i class="conum" data-value="2"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Selects the <code class="literal">index</code> operation variant, <code class="literal">idx</code> is a builder for <code class="literal">IndexOperation</code>.</p>
@@ -204,7 +198,7 @@ if (result.errors()) {
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO11-3"><i class="conum" data-value="3"></i></a></p>
+<p><a href="#CO10-3"><i class="conum" data-value="3"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Sets the properties for the index operation, similar to <a class="xref" href="indexing.html" title="Indexing single documents">single document indexing</a>: index name, identifier and document.</p>
@@ -212,7 +206,7 @@ if (result.errors()) {
 </tr>
 </table>
 </div>
-<h4><a id="_indexing_raw_json_data"></a>Indexing raw JSON data<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch-java/edit/8.1/docs/usage/indexing-bulk.asciidoc">edit</a></h4>
+<h4><a id="_indexing_raw_json_data"></a>Indexing raw JSON data<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-java/edit/8.1/docs/usage/indexing-bulk.asciidoc">edit</a></h4>
 <p>The <code class="literal">document</code> property of a bulk index request can be any object that can be serialized to JSON using your Elasticsearch client&#8217;s JSON mapper. In the example below we will use the Java API Client&#8217;s <code class="literal">JsonData</code> object to read json files from a log directory and send them in a bulk request.</p>
 <p>Since <code class="literal">JsonData</code> doesn&#8217;t allow reading directly from an input stream (this will be added in a future release), we will use the following function for that:</p>
 <div class="pre_wrapper lang-java">
@@ -257,15 +251,37 @@ for (File file: logFiles) {
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

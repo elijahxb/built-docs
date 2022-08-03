@@ -1,18 +1,4 @@
-POST place/_search?pretty
+POST _ml/anomaly_detectors/low_request_rate/model_snapshots/1637092688/_revert
 {
-  "suggest": {
-    "place_suggestion": {
-      "prefix": "tim",
-      "completion": {
-        "field": "suggest",
-        "size": 10,
-        "contexts": {
-          "place_type": [                            
-            { "context": "cafe" },
-            { "context": "restaurants", "boost": 2 }
-          ]
-        }
-      }
-    }
-  }
+  "delete_intervening_results": true
 }

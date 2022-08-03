@@ -17,13 +17,10 @@ A newer version is available. For the latest information, see the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [7.17]</a></span>
-»
-<span class="breadcrumb-link"><a href="setup.html">Set up Elasticsearch</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [7.17]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="setup.html">Set up Elasticsearch</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="settings.html">Configuring Elasticsearch</a></span>
-»
-<span class="breadcrumb-node">Advanced configuration</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -177,6 +174,11 @@ threshold, check the Elasticsearch log for an entry like this:</p>
 <div class="pre_wrapper lang-txt">
 <pre class="programlisting prettyprint lang-txt">heap size [1.9gb], compressed ordinary object pointers [true]</pre>
 </div>
+<p>Or check the <code class="literal">jvm.using_compressed_ordinary_object_pointers</code> value for the nodes using the <a class="xref" href="cluster-nodes-info.html" title="Nodes info API">nodes info API</a>:</p>
+<div class="pre_wrapper lang-console">
+<pre class="programlisting prettyprint lang-console">GET _nodes/_all/jvm</pre>
+</div>
+<div class="console_widget" data-snippet="snippets/38.console"></div>
 </li>
 </ul>
 </div>

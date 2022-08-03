@@ -18,11 +18,9 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Filebeat Reference [master]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Filebeat Reference [master]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="setting-up-and-running.html">Set up and run Filebeat</a></span>
-»
-<span class="breadcrumb-node">Run Filebeat on Kubernetes</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -44,7 +42,7 @@ retrieve and ship container logs.</p>
 <p>Running Elastic Cloud on Kubernetes? See <a href="/guide/en/cloud-on-k8s/current/k8s-beat.html" class="ulink" target="_top">Run Beats on ECK</a>.</p>
 </div>
 </div>
-<p>However, version 8.2.0 of Filebeat has not yet been
+<p>However, version 8.4.0 of Filebeat has not yet been
 released, so no Docker image is currently available for this version.</p>
 <h4><a id="_kubernetes_deploy_manifests"></a>Kubernetes deploy manifests<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/filebeat/docs/running-on-kubernetes.asciidoc">edit</a></h4>
 <p>You deploy Filebeat as a <a href="https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/" class="ulink" target="_top">DaemonSet</a>
@@ -122,6 +120,32 @@ custom namespace) to allow for scheduling on any node:</p>
 don&#8217;t run this command, the default node selector will skip master nodes.</p>
 </li>
 </ol>
+</div>
+<p>In order to support runtime environments with Openshift (eg. CRI-O, containerd) you need to configure following path:</p>
+<div class="pre_wrapper lang-yaml">
+<pre class="programlisting prettyprint lang-yaml">filebeat.inputs:
+- type: container
+  paths: <a id="CO9-1"></a><i class="conum" data-value="1"></i>
+    - '/var/log/containers/*.log'</pre>
+</div>
+<p>Same path needs to be configured in case autodiscovery needs to be enabled:</p>
+<div class="pre_wrapper lang-yaml">
+<pre class="programlisting prettyprint lang-yaml">filebeat.autodiscover:
+  providers:
+    - type: kubernetes
+      node: ${NODE_NAME}
+      hints.enabled: true
+      hints.default_config:
+        type: container
+        paths:
+          - /var/log/containers/*.log</pre>
+</div>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p><em>/var/log/containers/<span class="strong strong"><strong>.log</em> is normally a symlink to <em>/var/log/pods/</strong></span>/*/.log</em>,
+so above paths can be edited accordingly</p>
+</div>
 </div>
 <h4><a id="_load_kibana_dashboards"></a>Load Kibana dashboards<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/filebeat/docs/running-on-kubernetes.asciidoc">edit</a></h4>
 <p>Filebeat comes packaged with various pre-built Kibana dashboards

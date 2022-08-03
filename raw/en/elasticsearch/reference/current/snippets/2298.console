@@ -1,4 +1,8 @@
-POST _ml/anomaly_detectors/low_request_rate/_forecast
+PUT /my-index-000001
 {
-  "duration": "10d"
+  "settings": {
+    "index": {
+      "number_of_routing_shards": 30
+    }
+  }
 }

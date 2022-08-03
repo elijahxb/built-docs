@@ -58,7 +58,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -89,27 +89,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 You are looking at preliminary documentation for a future release.
@@ -118,13 +109,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Kibana Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="xpack-apm.html">APM</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Kibana Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="xpack-apm.html">APM</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="apm-getting-started.html">Get started with the APM app</a></span>
-»
-<span class="breadcrumb-node">Service overview</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -150,7 +138,10 @@ Service details like service version, runtime version, framework, and agent name
 Container and orchestration information
 </li>
 <li class="listitem">
-Cloud provider, machine type, and availability zone
+Cloud provider, machine type, service name, region, and availability zone
+</li>
+<li class="listitem">
+Serverless function names and event trigger type
 </li>
 <li class="listitem">
 Latency, throughput, and errors over time
@@ -160,17 +151,19 @@ Service dependencies
 </li>
 </ul>
 </div>
-<h3><a id="service-time-comparison"></a>Time series comparison<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/apm/service-overview.asciidoc">edit</a></h3>
-<p>Comparing how a service performs relative to a previous time frame can offer additional insight into
-the health of your services. For example, has latency been slowly increasing over time, or did the service
-experience a sudden spike&#8212;&#8203;enabling a time series comparison can provide the answer.</p>
+<h3><a id="service-time-comparison"></a>Time series and expected bounds comparison<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/apm/service-overview.asciidoc">edit</a></h3>
+<p>For insight into the health of your services, you can compare how a service
+performs relative to a previous time frame or to the expected bounds from the
+corresponding anomaly detection job. For example, has latency been slowly increasing
+over time, did the service experience a sudden spike, is the throughput similar
+to what the machine learning job expects – enabling a comparison can provide the answer.</p>
 <div class="imageblock screenshot">
 <div class="content">
-<img src="apm/images/time-series-comparison.png" alt="Time series comparison">
+<img src="apm/images/time-series-expected-bounds-comparison.png" alt="Time series and expected bounds comparison">
 </div>
 </div>
-<p>Select the <span class="strong strong"><strong>Comparison</strong></span> box to enable or disable time series comparison.
-The time comparison options are based on the selected time filter range:</p>
+<p>Select the <span class="strong strong"><strong>Comparison</strong></span> box to apply a time-based or expected bounds comparison.
+The time-based comparison options are based on the selected time filter range:</p>
 <div class="informaltable">
 <table border="1" cellpadding="4px">
 <colgroup>
@@ -199,6 +192,9 @@ The time comparison options are based on the selected time filter range:</p>
 </tbody>
 </table>
 </div>
+<p>You can use the expected bounds comparison if machine learning jobs exist in your selected
+environment and you have
+<a href="/guide/en/machine-learning/master/setup.html#kib-visibility-spaces" class="ulink" target="_top">access to the machine learning features</a>.</p>
 <h3><a id="service-latency"></a>Latency<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/apm/service-overview.asciidoc">edit</a></h3>
 <p>Response times for the service. You can filter the <span class="strong strong"><strong>Latency</strong></span> chart to display the average,
 95th, or 99th percentile latency times for the service.</p>
@@ -223,7 +219,6 @@ list of similar transactions on the <a class="xref" href="transactions.html" tit
 <h3><a id="service-error-rates"></a>Failed transaction rate and errors<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/apm/service-overview.asciidoc">edit</a></h3>
 <p>The failed transaction rate represents the percentage of failed transactions from the perspective of the selected service.
 It&#8217;s useful for visualizing unexpected increases, decreases, or irregular patterns in a service&#8217;s transactions.</p>
-<p>+</p>
 <div class="tip admon">
 <div class="icon"></div>
 <div class="admon_content">
@@ -262,6 +257,15 @@ requires an agent version ≥ v5.6.3.</p>
 <div class="imageblock screenshot">
 <div class="content">
 <img src="apm/images/spans-dependencies.png" alt="Span type duration and dependencies">
+</div>
+</div>
+<h3><a id="service-cold-start"></a>Cold start rate<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/apm/service-overview.asciidoc">edit</a></h3>
+<p>The cold start rate chart is specific to serverless services.
+It displays the percentage of requests that trigger a cold start of a serverless function.
+See <a class="xref" href="apm-lambda.html#apm-lambda-cold-start-info" title="Cold starts">Cold starts</a> for more information.</p>
+<div class="imageblock screenshot">
+<div class="content">
+<img src="apm/images/lambda-cold-start.png" alt="lambda cold start graph">
 </div>
 </div>
 <h3><a id="service-instances"></a>Instances<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/apm/service-overview.asciidoc">edit</a></h3>
@@ -322,6 +326,9 @@ Orchestration
 Cloud provider
 </li>
 <li class="listitem">
+Cloud service name
+</li>
+<li class="listitem">
 Availability zones
 </li>
 <li class="listitem">
@@ -329,6 +336,20 @@ Machine types
 </li>
 <li class="listitem">
 Project ID
+</li>
+<li class="listitem">
+Region
+</li>
+</ul>
+</div>
+<p><span class="strong strong"><strong>Serverless information</strong></span></p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Function name(s)
+</li>
+<li class="listitem">
+Event trigger type
 </li>
 </ul>
 </div>
@@ -353,15 +374,37 @@ Recently fired alerts
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

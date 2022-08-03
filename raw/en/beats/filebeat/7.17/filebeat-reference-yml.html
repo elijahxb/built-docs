@@ -17,11 +17,9 @@ A newer version is available. For the latest information, see the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Filebeat Reference [7.17]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Filebeat Reference [7.17]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="configuring-howto-filebeat.html">Configure Filebeat</a></span>
-»
-<span class="breadcrumb-node">filebeat.reference.yml</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -696,6 +694,9 @@ filebeat.inputs:
 
 #--------------------------- Filestream input ----------------------------
 - type: filestream
+
+  # Unique ID among all inputs, an ID is required.
+  id: my-filestream-id
 
   # Change to true to enable this input configuration.
   enabled: false
@@ -1843,9 +1844,6 @@ output.elasticsearch:
 
     # Strategy for fetching the topics metadata from the broker. Default is false.
     #full: false
-
-  # The number of concurrent load-balanced Kafka output workers.
-  #worker: 1
 
   # The number of times to retry publishing an event after a publishing failure.
   # After the specified number of retries, events are typically dropped.

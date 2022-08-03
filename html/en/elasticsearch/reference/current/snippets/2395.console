@@ -1,8 +1,4 @@
-GET /my-index-000001/_search?from=40&size=20
+GET _ml/anomaly_detectors/high_sum_total_sales/model_snapshots
 {
-  "query": {
-    "term": {
-      "user.id": "kimchy"
-    }
-  }
+  "start": "1575402236000"
 }

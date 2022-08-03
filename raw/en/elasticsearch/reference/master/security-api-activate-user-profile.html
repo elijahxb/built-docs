@@ -18,13 +18,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="rest-apis.html">REST APIs</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="rest-apis.html">REST APIs</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="security-api.html">Security APIs</a></span>
-»
-<span class="breadcrumb-node">Activate user profile API</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -36,7 +33,7 @@ Not what you want? See the
 </div>
 <div class="section xpack">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="security-api-activate-user-profile"></a>Activate user profile API<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/x-pack/docs/en/rest-api/security/activate-user-profile.asciidoc">edit</a></h2>
+<h2 class="title"><a id="security-api-activate-user-profile"></a>Activate user profile API<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/x-pack/docs/en/rest-api/security/activate-user-profile.asciidoc">edit</a></h2>
 </div></div></div>
 
 <div class="warning admon">
@@ -48,14 +45,14 @@ Not what you want? See the
 <p>Creates or updates a user profile on behalf of another user.</p>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="security-api-activate-user-profile-request"></a>Request<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/x-pack/docs/en/rest-api/security/activate-user-profile.asciidoc">edit</a></h3>
+<h3 class="title"><a id="security-api-activate-user-profile-request"></a>Request<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/x-pack/docs/en/rest-api/security/activate-user-profile.asciidoc">edit</a></h3>
 </div></div></div>
 <p><code class="literal">POST /_security/profile/_activate</code></p>
 </div>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="security-api-activate-user-profile-prereqs"></a>Prerequisites<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/x-pack/docs/en/rest-api/security/activate-user-profile.asciidoc">edit</a></h3>
+<h3 class="title"><a id="security-api-activate-user-profile-prereqs"></a>Prerequisites<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/x-pack/docs/en/rest-api/security/activate-user-profile.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -68,7 +65,7 @@ To use this API, you must have the <code class="literal">manage_user_profile</co
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="security-api-activate-user-profile-desc"></a>Description<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/x-pack/docs/en/rest-api/security/activate-user-profile.asciidoc">edit</a></h3>
+<h3 class="title"><a id="security-api-activate-user-profile-desc"></a>Description<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/x-pack/docs/en/rest-api/security/activate-user-profile.asciidoc">edit</a></h3>
 </div></div></div>
 <p>The activate user profile API creates or updates a profile document for end
 users with information that is extracted from the user&#8217;s authentication object,
@@ -90,7 +87,7 @@ is intended for.</p>
 
 <div class="section child_attributes">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="security-api-activate-user-profile-request-body"></a>Request body<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/x-pack/docs/en/rest-api/security/activate-user-profile.asciidoc">edit</a></h3>
+<h3 class="title"><a id="security-api-activate-user-profile-request-body"></a>Request body<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/x-pack/docs/en/rest-api/security/activate-user-profile.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="variablelist">
 <dl class="variablelist">
@@ -172,7 +169,7 @@ this parameter is required. It is not valid with other grant types.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="security-api-activate-user-profile-response-body"></a>Response body<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/x-pack/docs/en/rest-api/security/activate-user-profile.asciidoc">edit</a></h3>
+<h3 class="title"><a id="security-api-activate-user-profile-response-body"></a>Response body<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/x-pack/docs/en/rest-api/security/activate-user-profile.asciidoc">edit</a></h3>
 </div></div></div>
 <p>A successful activate user profile API call returns a JSON structure that contains
 the profile unique ID, user information, timestamp for the operation and version
@@ -181,7 +178,7 @@ control numbers.</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="security-api-activate-user-profile-example"></a>Examples<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/master/x-pack/docs/en/rest-api/security/activate-user-profile.asciidoc">edit</a></h3>
+<h3 class="title"><a id="security-api-activate-user-profile-example"></a>Examples<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/x-pack/docs/en/rest-api/security/activate-user-profile.asciidoc">edit</a></h3>
 </div></div></div>
 <a id="0721c8adec544d5ecea3fcc410e45feb"></a>
 <div class="pre_wrapper lang-console">
@@ -192,12 +189,12 @@ control numbers.</p>
   "password" : "l0ng-r4nd0m-p@ssw0rd"
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/2591.console"></div>
+<div class="console_widget" data-snippet="snippets/2713.console"></div>
 <p>The API returns the following response:</p>
-<a id="e26dece247aa7ecc88225e8e21fdcc0a"></a>
+<a id="d62bdebea0ec3146ef3f981f02ae6ab9"></a>
 <div class="pre_wrapper lang-console-result">
 <pre class="programlisting prettyprint lang-console-result">{
-  "uid": "u_kd2JMqwUQwSCCOxMv7M1vw",
+  "uid": "u_79HkWkwmnBH5gqFKwoxggWPjEBOur1zLPXQPEl1VBW0_0",
   "enabled": true,
   "last_synchronized": 1642650651037,
   "user": {

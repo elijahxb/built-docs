@@ -19,13 +19,10 @@ will be released for this version. For the latest information, see the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elastic Security Solution [8.0]</a></span>
-»
-<span class="breadcrumb-link"><a href="security-apis.html">Elastic Security APIs</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Security Solution [8.0]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="security-apis.html">Elastic Security APIs</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="rule-api-overview.html">Detections API</a></span>
-»
-<span class="breadcrumb-node">Create rule</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -1305,7 +1302,7 @@ name&gt;).</p>
   "rule_id": "process_started_by_ms_office_program",
   "risk_score": 50,
   "description": "Process started by MS Office program - possible payload",
-  "interval": "1h", <a id="CO9-1"></a><i class="conum" data-value="1"></i>
+  "interval": "1h", <a id="CO3-1"></a><i class="conum" data-value="1"></i>
   "name": "MS Office child process",
   "severity": "low",
   "tags": [
@@ -1313,7 +1310,7 @@ name&gt;).</p>
    "ms office"
    ],
   "type": "query",
-  "from": "now-70m", <a id="CO9-2"></a><i class="conum" data-value="2"></i>
+  "from": "now-70m", <a id="CO3-2"></a><i class="conum" data-value="2"></i>
   "query": "process.parent.name:EXCEL.EXE or process.parent.name:MSPUB.EXE or process.parent.name:OUTLOOK.EXE or process.parent.name:POWERPNT.EXE or process.parent.name:VISIO.EXE or process.parent.name:WINWORD.EXE",
   "language": "kuery",
   "filters": [
@@ -1331,12 +1328,12 @@ name&gt;).</p>
   "enabled": false
 }</pre>
 </div>
-<div class="kibana_widget" data-snippet="snippets/11.kibana"></div>
+<div class="kibana_widget" data-snippet="snippets/4.kibana"></div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO9-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO3-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>The rule runs every hour.</p>
@@ -1344,7 +1341,7 @@ name&gt;).</p>
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO9-2"><i class="conum" data-value="2"></i></a></p>
+<p><a href="#CO3-2"><i class="conum" data-value="2"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>When the rule runs it analyzes data from 70 minutes before its start time.</p>
@@ -1363,7 +1360,7 @@ custom source event fields:</p>
 {
   "description": "Detects when there are 20 or more failed login attempts from the same IP address with a 2 minute time frame.",
   "enabled": true,
-  "exceptions_list": [ <a id="CO10-1"></a><i class="conum" data-value="1"></i>
+  "exceptions_list": [ <a id="CO4-1"></a><i class="conum" data-value="1"></i>
     {
       "id": "int-ips",
       "namespace_type": "single",
@@ -1375,12 +1372,12 @@ custom source event fields:</p>
     "winlogbeat-*"
   ],
   "interval": "2m",
-  "name": "Liverpool Windows server prml-19",
+  "name": "Windows server prml-19",
   "query": "host.name:prml-19 and event.category:authentication and event.outcome:failure",
   "risk_score": 30,
   "rule_id": "liv-win-ser-logins",
   "severity": "low",
-  "severity_mapping": [ <a id="CO10-2"></a><i class="conum" data-value="2"></i>
+  "severity_mapping": [ <a id="CO4-2"></a><i class="conum" data-value="2"></i>
     {
       "field": "source.geo.city_name",
       "operator": "equals",
@@ -1409,19 +1406,19 @@ custom source event fields:</p>
   "tags": [
     "Brute force"
   ],
-  "threshold": { <a id="CO10-3"></a><i class="conum" data-value="3"></i>
+  "threshold": { <a id="CO4-3"></a><i class="conum" data-value="3"></i>
     "field": "source.ip",
     "value": 20
   },
   "type": "threshold"
 }</pre>
 </div>
-<div class="kibana_widget" data-snippet="snippets/12.kibana"></div>
+<div class="kibana_widget" data-snippet="snippets/5.kibana"></div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO10-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO4-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Exception list container used to exclude internal IP addresses.</p>
@@ -1429,7 +1426,7 @@ custom source event fields:</p>
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO10-2"><i class="conum" data-value="2"></i></a></p>
+<p><a href="#CO4-2"><i class="conum" data-value="2"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Alert severity levels are mapped according to the defined field values.</p>
@@ -1437,7 +1434,7 @@ custom source event fields:</p>
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO10-3"><i class="conum" data-value="3"></i></a></p>
+<p><a href="#CO4-3"><i class="conum" data-value="3"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Alerts are generated when the same source IP address is discovered in at
@@ -1482,7 +1479,7 @@ threshold of 70 or above:</p>
   ]
 }</pre>
 </div>
-<div class="kibana_widget" data-snippet="snippets/13.kibana"></div>
+<div class="kibana_widget" data-snippet="snippets/6.kibana"></div>
 <p><span class="strong strong"><strong>Example 4</strong></span></p>
 <p>Event correlation rule that creates alerts when the Windows <code class="literal">rundll32.exe</code> process makes
 unusual network connections:</p>
@@ -1504,7 +1501,7 @@ unusual network connections:</p>
   "query": "sequence by process.entity_id with maxspan=2h [process where event.type in (\"start\", \"process_started\") and (process.name == \"rundll32.exe\" or process.pe.original_file_name == \"rundll32.exe\") and ((process.args == \"rundll32.exe\" and process.args_count == 1) or (process.args != \"rundll32.exe\" and process.args_count == 0))] [network where event.type == \"connection\" and (process.name == \"rundll32.exe\" or process.pe.original_file_name == \"rundll32.exe\")]"
 }</pre>
 </div>
-<div class="kibana_widget" data-snippet="snippets/14.kibana"></div>
+<div class="kibana_widget" data-snippet="snippets/7.kibana"></div>
 <p><a id="threat-match-example"></a><span class="strong strong"><strong>Example 5</strong></span></p>
 <p>Indicator match rule that creates an alert when one of the following is true:</p>
 <div class="ulist itemizedlist">
@@ -1528,12 +1525,12 @@ The event&#8217;s source IP address matches a host IP address value in the
     ],
     "query": "destination.ip:* or host.ip:*",
     "threat_index": [
-        "ip-threat-list" <a id="CO11-1"></a><i class="conum" data-value="1"></i>
+        "ip-threat-list" <a id="CO5-1"></a><i class="conum" data-value="1"></i>
     ],
-    "threat_query": "*:*", <a id="CO11-2"></a><i class="conum" data-value="2"></i>
+    "threat_query": "*:*", <a id="CO5-2"></a><i class="conum" data-value="2"></i>
     "threat_mapping": [
         {
-            "entries": [ <a id="CO11-3"></a><i class="conum" data-value="3"></i>
+            "entries": [ <a id="CO5-3"></a><i class="conum" data-value="3"></i>
                 {
                     "field": "destination.ip",
                     "type": "mapping",
@@ -1547,7 +1544,7 @@ The event&#8217;s source IP address matches a host IP address value in the
             ]
         },
         {
-            "entries": [ <a id="CO11-4"></a><i class="conum" data-value="4"></i>
+            "entries": [ <a id="CO5-4"></a><i class="conum" data-value="4"></i>
                 {
                     "field": "source.ip",
                     "type": "mapping",
@@ -1562,12 +1559,12 @@ The event&#8217;s source IP address matches a host IP address value in the
     "description": "Checks for bad IP addresses listed in the ip-threat-list index"
 }</pre>
 </div>
-<div class="kibana_widget" data-snippet="snippets/15.kibana"></div>
+<div class="kibana_widget" data-snippet="snippets/8.kibana"></div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO11-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO5-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>The Elasticsearch index used for matching threat values.</p>
@@ -1575,7 +1572,7 @@ The event&#8217;s source IP address matches a host IP address value in the
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO11-2"><i class="conum" data-value="2"></i></a></p>
+<p><a href="#CO5-2"><i class="conum" data-value="2"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Query defining which threat index fields are used for matching values. In
@@ -1584,7 +1581,7 @@ this example, all values from the <code class="literal">ip-threat-list</code> in
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO11-3"><i class="conum" data-value="3"></i></a></p>
+<p><a href="#CO5-3"><i class="conum" data-value="3"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Multiple objects in a single <code class="literal">entries</code> element are evaluated using <code class="literal">and</code>
@@ -1595,7 +1592,7 @@ logic. In this example, both the event&#8217;s <code class="literal">destination
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO11-4"><i class="conum" data-value="4"></i></a></p>
+<p><a href="#CO5-4"><i class="conum" data-value="4"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Sibling <code class="literal">entries</code> are evaluated using <code class="literal">or</code> logic. An alert is generated when
@@ -1638,7 +1635,7 @@ unique rule ID is also generated.</p>
 <pre class="programlisting prettyprint lang-json">{
   "created_at": "2020-04-07T14:51:09.755Z",
   "updated_at": "2020-04-07T14:51:09.970Z",
-  "created_by": "LiverpoolFC",
+  "created_by": "elastic",
   "description": "Process started by MS Office program - possible payload",
   "enabled": false,
   "false_positives": [],
@@ -1653,7 +1650,7 @@ unique rule ID is also generated.</p>
   "name": "MS Office child process",
   "references": [],
   "severity": "low",
-  "updated_by": "LiverpoolFC",
+  "updated_by": "elastic",
   "tags": [
     "child process",
     "ms office"
@@ -1685,7 +1682,7 @@ unique rule ID is also generated.</p>
 <pre class="programlisting prettyprint lang-json">{
   "created_at": "2020-04-07T14:45:15.679Z",
   "updated_at": "2020-04-07T14:45:15.892Z",
-  "created_by": "LiverpoolFC",
+  "created_by": "elastic",
   "description": "Generates alerts when the job discovers anomalies over 70",
   "enabled": true,
   "false_positives": [],
@@ -1700,7 +1697,7 @@ unique rule ID is also generated.</p>
   "name": "Anomalous Linux network activity",
   "references": [],
   "severity": "high",
-  "updated_by": "LiverpoolFC",
+  "updated_by": "elastic",
   "tags": [
     "machine learning",
     "Linux"
@@ -1733,7 +1730,7 @@ unique rule ID is also generated.</p>
   "author": [],
   "created_at": "2020-07-22T10:27:23.486Z",
   "updated_at": "2020-07-22T10:27:23.673Z",
-  "created_by": "LiverpoolFC",
+  "created_by": "elastic",
   "description": "Detects when there are 20 or more failed login attempts from the same IP address with a 2 minute time frame.",
   "enabled": true,
   "false_positives": [],
@@ -1746,7 +1743,7 @@ unique rule ID is also generated.</p>
   "max_signals": 100,
   "risk_score": 30,
   "risk_score_mapping": [],
-  "name": "Liverpool Windows server prml-19",
+  "name": "Windows server prml-19",
   "references": [],
   "severity": "low",
   "severity_mapping": [
@@ -1775,7 +1772,7 @@ unique rule ID is also generated.</p>
       "value": "Wallingford"
     }
   ],
-  "updated_by": "LiverpoolFC",
+  "updated_by": "elastic",
   "tags": [
     "Brute force"
   ],
@@ -1809,7 +1806,7 @@ unique rule ID is also generated.</p>
   "author": [],
   "created_at": "2020-10-05T09:06:16.392Z",
   "updated_at": "2020-10-05T09:06:16.403Z",
-  "created_by": "Liverpool",
+  "created_by": "elastic",
   "description": "Unusual rundll32.exe network connection",
   "enabled": true,
   "false_positives": [],
@@ -1826,7 +1823,7 @@ unique rule ID is also generated.</p>
   "references": [],
   "severity": "low",
   "severity_mapping": [],
-  "updated_by": "Liverpool",
+  "updated_by": "elastic",
   "tags": [
     "EQL",
     "Windows",
@@ -1849,7 +1846,7 @@ unique rule ID is also generated.</p>
   "author": [],
   "created_at": "2020-10-06T07:07:58.227Z",
   "updated_at": "2020-10-06T07:07:58.237Z",
-  "created_by": "Liverpool",
+  "created_by": "elastic",
   "description": "Checks for bad IP addresses listed in the ip-threat-list index",
   "enabled": true,
   "false_positives": [],
@@ -1866,7 +1863,7 @@ unique rule ID is also generated.</p>
   "references": [],
   "severity": "medium",
   "severity_mapping": [],
-  "updated_by": "Liverpool",
+  "updated_by": "elastic",
   "tags": [],
   "to": "now",
   "type": "threat_match",

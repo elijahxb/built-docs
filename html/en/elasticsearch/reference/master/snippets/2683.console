@@ -1,11 +1,5 @@
-PUT my-index-000002
+DELETE /_security/api_key
 {
-  "mappings": {
-    "properties": {
-      "datetime": {
-        "type": "date",
-        "format": "uuuu/MM/dd HH:mm:ss||uuuu/MM/dd||epoch_millis"
-      }
-    }
-  }
+  "username" : "myuser",
+  "realm_name" : "native1"
 }

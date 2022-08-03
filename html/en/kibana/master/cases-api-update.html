@@ -58,7 +58,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -89,27 +89,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 You are looking at preliminary documentation for a future release.
@@ -118,13 +109,10 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Kibana Guide [master]</a></span>
-»
-<span class="breadcrumb-link"><a href="api.html">REST API</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Kibana Guide [master]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="api.html">REST API</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="cases-api.html">Cases APIs</a></span>
-»
-<span class="breadcrumb-node">Update cases API</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -150,7 +138,7 @@ Not what you want? See the
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_prerequisite_13"></a>Prerequisite<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/api/cases/cases-api-update.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_prerequisites_35"></a>Prerequisites<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/api/cases/cases-api-update.asciidoc">edit</a></h3>
 </div></div></div>
 <p>You must have <code class="literal">all</code> privileges for the <span class="strong strong"><strong>Cases</strong></span> feature in the <span class="strong strong"><strong>Management</strong></span>,
 <span class="strong strong"><strong>Observability</strong></span>, or <span class="strong strong"><strong>Security</strong></span> section of the
@@ -400,7 +388,7 @@ field, specify <code class="literal">null</code> as its value.</p>
 </dt>
 <dd>
 (Required, string) The identifier for the connector. To remove the connector,
-use <code class="literal">none</code>.
+use <code class="literal">none</code>. To retrieve connector IDs, use <a class="xref" href="cases-api-find-connectors.html" title="Find connectors API">Find connectors</a>).
 </dd>
 <dt>
 <span class="term">
@@ -472,6 +460,15 @@ An object that contains the case settings.
 </dd>
 <dt>
 <span class="term">
+<code class="literal">severity</code>
+</span>
+</dt>
+<dd>
+(Optional,string) The severity of the case. Valid values are: <code class="literal">critical</code>, <code class="literal">high</code>,
+<code class="literal">low</code>, and <code class="literal">medium</code>.
+</dd>
+<dt>
+<span class="term">
 <code class="literal">status</code>
 </span>
 </dt>
@@ -501,7 +498,8 @@ and <code class="literal">open</code>.
 </span>
 </dt>
 <dd>
-(Required, string) The current version of the case. To determine this value, use <a class="xref" href="cases-api-get-case.html" title="Get case API">Get case</a> or <a class="xref" href="cases-api-find-cases.html" title="Find cases API">Find cases</a>.
+(Required, string) The current version of the case. To determine this value, use
+<a class="xref" href="cases-api-get-case.html" title="Get case API">Get case</a> or <a class="xref" href="cases-api-find-cases.html" title="Find cases API">Find cases</a>.
 </dd>
 </dl>
 </div>
@@ -514,7 +512,7 @@ and <code class="literal">open</code>.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_response_code_14"></a>Response code<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/api/cases/cases-api-update.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_response_codes_17"></a>Response codes<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/api/cases/cases-api-update.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="variablelist">
 <dl class="variablelist">
@@ -532,7 +530,7 @@ Indicates a successful call.
 
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="_example_41"></a>Example<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/api/cases/cases-api-update.asciidoc">edit</a></h3>
+<h3 class="title"><a id="_examples_28"></a>Examples<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/kibana/edit/main/docs/api/cases/cases-api-update.asciidoc">edit</a></h3>
 </div></div></div>
 <p>Update the description, tags, and connector of case ID
 <code class="literal">a18b38a0-71b0-11ea-a0b2-c51ea50a58e2</code>:</p>
@@ -553,15 +551,8 @@ Indicates a successful call.
           "parent": null
         }
       },
-      "description": "James Bond clicked on a highly suspicious email
-      banner advertising cheap holidays for underpaid civil servants.
-      Operation bubblegum is active. Repeat - operation bubblegum is
-      now active!",
-      "tags": [
-        "phishing",
-        "social engineering",
-        "bubblegum"
-      ],
+      "description": "A new description.",
+      "tags": [ "tag-1", "tag-2" ],
       "settings": {
         "syncAlerts": true
       }
@@ -569,7 +560,7 @@ Indicates a successful call.
   ]
 }</pre>
 </div>
-<div class="kibana_widget" data-snippet="snippets/155.kibana"></div>
+<div class="kibana_widget" data-snippet="snippets/170.kibana"></div>
 <p>The API returns the updated case with a new <code class="literal">version</code> value. For example:</p>
 <div class="pre_wrapper lang-json">
 <pre class="programlisting prettyprint lang-json">[
@@ -579,31 +570,29 @@ Indicates a successful call.
     "comments": [],
     "totalComment": 0,
     "totalAlerts": 0,
-    "title": "This case will self-destruct in 5 seconds",
-    "tags": [
-      "phishing",
-      "social engineering",
-      "bubblegum"
-    ],
+    "title": "Case title 1",
+    "tags": [ "tag-1", "tag-2" ],
     "settings": {
       "syncAlerts": true
     },
-    "owner": "securitySolution",
-    "description": "James Bond clicked on a highly suspicious email banner advertising cheap holidays for underpaid civil servants. Operation bubblegum is active. Repeat - operation bubblegum is now active!",
+    "owner": "cases",
+    "description": "A new description.",
+    "duration": null,
+    "severity": "low",
     "closed_at": null,
     "closed_by": null,
     "created_at": "2022-05-13T09:16:17.416Z",
     "created_by": {
-      "email": "ahunley@imf.usa.gov",
-      "full_name": "Alan Hunley",
-      "username": "ahunley"
+      "email": null,
+      "full_name": null,
+      "username": "elastic"
     },
     "status": "open",
     "updated_at": "2022-05-13T09:48:33.043Z",
     "updated_by": {
-      "email": "classified@hms.oo.gov.uk",
-      "full_name": "Classified",
-      "username": "M"
+      "email": null,
+      "full_name": null,
+      "username": "elastic"
     },
     "connector": {
       "id": "131d4448-abe0-4789-939d-8ef60680b498",
@@ -618,9 +607,9 @@ Indicates a successful call.
     "external_service": {
       "external_title": "IS-4",
       "pushed_by": {
-        "full_name": "Classified",
-        "email": "classified@hms.oo.gov.uk",
-        "username": "M"
+        "full_name": null,
+        "email": null,
+        "username": "elastic"
       },
       "external_url": "https://hms.atlassian.net/browse/IS-4",
       "pushed_at": "2022-05-13T09:20:40.672Z",
@@ -646,15 +635,37 @@ Indicates a successful call.
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

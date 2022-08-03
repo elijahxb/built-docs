@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Scale out your installation | Elastic Cloud Enterprise Reference [3.2] | Elastic</title>
+<link rel="home" href="index.html" title="Elastic Cloud Enterprise Reference [3.2]"/>
+<link rel="up" href="ece-administering-ece.html" title="Administering your installation"/>
+<link rel="prev" href="ece-administering-ece.html" title="Administering your installation"/>
+<link rel="next" href="ece-change-roles.html" title="Assign roles to hosts"/>
+<meta name="DC.type" content="Learn/Docs/CloudEnterprise/Reference/3.2"/>
+<meta name="DC.subject" content="ECE"/>
+<meta name="DC.identifier" content="3.2"/>
+</head>
+<body><div class="page_header">
+A newer version is available. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Cloud Enterprise Reference [3.2]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="ece-administering-ece.html">Administering your installation</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="ece-administering-ece.html">« Administering your installation</a>
+</span>
+<span class="next">
+<a href="ece-change-roles.html">Assign roles to hosts »</a>
+</span>
+</div>
+<div class="chapter">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="ece-add-capacity"></a>Scale out your installation<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/cloud-enterprise/ce-administering-ece.asciidoc">edit</a></h2>
+</div></div></div>
+<p>Elastic Cloud Enterprise scales to whatever capacity you need. If you need more processing capacity because your allocators are close to being maxed out or because you want to enable high availability and need an additional availability zone, simply add more capacity and change your deployment configuration to make use of it.</p>
+<p>Check the available capacity:</p>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+<a class="xref" href="ece-login.html" title="Log into the Cloud UI">Log into the Cloud UI</a>.
+</li>
+<li class="listitem">
+<p>From the <span class="strong strong"><strong>Platform</strong></span> menu, select <span class="strong strong"><strong>Allocators</strong></span> to view the available capacity.</p>
+<p>Narrow the list by name, ID, or choose from several other filters. To further define the list, use a combination of filters.</p>
+<p>In this case 3 GB and 6 GB on two different allocators:</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/ece-available-capacity.png" alt="The available capacity in an installation">
+</div>
+</div>
+</li>
+</ol>
+</div>
+<p>If this is not sufficient, add more capacity to your installation:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<a class="xref" href="ece-installing-additional.html" title="Install ECE on additional hosts">Install Elastic Cloud Enterprise on additional hosts</a> to create additional capacity.
+</li>
+<li class="listitem">
+<a class="xref" href="set-allocator-settings.html" title="Set allocator settings">Add capacity</a> to existing allocators by updating the allocator settings when adding memory to the host.
+</li>
+<li class="listitem">
+<a class="xref" href="ece-change-roles.html" title="Assign roles to hosts">Assign roles</a> to the additional hosts. If you need to handle a larger search or logging workload, assign the new hosts the allocator role.
+</li>
+<li class="listitem">
+(Optional) <a class="xref" href="ece-configuring-ece-tag-allocators.html" title="Tag your allocators">Tag allocators</a> to the new host to indicate what kind of hardware you have available.
+</li>
+<li class="listitem">
+<a class="xref" href="ece-resize-deployment.html" title="Resize your deployment">Resize your deployment</a> to handle a larger workload.
+</li>
+</ul>
+</div>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="ece-administering-ece.html">« Administering your installation</a>
+</span>
+<span class="next">
+<a href="ece-change-roles.html">Assign roles to hosts »</a>
+</span>
+</div>
+</div>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains('stemblock')) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+</body>
+</html>

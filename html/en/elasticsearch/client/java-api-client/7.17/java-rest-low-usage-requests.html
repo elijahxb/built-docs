@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,27 +87,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 A newer version is available. For the latest information, see the
@@ -115,13 +106,10 @@ A newer version is available. For the latest information, see the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Java API Client [7.17]</a></span>
-»
-<span class="breadcrumb-link"><a href="java-rest-low.html">Java Low Level REST Client</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Java API Client [7.17]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="java-rest-low.html">Java Low Level REST Client</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="java-rest-low-usage.html">Getting started</a></span>
-»
-<span class="breadcrumb-node">Performing requests</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -144,15 +132,15 @@ asynchronous and accepts a <code class="literal">ResponseListener</code> argumen
 <p>This is synchronous:</p>
 <div class="pre_wrapper lang-java">
 <pre class="programlisting prettyprint lang-java">Request request = new Request(
-    "GET",  <a id="CO23-1"></a><i class="conum" data-value="1"></i>
-    "/");   <a id="CO23-2"></a><i class="conum" data-value="2"></i>
+    "GET",  <a id="CO21-1"></a><i class="conum" data-value="1"></i>
+    "/");   <a id="CO21-2"></a><i class="conum" data-value="2"></i>
 Response response = restClient.performRequest(request);</pre>
 </div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO23-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO21-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>The HTTP method (<code class="literal">GET</code>, <code class="literal">POST</code>, <code class="literal">HEAD</code>, etc)</p>
@@ -160,7 +148,7 @@ Response response = restClient.performRequest(request);</pre>
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO23-2"><i class="conum" data-value="2"></i></a></p>
+<p><a href="#CO21-2"><i class="conum" data-value="2"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>The endpoint on the server</p>
@@ -171,18 +159,18 @@ Response response = restClient.performRequest(request);</pre>
 <p>And this is asynchronous:</p>
 <div class="pre_wrapper lang-java">
 <pre class="programlisting prettyprint lang-java">Request request = new Request(
-    "GET",  <a id="CO24-1"></a><i class="conum" data-value="1"></i>
-    "/");   <a id="CO24-2"></a><i class="conum" data-value="2"></i>
+    "GET",  <a id="CO22-1"></a><i class="conum" data-value="1"></i>
+    "/");   <a id="CO22-2"></a><i class="conum" data-value="2"></i>
 Cancellable cancellable = restClient.performRequestAsync(request,
     new ResponseListener() {
         @Override
         public void onSuccess(Response response) {
-            <a id="CO24-3"></a><i class="conum" data-value="3"></i>
+            <a id="CO22-3"></a><i class="conum" data-value="3"></i>
         }
 
         @Override
         public void onFailure(Exception exception) {
-            <a id="CO24-4"></a><i class="conum" data-value="4"></i>
+            <a id="CO22-4"></a><i class="conum" data-value="4"></i>
         }
 });</pre>
 </div>
@@ -190,7 +178,7 @@ Cancellable cancellable = restClient.performRequestAsync(request,
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO24-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO22-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>The HTTP method (<code class="literal">GET</code>, <code class="literal">POST</code>, <code class="literal">HEAD</code>, etc)</p>
@@ -198,7 +186,7 @@ Cancellable cancellable = restClient.performRequestAsync(request,
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO24-2"><i class="conum" data-value="2"></i></a></p>
+<p><a href="#CO22-2"><i class="conum" data-value="2"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>The endpoint on the server</p>
@@ -206,7 +194,7 @@ Cancellable cancellable = restClient.performRequestAsync(request,
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO24-3"><i class="conum" data-value="3"></i></a></p>
+<p><a href="#CO22-3"><i class="conum" data-value="3"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Handle the response</p>
@@ -214,7 +202,7 @@ Cancellable cancellable = restClient.performRequestAsync(request,
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO24-4"><i class="conum" data-value="4"></i></a></p>
+<p><a href="#CO22-4"><i class="conum" data-value="4"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Handle the failure</p>
@@ -256,8 +244,8 @@ instance and share it between all requests:</p>
 <pre class="programlisting prettyprint lang-java">private static final RequestOptions COMMON_OPTIONS;
 static {
     RequestOptions.Builder builder = RequestOptions.DEFAULT.toBuilder();
-    builder.addHeader("Authorization", "Bearer " + TOKEN); <a id="CO25-1"></a><i class="conum" data-value="1"></i>
-    builder.setHttpAsyncResponseConsumerFactory(           <a id="CO25-2"></a><i class="conum" data-value="2"></i>
+    builder.addHeader("Authorization", "Bearer " + TOKEN); <a id="CO23-1"></a><i class="conum" data-value="1"></i>
+    builder.setHttpAsyncResponseConsumerFactory(           <a id="CO23-2"></a><i class="conum" data-value="2"></i>
         new HttpAsyncResponseConsumerFactory
             .HeapBufferedResponseConsumerFactory(30 * 1024 * 1024 * 1024));
     COMMON_OPTIONS = builder.build();
@@ -267,7 +255,7 @@ static {
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO25-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO23-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Add any headers needed by all requests.</p>
@@ -275,7 +263,7 @@ static {
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO25-2"><i class="conum" data-value="2"></i></a></p>
+<p><a href="#CO23-2"><i class="conum" data-value="2"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Customize the response consumer.</p>
@@ -325,13 +313,13 @@ for (int i = 0; i &lt; documents.length; i++) {
             new ResponseListener() {
                 @Override
                 public void onSuccess(Response response) {
-                    <a id="CO26-1"></a><i class="conum" data-value="1"></i>
+                    <a id="CO24-1"></a><i class="conum" data-value="1"></i>
                     latch.countDown();
                 }
 
                 @Override
                 public void onFailure(Exception exception) {
-                    <a id="CO26-2"></a><i class="conum" data-value="2"></i>
+                    <a id="CO24-2"></a><i class="conum" data-value="2"></i>
                     latch.countDown();
                 }
             }
@@ -343,7 +331,7 @@ latch.await();</pre>
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO26-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO24-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Process the returned response</p>
@@ -351,7 +339,7 @@ latch.await();</pre>
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO26-2"><i class="conum" data-value="2"></i></a></p>
+<p><a href="#CO24-2"><i class="conum" data-value="2"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Handle the returned exception, due to communication error or a response
@@ -384,12 +372,12 @@ Cancellable cancellable = restClient.performRequestAsync(
     new ResponseListener() {
         @Override
         public void onSuccess(Response response) {
-            <a id="CO27-1"></a><i class="conum" data-value="1"></i>
+            <a id="CO25-1"></a><i class="conum" data-value="1"></i>
         }
 
         @Override
         public void onFailure(Exception exception) {
-            <a id="CO27-2"></a><i class="conum" data-value="2"></i>
+            <a id="CO25-2"></a><i class="conum" data-value="2"></i>
         }
     }
 );
@@ -399,7 +387,7 @@ cancellable.cancel();</pre>
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO27-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO25-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Process the returned response, in case it was ready before the request got cancelled</p>
@@ -407,7 +395,7 @@ cancellable.cancel();</pre>
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO27-2"><i class="conum" data-value="2"></i></a></p>
+<p><a href="#CO25-2"><i class="conum" data-value="2"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Handle the returned exception, which will most likely be a <code class="literal">CancellationException</code> as the request got cancelled</p>
@@ -430,15 +418,37 @@ cancellable.cancel();</pre>
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

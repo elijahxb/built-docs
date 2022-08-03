@@ -1,1 +1,12 @@
-GET _ml/data_frame/analytics/loganalytics
+PUT /my-index-000001/_mapping
+{
+  "properties": {
+    "name": {
+      "properties": {
+        "last": {
+          "type": "text"
+        }
+      }
+    }
+  }
+}

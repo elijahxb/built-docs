@@ -1,8 +1,7 @@
-POST my-index-000001/_delete_by_query?scroll_size=5000
+GET _cluster/allocation/explain
 {
-  "query": {
-    "term": {
-      "user.id": "kimchy"
-    }
-  }
+  "index": "my-index-000001",
+  "shard": 0,
+  "primary": false,
+  "current_node": "my-node"
 }

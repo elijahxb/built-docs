@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ElasticsearchClusterTrustSettings | Elastic Cloud Enterprise Reference [3.2] | Elastic</title>
+<link rel="home" href="index.html" title="Elastic Cloud Enterprise Reference [3.2]"/>
+<link rel="up" href="definitions.html" title="Definitions"/>
+<link rel="prev" href="ElasticsearchClusterTopologyElement.html" title="ElasticsearchClusterTopologyElement"/>
+<link rel="next" href="ElasticsearchClusterUser.html" title="ElasticsearchClusterUser"/>
+<meta name="DC.type" content="Learn/Docs/CloudEnterprise/Reference/3.2"/>
+<meta name="DC.subject" content="ECE"/>
+<meta name="DC.identifier" content="3.2"/>
+</head>
+<body><div class="page_header">
+A newer version is available. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Cloud Enterprise Reference [3.2]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="ece-restful-api.html">RESTful API</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="ece-api-reference.html">API reference</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="definitions.html">Definitions</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="ElasticsearchClusterTopologyElement.html">« <code class="literal">ElasticsearchClusterTopologyElement</code></a>
+</span>
+<span class="next">
+<a href="ElasticsearchClusterUser.html"><code class="literal">ElasticsearchClusterUser</code> »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="ElasticsearchClusterTrustSettings"></a><code class="literal">ElasticsearchClusterTrustSettings</code><a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/cloud-enterprise/ce-api-swagger.asciidoc">edit</a></h3>
+</div></div></div>
+<p>Configuration of trust with other clusters.</p>
+<div class="section">
+<div class="titlepage"><div><div>
+<h4 class="title"><a id="ece_properties_190"></a>Properties<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/cloud-enterprise/ce-api-swagger.asciidoc">edit</a></h4>
+</div></div></div>
+<div class="variablelist">
+<dl class="variablelist">
+<dt>
+<span class="term">
+<code class="literal">accounts</code> (<code class="literal">array[</code><a class="xref" href="AccountTrustRelationship.html" title="AccountTrustRelationship"><code class="literal">AccountTrustRelationship</code></a><code class="literal">]</code>)
+</span>
+</dt>
+<dd>
+The list of trust relationships with different accounts
+</dd>
+<dt>
+<span class="term">
+<code class="literal">direct</code> (<code class="literal">array[</code><a class="xref" href="DirectTrustRelationship.html" title="DirectTrustRelationship"><code class="literal">DirectTrustRelationship</code></a><code class="literal">]</code>)
+</span>
+</dt>
+<dd>
+The list of trust relationships where the certificate is bundled with the trust setting. Allows configuring trust for clusters running outside of an Elastic Cloud managed environment or in an Elastic Cloud environment without an environment level trust established.
+</dd>
+<dt>
+<span class="term">
+<code class="literal">external</code> (<code class="literal">array[</code><a class="xref" href="ExternalTrustRelationship.html" title="ExternalTrustRelationship"><code class="literal">ExternalTrustRelationship</code></a><code class="literal">]</code>)
+</span>
+</dt>
+<dd>
+The list of trust relationships with external entities
+</dd>
+</dl>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h4 class="title"><a id="ece_example_195"></a>Example<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-72/docs/cloud-enterprise/ce-api-swagger.asciidoc">edit</a></h4>
+</div></div></div>
+<div class="pre_wrapper lang-json">
+<pre class="programlisting prettyprint lang-json">{
+   "accounts" : [
+      {
+         "account_id" : "string",
+         "trust_all" : true,
+         "trust_allowlist" : [
+            "string"
+         ]
+      }
+   ],
+   "direct" : [
+      {
+         "additional_node_names" : [
+            "string"
+         ],
+         "certificates" : [
+            {
+               "metadata" : {
+                  "fingerprint" : "string",
+                  "valid_from" : "2019-01-01T00:00:00Z",
+                  "valid_to" : "2019-01-01T00:00:00Z"
+               },
+               "pem" : "string"
+            }
+         ],
+         "name" : "string",
+         "scope_id" : "string",
+         "trust_all" : true,
+         "trust_allowlist" : [
+            "string"
+         ]
+      }
+   ],
+   "external" : [
+      {
+         "trust_all" : true,
+         "trust_allowlist" : [
+            "string"
+         ],
+         "trust_relationship_id" : "string"
+      }
+   ]
+}</pre>
+</div>
+</div>
+
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="ElasticsearchClusterTopologyElement.html">« <code class="literal">ElasticsearchClusterTopologyElement</code></a>
+</span>
+<span class="next">
+<a href="ElasticsearchClusterUser.html"><code class="literal">ElasticsearchClusterUser</code> »</a>
+</span>
+</div>
+</div>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains('stemblock')) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+</body>
+</html>

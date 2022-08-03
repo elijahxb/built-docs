@@ -1,12 +1,16 @@
-PUT _index_template/timeseries_template
+POST /_scripts/painless/_execute
 {
-  "index_patterns": ["timeseries-*"],                
-  "template": {
-    "settings": {
-      "number_of_shards": 1,
-      "number_of_replicas": 1,
-      "index.lifecycle.name": "timeseries_policy",     
-      "index.lifecycle.rollover_alias": "timeseries"   
+  "script": {
+    "source": """
+      String response=dissect('%{clientip} %{ident} %{auth} [%{@timestamp}] "%{verb} %{request} HTTP/%{httpversion}" %{response} %{size}').extract(doc["message"].value)?.response;
+        if (response != null) emit(Integer.parseInt(response));
+    """
+  },
+  "context": "long_field",
+  "context_setup": {
+    "index": "my-index",
+    "document": {         
+      "message": """247.37.0.0 - - [30/Apr/2020:14:31:22 -0500] "GET /images/hm_nbg.jpg HTTP/1.0" 304 0"""
     }
   }
 }

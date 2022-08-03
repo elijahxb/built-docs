@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,36 +87,25 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Service Documentation</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Service Documentation</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="ec-cloud-ingest-data.html">Indexing data into Elasticsearch</a></span>
-»
-<span class="breadcrumb-node">Migrating data</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -128,9 +117,9 @@
 </div>
 <div class="chapter">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="ec-migrating-data"></a>Migrating data<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-71/docs/shared/ec-ce-cloud-ingest-data.asciidoc">edit</a></h2>
+<h2 class="title"><a id="ec-migrating-data"></a>Migrating data<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-77/docs/shared/ec-ce-cloud-ingest-data.asciidoc">edit</a></h2>
 </div></div></div>
-<p>If you want to move your existing Elasticsearch data into your new infrastructure, check out the <a class="xref" href="ec-migrating-data.html#ec-migrate-data" title="Migrate your Elasticsearch data">migration options</a>. You&#8217;ll find instructions to guide you through:</p>
+<p>If you want to move your existing Elasticsearch data into your new infrastructure, check out the <a class="xref" href="ec-migrating-data.html#ec-migrate-data2" title="Migrate your Elasticsearch data">migration options</a>. You&#8217;ll find instructions to guide you through:</p>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
 <li class="listitem">
@@ -148,9 +137,12 @@ Migrating <a class="xref" href="ec-migrate-from-aws.html" title="Migrate from Am
 <li class="listitem">
 Migrating <a class="xref" href="ec-migrate-data-internal.html" title="Migrate internal indices">internal Elasticsearch indices</a>
 </li>
+<li class="listitem">
+Migrating <a class="xref" href="ec-remote-reindex.html" title="Migrate from a self-managed cluster with a self-signed certificate using remote reindex">through remote reindex</a>
+</li>
 </ul>
 </div>
-<h2><a id="ec-migrate-data"></a>Migrate your Elasticsearch data<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-71/docs/shared/ec-ce-migrating-data.asciidoc">edit</a></h2>
+<h2><a id="ec-migrate-data2"></a>Migrate your Elasticsearch data<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-77/docs/shared/ec-ce-migrating-data.asciidoc">edit</a></h2>
 <p>You might have switched to Elasticsearch Service for any number of reasons and you&#8217;re likely wondering how to get your existing Elasticsearch data into your new infrastructure. Along with easily creating as many new deployments with Elasticsearch clusters that you need, you have several options for moving your data over. Choose the option that works best for you:</p>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
@@ -167,7 +159,7 @@ Restore from a snapshot, which copies the existing indices.
 </div>
 <p>One of the many advantages of Elasticsearch Service is that you can spin up a deployment quickly, try out something, and then delete it if you don&#8217;t like it. This flexibility provides the freedom to experiment while your existing production cluster continues to work.</p>
 <p>If you are planning to switch from Amazon ES to Elasticsearch Service, check our guidelines about <a class="xref" href="ec-migrate-from-aws.html" title="Migrate from Amazon OpenSearch Service (formerly Amazon Elasticsearch Service)">how to migrate your AWS ES data</a>.</p>
-<h3><a id="ec_before_you_begin_2"></a>Before you begin<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-71/docs/shared/ec-ce-migrating-data.asciidoc">edit</a></h3>
+<h3><a id="ec_before_you_begin_2"></a>Before you begin<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-77/docs/shared/ec-ce-migrating-data.asciidoc">edit</a></h3>
 <p>Depending on which option that you choose, you might have limitations or need to do some preparation beforehand.</p>
 <div class="variablelist">
 <dl class="variablelist">
@@ -198,7 +190,7 @@ Restore from a snapshot
 </span>
 </dt>
 <dd>
-The new cluster must be the same size as your old one, or larger, to accommodate the data. The new cluster must also be an Elasticsearch version that is compatible with the old cluster (check <a href="/guide/en/elasticsearch/reference/8.1/snapshot-restore.html#snapshot-restore-version-compatibility" class="ulink" target="_top">Elasticsearch snapshot version compatibility</a> for details). If you have not already done so, you will need to <a href="/guide/en/elasticsearch/reference/8.1/modules-snapshots.html" class="ulink" target="_top">set up snapshots for your old cluster</a> using a repository that can be accessed from the new cluster.
+The new cluster must be the same size as your old one, or larger, to accommodate the data. The new cluster must also be an Elasticsearch version that is compatible with the old cluster (check <a href="/guide/en/elasticsearch/reference/8.3/snapshot-restore.html#snapshot-restore-version-compatibility" class="ulink" target="_top">Elasticsearch snapshot version compatibility</a> for details). If you have not already done so, you will need to <a href="/guide/en/elasticsearch/reference/8.3/modules-snapshots.html" class="ulink" target="_top">set up snapshots for your old cluster</a> using a repository that can be accessed from the new cluster.
 </dd>
 <dt>
 <span class="term">
@@ -225,13 +217,13 @@ Check <a class="xref" href="ec-migrate-data-internal.html" title="Migrate intern
 <div class="warning admon">
 <div class="icon"></div>
 <div class="admon_content">
-<p>Before you migrate your Elasticsearch data, <a href="/guide/en/elasticsearch/reference/8.1/mapping.html" class="ulink" target="_top">define your index mappings</a> on the new cluster. Index mappings are unable to migrate during reindex operations.</p>
+<p>Before you migrate your Elasticsearch data, <a href="/guide/en/elasticsearch/reference/8.3/mapping.html" class="ulink" target="_top">define your index mappings</a> on the new cluster. Index mappings are unable to migrate during reindex operations.</p>
 </div>
 </div>
-<h3><a id="ec-index-source"></a>Index from the source<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-71/docs/shared/ec-ce-migrating-data.asciidoc">edit</a></h3>
+<h3><a id="ec-index-source"></a>Index from the source<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-77/docs/shared/ec-ce-migrating-data.asciidoc">edit</a></h3>
 <p>If you still have access to the original data source, outside of your old Elasticsearch cluster, you can load the data from there. This might be the simplest option, allowing you to choose the Elasticsearch version and take advantage of the latest features. You have the option to use any ingestion method that you want&#8212;&#8203;Logstash, Beats, the Elasticsearch clients, or whatever works best for you.</p>
 <p>If the original source isn&#8217;t available or has other issues that make it non-viable, there are still two more migration options, getting the data from a remote cluster or restoring from a snapshot.</p>
-<h3><a id="ec-reindex-remote"></a>Reindex from a remote cluster<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-71/docs/shared/ec-ce-migrating-data.asciidoc">edit</a></h3>
+<h3><a id="ec-reindex-remote"></a>Reindex from a remote cluster<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-77/docs/shared/ec-ce-migrating-data.asciidoc">edit</a></h3>
 <p>Through the Elasticsearch reindex API, available in version 5.x and later, you can connect your new Elasticsearch Service deployment remotely to your old Elasticsearch cluster. This pulls the data from your old cluster and indexes it into your new one. Reindexing essentially rebuilds the index from scratch and it can be more resource intensive to run.</p>
 <div class="olist orderedlist">
 <ol class="orderedlist">
@@ -249,7 +241,7 @@ Select a deployment or create one.
 From your deployment menu, go to the <span class="strong strong"><strong>Edit</strong></span> page.
 </li>
 <li class="listitem">
-In the <span class="strong strong"><strong>Elasticsearch</strong></span> section, select <span class="strong strong"><strong>Edit user settings and plugins</strong></span>. For deployments with existing user settings, you may have to expand the <span class="strong strong"><strong>Edit elasticsearch.yml</strong></span> caret for each node type instead.
+In the <span class="strong strong"><strong>Elasticsearch</strong></span> section, select <span class="strong strong"><strong>Manage user settings and extensions</strong></span>. For deployments with existing user settings, you may have to expand the <span class="strong strong"><strong>Edit elasticsearch.yml</strong></span> caret for each node type instead.
 </li>
 <li class="listitem">
 <p>Add the following user setting:</p>
@@ -299,7 +291,7 @@ You can remove the reindex.remote.whitelist user setting that you added previous
 </li>
 </ol>
 </div>
-<h3><a id="ec-restore-snapshots"></a>Restore from a snapshot<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-71/docs/shared/ec-ce-migrating-data.asciidoc">edit</a></h3>
+<h3><a id="ec-restore-snapshots"></a>Restore from a snapshot<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-77/docs/shared/ec-ce-migrating-data.asciidoc">edit</a></h3>
 <p>If you cannot connect to a remote index for whatever reason, such as if it&#8217;s in a non-working state, you can try restoring from the most recent working snapshot.</p>
 <div class="olist orderedlist">
 <ol class="orderedlist">
@@ -376,6 +368,7 @@ Select <span class="strong strong"><strong>Restore snapshot</strong></span> to b
 </div>
 
 
+
 </div>
 <div class="navfooter">
 <span class="prev">
@@ -389,15 +382,37 @@ Select <span class="strong strong"><strong>Restore snapshot</strong></span> to b
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

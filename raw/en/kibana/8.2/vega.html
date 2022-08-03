@@ -15,19 +15,16 @@
 <meta name="robots" content="noindex,nofollow"/>
 </head>
 <body><div class="page_header">
-You are looking at preliminary documentation for a future release.
-Not what you want? See the
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
 <a href="../current/index.html">current release documentation</a>.
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Kibana Guide [8.2]</a></span>
-»
-<span class="breadcrumb-link"><a href="dashboard.html">Dashboard and visualizations</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Kibana Guide [8.2]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="dashboard.html">Dashboard and visualizations</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="aggregation-reference.html">Create panels with editors</a></span>
-»
-<span class="breadcrumb-node">Vega</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -1300,7 +1297,7 @@ url: {
       time_buckets: {
         date_histogram: {
           // Use date histogram aggregation on @timestamp field
-          field: @timestamp <a id="CO25-1"></a><i class="conum" data-value="1"></i>
+          field: @timestamp <a id="CO31-1"></a><i class="conum" data-value="1"></i>
           // interval value will depend on the time filter
           // Use an integer to set approximate bucket count
           interval: { %autointerval%: true }
@@ -1324,7 +1321,7 @@ url: {
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO25-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO31-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p><code class="literal">@timestamp</code> &mdash; Filters the time range and breaks it into histogram
@@ -1340,11 +1337,11 @@ buckets.</p>
     "time_buckets": {
       "buckets": [{
           "key_as_string": "2015-11-30T22:00:00.000Z",
-          "key": 1448920800000,<a id="CO26-1"></a><i class="conum" data-value="1"></i>
+          "key": 1448920800000,<a id="CO32-1"></a><i class="conum" data-value="1"></i>
           "doc_count": 28
         }, {
           "key_as_string": "2015-11-30T23:00:00.000Z",
-          "key": 1448924400000, <a id="CO26-2"></a><i class="conum" data-value="1"></i>
+          "key": 1448924400000, <a id="CO32-2"></a><i class="conum" data-value="1"></i>
           "doc_count": 330
         }, ...</pre>
 </div>
@@ -1352,7 +1349,7 @@ buckets.</p>
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO26-1"><i class="conum" data-value="1"></i></a><a href="#CO26-2"></a></p>
+<p><a href="#CO32-1"><i class="conum" data-value="1"></i></a><a href="#CO32-2"></a></p>
 </td>
 <td align="left" valign="top">
 <p><code class="literal">"key"</code> &mdash; The unix timestamp you can use without conversions by the
@@ -1433,12 +1430,17 @@ This functionality is in technical preview and may be changed or removed in a fu
 <pre class="programlisting prettyprint lang-yaml">url: {
   // "type" defaults to "elasticsearch" otherwise
   %type%: emsfile
-  // Name of the file, exactly as in the Region map visualization
+  // Name of the file, exactly as in https://maps.elastic.co
   name: World Countries
 }
-// The result is a geojson file, get its features to use
-// this data source with the "shape" marks
+// The result is either a topojson file or a geojson file.
+// Refer to the Default format for the file at https://maps.elastic.co
+// Get its features to use this data source with the "shape" marks
 // https://vega.github.io/vega/docs/marks/shape/
+// For a topojson file use
+format: {type: "topojson", feature: "data"}
+
+// For a geojson file use
 format: {property: "features"}</pre>
 </div>
 <h4><a id="vega-with-a-map"></a>Vega with a Map<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.2/docs/user/dashboard/vega-reference.asciidoc">edit</a></h4>
@@ -1501,16 +1503,28 @@ This functionality is in technical preview and may be changed or removed in a fu
 </span>
 </span> You can use the <span class="strong strong"><strong>Vega</strong></span> <a href="https://vega.github.io/vega/docs/data/" class="ulink" target="_top">data</a> element to access <a href="/elastic-maps-service" class="ulink" target="_top">Elastic Maps Service (EMS)</a> vector shapes of administrative boundaries in your Vega map by setting <code class="literal">url.data</code> to <code class="literal">emsFile</code>:</p>
 <div class="pre_wrapper lang-yaml">
-<pre class="programlisting prettyprint lang-yaml">url: {
-  // "type" defaults to "elasticsearch" otherwise
-  %type%: emsfile
-  // Name of the file, exactly as in the Region map visualization
-  name: World Countries
-}
-// The result is a geojson file, get its features to use
-// this data source with the "shape" marks
-// https://vega.github.io/vega/docs/marks/shape/
-format: {property: "features"}</pre>
+<pre class="programlisting prettyprint lang-yaml">  "data": [
+    {
+      "name": "countries",
+      "url": {
+        // "type" defaults to "elasticsearch" otherwise
+        %type%: emsfile
+        // Name of the file, exactly as in the Region map visualization
+        name: World Countries
+      },
+      // The result is a topojson file, get its features to use
+      // this data source with the "shape" marks
+      // https://vega.github.io/vega/docs/marks/shape/
+      "format": {"type": "topojson", "feature": "data"},
+    }
+  ],
+  "marks": [
+    {
+      "type": "shape",
+      "from": {"data": "countries"},
+      "transform": [{"type": "geoshape", "projection": "projection"}]
+    }
+  ]</pre>
 </div>
 <h6><a id="vega-tooltip"></a>Additional tooltip styling<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.2/docs/user/dashboard/vega-reference.asciidoc">edit</a></h6>
 <p>Kibana has installed the <a href="https://vega.github.io/vega-lite/docs/tooltip.html" class="ulink" target="_top">Vega tooltip plugin</a>,

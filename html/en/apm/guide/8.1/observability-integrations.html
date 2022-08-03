@@ -11,6 +11,7 @@
 <meta name="DC.type" content="Learn/Docs/APM Guide/8.1"/>
 <meta name="DC.subject" content="APM"/>
 <meta name="DC.identifier" content="8.1"/>
+<meta name="robots" content="noindex,nofollow"/>
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -56,7 +57,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,38 +88,30 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
-                  
+                  <div class="page_header">
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">APM User Guide [8.1]</a></span>
-»
-<span class="breadcrumb-link"><a href="legacy-apm-overview.html">Legacy APM Overview</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">APM User Guide [8.1]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="legacy-apm-overview.html">Legacy APM Overview</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="apm-features.html">Elastic APM features</a></span>
-»
-<span class="breadcrumb-node">Observability integrations</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -130,17 +123,17 @@
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="observability-integrations"></a>Observability integrations<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-server/edit/8.1/docs/legacy/guide/obs-integrations.asciidoc">edit</a></h2>
+<h2 class="title"><a id="observability-integrations"></a>Observability integrations<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/apm-server/edit/8.1/docs/legacy/guide/obs-integrations.asciidoc">edit</a></h2>
 </div></div></div>
 <div class="important admon">
 <div class="icon"></div>
 <div class="admon_content">
-<p>This documentation refers to the standalone (legacy) method of running APM Server. This method of running APM Server will be deprecated and removed in a future release. Please consider <a class="xref" href="upgrade-to-apm-integration.html" title="Upgrade to the Elastic APM integration">upgrading to the Elastic APM integration</a>.
+<p>This documentation refers to the standalone (legacy) method of running APM Server. This method of running APM Server will be deprecated and removed in a future release. Please consider <a class="xref" href="upgrade-to-apm-integration.html" title="Switch to the Elastic APM integration">upgrading to the Elastic APM integration</a>.
 If you&#8217;ve already upgraded, see <a class="xref" href="log-correlation.html" title="Logging integration">Logging integration</a>.</p>
 </div>
 </div>
 <p>Elastic APM supports integrations with other observability solutions.</p>
-<h4><a id="apm-logging-integration"></a>Logging integration<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-server/edit/8.1/docs/legacy/guide/obs-integrations.asciidoc">edit</a></h4>
+<h4><a id="apm-logging-integration"></a>Logging integration<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/apm-server/edit/8.1/docs/legacy/guide/obs-integrations.asciidoc">edit</a></h4>
 <p>Many applications use logging frameworks to help record, format, and append an application&#8217;s logs.
 Elastic APM now offers a way to make your application logs even more useful,
 by integrating with the most popular logging frameworks in their respective languages.
@@ -161,11 +154,11 @@ Ingest your logs into Elasticsearch
 </li>
 </ol>
 </div>
-<h5><a id="_enable_log_correlation_2"></a>Enable Log correlation<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-server/edit/8.1/docs/legacy/guide/obs-integrations.asciidoc">edit</a></h5>
+<h5><a id="_enable_log_correlation_2"></a>Enable Log correlation<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/apm-server/edit/8.1/docs/legacy/guide/obs-integrations.asciidoc">edit</a></h5>
 <p>Some Agents require you to first enable log correlation in the Agent.
 This is done with a configuration variable, and is different for each Agent.
 See the relevant <a href="/guide/en/apm/agent/index.html" class="ulink" target="_top">Agent documentation</a> for further information.</p>
-<h5><a id="_add_apm_identifiers_to_your_logs_2"></a>Add APM identifiers to your logs<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-server/edit/8.1/docs/legacy/guide/obs-integrations.asciidoc">edit</a></h5>
+<h5><a id="_add_apm_identifiers_to_your_logs_2"></a>Add APM identifiers to your logs<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/apm-server/edit/8.1/docs/legacy/guide/obs-integrations.asciidoc">edit</a></h5>
 <p>Once log correlation is enabled,
 you must ensure your logs contain APM identifiers.
 In some supported frameworks, this is already done for you.
@@ -176,7 +169,7 @@ you&#8217;ll need to add APM identifiers to your logs in any easy to parse manne
 <p>This process for adding these fields will differ based the Agent you&#8217;re using, the logging framework,
 and the type and structure of your logs.</p>
 <p>See the relevant <a href="/guide/en/apm/agent/index.html" class="ulink" target="_top">Agent documentation</a> to learn more.</p>
-<h5><a id="_ingest_your_logs_into_elasticsearch_2"></a>Ingest your logs into Elasticsearch<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-server/edit/8.1/docs/legacy/guide/obs-integrations.asciidoc">edit</a></h5>
+<h5><a id="_ingest_your_logs_into_elasticsearch_2"></a>Ingest your logs into Elasticsearch<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/apm-server/edit/8.1/docs/legacy/guide/obs-integrations.asciidoc">edit</a></h5>
 <p>Once your logs contain the appropriate identifiers (fields), you need to ingest them into Elasticsearch.
 Luckily, we&#8217;ve got a tool for that&#8201;&#8212;&#8201;Filebeat is Elastic&#8217;s log shipper.
 The <a href="/guide/en/beats/filebeat/8.1/filebeat-installation-configuration.html" class="ulink" target="_top">Filebeat quick start</a>
@@ -369,15 +362,37 @@ multiline.match: after</pre>
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

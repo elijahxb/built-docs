@@ -1,4 +1,4 @@
-POST /_security/profile/_suggest
+POST /_security/saml/prepare
 {
-  "name": "jack"
+  "realm" : "saml1"
 }

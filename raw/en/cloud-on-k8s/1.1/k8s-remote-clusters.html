@@ -17,13 +17,10 @@ A newer version is available. For the latest information, see the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elastic Cloud on Kubernetes [1.1]</a></span>
-»
-<span class="breadcrumb-link"><a href="k8s-orchestrating-elastic-stack-applications.html">Orchestrating Elastic Stack applications</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elastic Cloud on Kubernetes [1.1]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="k8s-orchestrating-elastic-stack-applications.html">Orchestrating Elastic Stack applications</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="k8s-elasticsearch-specification.html">Run Elasticsearch on ECK</a></span>
-»
-<span class="breadcrumb-node">Remote clusters</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -66,7 +63,7 @@ spec:
     elasticsearchRef:
       name: cluster-two
       namespace: ns-two <a id="CO6-1"></a><i class="conum" data-value="1"></i>
-  version: 8.1.2</pre>
+  version: 8.3.3</pre>
 </div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
@@ -166,7 +163,7 @@ spec:
         - name: remote-certs
           secret:
             secretName: remote-certs
-  version: 8.1.2</pre>
+  version: 8.3.3</pre>
 </div>
 <p>Repeat the above steps to add the CA of <code class="literal">cluster-two</code> to <code class="literal">cluster-one</code> as well.</p>
 </div>

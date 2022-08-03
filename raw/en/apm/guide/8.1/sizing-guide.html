@@ -10,19 +10,20 @@
 <meta name="DC.type" content="Learn/Docs/APM Guide/8.1"/>
 <meta name="DC.subject" content="APM"/>
 <meta name="DC.identifier" content="8.1"/>
+<meta name="robots" content="noindex,nofollow"/>
 </head>
-<body>
+<body><div class="page_header">
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">APM User Guide [8.1]</a></span>
-»
-<span class="breadcrumb-link"><a href="overview.html">Legacy APM Server Reference</a></span>
-»
-<span class="breadcrumb-link"><a href="howto-guides.html">How-to guides</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">APM User Guide [8.1]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="overview.html">Legacy APM Server Reference</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="howto-guides.html">How-to guides</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="storage-management.html">Storage Management</a></span>
-»
-<span class="breadcrumb-node">Storage and sizing guide</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -34,12 +35,12 @@
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h3 class="title"><a id="sizing-guide"></a>Storage and sizing guide<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-server/edit/8.1/docs/legacy/storage-management.asciidoc">edit</a></h3>
+<h3 class="title"><a id="sizing-guide"></a>Storage and sizing guide<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/apm-server/edit/8.1/docs/legacy/storage-management.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="important admon">
 <div class="icon"></div>
 <div class="admon_content">
-<p>This documentation refers to the standalone (legacy) method of running APM Server. This method of running APM Server will be deprecated and removed in a future release. Please consider <a class="xref" href="upgrade-to-apm-integration.html" title="Upgrade to the Elastic APM integration">upgrading to the Elastic APM integration</a>.
+<p>This documentation refers to the standalone (legacy) method of running APM Server. This method of running APM Server will be deprecated and removed in a future release. Please consider <a class="xref" href="upgrade-to-apm-integration.html" title="Switch to the Elastic APM integration">upgrading to the Elastic APM integration</a>.
 If you&#8217;ve already upgraded, please see <a class="xref" href="storage-guide.html" title="Storage and sizing guide">Storage and sizing guide</a> instead.</p>
 </div>
 </div>
@@ -61,7 +62,7 @@ Stack frames can heavily influence the size of a span.
 </li>
 </ul>
 </div>
-<h5><a id="typical-transactions"></a>Typical transactions<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-server/edit/8.1/docs/legacy/storage-management.asciidoc">edit</a></h5>
+<h5><a id="typical-transactions"></a>Typical transactions<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/apm-server/edit/8.1/docs/legacy/storage-management.asciidoc">edit</a></h5>
 <p>Due to the high variability of APM data, it&#8217;s difficult to classify a transaction as typical.
 Regardless, this guide will attempt to classify Transactions as <em>Small</em>, <em>Medium</em>, or <em>Large</em>,
 and make recommendations based on those classifications.</p>
@@ -107,7 +108,7 @@ How little or much you use these APIs will also impact what a typical transactio
 </div>
 <p>There will always be transaction outliers with hundreds of spans or stack frames, but those are very rare.
 Small transactions are the most common.</p>
-<h5><a id="typical-storage"></a>Typical storage<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-server/edit/8.1/docs/legacy/storage-management.asciidoc">edit</a></h5>
+<h5><a id="typical-storage"></a>Typical storage<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/apm-server/edit/8.1/docs/legacy/storage-management.asciidoc">edit</a></h5>
 <p>Consider the following typical storage reference.
 These numbers do not account for Elasticsearch compression.</p>
 <div class="ulist itemizedlist">

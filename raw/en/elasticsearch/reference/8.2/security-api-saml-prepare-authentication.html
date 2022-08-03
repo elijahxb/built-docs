@@ -13,19 +13,16 @@
 <meta name="robots" content="noindex,nofollow"/>
 </head>
 <body><div class="page_header">
-You are looking at preliminary documentation for a future release.
-Not what you want? See the
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
 <a href="../current/index.html">current release documentation</a>.
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.2]</a></span>
-»
-<span class="breadcrumb-link"><a href="rest-apis.html">REST APIs</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [8.2]</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="rest-apis.html">REST APIs</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="security-api.html">Security APIs</a></span>
-»
-<span class="breadcrumb-node">SAML prepare authentication API</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -167,7 +164,7 @@ authentication request.
   "realm" : "saml1"
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/2582.console"></div>
+<div class="console_widget" data-snippet="snippets/2596.console"></div>
 <p>The following example generates a SAML authentication request for the SAML realm with an Assertion
 Consuming Service URL matching `https://kibana.org/api/security/saml/callback</p>
 <a id="da3f280bc65b581fb3097be768061bee"></a>
@@ -177,7 +174,7 @@ Consuming Service URL matching `https://kibana.org/api/security/saml/callback</p
   "acs" : "https://kibana.org/api/security/saml/callback"
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/2583.console"></div>
+<div class="console_widget" data-snippet="snippets/2597.console"></div>
 <p>This API returns the following response:</p>
 <div class="pre_wrapper lang-js">
 <pre class="programlisting prettyprint lang-js">{

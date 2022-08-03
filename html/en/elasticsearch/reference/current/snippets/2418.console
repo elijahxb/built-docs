@@ -1,21 +1,15 @@
-POST test/_search
+PUT _ml/data_frame/analytics/house_price_regression_analysis
 {
-  "suggest": {
-    "text": "noble prize",
-    "simple_phrase": {
-      "phrase": {
-        "field": "title.trigram",
-        "size": 1,
-        "gram_size": 3,
-        "direct_generator": [ {
-          "field": "title.trigram",
-          "suggest_mode": "always"
-        } ],
-        "highlight": {
-          "pre_tag": "<em>",
-          "post_tag": "</em>"
-        }
+  "source": {
+    "index": "houses_sold_last_10_yrs"
+  },
+  "dest": {
+    "index": "house_price_predictions"
+  },
+  "analysis":
+    {
+      "regression": {
+        "dependent_variable": "price"
       }
     }
-  }
 }

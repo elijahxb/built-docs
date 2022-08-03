@@ -59,7 +59,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -90,40 +90,29 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
-You are looking at preliminary documentation for a future release.
-Not what you want? See the
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
 <a href="../current/index.html">current release documentation</a>.
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Kibana Guide [8.2]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Kibana Guide [8.2]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="setup.html">Set up</a></span>
-»
-<span class="breadcrumb-node">Configure reporting in Kibana</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -211,11 +200,8 @@ to enable the Kibana server to have screenshotting capabilities.</p>
 </li>
 </ul>
 </div>
-<p>If the system is missing dependencies, a screenshot report job may fail in a non-deterministic way. Kibana runs a self-test at server startup, and
-if it encounters errors, logs them in the Console. The error message does not include
-information about why Chromium failed to run. The most common error message is <code class="literal">Error: connect ECONNREFUSED</code>, which indicates
-that Kibana could not connect to the Chromium process.</p>
-<p>To troubleshoot the problem, start the Kibana server with environment variables that tell Chromium to print verbose logs. For more information, refer to <a class="xref" href="reporting-troubleshooting.html#reporting-troubleshooting-puppeteer-debug-logs" title="Puppeteer debug logs">Puppeteer debug logs</a>.</p>
+<p>The reporting plugin has a built-in utility to check for common issues, such as missing dependencies. See
+<a class="xref" href="reporting-troubleshooting.html#reporting-diagnostics" title="Reporting diagnostics">Reporting diagnostics</a> for more information.</p>
 <h3><a id="grant-user-access"></a>Grant users access to reporting<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/kibana/edit/8.2/docs/setup/configuring-reporting.asciidoc">edit</a></h3>
 <p>When security is enabled, you grant users access to reporting features with <a class="xref" href="kibana-privileges.html" title="Kibana privileges">Kibana application privileges</a>, which allow you to create custom roles that control the spaces and applications where users generate reports.</p>
 <div class="olist orderedlist">
@@ -343,20 +329,20 @@ Click <span class="strong strong"><strong>Update user</strong></span>.
       "feature": {
         "dashboard": [
           "minimal_read",
-          "generate_report", <a id="CO6-1"></a><i class="conum" data-value="1"></i>
-          "download_csv_report" <a id="CO6-2"></a><i class="conum" data-value="2"></i>
+          "generate_report", <a id="CO12-1"></a><i class="conum" data-value="1"></i>
+          "download_csv_report" <a id="CO12-2"></a><i class="conum" data-value="2"></i>
         ],
         "discover": [
           "minimal_read",
-          "generate_report" <a id="CO6-3"></a><i class="conum" data-value="3"></i>
+          "generate_report" <a id="CO12-3"></a><i class="conum" data-value="3"></i>
         ],
         "canvas": [
           "minimal_read",
-          "generate_report" <a id="CO6-4"></a><i class="conum" data-value="4"></i>
+          "generate_report" <a id="CO12-4"></a><i class="conum" data-value="4"></i>
         ],
         "visualize": [
           "minimal_read",
-          "generate_report" <a id="CO6-5"></a><i class="conum" data-value="5"></i>
+          "generate_report" <a id="CO12-5"></a><i class="conum" data-value="5"></i>
         ]
       },
       "spaces": [ "*" ]
@@ -370,7 +356,7 @@ Click <span class="strong strong"><strong>Update user</strong></span>.
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO6-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO12-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Grants access to generate PNG and PDF reports in <span class="strong strong"><strong>Dashboard</strong></span>.</p>
@@ -378,7 +364,7 @@ Click <span class="strong strong"><strong>Update user</strong></span>.
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO6-2"><i class="conum" data-value="2"></i></a></p>
+<p><a href="#CO12-2"><i class="conum" data-value="2"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Grants access to download CSV files from saved search panels in <span class="strong strong"><strong>Dashboard</strong></span>.</p>
@@ -386,7 +372,7 @@ Click <span class="strong strong"><strong>Update user</strong></span>.
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO6-3"><i class="conum" data-value="3"></i></a></p>
+<p><a href="#CO12-3"><i class="conum" data-value="3"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Grants access to generate CSV reports from saved searches in <span class="strong strong"><strong>Discover</strong></span>.</p>
@@ -394,7 +380,7 @@ Click <span class="strong strong"><strong>Update user</strong></span>.
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO6-4"><i class="conum" data-value="4"></i></a></p>
+<p><a href="#CO12-4"><i class="conum" data-value="4"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Grants access to generate PDF reports in <span class="strong strong"><strong>Canvas</strong></span>.</p>
@@ -402,7 +388,7 @@ Click <span class="strong strong"><strong>Update user</strong></span>.
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO6-5"><i class="conum" data-value="5"></i></a></p>
+<p><a href="#CO12-5"><i class="conum" data-value="5"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Grants access to generate PNG and PDF reports in <span class="strong strong"><strong>Visualize Library</strong></span>.</p>
@@ -426,8 +412,8 @@ Click <span class="strong strong"><strong>Update user</strong></span>.
     {
       "base": [],
       "feature": {
-        "dashboard": [ "all" ], <a id="CO7-1"></a><i class="conum" data-value="1"></i>
-        "discover": [ "all" ], <a id="CO7-2"></a><i class="conum" data-value="2"></i>
+        "dashboard": [ "all" ], <a id="CO13-1"></a><i class="conum" data-value="1"></i>
+        "discover": [ "all" ], <a id="CO13-2"></a><i class="conum" data-value="2"></i>
       },
       "spaces": [ "*" ]
     }
@@ -440,7 +426,7 @@ Click <span class="strong strong"><strong>Update user</strong></span>.
 <table border="0" summary="Callout list">
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO7-1"><i class="conum" data-value="1"></i></a></p>
+<p><a href="#CO13-1"><i class="conum" data-value="1"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Grants access to generate CSV reports from saved searches in <span class="strong strong"><strong>Discover</strong></span>.</p>
@@ -448,7 +434,7 @@ Click <span class="strong strong"><strong>Update user</strong></span>.
 </tr>
 <tr>
 <td align="left" valign="top" width="5%">
-<p><a href="#CO7-2"><i class="conum" data-value="2"></i></a></p>
+<p><a href="#CO13-2"><i class="conum" data-value="2"></i></a></p>
 </td>
 <td align="left" valign="top">
 <p>Grants access to download CSV reports from saved search panels in <span class="strong strong"><strong>Dashboard</strong></span>.</p>
@@ -508,15 +494,37 @@ xpack.http.ssl.truststore.password: "optional decryption password"</pre>
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

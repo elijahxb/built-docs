@@ -11,6 +11,7 @@
 <meta name="DC.type" content="Learn/Docs/Filebeat/Reference/8.1"/>
 <meta name="DC.subject" content="Filebeat"/>
 <meta name="DC.identifier" content="8.1"/>
+<meta name="robots" content="noindex,nofollow"/>
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -56,7 +57,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,36 +88,29 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
-                  
+                  <div class="page_header">
+<strong>IMPORTANT</strong>: No additional bug fixes or documentation updates
+will be released for this version. For the latest information, see the
+<a href="../current/index.html">current release documentation</a>.
+</div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Filebeat Reference [8.1]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Filebeat Reference [8.1]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="filebeat-modules.html">Modules</a></span>
-»
-<span class="breadcrumb-node">CrowdStrike module</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -128,7 +122,7 @@
 </div>
 <div class="chapter xpack">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="filebeat-module-crowdstrike"></a>CrowdStrike module<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/crowdstrike.asciidoc">edit</a></h2>
+<h2 class="title"><a id="filebeat-module-crowdstrike"></a>CrowdStrike module<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/crowdstrike.asciidoc">edit</a></h2>
 </div></div></div>
 <div class="sidebar">
 <div class="titlepage"><div><div>
@@ -175,13 +169,13 @@ Deploys dashboards for visualizing the log data
 how to configure and run modules.</p>
 </div>
 </div>
-<h3><a id="_compatibility_9"></a>Compatibility<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/crowdstrike.asciidoc">edit</a></h3>
+<h3><a id="_compatibility_9"></a>Compatibility<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/crowdstrike.asciidoc">edit</a></h3>
 <p>This input supports CrowdStrike Falcon SIEM-Connector-v2.0.</p>
-<h3><a id="configuring-crowdstrike-module"></a>Configure the module<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/include/configuring-intro.asciidoc">edit</a></h3>
+<h3><a id="configuring-crowdstrike-module"></a>Configure the module<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/include/configuring-intro.asciidoc">edit</a></h3>
 <p>You can further refine the behavior of the <code class="literal">crowdstrike</code> module by specifying
 <a class="xref" href="filebeat-module-crowdstrike.html#crowdstrike-settings" title="Variable settings">variable settings</a> in the
 <code class="literal">modules.d/crowdstrike.yml</code> file, or overriding settings at the command line.</p>
-<h4><a id="crowdstrike-settings"></a>Variable settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/include/config-option-intro.asciidoc">edit</a></h4>
+<h4><a id="crowdstrike-settings"></a>Variable settings<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/include/config-option-intro.asciidoc">edit</a></h4>
 <p>Each fileset has separate variable settings for configuring the behavior of the
 module. If you don’t specify variable settings, the <code class="literal">crowdstrike</code> module uses
 the defaults.</p>
@@ -195,7 +189,7 @@ setting with the module name, for example, <code class="literal">crowdstrike.fal
 instead of <code class="literal">falcon_endpoint.var.paths</code>.</p>
 </div>
 </div>
-<h4><a id="_falcon_fileset_settings"></a><code class="literal">falcon</code> fileset settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/crowdstrike.asciidoc">edit</a></h4>
+<h4><a id="_falcon_fileset_settings"></a><code class="literal">falcon</code> fileset settings<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/crowdstrike.asciidoc">edit</a></h4>
 <p>The fileset is by default configured to collect JSON formated event data from <code class="literal">/var/log/crowdstrike/falconhoseclient/output</code>. It forwards DetectionSummaryEvent and IncidentSummaryEvent events.</p>
 <div class="pre_wrapper lang-yaml">
 <pre class="programlisting prettyprint lang-yaml">var:
@@ -221,7 +215,7 @@ empty, Filebeat will choose log paths based on your operating system.
 </dd>
 </dl>
 </div>
-<h3><a id="_dashboards_3"></a>Dashboards<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/crowdstrike.asciidoc">edit</a></h3>
+<h3><a id="_dashboards_3"></a>Dashboards<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/crowdstrike.asciidoc">edit</a></h3>
 <p>The best way to view CrowdStrike events and alert data is in the SIEM.</p>
 <div class="imageblock screenshot">
 <div class="content">
@@ -235,7 +229,7 @@ empty, Filebeat will choose log paths based on your operating system.
 </div>
 </div>
 <p>And for all over event CrowdStrike Falcon event types, go to Host &#8594; Events.</p>
-<h3><a id="_fields_15"></a>Fields<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/crowdstrike.asciidoc">edit</a></h3>
+<h3><a id="_fields_15"></a>Fields<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/beats/edit/8.1/filebeat/docs/modules/crowdstrike.asciidoc">edit</a></h3>
 <p>For a description of each field in the module, see the
 <a class="xref" href="exported-fields-crowdstrike.html" title="Crowdstrike fields">exported fields</a> section.</p>
 </div>
@@ -251,15 +245,37 @@ empty, Filebeat will choose log paths based on your operating system.
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

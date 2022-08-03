@@ -1,7 +1,11 @@
-GET /my-index-000001/_search
+POST _ml/data_frame/analytics/_explain
 {
-  "profile": true,
-  "query" : {
-    "match" : { "message" : "GET /search" }
+  "source": {
+    "index": "houses_sold_last_10_yrs"
+  },
+  "analysis": {
+    "regression": {
+      "dependent_variable": "price"
+    }
   }
 }

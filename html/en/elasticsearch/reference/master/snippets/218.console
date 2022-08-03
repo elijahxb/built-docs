@@ -1,28 +1,13 @@
-PUT my-index-000001
+PUT idx
 {
   "mappings": {
+    "_source": { "mode": "synthetic" },
     "properties": {
-      "my_wildcard": {
-        "type": "wildcard"
-      }
+      "long": { "type": "long" }
     }
   }
 }
-
-PUT my-index-000001/_doc/1
+PUT idx/_doc/1
 {
-  "my_wildcard" : "This string can be quite lengthy"
+  "long": [0, 0, -123466, 87612]
 }
-
-GET my-index-000001/_search
-{
-  "query": {
-    "wildcard": {
-      "my_wildcard": {
-        "value": "*quite*lengthy"
-      }
-    }
-  }
-}
-
-

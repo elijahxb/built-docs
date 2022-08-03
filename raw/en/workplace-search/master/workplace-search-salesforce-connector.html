@@ -5,7 +5,7 @@
 <title>Connecting Salesforce | Workplace Search Guide [master] | Elastic</title>
 <link rel="home" href="index.html" title="Workplace Search Guide [master]"/>
 <link rel="up" href="workplace-search-content-sources.html" title="Content Sources Overview"/>
-<link rel="prev" href="workplace-search-onedrive-connector.html" title="Connecting OneDrive"/>
+<link rel="prev" href="microsoft-outlook.html" title="Outlook connector package"/>
 <link rel="next" href="workplace-search-servicenow-connector.html" title="Connecting ServiceNow"/>
 <meta name="DC.type" content="Learn/Docs/Workplace Search/Guide/master"/>
 <meta name="DC.subject" content="Workplace Search"/>
@@ -19,15 +19,13 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Workplace Search Guide [master]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Workplace Search Guide [master]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="workplace-search-content-sources.html">Content Sources Overview</a></span>
-»
-<span class="breadcrumb-node">Connecting Salesforce</span>
 </div>
 <div class="navheader">
 <span class="prev">
-<a href="workplace-search-onedrive-connector.html">« Connecting OneDrive</a>
+<a href="microsoft-outlook.html">« Outlook connector package</a>
 </span>
 <span class="next">
 <a href="workplace-search-servicenow-connector.html">Connecting ServiceNow »</a>
@@ -89,6 +87,15 @@ Not what you want? See the
 </tbody>
 </table>
 </div>
+<div class="sidebar">
+<div class="titlepage"><div><div>
+<p class="title"><strong>Check the Elastic discussion forums for the latest information about your content source</strong></p>
+</div></div></div>
+<p>Workplace Search allows you to index third-party content sources.
+Sometimes these apps will make unanticipated API changes that impact your content syncing and require an action.
+We can&#8217;t always keep up in real time in this documentation!</p>
+<p>Visit the <a href="https://discuss.elastic.co//c/enterprise-search/workplace-search" class="ulink" target="_blank" rel="noopener">Workplace Search discussion forum</a> to read the latest information and check for known issues.</p>
+</div>
 <h3><a id="salesforce-configuration"></a>Configuring the Salesforce Connector<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/enterprise-search-pubs/edit/main/workplace-search-docs/guides/content-sources/salesforce.asciidoc">edit</a></h3>
 <p>Configuring the Salesforce connector is the first step prior to connecting the Salesforce service to Workplace Search, and requires that you create an <span class="strong strong"><strong>OAuth App</strong></span> from the Salesforce platform. <span class="strong strong"><strong>To get started, first log in to Salesforce (or Salesforce Sandbox) and access your administrative dashboard.</strong></span></p>
 <p>The procedures for Salesforce&#8217;s Classic UI and Lightning UI are very similar but the entry points are different.</p>
@@ -99,7 +106,7 @@ Not what you want? See the
 <div class="content">
 <img src="images/guides/salesforce/salesforce-settings.png" alt="">
 </div>
-<div class="title">Figure 73. Connecting Salesforce</div>
+<div class="title">Figure 79. Connecting Salesforce</div>
 </div>
 <hr>
 <p><span class="strong strong"><strong>Step 2.</strong></span> You&#8217;ll see a large list of menu items. Under <span class="strong strong"><strong>Build</strong></span>, expand the <span class="strong strong"><strong>Create</strong></span> dropdown, then click <span class="strong strong"><strong>Apps</strong></span>:</p>
@@ -107,7 +114,7 @@ Not what you want? See the
 <div class="content">
 <img src="images/guides/salesforce/salesforce-apps.png" alt="">
 </div>
-<div class="title">Figure 74. Connecting Salesforce</div>
+<div class="title">Figure 80. Connecting Salesforce</div>
 </div>
 <p>Workplace Search needs an <span class="strong strong"><strong>OAuth App</strong></span> with which to interface. There are two important things to understand before you create one:</p>
 <div class="olist orderedlist">
@@ -127,7 +134,7 @@ Make sure that you create this app with a trusted and stable Salesforce account.
 <div class="content">
 <img src="images/guides/salesforce/salesforce-new-app.png" alt="">
 </div>
-<div class="title">Figure 75. Connecting Salesforce</div>
+<div class="title">Figure 81. Connecting Salesforce</div>
 </div>
 <p>From here, proceed to the <span class="strong strong"><strong>Creating the OAuth Application</strong></span> step (see below).</p>
 <hr>
@@ -137,7 +144,7 @@ Make sure that you create this app with a trusted and stable Salesforce account.
 <div class="content">
 <img src="images/guides/salesforce/salesforce-lightening-1.png" alt="">
 </div>
-<div class="title">Figure 76. Connecting Salesforce</div>
+<div class="title">Figure 82. Connecting Salesforce</div>
 </div>
 <hr>
 <p><span class="strong strong"><strong>Step 2.</strong></span>  Select <span class="strong strong"><strong>App Manager</strong></span> on the left sidebar under <span class="strong strong"><strong>Apps</strong></span>:</p>
@@ -145,7 +152,7 @@ Make sure that you create this app with a trusted and stable Salesforce account.
 <div class="content">
 <img src="images/guides/salesforce/salesforce-lightening-2.png" alt="">
 </div>
-<div class="title">Figure 77. Connecting Salesforce</div>
+<div class="title">Figure 83. Connecting Salesforce</div>
 </div>
 <hr>
 <p><span class="strong strong"><strong>Step 3.</strong></span> Click the <span class="strong strong"><strong>New Connected App</strong></span> button:</p>
@@ -153,7 +160,7 @@ Make sure that you create this app with a trusted and stable Salesforce account.
 <div class="content">
 <img src="images/guides/salesforce/salesforce-lightening-3.png" alt="">
 </div>
-<div class="title">Figure 78. Connecting Salesforce</div>
+<div class="title">Figure 84. Connecting Salesforce</div>
 </div>
 <p>And then proceed to the <span class="strong strong"><strong>Creating the OAuth Application</strong></span> step (see below).</p>
 <h3><a id="_creating_the_oauth_application"></a>Creating the OAuth Application<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/enterprise-search-pubs/edit/main/workplace-search-docs/guides/content-sources/salesforce.asciidoc">edit</a></h3>
@@ -178,7 +185,7 @@ Make sure that you create this app with a trusted and stable Salesforce account.
 <div class="content">
 <img src="images/guides/salesforce/salesforce-create-part-one.png" alt="">
 </div>
-<div class="title">Figure 79. Connecting Salesforce</div>
+<div class="title">Figure 85. Connecting Salesforce</div>
 </div>
 <hr>
 <p><span class="strong strong"><strong>Step 2.</strong></span> Click the <span class="strong strong"><strong>Enable OAuth Settings</strong></span> checkbox: this will unveil many more options. Under <span class="strong strong"><strong>Callback URL</strong></span>, add the <a href="/guide/en/enterprise-search/master/endpoints-ref.html#workplace-search-oauth-redirect-url" class="ulink" target="_blank" rel="noopener">Workplace Search OAuth redirect URL</a> for your deployment.</p>
@@ -738,7 +745,7 @@ For <span class="strong strong"><strong>Salesforce</strong></span> or <span clas
 </div>
 <div class="navfooter">
 <span class="prev">
-<a href="workplace-search-onedrive-connector.html">« Connecting OneDrive</a>
+<a href="microsoft-outlook.html">« Outlook connector package</a>
 </span>
 <span class="next">
 <a href="workplace-search-servicenow-connector.html">Connecting ServiceNow »</a>

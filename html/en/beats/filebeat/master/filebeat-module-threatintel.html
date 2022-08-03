@@ -56,7 +56,7 @@
   <!--© 2015-2022 Elasticsearch B.V. -->
   <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
   <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
-  
+
   <body>
     <!-- Google Tag Manager -->
     <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -87,27 +87,18 @@
     <div id='elastic-nav' style="display:none;"></div>
     <script src='https://www.elastic.co/elastic-nav.js'></script>
 
-    <!-- Subnav -->
-    <div>
-      <div>
-        <div class="tertiary-nav d-none d-md-block">
-          <div class="container">
-            <div class="p-t-b-15 d-flex justify-content-between nav-container">
-              <div class="breadcrum-wrapper"><span><a href="/guide/" style="font-size: 14px; font-weight: 600; color: #000;">Docs</a></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="main-container">
       <section id="content" >
         <div class="content-wrapper">
 
           <section id="guide" lang="en">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-8 guide-section">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
                   <!-- start body -->
                   <div class="page_header">
 You are looking at preliminary documentation for a future release.
@@ -116,11 +107,9 @@ Not what you want? See the
 </div>
 <div id="content">
 <div class="breadcrumbs">
-<span class="breadcrumb-link"><a href="index.html">Filebeat Reference [master]</a></span>
-»
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span><span class="chevron-right">›</span>
+<span class="breadcrumb-link"><a href="index.html">Filebeat Reference [master]</a></span><span class="chevron-right">›</span>
 <span class="breadcrumb-link"><a href="filebeat-modules.html">Modules</a></span>
-»
-<span class="breadcrumb-node">Threat Intel module</span>
 </div>
 <div class="navheader">
 <span class="prev">
@@ -132,13 +121,24 @@ Not what you want? See the
 </div>
 <div class="chapter xpack">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="filebeat-module-threatintel"></a>Threat Intel module<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/filebeat/docs/modules/threatintel.asciidoc">edit</a></h2>
+<h2 class="title"><a id="filebeat-module-threatintel"></a>Threat Intel module<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/x-pack/filebeat/module/threatintel/_meta/docs.asciidoc">edit</a></h2>
 </div></div></div>
-<div class="warning admon">
-<div class="icon"></div>
-<div class="admon_content">
-<p>This functionality is in beta and is subject to change. The design and code is less mature than official GA features and is being provided as-is with no warranties. Beta features are not subject to the support SLA of official GA features.</p>
+<div class="sidebar">
+<div class="titlepage"><div><div>
+<p class="title"><strong>Prefer to use Elastic Agent for this use case?</strong></p>
+</div></div></div>
+<p>Refer to the
+<a href="https://docs.elastic.co/en/integrations/ti_abusech" class="ulink" target="_top">Elastic Integrations documentation</a>.</p>
+<details>
+<summary class="title">Learn more</summary>
+<div class="content">
+<p>Elastic Agent is a single, unified way to add monitoring for logs, metrics, and
+other types of data to a host. It can also protect hosts from security threats,
+query data from operating systems, forward data from remote services or
+hardware, and more. Refer to the documentation for a detailed
+<a href="/guide/en/fleet/master/beats-agent-comparison.html" class="ulink" target="_top">comparison of Beats and Elastic Agent</a>.</p>
 </div>
+</details>
 </div>
 <p>This module ingests data from a collection of different threat intelligence
 sources. The ingested data is meant to be used with
@@ -184,7 +184,7 @@ fields.</p>
 how to configure and run modules.</p>
 </div>
 </div>
-<h4><a id="abuseurl"></a><code class="literal">abuseurl</code> fileset settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/filebeat/docs/modules/threatintel.asciidoc">edit</a></h4>
+<h4><a id="abuseurl"></a><code class="literal">abuseurl</code> fileset settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/x-pack/filebeat/module/threatintel/_meta/docs.asciidoc">edit</a></h4>
 <p>This fileset contacts the abuse.ch API and fetches all new malicious URLs found
 the last 60 minutes.</p>
 <p>To configure the module, please utilize the default URL unless specified as the
@@ -268,7 +268,7 @@ Optional URL to use as HTTP proxy.
 </tbody>
 </table>
 </div>
-<h4><a id="abusemalware"></a><code class="literal">abusemalware</code> fileset settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/filebeat/docs/modules/threatintel.asciidoc">edit</a></h4>
+<h4><a id="abusemalware"></a><code class="literal">abusemalware</code> fileset settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/x-pack/filebeat/module/threatintel/_meta/docs.asciidoc">edit</a></h4>
 <p>This fileset contacts the Abuse.ch API and fetches all new malicious hashes found
 the last 60 minutes.</p>
 <p>To configure the module, please utilize the default URL unless specified as the
@@ -352,7 +352,7 @@ Optional URL to use as HTTP proxy.
 </tbody>
 </table>
 </div>
-<h4><a id="malwarebazaar"></a><code class="literal">malwarebazaar</code> fileset settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/filebeat/docs/modules/threatintel.asciidoc">edit</a></h4>
+<h4><a id="malwarebazaar"></a><code class="literal">malwarebazaar</code> fileset settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/x-pack/filebeat/module/threatintel/_meta/docs.asciidoc">edit</a></h4>
 <p>This fileset contacts the Malware Bazaar API and fetches all new malicious hashes found
 the last 10 minutes.</p>
 <p>To configure the module, please utilize the default URL unless specified as the
@@ -500,7 +500,7 @@ Optional URL to use as HTTP proxy.
 </tbody>
 </table>
 </div>
-<h4><a id="misp"></a><code class="literal">misp</code> fileset settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/filebeat/docs/modules/threatintel.asciidoc">edit</a></h4>
+<h4><a id="misp"></a><code class="literal">misp</code> fileset settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/x-pack/filebeat/module/threatintel/_meta/docs.asciidoc">edit</a></h4>
 <p>This fileset communicates with a local or remote MISP server. This replaces
 the older MISP module.</p>
 <p>The fileset configuration allows to set the polling interval, how far back it
@@ -528,8 +528,8 @@ reference the MISP fields located on the MISP server itself.</p>
     var.url: https://SERVER/events/restSearch
     var.api_token: xVfaM3DSt8QEwO2J1ix00V4ZHJs14nq5GMsHcK6Z
     var.filters:
-      - type: ["md5", "sha256", "url", "ip-src"]
-      - threat_level: 4
+      type: ["md5", "sha256", "url", "ip-src"]
+      threat_level: 4
     var.first_interval: 24h
     var.interval: 60m</pre>
 </div>
@@ -581,8 +581,8 @@ from the last response as the filter when retrieving new events.
 </span>
 </dt>
 <dd>
-List of filters to apply when retrieving new events from the MISP server, this
-field is optional and defaults to all events.
+Dictionary of filters to apply when retrieving new events from the MISP server, this
+field is optional and defaults to all events. A list of available options is located at <a href="https://www.circl.lu/doc/misp/automation/#search" class="ulink" target="_top">https://www.circl.lu/doc/misp/automation/#search</a>
 </dd>
 <dt>
 <span class="term">
@@ -628,7 +628,7 @@ Optional URL to use as HTTP proxy.
 </table>
 </div>
 <p><code class="literal">misp.value</code> is mapped to the appropriate field dependent on attribute type.</p>
-<h4><a id="otx"></a><code class="literal">otx</code> fileset settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/filebeat/docs/modules/threatintel.asciidoc">edit</a></h4>
+<h4><a id="otx"></a><code class="literal">otx</code> fileset settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/x-pack/filebeat/module/threatintel/_meta/docs.asciidoc">edit</a></h4>
 <p>To configure the module, please utilize the default URL unless specified as the
 example below:</p>
 <div class="pre_wrapper lang-yaml">
@@ -756,7 +756,7 @@ Optional URL to use as HTTP proxy.
 </table>
 </div>
 <p><code class="literal">otx.indicator</code> is mapped to the appropriate field dependent on attribute type.</p>
-<h4><a id="anomali"></a><code class="literal">anomali</code> fileset settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/filebeat/docs/modules/threatintel.asciidoc">edit</a></h4>
+<h4><a id="anomali"></a><code class="literal">anomali</code> fileset settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/x-pack/filebeat/module/threatintel/_meta/docs.asciidoc">edit</a></h4>
 <p>To configure the module please fill in the credentials, for Anomali Limo (the
 free Taxii service) these are usually default credentials found at the
 <a href="https://www.anomali.com/resources/limo" class="ulink" target="_top">Anomali Limo webpage</a> Anomali Limo offers
@@ -896,7 +896,7 @@ Optional URL to use as HTTP proxy.
 </table>
 </div>
 <p><code class="literal">anomali.pattern</code> is mapped to the appropriate field dependent on attribute type.</p>
-<h4><a id="anomalithreatstream"></a><code class="literal">anomalithreatstream</code> fileset settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/filebeat/docs/modules/threatintel.asciidoc">edit</a></h4>
+<h4><a id="anomalithreatstream"></a><code class="literal">anomalithreatstream</code> fileset settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/x-pack/filebeat/module/threatintel/_meta/docs.asciidoc">edit</a></h4>
 <p>To configure the ThreatStream integration you first need to define an output
 in the Anomali ThreatStream Integrator using the Elastic SDK provided by Anomali.
 It will deliver indicators via HTTP or HTTPS to a Filebeat instance running as
@@ -1079,7 +1079,7 @@ Path to the certificate&#8217;s private key.
 </table>
 </div>
 <p><a id="a"></a><span class="small">[1]: Field is used to derive a value for the ECS field but its original value is kept under <code class="literal">threatintel.anomalithreatstream</code>.</span></p>
-<h3><a id="_dashboards_5"></a>Dashboards<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/filebeat/docs/modules/threatintel.asciidoc">edit</a></h3>
+<h3><a id="_dashboards_5"></a>Dashboards<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/x-pack/filebeat/module/threatintel/_meta/docs.asciidoc">edit</a></h3>
 <p>This module comes with dashboards for the threat information feeds.</p>
 <div class="imageblock screenshot">
 <div class="content">
@@ -1118,7 +1118,7 @@ Anomali ThreatStream feeds.</p>
 </div>
 </div>
 <p>Overview of the information provided by the MISP feed.</p>
-<h4><a id="threatq"></a><code class="literal">threatq</code> fileset settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/filebeat/docs/modules/threatintel.asciidoc">edit</a></h4>
+<h4><a id="threatq"></a><code class="literal">threatq</code> fileset settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/x-pack/filebeat/module/threatintel/_meta/docs.asciidoc">edit</a></h4>
 <p>The <code class="literal">threatq</code> fileset fetches intelligence from the ThreatQuotient API.</p>
 <p>The ThreatQ module requires you to set a valid URL, combination of Oauth2 credentials and the ID of the collection to retrieve
 indicators from.
@@ -1188,7 +1188,7 @@ Optional value to override the default HTTP timeout of 30 seconds.
 </dd>
 </dl>
 </div>
-<p>Recorded Future fields are mapped to the following ECS fields:</p>
+<p>ThreatQ fields are mapped to the following ECS fields:</p>
 <div class="informaltable">
 <table border="1" cellpadding="4px">
 <colgroup>
@@ -1225,7 +1225,7 @@ Optional value to override the default HTTP timeout of 30 seconds.
 </tbody>
 </table>
 </div>
-<h3><a id="_dashboards_6"></a>Dashboards<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/filebeat/docs/modules/threatintel.asciidoc">edit</a></h3>
+<h3><a id="_dashboards_6"></a>Dashboards<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/x-pack/filebeat/module/threatintel/_meta/docs.asciidoc">edit</a></h3>
 <p>This module comes with dashboards for the threat information feeds.</p>
 <div class="imageblock screenshot">
 <div class="content">
@@ -1270,7 +1270,7 @@ Anomali ThreatStream feeds.</p>
 </div>
 </div>
 <p>Overview of the information provided by the ThreatQuotient feed.</p>
-<h3><a id="_fields_64"></a>Fields<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/filebeat/docs/modules/threatintel.asciidoc">edit</a></h3>
+<h3><a id="_fields_65"></a>Fields<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/beats/edit/main/x-pack/filebeat/module/threatintel/_meta/docs.asciidoc">edit</a></h3>
 <p>For a description of each field in the module, see the
 <a class="xref" href="exported-fields-threatintel.html" title="threatintel fields">exported fields</a> section.</p>
 </div>
@@ -1286,15 +1286,37 @@ Anomali ThreatStream feeds.</p>
 
                   <!-- end body -->
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-4" id="right_col">
-                  <div id="rtpcontainer" style="display: block;">
-                    <div class="mktg-promo">
-                      <h3>Most Popular</h3>
-                      <ul class="icons">
-                        <li class="icon-elasticsearch-white"><a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">Get Started with Elasticsearch: Video</a></li>
-                        <li class="icon-kibana-white"><a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">Intro to Kibana: Video</a></li>
-                        <li class="icon-logstash-white"><a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">ELK for Logs & Metrics: Video</a></li>
-                      </ul>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
