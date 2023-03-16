@@ -6347,7 +6347,7 @@ logstash:
   Installation and Upgrade Guide/docs/8.3: b4eb2f503f606dbde1d2438790d082265e50fe36
   Installation and Upgrade Guide/docs/8.4: 92c61696b84eb560630ce7d9a12c1a66e690673b
   Installation and Upgrade Guide/docs/8.5: 246e7dda95a5429dfa80e5ab406d49a5d69841e0
-  Installation and Upgrade Guide/docs/8.6: 48639dd38a6349e76d3a3012935ac98950c3b96a
+  Installation and Upgrade Guide/docs/8.6: local
   Installation and Upgrade Guide/docs/8.7: 2cb836534ceb5064063f6126eb29b293ddaec398
   Installation and Upgrade Guide/docs/main: a126364102fca5abe58d1031ab6ef6f1408fead0
   Logstash Reference/docs/1.5: 983007bb28dd51b2493061ea02989ab76f10af73
@@ -6396,7 +6396,7 @@ logstash:
   Logstash Reference/docs/8.3: b4eb2f503f606dbde1d2438790d082265e50fe36
   Logstash Reference/docs/8.4: 92c61696b84eb560630ce7d9a12c1a66e690673b
   Logstash Reference/docs/8.5: 246e7dda95a5429dfa80e5ab406d49a5d69841e0
-  Logstash Reference/docs/8.6: 48639dd38a6349e76d3a3012935ac98950c3b96a
+  Logstash Reference/docs/8.6: local
   Logstash Reference/docs/8.7: fd384646bedd86b131af86742dc4b17048b8ece0
   Logstash Reference/docs/main: c99a7b2f46f7fbf64ae64a45d2f546f50a7d8523
   Logstash and Kubernetes/docsk8s/main: c99a7b2f46f7fbf64ae64a45d2f546f50a7d8523
