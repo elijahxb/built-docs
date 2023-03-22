@@ -4753,7 +4753,7 @@ ecs:
   Elastic Common Schema (ECS) Reference/docs/8.5: 8ebaa139bea766d2fcbe2638cf6401a4cb84f2cf
   Elastic Common Schema (ECS) Reference/docs/8.6: 5f217d4098b3658917c4287e6dae051d7f65e647
   Elastic Common Schema (ECS) Reference/docs/8.7: ad9672fda267d290f82d5c94ec146c104ec6a1cc
-  Elastic Common Schema (ECS) Reference/docs/main: d5d48c9df23075c589db5623e3656c99b0fc8b48
+  Elastic Common Schema (ECS) Reference/docs/main: local
 ecs-dotnet:
   ECS Logging .NET Reference/docs/main: 2a746e68216d3af482550e17f6f8ad895a70af90
 ecs-logging:
