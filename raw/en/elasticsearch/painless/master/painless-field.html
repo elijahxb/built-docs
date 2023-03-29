@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Accessing document values in Painless | Painless Scripting Language [master] | Elastic</title>
+<meta class="elastic" name="content" content="Accessing document values in Painless | Painless Scripting Language [master]">
+
+<link rel="home" href="index.html" title="Painless Scripting Language [master]"/>
+<link rel="up" href="painless-guide.html" title="Painless Guide"/>
+<link rel="prev" href="painless-datetime.html" title="Using Datetime in Painless"/>
+<link rel="next" href="_accessing_document_values_in_painless.html" title="Accessing document values in Painless"/>
+<meta class="elastic" name="product_version" content="master"/>
+<meta class="elastic" name="product_name" content="Elasticsearch"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Elasticsearch/Painless/master"/>
+<meta name="DC.subject" content="Elasticsearch"/>
+<meta name="DC.identifier" content="master"/>
+</head>
+<body><div class="page_header">
+You are looking at preliminary documentation for a future release.
+Not what you want? See the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Painless Scripting Language [master]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="painless-guide.html">Painless Guide</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="painless-datetime.html">« Using Datetime in Painless</a>
+</span>
+<span class="next">
+<a href="_accessing_document_values_in_painless.html">Accessing document values in Painless »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="painless-field"></a>Accessing document values in Painless<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/painless/painless-guide/painless-fields.asciidoc">edit</a></h2>
+</div></div></div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="_the_doc_api"></a>The doc API<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/painless/painless-guide/painless-fields.asciidoc">edit</a></h3>
+</div></div></div>
+<p>The <code class="literal">doc</code> variable is available in search contexts that operate on individual documents.  It exposes two methods from the Java Map interface,
+<em>get</em> and <em>containsKey</em>.  In painless, Maps can use either the square brace or field syntax for working on fields, ie doc[<em>myfield</em>] or
+<code class="literal">doc.myfield</code>.  If the field has dots in it&#8217;s name, the script must use square brace syntax.</p>
+<p><code class="literal">doc</code> has a key for each field in the mapping.  The value is always a list, which may be empty if a document has no field data (doc values)
+for that field.  The field data is the internal lucene representation, so, for text fields, it&#8217;s a sorted list of tokens.  Scripts can
+use <code class="literal">.value</code> instead of <code class="literal">[0]</code> to access the first value of a field.</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+exposes doc values directly
+</li>
+<li class="listitem">
+.value shortcut
+</li>
+<li class="listitem">
+requires doc_values: true
+</li>
+<li class="listitem">
+doc values is always a List
+</li>
+<li class="listitem">
+key for every mapping
+</li>
+<li class="listitem">
+<p>map-like
+Supported:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+List get(Object key)
+</li>
+<li class="listitem">
+boolean containsKey(Object key)
+Unsupported:
+</li>
+<li class="listitem">
+int size()
+</li>
+<li class="listitem">
+boolean isEmpty()
+</li>
+<li class="listitem">
+boolean containsValue(Object value)
+</li>
+<li class="listitem">
+List put(String key, ScriptDocValues&lt;?&gt; value)
+</li>
+<li class="listitem">
+List remove(Object key)
+</li>
+<li class="listitem">
+putAll(Map)
+</li>
+<li class="listitem">
+void clear()
+</li>
+<li class="listitem">
+Set keySet()
+</li>
+<li class="listitem">
+Collection values()
+</li>
+<li class="listitem">
+Set&lt;Map.Entry&lt;String, ScriptDocValues&lt;?&gt;&gt;&gt; entrySet()
+</li>
+</ul>
+</div>
+</li>
+<li class="listitem">
+dot syntax directly works directly
+</li>
+</ul>
+</div>
+<p>Some documents may be missing a value for a field, so it is recommended</p>
+<div class="pre_wrapper lang-Painless">
+<pre class="programlisting prettyprint lang-Painless">if (doc['myfield'].size == 0) {
+  return;
+}</pre>
+</div>
+<p>If your script may run against multiple indices, some may not have mappings for the field, so it would need to check if the doc has the key
+as well.</p>
+<div class="pre_wrapper lang-Painless">
+<pre class="programlisting prettyprint lang-Painless">if (!doc.containsKey('myfield') || doc['myfield'].size == 0) {
+  return;
+}</pre>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="_the_field_api"></a>The field API<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/painless/painless-guide/painless-fields.asciidoc">edit</a></h3>
+</div></div></div>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+handles missing values
+</li>
+<li class="listitem">
+handles missing mappings
+</li>
+<li class="listitem">
+source fallback
+</li>
+</ul>
+</div>
+<p><a href="/guide/en/elasticsearch/reference/current/doc-values.html" class="ulink" target="_top">https://www.elastic.co/guide/en/elasticsearch/reference/current/doc-values.html</a></p>
+</div>
+
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="painless-datetime.html">« Using Datetime in Painless</a>
+</span>
+<span class="next">
+<a href="_accessing_document_values_in_painless.html">Accessing document values in Painless »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

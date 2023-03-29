@@ -3,13 +3,13 @@
   <head>
     
 <meta charset="UTF-8">
-<title>How painless dispatches functions | Painless Scripting Language [master] | Elastic</title>
-<meta class="elastic" name="content" content="How painless dispatches functions | Painless Scripting Language [master]">
+<title>Accessing document values in Painless | Painless Scripting Language [master] | Elastic</title>
+<meta class="elastic" name="content" content="Accessing document values in Painless | Painless Scripting Language [master]">
 
 <link rel="home" href="index.html" title="Painless Scripting Language [master]"/>
 <link rel="up" href="painless-guide.html" title="Painless Guide"/>
-<link rel="prev" href="_accessing_document_values_in_painless.html" title="Accessing document values in Painless"/>
-<link rel="next" href="painless-debugging.html" title="Painless Debugging"/>
+<link rel="prev" href="painless-datetime.html" title="Using Datetime in Painless"/>
+<link rel="next" href="_accessing_document_values_in_painless.html" title="Accessing document values in Painless"/>
 <meta class="elastic" name="product_version" content="master"/>
 <meta class="elastic" name="product_name" content="Elasticsearch"/>
 <meta class="elastic" name="website_area" content="documentation"/>
@@ -125,57 +125,135 @@ Not what you want? See the
 </div>
 <div class="navheader">
 <span class="prev">
-<a href="_accessing_document_values_in_painless.html">« Accessing document values in Painless</a>
+<a href="painless-datetime.html">« Using Datetime in Painless</a>
 </span>
 <span class="next">
-<a href="painless-debugging.html">Painless Debugging »</a>
+<a href="_accessing_document_values_in_painless.html">Accessing document values in Painless »</a>
 </span>
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="modules-scripting-painless-dispatch"></a>How painless dispatches functions<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/painless/painless-guide/painless-method-dispatch.asciidoc">edit</a></h2>
+<h2 class="title"><a id="painless-field"></a>Accessing document values in Painless<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/painless/painless-guide/painless-fields.asciidoc">edit</a></h2>
 </div></div></div>
-<p>Painless uses receiver, name, and <a href="https://en.wikipedia.org/wiki/Arity" class="ulink" target="_top">arity</a>
-for method dispatch. For example, <code class="literal">s.foo(a, b)</code> is resolved by first getting
-the class of <code class="literal">s</code> and then looking up the method <code class="literal">foo</code> with two parameters. This
-is different from Groovy which uses the
-<a href="https://en.wikipedia.org/wiki/Multiple_dispatch" class="ulink" target="_top">runtime types</a> of the
-parameters and Java which uses the compile time types of the parameters.</p>
-<p>The consequence of this that Painless doesn&#8217;t support overloaded methods like
-Java, leading to some trouble when it allows classes from the Java
-standard library. For example, in Java and Groovy, <code class="literal">Matcher</code> has two methods:
-<code class="literal">group(int)</code> and <code class="literal">group(String)</code>. Painless can&#8217;t allow both of these methods
-because they have the same name and the same number of parameters. So instead it
-has <code class="literal">group(int)</code> and <code class="literal">namedGroup(String)</code>.</p>
-<p>We have a few justifications for this different way of dispatching methods:</p>
-<div class="olist orderedlist">
-<ol class="orderedlist">
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="_the_doc_api"></a>The doc API<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/painless/painless-guide/painless-fields.asciidoc">edit</a></h3>
+</div></div></div>
+<p>The <code class="literal">doc</code> variable is available in search contexts that operate on individual documents.  It exposes two methods from the Java Map interface,
+<em>get</em> and <em>containsKey</em>.  In painless, Maps can use either the square brace or field syntax for working on fields, ie doc[<em>myfield</em>] or
+<code class="literal">doc.myfield</code>.  If the field has dots in it&#8217;s name, the script must use square brace syntax.</p>
+<p><code class="literal">doc</code> has a key for each field in the mapping.  The value is always a list, which may be empty if a document has no field data (doc values)
+for that field.  The field data is the internal lucene representation, so, for text fields, it&#8217;s a sorted list of tokens.  Scripts can
+use <code class="literal">.value</code> instead of <code class="literal">[0]</code> to access the first value of a field.</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
 <li class="listitem">
-It makes operating on <code class="literal">def</code> types simpler and, presumably, faster. Using
-receiver, name, and arity means that when Painless sees a call on a <code class="literal">def</code> object it
-can dispatch the appropriate method without having to do expensive comparisons
-of the types of the parameters. The same is true for invocations with <code class="literal">def</code>
-typed parameters.
+exposes doc values directly
 </li>
 <li class="listitem">
-It keeps things consistent. It would be genuinely weird for Painless to
-behave like Groovy if any <code class="literal">def</code> typed parameters were involved and Java
-otherwise. It&#8217;d be slow for it to behave like Groovy all the time.
+.value shortcut
 </li>
 <li class="listitem">
-It keeps Painless maintainable. Adding the Java or Groovy like method
-dispatch <span class="strong strong"><strong>feels</strong></span> like it&#8217;d add a ton of complexity which&#8217;d make maintenance and
-other improvements much more difficult.
+requires doc_values: true
 </li>
-</ol>
+<li class="listitem">
+doc values is always a List
+</li>
+<li class="listitem">
+key for every mapping
+</li>
+<li class="listitem">
+<p>map-like
+Supported:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+List get(Object key)
+</li>
+<li class="listitem">
+boolean containsKey(Object key)
+Unsupported:
+</li>
+<li class="listitem">
+int size()
+</li>
+<li class="listitem">
+boolean isEmpty()
+</li>
+<li class="listitem">
+boolean containsValue(Object value)
+</li>
+<li class="listitem">
+List put(String key, ScriptDocValues&lt;?&gt; value)
+</li>
+<li class="listitem">
+List remove(Object key)
+</li>
+<li class="listitem">
+putAll(Map)
+</li>
+<li class="listitem">
+void clear()
+</li>
+<li class="listitem">
+Set keySet()
+</li>
+<li class="listitem">
+Collection values()
+</li>
+<li class="listitem">
+Set&lt;Map.Entry&lt;String, ScriptDocValues&lt;?&gt;&gt;&gt; entrySet()
+</li>
+</ul>
 </div>
+</li>
+<li class="listitem">
+dot syntax directly works directly
+</li>
+</ul>
+</div>
+<p>Some documents may be missing a value for a field, so it is recommended</p>
+<div class="pre_wrapper lang-Painless">
+<pre class="programlisting prettyprint lang-Painless">if (doc['myfield'].size == 0) {
+  return;
+}</pre>
+</div>
+<p>If your script may run against multiple indices, some may not have mappings for the field, so it would need to check if the doc has the key
+as well.</p>
+<div class="pre_wrapper lang-Painless">
+<pre class="programlisting prettyprint lang-Painless">if (!doc.containsKey('myfield') || doc['myfield'].size == 0) {
+  return;
+}</pre>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="_the_field_api"></a>The field API<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/painless/painless-guide/painless-fields.asciidoc">edit</a></h3>
+</div></div></div>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+handles missing values
+</li>
+<li class="listitem">
+handles missing mappings
+</li>
+<li class="listitem">
+source fallback
+</li>
+</ul>
+</div>
+<p><a href="/guide/en/elasticsearch/reference/current/doc-values.html" class="ulink" target="_top">https://www.elastic.co/guide/en/elasticsearch/reference/current/doc-values.html</a></p>
+</div>
+
 </div>
 <div class="navfooter">
 <span class="prev">
-<a href="_accessing_document_values_in_painless.html">« Accessing document values in Painless</a>
+<a href="painless-datetime.html">« Using Datetime in Painless</a>
 </span>
 <span class="next">
-<a href="painless-debugging.html">Painless Debugging »</a>
+<a href="_accessing_document_values_in_painless.html">Accessing document values in Painless »</a>
 </span>
 </div>
 </div>

@@ -3,13 +3,13 @@
   <head>
     
 <meta charset="UTF-8">
-<title>How painless dispatches functions | Painless Scripting Language [master] | Elastic</title>
-<meta class="elastic" name="content" content="How painless dispatches functions | Painless Scripting Language [master]">
+<title>Accessing document values in Painless | Painless Scripting Language [master] | Elastic</title>
+<meta class="elastic" name="content" content="Accessing document values in Painless | Painless Scripting Language [master]">
 
 <link rel="home" href="index.html" title="Painless Scripting Language [master]"/>
 <link rel="up" href="painless-guide.html" title="Painless Guide"/>
-<link rel="prev" href="_accessing_document_values_in_painless.html" title="Accessing document values in Painless"/>
-<link rel="next" href="painless-debugging.html" title="Painless Debugging"/>
+<link rel="prev" href="painless-field.html" title="Accessing document values in Painless"/>
+<link rel="next" href="modules-scripting-painless-dispatch.html" title="How painless dispatches functions"/>
 <meta class="elastic" name="product_version" content="master"/>
 <meta class="elastic" name="product_name" content="Elasticsearch"/>
 <meta class="elastic" name="website_area" content="documentation"/>
@@ -125,57 +125,126 @@ Not what you want? See the
 </div>
 <div class="navheader">
 <span class="prev">
-<a href="_accessing_document_values_in_painless.html">« Accessing document values in Painless</a>
+<a href="painless-field.html">« Accessing document values in Painless</a>
 </span>
 <span class="next">
-<a href="painless-debugging.html">Painless Debugging »</a>
+<a href="modules-scripting-painless-dispatch.html">How painless dispatches functions »</a>
 </span>
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="modules-scripting-painless-dispatch"></a>How painless dispatches functions<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/painless/painless-guide/painless-method-dispatch.asciidoc">edit</a></h2>
+<h2 class="title"><a id="_accessing_document_values_in_painless"></a>Accessing document values in Painless<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/painless/painless-guide/painless-fields.asciidoc">edit</a></h2>
 </div></div></div>
-<p>Painless uses receiver, name, and <a href="https://en.wikipedia.org/wiki/Arity" class="ulink" target="_top">arity</a>
-for method dispatch. For example, <code class="literal">s.foo(a, b)</code> is resolved by first getting
-the class of <code class="literal">s</code> and then looking up the method <code class="literal">foo</code> with two parameters. This
-is different from Groovy which uses the
-<a href="https://en.wikipedia.org/wiki/Multiple_dispatch" class="ulink" target="_top">runtime types</a> of the
-parameters and Java which uses the compile time types of the parameters.</p>
-<p>The consequence of this that Painless doesn&#8217;t support overloaded methods like
-Java, leading to some trouble when it allows classes from the Java
-standard library. For example, in Java and Groovy, <code class="literal">Matcher</code> has two methods:
-<code class="literal">group(int)</code> and <code class="literal">group(String)</code>. Painless can&#8217;t allow both of these methods
-because they have the same name and the same number of parameters. So instead it
-has <code class="literal">group(int)</code> and <code class="literal">namedGroup(String)</code>.</p>
-<p>We have a few justifications for this different way of dispatching methods:</p>
-<div class="olist orderedlist">
-<ol class="orderedlist">
+<p>Document values are available for fields using the <code class="literal">Field</code> object.</p>
+<p>The <code class="literal">Field</code> object is an <code class="literal">Iterable</code> that supports the following API
+String getName();
+boolean isEmpty();
+int size();</p>
+<p>Inherited from <code class="literal">Iterable</code>
+Iterator&lt;T&gt; iterator();
+void forEach(Consumer&lt;? super T&gt; action);</p>
+<p>Each mapped data type has it&#8217;s own <code class="literal">Field</code> class.  Those classes implement methods of the form:</p>
+<p><code class="literal">{type} get({type} defaultValue)</code> and
+<code class="literal">{type} get(int index, {type} defaultValue)</code></p>
+<p>Where type is either a reference type or a primitive type based on the most appropriate painless type for the mapped field type.  While you can use boxing, it will be slower so we recommend using primitive types where possible.</p>
+<p>Real life data is messy.  When searching within a single index, a field may have one, many or no values.  When searching accross indices via an index alias, an field may be not be mapped in some of the target indices.  A common way of handling missing values is to use a default sentile value.  For example, for a keyword field, you may use empty string as a default value.</p>
+<p><code class="literal">def keyword = field('myKeyword').get('missing')</code></p>
+<p>or, more succicently, you can use the dollar-get shortcut</p>
+<p><code class="literal">def keyword = $('myKeyword', 'missing')</code></p>
+<p>The variable <code class="literal">keyword</code> will have the contents of the first value (index zero) of the <code class="literal">myKeyword</code> field, or, if that field is empty or unmapped, it will have the value <code class="literal">missing</code>.</p>
+<p>So, for example, if you have a runtime field that creates a record for every cloud resouce owner, you can do something like:</p>
+<div class="pre_wrapper lang-Painless">
+<pre class="programlisting prettyprint lang-Painless">emit($('user', 'unknown') + ':' + $('team', 'unknown'))</pre>
+</div>
+<p>Summing metric values:</p>
+<div class="pre_wrapper lang-Painless">
+<pre class="programlisting prettyprint lang-Painless">int total = 0; for (String metric : ['metricA', 'metricB', 'metricC']) { total += $(metric, 0); }</pre>
+</div>
+<p>Or perhaps you are transitioning from one field to another, you can use the old field as the fallback for the new field:</p>
+<div class="pre_wrapper lang-Painless">
+<pre class="programlisting prettyprint lang-Painless">emit($('newField', $('oldField', 'missing')))`</pre>
+</div>
+<p>Of course, you can iterate over multivalued fields.</p>
+<div class="pre_wrapper lang-Painless">
+<pre class="programlisting prettyprint lang-Painless">for (String team : field('team')) {
+	if (team == 'accounting') {
+	  emit(true);
+	  return;
+	}
+}
+emit(false);</pre>
+</div>
+<p>Of course, you can explicitly check if a field has a value.</p>
+<div class="pre_wrapper lang-Painless">
+<pre class="programlisting prettyprint lang-Painless">Field f = field('model');
+if (f.empty) {
+	return;
+}</pre>
+</div>
+<p>In ingestion contexts, when you call <code class="literal">field('&lt;path&gt;')</code>, you will get a <code class="literal">WriteField</code>, which is an implementation of <code class="literal">Field</code> with helper methods useful in ingest contexts.</p>
+<p><code class="literal">WriteField</code> has the following API:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
 <li class="listitem">
-It makes operating on <code class="literal">def</code> types simpler and, presumably, faster. Using
-receiver, name, and arity means that when Painless sees a call on a <code class="literal">def</code> object it
-can dispatch the appropriate method without having to do expensive comparisons
-of the types of the parameters. The same is true for invocations with <code class="literal">def</code>
-typed parameters.
+String getName() - Get the path represented by this Field
 </li>
 <li class="listitem">
-It keeps things consistent. It would be genuinely weird for Painless to
-behave like Groovy if any <code class="literal">def</code> typed parameters were involved and Java
-otherwise. It&#8217;d be slow for it to behave like Groovy all the time.
+boolean exists() - Does the path exist?
 </li>
 <li class="listitem">
-It keeps Painless maintainable. Adding the Java or Groovy like method
-dispatch <span class="strong strong"><strong>feels</strong></span> like it&#8217;d add a ton of complexity which&#8217;d make maintenance and
-other improvements much more difficult.
+WriteField move(def) - Move this path to another path in the map, target must be empty
 </li>
-</ol>
+<li class="listitem">
+WriteField overwrite(def) - Move this path to another path, overwriting the path destination
+</li>
+<li class="listitem">
+void remove() - Remove this Field
+</li>
+<li class="listitem">
+WriteField set(def) - Set the value
+</li>
+<li class="listitem">
+WriteField append(def) - Append a value to this path.  Creates a list at the field if necessary
+</li>
+<li class="listitem">
+boolean isEmpty() - Does this field have no values?
+</li>
+<li class="listitem">
+int size() - The number of values in the field
+</li>
+<li class="listitem">
+Iterator iterator() - Get an iterator for the values
+</li>
+<li class="listitem">
+def get(def) - Get the first value at the field, or the default if the field is empty
+</li>
+<li class="listitem">
+def get(int, def) - Get the value at the given index, or the default if there is no value at that index
+</li>
+<li class="listitem">
+boolean hasValue(Predicate) - Is there any value in the field for which the predicate is true?
+</li>
+<li class="listitem">
+WriteField transform(Function) - Transform every value in the field using the function
+</li>
+<li class="listitem">
+WriteField deduplicate() - Remove duplicate values from the field
+</li>
+<li class="listitem">
+WriteField removeValuesIf(Predicate) - Remove values from the field if predicate matches
+</li>
+<li class="listitem">
+WriteField removeValue(int) - Remove the value at the index if it exists
+</li>
+</ul>
 </div>
 </div>
 <div class="navfooter">
 <span class="prev">
-<a href="_accessing_document_values_in_painless.html">« Accessing document values in Painless</a>
+<a href="painless-field.html">« Accessing document values in Painless</a>
 </span>
 <span class="next">
-<a href="painless-debugging.html">Painless Debugging »</a>
+<a href="modules-scripting-painless-dispatch.html">How painless dispatches functions »</a>
 </span>
 </div>
 </div>
