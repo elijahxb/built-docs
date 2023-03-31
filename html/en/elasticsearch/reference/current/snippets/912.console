@@ -1,26 +1,19 @@
-POST image-index/_search
+GET /_search
 {
   "query": {
-    "match": {
-      "title": {
-        "query": "mountain lake",
-        "boost": 0.9
+    "function_score": {
+      "query": {
+        "match": { "message": "elasticsearch" }
+      },
+      "script_score": {
+        "script": {
+          "params": {
+            "a": 5,
+            "b": 1.2
+          },
+          "source": "params.a / Math.pow(params.b, doc['my-int'].value)"
+        }
       }
     }
-  },
-  "knn": [ {
-    "field": "image-vector",
-    "query_vector": [54, 10, -2],
-    "k": 5,
-    "num_candidates": 50,
-    "boost": 0.1
-  },
-  {
-    "field": "title-vector",
-    "query_vector": [1, 20, -52, 23, 10],
-    "k": 10,
-    "num_candidates": 10,
-    "boost": 0.5
-  }],
-  "size": 10
+  }
 }

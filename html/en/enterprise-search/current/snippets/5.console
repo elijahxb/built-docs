@@ -1,10 +1,10 @@
-POST /.elastic-connectors/_update/<connector_document_id>
+PUT /_security/role_mapping/pki1_mapping
 {
-  "doc" : {
-    "custom_scheduling": {
-      "<schedule_key>": {
-        "enabled": false
-      }
-    }
+  "roles": [ "enterprise-search-workplace-search-user" ],
+  "enabled": true,
+  "rules": {
+    "all": [
+      {"field": { "dn": "*, OU=Example Company Users, DC=example, DC=com"}}}
+    ]
   }
 }

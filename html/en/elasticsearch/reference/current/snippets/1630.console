@@ -1,1 +1,1 @@
-GET last-log-from-clientip/_search
+POST _snapshot/my_repository/_cleanup

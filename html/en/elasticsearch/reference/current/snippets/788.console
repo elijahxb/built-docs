@@ -1,11 +1,11 @@
 GET /_search
 {
-  "query": {
-    "match": { "content": "kimchy" }
+  "query" : {
+    "match": { "user.id": "kimchy" }
   },
-  "highlight": {
-    "fields": {
-      "content": {}
+  "highlight" : {
+    "fields" : {
+      "comment" : {"fragment_size" : 150, "number_of_fragments" : 3}
     }
   }
 }

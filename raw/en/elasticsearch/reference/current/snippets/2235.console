@@ -1,12 +1,11 @@
-POST _reindex
+GET /my-index-000001/_termvectors
 {
-  "source": {
-    "index": "my-index-000001"
+  "doc" : {
+    "fullname" : "John Doe",
+    "text" : "test test test"
   },
-  "dest": {
-    "index": "my-new-index-000001"
-  },
-  "script": {
-    "source": "ctx._source.tag = ctx._source.remove(\"flag\")"
+  "fields": ["fullname"],
+  "per_field_analyzer" : {
+    "fullname": "keyword"
   }
 }

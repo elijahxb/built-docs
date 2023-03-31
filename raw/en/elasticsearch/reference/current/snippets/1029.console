@@ -1,33 +1,8 @@
-PUT /drivers/_doc/1
+PUT /my-index-000001/_doc/2?routing=1&refresh
 {
-  "driver" : {
-        "last_name" : "McQueen",
-        "vehicle" : [
-            {
-                "make" : "Powell Motors",
-                "model" : "Canyonero"
-            },
-            {
-                "make" : "Miller-Meteor",
-                "model" : "Ecto-1"
-            }
-        ]
-    }
-}
-
-PUT /drivers/_doc/2?refresh
-{
-  "driver" : {
-        "last_name" : "Hudson",
-        "vehicle" : [
-            {
-                "make" : "Mifune",
-                "model" : "Mach Five"
-            },
-            {
-                "make" : "Miller-Meteor",
-                "model" : "Ecto-1"
-            }
-        ]
-    }
+  "text": "This is a child document.",
+  "my-join-field": {
+    "name": "my-child",
+    "parent": "1"
+  }
 }

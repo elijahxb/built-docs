@@ -1,16 +1,6 @@
-PUT _ml/datafeeds/datafeed-test-job?pretty
+GET _ml/anomaly_detectors/esxi_log/results/categories
 {
-  "indices": [
-    "kibana_sample_data_logs"
-  ],
-  "query": {
-    "bool": {
-      "must": [
-        {
-          "match_all": {}
-        }
-      ]
-    }
-  },
-  "job_id": "test-job"
+  "page":{
+    "size": 1
+  }
 }

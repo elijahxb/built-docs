@@ -1,14 +1,18 @@
-POST _sql?format=txt
+GET my-index-000001/_search
 {
-  "runtime_mappings": {
-    "release_day_of_week": {
-      "type": "keyword",
-      "script": """
-        emit(doc['release_date'].value.dayOfWeekEnum.toString())
-      """
+  "query": {
+    "script_score": {
+      "query": {
+        "match": {
+            "message": "some message"
+        }
+      },
+      "script": {
+        "id": "calculate-score",
+        "params": {
+          "my_modifier": 2
+        }
+      }
     }
-  },
-  "query": """
-    SELECT * FROM library WHERE page_count > 300 AND author = 'Frank Herbert'
-  """
+  }
 }

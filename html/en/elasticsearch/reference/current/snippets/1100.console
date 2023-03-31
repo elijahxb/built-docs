@@ -1,8 +1,11 @@
 GET /_search
 {
   "query": {
-    "wrapper": {
-      "query": "eyJ0ZXJtIiA6IHsgInVzZXIuaWQiIDogImtpbWNoeSIgfX0="
+    "term": {
+      "user.id": {
+        "value": "kimchy",
+        "boost": 1.0
+      }
     }
   }
 }

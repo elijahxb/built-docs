@@ -1,13 +1,14 @@
-GET /network-traffic/_search
+PUT /products/_doc/0?refresh
 {
-  "size": 0,
-  "aggs": {
-    "ipv6-subnets": {
-      "ip_prefix": {
-        "field": "ipv6",
-        "prefix_length": 64,
-        "is_ipv6": true
-      }
+  "name": "LED TV",
+  "resellers": [
+    {
+      "reseller": "companyA",
+      "price": 350
+    },
+    {
+      "reseller": "companyB",
+      "price": 500
     }
-  }
+  ]
 }

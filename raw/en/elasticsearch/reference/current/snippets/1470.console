@@ -1,6 +1,9 @@
-GET /my-data-stream/_eql/search
+POST /_sql?format=txt
 {
-  "query": """
-    library where process.name == "regsvr32.exe" and dll.name == "scrobj.dll"
-  """
+  "query": "SELECT * FROM library",
+  "filter": {
+    "terms": {
+      "_routing": ["abc"]
+    }
+  }
 }

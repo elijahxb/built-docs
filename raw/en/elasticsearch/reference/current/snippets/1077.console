@@ -1,16 +1,18 @@
-GET /my-index-000001/_search
+GET /_search
 {
   "query": {
-    "percolate": {
-      "field": "query",
-      "document": {
-        "message": "The quick brown fox jumps over the lazy dog"
+    "bool": {
+      "filter": {
+        "script": {
+          "script": {
+            "source": "doc['num1'].value > params.param1",
+            "lang": "painless",
+            "params": {
+              "param1": 5
+            }
+          }
+        }
       }
-    }
-  },
-  "highlight": {
-    "fields": {
-      "message": {}
     }
   }
 }

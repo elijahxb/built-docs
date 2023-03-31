@@ -1,9 +1,17 @@
-GET index/_search
+GET bicycles,other_cycles/_search
 {
   "query": {
-    "simple_query_string": {
-      "fields": [ "body" ],
-      "query": "ski"
+    "bool": {
+      "must": {
+        "match": {
+          "description": "dutch"
+        }
+      },
+      "filter": {
+        "term": {
+          "cycle_type": "bicycle"
+        }
+      }
     }
   }
 }

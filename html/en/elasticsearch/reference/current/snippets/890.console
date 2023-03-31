@@ -1,39 +1,24 @@
-POST /_search
+POST product-index/_search
 {
-   "query": {
-      "nested": {
-         "path": "parent",
-         "query": {
-            "bool": {
-                "must": {"range": {"parent.age": {"gte": 21}}},
-                "filter": {
-                    "nested": {
-                        "path": "parent.child",
-                        "query": {"match": {"parent.child.name": "matt"}}
-                    }
-                }
+  "query": {
+    "script_score": {
+      "query" : {
+        "bool" : {
+          "filter" : {
+            "range" : {
+              "price" : {
+                "gte": 1000
+              }
             }
-         }
+          }
+        }
+      },
+      "script": {
+        "source": "cosineSimilarity(params.queryVector, 'product-vector') + 1.0",
+        "params": {
+          "queryVector": [-0.5, 90.0, -10, 14.8, -156.0]
+        }
       }
-   },
-   "sort" : [
-      {
-         "parent.child.age" : {
-            "mode" :  "min",
-            "order" : "asc",
-            "nested": {
-               "path": "parent",
-               "filter": {
-                  "range": {"parent.age": {"gte": 21}}
-               },
-               "nested": {
-                  "path": "parent.child",
-                  "filter": {
-                     "match": {"parent.child.name": "matt"}
-                  }
-               }
-            }
-         }
-      }
-   ]
+    }
+  }
 }

@@ -1,5 +1,4 @@
-GET _ml/anomaly_detectors/high_sum_total_sales/results/influencers
+POST _ml/datafeeds/datafeed-low_request_rate/_stop
 {
-  "sort": "influencer_score",
-  "desc": true
+  "timeout": "30s"
 }

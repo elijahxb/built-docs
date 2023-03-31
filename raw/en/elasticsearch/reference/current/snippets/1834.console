@@ -1,9 +1,13 @@
-POST _reindex
+PUT _cluster/settings
 {
-  "source": {
-    "index": "my-index-2099.10.*"
-  },
-  "dest": {
-    "index": "my-index-2099.10"
+  "persistent": {
+    "cluster.routing.allocation.disk.watermark.low": null,
+    "cluster.routing.allocation.disk.watermark.low.max_headroom": null,
+    "cluster.routing.allocation.disk.watermark.high": null,
+    "cluster.routing.allocation.disk.watermark.high.max_headroom": null,
+    "cluster.routing.allocation.disk.watermark.flood_stage": null,
+    "cluster.routing.allocation.disk.watermark.flood_stage.max_headroom": null,
+    "cluster.routing.allocation.disk.watermark.flood_stage.frozen": null,
+    "cluster.routing.allocation.disk.watermark.flood_stage.frozen.max_headroom": null
   }
 }

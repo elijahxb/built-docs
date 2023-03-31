@@ -1,1 +1,1 @@
-PUT _data_stream/metrics-weather_sensors-dev
+GET /sample-01*/_search

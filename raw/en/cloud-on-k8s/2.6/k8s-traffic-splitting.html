@@ -16,10 +16,7 @@
 <meta name="DC.subject" content="ECK"/>
 <meta name="DC.identifier" content="2.6"/>
 </head>
-<body><div class="page_header">
-A newer version is available. For the latest information, see the
-<a href="../current/index.html">current release documentation</a>.
-</div>
+<body>
 <div id="content">
 <div class="breadcrumbs">
 <span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
@@ -47,7 +44,7 @@ kind: Elasticsearch
 metadata:
   name: hulk
 spec:
-  version: 8.7.0
+  version: 8.6.2
   nodeSets:
   # Dedicated master nodes
   - name: master
@@ -139,7 +136,7 @@ kind: Kibana
 metadata:
   name: hulk
 spec:
-  version: 8.7.0
+  version: 8.6.2
   count: 1
   elasticsearchRef:
     name: "hulk"

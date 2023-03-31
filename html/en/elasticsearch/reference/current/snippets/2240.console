@@ -1,16 +1,17 @@
-POST _reindex
+POST /_mtermvectors
 {
-  "max_docs": 10,
-  "source": {
-    "index": "my-index-000001",
-    "query": {
-      "function_score" : {
-        "random_score" : {},
-        "min_score" : 0.9   
+   "docs": [
+      {
+         "_index": "my-index-000001",
+         "doc" : {
+            "message" : "test test test"
+         }
+      },
+      {
+         "_index": "my-index-000001",
+         "doc" : {
+           "message" : "Another test ..."
+         }
       }
-    }
-  },
-  "dest": {
-    "index": "my-new-index-000001"
-  }
+   ]
 }

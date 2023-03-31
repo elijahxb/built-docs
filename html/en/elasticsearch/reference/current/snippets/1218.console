@@ -1,36 +1,29 @@
-PUT /museums
+PUT network-traffic
 {
-  "mappings": {
-    "properties": {
-      "location": {
-        "type": "geo_point"
-      }
+    "mappings": {
+        "properties": {
+            "ipv4": { "type": "ip" },
+            "ipv6": { "type": "ip" }
+        }
     }
-  }
 }
 
-POST /museums/_bulk?refresh
+POST /network-traffic/_bulk?refresh
+{"index":{"_id":0}}
+{"ipv4":"192.168.1.10","ipv6":"2001:db8:a4f8:112a:6001:0:12:7f10"}
 {"index":{"_id":1}}
-{"location": "POINT (4.912350 52.374081)", "name": "NEMO Science Museum"}
+{"ipv4":"192.168.1.12","ipv6":"2001:db8:a4f8:112a:6001:0:12:7f12"}
 {"index":{"_id":2}}
-{"location": "POINT (4.901618 52.369219)", "name": "Museum Het Rembrandthuis"}
+{ "ipv4":"192.168.1.33","ipv6":"2001:db8:a4f8:112a:6001:0:12:7f33"}
 {"index":{"_id":3}}
-{"location": "POINT (4.914722 52.371667)", "name": "Nederlands Scheepvaartmuseum"}
+{"ipv4":"192.168.1.10","ipv6":"2001:db8:a4f8:112a:6001:0:12:7f10"}
 {"index":{"_id":4}}
-{"location": "POINT (4.405200 51.222900)", "name": "Letterenhuis"}
+{"ipv4":"192.168.2.41","ipv6":"2001:db8:a4f8:112c:6001:0:12:7f41"}
 {"index":{"_id":5}}
-{"location": "POINT (2.336389 48.861111)", "name": "Musée du Louvre"}
+{"ipv4":"192.168.2.10","ipv6":"2001:db8:a4f8:112c:6001:0:12:7f10"}
 {"index":{"_id":6}}
-{"location": "POINT (2.327000 48.860000)", "name": "Musée d'Orsay"}
-
-POST /museums/_search?size=0
-{
-  "aggregations": {
-    "large-grid": {
-      "geohex_grid": {
-        "field": "location",
-        "precision": 4
-      }
-    }
-  }
-}
+{"ipv4":"192.168.2.23","ipv6":"2001:db8:a4f8:112c:6001:0:12:7f23"}
+{"index":{"_id":7}}
+{"ipv4":"192.168.3.201","ipv6":"2001:db8:a4f8:114f:6001:0:12:7201"}
+{"index":{"_id":8}}
+{"ipv4":"192.168.3.107","ipv6":"2001:db8:a4f8:114f:6001:0:12:7307"}

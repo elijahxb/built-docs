@@ -1,1 +1,1 @@
-POST _ml/set_upgrade_mode?enabled=true
+GET _cat/shards?v=true&h=index,shard,prirep,state,node,unassigned.reason&s=state

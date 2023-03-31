@@ -1,18 +1,32 @@
-POST /_reindex
+PUT _component_template/my-weather-sensor-mappings
 {
-  "source": {
-    "index": "my-data-stream",
-    "query": {
-      "range": {
+  "template": {
+    "mappings": {
+      "properties": {
+        "sensor_id": {
+          "type": "keyword",
+          "time_series_dimension": true
+        },
+        "location": {
+          "type": "keyword",
+          "time_series_dimension": true
+        },
+        "temperature": {
+          "type": "half_float",
+          "time_series_metric": "gauge"
+        },
+        "humidity": {
+          "type": "half_float",
+          "time_series_metric": "gauge"
+        },
         "@timestamp": {
-          "gte": "now-7d/d",
-          "lte": "now/d"
+          "type": "date",
+          "format": "strict_date_optional_time"
         }
       }
     }
   },
-  "dest": {
-    "index": "new-data-stream",
-    "op_type": "create"
+  "_meta": {
+    "description": "Mappings for weather sensor data"
   }
 }

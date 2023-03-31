@@ -1,23 +1,16 @@
-PUT /imdb
+PUT /test
 {
   "mappings": {
     "properties": {
-      "title": {
-        "type": "text",
-        "term_vector": "yes"
+      "pagerank": {
+        "type": "rank_feature"
       },
-      "description": {
-        "type": "text"
+      "url_length": {
+        "type": "rank_feature",
+        "positive_score_impact": false
       },
-      "tags": {
-        "type": "text",
-        "fields": {
-          "raw": {
-            "type": "text",
-            "analyzer": "keyword",
-            "term_vector": "yes"
-          }
-        }
+      "topics": {
+        "type": "rank_features"
       }
     }
   }

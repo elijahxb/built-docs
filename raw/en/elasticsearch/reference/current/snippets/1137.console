@@ -1,12 +1,12 @@
-GET /my-index-000001/_search
+PUT child_example
 {
-  "aggs": {
-    "my-agg-name": {
-      "terms": {
-        "field": "my-field"
-      },
-      "meta": {
-        "my-metadata-field": "foo"
+  "mappings": {
+    "properties": {
+      "join": {
+        "type": "join",
+        "relations": {
+          "question": "answer"
+        }
       }
     }
   }

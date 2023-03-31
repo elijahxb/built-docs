@@ -1,8 +1,7 @@
-GET /my-data-stream/_eql/search
+GET /my-data-stream/_eql/search?filter_path=-hits.events   
 {
-  "timestamp_field": "file.accessed",
-  "event_category_field": "file.type",
   "query": """
-    file where (file.size > 1 and file.type == "file")
-  """
+    any where process.name == "regsvr32.exe"               
+  """,
+  "size": 200                                              
 }

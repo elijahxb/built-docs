@@ -1,12 +1,4 @@
-GET /_search
+DELETE /_pit
 {
-  "query" : {
-    "match": { "user.id": "kimchy" }
-  },
-  "highlight" : {
-    "fields" : {
-      "body" : {},
-      "blog.title" : {"number_of_fragments" : 0}
-    }
-  }
+    "id" : "46ToAwMDaWR5BXV1aWQyKwZub2RlXzMAAAAAAAAAACoBYwADaWR4BXV1aWQxAgZub2RlXzEAAAAAAAAAAAEBYQADaWR5BXV1aWQyKgZub2RlXzIAAAAAAAAAAAwBYgACBXV1aWQyAAAFdXVpZDEAAQltYXRjaF9hbGw_gAAAAA=="
 }

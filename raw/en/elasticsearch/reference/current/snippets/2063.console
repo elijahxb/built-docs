@@ -1,6 +1,1 @@
-PUT /_cluster/settings?flat_settings=true
-{
-  "transient" : {
-    "indices.recovery.max_bytes_per_sec" : "20mb"
-  }
-}
+GET _tasks?parent_task_id=oTUltX4IQMOUUVeiohTt8A:123

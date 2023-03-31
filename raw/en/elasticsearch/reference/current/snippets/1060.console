@@ -1,16 +1,11 @@
-PUT /items
+GET /my-index-000001/_search
 {
-  "mappings": {
-    "properties": {
-      "name": {
-        "type": "keyword"
-      },
-      "production_date": {
-        "type": "date"
-      },
-      "location": {
-        "type": "geo_point"
-      }
+  "query": {
+    "percolate": {
+      "field": "query",
+      "index": "my-index-000001",
+      "id": "2",
+      "version": 1
     }
   }
 }

@@ -1,18 +1,9 @@
-PUT my-dfs-index
+POST /_snapshot/my_repository/my_snapshot/_mount?wait_for_completion=true
 {
-  "settings": {
-    "number_of_shards": 2,
-    "number_of_replicas": 1
+  "index": "my_docs",
+  "renamed_index": "docs",
+  "index_settings": {
+    "index.number_of_replicas": 0
   },
-  "mappings": {
-      "properties": {
-        "my-keyword": { "type": "keyword" }
-      }
-    }
+  "ignore_index_settings": [ "index.refresh_interval" ]
 }
-
-POST my-dfs-index/_bulk?refresh=true
-{ "index" : { "_id" : "1" } }
-{ "my-keyword" : "a" }
-{ "index" : { "_id" : "2" } }
-{ "my-keyword" : "b" }

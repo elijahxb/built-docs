@@ -1,13 +1,15 @@
-GET index/_search
+PUT index
 {
-  "query": {
-    "script_score": {
-      "query": {
-        "match": { "body": "elasticsearch" }
-      },
-      "script": {
-        "source": "_score * saturation(doc['pagerank'].value, 10)"
+  "mappings": {
+    "dynamic_templates": [
+      {
+        "strings": {
+          "match_mapping_type": "string",
+          "mapping": {
+            "type": "keyword"
+          }
+        }
       }
-    }
+    ]
   }
 }

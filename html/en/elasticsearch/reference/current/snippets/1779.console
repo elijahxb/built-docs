@@ -1,6 +1,4 @@
-PUT /_cluster/settings
+GET /_watcher/_query/watches
 {
-  "persistent": {
-    "logger.org.elasticsearch.xpack.security.authc.saml": "debug"
-  }
+  "size" : 100
 }

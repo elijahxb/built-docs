@@ -1,10 +1,8 @@
-POST _render/template
+PUT /index_double
 {
-  "source": "{ \"query\": { \"terms\": { \"tags\": {{#toJson}}tags{{/toJson}} }}}",
-  "params": {
-    "tags": [
-      "prod",
-      "es01"
-    ]
+  "mappings": {
+    "properties": {
+      "field": { "type": "date" }
+    }
   }
 }

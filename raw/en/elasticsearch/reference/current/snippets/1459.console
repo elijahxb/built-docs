@@ -1,8 +1,10 @@
-GET /my-data-stream/_eql/search
+POST /_security/role/cli_or_drivers_minimal
 {
-  "keep_alive": "2d",
-  "wait_for_completion_timeout": "2s",
-  "query": """
-    process where process.name == "cmd.exe"
-  """
+  "cluster": ["cluster:monitor/main"],
+  "indices": [
+    {
+      "names": ["test"],
+      "privileges": ["read", "indices:admin/get"]
+    }
+  ]
 }

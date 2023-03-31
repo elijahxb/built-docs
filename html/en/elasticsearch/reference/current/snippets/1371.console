@@ -1,17 +1,18 @@
-POST /my-index-000001/_search
+POST /test/_bulk?refresh
+{"index": {}}
+{"s": 1, "m": 3.1415}
+{"index": {}}
+{"s": 2, "m": 1.0}
+{"index": {}}
+{"s": 3, "m": 2.71828}
+POST /test/_search?filter_path=aggregations
 {
-  "size": 0,
-  "runtime_mappings": {
-    "message_and_context": {
-      "type": "keyword",
-      "script": """
-        emit(doc['message.keyword'].value + ' ' + doc['context.keyword'].value)
-      """
-    }
-  },
   "aggs": {
-    "message_stats": {
-      "string_stats": { "field": "message_and_context" }
+    "tm": {
+      "top_metrics": {
+        "metrics": {"field": "m"},
+        "sort": {"s": "desc"}
+      }
     }
   }
 }

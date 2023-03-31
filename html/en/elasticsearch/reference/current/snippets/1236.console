@@ -1,12 +1,36 @@
-GET /network-traffic/_search
+GET /products/_search?size=0
 {
-  "size": 0,
+  "query": {
+    "match": {
+      "name": "led tv"
+    }
+  },
   "aggs": {
-    "ipv4-subnets": {
-      "ip_prefix": {
-        "field": "ipv4",
-        "prefix_length": 24,
-        "append_prefix_length": true
+    "resellers": {
+      "nested": {
+        "path": "resellers"
+      },
+      "aggs": {
+        "filter_reseller": {
+          "filter": {
+            "bool": {
+              "filter": [
+                {
+                  "term": {
+                    "resellers.reseller": "companyB"
+                  }
+                }
+              ]
+            }
+          },
+          "aggs": {
+            "min_price": {
+              "min": {
+                "field": "resellers.price"
+              }
+            }
+          }
+        }
       }
     }
   }

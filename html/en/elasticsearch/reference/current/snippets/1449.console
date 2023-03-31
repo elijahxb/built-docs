@@ -1,11 +1,19 @@
-GET /my-index*/_eql/search
+PUT /_cluster/settings
 {
-  "max_samples_per_key": 2,    
-  "size": 20,                  
-  "query": """
-    sample
-      [any where uptime > 0]   by host,os
-      [any where port > 100]   by host,op_sys
-      [any where bool == true] by host,os
-  """
+  "persistent": {
+    "cluster": {
+      "remote": {
+        "cluster_one": {
+          "seeds": [
+            "127.0.0.1:9300"
+          ]
+        },
+        "cluster_two": {
+          "seeds": [
+            "127.0.0.1:9301"
+          ]
+        }
+      }
+    }
+  }
 }

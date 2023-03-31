@@ -1,14 +1,20 @@
-GET kibana_sample_data_ecommerce/_search?size=0&track_total_hits=false
+POST /stackoverflow/_search?size=0
 {
-  "aggregations": {
-    "sampling": {
-      "random_sampler": {
-        "probability": 0.1
+  "query": {
+    "query_string": {
+      "query": "tags:kibana OR tags:javascript"
+    }
+  },
+  "aggs": {
+    "sample": {
+      "sampler": {
+        "shard_size": 200
       },
       "aggs": {
-        "price_percentiles": {
-          "percentiles": {
-            "field": "taxful_total_price"
+        "keywords": {
+          "significant_terms": {
+            "field": "tags",
+            "exclude": [ "kibana", "javascript" ]
           }
         }
       }

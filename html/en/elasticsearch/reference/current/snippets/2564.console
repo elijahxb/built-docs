@@ -1,13 +1,4 @@
-POST _ml/data_frame/_evaluate
+POST _ml/trained_models/lang_ident_model_1/_infer
 {
-   "index": "animal_classification",
-   "evaluation": {
-      "classification": {
-         "actual_field": "animal_class",
-         "predicted_field": "ml.animal_class_prediction",
-         "metrics": {
-           "multiclass_confusion_matrix" : {}
-         }
-      }
-   }
+  "docs":[{"text": "The fool doth think he is wise, but the wise man knows himself to be a fool."}]
 }

@@ -1,5 +1,14 @@
-PUT my-index-000001/_doc/1
+PUT /my-index/
 {
-  "counter" : 1,
-  "tags" : ["red"]
+  "mappings": {
+    "properties": {
+      "@timestamp": {
+        "format": "strict_date_optional_time||epoch_second",
+        "type": "date"
+      },
+      "message": {
+        "type": "wildcard"
+      }
+    }
+  }
 }

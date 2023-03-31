@@ -1,23 +1,20 @@
-GET /_search
+POST /exams/_search?size=0
 {
-  "size": 0,
   "runtime_mappings": {
-    "normalized_genre": {
-      "type": "keyword",
-      "script": """
-        String genre = doc['genre'].value;
-        if (doc['product'].value.startsWith('Anthology')) {
-          emit(genre + ' anthology');
-        } else {
-          emit(genre);
+    "grade.corrected": {
+      "type": "double",
+      "script": {
+        "source": "emit(Math.min(100, doc['grade'].value * params.correction))",
+        "params": {
+          "correction": 1.2
         }
-      """
+      }
     }
   },
   "aggs": {
-    "genres": {
-      "terms": {
-        "field": "normalized_genre"
+    "avg_corrected_grade": {
+      "avg": {
+        "field": "grade.corrected"
       }
     }
   }

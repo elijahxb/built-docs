@@ -1,9 +1,10 @@
-GET /.elastic-connectors/_search
+PUT /_security/role_mapping/oidc1_mapping
 {
-  "_source": false,
-  "query": {
-    "match": {
-      "index_name": "<search-crawler-name>"
-    }
+  "roles": [ "superuser" ],
+  "enabled": true,
+  "rules": {
+    "all": [
+      {"field": { "realm.name": "oidc1"}}}
+    ]
   }
 }

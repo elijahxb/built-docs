@@ -1,18 +1,10 @@
-POST _render/template
+POST /index_long,index_double/_search
 {
-  "source": "{ \"query\": { \"bool\": { \"must\": {{#toJson}}clauses{{/toJson}} }}}",
-  "params": {
-    "clauses": [
+   "sort" : [
       {
-        "term": {
-          "user.id": "kimchy"
-        }
-      },
-      {
-        "term": {
-          "url.domain": "example.com"
+        "field" : {
+            "numeric_type" : "date_nanos"
         }
       }
-    ]
-  }
+   ]
 }

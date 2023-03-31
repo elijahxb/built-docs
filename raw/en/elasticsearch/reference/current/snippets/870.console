@@ -1,14 +1,8 @@
-POST _render/template
+PUT /index_double
 {
-  "source": {
-    "query": {
-      "term": {
-        "url.full": "{{#url}}{{host}}/{{page}}{{/url}}"
-      }
+  "mappings": {
+    "properties": {
+      "field": { "type": "double" }
     }
-  },
-  "params": {
-    "host": "http://example.com",
-    "page": "hello-world"
   }
 }

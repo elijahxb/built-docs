@@ -1,6 +1,9 @@
-PUT _cluster/settings
+POST _render/template
 {
-  "persistent": {
-    "cluster.remote.cluster_two.skip_unavailable": true
+  "id": "my-search-template",
+  "params": {
+    "query_string": "hello world",
+    "from": 20,
+    "size": 10
   }
 }

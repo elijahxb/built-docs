@@ -1,41 +1,28 @@
-PUT index
+PUT bicycles
 {
-  "settings": {
-    "analysis": {
-      "analyzer": {
-        "english_exact": {
-          "tokenizer": "standard",
-          "filter": [
-            "lowercase"
-          ]
-        }
-      }
-    }
-  },
   "mappings": {
     "properties": {
-      "body": {
-        "type": "text",
-        "analyzer": "english",
-        "fields": {
-          "exact": {
-            "type": "text",
-            "analyzer": "english_exact"
-          }
-        }
+      "cycle_type": {
+        "type": "constant_keyword",
+        "value": "bicycle"
+      },
+      "name": {
+        "type": "text"
       }
     }
   }
 }
 
-PUT index/_doc/1
+PUT other_cycles
 {
-  "body": "Ski resort"
+  "mappings": {
+    "properties": {
+      "cycle_type": {
+        "type": "keyword"
+      },
+      "name": {
+        "type": "text"
+      }
+    }
+  }
 }
-
-PUT index/_doc/2
-{
-  "body": "A pair of skis"
-}
-
-POST index/_refresh

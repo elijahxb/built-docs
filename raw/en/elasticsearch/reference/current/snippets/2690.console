@@ -1,10 +1,30 @@
-GET /my-index-000001/_search?filter_path=profile.shards.fetch
+GET museums/_mvt/location/13/4207/2692
 {
-  "profile": true,
+  "grid_agg": "geotile",
+  "grid_precision": 2,
+  "fields": [
+    "name",
+    "price"
+  ],
   "query": {
     "term": {
-      "user.id": {
-        "value": "elkbee"
+      "included": true
+    }
+  },
+  "aggs": {
+    "min_price": {
+      "min": {
+        "field": "price"
+      }
+    },
+    "max_price": {
+      "max": {
+        "field": "price"
+      }
+    },
+    "avg_price": {
+      "avg": {
+        "field": "price"
       }
     }
   }

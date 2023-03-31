@@ -1,1 +1,4 @@
-kubectl create clusterrolebinding cluster-admin-binding --clusterrole=cluster-admin --user=$(gcloud info --format='value(config.account)')
+POST /customer/_doc/1
+{
+  "name": "John Doe"
+}

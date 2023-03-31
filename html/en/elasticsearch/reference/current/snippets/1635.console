@@ -1,14 +1,8 @@
-PUT /_cluster/settings
+PUT _snapshot/my_gcs_repository
 {
-  "persistent" : {
-    "cluster" : {
-      "remote" : {
-        "leader" : {
-          "seeds" : [
-            "127.0.0.1:9300"
-          ]
-        }
-      }
-    }
+  "type": "gcs",
+  "settings": {
+    "bucket": "my_other_bucket",
+    "base_path": "dev"
   }
 }

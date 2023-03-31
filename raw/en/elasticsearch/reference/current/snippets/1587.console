@@ -1,8 +1,7 @@
-PUT logs-my_app-default/_settings
+PUT _cluster/settings
 {
-  "index": {
-    "lifecycle": {
-      "name": "new-lifecycle-policy"
-    }
+  "persistent": {
+    "indices.lifecycle.poll_interval": null
   }
 }
+

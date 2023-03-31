@@ -1,23 +1,26 @@
-POST ledger/_search?size=0
+GET node_upgrade/_search
 {
+  "size": 0,
   "aggs": {
-    "profit": {
-      "scripted_metric": {
-        "init_script": {
-          "id": "my_init_script"
+    "startup_time_ttest": {
+      "t_test": {
+        "a": {
+          "field": "startup_time_before",        
+          "filter": {
+            "term": {
+              "group": "A"                       
+            }
+          }
         },
-        "map_script": {
-          "id": "my_map_script"
+        "b": {
+          "field": "startup_time_before",        
+          "filter": {
+            "term": {
+              "group": "B"                       
+            }
+          }
         },
-        "combine_script": {
-          "id": "my_combine_script"
-        },
-        "params": {
-          "field": "amount"          
-        },
-        "reduce_script": {
-          "id": "my_reduce_script"
-        }
+        "type": "heteroscedastic"                
       }
     }
   }

@@ -131,12 +131,12 @@
 </div>
 <div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="ech-restrictions-monitoring"></a>Restrictions and limitations<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/ms-88/docs/shared/ec-ce-enable-logging-and-monitoring.asciidoc">edit</a></h2>
+<h2 class="title"><a id="ech-restrictions-monitoring"></a>Restrictions and limitations<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/cloud/edit/master/docs/shared/ec-ce-enable-logging-and-monitoring.asciidoc">edit</a></h2>
 </div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
 <li class="listitem">
-To avoid compatibility issues between versions, the deployment sending monitoring metrics and the monitoring deployment receiving them should be at the same major version. If using the same version is not feasible, check for breaking changes in the Elasticsearch <a href="/guide/en/elasticsearch/reference/8.7/es-release-notes.html" class="ulink" target="_top">release notes</a> to make sure that your versions are compatible.
+To avoid compatibility issues between versions, the deployment sending monitoring metrics and the monitoring deployment receiving them should be at the same major version. If using the same version is not feasible, check for breaking changes in the Elasticsearch <a href="/guide/en/elasticsearch/reference/8.6/es-release-notes.html" class="ulink" target="_top">release notes</a> to make sure that your versions are compatible.
 </li>
 <li class="listitem">
 <a id="cross-region-monitor"></a> Monitoring across regions is not supported. If you need to move your existing monitoring to the same region, you can do a reindex or create a new deployment and select the snapshot from the old deployment.

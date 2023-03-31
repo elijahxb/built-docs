@@ -1,5 +1,1 @@
-GET /my-index-000001/_analyze
-{
-  "field" : "my-field",
-  "text" : "this is a test"
-}
+POST /my-index-000001/_search?size=surprise_me

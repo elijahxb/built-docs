@@ -1,10 +1,8 @@
-GET my-index-000001/_search?filter_path=aggregations
+PUT /_autoscaling/policy/my_autoscaling_policy
 {
-  "aggs": {
-    "my-num-field-stats": {
-      "stats": {
-        "field": "my-num-field"
-      }
+  "roles" : [ "data_hot" ],
+  "deciders": {
+    "fixed": {
     }
   }
 }

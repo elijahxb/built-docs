@@ -1,12 +1,11 @@
 GET /_search
 {
   "query": {
-    "match": {
-      "message": {
-        "query": "to be or not to be",
-        "operator": "and",
-        "zero_terms_query": "all"
-      }
+    "multi_match" : {
+      "query":      "brown fox",
+      "type":       "best_fields",
+      "fields":     [ "subject", "message" ],
+      "tie_breaker": 0.3
     }
   }
 }

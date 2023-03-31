@@ -1,1 +1,5 @@
-GET datastream/_search
+PUT _ingest/pipeline/my-pipeline-id
+{
+  "version": 1,
+  "processors": [ ... ]
+}

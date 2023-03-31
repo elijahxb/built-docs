@@ -1,6 +1,13 @@
-PUT /_cluster/settings
+PUT _component_template/my-weather-sensor-settings
 {
-  "persistent": {
-    "indices.lifecycle.poll_interval": null
+  "template": {
+    "settings": {
+      "index.lifecycle.name": "my-lifecycle-policy",
+      "index.look_ahead_time": "3h",
+      "index.codec": "best_compression"
+    }
+  },
+  "_meta": {
+    "description": "Index settings for weather sensor data"
   }
 }

@@ -1,17 +1,14 @@
-GET /my-index-000001/_search
+PUT /my-index-000001
 {
-  "query": {
-    "nested": {
-      "path": "obj1",
-      "query": {
-        "bool": {
-          "must": [
-            { "match": { "obj1.name": "blue" } },
-            { "range": { "obj1.count": { "gt": 5 } } }
-          ]
+  "mappings": {
+    "properties": {
+      "my-join-field": {
+        "type": "join",
+        "relations": {
+          "my-parent": "my-child"
         }
-      },
-      "score_mode": "avg"
+      }
     }
   }
 }
+

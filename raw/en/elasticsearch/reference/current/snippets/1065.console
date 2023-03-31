@@ -1,21 +1,27 @@
-GET /_search
+GET /my-index-000001/_search
 {
   "query": {
-    "more_like_this": {
-      "fields": [ "title", "description" ],
-      "like": [
+    "bool": {
+      "should": [
         {
-          "_index": "imdb",
-          "_id": "1"
+          "percolate": {
+            "field": "query",
+            "document": {
+              "message": "bonsai tree"
+            },
+            "name": "query1"
+          }
         },
         {
-          "_index": "imdb",
-          "_id": "2"
-        },
-        "and potentially some more text here as well"
-      ],
-      "min_term_freq": 1,
-      "max_query_terms": 12
+          "percolate": {
+            "field": "query",
+            "document": {
+              "message": "tulip flower"
+            },
+            "name": "query2"
+          }
+        }
+      ]
     }
   }
 }

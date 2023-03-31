@@ -1,8 +1,6 @@
-GET bicycles,other_cycles/_search
+PUT _cluster/settings
 {
-  "query": {
-    "match": {
-      "description": "dutch"
-    }
+  "persistent" : {
+    "cluster.max_shards_per_node": null
   }
 }

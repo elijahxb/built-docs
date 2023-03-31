@@ -1,1 +1,1 @@
-GET /my-alias/_search?ignore_unavailable=true
+GET /_cluster/state?filter_path=metadata.indices.*.state,-metadata.indices.logstash-*
