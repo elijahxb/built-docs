@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Cross-cluster search and detection rules | Elastic Security Solution [master] | Elastic</title>
+<meta class="elastic" name="content" content="Cross-cluster search and detection rules | Elastic Security Solution [master]">
+
+<link rel="home" href="index.html" title="Elastic Security Solution [master]"/>
+<link rel="up" href="rules-ui-create.html" title="Create a detection rule"/>
+<link rel="prev" href="rules-ui-create.html" title="Create a detection rule"/>
+<link rel="next" href="rules-ui-management.html" title="Manage detection rules"/>
+<meta class="elastic" name="product_version" content="master"/>
+<meta class="elastic" name="product_name" content="Security"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Security/Guide/master"/>
+<meta name="DC.subject" content="Security"/>
+<meta name="DC.identifier" content="master"/>
+</head>
+<body><div class="page_header">
+You are looking at preliminary documentation for a future release.
+Not what you want? See the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elastic Security Solution [master]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="detection-engine-overview.html">Detections and alerts</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="rules-ui-create.html">Create a detection rule</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="rules-ui-create.html">« Create a detection rule</a>
+</span>
+<span class="next">
+<a href="rules-ui-management.html">Manage detection rules »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="rules-cross-cluster-search"></a>Cross-cluster search and detection rules<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/main/docs/detections/rules-cross-cluster-search.asciidoc">edit</a></h2>
+</div></div></div>
+<p><a href="/guide/en/elasticsearch/reference/master/modules-cross-cluster-search.html" class="ulink" target="_top">Cross-cluster search</a> is an Elasticsearch feature that allows one cluster (the <em>local</em> cluster) to query data in a separate cluster (the <em>remote</em> cluster). Elastic Security&#8217;s detection rules can perform cross-cluster search to query security data in remote clusters, but it requires additional configuration and considerations.</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Both the local and remote clusters must have the same <a href="/guide/en/elasticsearch/reference/master/remote-clusters-privileges.html" class="ulink" target="_top">role privileges</a> to access the indices being queried on the remote cluster.
+</li>
+<li class="listitem">
+If there are any changes made to the role on the local cluster, you must update the API keys for all detection rules using that role for cross-cluster search. You can do this in Kibana &#8594; <span class="strong strong"><strong>Stack Management</strong></span> &#8594; <span class="strong strong"><strong>Rules</strong></span> on the local cluster. Refer to <a class="xref" href="rules-cross-cluster-search.html#update-api-keys" title="Update API keys for rules">Update API keys for rules</a> below for instructions.
+</li>
+</ul>
+</div>
+<h4><a id="update-api-keys"></a>Update API keys for rules<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/main/docs/detections/rules-cross-cluster-search.asciidoc">edit</a></h4>
+<p>If the role on the local cluster is changed, you&#8217;ll need to update the API keys for detection rules that use that role.</p>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+On the local cluster, go to Kibana &#8594; <span class="strong strong"><strong>Stack Management</strong></span> &#8594; <span class="strong strong"><strong>Rules</strong></span>.
+</li>
+<li class="listitem">
+Use the search box and drop-down filters to find the rules you want to update. For example, you can use the <span class="strong strong"><strong>Type</strong></span> filter to find rules under the <span class="strong strong"><strong>Security</strong></span> category.
+</li>
+<li class="listitem">
+<p>Select the checkbox next to each rule&#8217;s name, then <span class="strong strong"><strong>Selected <em>x</em> rules</strong></span> &#8594; <span class="strong strong"><strong>Update API keys</strong></span>.</p>
+<div class="tip admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>You can also update a single rule by selecting the rule&#8217;s actions menu (<span class="strong strong"><strong>&#8230;&#8203;</strong></span>) &#8594; <span class="strong strong"><strong>Update API key</strong></span>.</p>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="rules-ui-create.html">« Create a detection rule</a>
+</span>
+<span class="next">
+<a href="rules-ui-management.html">Manage detection rules »</a>
+</span>
+</div>
+</div>
+</body>
+</html>
