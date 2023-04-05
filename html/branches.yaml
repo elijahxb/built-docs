@@ -67,14 +67,14 @@ apm-agent-ruby:
 apm-agent-rum-js:
   APM Real User Monitoring JavaScript Agent/CHANGELOG.asciidoc/4.x: 8410da7096525ec385f18e862fa17c35f2629b69
   APM Real User Monitoring JavaScript Agent/CHANGELOG.asciidoc/5.x: ba31b55a4f05578f4089aacb3c327b13bd2c34a7
-  APM Real User Monitoring JavaScript Agent/CHANGELOG.asciidoc/main: bf7690e69130978c9782a1adc51647f5c77f781a
+  APM Real User Monitoring JavaScript Agent/CHANGELOG.asciidoc/main: local
   APM Real User Monitoring JavaScript Agent/docs/0.x: 888348f32eb3e02669cfc87a1122b8770e7cd0e0
   APM Real User Monitoring JavaScript Agent/docs/1.x: 2ceccedcd03c07aa71a33e7493910a9a533438dd
   APM Real User Monitoring JavaScript Agent/docs/2.x: c29a52fd8d7ea1a7b740d91aca1a379080e5f4d9
   APM Real User Monitoring JavaScript Agent/docs/3.x: 408aba849bb087a610dfd26e0c15c3eb936e341f
   APM Real User Monitoring JavaScript Agent/docs/4.x: 8410da7096525ec385f18e862fa17c35f2629b69
   APM Real User Monitoring JavaScript Agent/docs/5.x: ba31b55a4f05578f4089aacb3c327b13bd2c34a7
-  APM Real User Monitoring JavaScript Agent/docs/main: bf7690e69130978c9782a1adc51647f5c77f781a
+  APM Real User Monitoring JavaScript Agent/docs/main: local
 apm-aws-lambda:
   APM AWS Lambda Extension/CHANGELOG.asciidoc/main: fc103a0504bb33c01e2c171e2ff6dbb25f199b1b
   APM AWS Lambda Extension/docs/main: fc103a0504bb33c01e2c171e2ff6dbb25f199b1b

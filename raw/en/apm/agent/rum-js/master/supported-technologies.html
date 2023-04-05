@@ -246,6 +246,21 @@ by creating <a class="xref" href="custom-transactions.html" title="Custom Transa
 <p>The agent supports <a class="xref" href="framework-integrations.html" title="Framework-specific integrations">integrations with certain frameworks</a>.</p>
 <p>To instrument custom metrics, like rendering time or mounting time of components on frameworks like React, Angular, Vue,
 etc., use the <a class="xref" href="custom-transactions.html" title="Custom Transactions">custom transactions API</a>.</p>
+<p>The core RUM agent supports websites based on multi-page (MPA) and single page (SPA) architectures, out of the box. This means that for SPAs to use <a class="xref" href="framework-integrations.html" title="Framework-specific integrations">framework specific integrations</a> is a recommendation rather than a requirement. We recommend them for the following reasons:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+They group pages by routes better. This results in <code class="literal">transaction.name</code> mapped to the actual application route path the users have declared in their SPA application.
+</li>
+<li class="listitem">
+They exactly know when an SPA navigation is rendered, the core RUM agent does not know that and waits for the last network request before considering the SPA transition is finished. The integration packages on the other hand hook into the component lifecycle and measures the duration of the SPA transition correctly.
+</li>
+<li class="listitem">
+They improve error capturing. For instance, when an error is thrown inside an Angular application, the default error handler doesn’t rethrow them as browser events, which makes them invisible to the core RUM agent. The integration automatically captures those errors, too.
+</li>
+</ul>
+</div>
+<p>To be clear, the core RUM agent can be used on its own with SPA sites, however also using the framework integration provides the additional capabilities shown.</p>
 <h3><a id="platforms"></a>Platforms<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-rum-js/edit/main/docs/supported-technologies.asciidoc">edit</a></h3>
 <p>The following platforms are supported:</p>
 <div class="imageblock">
