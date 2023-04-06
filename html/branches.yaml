@@ -5939,7 +5939,7 @@ elasticsearch-ruby:
   Elasticsearch Guide/docs/examples/guide/8.5: 989cccb84491173b032a4805294da49d2af201cf
   Elasticsearch Guide/docs/examples/guide/8.6: e9e64ed66eb3afe1e29fb779bd44a1e2b8143568
   Elasticsearch Guide/docs/examples/guide/8.7: 463289a7c02f3d3b65e3c86c13eb0c0d3b942085
-  Elasticsearch Guide/docs/examples/guide/main: 93466fe38035c9cfca8d85bdcfcee05311f23cdf
+  Elasticsearch Guide/docs/examples/guide/main: local
   Ruby Client/docs/7.16: 59822e674bd2f9e405c46850b76e6bcd74337e19
   Ruby Client/docs/7.17: 75919f3f0fb3e1b0eefb26daf2d4e8a2e2cb3ac1
   Ruby Client/docs/8.0: 153af3c96d607f94b4886099434e1cbdf2ed5484
@@ -5950,7 +5950,7 @@ elasticsearch-ruby:
   Ruby Client/docs/8.5: 989cccb84491173b032a4805294da49d2af201cf
   Ruby Client/docs/8.6: e9e64ed66eb3afe1e29fb779bd44a1e2b8143568
   Ruby Client/docs/8.7: 463289a7c02f3d3b65e3c86c13eb0c0d3b942085
-  Ruby Client/docs/main: 93466fe38035c9cfca8d85bdcfcee05311f23cdf
+  Ruby Client/docs/main: local
 enterprise-search-js:
   Enterprise Search Node.js client/packages/enterprise-search/docs/8.6: 7d00ef09e3ecc84a5b47d222507eceb5e94ac741
   Enterprise Search Node.js client/packages/enterprise-search/docs/8.7: 1dfd2a1baf7b4d39548a3e8343038e650e464742
