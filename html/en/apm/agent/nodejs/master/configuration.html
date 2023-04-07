@@ -1939,6 +1939,26 @@ chart in the APM app.</p>
 
 <div class="section">
 <div class="titlepage"><div><div>
+<h3 class="title"><a id="disable-metrics"></a><code class="literal">disableMetrics</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-nodejs/edit/main/docs/configuration.asciidoc">edit</a></h3>
+</div></div></div>
+<p><span class="small">Added in: v3.45.0</span></p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<span class="strong strong"><strong>Type:</strong></span> Array
+</li>
+<li class="listitem">
+<span class="strong strong"><strong>Env:</strong></span> <code class="literal">ELASTIC_APM_DISABLE_METRICS</code>
+</li>
+</ul>
+</div>
+<p>The <code class="literal">disableMetrics</code> configuration variable is a list of wildcard patterns of metric names to <span class="strong strong"><strong>not</strong></span> send to APM server. The filter is applied to <a class="xref" href="metrics.html" title="Metrics">core APM agent metrics</a>, custom metrics defined by <a class="xref" href="agent-api.html#apm-register-custom-metrics" title="apm.registerMetric(name[, labels], callback)"><code class="literal">apm.registerMetric(name[, labels], callback)</code></a>, and metrics defined using the OpenTelemetry Metrics API (XXX doc link).</p>
+<p>For example, setting the <code class="literal">ELASTIC_APM_DISABLE_METRICS="nodejs.*,my_counter"</code> environment variable (or the equivalent <code class="literal">disableMetrics: ['nodejs.*', 'my_counter']</code> option to <a class="xref" href="agent-api.html#apm-start" title="apm.start([options])"><code class="literal">apm.start([options])</code></a>) will result in reported metrics excluding any metric named <code class="literal">my_counter</code> and any starting with <code class="literal">nodejs.</code>.  Wildcard matches are case-insensitive by default. You may make wildcard searches case-sensitive by using the <code class="literal">(?-i)</code> prefix.</p>
+<p>Use <code class="literal">metricsInterval: '0s'</code> to completely disable metrics collection. See <a class="xref" href="configuration.html#metrics-interval" title="metricsInterval"><code class="literal">metricsInterval</code></a>.</p>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
 <h3 class="title"><a id="cloud-provider"></a><code class="literal">cloudProvider</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-nodejs/edit/main/docs/configuration.asciidoc">edit</a></h3>
 </div></div></div>
 <div class="ulist itemizedlist">
