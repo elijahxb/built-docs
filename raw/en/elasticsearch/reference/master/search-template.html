@@ -50,9 +50,9 @@ your searches without modifying your app&#8217;s code.</p>
 stored script API</a>.</p>
 <p>The request&#8217;s <code class="literal">source</code> supports the same parameters as the
 <a class="xref" href="search-search.html#search-search-api-request-body" title="Request body">search API</a>'s request body. <code class="literal">source</code> also
-supports <a href="https://mustache.github.io/" class="ulink" target="_top">Mustache</a> variables, typically enclosed in
+supports <a href="https://mustache.github.io/" class="ulink" target="_top">Mustache</a> variables and has <a href="https://github.com/elastic/elasticsearch/blob/main/modules/lang-mustache/build.gradle/" class="ulink" target="_top">dependency</a> on <a href="https://github.com/spullara/mustache.java" class="ulink" target="_top">mustache.java</a>. Typically <a href="https://mustache.github.io/" class="ulink" target="_top">Mustache</a> variables are enclosed in
 double curly brackets: <code class="literal">{{my-var}}</code>. When you run a templated search, Elasticsearch
-replaces these variables with values from <code class="literal">params</code>.</p>
+replaces these variables with values from <code class="literal">params</code>. To learn more about mustache syntax - see <a href="http://mustache.github.io/mustache.5.html/" class="ulink" target="_top">Mustache.js manual</a></p>
 <p>Search templates must use a <code class="literal">lang</code> of <code class="literal">mustache</code>.</p>
 <p>The following request creates a search template with an <code class="literal">id</code> of
 <code class="literal">my-search-template</code>.</p>
