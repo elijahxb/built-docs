@@ -84919,6 +84919,20 @@
 </url>
 
 <url>
+    <loc>https://www.elastic.co/guide/en/logstash/current/_logstash_commits_between_8_7_and_8_7_0.html</loc>
+    <lastmod>2023-04-11T17:50:31+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+
+<url>
+    <loc>https://www.elastic.co/guide/en/logstash/current/_logstash_plugin_release_changelogs.html</loc>
+    <lastmod>2023-04-11T17:50:31+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+
+<url>
     <loc>https://www.elastic.co/guide/en/logstash/current/advanced-pipeline.html</loc>
     <lastmod>2023-03-30T14:43:51+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -85347,35 +85361,35 @@
 
 <url>
     <loc>https://www.elastic.co/guide/en/logstash/current/logstash-8-0-0.html</loc>
-    <lastmod>2023-03-30T14:43:51+00:00</lastmod>
+    <lastmod>2023-04-11T17:50:31+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
 
 <url>
     <loc>https://www.elastic.co/guide/en/logstash/current/logstash-8-0-1.html</loc>
-    <lastmod>2023-03-30T14:43:51+00:00</lastmod>
+    <lastmod>2023-04-11T17:50:31+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
 
 <url>
     <loc>https://www.elastic.co/guide/en/logstash/current/logstash-8-1-0.html</loc>
-    <lastmod>2023-03-30T14:43:51+00:00</lastmod>
+    <lastmod>2023-04-11T17:50:31+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
 
 <url>
     <loc>https://www.elastic.co/guide/en/logstash/current/logstash-8-1-1.html</loc>
-    <lastmod>2023-03-30T14:43:51+00:00</lastmod>
+    <lastmod>2023-04-11T17:50:31+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
 
 <url>
     <loc>https://www.elastic.co/guide/en/logstash/current/logstash-8-1-2.html</loc>
-    <lastmod>2023-03-30T14:43:51+00:00</lastmod>
+    <lastmod>2023-04-11T17:50:31+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -85389,14 +85403,14 @@
 
 <url>
     <loc>https://www.elastic.co/guide/en/logstash/current/logstash-8-2-0.html</loc>
-    <lastmod>2023-03-30T14:43:51+00:00</lastmod>
+    <lastmod>2023-04-11T17:50:31+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
 
 <url>
     <loc>https://www.elastic.co/guide/en/logstash/current/logstash-8-2-1.html</loc>
-    <lastmod>2023-03-30T14:43:51+00:00</lastmod>
+    <lastmod>2023-04-11T17:50:31+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -85452,7 +85466,7 @@
 
 <url>
     <loc>https://www.elastic.co/guide/en/logstash/current/logstash-8-4-1.html</loc>
-    <lastmod>2023-03-30T14:43:51+00:00</lastmod>
+    <lastmod>2023-04-11T17:50:31+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -85466,7 +85480,7 @@
 
 <url>
     <loc>https://www.elastic.co/guide/en/logstash/current/logstash-8-5-0.html</loc>
-    <lastmod>2023-03-30T14:43:51+00:00</lastmod>
+    <lastmod>2023-04-11T17:50:31+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -85508,14 +85522,21 @@
 
 <url>
     <loc>https://www.elastic.co/guide/en/logstash/current/logstash-8-6-2.html</loc>
-    <lastmod>2023-03-30T14:43:51+00:00</lastmod>
+    <lastmod>2023-04-11T17:50:31+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
 
 <url>
     <loc>https://www.elastic.co/guide/en/logstash/current/logstash-8-7-0.html</loc>
-    <lastmod>2023-03-30T14:43:51+00:00</lastmod>
+    <lastmod>2023-04-11T17:50:31+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+</url>
+
+<url>
+    <loc>https://www.elastic.co/guide/en/logstash/current/logstash-8-7-1.html</loc>
+    <lastmod>2023-04-11T17:50:31+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -86299,7 +86320,7 @@
 
 <url>
     <loc>https://www.elastic.co/guide/en/logstash/current/plugins-inputs-beats.html</loc>
-    <lastmod>2023-04-05T20:55:00+00:00</lastmod>
+    <lastmod>2023-04-11T17:50:31+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -87139,7 +87160,7 @@
 
 <url>
     <loc>https://www.elastic.co/guide/en/logstash/current/releasenotes.html</loc>
-    <lastmod>2023-03-30T14:43:51+00:00</lastmod>
+    <lastmod>2023-04-11T17:50:31+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>

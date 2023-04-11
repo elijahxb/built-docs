@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Logstash Plugin Release Changelogs | Logstash Reference [8.7] | Elastic</title>
+<meta class="elastic" name="content" content="Logstash Plugin Release Changelogs | Logstash Reference [8.7]">
+
+<link rel="home" href="index.html" title="Logstash Reference [8.7]"/>
+<link rel="up" href="releasenotes.html" title="Release Notes"/>
+<link rel="prev" href="_logstash_commits_between_8_7_and_8_7_0.html" title="Logstash Commits between 8.7 and 8.7.0"/>
+<link rel="next" href="logstash-8-7-0.html" title="Logstash 8.7.0 Release Notes"/>
+<meta class="elastic" name="product_version" content="8.7"/>
+<meta class="elastic" name="product_name" content="Logstash"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Logstash/Reference/8.7"/>
+<meta name="DC.subject" content="Logstash"/>
+<meta name="DC.identifier" content="8.7"/>
+</head>
+<body>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Logstash Reference [8.7]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="releasenotes.html">Release Notes</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="_logstash_commits_between_8_7_and_8_7_0.html">« Logstash Commits between 8.7 and 8.7.0</a>
+</span>
+<span class="next">
+<a href="logstash-8-7-0.html">Logstash 8.7.0 Release Notes »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="_logstash_plugin_release_changelogs"></a>Logstash Plugin Release Changelogs</h2>
+</div></div></div>
+<p>Computed from "git diff v8.7.0..8.7 *.release"
+Changed plugin versions:
+logstash-codec-fluent: 3.4.1 &#8594; 3.4.2
+logstash-filter-http: 1.4.1 &#8594; 1.4.3
+logstash-filter-useragent: 3.3.3 &#8594; 3.3.4
+logstash-integration-aws: 7.1.0 &#8594; 7.1.1
+---------- GENERATED CONTENT ENDS HERE ------------</p>
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="_plugins"></a>Plugins</h3>
+</div></div></div>
+<p><span class="strong strong"><strong>Fluent Codec - 3.4.2</strong></span></p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Fix: Convert LogStash::Timestamp values to iso-8601 to resolve crash issue with <code class="literal">msgpack</code> serialization <a href="https://github.com/logstash-plugins/logstash-codec-fluent/pull/30" class="ulink" target="_top">#30</a>
+</li>
+</ul>
+</div>
+<p><span class="strong strong"><strong>Http Filter - 1.4.3</strong></span></p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+DOC: add clarification on sending data as json <a href="https://github.com/logstash-plugins/logstash-filter-http/pull/48" class="ulink" target="_top">#48</a>
+</li>
+<li class="listitem">
+Fix: resolve content type when a content-type header contains an array <a href="https://github.com/logstash-plugins/logstash-filter-http/pull/46" class="ulink" target="_top">#46</a>
+</li>
+</ul>
+</div>
+<p><span class="strong strong"><strong>Useragent Filter - 3.3.4</strong></span></p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Upgrade <code class="literal">snakeyaml</code> dependency <a href="https://github.com/logstash-plugins/logstash-filter-useragent/pull/84" class="ulink" target="_top">#84</a>
+</li>
+</ul>
+</div>
+<p><span class="strong strong"><strong>Aws Integration - 7.1.1</strong></span></p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Fix: Plugin cannot load Java dependencies <a href="https://github.com/logstash-plugins/logstash-integration-aws/pull/24" class="ulink" target="_top">#24</a>
+</li>
+</ul>
+</div>
+</div>
+
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="_logstash_commits_between_8_7_and_8_7_0.html">« Logstash Commits between 8.7 and 8.7.0</a>
+</span>
+<span class="next">
+<a href="logstash-8-7-0.html">Logstash 8.7.0 Release Notes »</a>
+</span>
+</div>
+</div>
+</body>
+</html>
