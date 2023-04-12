@@ -6134,7 +6134,7 @@ ingest-docs:
   APM Guide/docs/en/8.5: 63a22d1312140b0b59ddb78a61d1cd25b201be5a
   APM Guide/docs/en/8.6: 37de5c177c85110763f1e3cf9b0933b78c5fea69
   APM Guide/docs/en/8.7: d04490f49391066e216850d3bffb770f5c2ea8d1
-  APM Guide/docs/en/main: a16b271dd59fd04663d71a7ac9dbc85ab73a22d4
+  APM Guide/docs/en/main: local
   Fleet and Elastic Agent Guide/docs/en/7.10: 0ae432effb935c47d18799dbd75605a7847d5998
   Fleet and Elastic Agent Guide/docs/en/7.11: 3235b0135a84453f2bc93913b340663565fa9ef5
   Fleet and Elastic Agent Guide/docs/en/7.12: f3fde0086b0601fc452af4635e415957d569365e
@@ -6153,8 +6153,8 @@ ingest-docs:
   Fleet and Elastic Agent Guide/docs/en/8.5: 63a22d1312140b0b59ddb78a61d1cd25b201be5a
   Fleet and Elastic Agent Guide/docs/en/8.6: 37de5c177c85110763f1e3cf9b0933b78c5fea69
   Fleet and Elastic Agent Guide/docs/en/8.7: d04490f49391066e216850d3bffb770f5c2ea8d1
-  Fleet and Elastic Agent Guide/docs/en/main: a16b271dd59fd04663d71a7ac9dbc85ab73a22d4
-  Ingest Reference Architectures/docs/en/main: a16b271dd59fd04663d71a7ac9dbc85ab73a22d4
+  Fleet and Elastic Agent Guide/docs/en/main: local
+  Ingest Reference Architectures/docs/en/main: local
   Observability/docs/en/7.10: 0ae432effb935c47d18799dbd75605a7847d5998
   Observability/docs/en/7.11: 3235b0135a84453f2bc93913b340663565fa9ef5
   Observability/docs/en/7.12: f3fde0086b0601fc452af4635e415957d569365e
@@ -6172,7 +6172,7 @@ ingest-docs:
   Observability/docs/en/8.5: 63a22d1312140b0b59ddb78a61d1cd25b201be5a
   Observability/docs/en/8.6: 37de5c177c85110763f1e3cf9b0933b78c5fea69
   Observability/docs/en/8.7: d04490f49391066e216850d3bffb770f5c2ea8d1
-  Observability/docs/en/main: a16b271dd59fd04663d71a7ac9dbc85ab73a22d4
+  Observability/docs/en/main: local
 kibana:
   Elastic Security/docs/8.6: 39ad965f8d8faa5b3f3abef51ff1796e6feddbf1
   Elastic Security/docs/8.7: b69320bd2e80674a527c07544f6ad9aa9990e964
