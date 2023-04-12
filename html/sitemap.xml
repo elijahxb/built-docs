@@ -7493,7 +7493,7 @@
 
 <url>
     <loc>https://www.elastic.co/guide/en/apm/server/current/elasticsearch-output.html</loc>
-    <lastmod>2023-04-05T20:55:00+00:00</lastmod>
+    <lastmod>2023-04-12T14:09:28+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -9362,7 +9362,7 @@
 
 <url>
     <loc>https://www.elastic.co/guide/en/beats/auditbeat/current/elasticsearch-output.html</loc>
-    <lastmod>2023-04-11T15:44:05+00:00</lastmod>
+    <lastmod>2023-04-12T14:09:28+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -10531,7 +10531,7 @@
 
 <url>
     <loc>https://www.elastic.co/guide/en/beats/filebeat/current/elasticsearch-output.html</loc>
-    <lastmod>2023-04-11T15:44:05+00:00</lastmod>
+    <lastmod>2023-04-12T14:09:28+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -12778,7 +12778,7 @@
 
 <url>
     <loc>https://www.elastic.co/guide/en/beats/functionbeat/current/elasticsearch-output.html</loc>
-    <lastmod>2023-04-11T15:44:05+00:00</lastmod>
+    <lastmod>2023-04-12T14:09:28+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -13625,7 +13625,7 @@
 
 <url>
     <loc>https://www.elastic.co/guide/en/beats/heartbeat/current/elasticsearch-output.html</loc>
-    <lastmod>2023-04-11T15:44:05+00:00</lastmod>
+    <lastmod>2023-04-12T14:09:28+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -14612,7 +14612,7 @@
 
 <url>
     <loc>https://www.elastic.co/guide/en/beats/journalbeat/current/elasticsearch-output.html</loc>
-    <lastmod>2023-04-05T20:55:00+00:00</lastmod>
+    <lastmod>2023-04-12T14:09:28+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -17027,7 +17027,7 @@
 
 <url>
     <loc>https://www.elastic.co/guide/en/beats/metricbeat/current/elasticsearch-output.html</loc>
-    <lastmod>2023-04-11T15:44:05+00:00</lastmod>
+    <lastmod>2023-04-12T14:09:28+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -20730,7 +20730,7 @@
 
 <url>
     <loc>https://www.elastic.co/guide/en/beats/packetbeat/current/elasticsearch-output.html</loc>
-    <lastmod>2023-04-11T15:44:05+00:00</lastmod>
+    <lastmod>2023-04-12T14:09:28+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -22144,7 +22144,7 @@
 
 <url>
     <loc>https://www.elastic.co/guide/en/beats/winlogbeat/current/elasticsearch-output.html</loc>
-    <lastmod>2023-04-11T13:44:24+00:00</lastmod>
+    <lastmod>2023-04-12T14:09:28+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -49584,231 +49584,231 @@
 
 <url>
     <loc>https://www.elastic.co/guide/en/elasticsearch/client/net-api/current/_options_on_elasticsearchclientsettings.html</loc>
-    <lastmod>2023-03-07T13:13:41+00:00</lastmod>
+    <lastmod>2023-04-12T14:09:28+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
 
 <url>
     <loc>https://www.elastic.co/guide/en/elasticsearch/client/net-api/current/audit-trail.html</loc>
-    <lastmod>2023-03-06T10:13:06+00:00</lastmod>
+    <lastmod>2023-04-12T14:09:28+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
 
 <url>
     <loc>https://www.elastic.co/guide/en/elasticsearch/client/net-api/current/breaking-changes-policy.html</loc>
-    <lastmod>2023-04-12T12:44:50+00:00</lastmod>
+    <lastmod>2023-04-12T14:09:28+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
 
 <url>
     <loc>https://www.elastic.co/guide/en/elasticsearch/client/net-api/current/client-concepts.html</loc>
-    <lastmod>2023-03-08T10:13:43+00:00</lastmod>
+    <lastmod>2023-04-12T14:09:28+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
 
 <url>
     <loc>https://www.elastic.co/guide/en/elasticsearch/client/net-api/current/configuration.html</loc>
-    <lastmod>2023-03-06T10:13:06+00:00</lastmod>
+    <lastmod>2023-04-12T14:09:28+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
 
 <url>
     <loc>https://www.elastic.co/guide/en/elasticsearch/client/net-api/current/connecting.html</loc>
-    <lastmod>2023-03-06T10:13:06+00:00</lastmod>
+    <lastmod>2023-04-12T14:09:28+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
 
 <url>
     <loc>https://www.elastic.co/guide/en/elasticsearch/client/net-api/current/debug-information.html</loc>
-    <lastmod>2023-03-07T13:13:41+00:00</lastmod>
+    <lastmod>2023-04-12T14:09:28+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
 
 <url>
     <loc>https://www.elastic.co/guide/en/elasticsearch/client/net-api/current/debug-mode.html</loc>
-    <lastmod>2023-03-07T13:13:41+00:00</lastmod>
+    <lastmod>2023-04-12T14:09:28+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
 
 <url>
     <loc>https://www.elastic.co/guide/en/elasticsearch/client/net-api/current/debugging.html</loc>
-    <lastmod>2023-03-06T10:13:06+00:00</lastmod>
+    <lastmod>2023-04-12T14:09:28+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
 
 <url>
     <loc>https://www.elastic.co/guide/en/elasticsearch/client/net-api/current/examples.html</loc>
-    <lastmod>2023-03-08T10:13:43+00:00</lastmod>
+    <lastmod>2023-04-12T14:09:28+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
 
 <url>
     <loc>https://www.elastic.co/guide/en/elasticsearch/client/net-api/current/installation.html</loc>
-    <lastmod>2023-03-20T11:12:47+00:00</lastmod>
+    <lastmod>2023-04-12T14:09:28+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
 
 <url>
     <loc>https://www.elastic.co/guide/en/elasticsearch/client/net-api/current/introduction.html</loc>
-    <lastmod>2023-03-06T10:13:06+00:00</lastmod>
+    <lastmod>2023-04-12T14:09:28+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
 
 <url>
     <loc>https://www.elastic.co/guide/en/elasticsearch/client/net-api/current/logging-with-fiddler.html</loc>
-    <lastmod>2023-03-07T13:13:41+00:00</lastmod>
+    <lastmod>2023-04-12T14:09:28+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
 
 <url>
     <loc>https://www.elastic.co/guide/en/elasticsearch/client/net-api/current/logging-with-on-request-completed.html</loc>
-    <lastmod>2023-03-07T13:13:41+00:00</lastmod>
+    <lastmod>2023-04-12T14:09:28+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
 
 <url>
     <loc>https://www.elastic.co/guide/en/elasticsearch/client/net-api/current/logging.html</loc>
-    <lastmod>2023-03-06T10:13:06+00:00</lastmod>
+    <lastmod>2023-04-12T14:09:28+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
 
 <url>
     <loc>https://www.elastic.co/guide/en/elasticsearch/client/net-api/current/recommendations.html</loc>
-    <lastmod>2023-03-08T10:13:43+00:00</lastmod>
+    <lastmod>2023-04-12T14:09:28+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
 
 <url>
     <loc>https://www.elastic.co/guide/en/elasticsearch/client/net-api/current/release-notes-8.0.0.html</loc>
-    <lastmod>2023-04-04T10:12:39+00:00</lastmod>
+    <lastmod>2023-04-12T14:09:28+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
 
 <url>
     <loc>https://www.elastic.co/guide/en/elasticsearch/client/net-api/current/release-notes-8.0.1.html</loc>
-    <lastmod>2023-04-12T12:44:50+00:00</lastmod>
+    <lastmod>2023-04-12T14:09:28+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
 
 <url>
     <loc>https://www.elastic.co/guide/en/elasticsearch/client/net-api/current/release-notes-8.0.10.html</loc>
-    <lastmod>2023-04-12T12:44:50+00:00</lastmod>
+    <lastmod>2023-04-12T14:09:28+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
 
 <url>
     <loc>https://www.elastic.co/guide/en/elasticsearch/client/net-api/current/release-notes-8.0.2.html</loc>
-    <lastmod>2023-04-05T10:13:19+00:00</lastmod>
+    <lastmod>2023-04-12T14:09:28+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
 
 <url>
     <loc>https://www.elastic.co/guide/en/elasticsearch/client/net-api/current/release-notes-8.0.3.html</loc>
-    <lastmod>2023-04-12T12:44:50+00:00</lastmod>
+    <lastmod>2023-04-12T14:09:28+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
 
 <url>
     <loc>https://www.elastic.co/guide/en/elasticsearch/client/net-api/current/release-notes-8.0.4.html</loc>
-    <lastmod>2023-04-05T10:13:19+00:00</lastmod>
+    <lastmod>2023-04-12T14:09:28+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
 
 <url>
     <loc>https://www.elastic.co/guide/en/elasticsearch/client/net-api/current/release-notes-8.0.5.html</loc>
-    <lastmod>2023-04-05T10:13:19+00:00</lastmod>
+    <lastmod>2023-04-12T14:09:28+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
 
 <url>
     <loc>https://www.elastic.co/guide/en/elasticsearch/client/net-api/current/release-notes-8.0.6.html</loc>
-    <lastmod>2023-04-05T10:13:19+00:00</lastmod>
+    <lastmod>2023-04-12T14:09:28+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
 
 <url>
     <loc>https://www.elastic.co/guide/en/elasticsearch/client/net-api/current/release-notes-8.0.7.html</loc>
-    <lastmod>2023-04-05T10:13:19+00:00</lastmod>
+    <lastmod>2023-04-12T14:09:28+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
 
 <url>
     <loc>https://www.elastic.co/guide/en/elasticsearch/client/net-api/current/release-notes-8.0.8.html</loc>
-    <lastmod>2023-04-05T10:13:19+00:00</lastmod>
+    <lastmod>2023-04-12T14:09:28+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
 
 <url>
     <loc>https://www.elastic.co/guide/en/elasticsearch/client/net-api/current/release-notes-8.0.9.html</loc>
-    <lastmod>2023-04-12T12:44:50+00:00</lastmod>
+    <lastmod>2023-04-12T14:09:28+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
 
 <url>
     <loc>https://www.elastic.co/guide/en/elasticsearch/client/net-api/current/release-notes-8.1.0.html</loc>
-    <lastmod>2023-04-12T12:44:50+00:00</lastmod>
+    <lastmod>2023-04-12T14:09:28+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
 
 <url>
     <loc>https://www.elastic.co/guide/en/elasticsearch/client/net-api/current/release-notes.html</loc>
-    <lastmod>2023-04-12T12:44:50+00:00</lastmod>
+    <lastmod>2023-04-12T14:09:28+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
 
 <url>
     <loc>https://www.elastic.co/guide/en/elasticsearch/client/net-api/current/serialization.html</loc>
-    <lastmod>2023-03-07T13:13:41+00:00</lastmod>
+    <lastmod>2023-04-12T14:09:28+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
 
 <url>
     <loc>https://www.elastic.co/guide/en/elasticsearch/client/net-api/current/source-serialization.html</loc>
-    <lastmod>2023-03-08T10:13:43+00:00</lastmod>
+    <lastmod>2023-04-12T14:09:28+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
 
 <url>
     <loc>https://www.elastic.co/guide/en/elasticsearch/client/net-api/current/troubleshooting.html</loc>
-    <lastmod>2023-03-06T10:13:06+00:00</lastmod>
+    <lastmod>2023-04-12T14:09:28+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
 
 <url>
     <loc>https://www.elastic.co/guide/en/elasticsearch/client/net-api/current/usage.html</loc>
-    <lastmod>2023-03-08T10:13:43+00:00</lastmod>
+    <lastmod>2023-04-12T14:09:28+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -62996,7 +62996,7 @@
 
 <url>
     <loc>https://www.elastic.co/guide/en/elasticsearch/reference/current/stop-transform.html</loc>
-    <lastmod>2023-04-12T13:14:30+00:00</lastmod>
+    <lastmod>2023-04-12T14:09:28+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
 </url>
