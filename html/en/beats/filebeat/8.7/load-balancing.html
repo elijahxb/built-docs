@@ -143,6 +143,17 @@ the output. For example:</p>
 </div>
 <p>The <code class="literal">loadbalance</code> option is available for Redis, Logstash, and Elasticsearch
 outputs. The Kafka output handles load balancing internally.</p>
+<p>When <code class="literal">loadbalance: true</code> is set, Filebeat sends data if-and-only-if it can send
+to all hosts in the list. Filebeat connects to all hosts in the list and evenly
+distributes the events to them. This has the side effect of blocking publishing
+to all hosts if any one of them is down or exerting back-pressure.</p>
+<p>When <code class="literal">loadbalance: false</code> is set, Filebeat picks a host at random from the list
+and sends data, switching over to other list entries in the event of a failure.
+Filebeat also accepts a time to live (TTL), which causes it to voluntarily
+reestablish a connection to a new host after a time even if it is healthy.
+Otherwise, if a TTL is not set, as long as the first chosen endpoint is available,
+Filebeat continues to communicate with it and only switches to another endpoint
+in case of a failure.</p>
 <p>The load balancer also supports multiple workers per host. The default is
 <code class="literal">worker: 1</code>. If you increase the number of workers, additional network
 connections will be used.  The total number of workers participating
