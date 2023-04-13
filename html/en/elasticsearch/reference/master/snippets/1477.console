@@ -1,9 +1,10 @@
-GET /my-data-stream/_eql/search
+POST /_security/role/cli_or_drivers_minimal
 {
-  "query": """
-    sequence by process.pid
-      [process where process.name == "regsvr32.exe"]
-      [library where dll.name == "scrobj.dll"]
-      [network where true]
-  """
+  "cluster": ["cluster:monitor/main"],
+  "indices": [
+    {
+      "names": ["test"],
+      "privileges": ["read", "indices:admin/get"]
+    }
+  ]
 }

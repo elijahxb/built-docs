@@ -6,8 +6,13 @@ PUT /_index_template/my-data-stream-template
   "template": {
     "mappings": {
       "properties": {
-        "message": {                             
-          "type": "text"
+        "host": {
+          "properties": {
+            "ip": {
+              "type": "ip",
+              "ignore_malformed": true           
+            }
+          }
         }
       }
     }

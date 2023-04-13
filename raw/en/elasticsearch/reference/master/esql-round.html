@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="ESQL is a query language that enables the iterative exploration of data.">
+<meta name="keywords" content="Elasticsearch, ESQL, Elasticsearch query language">
+<title>ROUND | Elasticsearch Guide [master] | Elastic</title>
+<meta class="elastic" name="content" content="ROUND | Elasticsearch Guide [master]">
+
+<link rel="home" href="index.html" title="Elasticsearch Guide [master]"/>
+<link rel="up" href="esql-functions.html" title="Functions"/>
+<link rel="prev" href="esql-length.html" title="LENGTH"/>
+<link rel="next" href="esql-starts_with.html" title="STARTS_WITH"/>
+<meta class="elastic" name="product_version" content="master"/>
+<meta class="elastic" name="product_name" content="Elasticsearch"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Elasticsearch/Reference/master"/>
+<meta name="DC.subject" content="Elasticsearch"/>
+<meta name="DC.identifier" content="master"/>
+</head>
+<body><div class="page_header">
+You are looking at preliminary documentation for a future release.
+Not what you want? See the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="esql.html">ESQL</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="esql-functions.html">Functions</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="esql-length.html">« <code class="literal">LENGTH</code></a>
+</span>
+<span class="next">
+<a href="esql-starts_with.html"><code class="literal">STARTS_WITH</code> »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="esql-round"></a><code class="literal">ROUND</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/esql/esql-functions.asciidoc">edit</a></h2>
+</div></div></div>
+<p>Rounds a number to the closest number with the specified number of digits.
+Defaults to 0 digits if no number of digits is provided. If the specified number
+of digits is negative, rounds to the number of digits left of the decimal point.</p>
+<div class="pre_wrapper lang-esql">
+<pre class="programlisting prettyprint lang-esql">FROM employees
+| PROJECT first_name, last_name, height
+| EVAL height = ROUND(height * 3.281, 1)</pre>
+</div>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="esql-length.html">« <code class="literal">LENGTH</code></a>
+</span>
+<span class="next">
+<a href="esql-starts_with.html"><code class="literal">STARTS_WITH</code> »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

@@ -1,32 +1,35 @@
-PUT _index_template/template_1
+PUT /_component_template/ct1
 {
-  "index_patterns": ["te*", "bar*"],
   "template": {
     "settings": {
-      "number_of_shards": 1
+      "index.number_of_shards": 2
+    }
+  }
+}
+
+PUT /_component_template/ct2
+{
+  "template": {
+    "settings": {
+      "index.number_of_replicas": 0
     },
     "mappings": {
-      "_source": {
-        "enabled": true
-      },
       "properties": {
-        "host_name": {
-          "type": "keyword"
-        },
-        "created_at": {
-          "type": "date",
-          "format": "EEE MMM dd HH:mm:ss Z yyyy"
+        "@timestamp": {
+          "type": "date"
         }
       }
-    },
-    "aliases": {
-      "mydata": { }
+    }
+  }
+}
+
+POST /_index_template/_simulate
+{
+  "index_patterns": ["my*"],
+  "template": {
+    "settings" : {
+        "index.number_of_shards" : 3
     }
   },
-  "priority": 500,
-  "composed_of": ["component_template1", "runtime_component_template"],
-  "version": 3,
-  "_meta": {
-    "description": "my custom"
-  }
+  "composed_of": ["ct1", "ct2"]
 }

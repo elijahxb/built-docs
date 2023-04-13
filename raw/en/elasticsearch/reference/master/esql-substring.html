@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="ESQL is a query language that enables the iterative exploration of data.">
+<meta name="keywords" content="Elasticsearch, ESQL, Elasticsearch query language">
+<title>SUBSTRING | Elasticsearch Guide [master] | Elastic</title>
+<meta class="elastic" name="content" content="SUBSTRING | Elasticsearch Guide [master]">
+
+<link rel="home" href="index.html" title="Elasticsearch Guide [master]"/>
+<link rel="up" href="esql-functions.html" title="Functions"/>
+<link rel="prev" href="esql-starts_with.html" title="STARTS_WITH"/>
+<link rel="next" href="xpack-sql.html" title="SQL"/>
+<meta class="elastic" name="product_version" content="master"/>
+<meta class="elastic" name="product_name" content="Elasticsearch"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Elasticsearch/Reference/master"/>
+<meta name="DC.subject" content="Elasticsearch"/>
+<meta name="DC.identifier" content="master"/>
+</head>
+<body><div class="page_header">
+You are looking at preliminary documentation for a future release.
+Not what you want? See the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="esql.html">ESQL</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="esql-functions.html">Functions</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="esql-starts_with.html">« <code class="literal">STARTS_WITH</code></a>
+</span>
+<span class="next">
+<a href="xpack-sql.html">SQL »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="esql-substring"></a><code class="literal">SUBSTRING</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/esql/esql-functions.asciidoc">edit</a></h2>
+</div></div></div>
+<p>Returns a substring of a string, specified by a start position and an optional
+length. This example returns the first three characters of every last name:</p>
+<div class="pre_wrapper lang-esql">
+<pre class="programlisting prettyprint lang-esql">FROM employees
+| PROJECT last_name
+| EVAL ln_sub = SUBSTRING(last_name, 1, 3)</pre>
+</div>
+<p>A negative start position is interpreted as being relative to the end of the
+string. This example returns the last three characters of of every last name:</p>
+<div class="pre_wrapper lang-esql">
+<pre class="programlisting prettyprint lang-esql">FROM employees
+| PROJECT last_name
+| EVAL ln_sub = SUBSTRING(last_name, -3, 3)</pre>
+</div>
+<p>If length is omitted, substring returns the remainder of the string. This
+example returns all characters except for the first:</p>
+<div class="pre_wrapper lang-esql">
+<pre class="programlisting prettyprint lang-esql">FROM employees
+| PROJECT last_name
+| EVAL ln_sub = SUBSTRING(last_name, 2)</pre>
+</div>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="esql-starts_with.html">« <code class="literal">STARTS_WITH</code></a>
+</span>
+<span class="next">
+<a href="xpack-sql.html">SQL »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

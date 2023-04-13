@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="ESQL is a query language that enables the iterative exploration of data.">
+<meta name="keywords" content="Elasticsearch, ESQL, Elasticsearch query language">
+<title>DISSECT | Elasticsearch Guide [master] | Elastic</title>
+<meta class="elastic" name="content" content="DISSECT | Elasticsearch Guide [master]">
+
+<link rel="home" href="index.html" title="Elasticsearch Guide [master]"/>
+<link rel="up" href="esql-processing-commands.html" title="Processing commands"/>
+<link rel="prev" href="esql-processing-commands.html" title="Processing commands"/>
+<link rel="next" href="esql-drop.html" title="DROP"/>
+<meta class="elastic" name="product_version" content="master"/>
+<meta class="elastic" name="product_name" content="Elasticsearch"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Elasticsearch/Reference/master"/>
+<meta name="DC.subject" content="Elasticsearch"/>
+<meta name="DC.identifier" content="master"/>
+</head>
+<body><div class="page_header">
+You are looking at preliminary documentation for a future release.
+Not what you want? See the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="esql.html">ESQL</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="esql-processing-commands.html">Processing commands</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="esql-processing-commands.html">« Processing commands</a>
+</span>
+<span class="next">
+<a href="esql-drop.html"><code class="literal">DROP</code> »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="esql-dissect"></a><code class="literal">DISSECT</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/esql/esql-processing-commands.asciidoc">edit</a></h2>
+</div></div></div>
+<p><code class="literal">DISSECT</code> enables you to extract structured data out of a string. <code class="literal">DISSECT</code>
+matches the string against a delimiter-based pattern, and extracts the specified
+keys as columns.</p>
+<p>Refer to the <a class="xref" href="dissect-processor.html" title="Dissect processor">dissect processor documentation</a> for the
+syntax of dissect patterns.</p>
+<div class="pre_wrapper lang-esql">
+<pre class="programlisting prettyprint lang-esql">ROW a = "1953-01-23T12:15:00Z - some text - 127.0.0.1"
+| DISSECT a "%{Y}-%{M}-%{D}T%{h}:%{m}:%{s}Z - %{msg} - %{ip}"</pre>
+</div>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="esql-processing-commands.html">« Processing commands</a>
+</span>
+<span class="next">
+<a href="esql-drop.html"><code class="literal">DROP</code> »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

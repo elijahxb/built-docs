@@ -1,4 +1,4 @@
-PUT _data_stream/my-data-stream/_lifecycle
+PUT my-index-000001/_settings
 {
-  "data_retention": "7d"
+  "index.merge.policy.max_merge_at_once_explicit": null
 }

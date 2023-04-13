@@ -1,39 +1,28 @@
-PUT my-index-000001
+PUT _component_template/component_template1
 {
-  "settings": {
-    "analysis": {
-      "analyzer": {
-        "my_analyzer": {
-          "tokenizer": "standard",
-          "char_filter": [
-            "my_char_filter"
-          ],
-          "filter": [
-            "lowercase"
-          ]
+  "template": {
+    "mappings": {
+      "properties": {
+        "@timestamp": {
+          "type": "date"
         }
-      },
-      "char_filter": {
-        "my_char_filter": {
-          "type": "pattern_replace",
-          "pattern": "(?<=\\p{Lower})(?=\\p{Upper})",
-          "replacement": " "
-        }
-      }
-    }
-  },
-  "mappings": {
-    "properties": {
-      "text": {
-        "type": "text",
-        "analyzer": "my_analyzer"
       }
     }
   }
 }
 
-POST my-index-000001/_analyze
+PUT _component_template/runtime_component_template
 {
-  "analyzer": "my_analyzer",
-  "text": "The fooBarBaz method"
+  "template": {
+    "mappings": {
+      "runtime": {
+        "day_of_week": {
+          "type": "keyword",
+          "script": {
+            "source": "emit(doc['@timestamp'].value.dayOfWeekEnum.getDisplayName(TextStyle.FULL, Locale.ROOT))"
+          }
+        }
+      }
+    }
+  }
 }

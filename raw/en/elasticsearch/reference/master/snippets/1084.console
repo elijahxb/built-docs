@@ -1,24 +1,30 @@
-GET /my-index-000001/_search
+GET /test/_search
 {
   "query": {
     "bool": {
+      "must": [
+        {
+          "match": {
+            "content": "2016"
+          }
+        }
+      ],
       "should": [
         {
-          "percolate": {
-            "field": "query",
-            "document": {
-              "message": "bonsai tree"
-            },
-            "name": "query1"
+          "rank_feature": {
+            "field": "pagerank"
           }
         },
         {
-          "percolate": {
-            "field": "query",
-            "document": {
-              "message": "tulip flower"
-            },
-            "name": "query2"
+          "rank_feature": {
+            "field": "url_length",
+            "boost": 0.1
+          }
+        },
+        {
+          "rank_feature": {
+            "field": "topics.sports",
+            "boost": 0.4
           }
         }
       ]

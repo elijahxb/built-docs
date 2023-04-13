@@ -1,10 +1,17 @@
-POST byte-image-index/_search
+POST image-index/_search
 {
   "knn": {
-    "field": "byte-image-vector",
-    "query_vector": [-5, 9],
-    "k": 10,
-    "num_candidates": 100
+    "field": "image-vector",
+    "query_vector": [1, 5, -20],
+    "k": 5,
+    "num_candidates": 50,
+    "similarity": 36,
+    "filter": {
+      "term": {
+        "file-type": "png"
+      }
+    }
   },
-  "fields": [ "title" ]
+  "fields": ["title"],
+  "_source": false
 }

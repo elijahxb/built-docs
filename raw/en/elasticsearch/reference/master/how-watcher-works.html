@@ -2,8 +2,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<meta name="description" content="ELSER is a learned sparse ranking model trained by Elastic.">
-<meta name="keywords" content="ML, Elastic Stack, natural language processing, ELSER">
+<meta name="description" content="ESQL is a query language that enables the iterative exploration of data.">
+<meta name="keywords" content="Elasticsearch, ESQL, Elasticsearch query language">
 <title>How Watcher works | Elasticsearch Guide [master] | Elastic</title>
 <meta class="elastic" name="content" content="How Watcher works | Elasticsearch Guide [master]">
 
@@ -168,7 +168,7 @@ update watch</a> request that defines a watch that looks for log error events:</
   }
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1793.console"></div>
+<div class="console_widget" data-snippet="snippets/1790.console"></div>
 <div class="calloutlist">
 <table border="0" summary="Callout list">
 <tr>
@@ -254,7 +254,7 @@ then configure the <code class="literal">.watches</code> index like this:</p>
   "index.routing.allocation.include.role": "watcher"
 }</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/1794.console"></div>
+<div class="console_widget" data-snippet="snippets/1791.console"></div>
 <p>When the Watcher service is stopped, the scheduler stops with it. Trigger
 engines use a separate thread pool from the one used to execute watches.</p>
 <p>When a watch is triggered, Watcher queues it up for execution. A <code class="literal">watch_record</code>

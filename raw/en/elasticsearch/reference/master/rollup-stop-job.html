@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<meta name="description" content="ELSER is a learned sparse ranking model trained by Elastic.">
+<meta name="description" content="ESQL is a query language that enables the iterative exploration of data.">
 <meta name="keywords" content="Elasticsearch, high watermark, low watermark, full disk">
 <title>Stop rollup jobs API | Elasticsearch Guide [master] | Elastic</title>
 <meta class="elastic" name="content" content="Stop rollup jobs API | Elasticsearch Guide [master]">
@@ -177,7 +177,7 @@ the indexer has fully stopped. This is accomplished with the
 <div class="pre_wrapper lang-console">
 <pre class="programlisting prettyprint lang-console">POST _rollup/job/sensor/_stop?wait_for_completion=true&amp;timeout=10s</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/2632.console"></div>
+<div class="console_widget" data-snippet="snippets/2628.console"></div>
 <p>The parameter blocks the API call from returning until either the job has moved
 to <code class="literal">STOPPED</code> or the specified time has elapsed. If the specified time elapses
 without the job moving to <code class="literal">STOPPED</code>, a timeout exception is thrown.</p>

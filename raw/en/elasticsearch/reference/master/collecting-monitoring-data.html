@@ -2,8 +2,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<meta name="description" content="ELSER is a learned sparse ranking model trained by Elastic.">
-<meta name="keywords" content="ML, Elastic Stack, natural language processing, ELSER">
+<meta name="description" content="ESQL is a query language that enables the iterative exploration of data.">
+<meta name="keywords" content="Elasticsearch, ESQL, Elasticsearch query language">
 <title>Collecting monitoring data using legacy collectors | Elasticsearch Guide [master] | Elastic</title>
 <meta class="elastic" name="content" content="Collecting monitoring data using legacy collectors | Elasticsearch Guide [master]">
 
@@ -96,7 +96,7 @@ puts response</pre>
 <div class="pre_wrapper lang-console default has-ruby">
 <pre class="programlisting prettyprint lang-console default has-ruby">GET _cluster/settings</pre>
 </div>
-<div class="console_widget has-ruby" data-snippet="snippets/1616.console"></div>
+<div class="console_widget has-ruby" data-snippet="snippets/1613.console"></div>
 <div class="pre_wrapper lang-ruby alternative">
 <pre class="programlisting prettyprint lang-ruby alternative">response = client.cluster.put_settings(
   body: {
@@ -116,7 +116,7 @@ puts response</pre>
   }
 }</pre>
 </div>
-<div class="console_widget has-ruby" data-snippet="snippets/1617.console"></div>
+<div class="console_widget has-ruby" data-snippet="snippets/1614.console"></div>
 <p>Alternatively, you can enable this setting in Kibana. In the side navigation,
 click <span class="strong strong"><strong>Monitoring</strong></span>. If data collection is disabled, you are prompted to turn it
 on.</p>

@@ -1,1 +1,6 @@
-GET /_index_template/.monitoring-es-mb*
+PUT _cluster/settings
+{
+  "persistent": {
+    "xpack.monitoring.collection.enabled": true
+  }
+}

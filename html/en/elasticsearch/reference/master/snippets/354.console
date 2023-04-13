@@ -1,51 +1,29 @@
 PUT my-index-000001
 {
-  "settings": {
-    "analysis": {
-      "filter": {
-        "autocomplete_filter": {
-          "type": "edge_ngram",
-          "min_gram": 1,
-          "max_gram": 20
-        }
-      },
-      "analyzer": {
-        "autocomplete": {
-          "type": "custom",
-          "tokenizer": "standard",
-          "filter": [
-            "lowercase",
-            "autocomplete_filter"
-          ]
-        }
-      }
-    }
-  },
   "mappings": {
     "properties": {
-      "text": {
-        "type": "text",
-        "analyzer": "autocomplete",
-        "search_analyzer": "standard"
+      "metrics": {
+        "type":  "object",
+        "subobjects": false
       }
     }
   }
 }
 
-PUT my-index-000001/_doc/1
+PUT my-index-000001/_doc/metric_1
 {
-  "text": "Quick Brown Fox"
+  "metrics.time" : 100,
+  "metrics.time.min" : 10,
+  "metrics.time.max" : 900
 }
 
-GET my-index-000001/_search
+PUT my-index-000001/_doc/metric_2
 {
-  "query": {
-    "match": {
-      "text": {
-        "query": "Quick Br",
-        "operator": "and"
-      }
-    }
+  "metrics" : {
+    "time" : 100,
+    "time.min" : 10,
+    "time.max" : 900
   }
 }
 
+GET my-index-000001/_mapping

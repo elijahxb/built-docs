@@ -162,7 +162,7 @@ PUT my-index-000001/_doc/my_id?pipeline=geoip
 }
 GET my-index-000001/_doc/my_id</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/739.console"></div>
+<div class="console_widget" data-snippet="snippets/735.console"></div>
 <p>Which returns:</p>
 <a id="869c19f696832e5a9b111be7422362a4"></a>
 <div class="pre_wrapper lang-console-result">
@@ -211,7 +211,7 @@ PUT my-index-000001/_doc/my_id?pipeline=geoip
 }
 GET my-index-000001/_doc/my_id</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/740.console"></div>
+<div class="console_widget" data-snippet="snippets/736.console"></div>
 <p>returns this:</p>
 <a id="de4d83e1c7456d90c8cfc1b84410cdcf"></a>
 <div class="pre_wrapper lang-console-result">
@@ -257,7 +257,7 @@ PUT my-index-000001/_doc/my_id?pipeline=geoip
 
 GET my-index-000001/_doc/my_id</pre>
 </div>
-<div class="console_widget" data-snippet="snippets/741.console"></div>
+<div class="console_widget" data-snippet="snippets/737.console"></div>
 <p>Which returns:</p>
 <a id="56bbc1c045a4b0a748561ae3ba2afa10"></a>
 <div class="pre_wrapper lang-console-result">
@@ -316,7 +316,7 @@ puts response</pre>
   }
 }</pre>
 </div>
-<div class="console_widget has-ruby" data-snippet="snippets/742.console"></div>
+<div class="console_widget has-ruby" data-snippet="snippets/738.console"></div>
 </div>
 
 </div>
@@ -462,23 +462,11 @@ updates and deletes all downloaded databases. Defaults to <code class="literal">
 </dd>
 </dl>
 </div>
-<div class="variablelist">
-<a id="ingest-geoip-downloader-eager-download"></a>
-<dl class="variablelist">
-<dt>
-<span class="term">
-<code class="literal">ingest.geoip.downloader.eager.download</code>
-</span>
-</dt>
-<dd>
-(<a class="xref" href="settings.html#dynamic-cluster-setting">Dynamic</a>, Boolean)
+<p><a id="ingest-geoip-downloader-eager-download"></a>(<a class="xref" href="settings.html#dynamic-cluster-setting">Dynamic</a>, Boolean)
 If <code class="literal">true</code>, Elasticsearch downloads GeoIP2 databases immediately, regardless of whether a
 pipeline exists with a geoip processor. If <code class="literal">false</code>, Elasticsearch only begins downloading
 the databases if a pipeline with a geoip processor exists or is added. Defaults
-to <code class="literal">false</code>.
-</dd>
-</dl>
-</div>
+to <code class="literal">false</code>.</p>
 <div class="variablelist">
 <a id="ingest-geoip-downloader-endpoint"></a>
 <dl class="variablelist">

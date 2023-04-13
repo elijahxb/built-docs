@@ -1,6 +1,1 @@
-PUT _cluster/settings
-{
-  "persistent": {
-    "cluster.routing.allocation.disk.watermark.low": "30gb"
-  }
-}
+GET /_cat/thread_pool?v&s=t,n&h=type,name,node_name,active,queue,rejected,completed

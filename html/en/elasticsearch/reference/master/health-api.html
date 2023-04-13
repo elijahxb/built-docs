@@ -3,7 +3,7 @@
   <head>
     
 <meta charset="UTF-8">
-<meta name="description" content="ELSER is a learned sparse ranking model trained by Elastic.">
+<meta name="description" content="ESQL is a query language that enables the iterative exploration of data.">
 <meta name="keywords" content="Elasticsearch, high watermark, low watermark, full disk">
 <title>Health API | Elasticsearch Guide [master] | Elastic</title>
 <meta class="elastic" name="content" content="Health API | Elasticsearch Guide [master]">
@@ -263,15 +263,6 @@ that arise if repositories become corrupted.
 <dd>
 Reports health issues related to
 Snapshot Lifecycle Management.
-</dd>
-<dt>
-<span class="term">
-<code class="literal">shards_capacity</code>
-</span>
-</dt>
-<dd>
-Reports health issues related to the shards
-capacity of the cluster.
 </dd>
 </dl>
 </div>
@@ -1014,86 +1005,6 @@ name is the key and it&#8217;s corresponding number of failed invocations is the
 </div>
 </div>
 
-<div class="section">
-<div class="titlepage"><div><div>
-<h4 class="title"><a id="health-api-response-details-shards-usage"></a>shards_capacity<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/health/health.asciidoc">edit</a></h4>
-</div></div></div>
-<div class="variablelist">
-<dl class="variablelist">
-<dt>
-<span class="term">
-<code class="literal">data</code>
-</span>
-</dt>
-<dd>
-<p>
-(map) A view with information about the current capacity of shards for data nodes that do not belong to the frozen tier.
-</p>
-<details open>
-<summary class="title">Properties of <code class="literal">data</code></summary>
-<div class="content">
-<div class="variablelist">
-<dl class="variablelist">
-<dt>
-<span class="term">
-<code class="literal">max_shards_in_cluster</code>
-</span>
-</dt>
-<dd>
-(int) Indicates the maximum number of shards that the cluster can hold.
-</dd>
-<dt>
-<span class="term">
-<code class="literal">current_used_shards</code>
-</span>
-</dt>
-<dd>
-(optional, int) The total number of shards hold by the cluster. Only displayed in the case the indicator&#8217;s status is <code class="literal">red</code> or <code class="literal">yellow</code>.
-</dd>
-</dl>
-</div>
-</div>
-</details>
-</dd>
-<dt>
-<span class="term">
-<code class="literal">frozen</code>
-</span>
-</dt>
-<dd>
-<p>
-(map) A view with information about the current capacity of shards for data nodes that belong to the frozen tier.
-</p>
-<details open>
-<summary class="title">Properties of <code class="literal">frozen</code></summary>
-<div class="content">
-<div class="variablelist">
-<dl class="variablelist">
-<dt>
-<span class="term">
-<code class="literal">max_shards_in_cluster</code>
-</span>
-</dt>
-<dd>
-(int) Indicates the maximum number of shards the cluster can hold for the partially mounted indices.
-</dd>
-<dt>
-<span class="term">
-<code class="literal">current_used_shards</code>
-</span>
-</dt>
-<dd>
-(optional, int) The total number of shards the partially mounted indices have in the cluster. Only displayed in the case the indicator&#8217;s status is <code class="literal">red</code> or <code class="literal">yellow</code>.
-</dd>
-</dl>
-</div>
-</div>
-</details>
-</dd>
-</dl>
-</div>
-</div>
-
 </div>
 
 <div class="section">
@@ -1108,7 +1019,7 @@ puts response</pre>
 <div class="pre_wrapper lang-console default has-ruby">
 <pre class="programlisting prettyprint lang-console default has-ruby">GET _health_report</pre>
 </div>
-<div class="console_widget has-ruby" data-snippet="snippets/2066.console"></div>
+<div class="console_widget has-ruby" data-snippet="snippets/2062.console"></div>
 <p>The API returns a response with all the indicators regardless
 of current status.</p>
 <div class="pre_wrapper lang-ruby alternative">
@@ -1121,7 +1032,7 @@ puts response</pre>
 <div class="pre_wrapper lang-console default has-ruby">
 <pre class="programlisting prettyprint lang-console default has-ruby">GET _health_report/shards_availability</pre>
 </div>
-<div class="console_widget has-ruby" data-snippet="snippets/2067.console"></div>
+<div class="console_widget has-ruby" data-snippet="snippets/2063.console"></div>
 <p>The API returns a response for just the shard availability indicator.</p>
 <div class="pre_wrapper lang-ruby alternative">
 <pre class="programlisting prettyprint lang-ruby alternative">response = client.health_report(
@@ -1133,7 +1044,7 @@ puts response</pre>
 <div class="pre_wrapper lang-console default has-ruby">
 <pre class="programlisting prettyprint lang-console default has-ruby">GET _health_report?verbose=false</pre>
 </div>
-<div class="console_widget has-ruby" data-snippet="snippets/2068.console"></div>
+<div class="console_widget has-ruby" data-snippet="snippets/2064.console"></div>
 <p>The API returns a response with all health indicators but will
 not calculate details or root cause analysis for the response. This is helpful
 if you would like to monitor the health API and do not want the overhead of

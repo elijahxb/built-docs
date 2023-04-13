@@ -1,11 +1,7 @@
-POST /_security/profile/u_P_0BMHgaOK3p7k-PFWUCbw9dQ-UFjt01oWJ_Dp2PmPc_0/_data
+PUT /_snapshot/my_repository
 {
-  "labels": {
-    "direction": "east"
-  },
-  "data": {
-    "app1": {
-      "theme": "default"
-    }
+  "type": "fs",
+  "settings": {
+    "location": "my_backup_location"
   }
 }

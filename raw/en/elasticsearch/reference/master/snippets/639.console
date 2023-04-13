@@ -1,18 +1,17 @@
-POST /_reindex
+POST _aliases
 {
-  "source": {
-    "index": "my-data-stream",
-    "query": {
-      "range": {
-        "@timestamp": {
-          "gte": "now-7d/d",
-          "lte": "now/d"
-        }
+  "actions": [
+    {
+      "remove": {
+        "index": "logs-nginx.access-prod",
+        "alias": "logs"
+      }
+    },
+    {
+      "add": {
+        "index": "logs-my_app-default",
+        "alias": "logs"
       }
     }
-  },
-  "dest": {
-    "index": "new-data-stream",
-    "op_type": "create"
-  }
+  ]
 }

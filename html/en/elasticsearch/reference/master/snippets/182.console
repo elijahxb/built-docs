@@ -1,15 +1,10 @@
-PUT idx
+PUT /example
 {
   "mappings": {
-    "_source": { "mode": "synthetic" },
     "properties": {
-      "flattened": { "type": "flattened" }
+      "location": {
+        "type": "geo_shape"
+      }
     }
-  }
-}
-PUT idx/_doc/1
-{
-  "flattened": {
-    "field": [ "foo" ]
   }
 }

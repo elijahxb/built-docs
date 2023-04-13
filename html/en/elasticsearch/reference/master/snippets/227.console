@@ -1,17 +1,13 @@
-PUT logs-debug
+PUT idx
 {
   "mappings": {
+    "_source": { "mode": "synthetic" },
     "properties": {
-      "@timestamp": {
-        "type": "date"
-      },
-      "message": {
-        "type": "text"
-      },
-      "level": {
-        "type": "constant_keyword",
-        "value": "debug"
-      }
+      "card": { "type": "wildcard" }
     }
   }
+}
+PUT idx/_doc/1
+{
+  "card": ["king", "ace", "ace", "jack"]
 }
