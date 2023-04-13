@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Set up the Agent | APM PHP Agent Reference [main] | Elastic</title>
+<meta class="elastic" name="content" content="Set up the Agent | APM PHP Agent Reference [main]">
+
+<link rel="home" href="index.html" title="APM PHP Agent Reference [main]"/>
+<link rel="up" href="index.html" title="APM PHP Agent Reference [main]"/>
+<link rel="prev" href="intro.html" title="Introduction"/>
+<link rel="next" href="supported-technologies.html" title="Supported technologies"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="APM"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/APM PHP Agent/Reference/main"/>
+<meta name="DC.subject" content="APM"/>
+<meta name="DC.identifier" content="main"/>
+</head>
+<body><div class="page_header">
+You are looking at preliminary documentation for a future release.
+Not what you want? See the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link">
+  <div id="related-products" class="dropdown">
+    <div class="related-products-title">APM:</div>
+    <div class="dropdown-anchor" tabindex="0">PHP Agent Reference<span class="dropdown-icon"></span></div>
+    <div class="dropdown-content">
+      <ul>
+        <li class="dropdown-category">APM</li>
+        <ul>
+          <li><a href="/guide/en/apm/guide/current/apm-overview.html">User Guide</a></li>
+        </ul>
+        <li class="dropdown-category">APM agents</li>
+        <ul>
+          <li><a href="/guide/en/apm/agent/android/current/intro.html">Android Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/go/current/introduction.html">Go Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/swift/current/intro.html">iOS Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/java/current/intro.html">Java Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/dotnet/current/intro.html">.NET Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/nodejs/current/intro.html">Node.js Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/php/current/intro.html">PHP Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/python/current/getting-started.html">Python Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/ruby/current/introduction.html">Ruby Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/rum-js/current/intro.html">Real User Monitoring JavaScript Agent Reference</a></li>
+        </ul>
+        <li class="dropdown-category">APM extensions</li>
+        <ul>
+          <li><a href="/guide/en/apm/lambda/current/aws-lambda-arch.html">Monitoring AWS Lambda Functions</a></li>
+          <li><a href="/guide/en/apm/attacher/current/apm-attacher.html">Attacher</a></li>
+        </ul>
+      </ul>
+    </div>
+  </div>
+</span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="intro.html">« Introduction</a>
+</span>
+<span class="next">
+<a href="supported-technologies.html">Supported technologies »</a>
+</span>
+</div>
+<div class="chapter">
+<div class="titlepage"><div><div>
+<h1 class="title"><a id="setup"></a>Set up the Agent<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-php/edit/main/docs/setup.asciidoc">edit</a></h1>
+</div></div></div>
+<h3><a id="setup-prerequisites"></a>Prerequisites<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-php/edit/main/docs/setup.asciidoc">edit</a></h3>
+<h4><a id="_operating_system"></a>Operating system<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-php/edit/main/docs/setup.asciidoc">edit</a></h4>
+<p>The agent is currently only available for the Linux operating system.</p>
+<h4><a id="_php"></a>PHP<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-php/edit/main/docs/setup.asciidoc">edit</a></h4>
+<p>The agent supports PHP versions 7.2-8.2.</p>
+<h4><a id="_curl"></a>curl<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-php/edit/main/docs/setup.asciidoc">edit</a></h4>
+<p>The agent requires <code class="literal">libcurl</code> 7.58 or later.</p>
+<h3><a id="setup-installation"></a>Installation<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-php/edit/main/docs/setup.asciidoc">edit</a></h3>
+<p>Install the agent using one of the <a href="https://github.com/elastic/apm-agent-php/releases/latest" class="ulink" target="_top">packages for supported platforms</a>.</p>
+<h4><a id="setup-rpm"></a>Using RPM package (RHEL/CentOS, Fedora)<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-php/edit/main/docs/setup.asciidoc">edit</a></h4>
+<div class="pre_wrapper lang-bash">
+<pre class="programlisting prettyprint lang-bash">rpm -ivh &lt;package-file&gt;.rpm</pre>
+</div>
+<h4><a id="setup-deb"></a>Using DEB package (Debian, Ubuntu 18+)<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-php/edit/main/docs/setup.asciidoc">edit</a></h4>
+<div class="pre_wrapper lang-bash">
+<pre class="programlisting prettyprint lang-bash">dpkg -i &lt;package-file&gt;.deb</pre>
+</div>
+<h4><a id="setup-apk"></a>Using APK package (Alpine)<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-php/edit/main/docs/setup.asciidoc">edit</a></h4>
+<div class="pre_wrapper lang-bash">
+<pre class="programlisting prettyprint lang-bash">apk add --allow-untrusted &lt;package-file&gt;.apk</pre>
+</div>
+<h4><a id="build-from-source"></a>Build from source<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-php/edit/main/docs/setup.asciidoc">edit</a></h4>
+<p>If you can’t find your distribution, you can install the agent by building it from the source.</p>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>The agent is currently only available for Linux operating system.</p>
+</div>
+</div>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+Download the agent source from <a href="https://github.com/elastic/apm-agent-php/" class="ulink" target="_top">https://github.com/elastic/apm-agent-php/</a>.
+</li>
+<li class="listitem">
+Execute the following commands to build the agent and install it:
+</li>
+</ol>
+</div>
+<div class="pre_wrapper lang-bash">
+<pre class="programlisting prettyprint lang-bash">cd src/ext
+phpize
+CFLAGS="-std=gnu99" ./configure --enable-elastic_apm
+make clean
+make
+sudo make install</pre>
+</div>
+<p>Enable the extension by adding the following to your <code class="literal">php.ini</code> file:</p>
+<div class="pre_wrapper lang-php">
+<pre class="programlisting prettyprint lang-php">extension=elastic_apm.so
+elastic_apm.bootstrap_php_part_file=&lt;repo root&gt;/src/bootstrap_php_part.php</pre>
+</div>
+<p>To work, the agent needs both the built <code class="literal">elastic_apm.so</code>
+and the downloaded source files.
+So if you would like to build <code class="literal">elastic_apm.so</code> on one machine and
+then deploy it on a different machine, you will need to copy both
+the built <code class="literal">elastic_apm.so</code> and the downloaded source files.</p>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="intro.html">« Introduction</a>
+</span>
+<span class="next">
+<a href="supported-technologies.html">Supported technologies »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

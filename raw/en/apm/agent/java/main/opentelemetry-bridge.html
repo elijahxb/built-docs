@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>OpenTelemetry bridge | APM Java Agent Reference [main] | Elastic</title>
+<meta class="elastic" name="content" content="OpenTelemetry bridge | APM Java Agent Reference [main]">
+
+<link rel="home" href="index.html" title="APM Java Agent Reference [main]"/>
+<link rel="up" href="apis.html" title="Tracing APIs"/>
+<link rel="prev" href="public-api.html" title="Public API"/>
+<link rel="next" href="opentracing-bridge.html" title="OpenTracing bridge"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="APM"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/APM Java Agent/Reference/main"/>
+<meta name="DC.subject" content="APM"/>
+<meta name="DC.identifier" content="main"/>
+</head>
+<body><div class="page_header">
+You are looking at preliminary documentation for a future release.
+Not what you want? See the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link">
+  <div id="related-products" class="dropdown">
+    <div class="related-products-title">APM:</div>
+    <div class="dropdown-anchor" tabindex="0">Java Agent Reference<span class="dropdown-icon"></span></div>
+    <div class="dropdown-content">
+      <ul>
+        <li class="dropdown-category">APM</li>
+        <ul>
+          <li><a href="/guide/en/apm/guide/current/apm-overview.html">User Guide</a></li>
+        </ul>
+        <li class="dropdown-category">APM agents</li>
+        <ul>
+          <li><a href="/guide/en/apm/agent/android/current/intro.html">Android Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/go/current/introduction.html">Go Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/swift/current/intro.html">iOS Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/java/current/intro.html">Java Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/dotnet/current/intro.html">.NET Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/nodejs/current/intro.html">Node.js Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/php/current/intro.html">PHP Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/python/current/getting-started.html">Python Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/ruby/current/introduction.html">Ruby Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/rum-js/current/intro.html">Real User Monitoring JavaScript Agent Reference</a></li>
+        </ul>
+        <li class="dropdown-category">APM extensions</li>
+        <ul>
+          <li><a href="/guide/en/apm/lambda/current/aws-lambda-arch.html">Monitoring AWS Lambda Functions</a></li>
+          <li><a href="/guide/en/apm/attacher/current/apm-attacher.html">Attacher</a></li>
+        </ul>
+      </ul>
+    </div>
+  </div>
+</span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="apis.html">Tracing APIs</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="public-api.html">« Public API</a>
+</span>
+<span class="next">
+<a href="opentracing-bridge.html">OpenTracing bridge »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="opentelemetry-bridge"></a>OpenTelemetry bridge<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-java/edit/main/docs/api-opentelemetry.asciidoc">edit</a></h2>
+</div></div></div>
+<p>The Elastic APM OpenTelemetry bridge allows creating Elastic APM <code class="literal">Transactions</code> and <code class="literal">Spans</code>,
+using the OpenTelemetry API. OpenTelemetry metrics are also collected.
+In other words,
+it translates the calls to the OpenTelemetry API to Elastic APM and thus allows for reusing existing instrumentation.</p>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>While manual instrumentations using the OpenTelemetry API can be adapted to the Elastic APM Java agent, it&#8217;s not possible to use the instrumentations from
+<a href="https://github.com/open-telemetry/opentelemetry-java-instrumentation" class="ulink" target="_top">opentelemetry-java-instrumentation</a> in the context of the Elastic APM Java agent.<br>
+However, you can use <a href="https://github.com/open-telemetry/opentelemetry-java-instrumentation" class="ulink" target="_top">opentelemetry-java-instrumentation</a> (aka the OpenTelemetry Java agent)
+and send the data to APM Server.
+See the <a href="/guide/en/apm/guide/8.7/open-telemetry.html" class="ulink" target="_top">OpenTelemetry integration docs</a> for more details.</p>
+</div>
+</div>
+<p>The first span of a service will be converted to an Elastic APM
+<a href="/guide/en/apm/guide/8.7/data-model-transactions.html" class="ulink" target="_top"><code class="literal">Transaction</code></a>,
+subsequent spans are mapped to Elastic APM
+<a href="/guide/en/apm/guide/8.7/data-model-spans.html" class="ulink" target="_top"><code class="literal">Span</code></a>.</p>
+<h4><a id="otel-getting-started"></a>Getting started<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-java/edit/main/docs/api-opentelemetry.asciidoc">edit</a></h4>
+<p>The first step in getting started with the OpenTelemetry API bridge is to declare a dependency to the API:</p>
+<p><strong>pom.xml.</strong></p>
+<div class="pre_wrapper lang-xml">
+<pre class="programlisting prettyprint lang-xml">&lt;dependency&gt;
+    &lt;groupId&gt;io.opentelemetry&lt;/groupId&gt;
+    &lt;artifactId&gt;opentelemetry-api&lt;/artifactId&gt;
+    &lt;version&gt;${version.opentelemetry}&lt;/version&gt;
+&lt;/dependency&gt;</pre>
+</div>
+<p><strong>build.gradle.</strong></p>
+<div class="pre_wrapper lang-groovy">
+<pre class="programlisting prettyprint lang-groovy">compile "io.opentelemetry:opentelemetry-api:$openTelemetryVersion"</pre>
+</div>
+<p>The minimum required OpenTelemetry version is 1.0.1.</p>
+<h4><a id="otel-init-tracer"></a>Initialize tracer<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-java/edit/main/docs/api-opentelemetry.asciidoc">edit</a></h4>
+<p>There&#8217;s no separate dependency needed for the bridge itself.
+The Java agent hooks into <code class="literal">GlobalOpenTelemetry</code> to return it&#8217;s own implementation of <code class="literal">OpenTelemetry</code>
+that is connected to the internal tracer of the agent.</p>
+<div class="pre_wrapper lang-java">
+<pre class="programlisting prettyprint lang-java">import io.opentelemetry.api.GlobalOpenTelemetry;
+import io.opentelemetry.api.OpenTelemetry;
+import io.opentelemetry.api.trace.Tracer;
+
+OpenTelemetry openTelemetry = GlobalOpenTelemetry.get();
+Tracer tracer = openTelemetry.getTracer("");</pre>
+</div>
+<p>To disable that behavior,
+and to rely on the standard discovery mechanism of <code class="literal">GlobalOpenTelemetry</code>,
+you can set <a class="xref" href="config-core.html#config-disable-instrumentations" title="disable_instrumentations ()"><code class="literal">disable_instrumentations</code></a> to <code class="literal">opentelemetry</code>.</p>
+<h4><a id="otel-set-attribute"></a>Add custom metadata to a span<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-java/edit/main/docs/api-opentelemetry.asciidoc">edit</a></h4>
+<p>If you like the spans created by the Elastic APM Java agent&#8217;s auto-instrumentation,
+but you want to add a custom label,
+you can use the OpenTelemetry API to get ahold of the current span and call <code class="literal">setAttribute</code>:</p>
+<div class="pre_wrapper lang-java">
+<pre class="programlisting prettyprint lang-java">Span.current().setAttribute("foo", "bar");</pre>
+</div>
+<h4><a id="otel-set-behavioral-attribute"></a>Customize span tracing<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-java/edit/main/docs/api-opentelemetry.asciidoc">edit</a></h4>
+<p>We utilize the <code class="literal">setAttribute()</code> API not only to <a class="xref" href="opentelemetry-bridge.html#otel-set-attribute" title="Add custom metadata to a span">add custom metadata</a>, but also as a way to customize some
+special tracing features through corresponding custom attributes listed below. Such attributes are not added to span metadata. For example:</p>
+<div class="pre_wrapper lang-java">
+<pre class="programlisting prettyprint lang-java">Span.current().setAttribute("co.elastic.discardable", false);</pre>
+</div>
+<h5><a id="otel-config-discardable"></a><code class="literal">co.elastic.discardable</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-java/edit/main/docs/api-opentelemetry.asciidoc">edit</a></h5>
+<p>By default, spans may be discarded, for example if <a class="xref" href="config-core.html#config-span-min-duration" title="span_min_duration ()"><code class="literal">span_min_duration</code> (<span class="Admonishment Admonishment--change">
+[<span class="Admonishment-version u-mono">1.16.0</span>]
+<span class="Admonishment-detail">
+Added in 1.16.0.
+</span>
+</span>)</a> is set and the span does not exceed the configured
+threshold. Use this attribute to make a span non-discardable by setting it to <code class="literal">false</code>.</p>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>making a span non-discardable implicitly makes the entire stack of active spans non-discardable as well. Child spans can still be
+discarded.</p>
+</div>
+</div>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+<col class="col_3"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Key</th>
+<th align="left" valign="top">Value type</th>
+<th align="left" valign="top">Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">co.elastic.discardable</code></p></td>
+<td align="left" valign="top"><p><code class="literal">boolean</code></p></td>
+<td align="left" valign="top"><p><code class="literal">true</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4><a id="otel-create-transaction-span"></a>Create a child of the active span<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-java/edit/main/docs/api-opentelemetry.asciidoc">edit</a></h4>
+<p>This is an example for adding a custom span to the span created by the Java agent&#8217;s auto-instrumentation.</p>
+<div class="pre_wrapper lang-java">
+<pre class="programlisting prettyprint lang-java">// if there's an active span, it will implicitly be the parent
+// in case there's no parent, the custom span will become a Elastic APM transaction
+Span custom = tracer.spanBuilder("my custom span").startSpan();
+// making your child the current one makes the Java agent aware of this span
+// if the agent creates spans in the context of myTracedMethod() (such as outgoing requests),
+// they'll be added as a child of your custom span
+try (Scope scope = custom.makeCurrent()) {
+    myTracedMethod();
+} catch (Exception e) {
+    custom.recordException(e);
+    throw e;
+} finally {
+    custom.end();
+}</pre>
+</div>
+<p>To learn more about the OpenTelemetry API,
+head over do <a href="https://opentelemetry.io/docs/java/manual_instrumentation/" class="ulink" target="_top">their documentation</a>.</p>
+<h4><a id="otel-metrics"></a>Metrics<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-java/edit/main/docs/api-opentelemetry.asciidoc">edit</a></h4>
+<div class="warning admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>This functionality is in technical preview and may be changed or removed in a future release. Elastic will apply best effort to fix any issues, but features in technical preview are not subject to the support SLA of official GA features.</p>
+</div>
+</div>
+<p>The Elastic APM Java Agent supports collecting metrics defined via OpenTelemetry.
+You can either use the <a class="xref" href="opentelemetry-bridge.html#otel-metrics-api" title="API Usage">OpenTelemetry API</a> or the <a class="xref" href="opentelemetry-bridge.html#otel-metrics-sdk" title="Using a customized MeterProvider">OpenTelemetry SDK</a> in case you need more customizations.</p>
+<p>In both cases the Elastic APM Agent will respect the <a class="xref" href="config-reporter.html#config-disable-metrics" title="disable_metrics ()"><code class="literal">disable_metrics</code></a> and <a class="xref" href="config-reporter.html#config-metrics-interval" title="metrics_interval ()"><code class="literal">metrics_interval</code></a> settings for OpenTelemetry metrics.</p>
+<p>You can use the <a class="xref" href="config-metrics.html#config-custom-metrics-histogram-boundaries" title="custom_metrics_histogram_boundaries ( experimental)"><code class="literal">custom_metrics_histogram_boundaries</code></a> setting to customize histogram bucket boundaries.
+Alternatively you can use OpenTelemetry <code class="literal">Views</code> to define histogram buckets on a per-metric basis when providing your own <code class="literal">MeterProvider</code>.</p>
+<h4><a id="otel-metrics-api"></a>API Usage<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-java/edit/main/docs/api-opentelemetry.asciidoc">edit</a></h4>
+<p>You can define metrics and report metric data via <code class="literal">GlobalOpenTelemetry</code>:</p>
+<div class="pre_wrapper lang-java">
+<pre class="programlisting prettyprint lang-java">import io.opentelemetry.api.GlobalOpenTelemetry;
+import io.opentelemetry.api.metrics.LongCounter;
+import io.opentelemetry.api.metrics.Meter;
+
+Meter myMeter = GlobalOpenTelemetry.getMeter("my_meter");
+LongCounter counter = meter.counterBuilder("my_counter").build();
+counter.add(42);</pre>
+</div>
+<p>We don&#8217;t require you to setup an OpenTelemetry <code class="literal">MeterProvider</code> within <code class="literal">GlobalOpenTelemetry</code> yourself.
+The Elastic APM Java Agent will detect if no <code class="literal">MeterProvider</code> was configured and will provide its own automatically in this case.
+If you provide your own <code class="literal">MeterProvider</code> (see <a class="xref" href="opentelemetry-bridge.html#otel-metrics-sdk" title="Using a customized MeterProvider">Using a customized MeterProvider</a>), the agent will use the provided instance.</p>
+<h4><a id="otel-metrics-sdk"></a>Using a customized MeterProvider<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-java/edit/main/docs/api-opentelemetry.asciidoc">edit</a></h4>
+<p>In some cases using just the <a class="xref" href="opentelemetry-bridge.html#otel-metrics-api" title="API Usage">OpenTelemetry API for metrics</a> might not be flexible enough.
+Some example use cases are:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Using OpenTelemetry Views (e.g. to customize histogram buckets on a per-metric basis)
+</li>
+<li class="listitem">
+Exporting metrics to other tools in addition to Elastic APM (e.g. prometheus)
+</li>
+</ul>
+</div>
+<p>For these use cases you can just setup you OpenTelemetry SDK <code class="literal">MeterProvider</code>.
+The Elastic APM Agent will take care of installing an additional <code class="literal">MetricExporter</code> via instrumentation,
+which will ship the metric data to Elastic APM.
+This requires using OpenTelemetry version <code class="literal">1.16.0</code> or newer.</p>
+<p>To create your own <code class="literal">MeterProvider</code>, you will need to add the OpenTelemetry Metric SDK as dependency to your project:</p>
+<p><strong>pom.xml.</strong></p>
+<div class="pre_wrapper lang-xml">
+<pre class="programlisting prettyprint lang-xml">&lt;dependency&gt;
+    &lt;groupId&gt;io.opentelemetry&lt;/groupId&gt;
+    &lt;artifactId&gt;opentelemetry-sdk-metrics&lt;/artifactId&gt;
+    &lt;version&gt;${version.opentelemetry}&lt;/version&gt;
+&lt;/dependency&gt;</pre>
+</div>
+<p><strong>build.gradle.</strong></p>
+<div class="pre_wrapper lang-groovy">
+<pre class="programlisting prettyprint lang-groovy">compile "io.opentelemetry:opentelemetry-sdk-metrics:$openTelemetryVersion"</pre>
+</div>
+<p>Afterwards you can create and use your own <code class="literal">MeterProvider</code> as shown below:</p>
+<div class="pre_wrapper lang-java">
+<pre class="programlisting prettyprint lang-java">import io.opentelemetry.sdk.metrics.SdkMeterProvider;
+import io.opentelemetry.api.metrics.DoubleHistogram;
+import io.opentelemetry.api.metrics.Meter;
+import io.opentelemetry.api.metrics.MeterProvider;
+import io.opentelemetry.exporter.prometheus.PrometheusHttpServer;
+import io.opentelemetry.sdk.metrics.InstrumentSelector;
+import io.opentelemetry.sdk.metrics.View;
+
+//Elastic APM MetricReader will be registered automatically by the agent
+SdkMeterProvider meterProvider = SdkMeterProvider.builder()
+    .registerMetricReader(PrometheusHttpServer.create())
+    .registerView(
+        InstrumentSelector.builder().setName("my_histogram").build(),
+        View.builder().setAggregation(Aggregation.explicitBucketHistogram(List.of(1.0, 5.0))).build()
+    )
+    .build();
+
+Meter testMeter = meterProvider.get("my_meter");
+DoubleHistogram my_histogram = testMeter.histogramBuilder("my_histogram").build();
+
+my_histogram.record(0.5);</pre>
+</div>
+<h4><a id="otel-caveats"></a>Caveats<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-java/edit/main/docs/api-opentelemetry.asciidoc">edit</a></h4>
+<p>Not all features of the OpenTelemetry API are supported.</p>
+<h5><a id="otel-propagation"></a>In process context propagation<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-java/edit/main/docs/api-opentelemetry.asciidoc">edit</a></h5>
+<p>Entries that are added to the current context,
+<code class="literal">Context.current().with(...).makeCurrent()</code> cannot be retrieved via <code class="literal">Context.current().get(...)</code>.</p>
+<h5><a id="otel-references"></a>Span References<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-java/edit/main/docs/api-opentelemetry.asciidoc">edit</a></h5>
+<p>Spans can only have a single parent (<code class="literal">SpanBuilder#setParent</code>)</p>
+<h5><a id="otel-baggage"></a>Baggage<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-java/edit/main/docs/api-opentelemetry.asciidoc">edit</a></h5>
+<p>Propagating baggage within or outside the process is not supported.
+Baggage items are silently dropped.</p>
+<h5><a id="otel-events"></a>Events<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-java/edit/main/docs/api-opentelemetry.asciidoc">edit</a></h5>
+<p>Events are silently dropped, for example <code class="literal">Span.current().addEvent("my event")</code>.</p>
+<h5><a id="otel-anntations"></a>Annotations<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-java/edit/main/docs/api-opentelemetry.asciidoc">edit</a></h5>
+<p><a href="https://opentelemetry.io/docs/instrumentation/java/automatic/annotations/" class="ulink" target="_top">OpenTelemetry instrumentation annotations</a> are currently ignored by Elastic APM agent and are thus not supported (see <a href="https://github.com/elastic/apm-agent-java/issues/2753" class="ulink" target="_top">#2753</a>).</p>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="public-api.html">« Public API</a>
+</span>
+<span class="next">
+<a href="opentracing-bridge.html">OpenTracing bridge »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

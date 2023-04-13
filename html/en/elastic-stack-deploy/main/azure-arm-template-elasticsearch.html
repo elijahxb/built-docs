@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+<meta charset="UTF-8">
+<title>Elasticsearch | Deploying with Azure Marketplace and Resource Manager (ARM) template [main] | Elastic</title>
+<meta class="elastic" name="content" content="Elasticsearch | Deploying with Azure Marketplace and Resource Manager (ARM) template [main]">
+
+<link rel="home" href="index.html" title="Deploying with Azure Marketplace and Resource Manager (ARM) template [main]"/>
+<link rel="up" href="azure-arm-template.html" title="Azure Resource Manager (ARM) template"/>
+<link rel="prev" href="azure-arm-template-configuration.html" title="Template configuration"/>
+<link rel="next" href="azure-arm-template-data-disks.html" title="Data disks"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="Azure Marketplace and Resource Manager (ARM) template"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Elastic Stack/Azure/main"/>
+<meta name="DC.subject" content="Azure Marketplace and Resource Manager (ARM) template"/>
+<meta name="DC.identifier" content="main"/>
+<meta name="robots" content="noindex,nofollow"/>
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.optimizely.com/js/18132920325.js"></script>
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/android-chrome-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="apple-mobile-web-app-title" content="Elastic">
+    <meta name="application-name" content="Elastic">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="naver-site-verification" content="936882c1853b701b3cef3721758d80535413dbfd" />
+    <meta name="yandex-verification" content="d8a47e95d0972434" />
+    <meta name="localized" content="true" />
+    <meta name="st:robots" content="follow,index" />
+    <meta property="og:image" content="https://static-www.elastic.co/v3/assets/bltefdd0b53724fa2ce/blt280217a63b82a734/6202d3378b1f312528798412/elastic-logo.svg" />
+    <meta property="og:image:width" content="500" />
+    <meta property="og:image:height" content="172" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon-precomposed" sizes="64x64" href="/favicon_64x64_16bit.png">
+    <link rel="apple-touch-icon-precomposed" sizes="32x32" href="/favicon_32x32.png">
+    <link rel="apple-touch-icon-precomposed" sizes="16x16" href="/favicon_16x16.png">
+    <!-- Give IE8 a fighting chance -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="/guide/static/styles.css" />
+  </head>
+
+  <!--© 2015-2022 Elasticsearch B.V. -->
+  <!-- All Elastic documentation is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. -->
+  <!-- http://creativecommons.org/licenses/by-nc-nd/4.0/ -->
+
+  <body>
+    <!-- Google Tag Manager -->
+    <script>dataLayer = [];</script><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-58RLH5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src= '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f); })(window,document,'script','dataLayer','GTM-58RLH5');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-12395217-16"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-12395217-16');
+    </script>
+
+    <!-- Google Tag Manager for GA4 -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KNJMG2M');</script>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KNJMG2M" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager for GA4-->
+
+    <!--BEGIN QUALTRICS WEBSITE FEEDBACK SNIPPET-->
+    <script type='text/javascript'>
+      (function(){var g=function(e,h,f,g){
+      this.get=function(a){for(var a=a+"=",c=document.cookie.split(";"),b=0,e=c.length;b<e;b++){for(var d=c[b];" "==d.charAt(0);)d=d.substring(1,d.length);if(0==d.indexOf(a))return d.substring(a.length,d.length)}return null};
+      this.set=function(a,c){var b="",b=new Date;b.setTime(b.getTime()+6048E5);b="; expires="+b.toGMTString();document.cookie=a+"="+c+b+"; path=/; "};
+      this.check=function(){var a=this.get(f);if(a)a=a.split(":");else if(100!=e)"v"==h&&(e=Math.random()>=e/100?0:100),a=[h,e,0],this.set(f,a.join(":"));else return!0;var c=a[1];if(100==c)return!0;switch(a[0]){case "v":return!1;case "r":return c=a[2]%Math.floor(100/c),a[2]++,this.set(f,a.join(":")),!c}return!0};
+      this.go=function(){if(this.check()){var a=document.createElement("script");a.type="text/javascript";a.src=g;document.body&&document.body.appendChild(a)}};
+      this.start=function(){var a=this;window.addEventListener?window.addEventListener("load",function(){a.go()},!1):window.attachEvent&&window.attachEvent("onload",function(){a.go()})}};
+      try{(new g(100,"r","QSI_S_ZN_emkP0oSe9Qrn7kF","https://znemkp0ose9qrn7kf-elastic.siteintercept.qualtrics.com/WRSiteInterceptEngine/?Q_ZID=ZN_emkP0oSe9Qrn7kF")).start()}catch(i){}})();
+    </script><div id='ZN_emkP0oSe9Qrn7kF'><!--DO NOT REMOVE-CONTENTS PLACED HERE--></div>
+    <!--END WEBSITE FEEDBACK SNIPPET-->
+
+    <div id='elastic-nav' style="display:none;"></div>
+    <script src='https://www.elastic.co/elastic-nav.js'></script>
+
+    <div class="main-container">
+      <section id="content" >
+        <div class="content-wrapper">
+
+          <section id="guide" lang="en">
+            <div class="container-fluid">
+              <div class="row pb-3">
+                <div class="col-12 order-2 col-md-4 order-md-1 col-lg-3 h-almost-full-md sticky-top-md" id="left_col">
+                  <!-- The TOC is appended here -->
+                </div>
+
+                <div class="col-12 order-1 col-md-8 order-md-2 col-lg-7 order-lg-2 guide-section" id="middle_col">
+                  <!-- start body -->
+                  <div class="page_header">
+You are looking at preliminary documentation for a future release.
+Not what you want? See the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Deploying with Azure Marketplace and Resource Manager (ARM) template [main]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="azure-arm-template.html">Azure Resource Manager (ARM) template</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="azure-arm-template-configuration.html">« Template configuration</a>
+</span>
+<span class="next">
+<a href="azure-arm-template-data-disks.html">Data disks »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="azure-arm-template-elasticsearch"></a>Elasticsearch<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/azure-marketplace/edit/master/docs/azure-arm-template.asciidoc">edit</a></h2>
+</div></div></div>
+<p>The ARM template is able to deploy an Elasticsearch cluster topology with up to 50 data nodes and up to 20 coordinating nodes, along with three dedicated master nodes. The following
+sections highlight the parameters that can control <a href="/guide/en/elasticsearch/reference/7.11/modules-node.html" class="ulink" target="_top">node</a> deployment options.</p>
+<div class="important admon">
+<div class="icon"></div>
+<div class="admon_content">
+<h3>Subscription core quota limits</h3>
+<p>The template is able to deploy a cluster up to 73 nodes in size (3 master, 50 data and
+20 coordinating nodes), but the largest cluster that you&#8217;ll be able to deploy will
+be governed by the core quota limit defined for the VM SKU targeted and location
+within the subscription. You can check what the limit and current use is with
+<code class="literal">Subscriptions &gt; Usage + quotas</code> in the <a href="https://portal.azure.com" class="ulink" target="_top">Azure portal</a> or</p>
+<p><strong>Azure CLI 2.0.</strong></p>
+<div class="pre_wrapper lang-sh">
+<pre class="programlisting prettyprint lang-sh">az vm list-usage --location "&lt;location&gt;"</pre>
+</div>
+<p><strong>Azure PowerShell.</strong></p>
+<div class="pre_wrapper lang-powershell">
+<pre class="programlisting prettyprint lang-powershell">Get-AzureRmVMUsage -Location "&lt;location&gt;"</pre>
+</div>
+<p>Typically, the default limit is 10 per VM SKU family per location. Contact Azure
+support to increase the limit for a VM SKU in a specific location.</p>
+</div>
+</div>
+<p>Currently, the ARM template deploys <em>only</em> to Ubuntu 16.04-LTS VMs, using images
+published to the Azure VM gallery by Canonical, and the <a href="/guide/en/elasticsearch/reference/7.11/deb.html" class="ulink" target="_top">Debian package distribution of Elasticsearch</a>. The template uses <a href="https://www.freedesktop.org/wiki/Software/systemd/" class="ulink" target="_top">systemd</a> to run the Elasticsearch process, with Elasticsearch configured
+to start automatically when the system boots up.</p>
+<p>Elasticsearch can be stopped with systemd <a class="xref" href="azure-arm-template-troubleshooting-accessing-nodes.html" title="Accessing nodes">on an Elasticsearch VM node</a> using</p>
+<div class="pre_wrapper lang-sh">
+<pre class="programlisting prettyprint lang-sh">sudo systemctl stop elasticsearch.service</pre>
+</div>
+<p>and started with</p>
+<div class="pre_wrapper lang-sh">
+<pre class="programlisting prettyprint lang-sh">sudo systemctl start elasticsearch.service</pre>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="azure-arm-template-admin-username"></a>Virtual machine admin username<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/azure-marketplace/edit/master/docs/azure-arm-template.asciidoc">edit</a></h3>
+</div></div></div>
+<p>All VMs deployed by the template are secured with a username and either a password
+or SSH key</p>
+<div class="variablelist">
+<dl class="variablelist">
+<dt>
+<span class="term">
+<code class="literal">adminUsername</code>
+</span>
+</dt>
+<dd>
+Admin username used when provisioning VMs. Must be a valid Linux username
+i.e. <a href="https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-usernames/#ubuntu" class="ulink" target="_top">avoid any usernames that are invalid for Ubuntu</a>
+</dd>
+<dt>
+<span class="term">
+<code class="literal">authenticationType</code>
+</span>
+</dt>
+<dd>
+The authentication mechanism to use to access VMs. Can be either <code class="literal">password</code> or
+<code class="literal">sshPublicKey</code>.
+</dd>
+<dt>
+<span class="term">
+<code class="literal">adminPassword</code>
+</span>
+</dt>
+<dd>
+When <code class="literal">authenticationType</code> is <code class="literal">password</code>, the password to use for the Admin username
+to access VMs.
+</dd>
+<dt>
+<span class="term">
+<code class="literal">sshPublicKey</code>
+</span>
+</dt>
+<dd>
+When <code class="literal">authenticationType</code> is <code class="literal">sshPublicKey</code>, the public SSH key to use for the
+Admin username to access VMs.
+</dd>
+</dl>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="azure-arm-template-cluster-settings"></a>Cluster settings<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/azure-marketplace/edit/master/docs/azure-arm-template.asciidoc">edit</a></h3>
+</div></div></div>
+<p>The following are general settings that control cluster configuration</p>
+<div class="variablelist">
+<dl class="variablelist">
+<dt>
+<span class="term">
+<code class="literal">esVersion</code>
+</span>
+</dt>
+<dd>
+The version of Elasticsearch (and thus, Kibana) to deploy. Each template version
+is capable of deploying many different versions, with the template version number
+giving an indication of what the default stack version will be. For example,
+<a href="https://github.com/elastic/azure-marketplace/blob/7.11.1/src/mainTemplate.json#L22-L49" class="ulink" target="_top">template
+version 7.11.1 will deploy Elasticsearch 7.11.1</a> by default. Consult
+<code class="literal">esVersion.allowedValues</code> array in mainTemplate.json file of a specific template version to
+ascertain which versions it can deploy.
+</dd>
+<dt>
+<span class="term">
+<code class="literal">esClusterName</code>
+</span>
+</dt>
+<dd>
+The name of the Elasticsearch cluster. It&#8217;s recommended to choose an appropriate name
+that describes the purpose of the cluster. This value is <span class="strong strong"><strong>required</strong></span>
+</dd>
+<dt>
+<span class="term">
+<code class="literal">esHeapSize</code>
+</span>
+</dt>
+<dd>
+<p>
+The amount of memory, in megabytes, to allocate on each
+<a href="/guide/en/elasticsearch/reference/7.11/heap-size.html" class="ulink" target="_top">Elasticsearch node for the JVM heap</a>.
+Default will allocate 50% of the available memory will be allocated to Elasticsearch heap,
+up to a maximum of 31,744MB (approximately 32GB).
+</p>
+<p>This is an expert level feature; setting a heap size too low or larger than available
+memory on the chosen Elasticsearch VM SKU will fail the deployment.</p>
+</dd>
+<dt>
+<span class="term">
+<code class="literal">esAdditionalYaml</code>
+</span>
+</dt>
+<dd>
+<p>
+Additional configuration for Elasticsearch yml configuration file.
+Each line must be separated by a <code class="literal">\n</code> newline character. For example,
+</p>
+<div class="pre_wrapper lang-sh">
+<pre class="programlisting prettyprint lang-sh">"action.auto_create_index: +.*\nindices.queries.cache.size: 5%"</pre>
+</div>
+<p>It is recommended that you run your additional yaml through a <a href="http://www.yamllint.com/" class="ulink" target="_top">linter</a>
+before starting a deployment, as incorrectly formatted yaml will fail the deployment.</p>
+</dd>
+</dl>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="azure-arm-template-data-nodes"></a>Data nodes<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/azure-marketplace/edit/master/docs/azure-arm-template.asciidoc">edit</a></h3>
+</div></div></div>
+<p>By default, the template deploys three data nodes. Data nodes hold and perform
+data related operations such as search and aggregations. Data node VMs are attached
+to the backend pool of load balancers within the template, unless coordinating nodes
+are also deployed, in which case coordinating nodes will be attached instead.</p>
+<div class="variablelist">
+<dl class="variablelist">
+<dt>
+<span class="term">
+<code class="literal">dataNodesAreMasterEligible</code>
+</span>
+</dt>
+<dd>
+Either <code class="literal">Yes</code> or <code class="literal">No</code> to make data nodes master-eligible. This can be useful for small Elasticsearch clusters. For larger clusters however, it is recommended to have
+dedicated master nodes. The default is <code class="literal">No</code>, and when <code class="literal">Yes</code> is passed, no
+dedicated master nodes will be provisioned.
+</dd>
+<dt>
+<span class="term">
+<code class="literal">vmSizeDataNodes</code>
+</span>
+</dt>
+<dd>
+The <a href="https://docs.microsoft.com/azure/virtual-machines/linux/sizes" class="ulink" target="_top">Azure VM SKU</a> to use for data nodes. Different VM SKUs have different CPU, RAM,
+temporary storage space and network bandwidth. Additionally, Different VM SKUs have
+different limits to the number of managed disks that can be attached. The default is
+<code class="literal">Standard_DS1_v2</code>.
+</dd>
+<dt>
+<span class="term">
+<code class="literal">vmDataNodeCount</code>
+</span>
+</dt>
+<dd>
+The number of data nodes. Must be greater than 0. Defaults to 3.
+</dd>
+<dt>
+<span class="term">
+<code class="literal">vmDataNodeAcceleratedNetworking</code>
+</span>
+</dt>
+<dd>
+Whether to enable <a href="https://azure.microsoft.com/en-us/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/" class="ulink" target="_top">accelerated networking</a> for data nodes,
+which enables single root I/O virtualization (SR-IOV) to a VM, greatly improving its
+networking performance. Valid values are <code class="literal">Default</code>, <code class="literal">Yes</code>, <code class="literal">No</code>. The default is <code class="literal">Default</code>, which
+enables accelerated networking for the VM SKUs known to support it.
+</dd>
+</dl>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="azure-arm-template-master-nodes"></a>Master nodes<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/azure-marketplace/edit/master/docs/azure-arm-template.asciidoc">edit</a></h3>
+</div></div></div>
+<p>When <code class="literal">dataNodesAreMasterEligible</code> parameter is <code class="literal">No</code>, three dedicated master nodes
+will be deployed. Dedicated master nodes are <span class="strong strong"><strong>recommended</strong></span> for larger clusters.</p>
+<div class="variablelist">
+<dl class="variablelist">
+<dt>
+<span class="term">
+<code class="literal">vmSizeMasterNodes</code>
+</span>
+</dt>
+<dd>
+The <a href="https://docs.microsoft.com/azure/virtual-machines/linux/sizes" class="ulink" target="_top">Azure VM SKU</a> to use for dedicated master nodes.
+Different VM SKUs have different CPU, RAM, temporary storage space and network
+bandwidth. The default is <code class="literal">Standard_DS1_v2</code>.
+</dd>
+<dt>
+<span class="term">
+<code class="literal">vmMasterNodeAcceleratedNetworking</code>
+</span>
+</dt>
+<dd>
+Whether to enable <a href="https://azure.microsoft.com/en-us/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/" class="ulink" target="_top">accelerated networking</a> for dedicated master nodes,
+which enables single root I/O virtualization (SR-IOV) to a VM, greatly improving its
+networking performance. Valid values are <code class="literal">Default</code>, <code class="literal">Yes</code>, <code class="literal">No</code>. The default is <code class="literal">Default</code>, which
+enables accelerated networking for the VM SKUs known to support it.
+</dd>
+</dl>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="azure-arm-template-coordinating-nodes"></a>Coordinating nodes<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/azure-marketplace/edit/master/docs/azure-arm-template.asciidoc">edit</a></h3>
+</div></div></div>
+<p>Coordinating nodes can optionally be deployed with the template; coordinating nodes do not
+hold data and are not master-eligible, but act as the coordinators of incoming
+requests from clients, sending those request on to data nodes, and gathering the
+results to reduce each data node&#8217;s results into a single global resultset.
+Coordinating nodes are a way to scale a cluster deployed with this template
+beyond 100 data nodes, the maximum number of VMs that can be added to a
+load balancer backend pool; although the template puts a limit of 50 data nodes
+within the template, this can be increased by forking the template and increasing
+this limit to 100.</p>
+<p>If specified, coordinating node VMs are attached to the backend pool of load
+balancers within the template, instead of data node VMs.</p>
+<div class="variablelist">
+<dl class="variablelist">
+<dt>
+<span class="term">
+<code class="literal">vmSizeClientNodes</code>
+</span>
+</dt>
+<dd>
+The <a href="https://docs.microsoft.com/azure/virtual-machines/linux/sizes" class="ulink" target="_top">Azure VM SKU</a> to use for coordinating nodes.
+Different VM SKUs have different CPU, RAM, temporary storage space and network
+bandwidth. The default is <code class="literal">Standard_DS1_v2</code>.
+</dd>
+<dt>
+<span class="term">
+<code class="literal">vmClientNodeCount</code>
+</span>
+</dt>
+<dd>
+The number of coordinating nodes. Defaults to 0.
+</dd>
+<dt>
+<span class="term">
+<code class="literal">vmClientNodeAcceleratedNetworking</code>
+</span>
+</dt>
+<dd>
+Whether to enable <a href="https://azure.microsoft.com/en-us/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/" class="ulink" target="_top">accelerated networking</a> for coordinating nodes,
+which enables single root I/O virtualization (SR-IOV) to a VM, greatly improving its
+networking performance. Valid values are <code class="literal">Default</code>, <code class="literal">Yes</code>, <code class="literal">No</code>. The default is <code class="literal">Default</code>, which
+enables accelerated networking for the VM SKUs known to support it.
+</dd>
+</dl>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="azure-arm-template-ingest-ml-nodes"></a>Ingest and Machine learning nodes<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/azure-marketplace/edit/master/docs/azure-arm-template.asciidoc">edit</a></h3>
+</div></div></div>
+<p>All deployed nodes are configured as Ingest nodes, as well as Machine
+learning nodes, if a license that enables Machine learning features has been
+applied. Consult the <a href="/guide/en/elasticsearch/reference/7.11/modules-node.html" class="ulink" target="_top">node</a> documentation to
+understand how node roles can be changed.</p>
+<h3><a id="azure-arm-template-scaling-nodes"></a>Scaling up number of nodes<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/azure-marketplace/edit/master/docs/azure-arm-template.asciidoc">edit</a></h3>
+<p>The template deploys in <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy#incremental-and-complete-deployments" class="ulink" target="_top">incremental mode</a> by default; If a previous
+solution deployment has been performed into the target resource group, the resources
+that exist in the resource group <em>but are not in the template are left unchanged</em>.
+All resources that are specified by the solution will be deployed, and for those
+<em>resources that already exist and whose settings are unchanged, no change will be made</em>.
+For those <em>resources whose settings are changed however, the resource is provisioned with those new settings</em>.</p>
+<p>If the Elasticsearch deployment script is run on a VM that already has Elasticsearch
+process running, the elasticsearch.yml configuration file is changed
+using parameters from the new deployment. If the node is using the temporary disk
+for storage, the script ensures that the data directory and permissions are set appropriately. If a change to the elasticsearch configuration file is detected, the Elasticsearch process is restarted.</p>
+<p>What incremental deployment mode and deployment script behaviour mean in practice
+is that it is possible to increase the size of a cluster deployed with the template. There are some caveats to be aware of</p>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+A deployment into an existing resource group where the template has already been
+deployed <span class="strong strong"><strong>must</strong></span> use exactly the same parameters, except either <code class="literal">vmDataNodeCount</code> or
+<code class="literal">vmClientNodeCount</code>, which should be higher (or the same) as the previous deployment to the resource group, to increase the number of data or coordinating
+nodes, respectively.
+</li>
+<li class="listitem">
+Template deployment in incremental mode <span class="strong strong"><strong>must</strong></span> only be used to scale up a
+cluster, and not down; the Azure infrastructure has no knowledge of which VMs
+can be safely deleted without losing data, since it knows nothing about the shards
+and replicas that each node contains.
+</li>
+<li class="listitem">
+Scaling up <em>should</em> only be used when the cluster contains dedicated master
+nodes
+</li>
+</ol>
+</div>
+</div>
+
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="azure-arm-template-configuration.html">« Template configuration</a>
+</span>
+<span class="next">
+<a href="azure-arm-template-data-disks.html">Data disks »</a>
+</span>
+</div>
+</div>
+
+                  <!-- end body -->
+                </div>
+
+                <div class="col-12 order-3 col-lg-2 order-lg-3 h-almost-full-lg sticky-top-lg" id="right_col">
+                  <div id="sticky_content">
+                    <!-- The OTP is appended here -->
+                    <div class="row">
+                      <div class="col-0 col-md-4 col-lg-0" id="bottom_left_col"></div>
+                      <div class="col-12 col-md-8 col-lg-12">
+                        <div id="rtpcontainer">
+                          <div class="mktg-promo" id="most-popular">
+                            <p class="aside-heading">Most Popular</p>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-elasticsearch?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Get Started with Elasticsearch</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/getting-started-kibana?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">Intro to Kibana</p>
+                              </a>
+                            </div>
+                            <div class="pb-2">
+                              <p class="media-type">Video</p>
+                              <a href="https://www.elastic.co/webinars/introduction-elk-stack?baymax=default&elektra=docs&storm=top-video">
+                                <p class="mb-0">ELK for Logs & Metrics</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+        </div>
+
+
+<div id='elastic-footer'></div>
+<script src='https://www.elastic.co/elastic-footer.js'></script>
+<!-- Footer Section end-->
+
+      </section>
+    </div>
+
+<script src="/guide/static/jquery.js"></script>
+<script type="text/javascript" src="/guide/static/docs.js"></script>
+<script type="text/javascript">
+  window.initial_state = {}</script>
+  </body>
+</html>

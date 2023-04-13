@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Configuration reference | APM PHP Agent Reference [main] | Elastic</title>
+<meta class="elastic" name="content" content="Configuration reference | APM PHP Agent Reference [main]">
+
+<link rel="home" href="index.html" title="APM PHP Agent Reference [main]"/>
+<link rel="up" href="configuration.html" title="Configuration"/>
+<link rel="prev" href="configuration.html" title="Configuration"/>
+<link rel="next" href="public-api.html" title="Public API"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="APM"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/APM PHP Agent/Reference/main"/>
+<meta name="DC.subject" content="APM"/>
+<meta name="DC.identifier" content="main"/>
+</head>
+<body><div class="page_header">
+You are looking at preliminary documentation for a future release.
+Not what you want? See the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link">
+  <div id="related-products" class="dropdown">
+    <div class="related-products-title">APM:</div>
+    <div class="dropdown-anchor" tabindex="0">PHP Agent Reference<span class="dropdown-icon"></span></div>
+    <div class="dropdown-content">
+      <ul>
+        <li class="dropdown-category">APM</li>
+        <ul>
+          <li><a href="/guide/en/apm/guide/current/apm-overview.html">User Guide</a></li>
+        </ul>
+        <li class="dropdown-category">APM agents</li>
+        <ul>
+          <li><a href="/guide/en/apm/agent/android/current/intro.html">Android Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/go/current/introduction.html">Go Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/swift/current/intro.html">iOS Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/java/current/intro.html">Java Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/dotnet/current/intro.html">.NET Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/nodejs/current/intro.html">Node.js Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/php/current/intro.html">PHP Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/python/current/getting-started.html">Python Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/ruby/current/introduction.html">Ruby Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/rum-js/current/intro.html">Real User Monitoring JavaScript Agent Reference</a></li>
+        </ul>
+        <li class="dropdown-category">APM extensions</li>
+        <ul>
+          <li><a href="/guide/en/apm/lambda/current/aws-lambda-arch.html">Monitoring AWS Lambda Functions</a></li>
+          <li><a href="/guide/en/apm/attacher/current/apm-attacher.html">Attacher</a></li>
+        </ul>
+      </ul>
+    </div>
+  </div>
+</span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="configuration.html">Configuration</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="configuration.html">« Configuration</a>
+</span>
+<span class="next">
+<a href="public-api.html">Public API »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="configuration-reference"></a>Configuration reference<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-php/edit/main/docs/configuration.asciidoc">edit</a></h2>
+</div></div></div>
+<h4><a id="config-api-key"></a><code class="literal">api_key</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-php/edit/main/docs/configuration.asciidoc">edit</a></h4>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Environment variable name</th>
+<th align="left" valign="top">Option name in <code class="literal">php.ini</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">ELASTIC_APM_API_KEY</code></p></td>
+<td align="left" valign="top"><p><code class="literal">elastic_apm.api_key</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Default</th>
+<th align="left" valign="top">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p>None</p></td>
+<td align="left" valign="top"><p>String</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>This string is used to ensure that only your agents can send data to your APM Server.
+You must have created the API key using the APM Server <a href="/guide/en/apm/guide/8.7/api-key.html" class="ulink" target="_top">command line tool</a>.</p>
+<p><a class="xref" href="configuration-reference.html#config-api-key" title="api_key"><code class="literal">api_key</code></a> is an alternative to <a class="xref" href="configuration-reference.html#config-secret-token" title="secret_token"><code class="literal">secret_token</code></a>.
+If both <a class="xref" href="configuration-reference.html#config-secret-token" title="secret_token"><code class="literal">secret_token</code></a> and <a class="xref" href="configuration-reference.html#config-api-key" title="api_key"><code class="literal">api_key</code></a> are configured,
+then <a class="xref" href="configuration-reference.html#config-api-key" title="api_key"><code class="literal">api_key</code></a> has precedence and <a class="xref" href="configuration-reference.html#config-secret-token" title="secret_token"><code class="literal">secret_token</code></a> is ignored.</p>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>This feature is fully supported in the APM Server versions &gt;= 7.6.</p>
+</div>
+</div>
+<div class="warning admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>The <code class="literal">api_key</code> value is sent as plain-text in every request to the server, so you should also secure
+your communications using HTTPS. Unless you do so, your API Key could be observed by an attacker.</p>
+</div>
+</div>
+<h4><a id="config-breakdown-metrics"></a><code class="literal">breakdown_metrics</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-php/edit/main/docs/configuration.asciidoc">edit</a></h4>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Environment variable name</th>
+<th align="left" valign="top">Option name in <code class="literal">php.ini</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">ELASTIC_APM_BREAKDOWN_METRICS</code></p></td>
+<td align="left" valign="top"><p><code class="literal">elastic_apm.breakdown_metrics</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Default</th>
+<th align="left" valign="top">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p>true</p></td>
+<td align="left" valign="top"><p>Boolean</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>If this configuration option is set to <code class="literal">true</code> the agent will collect and report
+breakdown metrics (<code class="literal">span.self_time</code>) used for "Time spent by span type" chart.
+Set it to <code class="literal">false</code> to disable the collection and reporting of
+breakdown metrics, which can reduce the overhead of the agent.</p>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>This feature requires APM Server and Kibana &gt;= 7.3.</p>
+</div>
+</div>
+<h4><a id="config-disable-instrumentations"></a><code class="literal">disable_instrumentations</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-php/edit/main/docs/configuration.asciidoc">edit</a></h4>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Environment variable name</th>
+<th align="left" valign="top">Option name in <code class="literal">php.ini</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">ELASTIC_APM_DISABLE_INSTRUMENTATIONS</code></p></td>
+<td align="left" valign="top"><p><code class="literal">elastic_apm.disable_instrumentations</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Default</th>
+<th align="left" valign="top">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p>empty list</p></td>
+<td align="left" valign="top"><p>List of strings</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>A comma-separated list of wildcard expressions to match
+instrumentation names which should be disabled.
+When an instrumentation is disabled, no spans will be created for that instrumentation.
+An instrumentation may match more than one name -
+for example PDO instrumentation matches both <code class="literal">db</code> and  <code class="literal">pdo</code>.</p>
+<p>Valid instrumentation names are <code class="literal">curl</code>, <code class="literal">db</code>, <code class="literal">http-client</code>, <code class="literal">pdo</code>.</p>
+<h4><a id="config-disable-send"></a><code class="literal">disable_send</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-php/edit/main/docs/configuration.asciidoc">edit</a></h4>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Environment variable name</th>
+<th align="left" valign="top">Option name in <code class="literal">php.ini</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">ELASTIC_APM_DISABLE_SEND</code></p></td>
+<td align="left" valign="top"><p><code class="literal">elastic_apm.disable_send</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Default</th>
+<th align="left" valign="top">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p>false</p></td>
+<td align="left" valign="top"><p>Boolean</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>If set to <code class="literal">true</code>, the agent will work as usual, except for any task requiring
+communication with the APM server. Events will be dropped and the agent won&#8217;t be
+able to receive central configuration, which means that any other configuration
+cannot be changed in this state without restarting the service.  Example uses
+for this setting are: maintaining the ability to create traces and log
+trace/transaction/span IDs through the log correlation feature, and getting
+automatic distributed tracing via the <a href="https://w3c.github.io/trace-context/" class="ulink" target="_top">W3C HTTP headers</a>.</p>
+<h4><a id="config-enabled"></a><code class="literal">enabled</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-php/edit/main/docs/configuration.asciidoc">edit</a></h4>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Environment variable name</th>
+<th align="left" valign="top">Option name in <code class="literal">php.ini</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">ELASTIC_APM_ENABLED</code></p></td>
+<td align="left" valign="top"><p><code class="literal">elastic_apm.enabled</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Default</th>
+<th align="left" valign="top">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p>true</p></td>
+<td align="left" valign="top"><p>Boolean</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Setting to false will completely disable the agent.</p>
+<h4><a id="config-environment"></a><code class="literal">environment</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-php/edit/main/docs/configuration.asciidoc">edit</a></h4>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Environment variable name</th>
+<th align="left" valign="top">Option name in <code class="literal">php.ini</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">ELASTIC_APM_ENVIRONMENT</code></p></td>
+<td align="left" valign="top"><p><code class="literal">elastic_apm.environment</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Default</th>
+<th align="left" valign="top">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p>None</p></td>
+<td align="left" valign="top"><p>String</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The name of the environment this service is deployed in, e.g. "production" or "staging".</p>
+<p>Environments allow you to easily filter data on a global level in the APM app.
+It&#8217;s important to be consistent when naming environments across agents.
+See <a href="/guide/en/kibana/8.7/filters.html#environment-selector" class="ulink" target="_top">environment selector</a> in the Kibana UI for more information.</p>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>This feature is fully supported in the APM app in Kibana versions &gt;= 7.2.
+You must use the query bar to filter for a specific environment in versions prior to 7.2.</p>
+</div>
+</div>
+<h4><a id="config-hostname"></a><code class="literal">hostname</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-php/edit/main/docs/configuration.asciidoc">edit</a></h4>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Hostname variable name</th>
+<th align="left" valign="top">Option name in <code class="literal">php.ini</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">ELASTIC_APM_HOSTNAME</code></p></td>
+<td align="left" valign="top"><p><code class="literal">elastic_apm.hostname</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Default</th>
+<th align="left" valign="top">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p>the local machine&#8217;s host name</p></td>
+<td align="left" valign="top"><p>String</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>This option allows for the reported host name to be configured.
+If this option is not set the local machine&#8217;s host name is used.</p>
+<h4><a id="config-log-level"></a><code class="literal">log_level</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-php/edit/main/docs/configuration.asciidoc">edit</a></h4>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Environment variable name</th>
+<th align="left" valign="top">Option name in <code class="literal">php.ini</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">ELASTIC_APM_LOG_LEVEL</code></p></td>
+<td align="left" valign="top"><p><code class="literal">elastic_apm.log_level</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Default</th>
+<th align="left" valign="top">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p>None</p></td>
+<td align="left" valign="top"><p>Log level</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>A fallback configuration setting to control the logging level for the agent.
+Only used when a sink-specific option is not explicitly set.
+See <a class="xref" href="configuration.html#configure-logging" title="Logging">Logging</a> for details.</p>
+<h4><a id="config-log-level-stderr"></a><code class="literal">log_level_stderr</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-php/edit/main/docs/configuration.asciidoc">edit</a></h4>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Environment variable name</th>
+<th align="left" valign="top">Option name in <code class="literal">php.ini</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">ELASTIC_APM_LOG_LEVEL_STDERR</code></p></td>
+<td align="left" valign="top"><p><code class="literal">elastic_apm.log_level_stderr</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Default</th>
+<th align="left" valign="top">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">CRITICAL</code></p></td>
+<td align="left" valign="top"><p>Log level</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The logging level for <code class="literal">stderr</code> logging sink.
+See <a class="xref" href="configuration.html#configure-logging" title="Logging">Logging</a> for details.</p>
+<h4><a id="config-log-level-syslog"></a><code class="literal">log_level_syslog</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-php/edit/main/docs/configuration.asciidoc">edit</a></h4>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Environment variable name</th>
+<th align="left" valign="top">Option name in <code class="literal">php.ini</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">ELASTIC_APM_LOG_LEVEL_SYSLOG</code></p></td>
+<td align="left" valign="top"><p><code class="literal">elastic_apm.log_level_syslog</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Default</th>
+<th align="left" valign="top">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">INFO</code></p></td>
+<td align="left" valign="top"><p>Log level</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The logging level for <code class="literal">syslog</code> logging sink.
+See <a class="xref" href="configuration.html#configure-logging" title="Logging">Logging</a> for details.</p>
+<h4><a id="config-secret-token"></a><code class="literal">secret_token</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-php/edit/main/docs/configuration.asciidoc">edit</a></h4>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Environment variable name</th>
+<th align="left" valign="top">Option name in <code class="literal">php.ini</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">ELASTIC_APM_SECRET_TOKEN</code></p></td>
+<td align="left" valign="top"><p><code class="literal">elastic_apm.secret_token</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Default</th>
+<th align="left" valign="top">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p>None</p></td>
+<td align="left" valign="top"><p>String</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>This string is used to ensure that only your agents can send data to your APM Server.
+Both the agents and the APM Server have to be configured with the same secret token.</p>
+<p>See <a href="/guide/en/apm/guide/8.7/secret-token.html" class="ulink" target="_top">the relevant APM Server&#8217;s documentation</a>
+on how to configure APM Server&#8217;s secret token.</p>
+<p>Use this setting if the APM Server requires a token, like in Elasticsearch Service.</p>
+<p><a class="xref" href="configuration-reference.html#config-secret-token" title="secret_token"><code class="literal">secret_token</code></a> is an alternative to <a class="xref" href="configuration-reference.html#config-api-key" title="api_key"><code class="literal">api_key</code></a>.
+If both <a class="xref" href="configuration-reference.html#config-secret-token" title="secret_token"><code class="literal">secret_token</code></a> and <a class="xref" href="configuration-reference.html#config-api-key" title="api_key"><code class="literal">api_key</code></a> are configured
+then <a class="xref" href="configuration-reference.html#config-api-key" title="api_key"><code class="literal">api_key</code></a> has precedence and <a class="xref" href="configuration-reference.html#config-secret-token" title="secret_token"><code class="literal">secret_token</code></a> is ignored.</p>
+<div class="warning admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>The <code class="literal">secret_token</code> is sent as plain-text in every request to the server, so you should also secure
+your communications using HTTPS. Unless you do so, your secret token could be observed by an attacker.</p>
+</div>
+</div>
+<h4><a id="config-server-timeout"></a><code class="literal">server_timeout</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-php/edit/main/docs/configuration.asciidoc">edit</a></h4>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Environment variable name</th>
+<th align="left" valign="top">Option name in <code class="literal">php.ini</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">ELASTIC_APM_SERVER_TIMEOUT</code></p></td>
+<td align="left" valign="top"><p><code class="literal">elastic_apm.server_timeout</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Default</th>
+<th align="left" valign="top">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">30s</code></p></td>
+<td align="left" valign="top"><p>Duration</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>If a request sending events to the APM server takes longer than the configured timeout,
+the request is canceled and the events are discarded.</p>
+<p>The value has to be provided in <span class="strong strong"><strong><a class="xref" href="configuration.html#configure-duration-format" title="Duration format">duration format</a></strong></span>.</p>
+<p>This option&#8217;s default unit is <code class="literal">s</code> (seconds).</p>
+<p>If the value is <code class="literal">0</code> (or <code class="literal">0ms</code>, <code class="literal">0s</code>, etc.) the timeout for sending events to the APM Server is disabled.</p>
+<p>Negative values are invalid and result in the default value being used instead.</p>
+<h4><a id="config-server-url"></a><code class="literal">server_url</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-php/edit/main/docs/configuration.asciidoc">edit</a></h4>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Environment variable name</th>
+<th align="left" valign="top">Option name in <code class="literal">php.ini</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">ELASTIC_APM_SERVER_URL</code></p></td>
+<td align="left" valign="top"><p><code class="literal">elastic_apm.server_url</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Default</th>
+<th align="left" valign="top">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">http://localhost:8200</code></p></td>
+<td align="left" valign="top"><p>String</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The URL for your APM Server. The URL must be fully qualified, including protocol (<code class="literal">http</code> or <code class="literal">https</code>) and port.</p>
+<h4><a id="config-service-name"></a><code class="literal">service_name</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-php/edit/main/docs/configuration.asciidoc">edit</a></h4>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Environment variable name</th>
+<th align="left" valign="top">Option name in <code class="literal">php.ini</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">ELASTIC_APM_SERVICE_NAME</code></p></td>
+<td align="left" valign="top"><p><code class="literal">elastic_apm.service_name</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Default</th>
+<th align="left" valign="top">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">unknown-php-service</code></p></td>
+<td align="left" valign="top"><p>String</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>This is used to keep all the errors and transactions of your service together
+and is the primary filter in the Elastic APM user interface.</p>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>The service name must conform to this regular expression: <code class="literal">^[a-zA-Z0-9 _-]+$</code>.
+In other words, a service name must only contain characters from the ASCII alphabet,
+numbers, dashes, underscores, and spaces.
+Characters in service name that don&#8217;t match regular expression will be replaced by <code class="literal">_</code> (underscore) character.</p>
+</div>
+</div>
+<h4><a id="config-service-node-name"></a><code class="literal">service_node_name</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-php/edit/main/docs/configuration.asciidoc">edit</a></h4>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Environment variable name</th>
+<th align="left" valign="top">Option name in <code class="literal">php.ini</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">ELASTIC_APM_SERVICE_NODE_NAME</code></p></td>
+<td align="left" valign="top"><p><code class="literal">elastic_apm.service_node_name</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Default</th>
+<th align="left" valign="top">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p>None</p></td>
+<td align="left" valign="top"><p>String</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>If it&#8217;s set, this name is used to distinguish between different nodes of a service.
+If it&#8217;s not set, data aggregations will be done based on the reported
+hostname (automatically discovered or manually configured using <a class="xref" href="configuration-reference.html#config-hostname" title="hostname"><code class="literal">hostname</code></a>).</p>
+<h4><a id="config-service-version"></a><code class="literal">service_version</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-php/edit/main/docs/configuration.asciidoc">edit</a></h4>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Environment variable name</th>
+<th align="left" valign="top">Option name in <code class="literal">php.ini</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">ELASTIC_APM_SERVICE_VERSION</code></p></td>
+<td align="left" valign="top"><p><code class="literal">elastic_apm.service_version</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Default</th>
+<th align="left" valign="top">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p>None</p></td>
+<td align="left" valign="top"><p>String</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The version of the currently deployed service. If your deployments are not versioned,
+the recommended value for this field is the commit identifier of the deployed revision, e.g.,
+the output of git rev-parse HEAD.</p>
+<h4><a id="config-transaction-ignore-urls"></a><code class="literal">transaction_ignore_urls</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-php/edit/main/docs/configuration.asciidoc">edit</a></h4>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Environment variable name</th>
+<th align="left" valign="top">Option name in <code class="literal">php.ini</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">ELASTIC_APM_TRANSACTION_IGNORE_URLS</code></p></td>
+<td align="left" valign="top"><p><code class="literal">elastic_apm.transaction_ignore_urls</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Default</th>
+<th align="left" valign="top">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p>empty list</p></td>
+<td align="left" valign="top"><p>List of wildcard expressions</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>This option instructs the agent to ignore requests with certain URLs
+by not to creating transactions for those requests.
+It only affects automatic creation of transactions by the agent
+but user can still create transactions manually by using <a class="xref" href="public-api.html" title="Public API">agent&#8217;s public API</a>.</p>
+<p>See <a class="xref" href="configuration.html#configure-wildcard" title="Wildcard">Wildcard</a> section for more details on how to use wildcard expressions.</p>
+<h4><a id="config-transaction-max-spans"></a><code class="literal">transaction_max_spans</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-php/edit/main/docs/configuration.asciidoc">edit</a></h4>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Environment variable name</th>
+<th align="left" valign="top">Option name in <code class="literal">php.ini</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">ELASTIC_APM_TRANSACTION_MAX_SPANS</code></p></td>
+<td align="left" valign="top"><p><code class="literal">elastic_apm.transaction_max_spans</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Default</th>
+<th align="left" valign="top">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p>500</p></td>
+<td align="left" valign="top"><p>Integer</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>This limits the amount of spans that are recorded per transaction.
+This is helpful in cases where a transaction creates a very high amount of spans,
+for example, thousands of SQL queries.
+Setting an upper limit helps prevent overloading the Agent and APM server in these edge cases.</p>
+<p>If the value is <code class="literal">0</code> no spans will be collected.</p>
+<p>Negative values are invalid and result in the default value being used instead.</p>
+<h4><a id="config-transaction-sample-rate"></a><code class="literal">transaction_sample_rate</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-php/edit/main/docs/configuration.asciidoc">edit</a></h4>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Environment variable name</th>
+<th align="left" valign="top">Option name in <code class="literal">php.ini</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">ELASTIC_APM_TRANSACTION_SAMPLE_RATE</code></p></td>
+<td align="left" valign="top"><p><code class="literal">elastic_apm.transaction_sample_rate</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Default</th>
+<th align="left" valign="top">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p>1.0</p></td>
+<td align="left" valign="top"><p>Floating-point number</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>By default, the agent will sample every transaction (e.g., a request to your service).
+To reduce overhead and storage requirements, set the sample rate to a value between <code class="literal">0.0</code> and <code class="literal">1.0</code>.
+The agent still records the overall time and result for unsampled transactions,
+but not context information, labels, or spans.</p>
+<h4><a id="config-verify-server-cert"></a><code class="literal">verify_server_cert</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-php/edit/main/docs/configuration.asciidoc">edit</a></h4>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Environment variable name</th>
+<th align="left" valign="top">Option name in <code class="literal">php.ini</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">ELASTIC_APM_VERIFY_SERVER_CERT</code></p></td>
+<td align="left" valign="top"><p><code class="literal">elastic_apm.verify_server_cert</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Default</th>
+<th align="left" valign="top">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">true</code></p></td>
+<td align="left" valign="top"><p>Boolean</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>By default, the agent verifies the SSL certificate if you use an HTTPS connection to the APM server.
+The verification can be disabled by changing this setting to <code class="literal">false</code>.</p>
+<h4><a id="config-url-groups"></a><code class="literal">url_groups</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-php/edit/main/docs/configuration.asciidoc">edit</a></h4>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Environment variable name</th>
+<th align="left" valign="top">Option name in <code class="literal">php.ini</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">ELASTIC_APM_URL_GROUPS</code></p></td>
+<td align="left" valign="top"><p><code class="literal">elastic_apm.url_groups</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Default</th>
+<th align="left" valign="top">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p>empty list</p></td>
+<td align="left" valign="top"><p>List of wildcard expressions</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>With this option, you can group several URL paths together by using wildcard expressions
+like <code class="literal">/user/*</code> - this way <code class="literal">/user/Alice</code> and <code class="literal">/user/Bob</code> will be mapped to transaction name <code class="literal">/user/*</code>.</p>
+<p>See <a class="xref" href="configuration.html#configure-wildcard" title="Wildcard">Wildcard</a> section for more details on how to use wildcard expressions.</p>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="configuration.html">« Configuration</a>
+</span>
+<span class="next">
+<a href="public-api.html">Public API »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

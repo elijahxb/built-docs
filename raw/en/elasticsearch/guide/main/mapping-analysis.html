@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Mapping and Analysis | Elasticsearch: The Definitive Guide [main] | Elastic</title>
+<meta class="elastic" name="content" content="Mapping and Analysis | Elasticsearch: The Definitive Guide [main]">
+
+<link rel="home" href="index.html" title="Elasticsearch: The Definitive Guide [main]"/>
+<link rel="up" href="getting-started.html" title="Getting Started"/>
+<link rel="prev" href="search-lite.html" title="Search Lite"/>
+<link rel="next" href="_exact_values_versus_full_text.html" title="Exact Values Versus Full Text"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="Elasticsearch"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Legacy/Elasticsearch/Definitive Guide/main"/>
+<meta name="DC.subject" content="Elasticsearch"/>
+<meta name="DC.identifier" content="main"/>
+<meta name="robots" content="noindex,nofollow"/>
+</head>
+<body><div class="page_header">
+<p>
+  <strong>WARNING</strong>: This documentation covers Elasticsearch 2.x. The 2.x
+  versions of Elasticsearch have passed their
+  <a href="https://www.elastic.co/support/eol">EOL dates</a>. If you are running
+  a 2.x version, we strongly advise you to upgrade.
+</p>
+<p>
+  This documentation is no longer maintained and may be removed. For the latest
+  information, see the <a
+  href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">current
+  Elasticsearch documentation</a>.
+</p>
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch: The Definitive Guide [main]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="getting-started.html">Getting Started</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="search-lite.html">« Search <em>Lite</em></a>
+</span>
+<span class="next">
+<a href="_exact_values_versus_full_text.html">Exact Values Versus Full Text »</a>
+</span>
+</div>
+<div class="chapter">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="mapping-analysis"></a>Mapping and Analysis<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/052_Mapping_Analysis/25_Data_type_differences.asciidoc">edit</a></h2>
+</div></div></div>
+<p>While playing around with the data in our index, we notice something odd.
+Something seems to be broken: we have 12 tweets in our indices, and only one
+of them contains the date <code class="literal">2014-09-15</code>, but have a look at the <code class="literal">total</code> hits
+for the following queries:</p>
+<div class="pre_wrapper lang-sense">
+<pre class="programlisting prettyprint lang-sense">GET /_search?q=2014              # 12 results
+GET /_search?q=2014-09-15        # 12 results !
+GET /_search?q=date:2014-09-15   # 1  result
+GET /_search?q=date:2014         # 0  results !</pre>
+</div>
+<div class="sense_widget" data-snippet="snippets/052_Mapping_Analysis/25_Data_type_differences.json"></div>
+<p>Why does querying the <a class="xref" href="search-lite.html#all-field-intro" title="The _all Field"><code class="literal">_all</code> field</a> for the full date
+return all tweets, and querying the <code class="literal">date</code> field for just the year return no
+results? Why do our results differ when searching within the <code class="literal">_all</code> field or
+the <code class="literal">date</code> field?</p>
+<p>Presumably, it is because the way our data has been indexed in the <code class="literal">_all</code>
+field is different from how it has been indexed in the <code class="literal">date</code> field.
+So let&#8217;s take a look at how Elasticsearch has interpreted our document
+structure, by requesting the <em>mapping</em> (or schema definition)
+for the <code class="literal">tweet</code> type in the <code class="literal">gb</code> index:</p>
+<div class="pre_wrapper lang-sense">
+<pre class="programlisting prettyprint lang-sense">GET /gb/_mapping/tweet</pre>
+</div>
+<div class="sense_widget" data-snippet="snippets/052_Mapping_Analysis/25_Data_type_differences.json"></div>
+<p>This gives us the following:</p>
+<div class="pre_wrapper lang-js">
+<pre class="programlisting prettyprint lang-js">{
+   "gb": {
+      "mappings": {
+         "tweet": {
+            "properties": {
+               "date": {
+                  "type": "date",
+                  "format": "strict_date_optional_time||epoch_millis"
+               },
+               "name": {
+                  "type": "string"
+               },
+               "tweet": {
+                  "type": "string"
+               },
+               "user_id": {
+                  "type": "long"
+               }
+            }
+         }
+      }
+   }
+}</pre>
+</div>
+<p>Elasticsearch has dynamically generated a mapping for us, based on what it
+could guess about our field types. The response shows us that the <code class="literal">date</code> field
+has been recognized as a field of type <code class="literal">date</code>. The <code class="literal">_all</code> field isn&#8217;t
+mentioned because it is a default field, but we know that the <code class="literal">_all</code> field is
+of type <code class="literal">string</code>.</p>
+<p>So fields of type <code class="literal">date</code> and fields of type <code class="literal">string</code> are indexed differently,
+and can thus be searched differently.  That&#8217;s not entirely surprising.
+You might expect that each of the core data types&#8212;&#8203;strings, numbers, Booleans,
+and dates&#8212;&#8203;might be indexed slightly differently. And this is true:
+there are slight differences.</p>
+<p>But by far the biggest difference is between fields that represent
+<em>exact values</em> (which can include <code class="literal">string</code> fields) and fields that
+represent <em>full text</em>. This distinction is really important&#8212;&#8203;it&#8217;s the thing
+that separates a search engine from all other databases.</p>
+
+
+
+
+
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="search-lite.html">« Search <em>Lite</em></a>
+</span>
+<span class="next">
+<a href="_exact_values_versus_full_text.html">Exact Values Versus Full Text »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

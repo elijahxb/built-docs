@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Checking Whether a Document Exists | Elasticsearch: The Definitive Guide [main] | Elastic</title>
+<meta class="elastic" name="content" content="Checking Whether a Document Exists | Elasticsearch: The Definitive Guide [main]">
+
+<link rel="home" href="index.html" title="Elasticsearch: The Definitive Guide [main]"/>
+<link rel="up" href="data-in-data-out.html" title="Data In, Data Out"/>
+<link rel="prev" href="get-doc.html" title="Retrieving a Document"/>
+<link rel="next" href="update-doc.html" title="Updating a Whole Document"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="Elasticsearch"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Legacy/Elasticsearch/Definitive Guide/main"/>
+<meta name="DC.subject" content="Elasticsearch"/>
+<meta name="DC.identifier" content="main"/>
+<meta name="robots" content="noindex,nofollow"/>
+</head>
+<body><div class="page_header">
+<p>
+  <strong>WARNING</strong>: This documentation covers Elasticsearch 2.x. The 2.x
+  versions of Elasticsearch have passed their
+  <a href="https://www.elastic.co/support/eol">EOL dates</a>. If you are running
+  a 2.x version, we strongly advise you to upgrade.
+</p>
+<p>
+  This documentation is no longer maintained and may be removed. For the latest
+  information, see the <a
+  href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">current
+  Elasticsearch documentation</a>.
+</p>
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch: The Definitive Guide [main]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="getting-started.html">Getting Started</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="data-in-data-out.html">Data In, Data Out</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="get-doc.html">« Retrieving a Document</a>
+</span>
+<span class="next">
+<a href="update-doc.html">Updating a Whole Document »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="doc-exists"></a>Checking Whether a Document Exists<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/030_Data/20_Exists.asciidoc">edit</a></h2>
+</div></div></div>
+<p>If all you want to do is to check whether a document exists&#8212;&#8203;you&#8217;re not
+interested in the content at all&#8212;&#8203;then use the <code class="literal">HEAD</code> method instead
+of the <code class="literal">GET</code> method. <code class="literal">HEAD</code> requests don&#8217;t return a body, just HTTP headers:</p>
+<div class="pre_wrapper lang-js">
+<pre class="programlisting prettyprint lang-js">curl -i -XHEAD http://localhost:9200/website/blog/123</pre>
+</div>
+<p>Elasticsearch will return a <code class="literal">200 OK</code> status code if the document exists:</p>
+<div class="pre_wrapper lang-js">
+<pre class="programlisting prettyprint lang-js">HTTP/1.1 200 OK
+Content-Type: text/plain; charset=UTF-8
+Content-Length: 0</pre>
+</div>
+<p>And a <code class="literal">404 Not Found</code> if it doesn&#8217;t exist:</p>
+<div class="pre_wrapper lang-js">
+<pre class="programlisting prettyprint lang-js">curl -i -XHEAD http://localhost:9200/website/blog/124</pre>
+</div>
+<div class="pre_wrapper lang-js">
+<pre class="programlisting prettyprint lang-js">HTTP/1.1 404 Not Found
+Content-Type: text/plain; charset=UTF-8
+Content-Length: 0</pre>
+</div>
+<p>Of course, just because a document didn&#8217;t exist when you checked it, doesn&#8217;t
+mean that it won&#8217;t exist a millisecond later: another process might create the
+document in the meantime.</p>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="get-doc.html">« Retrieving a Document</a>
+</span>
+<span class="next">
+<a href="update-doc.html">Updating a Whole Document »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

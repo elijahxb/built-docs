@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Parent-Child Relationship | Elasticsearch: The Definitive Guide [main] | Elastic</title>
+<meta class="elastic" name="content" content="Parent-Child Relationship | Elasticsearch: The Definitive Guide [main]">
+
+<link rel="home" href="index.html" title="Elasticsearch: The Definitive Guide [main]"/>
+<link rel="up" href="modeling-your-data.html" title="Modeling Your Data"/>
+<link rel="prev" href="nested-aggregation.html" title="Nested Aggregations"/>
+<link rel="next" href="parent-child-mapping.html" title="Parent-Child Mapping"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="Elasticsearch"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Legacy/Elasticsearch/Definitive Guide/main"/>
+<meta name="DC.subject" content="Elasticsearch"/>
+<meta name="DC.identifier" content="main"/>
+<meta name="robots" content="noindex,nofollow"/>
+</head>
+<body><div class="page_header">
+<p>
+  <strong>WARNING</strong>: This documentation covers Elasticsearch 2.x. The 2.x
+  versions of Elasticsearch have passed their
+  <a href="https://www.elastic.co/support/eol">EOL dates</a>. If you are running
+  a 2.x version, we strongly advise you to upgrade.
+</p>
+<p>
+  This documentation is no longer maintained and may be removed. For the latest
+  information, see the <a
+  href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">current
+  Elasticsearch documentation</a>.
+</p>
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch: The Definitive Guide [main]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="modeling-your-data.html">Modeling Your Data</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="nested-aggregation.html">« Nested Aggregations</a>
+</span>
+<span class="next">
+<a href="parent-child-mapping.html">Parent-Child Mapping »</a>
+</span>
+</div>
+<div class="chapter">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="parent-child"></a>Parent-Child Relationship<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/404_Parent_Child/40_Parent_child.asciidoc">edit</a></h2>
+</div></div></div>
+<p>The <em>parent-child</em> relationship is similar in nature to the
+<a class="xref" href="nested-objects.html" title="Nested Objects">nested model</a>: both allow you to associate one entity
+with another. The difference is that, with nested objects, all entities live
+within the same document while, with parent-child, the parent and children
+are completely separate documents.</p>
+<p>The parent-child functionality allows you to associate one document type with
+another, in a <em>one-to-many</em> relationship&#8212;&#8203;one parent to many children.   The
+advantages that parent-child has over <a class="xref" href="nested-objects.html" title="Nested Objects"><code class="literal">nested</code> objects</a> are as follows:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+The parent document can be updated without reindexing the children.
+</li>
+<li class="listitem">
+Child documents can be added, changed, or deleted without affecting either
+the parent or other children. This is especially useful when child documents
+are large in number and need to be added or changed frequently.
+</li>
+<li class="listitem">
+Child documents can be returned as the results of a search request.
+</li>
+</ul>
+</div>
+<p>Elasticsearch maintains a map of which parents are associated with
+which children.  It is thanks to this map that query-time joins are fast, but
+it does place a limitation on the parent-child relationship: <em>the parent
+document and all of its children must live on the same shard</em>.</p>
+<p>The parent-child ID maps are stored in <a class="xref" href="docvalues.html" title="Doc Values">Doc Values</a>, which allows them to execute
+quickly when fully hot in memory, but scalable enough to spill to disk when
+the map is very large.</p>
+
+
+
+
+
+
+
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="nested-aggregation.html">« Nested Aggregations</a>
+</span>
+<span class="next">
+<a href="parent-child-mapping.html">Parent-Child Mapping »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

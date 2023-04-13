@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Deleting an Index | Elasticsearch: The Definitive Guide [main] | Elastic</title>
+<meta class="elastic" name="content" content="Deleting an Index | Elasticsearch: The Definitive Guide [main]">
+
+<link rel="home" href="index.html" title="Elasticsearch: The Definitive Guide [main]"/>
+<link rel="up" href="index-management.html" title="Index Management"/>
+<link rel="prev" href="_creating_an_index.html" title="Creating an Index"/>
+<link rel="next" href="_index_settings.html" title="Index Settings"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="Elasticsearch"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Legacy/Elasticsearch/Definitive Guide/main"/>
+<meta name="DC.subject" content="Elasticsearch"/>
+<meta name="DC.identifier" content="main"/>
+<meta name="robots" content="noindex,nofollow"/>
+</head>
+<body><div class="page_header">
+<p>
+  <strong>WARNING</strong>: This documentation covers Elasticsearch 2.x. The 2.x
+  versions of Elasticsearch have passed their
+  <a href="https://www.elastic.co/support/eol">EOL dates</a>. If you are running
+  a 2.x version, we strongly advise you to upgrade.
+</p>
+<p>
+  This documentation is no longer maintained and may be removed. For the latest
+  information, see the <a
+  href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">current
+  Elasticsearch documentation</a>.
+</p>
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch: The Definitive Guide [main]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="getting-started.html">Getting Started</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index-management.html">Index Management</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="_creating_an_index.html">« Creating an Index</a>
+</span>
+<span class="next">
+<a href="_index_settings.html">Index Settings »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="_deleting_an_index"></a>Deleting an Index<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/070_Index_Mgmt/05_Create_Delete.asciidoc">edit</a></h2>
+</div></div></div>
+<p>To delete an index, use the following request:</p>
+<div class="pre_wrapper lang-js">
+<pre class="programlisting prettyprint lang-js">DELETE /my_index</pre>
+</div>
+<p>You can delete multiple indices with this:</p>
+<div class="pre_wrapper lang-js">
+<pre class="programlisting prettyprint lang-js">DELETE /index_one,index_two
+DELETE /index_*</pre>
+</div>
+<p>You can even delete <em>all</em> indices with this:</p>
+<div class="pre_wrapper lang-js">
+<pre class="programlisting prettyprint lang-js">DELETE /_all
+DELETE /*</pre>
+</div>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>For some, the ability to delete all your data with a single command is a very
+scary prospect.  If you want to eliminate the possibility of an accidental
+mass-deletion, you can set the following to true in your <code class="literal">elasticsearch.yml</code>:</p>
+<p><code class="literal">action.destructive_requires_name: true</code></p>
+<p>This restricts deletions to specific names, instead of allowing the special <code class="literal">_all</code>
+or wildcard options. You can also update this setting dynamically through the
+<a class="xref" href="_changing_settings_dynamically.html" title="Changing Settings Dynamically">Cluster State API</a></p>
+</div>
+</div>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="_creating_an_index.html">« Creating an Index</a>
+</span>
+<span class="next">
+<a href="_index_settings.html">Index Settings »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

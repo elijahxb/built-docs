@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Custom page load transaction names | APM Real User Monitoring JavaScript Agent Reference [main] | Elastic</title>
+<meta class="elastic" name="content" content="Custom page load transaction names | APM Real User Monitoring JavaScript Agent Reference [main]">
+
+<link rel="home" href="index.html" title="APM Real User Monitoring JavaScript Agent Reference [main]"/>
+<link rel="up" href="advanced-topics.html" title="Advanced Topics"/>
+<link rel="prev" href="typescript.html" title="Using with TypeScript"/>
+<link rel="next" href="custom-transactions.html" title="Custom Transactions"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="APM"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/APM Real User Monitoring JavaScript Agent/Reference/main"/>
+<meta name="DC.subject" content="APM"/>
+<meta name="DC.identifier" content="main"/>
+</head>
+<body><div class="page_header">
+You are looking at preliminary documentation for a future release.
+Not what you want? See the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link">
+  <div id="related-products" class="dropdown">
+    <div class="related-products-title">APM:</div>
+    <div class="dropdown-anchor" tabindex="0">Real User Monitoring JavaScript Agent Reference<span class="dropdown-icon"></span></div>
+    <div class="dropdown-content">
+      <ul>
+        <li class="dropdown-category">APM</li>
+        <ul>
+          <li><a href="/guide/en/apm/guide/current/apm-overview.html">User Guide</a></li>
+        </ul>
+        <li class="dropdown-category">APM agents</li>
+        <ul>
+          <li><a href="/guide/en/apm/agent/android/current/intro.html">Android Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/go/current/introduction.html">Go Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/swift/current/intro.html">iOS Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/java/current/intro.html">Java Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/dotnet/current/intro.html">.NET Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/nodejs/current/intro.html">Node.js Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/php/current/intro.html">PHP Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/python/current/getting-started.html">Python Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/ruby/current/introduction.html">Ruby Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/rum-js/current/intro.html">Real User Monitoring JavaScript Agent Reference</a></li>
+        </ul>
+        <li class="dropdown-category">APM extensions</li>
+        <ul>
+          <li><a href="/guide/en/apm/lambda/current/aws-lambda-arch.html">Monitoring AWS Lambda Functions</a></li>
+          <li><a href="/guide/en/apm/attacher/current/apm-attacher.html">Attacher</a></li>
+        </ul>
+      </ul>
+    </div>
+  </div>
+</span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="advanced-topics.html">Advanced Topics</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="typescript.html">« Using with TypeScript</a>
+</span>
+<span class="next">
+<a href="custom-transactions.html">Custom Transactions »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="custom-transaction-name"></a>Custom page load transaction names<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-rum-js/edit/main/docs/advanced-topics.asciidoc">edit</a></h2>
+</div></div></div>
+<p>A common pattern to name the transactions would be to use the current URL (<code class="literal">window.location.href</code>).
+However, it creates too many unique transactions (blog titles, query strings, etc.)
+and would be less useful when visualizing the traces in Kibana APM UI.</p>
+<p>To overcome this problem, the agent groups the page load transactions based on the current URL.
+Let&#8217;s look at the below example</p>
+<div class="pre_wrapper lang-text">
+<pre class="programlisting prettyprint lang-text">// Blog Posts - '/blog/:id'
+https://www.elastic.co/blog/reflections-on-three-years-in-the-elastic-public-sector
+https://www.elastic.co/blog/say-heya-to-the-elastic-search-awards
+https://www.elastic.co/blog/and-the-winner-of-the-elasticon-2018-training-subscription-drawing-is
+
+// Documentation - '/guide/en/*'
+https://www.elastic.co/guide/en/elastic-stack/current/index.html
+https://www.elastic.co/guide/en/apm/get-started/current/index.html
+https://www.elastic.co/guide/en/infrastructure/guide/current/index.html</pre>
+</div>
+<p>The page load transaction names for the above URL&#8217;s would be inferred automatically and categorized
+as <code class="literal">/blog/:id</code> and <code class="literal">/guide/en/*</code> by the agent. The grouping logic in the agent works by recursively traversing the
+URL path tree until the depth of 2 and converting them to wildcard or slugged matches based on the number of digits, special characters,
+the mix of upper and lowercase characters in the path. The algorithm uses heuristics that are derived from common patterns in URL&#8217;s and therefore, it might not correctly identify matches in some cases.</p>
+<p>If the inferred transaction names are not helpful, please set <a class="xref" href="configuration.html#page-load-transaction-name" title="pageLoadTransactionName"><code class="literal">pageLoadTransactionName</code></a> configuration to something
+meaningful that groups transactions under the same categories (blog, guide, etc.) and avoid using the full URL at all costs.</p>
+<div class="pre_wrapper lang-js">
+<pre class="programlisting prettyprint lang-js">import {apm} from '@elastic/apm-rum'
+
+apm.init({
+    serviceName: "service-name",
+    pageLoadTransactionName: '/homepage'
+})</pre>
+</div>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="typescript.html">« Using with TypeScript</a>
+</span>
+<span class="next">
+<a href="custom-transactions.html">Custom Transactions »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

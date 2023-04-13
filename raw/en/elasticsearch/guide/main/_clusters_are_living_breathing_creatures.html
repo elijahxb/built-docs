@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Clusters Are Living, Breathing Creatures | Elasticsearch: The Definitive Guide [main] | Elastic</title>
+<meta class="elastic" name="content" content="Clusters Are Living, Breathing Creatures | Elasticsearch: The Definitive Guide [main]">
+
+<link rel="home" href="index.html" title="Elasticsearch: The Definitive Guide [main]"/>
+<link rel="up" href="post_deploy.html" title="Post-Deployment"/>
+<link rel="prev" href="_restoring_from_a_snapshot.html" title="Restoring from a Snapshot"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="Elasticsearch"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Legacy/Elasticsearch/Definitive Guide/main"/>
+<meta name="DC.subject" content="Elasticsearch"/>
+<meta name="DC.identifier" content="main"/>
+<meta name="robots" content="noindex,nofollow"/>
+</head>
+<body><div class="page_header">
+<p>
+  <strong>WARNING</strong>: This documentation covers Elasticsearch 2.x. The 2.x
+  versions of Elasticsearch have passed their
+  <a href="https://www.elastic.co/support/eol">EOL dates</a>. If you are running
+  a 2.x version, we strongly advise you to upgrade.
+</p>
+<p>
+  This documentation is no longer maintained and may be removed. For the latest
+  information, see the <a
+  href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">current
+  Elasticsearch documentation</a>.
+</p>
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch: The Definitive Guide [main]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="administration.html">Administration, Monitoring, and Deployment</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="post_deploy.html">Post-Deployment</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="_restoring_from_a_snapshot.html">« Restoring from a Snapshot</a>
+</span>
+<span class="next">
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="_clusters_are_living_breathing_creatures"></a>Clusters Are Living, Breathing Creatures<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/520_Post_Deployment/70_conclusion.asciidoc">edit</a></h2>
+</div></div></div>
+<p>Once you get a cluster into production, you&#8217;ll find that it takes on a life of its
+own. Elasticsearch works hard to make clusters self-sufficient and <em>just work</em>.
+But a cluster still requires routine care and feeding, such as routine backups
+and upgrades.</p>
+<p>Elasticsearch releases new versions with bug fixes and performance enhancements
+at a very fast pace, and it is always a good idea to keep your cluster current.
+Similarly, Lucene continues to find new and exciting bugs in the JVM itself,
+which means you should always try to keep your JVM up-to-date.</p>
+<p>This means it is a good idea to have a standardized, routine way to perform
+rolling restarts and upgrades in your cluster. Upgrading should be a routine
+process, rather than a once-yearly fiasco that requires countless hours of
+precise planning.</p>
+<p>Similarly, it is important to have disaster recovery plans in place. Take
+frequent snapshots of your cluster&#8212;&#8203;and periodically <em>test</em> those snapshots by
+performing a real recovery! It is all too common for organizations to make
+routine backups but never test their recovery strategy. Often you&#8217;ll find a
+glaring deficiency the first time you perform a real recovery (such as users
+being unaware of which drive to mount). It&#8217;s better to work these bugs out of
+your process with routine testing, rather than at 3 a.m. when there is a crisis.</p>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="_restoring_from_a_snapshot.html">« Restoring from a Snapshot</a>
+</span>
+<span class="next">
+</span>
+</div>
+</div>
+</body>
+</html>

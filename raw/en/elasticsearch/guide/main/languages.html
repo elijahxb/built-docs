@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Dealing with Human Language | Elasticsearch: The Definitive Guide [main] | Elastic</title>
+<meta class="elastic" name="content" content="Dealing with Human Language | Elasticsearch: The Definitive Guide [main]">
+
+<link rel="home" href="index.html" title="Elasticsearch: The Definitive Guide [main]"/>
+<link rel="up" href="index.html" title="Elasticsearch: The Definitive Guide [main]"/>
+<link rel="prev" href="relevance-conclusion.html" title="Relevance Tuning Is the Last 10%"/>
+<link rel="next" href="language-intro.html" title="Getting Started with Languages"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="Elasticsearch"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Legacy/Elasticsearch/Definitive Guide/main"/>
+<meta name="DC.subject" content="Elasticsearch"/>
+<meta name="DC.identifier" content="main"/>
+<meta name="robots" content="noindex,nofollow"/>
+</head>
+<body><div class="page_header">
+<p>
+  <strong>WARNING</strong>: This documentation covers Elasticsearch 2.x. The 2.x
+  versions of Elasticsearch have passed their
+  <a href="https://www.elastic.co/support/eol">EOL dates</a>. If you are running
+  a 2.x version, we strongly advise you to upgrade.
+</p>
+<p>
+  This documentation is no longer maintained and may be removed. For the latest
+  information, see the <a
+  href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">current
+  Elasticsearch documentation</a>.
+</p>
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch: The Definitive Guide [main]</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="relevance-conclusion.html">« Relevance Tuning Is the Last 10%</a>
+</span>
+<span class="next">
+<a href="language-intro.html">Getting Started with Languages »</a>
+</span>
+</div>
+<div class="part">
+<div class="titlepage"><div><div>
+<h1 class="title"><a id="languages"></a>Dealing with Human Language<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/02_Dealing_with_language.asciidoc">edit</a></h1>
+</div></div></div>
+<div class="openblock partintro">
+<div class="content">
+<div class="blockquote">
+<table border="0" class="blockquote" summary="Block quote">
+<tr>
+<td valign="top" width="10%"></td>
+<td valign="top" width="80%">
+<p>&#8220;I know all those words, but that sentence makes no sense to me.&#8221;</p>
+</td>
+<td valign="top" width="10%"></td>
+</tr>
+<tr>
+<td valign="top" width="10%"></td>
+<td align="right" colspan="2" valign="top">
+-- <span class="attribution">Matt Groening</span>
+</td>
+</tr>
+</table>
+</div>
+<p>Full-text search is a battle between <em>precision</em>&#x2014;returning as few
+irrelevant documents as possible&#8212;&#8203;and <em>recall</em>&#x2014;returning as many relevant
+documents as possible. While matching only the exact words that the user has
+queried would be precise, it is not enough. We would miss out on many
+documents that the user would consider to be relevant. Instead, we need to
+spread the net wider, to also search for words that are not exactly the same
+as the original but are related.</p>
+<p>Wouldn&#8217;t you expect a search for &#8220;quick brown fox&#8221; to match a document
+containing &#8220;fast brown foxes,&#8221; &#8220;Johnny Walker&#8221; to match &#8220;Johnnie
+Walker,&#8221; or &#8220;Arnolt Schwarzenneger&#8221; to match &#8220;Arnold Schwarzenegger&#8221;?</p>
+<p>If documents exist that <em>do</em> contain exactly what the user has queried,
+those documents should appear at the top of the result set, but weaker matches
+can be included further down the list.  If no documents match
+exactly, at least we can show the user potential matches; they may even
+be what the user originally intended!</p>
+<p>There are several lines of attack:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Remove diacritics like <code class="literal">´</code>, <code class="literal">^</code>, and <code class="literal">¨</code> so that a search for <code class="literal">rôle</code> will
+also match <code class="literal">role</code>, and vice versa. See <a class="xref" href="token-normalization.html" title="Normalizing Tokens"><em>Normalizing Tokens</em></a>.
+</li>
+<li class="listitem">
+Remove the distinction between singular and plural&#x2014;<code class="literal">fox</code> versus <code class="literal">foxes</code>&#x2014;or between tenses&#x2014;<code class="literal">jumping</code> versus <code class="literal">jumped</code> versus <code class="literal">jumps</code>&#x2014;by <em>stemming</em> each word to its root form. See <a class="xref" href="stemming.html" title="Reducing Words to Their Root Form"><em>Reducing Words to Their Root Form</em></a>.
+</li>
+<li class="listitem">
+Remove commonly used words or <em>stopwords</em> like <code class="literal">the</code>, <code class="literal">and</code>, and <code class="literal">or</code>
+to improve search performance.  See <a class="xref" href="stopwords.html" title="Stopwords: Performance Versus Precision"><em>Stopwords: Performance Versus Precision</em></a>.
+</li>
+<li class="listitem">
+Including synonyms so that a query for <code class="literal">quick</code> could also match <code class="literal">fast</code>,
+or <code class="literal">UK</code> could match <code class="literal">United Kingdom</code>. See <a class="xref" href="synonyms.html" title="Synonyms"><em>Synonyms</em></a>.
+</li>
+<li class="listitem">
+Check for misspellings or alternate spellings, or match on <em>homophones</em>&#x2014;words that sound the same, like <code class="literal">their</code> versus <code class="literal">there</code>, <code class="literal">meat</code> versus
+<code class="literal">meet</code>  versus <code class="literal">mete</code>. See <a class="xref" href="fuzzy-matching.html" title="Typoes and Mispelings"><em>Typoes and Mispelings</em></a>.
+</li>
+</ul>
+</div>
+<p>Before we can manipulate individual words, we need to divide text into
+words, which means that we need to know what constitutes a <em>word</em>. We will
+tackle this in <a class="xref" href="identifying-words.html" title="Identifying Words"><em>Identifying Words</em></a>.</p>
+<p>But first, let&#8217;s take a look at how to get started quickly and easily.</p>
+</div>
+</div>
+
+
+
+
+
+
+
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="relevance-conclusion.html">« Relevance Tuning Is the Last 10%</a>
+</span>
+<span class="next">
+<a href="language-intro.html">Getting Started with Languages »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Postcodes and Structured Data | Elasticsearch: The Definitive Guide [main] | Elastic</title>
+<meta class="elastic" name="content" content="Postcodes and Structured Data | Elasticsearch: The Definitive Guide [main]">
+
+<link rel="home" href="index.html" title="Elasticsearch: The Definitive Guide [main]"/>
+<link rel="up" href="partial-matching.html" title="Partial Matching"/>
+<link rel="prev" href="partial-matching.html" title="Partial Matching"/>
+<link rel="next" href="prefix-query.html" title="prefix Query"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="Elasticsearch"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Legacy/Elasticsearch/Definitive Guide/main"/>
+<meta name="DC.subject" content="Elasticsearch"/>
+<meta name="DC.identifier" content="main"/>
+<meta name="robots" content="noindex,nofollow"/>
+</head>
+<body><div class="page_header">
+<p>
+  <strong>WARNING</strong>: This documentation covers Elasticsearch 2.x. The 2.x
+  versions of Elasticsearch have passed their
+  <a href="https://www.elastic.co/support/eol">EOL dates</a>. If you are running
+  a 2.x version, we strongly advise you to upgrade.
+</p>
+<p>
+  This documentation is no longer maintained and may be removed. For the latest
+  information, see the <a
+  href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">current
+  Elasticsearch documentation</a>.
+</p>
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch: The Definitive Guide [main]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="search-in-depth.html">Search in Depth</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="partial-matching.html">Partial Matching</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="partial-matching.html">« Partial Matching</a>
+</span>
+<span class="next">
+<a href="prefix-query.html">prefix Query »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="_postcodes_and_structured_data"></a>Postcodes and Structured Data<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/130_Partial_Matching/05_Postcodes.asciidoc">edit</a></h2>
+</div></div></div>
+<p>We will use United Kingdom postcodes (postal codes in the United States) to illustrate how to use partial matching with
+structured data. UK postcodes have a well-defined structure. For instance, the
+postcode <code class="literal">W1V 3DG</code> can be broken down as follows:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<p><code class="literal">W1V</code>: This outer part identifies the postal area and district:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<code class="literal">W</code> indicates the area (one or two letters)
+</li>
+<li class="listitem">
+<code class="literal">1V</code> indicates the district (one or two numbers, possibly followed by a letter)
+</li>
+</ul>
+</div>
+</li>
+<li class="listitem">
+<p><code class="literal">3DG</code>: This inner part identifies a street or building:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<code class="literal">3</code> indicates the sector (one number)
+</li>
+<li class="listitem">
+<code class="literal">DG</code> indicates the unit (two letters)
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<p>Let&#8217;s assume that we are indexing postcodes as exact-value <code class="literal">not_analyzed</code>
+fields, so we could create our index as follows:</p>
+<div class="pre_wrapper lang-sense">
+<pre class="programlisting prettyprint lang-sense">PUT /my_index
+{
+    "mappings": {
+        "address": {
+            "properties": {
+                "postcode": {
+                    "type":  "string",
+                    "index": "not_analyzed"
+                }
+            }
+        }
+    }
+}</pre>
+</div>
+<div class="sense_widget" data-snippet="snippets/130_Partial_Matching/10_Prefix_query.json"></div>
+<p>And index some postcodes:</p>
+<div class="pre_wrapper lang-sense">
+<pre class="programlisting prettyprint lang-sense">PUT /my_index/address/1
+{ "postcode": "W1V 3DG" }
+
+PUT /my_index/address/2
+{ "postcode": "W2F 8HW" }
+
+PUT /my_index/address/3
+{ "postcode": "W1F 7HW" }
+
+PUT /my_index/address/4
+{ "postcode": "WC1N 1LZ" }
+
+PUT /my_index/address/5
+{ "postcode": "SW5 0BE" }</pre>
+</div>
+<div class="sense_widget" data-snippet="snippets/130_Partial_Matching/10_Prefix_query.json"></div>
+<p>Now our data is ready to be queried.</p>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="partial-matching.html">« Partial Matching</a>
+</span>
+<span class="next">
+<a href="prefix-query.html">prefix Query »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

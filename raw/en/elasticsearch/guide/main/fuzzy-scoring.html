@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Scoring Fuzziness | Elasticsearch: The Definitive Guide [main] | Elastic</title>
+<meta class="elastic" name="content" content="Scoring Fuzziness | Elasticsearch: The Definitive Guide [main]">
+
+<link rel="home" href="index.html" title="Elasticsearch: The Definitive Guide [main]"/>
+<link rel="up" href="fuzzy-matching.html" title="Typoes and Mispelings"/>
+<link rel="prev" href="fuzzy-match-query.html" title="Fuzzy match Query"/>
+<link rel="next" href="phonetic-matching.html" title="Phonetic Matching"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="Elasticsearch"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Legacy/Elasticsearch/Definitive Guide/main"/>
+<meta name="DC.subject" content="Elasticsearch"/>
+<meta name="DC.identifier" content="main"/>
+<meta name="robots" content="noindex,nofollow"/>
+</head>
+<body><div class="page_header">
+<p>
+  <strong>WARNING</strong>: This documentation covers Elasticsearch 2.x. The 2.x
+  versions of Elasticsearch have passed their
+  <a href="https://www.elastic.co/support/eol">EOL dates</a>. If you are running
+  a 2.x version, we strongly advise you to upgrade.
+</p>
+<p>
+  This documentation is no longer maintained and may be removed. For the latest
+  information, see the <a
+  href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">current
+  Elasticsearch documentation</a>.
+</p>
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch: The Definitive Guide [main]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="languages.html">Dealing with Human Language</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="fuzzy-matching.html">Typoes and Mispelings</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="fuzzy-match-query.html">« Fuzzy match Query</a>
+</span>
+<span class="next">
+<a href="phonetic-matching.html">Phonetic Matching »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="fuzzy-scoring"></a>Scoring Fuzziness<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/270_Fuzzy_matching/50_Scoring_fuzziness.asciidoc">edit</a></h2>
+</div></div></div>
+<p>Users love fuzzy queries. They assume that these queries will somehow magically find
+the right combination of proper spellings.  Unfortunately, the truth is
+somewhat more prosaic.</p>
+<p>Imagine that we have 1,000 documents containing &#8220;Schwarzenegger,&#8221; and just
+one document with the misspelling &#8220;Schwarzeneger.&#8221;  According to the theory
+of <a class="xref" href="scoring-theory.html#tfidf" title="Term Frequency/Inverse Document Frequency (TF/IDF)">term frequency/inverse document frequency</a>, the misspelling is
+much more relevant than the correct spelling, because it appears in far fewer
+documents!</p>
+<p>In other words, if we were to treat fuzzy matches like any other match, we
+would favor misspellings over correct spellings, which would make for grumpy
+users.</p>
+<div class="tip admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>Fuzzy matching should not be used for scoring purposes&#8212;&#8203;only to widen
+the net of matching terms in case there are misspellings.</p>
+</div>
+</div>
+<p>By default, the <code class="literal">match</code> query gives all fuzzy matches the constant score of 1.
+This is sufficient to add potential matches onto the end of the result list,
+without interfering with the relevance scoring of nonfuzzy queries.</p>
+<div class="tip admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>Fuzzy queries alone are much less useful than they initially appear.  They are
+better used as part of a &#8220;bigger&#8221; feature, such as the <em>search-as-you-type</em>
+<a href="/guide/en/elasticsearch/reference/2.4/search-suggesters-completion.html" class="ulink" target="_top"><code class="literal">completion</code> suggester</a> or the
+<em>did-you-mean</em> <a href="/guide/en/elasticsearch/reference/2.4/search-suggesters-phrase.html" class="ulink" target="_top"><code class="literal">phrase</code> suggester</a>.</p>
+</div>
+</div>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="fuzzy-match-query.html">« Fuzzy match Query</a>
+</span>
+<span class="next">
+<a href="phonetic-matching.html">Phonetic Matching »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

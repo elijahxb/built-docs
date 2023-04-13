@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Practical Considerations | Elasticsearch: The Definitive Guide [main] | Elastic</title>
+<meta class="elastic" name="content" content="Practical Considerations | Elasticsearch: The Definitive Guide [main]">
+
+<link rel="home" href="index.html" title="Elasticsearch: The Definitive Guide [main]"/>
+<link rel="up" href="parent-child.html" title="Parent-Child Relationship"/>
+<link rel="prev" href="grandparents.html" title="Grandparents and Grandchildren"/>
+<link rel="next" href="scale.html" title="Designing for Scale"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="Elasticsearch"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Legacy/Elasticsearch/Definitive Guide/main"/>
+<meta name="DC.subject" content="Elasticsearch"/>
+<meta name="DC.identifier" content="main"/>
+<meta name="robots" content="noindex,nofollow"/>
+</head>
+<body><div class="page_header">
+<p>
+  <strong>WARNING</strong>: This documentation covers Elasticsearch 2.x. The 2.x
+  versions of Elasticsearch have passed their
+  <a href="https://www.elastic.co/support/eol">EOL dates</a>. If you are running
+  a 2.x version, we strongly advise you to upgrade.
+</p>
+<p>
+  This documentation is no longer maintained and may be removed. For the latest
+  information, see the <a
+  href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">current
+  Elasticsearch documentation</a>.
+</p>
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch: The Definitive Guide [main]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="modeling-your-data.html">Modeling Your Data</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="parent-child.html">Parent-Child Relationship</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="grandparents.html">« Grandparents and Grandchildren</a>
+</span>
+<span class="next">
+<a href="scale.html">Designing for Scale »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="parent-child-performance"></a>Practical Considerations<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/404_Parent_Child/70_Practical_considerations.asciidoc">edit</a></h2>
+</div></div></div>
+<p>Parent-child joins can be a useful technique for managing relationships when
+index-time performance is more important than search-time performance, but it
+comes at a significant cost.  Parent-child queries can be 5 to 10 times slower
+than the equivalent nested query!</p>
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="_global_ordinals_and_latency"></a>Global Ordinals and Latency<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/404_Parent_Child/70_Practical_considerations.asciidoc">edit</a></h3>
+</div></div></div>
+<p>Parent-child uses <a class="xref" href="preload-fielddata.html#global-ordinals" title="Global Ordinals">global ordinals</a> to speed up joins.
+Regardless of whether the parent-child map uses an in-memory cache or on-disk
+doc values, global ordinals still need to be rebuilt after any change to the
+index.</p>
+<p>The more parents in a shard, the longer global ordinals will take to build.
+Parent-child is best suited to situations where there are many children for
+each parent, rather than many parents and few children.</p>
+<p>Global ordinals, by default, are built lazily: the first parent-child query or
+aggregation after a refresh will trigger building of global ordinals.  This
+can introduce a significant latency spike for your users.  You can use
+<a class="xref" href="preload-fielddata.html#eager-global-ordinals" title="Eager global ordinals"><code class="literal">eager_global_ordinals</code></a> to shift the cost of
+building global ordinals from query time to refresh time, by mapping the
+<code class="literal">_parent</code> field as follows:</p>
+<div class="pre_wrapper lang-json">
+<pre class="programlisting prettyprint lang-json">PUT /company
+{
+  "mappings": {
+    "branch": {},
+    "employee": {
+      "_parent": {
+        "type": "branch",
+        "fielddata": {
+          "loading": "eager_global_ordinals" <a id="CO286-1"></a><i class="conum" data-value="1"></i>
+        }
+      }
+    }
+  }
+}</pre>
+</div>
+<div class="calloutlist">
+<table border="0" summary="Callout list">
+<tr>
+<td align="left" valign="top" width="5%">
+<p><a href="#CO286-1"><i class="conum" data-value="1"></i></a></p>
+</td>
+<td align="left" valign="top">
+<p>Global ordinals for the <code class="literal">_parent</code> field will be built before a new segment
+becomes visible to search.</p>
+</td>
+</tr>
+</table>
+</div>
+<p>With many parents, global ordinals can take several seconds to build.  In this
+case, it makes sense to increase the <code class="literal">refresh_interval</code> so that refreshes
+happen less often and global ordinals remain valid for longer. This will
+greatly reduce the CPU cost of rebuilding global ordinals every second.</p>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="_multigenerations_and_concluding_thoughts"></a>Multigenerations and Concluding Thoughts<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/404_Parent_Child/70_Practical_considerations.asciidoc">edit</a></h3>
+</div></div></div>
+<p>The ability to join multiple generations (see <a class="xref" href="grandparents.html" title="Grandparents and Grandchildren">Grandparents and Grandchildren</a>) sounds
+attractive until you think of the costs involved:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+The more joins you have, the worse performance will be.
+</li>
+<li class="listitem">
+Each generation of parents needs to have their string <code class="literal">_id</code> fields stored in
+memory, which can consume a lot of RAM.
+</li>
+</ul>
+</div>
+<p>As you consider your relationship schemes and whether parent-child is right for you,
+consider this advice about parent-child relationships:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Use parent-child relationships sparingly, and only when there are many more children than parents.
+</li>
+<li class="listitem">
+Avoid using multiple parent-child joins in a single query.
+</li>
+<li class="listitem">
+Avoid scoring by using the <code class="literal">has_child</code> filter, or the <code class="literal">has_child</code> query with
+<code class="literal">score_mode</code> set to <code class="literal">none</code>.
+</li>
+<li class="listitem">
+Keep the parent IDs short, so that they compress better in doc values, and use
+less memory when transiently loaded.
+</li>
+</ul>
+</div>
+<p><em>Above all:</em> think about the other relationship techniques that we have discussed before reaching for parent-child.</p>
+</div>
+
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="grandparents.html">« Grandparents and Grandchildren</a>
+</span>
+<span class="next">
+<a href="scale.html">Designing for Scale »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

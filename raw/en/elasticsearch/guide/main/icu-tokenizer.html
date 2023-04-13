@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>icu_tokenizer | Elasticsearch: The Definitive Guide [main] | Elastic</title>
+<meta class="elastic" name="content" content="icu_tokenizer | Elasticsearch: The Definitive Guide [main]">
+
+<link rel="home" href="index.html" title="Elasticsearch: The Definitive Guide [main]"/>
+<link rel="up" href="identifying-words.html" title="Identifying Words"/>
+<link rel="prev" href="icu-plugin.html" title="Installing the ICU Plug-in"/>
+<link rel="next" href="char-filters.html" title="Tidying Up Input Text"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="Elasticsearch"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Legacy/Elasticsearch/Definitive Guide/main"/>
+<meta name="DC.subject" content="Elasticsearch"/>
+<meta name="DC.identifier" content="main"/>
+<meta name="robots" content="noindex,nofollow"/>
+</head>
+<body><div class="page_header">
+<p>
+  <strong>WARNING</strong>: This documentation covers Elasticsearch 2.x. The 2.x
+  versions of Elasticsearch have passed their
+  <a href="https://www.elastic.co/support/eol">EOL dates</a>. If you are running
+  a 2.x version, we strongly advise you to upgrade.
+</p>
+<p>
+  This documentation is no longer maintained and may be removed. For the latest
+  information, see the <a
+  href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">current
+  Elasticsearch documentation</a>.
+</p>
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch: The Definitive Guide [main]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="languages.html">Dealing with Human Language</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="identifying-words.html">Identifying Words</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="icu-plugin.html">« Installing the ICU Plug-in</a>
+</span>
+<span class="next">
+<a href="char-filters.html">Tidying Up Input Text »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="icu-tokenizer"></a>icu_tokenizer<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/210_Identifying_words/40_ICU_tokenizer.asciidoc">edit</a></h2>
+</div></div></div>
+<p>The <code class="literal">icu_tokenizer</code> uses the same Unicode Text Segmentation algorithm as the
+<code class="literal">standard</code> tokenizer, but adds better support for some Asian languages by
+using a dictionary-based approach to identify words in Thai, Lao, Chinese,
+Japanese, and Korean, and using custom rules to break Myanmar and Khmer text
+into syllables.</p>
+<p>For instance, compare the tokens produced by the <code class="literal">standard</code> and
+<code class="literal">icu_tokenizers</code>, respectively, when tokenizing &#8220;Hello. I am from Bangkok.&#8221; in
+Thai:</p>
+<div class="pre_wrapper lang-js">
+<pre class="programlisting prettyprint lang-js">GET /_analyze?tokenizer=standard
+สวัสดี ผมมาจากกรุงเทพฯ</pre>
+</div>
+<p>The <code class="literal">standard</code> tokenizer produces two tokens, one for each sentence: <code class="literal">สวัสดี</code>,
+<code class="literal">ผมมาจากกรุงเทพฯ</code>.  That is useful only if you want to search for the whole
+sentence &#8220;I am from Bangkok.&#8221;, but not if you want to search for just
+&#8220;Bangkok.&#8221;</p>
+<div class="pre_wrapper lang-js">
+<pre class="programlisting prettyprint lang-js">GET /_analyze?tokenizer=icu_tokenizer
+สวัสดี ผมมาจากกรุงเทพฯ</pre>
+</div>
+<p>The <code class="literal">icu_tokenizer</code>, on the other hand, is able to break up the text into the
+individual words (<code class="literal">สวัสดี</code>, <code class="literal">ผม</code>, <code class="literal">มา</code>, <code class="literal">จาก</code>, <code class="literal">กรุงเทพฯ)</code>, making them
+easier to search.</p>
+<p>In contrast, the <code class="literal">standard</code> tokenizer &#8220;over-tokenizes&#8221; Chinese and Japanese
+text, often breaking up whole words into single characters. Because there
+are no spaces between words, it can be difficult to tell whether consecutive
+characters are separate words or form a single word.  For instance:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+向 means <em>facing</em>, 日 means <em>sun</em>, and 葵 means <em>hollyhock</em>. When
+written together, 向日葵 means <em>sunflower</em>.
+</li>
+<li class="listitem">
+五 means <em>five</em> or <em>fifth</em>, 月 means <em>month</em>, and 雨 means <em>rain</em>.
+The first two characters written together as 五月 mean <em>the month
+of May</em>, and adding the third character, 五月雨 means
+<em>continuous rain</em>. When combined with a fourth character, 式,
+meaning <em>style</em>, the word 五月雨式 becomes an adjective for anything
+consecutive or unrelenting.
+</li>
+</ul>
+</div>
+<p>Although each character may be a word in its own right, tokens are more
+meaningful when they retain the bigger original concept instead of just the
+component parts:</p>
+<div class="pre_wrapper lang-js">
+<pre class="programlisting prettyprint lang-js">GET /_analyze?tokenizer=standard
+向日葵
+
+GET /_analyze?tokenizer=icu_tokenizer
+向日葵</pre>
+</div>
+<p>The <code class="literal">standard</code> tokenizer in the preceding example would emit each character
+as a separate token: <code class="literal">向</code>, <code class="literal">日</code>, <code class="literal">葵</code>. The <code class="literal">icu_tokenizer</code> would
+emit the single token <code class="literal">向日葵</code> (sunflower).</p>
+<p>Another difference between the <code class="literal">standard</code> tokenizer and the <code class="literal">icu_tokenizer</code> is
+that the latter will break a word containing characters written in different
+scripts (for example, <code class="literal">βeta</code>) into separate tokens&#x2014;<code class="literal">β</code>, <code class="literal">eta</code>&#x2014;while the
+former will emit the word as a single token: <code class="literal">βeta</code>.</p>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="icu-plugin.html">« Installing the ICU Plug-in</a>
+</span>
+<span class="next">
+<a href="char-filters.html">Tidying Up Input Text »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

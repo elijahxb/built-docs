@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Reporter configuration options | APM Java Agent Reference [main] | Elastic</title>
+<meta class="elastic" name="content" content="Reporter configuration options | APM Java Agent Reference [main]">
+
+<link rel="home" href="index.html" title="APM Java Agent Reference [main]"/>
+<link rel="up" href="configuration.html" title="Configuration"/>
+<link rel="prev" href="config-profiling.html" title="Profiling configuration options"/>
+<link rel="next" href="config-serverless.html" title="Serverless configuration options"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="APM"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/APM Java Agent/Reference/main"/>
+<meta name="DC.subject" content="APM"/>
+<meta name="DC.identifier" content="main"/>
+</head>
+<body><div class="page_header">
+You are looking at preliminary documentation for a future release.
+Not what you want? See the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link">
+  <div id="related-products" class="dropdown">
+    <div class="related-products-title">APM:</div>
+    <div class="dropdown-anchor" tabindex="0">Java Agent Reference<span class="dropdown-icon"></span></div>
+    <div class="dropdown-content">
+      <ul>
+        <li class="dropdown-category">APM</li>
+        <ul>
+          <li><a href="/guide/en/apm/guide/current/apm-overview.html">User Guide</a></li>
+        </ul>
+        <li class="dropdown-category">APM agents</li>
+        <ul>
+          <li><a href="/guide/en/apm/agent/android/current/intro.html">Android Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/go/current/introduction.html">Go Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/swift/current/intro.html">iOS Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/java/current/intro.html">Java Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/dotnet/current/intro.html">.NET Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/nodejs/current/intro.html">Node.js Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/php/current/intro.html">PHP Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/python/current/getting-started.html">Python Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/ruby/current/introduction.html">Ruby Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/rum-js/current/intro.html">Real User Monitoring JavaScript Agent Reference</a></li>
+        </ul>
+        <li class="dropdown-category">APM extensions</li>
+        <ul>
+          <li><a href="/guide/en/apm/lambda/current/aws-lambda-arch.html">Monitoring AWS Lambda Functions</a></li>
+          <li><a href="/guide/en/apm/attacher/current/apm-attacher.html">Attacher</a></li>
+        </ul>
+      </ul>
+    </div>
+  </div>
+</span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="configuration.html">Configuration</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="config-profiling.html">« Profiling configuration options</a>
+</span>
+<span class="next">
+<a href="config-serverless.html">Serverless configuration options »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="config-reporter"></a>Reporter configuration options<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-java/edit/main/docs/configuration.asciidoc">edit</a></h2>
+</div></div></div>
+
+<h4><a id="config-secret-token"></a><code class="literal">secret_token</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-java/edit/main/docs/configuration.asciidoc">edit</a></h4>
+<p>This string is used to ensure that only your agents can send data to your APM server.</p>
+<p>Both the agents and the APM server have to be configured with the same secret token.
+Use if APM Server requires a token.</p>
+<p><a class="xref" href="configuration.html#configuration-dynamic" title="Dynamic configuration"><span class="image"><img src="./images/dynamic-config.svg" alt="dynamic config"></span> </a></p>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+<col class="col_3"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Default</th>
+<th align="left" valign="top">Type</th>
+<th align="left" valign="top">Dynamic</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">&lt;none&gt;</code></p></td>
+<td align="left" valign="top"><p>String</p></td>
+<td align="left" valign="top"><p>true</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+<col class="col_3"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Java System Properties</th>
+<th align="left" valign="top">Property file</th>
+<th align="left" valign="top">Environment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">elastic.apm.secret_token</code></p></td>
+<td align="left" valign="top"><p><code class="literal">secret_token</code></p></td>
+<td align="left" valign="top"><p><code class="literal">ELASTIC_APM_SECRET_TOKEN</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4><a id="config-api-key"></a><code class="literal">api_key</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-java/edit/main/docs/configuration.asciidoc">edit</a></h4>
+<p>This string is used to ensure that only your agents can send data to your APM server.</p>
+<p>Agents can use API keys as a replacement of secret token, APM server can have multiple API keys.
+When both secret token and API key are used, API key has priority and secret token is ignored.
+Use if APM Server requires an API key.</p>
+<p><a class="xref" href="configuration.html#configuration-dynamic" title="Dynamic configuration"><span class="image"><img src="./images/dynamic-config.svg" alt="dynamic config"></span> </a></p>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+<col class="col_3"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Default</th>
+<th align="left" valign="top">Type</th>
+<th align="left" valign="top">Dynamic</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">&lt;none&gt;</code></p></td>
+<td align="left" valign="top"><p>String</p></td>
+<td align="left" valign="top"><p>true</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+<col class="col_3"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Java System Properties</th>
+<th align="left" valign="top">Property file</th>
+<th align="left" valign="top">Environment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">elastic.apm.api_key</code></p></td>
+<td align="left" valign="top"><p><code class="literal">api_key</code></p></td>
+<td align="left" valign="top"><p><code class="literal">ELASTIC_APM_API_KEY</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4><a id="config-server-url"></a><code class="literal">server_url</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-java/edit/main/docs/configuration.asciidoc">edit</a></h4>
+<p>The URL must be fully qualified, including protocol (http or https) and port.</p>
+<p>If SSL is enabled on the APM Server, use the <code class="literal">https</code> protocol. For more information, see
+<a class="xref" href="ssl-configuration.html" title="SSL/TLS communication with APM Server">SSL/TLS communication with APM Server</a>.</p>
+<p>If outgoing HTTP traffic has to go through a proxy,
+you can use the Java system properties <code class="literal">http.proxyHost</code> and <code class="literal">http.proxyPort</code> to set that up.
+See also <a href="https://docs.oracle.com/javase/8/docs/technotes/guides/net/proxies.html" class="ulink" target="_top">Java&#8217;s proxy documentation</a>
+for more information.</p>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>This configuration can only be reloaded dynamically as of 1.8.0</p>
+</div>
+</div>
+<p><a class="xref" href="configuration.html#configuration-dynamic" title="Dynamic configuration"><span class="image"><img src="./images/dynamic-config.svg" alt="dynamic config"></span> </a></p>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+<col class="col_3"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Default</th>
+<th align="left" valign="top">Type</th>
+<th align="left" valign="top">Dynamic</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">http://127.0.0.1:8200</code></p></td>
+<td align="left" valign="top"><p>URL</p></td>
+<td align="left" valign="top"><p>true</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+<col class="col_3"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Java System Properties</th>
+<th align="left" valign="top">Property file</th>
+<th align="left" valign="top">Environment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">elastic.apm.server_url</code></p></td>
+<td align="left" valign="top"><p><code class="literal">server_url</code></p></td>
+<td align="left" valign="top"><p><code class="literal">ELASTIC_APM_SERVER_URL</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4><a id="config-server-urls"></a><code class="literal">server_urls</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-java/edit/main/docs/configuration.asciidoc">edit</a></h4>
+<p>The URLs must be fully qualified, including protocol (http or https) and port.</p>
+<p>Fails over to the next APM Server URL in the event of connection errors.
+Achieves load-balancing by shuffling the list of configured URLs.
+When multiple agents are active, they&#8217;ll tend towards spreading evenly across the set of servers due to randomization.</p>
+<p>If SSL is enabled on the APM Server, use the <code class="literal">https</code> protocol. For more information, see
+<a class="xref" href="ssl-configuration.html" title="SSL/TLS communication with APM Server">SSL/TLS communication with APM Server</a>.</p>
+<p>If outgoing HTTP traffic has to go through a proxy,
+you can use the Java system properties <code class="literal">http.proxyHost</code> and <code class="literal">http.proxyPort</code> to set that up.
+See also <a href="https://docs.oracle.com/javase/8/docs/technotes/guides/net/proxies.html" class="ulink" target="_top">Java&#8217;s proxy documentation</a>
+for more information.</p>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>This configuration is specific to the Java agent and does not align with any other APM agent. In order
+to use a cross-agent config, use <a class="xref" href="config-reporter.html#config-server-url" title="server_url"><code class="literal">server_url</code></a> instead, which is the recommended option regardless if you
+are only setting a single URL.</p>
+</div>
+</div>
+<p><a class="xref" href="configuration.html#configuration-dynamic" title="Dynamic configuration"><span class="image"><img src="./images/dynamic-config.svg" alt="dynamic config"></span> </a></p>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+<col class="col_3"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Default</th>
+<th align="left" valign="top">Type</th>
+<th align="left" valign="top">Dynamic</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">&lt;none&gt;</code></p></td>
+<td align="left" valign="top"><p>List</p></td>
+<td align="left" valign="top"><p>true</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+<col class="col_3"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Java System Properties</th>
+<th align="left" valign="top">Property file</th>
+<th align="left" valign="top">Environment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">elastic.apm.server_urls</code></p></td>
+<td align="left" valign="top"><p><code class="literal">server_urls</code></p></td>
+<td align="left" valign="top"><p><code class="literal">ELASTIC_APM_SERVER_URLS</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4><a id="config-disable-send"></a><code class="literal">disable_send</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-java/edit/main/docs/configuration.asciidoc">edit</a></h4>
+<p>If set to <code class="literal">true</code>, the agent will work as usual, except from any task requiring communication with
+the APM server. Events will be dropped and the agent won&#8217;t be able to receive central configuration, which
+means that any other configuration cannot be changed in this state without restarting the service.
+An example use case for this would be maintaining the ability to create traces and log
+trace/transaction/span IDs through the log correlation feature, without setting up an APM Server.</p>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+<col class="col_3"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Default</th>
+<th align="left" valign="top">Type</th>
+<th align="left" valign="top">Dynamic</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">false</code></p></td>
+<td align="left" valign="top"><p>Boolean</p></td>
+<td align="left" valign="top"><p>false</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+<col class="col_3"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Java System Properties</th>
+<th align="left" valign="top">Property file</th>
+<th align="left" valign="top">Environment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">elastic.apm.disable_send</code></p></td>
+<td align="left" valign="top"><p><code class="literal">disable_send</code></p></td>
+<td align="left" valign="top"><p><code class="literal">ELASTIC_APM_DISABLE_SEND</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4><a id="config-server-timeout"></a><code class="literal">server_timeout</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-java/edit/main/docs/configuration.asciidoc">edit</a></h4>
+<p>If a request to the APM server takes longer than the configured timeout,
+the request is cancelled and the event (exception or transaction) is discarded.
+Set to 0 to disable timeouts.</p>
+<div class="warning admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>If timeouts are disabled or set to a high value, your app could experience memory issues if the APM server times out.</p>
+</div>
+</div>
+<p><a class="xref" href="configuration.html#configuration-dynamic" title="Dynamic configuration"><span class="image"><img src="./images/dynamic-config.svg" alt="dynamic config"></span> </a></p>
+<p>Supports the duration suffixes <code class="literal">ms</code>, <code class="literal">s</code> and <code class="literal">m</code>.
+Example: <code class="literal">5s</code>.</p>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+<col class="col_3"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Default</th>
+<th align="left" valign="top">Type</th>
+<th align="left" valign="top">Dynamic</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">5s</code></p></td>
+<td align="left" valign="top"><p>TimeDuration</p></td>
+<td align="left" valign="top"><p>true</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+<col class="col_3"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Java System Properties</th>
+<th align="left" valign="top">Property file</th>
+<th align="left" valign="top">Environment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">elastic.apm.server_timeout</code></p></td>
+<td align="left" valign="top"><p><code class="literal">server_timeout</code></p></td>
+<td align="left" valign="top"><p><code class="literal">ELASTIC_APM_SERVER_TIMEOUT</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4><a id="config-verify-server-cert"></a><code class="literal">verify_server_cert</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-java/edit/main/docs/configuration.asciidoc">edit</a></h4>
+<p>By default, the agent verifies the SSL certificate if you use an HTTPS connection to the APM server.</p>
+<p>Verification can be disabled by changing this setting to false.</p>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+<col class="col_3"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Default</th>
+<th align="left" valign="top">Type</th>
+<th align="left" valign="top">Dynamic</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">true</code></p></td>
+<td align="left" valign="top"><p>Boolean</p></td>
+<td align="left" valign="top"><p>false</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+<col class="col_3"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Java System Properties</th>
+<th align="left" valign="top">Property file</th>
+<th align="left" valign="top">Environment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">elastic.apm.verify_server_cert</code></p></td>
+<td align="left" valign="top"><p><code class="literal">verify_server_cert</code></p></td>
+<td align="left" valign="top"><p><code class="literal">ELASTIC_APM_VERIFY_SERVER_CERT</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4><a id="config-max-queue-size"></a><code class="literal">max_queue_size</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-java/edit/main/docs/configuration.asciidoc">edit</a></h4>
+<p>The maximum size of buffered events.</p>
+<p>Events like transactions and spans are buffered when the agent can&#8217;t keep up with sending them to the APM Server or if the APM server is down.</p>
+<p>If the queue is full, events are rejected which means you will lose transactions and spans in that case.
+This guards the application from crashing in case the APM server is unavailable for a longer period of time.</p>
+<p>A lower value will decrease the heap overhead of the agent,
+while a higher value makes it less likely to lose events in case of a temporary spike in throughput.</p>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+<col class="col_3"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Default</th>
+<th align="left" valign="top">Type</th>
+<th align="left" valign="top">Dynamic</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">512</code></p></td>
+<td align="left" valign="top"><p>Integer</p></td>
+<td align="left" valign="top"><p>false</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+<col class="col_3"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Java System Properties</th>
+<th align="left" valign="top">Property file</th>
+<th align="left" valign="top">Environment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">elastic.apm.max_queue_size</code></p></td>
+<td align="left" valign="top"><p><code class="literal">max_queue_size</code></p></td>
+<td align="left" valign="top"><p><code class="literal">ELASTIC_APM_MAX_QUEUE_SIZE</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4><a id="config-include-process-args"></a><code class="literal">include_process_args</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-java/edit/main/docs/configuration.asciidoc">edit</a></h4>
+<p>Whether each transaction should have the process arguments attached.
+Disabled by default to save disk space.</p>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+<col class="col_3"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Default</th>
+<th align="left" valign="top">Type</th>
+<th align="left" valign="top">Dynamic</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">false</code></p></td>
+<td align="left" valign="top"><p>Boolean</p></td>
+<td align="left" valign="top"><p>false</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+<col class="col_3"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Java System Properties</th>
+<th align="left" valign="top">Property file</th>
+<th align="left" valign="top">Environment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">elastic.apm.include_process_args</code></p></td>
+<td align="left" valign="top"><p><code class="literal">include_process_args</code></p></td>
+<td align="left" valign="top"><p><code class="literal">ELASTIC_APM_INCLUDE_PROCESS_ARGS</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4><a id="config-api-request-time"></a><code class="literal">api_request_time</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-java/edit/main/docs/configuration.asciidoc">edit</a></h4>
+<p>Maximum time to keep an HTTP request to the APM Server open for.</p>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>This value has to be lower than the APM Server&#8217;s <code class="literal">read_timeout</code> setting.</p>
+</div>
+</div>
+<p><a class="xref" href="configuration.html#configuration-dynamic" title="Dynamic configuration"><span class="image"><img src="./images/dynamic-config.svg" alt="dynamic config"></span> </a></p>
+<p>Supports the duration suffixes <code class="literal">ms</code>, <code class="literal">s</code> and <code class="literal">m</code>.
+Example: <code class="literal">10s</code>.</p>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+<col class="col_3"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Default</th>
+<th align="left" valign="top">Type</th>
+<th align="left" valign="top">Dynamic</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">10s</code></p></td>
+<td align="left" valign="top"><p>TimeDuration</p></td>
+<td align="left" valign="top"><p>true</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+<col class="col_3"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Java System Properties</th>
+<th align="left" valign="top">Property file</th>
+<th align="left" valign="top">Environment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">elastic.apm.api_request_time</code></p></td>
+<td align="left" valign="top"><p><code class="literal">api_request_time</code></p></td>
+<td align="left" valign="top"><p><code class="literal">ELASTIC_APM_API_REQUEST_TIME</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4><a id="config-api-request-size"></a><code class="literal">api_request_size</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-java/edit/main/docs/configuration.asciidoc">edit</a></h4>
+<p>The maximum total compressed size of the request body which is sent to the APM server intake api via a chunked encoding (HTTP streaming).
+Note that a small overshoot is possible.</p>
+<p>Allowed byte units are <code class="literal">b</code>, <code class="literal">kb</code> and <code class="literal">mb</code>. <code class="literal">1kb</code> is equal to <code class="literal">1024b</code>.</p>
+<p><a class="xref" href="configuration.html#configuration-dynamic" title="Dynamic configuration"><span class="image"><img src="./images/dynamic-config.svg" alt="dynamic config"></span> </a></p>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+<col class="col_3"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Default</th>
+<th align="left" valign="top">Type</th>
+<th align="left" valign="top">Dynamic</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">768kb</code></p></td>
+<td align="left" valign="top"><p>ByteValue</p></td>
+<td align="left" valign="top"><p>true</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+<col class="col_3"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Java System Properties</th>
+<th align="left" valign="top">Property file</th>
+<th align="left" valign="top">Environment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">elastic.apm.api_request_size</code></p></td>
+<td align="left" valign="top"><p><code class="literal">api_request_size</code></p></td>
+<td align="left" valign="top"><p><code class="literal">ELASTIC_APM_API_REQUEST_SIZE</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4><a id="config-metrics-interval"></a><code class="literal">metrics_interval</code> (<span class="Admonishment Admonishment--change">
+[<span class="Admonishment-version u-mono">1.3.0</span>]
+<span class="Admonishment-detail">
+Added in 1.3.0.
+</span>
+</span>)<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-java/edit/main/docs/configuration.asciidoc">edit</a></h4>
+<p>The interval at which the agent sends metrics to the APM Server, rounded down to the nearest second (ie 3783ms would be applied as 3000ms).
+If there is an interval (step) defined in the Meter, that interval (to the nearest second) will instead be used, for that Meter. If the Meter step interval is less than 1 second, the meter will not be reported.
+Must be at least <code class="literal">1s</code>.
+Set to <code class="literal">0s</code> to deactivate.</p>
+<p>Supports the duration suffixes <code class="literal">ms</code>, <code class="literal">s</code> and <code class="literal">m</code>.
+Example: <code class="literal">30s</code>.</p>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+<col class="col_3"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Default</th>
+<th align="left" valign="top">Type</th>
+<th align="left" valign="top">Dynamic</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">30s</code></p></td>
+<td align="left" valign="top"><p>TimeDuration</p></td>
+<td align="left" valign="top"><p>false</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+<col class="col_3"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Java System Properties</th>
+<th align="left" valign="top">Property file</th>
+<th align="left" valign="top">Environment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">elastic.apm.metrics_interval</code></p></td>
+<td align="left" valign="top"><p><code class="literal">metrics_interval</code></p></td>
+<td align="left" valign="top"><p><code class="literal">ELASTIC_APM_METRICS_INTERVAL</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4><a id="config-disable-metrics"></a><code class="literal">disable_metrics</code> (<span class="Admonishment Admonishment--change">
+[<span class="Admonishment-version u-mono">1.3.0</span>]
+<span class="Admonishment-detail">
+Added in 1.3.0.
+</span>
+</span>)<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-java/edit/main/docs/configuration.asciidoc">edit</a></h4>
+<p>Disables the collection of certain metrics.
+If the name of a metric matches any of the wildcard expressions, it will not be collected.
+Example: <code class="literal">foo.*,bar.*</code></p>
+<p>This option supports the wildcard <code class="literal">*</code>, which matches zero or more characters.
+Examples: <code class="literal">/foo/*/bar/*/baz*</code>, <code class="literal">*foo*</code>.
+Matching is case insensitive by default.
+Prepending an element with <code class="literal">(?-i)</code> makes the matching case sensitive.</p>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+<col class="col_3"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Default</th>
+<th align="left" valign="top">Type</th>
+<th align="left" valign="top">Dynamic</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">&lt;none&gt;</code></p></td>
+<td align="left" valign="top"><p>List</p></td>
+<td align="left" valign="top"><p>false</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+<col class="col_3"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Java System Properties</th>
+<th align="left" valign="top">Property file</th>
+<th align="left" valign="top">Environment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">elastic.apm.disable_metrics</code></p></td>
+<td align="left" valign="top"><p><code class="literal">disable_metrics</code></p></td>
+<td align="left" valign="top"><p><code class="literal">ELASTIC_APM_DISABLE_METRICS</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="config-profiling.html">« Profiling configuration options</a>
+</span>
+<span class="next">
+<a href="config-serverless.html">Serverless configuration options »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

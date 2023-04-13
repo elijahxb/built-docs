@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Distributed Search Execution | Elasticsearch: The Definitive Guide [main] | Elastic</title>
+<meta class="elastic" name="content" content="Distributed Search Execution | Elasticsearch: The Definitive Guide [main]">
+
+<link rel="home" href="index.html" title="Elasticsearch: The Definitive Guide [main]"/>
+<link rel="up" href="getting-started.html" title="Getting Started"/>
+<link rel="prev" href="docvalues-intro.html" title="Doc Values Intro"/>
+<link rel="next" href="_query_phase.html" title="Query Phase"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="Elasticsearch"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Legacy/Elasticsearch/Definitive Guide/main"/>
+<meta name="DC.subject" content="Elasticsearch"/>
+<meta name="DC.identifier" content="main"/>
+<meta name="robots" content="noindex,nofollow"/>
+</head>
+<body><div class="page_header">
+<p>
+  <strong>WARNING</strong>: This documentation covers Elasticsearch 2.x. The 2.x
+  versions of Elasticsearch have passed their
+  <a href="https://www.elastic.co/support/eol">EOL dates</a>. If you are running
+  a 2.x version, we strongly advise you to upgrade.
+</p>
+<p>
+  This documentation is no longer maintained and may be removed. For the latest
+  information, see the <a
+  href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">current
+  Elasticsearch documentation</a>.
+</p>
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch: The Definitive Guide [main]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="getting-started.html">Getting Started</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="docvalues-intro.html">« Doc Values Intro</a>
+</span>
+<span class="next">
+<a href="_query_phase.html">Query Phase »</a>
+</span>
+</div>
+<div class="chapter">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="distributed-search"></a>Distributed Search Execution<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/060_Distributed_Search/00_Intro.asciidoc">edit</a></h2>
+</div></div></div>
+<p>Before moving on, we are going to take a detour and talk about how search is
+executed in a distributed environment.  It is a bit more complicated than the
+basic <em>create-read-update-delete</em> (CRUD) requests that we discussed in
+<a class="xref" href="distributed-docs.html" title="Distributed Document Store"><em>Distributed Document Store</em></a>.</p>
+<div class="sidebar">
+<div class="titlepage"><div><div>
+<p class="title"><strong>Content Warning</strong></p>
+</div></div></div>
+<p>The information presented in this chapter is for your interest. You are not required to
+understand and remember all the detail in order to use Elasticsearch.</p>
+<p>Read this chapter to gain a taste for how things work, and to know where the
+information is in case you need to refer to it in the future, but don&#8217;t be
+overwhelmed by the detail.</p>
+</div>
+<p>A CRUD operation deals with a single document that has a unique combination of
+<code class="literal">_index</code>, <code class="literal">_type</code>, and <a class="xref" href="routing-value.html" title="Routing a Document to a Shard"><code class="literal">routing</code> values</a> (which defaults to the
+document&#8217;s <code class="literal">_id</code>). This means that we know exactly which shard in the cluster
+holds that document.</p>
+<p>Search requires a more complicated execution model because we don&#8217;t know which
+documents will match the query: they could be on any shard in the cluster. A
+search request has to consult a copy of every shard in the index or indices
+we&#8217;re interested in to see if they have any matching documents.</p>
+<p>But finding all matching documents is only half the story. Results from
+multiple shards must be combined into a single sorted list before the <code class="literal">search</code>
+API can return a &#8220;page&#8221; of results. For this reason, search is executed in a
+two-phase process called <em>query then fetch</em>.</p>
+
+
+
+
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="docvalues-intro.html">« Doc Values Intro</a>
+</span>
+<span class="next">
+<a href="_query_phase.html">Query Phase »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

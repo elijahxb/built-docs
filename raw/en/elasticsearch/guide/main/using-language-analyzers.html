@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Using Language Analyzers | Elasticsearch: The Definitive Guide [main] | Elastic</title>
+<meta class="elastic" name="content" content="Using Language Analyzers | Elasticsearch: The Definitive Guide [main]">
+
+<link rel="home" href="index.html" title="Elasticsearch: The Definitive Guide [main]"/>
+<link rel="up" href="language-intro.html" title="Getting Started with Languages"/>
+<link rel="prev" href="language-intro.html" title="Getting Started with Languages"/>
+<link rel="next" href="configuring-language-analyzers.html" title="Configuring Language Analyzers"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="Elasticsearch"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Legacy/Elasticsearch/Definitive Guide/main"/>
+<meta name="DC.subject" content="Elasticsearch"/>
+<meta name="DC.identifier" content="main"/>
+<meta name="robots" content="noindex,nofollow"/>
+</head>
+<body><div class="page_header">
+<p>
+  <strong>WARNING</strong>: This documentation covers Elasticsearch 2.x. The 2.x
+  versions of Elasticsearch have passed their
+  <a href="https://www.elastic.co/support/eol">EOL dates</a>. If you are running
+  a 2.x version, we strongly advise you to upgrade.
+</p>
+<p>
+  This documentation is no longer maintained and may be removed. For the latest
+  information, see the <a
+  href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">current
+  Elasticsearch documentation</a>.
+</p>
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch: The Definitive Guide [main]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="languages.html">Dealing with Human Language</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="language-intro.html">Getting Started with Languages</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="language-intro.html">« Getting Started with Languages</a>
+</span>
+<span class="next">
+<a href="configuring-language-analyzers.html">Configuring Language Analyzers »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="using-language-analyzers"></a>Using Language Analyzers<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/200_Language_intro/10_Using.asciidoc">edit</a></h2>
+</div></div></div>
+<p>The built-in language analyzers are available globally and don&#8217;t need to be
+configured before being used.  They can be specified directly in the field
+mapping:</p>
+<div class="pre_wrapper lang-console">
+<pre class="programlisting prettyprint lang-console">PUT /my_index
+{
+  "mappings": {
+    "blog": {
+      "properties": {
+        "title": {
+          "type":     "text",
+          "analyzer": "english" <a id="CO124-1"></a><i class="conum" data-value="1"></i>
+        }
+      }
+    }
+  }
+}</pre>
+</div>
+<div class="console_widget" data-snippet="snippets/1.console"></div>
+<div class="calloutlist">
+<table border="0" summary="Callout list">
+<tr>
+<td align="left" valign="top" width="5%">
+<p><a href="#CO124-1"><i class="conum" data-value="1"></i></a></p>
+</td>
+<td align="left" valign="top">
+<p>The <code class="literal">title</code> field will use the <code class="literal">english</code> analyzer instead of the default
+<code class="literal">standard</code> analyzer.</p>
+</td>
+</tr>
+</table>
+</div>
+<p>Of course, by passing text through the <code class="literal">english</code> analyzer, we lose information:</p>
+<div class="pre_wrapper lang-console">
+<pre class="programlisting prettyprint lang-console">GET /my_index/_analyze
+{
+  "field": "title"
+  "text": "I'm not happy about the foxes" <a id="CO125-1"></a><i class="conum" data-value="1"></i>
+}</pre>
+</div>
+<div class="console_widget" data-snippet="snippets/2.console"></div>
+<div class="calloutlist">
+<table border="0" summary="Callout list">
+<tr>
+<td align="left" valign="top" width="5%">
+<p><a href="#CO125-1"><i class="conum" data-value="1"></i></a></p>
+</td>
+<td align="left" valign="top">
+<p>Emits the tokens: <code class="literal">i'm</code>, <code class="literal">happi</code>, <code class="literal">about</code>, <code class="literal">fox</code></p>
+</td>
+</tr>
+</table>
+</div>
+<p>We can&#8217;t tell if the document mentions one <code class="literal">fox</code> or many  <code class="literal">foxes</code>; the word
+<code class="literal">not</code> is a stopword and is removed, so we can&#8217;t tell whether the document is
+happy about foxes or not. By using the <code class="literal">english</code> analyzer, we have increased
+recall as we can match more loosely, but we have reduced our ability to rank
+documents accurately.</p>
+<p>To get the best of both worlds, we can use <a class="xref" href="multi-fields.html" title="String Sorting and Multifields">multifields</a> to
+index the <code class="literal">title</code> field twice: once with the <code class="literal">english</code> analyzer and once with
+the <code class="literal">standard</code> analyzer:</p>
+<div class="pre_wrapper lang-console">
+<pre class="programlisting prettyprint lang-console">PUT /my_index
+{
+  "mappings": {
+    "blog": {
+      "properties": {
+        "title": { <a id="CO126-1"></a><i class="conum" data-value="1"></i>
+          "type": "text",
+          "fields": {
+            "english": { <a id="CO126-2"></a><i class="conum" data-value="2"></i>
+              "type":     "text",
+              "analyzer": "english"
+            }
+          }
+        }
+      }
+    }
+  }
+}</pre>
+</div>
+<div class="console_widget" data-snippet="snippets/3.console"></div>
+<div class="calloutlist">
+<table border="0" summary="Callout list">
+<tr>
+<td align="left" valign="top" width="5%">
+<p><a href="#CO126-1"><i class="conum" data-value="1"></i></a></p>
+</td>
+<td align="left" valign="top">
+<p>The main <code class="literal">title</code> field uses the <code class="literal">standard</code> analyzer.</p>
+</td>
+</tr>
+<tr>
+<td align="left" valign="top" width="5%">
+<p><a href="#CO126-2"><i class="conum" data-value="2"></i></a></p>
+</td>
+<td align="left" valign="top">
+<p>The <code class="literal">title.english</code> subfield uses the <code class="literal">english</code> analyzer.</p>
+</td>
+</tr>
+</table>
+</div>
+<p>With this mapping in place, we can index some test documents to demonstrate
+how to use both fields at query time:</p>
+<div class="pre_wrapper lang-console">
+<pre class="programlisting prettyprint lang-console">PUT /my_index/blog/1
+{ "title": "I'm happy for this fox" }
+
+PUT /my_index/blog/2
+{ "title": "I'm not happy about my fox problem" }
+
+GET /_search
+{
+  "query": {
+    "multi_match": {
+      "type":     "most_fields", <a id="CO127-1"></a><i class="conum" data-value="1"></i>
+      "query":    "not happy foxes",
+      "fields": [ "title", "title.english" ]
+    }
+  }
+}</pre>
+</div>
+<div class="console_widget" data-snippet="snippets/4.console"></div>
+<div class="calloutlist">
+<table border="0" summary="Callout list">
+<tr>
+<td align="left" valign="top" width="5%">
+<p><a href="#CO127-1"><i class="conum" data-value="1"></i></a></p>
+</td>
+<td align="left" valign="top">
+<p>Use the <a class="xref" href="most-fields.html" title="Most Fields"><code class="literal">most_fields</code></a> query type to match the
+same text in as many fields as possible.</p>
+</td>
+</tr>
+</table>
+</div>
+<p>Even though neither of our documents contain the
+word <code class="literal">foxes</code>,  both documents are returned as results thanks to the word
+stemming on the <code class="literal">title.english</code> field.  The second document is ranked as more
+relevant, because the word <code class="literal">not</code> matches on the <code class="literal">title</code> field.</p>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="language-intro.html">« Getting Started with Languages</a>
+</span>
+<span class="next">
+<a href="configuring-language-analyzers.html">Configuring Language Analyzers »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

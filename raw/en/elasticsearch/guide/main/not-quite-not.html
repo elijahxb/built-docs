@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Not Quite Not | Elasticsearch: The Definitive Guide [main] | Elastic</title>
+<meta class="elastic" name="content" content="Not Quite Not | Elasticsearch: The Definitive Guide [main]">
+
+<link rel="home" href="index.html" title="Elasticsearch: The Definitive Guide [main]"/>
+<link rel="up" href="controlling-relevance.html" title="Controlling Relevance"/>
+<link rel="prev" href="query-scoring.html" title="Manipulating Relevance with Query Structure"/>
+<link rel="next" href="ignoring-tfidf.html" title="Ignoring TF/IDF"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="Elasticsearch"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Legacy/Elasticsearch/Definitive Guide/main"/>
+<meta name="DC.subject" content="Elasticsearch"/>
+<meta name="DC.identifier" content="main"/>
+<meta name="robots" content="noindex,nofollow"/>
+</head>
+<body><div class="page_header">
+<p>
+  <strong>WARNING</strong>: This documentation covers Elasticsearch 2.x. The 2.x
+  versions of Elasticsearch have passed their
+  <a href="https://www.elastic.co/support/eol">EOL dates</a>. If you are running
+  a 2.x version, we strongly advise you to upgrade.
+</p>
+<p>
+  This documentation is no longer maintained and may be removed. For the latest
+  information, see the <a
+  href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">current
+  Elasticsearch documentation</a>.
+</p>
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch: The Definitive Guide [main]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="search-in-depth.html">Search in Depth</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="controlling-relevance.html">Controlling Relevance</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="query-scoring.html">« Manipulating Relevance with Query Structure</a>
+</span>
+<span class="next">
+<a href="ignoring-tfidf.html">Ignoring TF/IDF »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="not-quite-not"></a>Not Quite Not<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/170_Relevance/30_Not_quite_not.asciidoc">edit</a></h2>
+</div></div></div>
+<p>A search on the Internet for &#8220;Apple&#8221; is likely to return results about the
+company, the fruit, and various recipes.  We could try to narrow it down to
+just the company by excluding words like <code class="literal">pie</code>, <code class="literal">tart</code>, <code class="literal">crumble</code>, and <code class="literal">tree</code>,
+using a <code class="literal">must_not</code> clause in a <code class="literal">bool</code> query:</p>
+<div class="pre_wrapper lang-json">
+<pre class="programlisting prettyprint lang-json">GET /_search
+{
+  "query": {
+    "bool": {
+      "must": {
+        "match": {
+          "text": "apple"
+        }
+      },
+      "must_not": {
+        "match": {
+          "text": "pie tart fruit crumble tree"
+        }
+      }
+    }
+  }
+}</pre>
+</div>
+<p>But who is to say that we wouldn&#8217;t miss a very relevant document about Apple
+the company by excluding <code class="literal">tree</code> or <code class="literal">crumble</code>?  Sometimes, <code class="literal">must_not</code> can be
+too strict.</p>
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="boosting-query"></a>boosting Query<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/170_Relevance/30_Not_quite_not.asciidoc">edit</a></h3>
+</div></div></div>
+<p>The  <a href="/guide/en/elasticsearch/reference/2.4/query-dsl-boosting-query.html" class="ulink" target="_top"><code class="literal">boosting</code> query</a> solves this problem.
+It allows us to still include results that appear to be about the fruit or
+the pastries, but to downgrade them&#8212;&#8203;to rank them lower than they would
+otherwise be:</p>
+<div class="pre_wrapper lang-json">
+<pre class="programlisting prettyprint lang-json">GET /_search
+{
+  "query": {
+    "boosting": {
+      "positive": {
+        "match": {
+          "text": "apple"
+        }
+      },
+      "negative": {
+        "match": {
+          "text": "pie tart fruit crumble tree"
+        }
+      },
+      "negative_boost": 0.5
+    }
+  }
+}</pre>
+</div>
+<p>It accepts a <code class="literal">positive</code> query and a <code class="literal">negative</code> query.  Only documents that
+match the <code class="literal">positive</code> query will be included in the results list, but documents
+that also match the <code class="literal">negative</code> query will be downgraded by multiplying the
+original <code class="literal">_score</code> of the document with the <code class="literal">negative_boost</code>.</p>
+<p>For this to work, the <code class="literal">negative_boost</code> must be less than <code class="literal">1.0</code>.  In this
+example, any documents that contain any of the negative terms will have their
+<code class="literal">_score</code> cut in half.</p>
+</div>
+
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="query-scoring.html">« Manipulating Relevance with Query Structure</a>
+</span>
+<span class="next">
+<a href="ignoring-tfidf.html">Ignoring TF/IDF »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

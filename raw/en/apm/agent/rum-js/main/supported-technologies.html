@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Supported Technologies | APM Real User Monitoring JavaScript Agent Reference [main] | Elastic</title>
+<meta class="elastic" name="content" content="Supported Technologies | APM Real User Monitoring JavaScript Agent Reference [main]">
+
+<link rel="home" href="index.html" title="APM Real User Monitoring JavaScript Agent Reference [main]"/>
+<link rel="up" href="index.html" title="APM Real User Monitoring JavaScript Agent Reference [main]"/>
+<link rel="prev" href="configuring-cors.html" title="Configure CORS"/>
+<link rel="next" href="configuration.html" title="Configuration"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="APM"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/APM Real User Monitoring JavaScript Agent/Reference/main"/>
+<meta name="DC.subject" content="APM"/>
+<meta name="DC.identifier" content="main"/>
+</head>
+<body><div class="page_header">
+You are looking at preliminary documentation for a future release.
+Not what you want? See the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link">
+  <div id="related-products" class="dropdown">
+    <div class="related-products-title">APM:</div>
+    <div class="dropdown-anchor" tabindex="0">Real User Monitoring JavaScript Agent Reference<span class="dropdown-icon"></span></div>
+    <div class="dropdown-content">
+      <ul>
+        <li class="dropdown-category">APM</li>
+        <ul>
+          <li><a href="/guide/en/apm/guide/current/apm-overview.html">User Guide</a></li>
+        </ul>
+        <li class="dropdown-category">APM agents</li>
+        <ul>
+          <li><a href="/guide/en/apm/agent/android/current/intro.html">Android Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/go/current/introduction.html">Go Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/swift/current/intro.html">iOS Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/java/current/intro.html">Java Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/dotnet/current/intro.html">.NET Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/nodejs/current/intro.html">Node.js Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/php/current/intro.html">PHP Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/python/current/getting-started.html">Python Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/ruby/current/introduction.html">Ruby Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/rum-js/current/intro.html">Real User Monitoring JavaScript Agent Reference</a></li>
+        </ul>
+        <li class="dropdown-category">APM extensions</li>
+        <ul>
+          <li><a href="/guide/en/apm/lambda/current/aws-lambda-arch.html">Monitoring AWS Lambda Functions</a></li>
+          <li><a href="/guide/en/apm/attacher/current/apm-attacher.html">Attacher</a></li>
+        </ul>
+      </ul>
+    </div>
+  </div>
+</span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="configuring-cors.html">« Configure CORS</a>
+</span>
+<span class="next">
+<a href="configuration.html">Configuration »</a>
+</span>
+</div>
+<div class="chapter">
+<div class="titlepage"><div><div>
+<h1 class="title"><a id="supported-technologies"></a>Supported Technologies<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-rum-js/edit/main/docs/supported-technologies.asciidoc">edit</a></h1>
+</div></div></div>
+<h3><a id="page-load-metrics"></a>Page load metrics<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-rum-js/edit/main/docs/supported-technologies.asciidoc">edit</a></h3>
+<p>The RUM agent tries to capture the overall user experience on how the page is loaded/rendered as part of the page load Transaction.
+It includes all of the dependent resources, like JavaScript, stylesheets, images, etc., which are included as part of the page. In addition
+to capturing the resource timing information as Spans, the transaction also includes navigation spans—marks that are associated with the rest
+of the captured information to make the waterfall more appealing.</p>
+<div class="variablelist">
+<dl class="variablelist">
+<dt>
+<span class="term">
+<code class="literal">Domain lookup</code>
+</span>
+</dt>
+<dd>
+Duration of the DNS query for the current page: <code class="literal">domainLookupEnd</code> - <code class="literal">domainLookupStart</code>.
+</dd>
+<dt>
+<span class="term">
+<code class="literal">Making a connection to the server</code>
+</span>
+</dt>
+<dd>
+Duration of the TCP connection to the server, including the TLS negotiation time for HTTPS pages: <code class="literal">connectEnd</code> - <code class="literal">connectStart</code>.
+</dd>
+<dt>
+<span class="term">
+<code class="literal">Requesting and receiving the document</code>
+</span>
+</dt>
+<dd>
+Overall response time of the server including the last byte: <code class="literal">responseEnd</code> - <code class="literal">requestStart</code>.
+</dd>
+<dt>
+<span class="term">
+<code class="literal">Parsing the document, executing sync. scripts</code>
+</span>
+</dt>
+<dd>
+HTML document parsing time, including synchronous Stylesheets and Script: <code class="literal">tagsdomInteractive</code> - <code class="literal">domLoading</code>.
+</dd>
+<dt>
+<span class="term">
+<code class="literal">Fire "DOMContentLoaded" event</code>
+</span>
+</dt>
+<dd>
+Triggered when the browser completes parsing the document. Helpful when there are multiple listeners, or logic
+is executed: <code class="literal">domContentLoadedEventEnd</code> - <code class="literal">domContentLoadedEventStart</code>.
+</dd>
+<dt>
+<span class="term">
+<code class="literal">Fire "load" event</code>
+</span>
+</dt>
+<dd>
+Trigged when the browser finishes loading its document and dependent resources: <code class="literal">loadEventEnd</code> - <code class="literal">loadEventStart</code>.
+</dd>
+<dt>
+<span class="term">
+<code class="literal">Time to first byte (TTFB)</code>
+</span>
+</dt>
+<dd>
+Duration from the browser making an HTTP request for the initial document to the first byte of the page being received. TTFB is available from the Navigation Timing API as the <code class="literal">reponseStart</code> timestamp, and captured as transaction mark <code class="literal">transaction.marks.agent.timeToFirstByte</code> in the ElasticSearch document.
+</dd>
+</dl>
+</div>
+<p>To capture the overall user experience of the page including all of the above information plus additional resource requests that might be
+triggered during the execution of dependent resources, the <code class="literal">page-load</code> transaction duration might not always reflect the
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/load_event" class="ulink" target="_top">Load</a> event of the browser and can extend beyond the event.</p>
+<p>If you are interested in accurately measuring the duration of load event, the information can be extracted by using
+<code class="literal">Fire load event</code> Span or from the Transaction marks available as <code class="literal">transaction.marks.agent.domComplete</code> in the Elasticsearch document.</p>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>The page load transaction is measured relative to the <code class="literal">fetchStart</code> timestamp from the Navigation Timing API.</p>
+</div>
+</div>
+<h3><a id="user-centric-metrics"></a>User-centric Metrics<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-rum-js/edit/main/docs/supported-technologies.asciidoc">edit</a></h3>
+<p>To understand the performance characteristics of a web page beyond the page load and how the user perceives performance, the agent supports capturing these <a href="https://web.dev/user-centric-performance-metrics/" class="ulink" target="_top">responsiveness metrics</a>.</p>
+<div class="variablelist">
+<dl class="variablelist">
+<dt>
+<span class="term">
+<code class="literal">First contentful paint (FCP)</code>
+</span>
+</dt>
+<dd>
+Focusses on the initial rendering and measures the time from when the page starts loading to when any part of the page&#8217;s content is displayed on the screen. The agent uses the <a href="https://www.w3.org/TR/paint-timing/#first-contentful-paint" class="ulink" target="_top">Paint timing API</a> available in the browser to capture the timing information. FCP is captured as transaction mark for <code class="literal">page-load</code> transaction for all chromium-based browsers (Chrome &gt;60, Edge &gt;79, Opera &gt;47, etc.).
+</dd>
+<dt>
+<span class="term">
+<code class="literal">Largest contentful paint (LCP)</code>
+</span>
+</dt>
+<dd>
+A new page-load metric that denotes the time from when the page starts loading to when the critical element (largest text, image, video elements) is displayed on the screen. LCP is available in the browser through
+<a href="https://wicg.github.io/largest-contentful-paint/" class="ulink" target="_top">LargestContentfulPaint API</a> which relies on the draft <a href="https://wicg.github.io/element-timing/" class="ulink" target="_top">Element Timing API</a>. LCP is one of the <a href="https://web.dev/vitals/" class="ulink" target="_top">core web vitals</a> metrics and
+available only in Chrome &gt;77. Captured as transaction mark for <code class="literal">page-load</code> transaction, maintain LCP within the first <span class="strong strong"><strong>2.5 seconds</strong></span> of page-load to provide a good user experience.
+</dd>
+<dt>
+<span class="term">
+<code class="literal">First input delay (FID)</code>
+</span>
+</dt>
+<dd>
+FID quantifies the experience of the user when they interact with the page during the page load. It is measured as the time between when a user first interacts with your site (mouse clicks, taps, select dropdowns, etc.) to the time when the
+browser can respond to that interaction. FID is one of the <a href="https://web.dev/vitals/" class="ulink" target="_top">core web vitals</a> metrics and available only in Chrome &gt;85 via <a href="https://wicg.github.io/event-timing/" class="ulink" target="_top">Event Timing API</a>. FID is captured as <code class="literal">First Input Delay</code> span for <code class="literal">page-load</code> transaction. Maintain FID <span class="strong strong"><strong>below 100 milliseconds</strong></span> to provide a good user experience.
+</dd>
+<dt>
+<span class="term">
+<code class="literal">Total blocking time (TBT)</code>
+</span>
+</dt>
+<dd>
+The sum of the blocking time (duration above 50 ms) for each long task that occurs between the First contentful paint and the time when the transaction is completed. <a href="https://web.dev/tbt/" class="ulink" target="_top">Total blocking time</a> is a
+great companion metric for <a href="https://web.dev/tti/" class="ulink" target="_top">Time to interactive</a> (TTI) which is lab metric and not available in the field through browser APIs. The agent captures TBT based on the number of long tasks that occurred during the page load lifecycle. Captured as <code class="literal">Total Blocking Time</code> span for <code class="literal">page-load</code> transaction.
+</dd>
+<dt>
+<span class="term">
+<code class="literal">Cumulative layout shift (CLS)</code>
+</span>
+</dt>
+<dd>
+Metric that represents the cumulative score of all unexpected layout shifts that occur during the entire lifespan of the page. CLS is one of the <a href="https://web.dev/vitals/" class="ulink" target="_top">core web vitals</a> metrics and here is
+<a href="https://web.dev/cls/#layout-shift-score" class="ulink" target="_top">how the score is calculated by Chrome</a>. Maintain a score of <span class="strong strong"><strong>less than 0.1</strong></span> to provide a good user experience.
+</dd>
+<dt>
+<span class="term">
+<code class="literal">Long Tasks</code>
+</span>
+</dt>
+<dd>
+A long task is any user activity or browser task that monopolize the UI thread for extended periods (greater than 50 milliseconds) and block other critical tasks (frame rate or input latency)
+from being executed. The agent uses the <a href="https://www.w3.org/TR/longtasks/" class="ulink" target="_top">Long Task API</a> which is only available in chromium-based browsers (Chrome &gt;58, Edge &gt;79, Opera &gt;69). Captured as <code class="literal">Longtask&lt;name&gt;</code> span for all managed transactions.
+Learn more about <a class="xref" href="longtasks.html" title="How to interpret long task spans in the UI">long task spans</a>, and how to interpret them.
+</dd>
+<dt>
+<span class="term">
+<code class="literal">User Timing</code>
+</span>
+</dt>
+<dd>
+The <a href="https://www.w3.org/TR/user-timing/" class="ulink" target="_top">User Timing</a> spec exposes API for developers to add custom performance entries to their web application. These custom metrics allow users to measure the hot paths of the app code that helps to identify a good user experience. RUM agent records all of the <a href="https://developer.mozilla.org/en-US/docs/Web/API/PerformanceMeasure" class="ulink" target="_top">performance.measure</a> calls as spans by their measure name in the waterfall for all managed transactions.
+</dd>
+</dl>
+</div>
+<h3><a id="user-interactions"></a>User Interactions<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-rum-js/edit/main/docs/supported-technologies.asciidoc">edit</a></h3>
+<p>The RUM agent automatically instruments click event listeners that are
+registered by the application. The click events are captured as <code class="literal">user-interaction</code>
+transactions. However, to avoid sending too many <code class="literal">user-interaction</code> transactions
+to the server, the agent discards transactions with no spans (e.g. no network activity). Furthermore,
+if the click interaction results in route change, then a <code class="literal">route-change</code>
+transaction would be captured instead.</p>
+<p>The transaction name can be influenced either by using the <code class="literal">name</code> or preferably the <code class="literal">data-transaction-name</code> HTML attribute.
+Examples of transaction names based on the html attributes present:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<code class="literal">&lt;button&gt;&lt;/button&gt;</code>: <code class="literal">Click - button</code>
+</li>
+<li class="listitem">
+<code class="literal">&lt;button name="purchase"&gt;&lt;/button&gt;</code>: <code class="literal">Click - button["purchase"]</code>
+</li>
+<li class="listitem">
+<code class="literal">&lt;button data-transaction-name="purchase"&gt;&lt;/button&gt;</code>: <code class="literal">Click - purchase</code>
+</li>
+</ul>
+</div>
+<h3><a id="spa"></a>Single Page Applications<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-rum-js/edit/main/docs/supported-technologies.asciidoc">edit</a></h3>
+<p>All history <code class="literal">pushState</code> events will be captured as transactions.
+Most of these transactions can be enhanced by using framework specific integrations.
+For all unsupported frameworks/libraries, you can instrument the application
+by creating <a class="xref" href="custom-transactions.html" title="Custom Transactions">custom transactions</a> and custom spans with the <a class="xref" href="agent-api.html#apm-start-span" title="apm.startSpan()">span API</a>.</p>
+<h3><a id="frameworks"></a>Frameworks<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-rum-js/edit/main/docs/supported-technologies.asciidoc">edit</a></h3>
+<p>The agent supports <a class="xref" href="framework-integrations.html" title="Framework-specific integrations">integrations with certain frameworks</a>.</p>
+<p>To instrument custom metrics, like rendering time or mounting time of components on frameworks like React, Angular, Vue,
+etc., use the <a class="xref" href="custom-transactions.html" title="Custom Transactions">custom transactions API</a>.</p>
+<h3><a id="platforms"></a>Platforms<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-rum-js/edit/main/docs/supported-technologies.asciidoc">edit</a></h3>
+<p>The following platforms are supported:</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/compatibility.png" alt="Elastic APM RUM Agent compatibility">
+</div>
+</div>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="configuring-cors.html">« Configure CORS</a>
+</span>
+<span class="next">
+<a href="configuration.html">Configuration »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

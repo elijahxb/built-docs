@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Introduction | APM Python Agent Reference [main] | Elastic</title>
+<meta class="elastic" name="content" content="Introduction | APM Python Agent Reference [main]">
+
+<link rel="home" href="index.html" title="APM Python Agent Reference [main]"/>
+<link rel="up" href="index.html" title="APM Python Agent Reference [main]"/>
+<link rel="prev" href="index.html" title="APM Python Agent Reference [main]"/>
+<link rel="next" href="set-up.html" title="Set up the Agent"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="APM"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/APM Python Agent/Reference/main"/>
+<meta name="DC.subject" content="APM"/>
+<meta name="DC.identifier" content="main"/>
+</head>
+<body><div class="page_header">
+You are looking at preliminary documentation for a future release.
+Not what you want? See the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link">
+  <div id="related-products" class="dropdown">
+    <div class="related-products-title">APM:</div>
+    <div class="dropdown-anchor" tabindex="0">Python Agent Reference<span class="dropdown-icon"></span></div>
+    <div class="dropdown-content">
+      <ul>
+        <li class="dropdown-category">APM</li>
+        <ul>
+          <li><a href="/guide/en/apm/guide/current/apm-overview.html">User Guide</a></li>
+        </ul>
+        <li class="dropdown-category">APM agents</li>
+        <ul>
+          <li><a href="/guide/en/apm/agent/android/current/intro.html">Android Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/go/current/introduction.html">Go Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/swift/current/intro.html">iOS Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/java/current/intro.html">Java Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/dotnet/current/intro.html">.NET Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/nodejs/current/intro.html">Node.js Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/php/current/intro.html">PHP Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/python/current/getting-started.html">Python Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/ruby/current/introduction.html">Ruby Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/rum-js/current/intro.html">Real User Monitoring JavaScript Agent Reference</a></li>
+        </ul>
+        <li class="dropdown-category">APM extensions</li>
+        <ul>
+          <li><a href="/guide/en/apm/lambda/current/aws-lambda-arch.html">Monitoring AWS Lambda Functions</a></li>
+          <li><a href="/guide/en/apm/attacher/current/apm-attacher.html">Attacher</a></li>
+        </ul>
+      </ul>
+    </div>
+  </div>
+</span>
+</div>
+<div class="navheader">
+<span class="prev">
+</span>
+<span class="next">
+<a href="set-up.html">Set up the Agent »</a>
+</span>
+</div>
+<div class="chapter">
+<div class="titlepage"><div><div>
+<h1 class="title"><a id="getting-started"></a>Introduction<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/docs/getting-started.asciidoc">edit</a></h1>
+</div></div></div>
+<p>The Elastic APM Python agent sends performance metrics and error logs to the APM Server.
+It has built-in support for Django and Flask performance metrics and error logging, as well as generic support of other WSGI frameworks for error logging.</p>
+<h3><a id="how-it-works"></a>How does the Agent work?<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/docs/getting-started.asciidoc">edit</a></h3>
+<p>The Python Agent instruments your application to collect APM events in a few different ways:</p>
+<p>To collect data about incoming requests and background tasks, the Agent integrates with <a class="xref" href="supported-technologies.html" title="Supported Technologies">supported technologies</a> to make use of hooks and signals provided by the framework.
+These framework integrations require limited code changes in your application.</p>
+<p>To collect data from database drivers, HTTP libraries etc.,
+we instrument certain functions and methods in these libraries.
+Instrumentations are set up automatically and do not require any code changes.</p>
+<p>In addition to APM and error data,
+the Python agent also collects system and application metrics in regular intervals.
+This collection happens in a background thread that is started by the agent.</p>
+<p>More detailed information on how the Agent works can be found in the <a class="xref" href="how-the-agent-works.html" title="How the Agent works">advanced topics</a>.</p>
+<h3><a id="additional-components"></a>Additional components<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/docs/getting-started.asciidoc">edit</a></h3>
+<p>APM Agents work in conjunction with the <a href="/guide/en/apm/guide/8.7/index.html" class="ulink" target="_top">APM Server</a>, <a href="/guide/en/elasticsearch/reference/8.7/index.html" class="ulink" target="_top">Elasticsearch</a>, and <a href="/guide/en/kibana/8.7/index.html" class="ulink" target="_top">Kibana</a>.
+The <a href="/guide/en/apm/guide/8.7/index.html" class="ulink" target="_top">APM Guide</a> provides details on how these components work together,
+and provides a matrix outlining <a href="/guide/en/apm/guide/8.7/agent-server-compatibility.html" class="ulink" target="_top">Agent and Server compatibility</a>.</p>
+</div>
+<div class="navfooter">
+<span class="prev">
+</span>
+<span class="next">
+<a href="set-up.html">Set up the Agent »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

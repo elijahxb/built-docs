@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Inverted Index | Elasticsearch: The Definitive Guide [main] | Elastic</title>
+<meta class="elastic" name="content" content="Inverted Index | Elasticsearch: The Definitive Guide [main]">
+
+<link rel="home" href="index.html" title="Elasticsearch: The Definitive Guide [main]"/>
+<link rel="up" href="mapping-analysis.html" title="Mapping and Analysis"/>
+<link rel="prev" href="_exact_values_versus_full_text.html" title="Exact Values Versus Full Text"/>
+<link rel="next" href="analysis-intro.html" title="Analysis and Analyzers"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="Elasticsearch"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Legacy/Elasticsearch/Definitive Guide/main"/>
+<meta name="DC.subject" content="Elasticsearch"/>
+<meta name="DC.identifier" content="main"/>
+<meta name="robots" content="noindex,nofollow"/>
+</head>
+<body><div class="page_header">
+<p>
+  <strong>WARNING</strong>: This documentation covers Elasticsearch 2.x. The 2.x
+  versions of Elasticsearch have passed their
+  <a href="https://www.elastic.co/support/eol">EOL dates</a>. If you are running
+  a 2.x version, we strongly advise you to upgrade.
+</p>
+<p>
+  This documentation is no longer maintained and may be removed. For the latest
+  information, see the <a
+  href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">current
+  Elasticsearch documentation</a>.
+</p>
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch: The Definitive Guide [main]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="getting-started.html">Getting Started</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="mapping-analysis.html">Mapping and Analysis</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="_exact_values_versus_full_text.html">« Exact Values Versus Full Text</a>
+</span>
+<span class="next">
+<a href="analysis-intro.html">Analysis and Analyzers »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="inverted-index"></a>Inverted Index<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/052_Mapping_Analysis/35_Inverted_index.asciidoc">edit</a></h2>
+</div></div></div>
+<p>Elasticsearch uses a structure called an <em>inverted index</em>, which is designed
+to allow very fast full-text searches. An inverted index consists of a list
+of all the unique words that appear in any document, and for each word, a list
+of the documents in which it appears.</p>
+<p>For example, let&#8217;s say we have two documents, each with a <code class="literal">content</code> field
+containing the following:</p>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+The quick brown fox jumped over the lazy dog
+</li>
+<li class="listitem">
+Quick brown foxes leap over lazy dogs in summer
+</li>
+</ol>
+</div>
+<p>To create an inverted index, we first split the <code class="literal">content</code> field of each
+document into separate words (which we call <em>terms</em>, or <em>tokens</em>), create a
+sorted list of all the unique terms, and then list in which document each term
+appears. The result looks something like this:</p>
+<pre class="literallayout">Term      Doc_1  Doc_2
+-------------------------
+Quick   |       |  X
+The     |   X   |
+brown   |   X   |  X
+dog     |   X   |
+dogs    |       |  X
+fox     |   X   |
+foxes   |       |  X
+in      |       |  X
+jumped  |   X   |
+lazy    |   X   |  X
+leap    |       |  X
+over    |   X   |  X
+quick   |   X   |
+summer  |       |  X
+the     |   X   |
+------------------------</pre>
+
+<p>Now, if we want to search for <code class="literal">quick brown</code>, we just need to find the
+documents in which each term appears:</p>
+<pre class="literallayout">Term      Doc_1  Doc_2
+-------------------------
+brown   |   X   |  X
+quick   |   X   |
+------------------------
+Total   |   2   |  1</pre>
+
+<p>Both documents match, but the first document has more matches than the second.
+If we apply a naive <em>similarity algorithm</em> that just counts the number of
+matching terms, then we can say that the first document is a better match&#8212;&#8203;is <em>more relevant</em> to our query&#8212;&#8203;than the second document.</p>
+<p>But there are a few problems with our current inverted index:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<code class="literal">Quick</code> and <code class="literal">quick</code> appear as separate terms, while the user probably
+thinks of them as the same word.
+</li>
+<li class="listitem">
+<code class="literal">fox</code> and <code class="literal">foxes</code> are pretty similar, as are <code class="literal">dog</code> and <code class="literal">dogs</code>;
+They share the same root word.
+</li>
+<li class="listitem">
+<code class="literal">jumped</code> and <code class="literal">leap</code>, while not from the same root word, are similar
+in meaning. They are synonyms.
+</li>
+</ul>
+</div>
+<p>With the preceding index, a search for <code class="literal">+Quick +fox</code> wouldn&#8217;t match any
+documents. (Remember, a preceding <code class="literal">+</code> means that the word must be present.)
+Both the term <code class="literal">Quick</code> and the term <code class="literal">fox</code> have to be in the same document
+in order to satisfy the query, but the first doc contains <code class="literal">quick fox</code> and
+the second doc contains <code class="literal">Quick foxes</code>.</p>
+<p>Our user could reasonably expect both documents to match the query. We can do
+better.</p>
+<p>If we normalize the terms into a standard format, then we can find documents
+that contain terms that are not exactly the same as the user requested, but
+are similar enough to still be relevant. For instance:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<code class="literal">Quick</code> can be lowercased to become <code class="literal">quick</code>.
+</li>
+<li class="listitem">
+<code class="literal">foxes</code> can be <em>stemmed</em>--reduced to its root form&#8212;&#8203;to
+become <code class="literal">fox</code>. Similarly, <code class="literal">dogs</code> could be stemmed to <code class="literal">dog</code>.
+</li>
+<li class="listitem">
+<code class="literal">jumped</code> and <code class="literal">leap</code> are synonyms and can be indexed as just the
+single term <code class="literal">jump</code>.
+</li>
+</ul>
+</div>
+<p>Now the index looks like this:</p>
+<pre class="literallayout">Term      Doc_1  Doc_2
+-------------------------
+brown   |   X   |  X
+dog     |   X   |  X
+fox     |   X   |  X
+in      |       |  X
+jump    |   X   |  X
+lazy    |   X   |  X
+over    |   X   |  X
+quick   |   X   |  X
+summer  |       |  X
+the     |   X   |  X
+------------------------</pre>
+
+<p>But we&#8217;re not there yet. Our search for <code class="literal">+Quick +fox</code> would <em>still</em> fail,
+because we no longer have the exact term <code class="literal">Quick</code> in our index. However, if
+we apply the same normalization rules that we used on the <code class="literal">content</code> field to
+our query string, it would become a query for <code class="literal">+quick +fox</code>, which would
+match both documents!</p>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>This is very important. You can find only terms that exist in your
+index, so <em>both the indexed text and the query string must be normalized
+into the same form</em>.</p>
+</div>
+</div>
+<p>This process of tokenization and normalization is called <em>analysis</em>, which we
+discuss in the next section.</p>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="_exact_values_versus_full_text.html">« Exact Values Versus Full Text</a>
+</span>
+<span class="next">
+<a href="analysis-intro.html">Analysis and Analyzers »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

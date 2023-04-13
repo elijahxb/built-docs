@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Dictionary Stemmers | Elasticsearch: The Definitive Guide [main] | Elastic</title>
+<meta class="elastic" name="content" content="Dictionary Stemmers | Elasticsearch: The Definitive Guide [main]">
+
+<link rel="home" href="index.html" title="Elasticsearch: The Definitive Guide [main]"/>
+<link rel="up" href="stemming.html" title="Reducing Words to Their Root Form"/>
+<link rel="prev" href="algorithmic-stemmers.html" title="Algorithmic Stemmers"/>
+<link rel="next" href="hunspell.html" title="Hunspell Stemmer"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="Elasticsearch"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Legacy/Elasticsearch/Definitive Guide/main"/>
+<meta name="DC.subject" content="Elasticsearch"/>
+<meta name="DC.identifier" content="main"/>
+<meta name="robots" content="noindex,nofollow"/>
+</head>
+<body><div class="page_header">
+<p>
+  <strong>WARNING</strong>: This documentation covers Elasticsearch 2.x. The 2.x
+  versions of Elasticsearch have passed their
+  <a href="https://www.elastic.co/support/eol">EOL dates</a>. If you are running
+  a 2.x version, we strongly advise you to upgrade.
+</p>
+<p>
+  This documentation is no longer maintained and may be removed. For the latest
+  information, see the <a
+  href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">current
+  Elasticsearch documentation</a>.
+</p>
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch: The Definitive Guide [main]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="languages.html">Dealing with Human Language</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="stemming.html">Reducing Words to Their Root Form</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="algorithmic-stemmers.html">« Algorithmic Stemmers</a>
+</span>
+<span class="next">
+<a href="hunspell.html">Hunspell Stemmer »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="dictionary-stemmers"></a>Dictionary Stemmers<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/230_Stemming/20_Dictionary_stemmers.asciidoc">edit</a></h2>
+</div></div></div>
+<p><em>Dictionary stemmers</em> work quite differently from
+<a class="xref" href="algorithmic-stemmers.html" title="Algorithmic Stemmers">algorithmic stemmers</a>. Instead
+of applying a standard set of rules to each word, they simply look up the
+word in the dictionary.  Theoretically, they could produce much better
+results than an algorithmic stemmer. A dictionary stemmer should be able to do the following:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Return the correct root word for irregular forms such as <code class="literal">feet</code> and <code class="literal">mice</code>
+</li>
+<li class="listitem">
+Recognize the distinction between words that are similar but have
+different word senses&#x2014;for example, <code class="literal">organ</code> and <code class="literal">organization</code>
+</li>
+</ul>
+</div>
+<p>In practice, a good algorithmic stemmer usually outperforms a dictionary
+stemmer. There are a couple of reasons this should be so:</p>
+<div class="variablelist">
+<dl class="variablelist">
+<dt>
+<span class="term">
+Dictionary quality
+</span>
+</dt>
+<dd>
+<p>A dictionary stemmer is only as good as its dictionary.  The Oxford English
+Dictionary website estimates that the English language contains approximately
+750,000 words (when inflections are included). Most English dictionaries
+available for computers contain about 10% of those.</p>
+<p>The meaning of words changes with time.  While stemming <code class="literal">mobility</code> to <code class="literal">mobil</code>
+may have made sense previously, it now conflates the idea of mobility with a
+mobile phone. Dictionaries need to be kept current, which is a time-consuming
+task.  Often, by the time a dictionary has been made available, some of its
+entries are already out-of-date.</p>
+<p>If a dictionary stemmer encounters a word not in its dictionary, it doesn&#8217;t
+know how to deal with it.  An algorithmic stemmer, on the other hand, will
+apply the same rules as before, correctly or incorrectly.</p>
+</dd>
+<dt>
+<span class="term">
+Size and performance
+</span>
+</dt>
+<dd>
+<p>A dictionary stemmer needs to load all words, all prefixes, and all suffixes
+into memory. This can use a significant amount of RAM. Finding the right stem
+for a word is often considerably more complex than the equivalent process with
+an algorithmic stemmer.</p>
+<p>Depending on the quality of the dictionary, the process of removing prefixes
+and suffixes may be more or less efficient.  Less-efficient forms can slow
+the stemming process significantly.</p>
+<p>Algorithmic stemmers, on the other hand, are usually simple, small, and fast.</p>
+</dd>
+</dl>
+</div>
+<div class="tip admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>If a good algorithmic stemmer exists for your language, it is usually a
+better choice than a dictionary-based stemmer.  Languages with poor (or nonexistent) algorithmic stemmers can use the Hunspell dictionary stemmer, which
+we discuss in the next section.</p>
+</div>
+</div>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="algorithmic-stemmers.html">« Algorithmic Stemmers</a>
+</span>
+<span class="next">
+<a href="hunspell.html">Hunspell Stemmer »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ruby Agent version 0.x | APM Ruby Agent Reference [main] | Elastic</title>
+<meta class="elastic" name="content" content="Ruby Agent version 0.x | APM Ruby Agent Reference [main]">
+
+<link rel="home" href="index.html" title="APM Ruby Agent Reference [main]"/>
+<link rel="up" href="release-notes.html" title="Release notes"/>
+<link rel="prev" href="release-notes-1.x.html" title="Ruby Agent version 1.x"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="APM"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/APM Ruby Agent/Reference/main"/>
+<meta name="DC.subject" content="APM"/>
+<meta name="DC.identifier" content="main"/>
+</head>
+<body><div class="page_header">
+You are looking at preliminary documentation for a future release.
+Not what you want? See the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link">
+  <div id="related-products" class="dropdown">
+    <div class="related-products-title">APM:</div>
+    <div class="dropdown-anchor" tabindex="0">Ruby Agent Reference<span class="dropdown-icon"></span></div>
+    <div class="dropdown-content">
+      <ul>
+        <li class="dropdown-category">APM</li>
+        <ul>
+          <li><a href="/guide/en/apm/guide/current/apm-overview.html">User Guide</a></li>
+        </ul>
+        <li class="dropdown-category">APM agents</li>
+        <ul>
+          <li><a href="/guide/en/apm/agent/android/current/intro.html">Android Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/go/current/introduction.html">Go Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/swift/current/intro.html">iOS Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/java/current/intro.html">Java Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/dotnet/current/intro.html">.NET Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/nodejs/current/intro.html">Node.js Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/php/current/intro.html">PHP Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/python/current/getting-started.html">Python Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/ruby/current/introduction.html">Ruby Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/rum-js/current/intro.html">Real User Monitoring JavaScript Agent Reference</a></li>
+        </ul>
+        <li class="dropdown-category">APM extensions</li>
+        <ul>
+          <li><a href="/guide/en/apm/lambda/current/aws-lambda-arch.html">Monitoring AWS Lambda Functions</a></li>
+          <li><a href="/guide/en/apm/attacher/current/apm-attacher.html">Attacher</a></li>
+        </ul>
+      </ul>
+    </div>
+  </div>
+</span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="release-notes.html">Release notes</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="release-notes-1.x.html">« Ruby Agent version 1.x</a>
+</span>
+<span class="next">
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="release-notes-0.x"></a>Ruby Agent version 0.x<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-ruby/edit/main/CHANGELOG.asciidoc">edit</a></h2>
+</div></div></div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="release-notes-0.8.0"></a>0.8.0 (2018-06-13)<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-ruby/edit/main/CHANGELOG.asciidoc">edit</a></h3>
+</div></div></div>
+<h5><a id="_added_38"></a>Added<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-ruby/edit/main/CHANGELOG.asciidoc">edit</a></h5>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Added an option to disable metrics collection <a href="https://github.com/elastic/apm-agent-ruby/pull/145" class="ulink" target="_top">#145</a>
+</li>
+<li class="listitem">
+Filters can cancel the entire payload by returning <code class="literal">nil</code> <a href="https://github.com/elastic/apm-agent-ruby/pull/148" class="ulink" target="_top">#148</a>
+</li>
+<li class="listitem">
+Added <code class="literal">ENV</code> version of the logging options <a href="https://github.com/elastic/apm-agent-ruby/pull/146" class="ulink" target="_top">#146</a>
+</li>
+<li class="listitem">
+Added <code class="literal">config.ignore_url_patterns</code> <a href="https://github.com/elastic/apm-agent-ruby/pull/151" class="ulink" target="_top">#151</a>
+</li>
+</ul>
+</div>
+<h5><a id="_changed_23"></a>Changed<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-ruby/edit/main/CHANGELOG.asciidoc">edit</a></h5>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Use concurrent-ruby&#8217;s TimerTask instead of <code class="literal">Thread#sleep</code>. Adds dependency on <code class="literal">concurrent-ruby</code>. <a href="https://github.com/elastic/apm-agent-ruby/pull/141" class="ulink" target="_top">#141</a>
+</li>
+</ul>
+</div>
+<h5><a id="_fixed_46"></a>Fixed<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-ruby/edit/main/CHANGELOG.asciidoc">edit</a></h5>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Remove newline on <code class="literal">hostname</code>
+</li>
+<li class="listitem">
+Fixed ActionMailer spans renaming their transaction
+</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="release-notes-0.7.4"></a>0.7.4 - 2018-06-07<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-ruby/edit/main/CHANGELOG.asciidoc">edit</a></h3>
+</div></div></div>
+<p>Beginning of this document</p>
+<h5><a id="_fixed_47"></a>Fixed<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-ruby/edit/main/CHANGELOG.asciidoc">edit</a></h5>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Fix overwriting custom logger with Rails'
+</li>
+</ul>
+</div>
+</div>
+
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="release-notes-1.x.html">« Ruby Agent version 1.x</a>
+</span>
+<span class="next">
+</span>
+</div>
+</div>
+</body>
+</html>

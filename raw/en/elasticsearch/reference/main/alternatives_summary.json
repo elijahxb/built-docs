@@ -1,0 +1,22 @@
+{
+  "console": {
+    "total": 3743,
+    "alternatives": {
+      "php": {
+        "found": 75
+      },
+      "python": {
+        "found": 74
+      },
+      "ruby": {
+        "found": 1525
+      },
+      "go": {
+        "found": 200
+      },
+      "js": {
+        "found": 74
+      }
+    }
+  }
+}

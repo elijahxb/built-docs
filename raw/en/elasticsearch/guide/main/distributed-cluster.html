@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Life Inside a Cluster | Elasticsearch: The Definitive Guide [main] | Elastic</title>
+<meta class="elastic" name="content" content="Life Inside a Cluster | Elasticsearch: The Definitive Guide [main]">
+
+<link rel="home" href="index.html" title="Elasticsearch: The Definitive Guide [main]"/>
+<link rel="up" href="getting-started.html" title="Getting Started"/>
+<link rel="prev" href="_next_steps.html" title="Next Steps"/>
+<link rel="next" href="_an_empty_cluster.html" title="An Empty Cluster"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="Elasticsearch"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Legacy/Elasticsearch/Definitive Guide/main"/>
+<meta name="DC.subject" content="Elasticsearch"/>
+<meta name="DC.identifier" content="main"/>
+<meta name="robots" content="noindex,nofollow"/>
+</head>
+<body><div class="page_header">
+<p>
+  <strong>WARNING</strong>: This documentation covers Elasticsearch 2.x. The 2.x
+  versions of Elasticsearch have passed their
+  <a href="https://www.elastic.co/support/eol">EOL dates</a>. If you are running
+  a 2.x version, we strongly advise you to upgrade.
+</p>
+<p>
+  This documentation is no longer maintained and may be removed. For the latest
+  information, see the <a
+  href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">current
+  Elasticsearch documentation</a>.
+</p>
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch: The Definitive Guide [main]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="getting-started.html">Getting Started</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="_next_steps.html">« Next Steps</a>
+</span>
+<span class="next">
+<a href="_an_empty_cluster.html">An Empty Cluster »</a>
+</span>
+</div>
+<div class="chapter">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="distributed-cluster"></a>Life Inside a Cluster<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/020_Distributed_Cluster/00_Intro.asciidoc">edit</a></h2>
+</div></div></div>
+<div class="sidebar">
+<div class="titlepage"><div><div>
+<p class="title"><strong>Supplemental Chapter</strong></p>
+</div></div></div>
+<p>As mentioned earlier, this is the first of several supplemental chapters
+about how Elasticsearch operates in a distributed environment.  In this
+chapter, we explain commonly used terminology like <em>cluster</em>, <em>node</em>, and
+<em>shard</em>, the mechanics of how Elasticsearch scales out, and how it deals with
+hardware failure.</p>
+<p>Although this chapter is not required reading&#8212;&#8203;you can use Elasticsearch for
+a long time without worrying about shards, replication, and failover&#8212;&#8203;it will
+help you to understand the processes at work inside Elasticsearch. Feel free
+to skim through the chapter and to refer to it again later.</p>
+</div>
+<p>Elasticsearch is built to be always available, and to scale with your needs.
+Scale can come from buying bigger servers (<em>vertical scale</em>, or <em>scaling up</em>)
+or from buying more servers (<em>horizontal scale</em>, or <em>scaling out</em>).</p>
+<p>While Elasticsearch can benefit from more-powerful hardware, vertical scale
+has its limits. Real scalability comes from horizontal scale&#8212;&#8203;the ability to
+add more nodes to the cluster and to spread load and reliability between them.</p>
+<p>With most databases, scaling horizontally usually requires a major overhaul of
+your application to take advantage of these extra boxes. In contrast,
+Elasticsearch is <em>distributed</em> by nature: it knows how to manage multiple
+nodes to provide scale and high availability.  This also means that your
+application doesn&#8217;t need to care about it.</p>
+<p>In this chapter, we show how you can set up your cluster,
+nodes, and shards to scale with your needs and to ensure that your data is
+safe from hardware failure.</p>
+
+
+
+
+
+
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="_next_steps.html">« Next Steps</a>
+</span>
+<span class="next">
+<a href="_an_empty_cluster.html">An Empty Cluster »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

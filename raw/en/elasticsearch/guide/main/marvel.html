@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Marvel for Monitoring | Elasticsearch: The Definitive Guide [main] | Elastic</title>
+<meta class="elastic" name="content" content="Marvel for Monitoring | Elasticsearch: The Definitive Guide [main]">
+
+<link rel="home" href="index.html" title="Elasticsearch: The Definitive Guide [main]"/>
+<link rel="up" href="cluster-admin.html" title="Monitoring"/>
+<link rel="prev" href="cluster-admin.html" title="Monitoring"/>
+<link rel="next" href="_cluster_health.html" title="Cluster Health"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="Elasticsearch"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Legacy/Elasticsearch/Definitive Guide/main"/>
+<meta name="DC.subject" content="Elasticsearch"/>
+<meta name="DC.identifier" content="main"/>
+<meta name="robots" content="noindex,nofollow"/>
+</head>
+<body><div class="page_header">
+<p>
+  <strong>WARNING</strong>: This documentation covers Elasticsearch 2.x. The 2.x
+  versions of Elasticsearch have passed their
+  <a href="https://www.elastic.co/support/eol">EOL dates</a>. If you are running
+  a 2.x version, we strongly advise you to upgrade.
+</p>
+<p>
+  This documentation is no longer maintained and may be removed. For the latest
+  information, see the <a
+  href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">current
+  Elasticsearch documentation</a>.
+</p>
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch: The Definitive Guide [main]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="administration.html">Administration, Monitoring, and Deployment</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="cluster-admin.html">Monitoring</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="cluster-admin.html">« Monitoring</a>
+</span>
+<span class="next">
+<a href="_cluster_health.html">Cluster Health »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="marvel"></a>Marvel for Monitoring<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/500_Cluster_Admin/15_marvel.asciidoc">edit</a></h2>
+</div></div></div>
+<p><a href="/guide/en/marvel/current/index.html" class="ulink" target="_top">Marvel</a> enables
+you to easily monitor Elasticsearch through Kibana. You can view your
+cluster’s health and performance in real time as well as analyze
+past cluster, index, and node metrics.</p>
+<p>While you can access a large number of statistics through the APIs described
+in this chapter, they only show you what&#8217;s going on at a single point in time.
+Knowing memory usage at this instant is helpful, but knowing
+memory usage <em>over time</em> is much more useful. Marvel queries and aggregates
+the metrics so you can visualize your cluster&#8217;s
+behavior over time, which makes it easy to spot trends.</p>
+<p>As your cluster grows, the output from the stats APIs can get truly hairy.
+Once you have a dozen nodes, let alone a hundred, reading through stacks of JSON
+becomes very tedious. Marvel lets you explore the data interactively and
+makes it easy to zero in on what&#8217;s going on with particular nodes or indices.</p>
+<p>Marvel uses the same stats APIs that are available to you&#8212;&#8203;it does not expose
+any statistics that you can&#8217;t access through the APIs.  However, Marvel greatly
+simplifies the collection and visualization of those statistics.</p>
+<p>Marvel is free to use (even in production!), so you should definitely try it out!
+For installation instructions, see
+<a href="/guide/en/marvel/current/getting-started.html" class="ulink" target="_top">Getting Started with Marvel</a>.</p>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="cluster-admin.html">« Monitoring</a>
+</span>
+<span class="next">
+<a href="_cluster_health.html">Cluster Health »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

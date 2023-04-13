@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Custom Transactions | APM Real User Monitoring JavaScript Agent Reference [main] | Elastic</title>
+<meta class="elastic" name="content" content="Custom Transactions | APM Real User Monitoring JavaScript Agent Reference [main]">
+
+<link rel="home" href="index.html" title="APM Real User Monitoring JavaScript Agent Reference [main]"/>
+<link rel="up" href="advanced-topics.html" title="Advanced Topics"/>
+<link rel="prev" href="custom-transaction-name.html" title="Custom page load transaction names"/>
+<link rel="next" href="performance-tuning.html" title="Performance Tuning"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="APM"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/APM Real User Monitoring JavaScript Agent/Reference/main"/>
+<meta name="DC.subject" content="APM"/>
+<meta name="DC.identifier" content="main"/>
+</head>
+<body><div class="page_header">
+You are looking at preliminary documentation for a future release.
+Not what you want? See the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link">
+  <div id="related-products" class="dropdown">
+    <div class="related-products-title">APM:</div>
+    <div class="dropdown-anchor" tabindex="0">Real User Monitoring JavaScript Agent Reference<span class="dropdown-icon"></span></div>
+    <div class="dropdown-content">
+      <ul>
+        <li class="dropdown-category">APM</li>
+        <ul>
+          <li><a href="/guide/en/apm/guide/current/apm-overview.html">User Guide</a></li>
+        </ul>
+        <li class="dropdown-category">APM agents</li>
+        <ul>
+          <li><a href="/guide/en/apm/agent/android/current/intro.html">Android Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/go/current/introduction.html">Go Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/swift/current/intro.html">iOS Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/java/current/intro.html">Java Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/dotnet/current/intro.html">.NET Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/nodejs/current/intro.html">Node.js Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/php/current/intro.html">PHP Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/python/current/getting-started.html">Python Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/ruby/current/introduction.html">Ruby Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/rum-js/current/intro.html">Real User Monitoring JavaScript Agent Reference</a></li>
+        </ul>
+        <li class="dropdown-category">APM extensions</li>
+        <ul>
+          <li><a href="/guide/en/apm/lambda/current/aws-lambda-arch.html">Monitoring AWS Lambda Functions</a></li>
+          <li><a href="/guide/en/apm/attacher/current/apm-attacher.html">Attacher</a></li>
+        </ul>
+      </ul>
+    </div>
+  </div>
+</span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="advanced-topics.html">Advanced Topics</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="custom-transaction-name.html">« Custom page load transaction names</a>
+</span>
+<span class="next">
+<a href="performance-tuning.html">Performance Tuning »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="custom-transactions"></a>Custom Transactions<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-rum-js/edit/main/docs/custom-transactions.asciidoc">edit</a></h2>
+</div></div></div>
+<p>Elastic APM uses the concept of transactions and spans to collect performance data:
+Spans measure a unit of operation and are grouped into transactions.</p>
+<p>By default, the Elastic APM JS agent creates transactions for all <a class="xref" href="supported-technologies.html" title="Supported Technologies">supported technologies</a> and
+sends them to the apm-server. However, if the current instrumentation doesn&#8217;t provide all the insights, you can create
+custom transactions to fill the gaps.</p>
+<p>Here is an example of using custom transactions and spans:</p>
+<div class="pre_wrapper lang-js">
+<pre class="programlisting prettyprint lang-js">const transaction = apm.startTransaction('Application start', 'custom')
+const url = 'http://example.com/data.json'
+const httpSpan = transaction.startSpan('GET ' + url, 'external.http')
+fetch(url)
+  .then((resp) =&gt; {
+    if (!resp.ok) {
+      apm.captureError(new Error(`fetch failed with status ${resp.status} ${resp.statusText}`))
+    }
+    httpSpan.end()
+    transaction.end()
+  })</pre>
+</div>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>Custom transactions are not managed by the agent, and therefore the agent does not capture spans and
+other timing information shown in <a class="xref" href="supported-technologies.html" title="Supported Technologies">automatic instrumentation</a>, like XHR, resource timing, etc.</p>
+</div>
+</div>
+<h4><a id="custom-managed-transactions"></a>Creating a Managed transaction<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-rum-js/edit/main/docs/custom-transactions.asciidoc">edit</a></h4>
+<p>If the user is interested in associating all the other timing information and spans in the custom transactions based
+on the <a class="xref" href="supported-technologies.html" title="Supported Technologies">supported technologies</a>, they can pass the <code class="literal">managed</code> flag to <code class="literal">true</code> while creating the
+transaction and will be controlled by the agent. However, the transaction might get closed automatically once all the
+associated spans are completed. If the user wants to control this behavior, they can create a blocking span that will
+hold the transaction until <code class="literal">span.end</code> is called.</p>
+<div class="pre_wrapper lang-js">
+<pre class="programlisting prettyprint lang-js">const transaction = apm.startTransaction('custom managed', 'custom', { managed: true })
+const span = transaction.startSpan('async-task', 'app', { blocking: true })
+
+setTimeout(() =&gt; {
+  span.end()
+  /**
+   * This would also end the managed transaction once all the blocking spans are completed and
+   * transaction would also contain other timing information and spans similar to auto
+   * instrumented transactions like `page-load` and `route-change`.
+   */
+}, 1000)</pre>
+</div>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>Both custom and managed transactions are queued and sent together automatically at configured intervals after <code class="literal">transaction.end</code> is called.</p>
+</div>
+</div>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="custom-transaction-name.html">« Custom page load transaction names</a>
+</span>
+<span class="next">
+<a href="performance-tuning.html">Performance Tuning »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

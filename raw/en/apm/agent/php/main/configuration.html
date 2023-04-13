@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Configuration | APM PHP Agent Reference [main] | Elastic</title>
+<meta class="elastic" name="content" content="Configuration | APM PHP Agent Reference [main]">
+
+<link rel="home" href="index.html" title="APM PHP Agent Reference [main]"/>
+<link rel="up" href="index.html" title="APM PHP Agent Reference [main]"/>
+<link rel="prev" href="supported-technologies.html" title="Supported technologies"/>
+<link rel="next" href="configuration-reference.html" title="Configuration reference"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="APM"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/APM PHP Agent/Reference/main"/>
+<meta name="DC.subject" content="APM"/>
+<meta name="DC.identifier" content="main"/>
+</head>
+<body><div class="page_header">
+You are looking at preliminary documentation for a future release.
+Not what you want? See the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link">
+  <div id="related-products" class="dropdown">
+    <div class="related-products-title">APM:</div>
+    <div class="dropdown-anchor" tabindex="0">PHP Agent Reference<span class="dropdown-icon"></span></div>
+    <div class="dropdown-content">
+      <ul>
+        <li class="dropdown-category">APM</li>
+        <ul>
+          <li><a href="/guide/en/apm/guide/current/apm-overview.html">User Guide</a></li>
+        </ul>
+        <li class="dropdown-category">APM agents</li>
+        <ul>
+          <li><a href="/guide/en/apm/agent/android/current/intro.html">Android Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/go/current/introduction.html">Go Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/swift/current/intro.html">iOS Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/java/current/intro.html">Java Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/dotnet/current/intro.html">.NET Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/nodejs/current/intro.html">Node.js Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/php/current/intro.html">PHP Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/python/current/getting-started.html">Python Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/ruby/current/introduction.html">Ruby Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/rum-js/current/intro.html">Real User Monitoring JavaScript Agent Reference</a></li>
+        </ul>
+        <li class="dropdown-category">APM extensions</li>
+        <ul>
+          <li><a href="/guide/en/apm/lambda/current/aws-lambda-arch.html">Monitoring AWS Lambda Functions</a></li>
+          <li><a href="/guide/en/apm/attacher/current/apm-attacher.html">Attacher</a></li>
+        </ul>
+      </ul>
+    </div>
+  </div>
+</span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="supported-technologies.html">« Supported technologies</a>
+</span>
+<span class="next">
+<a href="configuration-reference.html">Configuration reference »</a>
+</span>
+</div>
+<div class="chapter">
+<div class="titlepage"><div><div>
+<h1 class="title"><a id="configuration"></a>Configuration<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-php/edit/main/docs/configuration.asciidoc">edit</a></h1>
+</div></div></div>
+<p>Utilize configuration options to adapt the Elastic APM agent to your needs.
+One way to configure settings is with the <code class="literal">php.ini</code> file:</p>
+<div class="pre_wrapper lang-ini">
+<pre class="programlisting prettyprint lang-ini">elastic_apm.server_url=http://localhost:8200
+elastic_apm.service_name="My service"</pre>
+</div>
+<p>The agent can also be configured using environment variables:</p>
+<div class="pre_wrapper lang-shell">
+<pre class="programlisting prettyprint lang-shell">export ELASTIC_APM_SERVER_URL="http://localhost:8200"
+export ELASTIC_APM_SERVICE_NAME="My service"</pre>
+</div>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>If you use environment variables to configure the agent, make sure the process running your PHP code inherits those environment variables after they were set.</p>
+</div>
+</div>
+<h3><a id="configure-ess"></a>Elasticsearch Service on Elastic Cloud<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-php/edit/main/docs/configuration.asciidoc">edit</a></h3>
+<p>The agent can be configured to send data to an <a href="/cloud/elasticsearch-service?baymax=docs-body&amp;elektra=docs" class="ulink" target="_top">Elasticsearch Service APM instance</a> by
+setting the <a class="xref" href="configuration-reference.html#config-server-url" title="server_url"><code class="literal">server_url</code></a> and <a class="xref" href="configuration-reference.html#config-secret-token" title="secret_token"><code class="literal">secret_token</code></a> options
+to the corresponding values found in the APM &amp; Fleet section of Elastic Cloud.</p>
+<p>Configure the agent, for example via <code class="literal">php.ini</code>:</p>
+<div class="pre_wrapper lang-ini">
+<pre class="programlisting prettyprint lang-ini">elastic_apm.server_url=APM_SERVER_URL
+elastic_apm.secret_token=TOKEN
+elastic_apm.service_name=SERVICE_NAME</pre>
+</div>
+<h3><a id="configure-logging"></a>Logging<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-php/edit/main/docs/configuration.asciidoc">edit</a></h3>
+<p>The easiest way to configure the logging is by using the <a class="xref" href="configuration-reference.html#config-log-level-syslog" title="log_level_syslog"><code class="literal">log_level_syslog</code></a> configuration option.</p>
+<p>Available log levels are:</p>
+<div class="pre_wrapper lang-text">
+<pre class="programlisting prettyprint lang-text">OFF
+CRITICAL
+ERROR
+WARNING
+INFO
+DEBUG
+TRACE</pre>
+</div>
+<p>For example, if you specify a <code class="literal">WARNING</code> log level, only log records with levels <code class="literal">WARNING</code>, <code class="literal">ERROR</code>, and <code class="literal">CRITICAL</code>
+will be emitted.</p>
+<p><code class="literal">OFF</code> is only used to disable agent logging.</p>
+<p>The agent supports logging to the following sinks: syslog and stderr.
+Control the level of logging for individual sinks with the
+<a class="xref" href="configuration-reference.html#config-log-level-syslog" title="log_level_syslog"><code class="literal">log_level_syslog</code></a> and <a class="xref" href="configuration-reference.html#config-log-level-stderr" title="log_level_stderr"><code class="literal">log_level_stderr</code></a> options.
+When a sink-specific logging level is not explicitly set, the fallback setting
+<a class="xref" href="configuration-reference.html#config-log-level" title="log_level"><code class="literal">log_level</code></a> will be used.</p>
+<p>For example, the following configuration sets the log level to <code class="literal">WARNING</code> for all the sinks:</p>
+<div class="pre_wrapper lang-ini">
+<pre class="programlisting prettyprint lang-ini">elastic_apm.log_level=WARNING</pre>
+</div>
+<p>Alternatively, the following configuration sets log level to <code class="literal">WARNING</code> for all the sinks
+except for <code class="literal">syslog</code>, where the log level is set to <code class="literal">TRACE</code>.</p>
+<div class="pre_wrapper lang-ini">
+<pre class="programlisting prettyprint lang-ini">elastic_apm.log_level=WARNING
+elastic_apm.log_level_syslog=TRACE</pre>
+</div>
+<h3><a id="configure-duration-format"></a>Duration format<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-php/edit/main/docs/configuration.asciidoc">edit</a></h3>
+<p>The <em>duration</em> format is used for configuration options like timeouts.
+The units are provided as a suffix
+either directly after the number or separated by any amount of whitespace.
+The units are case insensitive so they can be provided in either lower, upper or even mixed case.</p>
+<p><span class="strong strong"><strong>Supported units:</strong></span></p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<code class="literal">ms</code> (milliseconds)
+</li>
+<li class="listitem">
+<code class="literal">s</code> (seconds)
+</li>
+<li class="listitem">
+<code class="literal">m</code> (minutes)
+</li>
+</ul>
+</div>
+<p><span class="strong strong"><strong>Example:</strong></span> <code class="literal">5m</code> (interpreted as 5 minutes) or <code class="literal">10 mS</code> (interpreted as 10 milliseconds).</p>
+<p><span class="strong strong"><strong>Default units:</strong></span> Each configuration option with value specifiying a duration has default units.
+This allows omitting the units in option value.
+For example if option&#8217;s default units are <code class="literal">s</code> (seconds) then value <code class="literal">10</code> is interpreted as 10 seconds.</p>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>Different configuration options might have different default units
+so it&#8217;s always preferable to provide units explicitly.</p>
+</div>
+</div>
+<h3><a id="configure-size-format"></a>Size format<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-php/edit/main/docs/configuration.asciidoc">edit</a></h3>
+<p>The <em>size</em> format is used for options such as maximum buffer sizes.
+The units are provided as a suffix
+either directly after the number or separated by any amount of whitespace.
+The units are case insensitive so they can be provided in either lower, upper or even mixed case.</p>
+<p><span class="strong strong"><strong>Supported units:</strong></span></p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+B (bytes)
+</li>
+<li class="listitem">
+KB (kilobytes)
+</li>
+<li class="listitem">
+MB (megabytes)
+</li>
+<li class="listitem">
+GB (gigabytes)
+</li>
+</ul>
+</div>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>We use the power-of-two sizing convention, e.g. 1KB = 1024B.</p>
+</div>
+</div>
+<p><span class="strong strong"><strong>Example:</strong></span> <code class="literal">34KB</code> (interpreted as 34 kilobytes) or <code class="literal">78 mB</code> (interpreted as 78 megabytes).</p>
+<p><span class="strong strong"><strong>Default units:</strong></span> Each configuration option with value specifiying a size has default units.
+This allows omitting the units in option value.
+For example if option&#8217;s default units are <code class="literal">KB</code> (kilobytes) then value <code class="literal">10</code> is interpreted as 10 kilobytes.</p>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>Different configuration options might have different default units
+so it&#8217;s always preferable to provide units explicitly.</p>
+</div>
+</div>
+<h3><a id="configure-wildcard"></a>Wildcard<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-php/edit/main/docs/configuration.asciidoc">edit</a></h3>
+<p>Some options (for example <a class="xref" href="configuration-reference.html#config-url-groups" title="url_groups"><code class="literal">url_groups</code></a>) support use of wildcard.
+A valid value for such configuration options is a comma separated list of wildcard expressions.
+Only the wildcard <code class="literal">*</code>, which matches zero or more characters, is supported.</p>
+<p>Examples: <code class="literal">*foo*</code>, <code class="literal">/foo/*/bar, /*/baz*</code>.</p>
+<p>Matching is case insensitive by default.
+Prepending an element with <code class="literal">(?-i)</code> makes the matching case sensitive.
+For example <code class="literal">(?-i)/bar, /foo</code> matches /bar` and <code class="literal">/FOO</code> <code class="literal">but it doesn't match `/BAR</code>
+on the other hand <code class="literal">(?-i)/bar, (?-i)/foo</code> matches <code class="literal">/bar</code> and <code class="literal">/foo</code>
+but doesn&#8217;t match neither <code class="literal">/BAR</code> nor <code class="literal">/FOO</code>.</p>
+<p>Whitespace around commas separating wildcard expressions in the list is ignored.
+For example <code class="literal">foo , bar</code> is the same as <code class="literal">foo,bar</code>.
+On the other hand whitespace inside wildcard expressions is significant.
+For example <code class="literal">*a b*</code> matches a string only if it contains <code class="literal">a</code> followed by space and then <code class="literal">b</code>.</p>
+<p>The input string is matched against wildcard expressions in the order they are listed
+and the first expression that matches is selected.</p>
+<p>When configuration option is intended to matched against a input URL
+(for example <a class="xref" href="configuration-reference.html#config-url-groups" title="url_groups"><code class="literal">url_groups</code></a> and <a class="xref" href="configuration-reference.html#config-transaction-ignore-urls" title="transaction_ignore_urls"><code class="literal">transaction_ignore_urls</code></a>)
+only path part of the URL is tested against wildcard expressions.
+Other parts of the URL (such as query string, etc.) are not taken into account
+so including them in the wildcard expressions might lead to unexpected result.
+For example <code class="literal">/user/*</code> matches <code class="literal">http://my_site.com/user/Alice?lang=en</code>
+while <code class="literal">/user/*?lang=*</code> does not match <code class="literal">http://my_site.com/user/Alice?lang=en</code></p>
+
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="supported-technologies.html">« Supported technologies</a>
+</span>
+<span class="next">
+<a href="configuration-reference.html">Configuration reference »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

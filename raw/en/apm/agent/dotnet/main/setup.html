@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Set up the Agent | APM .NET Agent Reference [main] | Elastic</title>
+<meta class="elastic" name="content" content="Set up the Agent | APM .NET Agent Reference [main]">
+
+<link rel="home" href="index.html" title="APM .NET Agent Reference [main]"/>
+<link rel="up" href="index.html" title="APM .NET Agent Reference [main]"/>
+<link rel="prev" href="intro.html" title="Introduction"/>
+<link rel="next" href="setup-auto-instrumentation.html" title="Profiler Auto instrumentation"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="APM"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/APM .NET Agent/Reference/main"/>
+<meta name="DC.subject" content="APM"/>
+<meta name="DC.identifier" content="main"/>
+</head>
+<body><div class="page_header">
+You are looking at preliminary documentation for a future release.
+Not what you want? See the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link">
+  <div id="related-products" class="dropdown">
+    <div class="related-products-title">APM:</div>
+    <div class="dropdown-anchor" tabindex="0">.NET Agent Reference<span class="dropdown-icon"></span></div>
+    <div class="dropdown-content">
+      <ul>
+        <li class="dropdown-category">APM</li>
+        <ul>
+          <li><a href="/guide/en/apm/guide/current/apm-overview.html">User Guide</a></li>
+        </ul>
+        <li class="dropdown-category">APM agents</li>
+        <ul>
+          <li><a href="/guide/en/apm/agent/android/current/intro.html">Android Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/go/current/introduction.html">Go Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/swift/current/intro.html">iOS Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/java/current/intro.html">Java Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/dotnet/current/intro.html">.NET Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/nodejs/current/intro.html">Node.js Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/php/current/intro.html">PHP Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/python/current/getting-started.html">Python Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/ruby/current/introduction.html">Ruby Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/rum-js/current/intro.html">Real User Monitoring JavaScript Agent Reference</a></li>
+        </ul>
+        <li class="dropdown-category">APM extensions</li>
+        <ul>
+          <li><a href="/guide/en/apm/lambda/current/aws-lambda-arch.html">Monitoring AWS Lambda Functions</a></li>
+          <li><a href="/guide/en/apm/attacher/current/apm-attacher.html">Attacher</a></li>
+        </ul>
+      </ul>
+    </div>
+  </div>
+</span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="intro.html">« Introduction</a>
+</span>
+<span class="next">
+<a href="setup-auto-instrumentation.html">Profiler Auto instrumentation »</a>
+</span>
+</div>
+<div class="chapter">
+<div class="titlepage"><div><div>
+<h1 class="title"><a id="setup"></a>Set up the Agent<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-dotnet/edit/main/docs/setup.asciidoc">edit</a></h1>
+</div></div></div>
+<p>The .NET agent can be added to an application in three different ways</p>
+<div class="variablelist">
+<dl class="variablelist">
+<dt>
+<span class="term">
+Profiler runtime instrumentation
+</span>
+</dt>
+<dd>
+The agent supports auto instrumentation without any code change and without
+any recompilation of your projects. See <a class="xref" href="setup-auto-instrumentation.html" title="Profiler Auto instrumentation">Profiler Auto instrumentation</a>.
+</dd>
+<dt>
+<span class="term">
+NuGet packages
+</span>
+</dt>
+<dd>
+The agent ships as a set of <a class="xref" href="packages.html" title="NuGet packages">NuGet packages</a> available on <a href="https://nuget.org" class="ulink" target="_top">nuget.org</a>.
+You can add the Agent and specific instrumentations to a .NET application by
+referencing one or more of these packages and following the package documentation.
+</dd>
+<dt>
+<span class="term">
+Host startup hook
+</span>
+</dt>
+<dd>
+On <span class="strong strong"><strong>.NET Core 3.0+ or .NET 5+</strong></span>, the agent supports auto instrumentation without any code change and without
+any recompilation of your projects. See <a class="xref" href="setup-dotnet-net-core.html#zero-code-change-setup" title="Zero code change setup on .NET Core and .NET 5+ ()">Zero code change setup on .NET Core</a>
+for more details.
+</dd>
+</dl>
+</div>
+<h2><a id="_get_started"></a>Get started<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-dotnet/edit/main/docs/setup.asciidoc">edit</a></h2>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<a class="xref" href="setup-auto-instrumentation.html" title="Profiler Auto instrumentation">Profiler Auto instrumentation</a>
+</li>
+<li class="listitem">
+<a class="xref" href="setup-asp-net-core.html" title="ASP.NET Core">ASP.NET Core</a>
+</li>
+<li class="listitem">
+<a class="xref" href="setup-dotnet-net-core.html" title=".NET Core">.NET Core</a>
+</li>
+<li class="listitem">
+<a class="xref" href="setup-asp-dot-net.html" title="ASP.NET">ASP.NET</a>
+</li>
+<li class="listitem">
+<a class="xref" href="setup-azure-functions.html" title="Azure Functions">Azure Functions</a>
+</li>
+<li class="listitem">
+<a class="xref" href="setup-general.html" title="Other .NET applications">Manual instrumentation</a>
+</li>
+</ul>
+</div>
+
+
+
+
+
+
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="intro.html">« Introduction</a>
+</span>
+<span class="next">
+<a href="setup-auto-instrumentation.html">Profiler Auto instrumentation »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

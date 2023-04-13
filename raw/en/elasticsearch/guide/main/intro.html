@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>You Know, for Search&#8230;&#8203; | Elasticsearch: The Definitive Guide [main] | Elastic</title>
+<meta class="elastic" name="content" content="You Know, for Search&#8230;&#8203; | Elasticsearch: The Definitive Guide [main]">
+
+<link rel="home" href="index.html" title="Elasticsearch: The Definitive Guide [main]"/>
+<link rel="up" href="getting-started.html" title="Getting Started"/>
+<link rel="prev" href="getting-started.html" title="Getting Started"/>
+<link rel="next" href="running-elasticsearch.html" title="Installing and Running Elasticsearch"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="Elasticsearch"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Legacy/Elasticsearch/Definitive Guide/main"/>
+<meta name="DC.subject" content="Elasticsearch"/>
+<meta name="DC.identifier" content="main"/>
+<meta name="robots" content="noindex,nofollow"/>
+</head>
+<body><div class="page_header">
+<p>
+  <strong>WARNING</strong>: This documentation covers Elasticsearch 2.x. The 2.x
+  versions of Elasticsearch have passed their
+  <a href="https://www.elastic.co/support/eol">EOL dates</a>. If you are running
+  a 2.x version, we strongly advise you to upgrade.
+</p>
+<p>
+  This documentation is no longer maintained and may be removed. For the latest
+  information, see the <a
+  href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">current
+  Elasticsearch documentation</a>.
+</p>
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch: The Definitive Guide [main]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="getting-started.html">Getting Started</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="getting-started.html">« Getting Started</a>
+</span>
+<span class="next">
+<a href="running-elasticsearch.html">Installing and Running Elasticsearch »</a>
+</span>
+</div>
+<div class="chapter">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="intro"></a>You Know, for Search&#8230;&#8203;<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/010_Intro/05_What_is_it.asciidoc">edit</a></h2>
+</div></div></div>
+<p>Elasticsearch is an open-source search engine built on top of
+<a href="https://lucene.apache.org/core/" class="ulink" target="_top">Apache Lucene&#8482;</a>, a full-text search-engine
+library.  Lucene is arguably the most advanced, high-performance, and fully featured
+search engine library in existence today&#8212;&#8203;both open source and proprietary.</p>
+<p>But Lucene is just a library. To leverage its power, you need to work in Java
+and to integrate Lucene directly with your application. Worse, you will likely
+require a degree in information retrieval to understand how it works.  Lucene
+is <em>very</em> complex.</p>
+<p>Elasticsearch is also written in Java and uses Lucene internally for all of
+its indexing and searching, but it aims to make full-text search easy by hiding
+the complexities of Lucene behind a simple, coherent, RESTful API.</p>
+<p>However, Elasticsearch is much more than just Lucene and much more than
+&#8220;just&#8221; full-text search. It can also be described as follows:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+A distributed real-time document store where <em>every field</em> is indexed and
+searchable
+</li>
+<li class="listitem">
+A distributed search engine with real-time analytics
+</li>
+<li class="listitem">
+Capable of scaling to hundreds of servers and petabytes of structured
+and unstructured data
+</li>
+</ul>
+</div>
+<p>And it packages up all this functionality into a standalone server that
+your application can talk to via a simple RESTful API, using a web client from
+your favorite programming language, or even from the command line.</p>
+<p>It is easy to get started with Elasticsearch. It ships with sensible defaults
+and hides complicated search theory away from beginners. It <em>just works</em>,
+right out of the box. With minimal understanding, you can soon become
+productive.</p>
+<p>As your knowledge grows, you can leverage more of Elasticsearch&#8217;s advanced
+features. The entire engine is configurable and flexible. Pick and choose
+from the advanced features to tailor Elasticsearch to your problem domain.</p>
+<p>You can  download, use, and modify Elasticsearch free of charge.
+It is available under the <a href="http://www.apache.org/licenses/LICENSE-2.0.html" class="ulink" target="_top">Apache 2 license</a>,
+one of the most flexible open source licenses available. The source is hosted on GitHub
+at <a href="https://github.com/elastic/elasticsearch" class="ulink" target="_top">github.com/elastic/elasticsearch</a>. See
+<a href="https://github.com/elastic/elasticsearch/blob/master/CONTRIBUTING.md" class="ulink" target="_top">Contributing to
+Elasticsearch</a> if you would like to join our amazing community of contributors!</p>
+<p>If you have any questions related to Elasticsearch, including specific features,
+language clients and plugins, join the conversation at
+<a href="https://discuss.elastic.co" class="ulink" target="_top">discuss.elastic.co</a>.</p>
+<div class="sidebar">
+<div class="titlepage"><div><div>
+<p class="title"><strong>The Mists of Time</strong></p>
+</div></div></div>
+<p>Many years ago, a newly married unemployed developer called Shay Banon
+followed his wife to London, where she was studying to be a chef. While looking
+for gainful employment, he started playing with an early version of Lucene,
+with the intent of building his wife a recipe search engine.</p>
+<p>Working directly with Lucene can be tricky, so Shay started work on an
+abstraction layer to make it easier for Java programmers to add search to
+their applications.  He released this as his first open source project, called
+Compass.</p>
+<p>Later Shay took a job working in a high-performance, distributed environment
+with in-memory data grids.  The need for a high-performance, real-time,
+distributed search engine was obvious, and he decided to rewrite the Compass
+libraries as a standalone server called Elasticsearch.</p>
+<p>The first public release came out in February 2010.  Since then, Elasticsearch
+has become one of the most popular projects on GitHub with commits from over
+300 contributors.  A company has formed around Elasticsearch to provide
+commercial support and to develop new features, but Elasticsearch is, and
+forever will be, open source and available to all.</p>
+<p>Shay&#8217;s wife is still waiting for the recipe search&#8230;&#8203;</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="getting-started.html">« Getting Started</a>
+</span>
+<span class="next">
+<a href="running-elasticsearch.html">Installing and Running Elasticsearch »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

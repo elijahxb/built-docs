@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Index Settings | Elasticsearch: The Definitive Guide [main] | Elastic</title>
+<meta class="elastic" name="content" content="Index Settings | Elasticsearch: The Definitive Guide [main]">
+
+<link rel="home" href="index.html" title="Elasticsearch: The Definitive Guide [main]"/>
+<link rel="up" href="index-management.html" title="Index Management"/>
+<link rel="prev" href="_deleting_an_index.html" title="Deleting an Index"/>
+<link rel="next" href="configuring-analyzers.html" title="Configuring Analyzers"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="Elasticsearch"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Legacy/Elasticsearch/Definitive Guide/main"/>
+<meta name="DC.subject" content="Elasticsearch"/>
+<meta name="DC.identifier" content="main"/>
+<meta name="robots" content="noindex,nofollow"/>
+</head>
+<body><div class="page_header">
+<p>
+  <strong>WARNING</strong>: This documentation covers Elasticsearch 2.x. The 2.x
+  versions of Elasticsearch have passed their
+  <a href="https://www.elastic.co/support/eol">EOL dates</a>. If you are running
+  a 2.x version, we strongly advise you to upgrade.
+</p>
+<p>
+  This documentation is no longer maintained and may be removed. For the latest
+  information, see the <a
+  href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">current
+  Elasticsearch documentation</a>.
+</p>
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch: The Definitive Guide [main]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="getting-started.html">Getting Started</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index-management.html">Index Management</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="_deleting_an_index.html">« Deleting an Index</a>
+</span>
+<span class="next">
+<a href="configuring-analyzers.html">Configuring Analyzers »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="_index_settings"></a>Index Settings<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/070_Index_Mgmt/10_Settings.asciidoc">edit</a></h2>
+</div></div></div>
+<p>There are many many knobs that you can twiddle to
+customize index behavior, which you can read about in the
+<a href="/guide/en/elasticsearch/reference/2.4/index-modules.html" class="ulink" target="_top">Index Modules reference documentation</a>,
+but&#8230;&#8203;</p>
+<div class="tip admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>Elasticsearch comes with good defaults. Don&#8217;t twiddle these knobs until
+you understand what they do and why you should change them.</p>
+</div>
+</div>
+<p>Two of the most important settings are as follows:</p>
+<div class="variablelist">
+<dl class="variablelist">
+<dt>
+<span class="term">
+<code class="literal">number_of_shards</code>
+</span>
+</dt>
+<dd>
+The number of primary shards that an index should have,
+which defaults to <code class="literal">5</code>.  This setting cannot be changed
+after index creation.
+</dd>
+<dt>
+<span class="term">
+<code class="literal">number_of_replicas</code>
+</span>
+</dt>
+<dd>
+The number of replica shards (copies) that each primary shard
+should have, which defaults to <code class="literal">1</code>.  This setting can be changed
+at any time on a live index.
+</dd>
+</dl>
+</div>
+<p>For instance, we could create a small index&#8212;&#8203;just one primary shard&#8212;&#8203;and no replica shards with the following request:</p>
+<div class="pre_wrapper lang-sense">
+<pre class="programlisting prettyprint lang-sense">PUT /my_temp_index
+{
+    "settings": {
+        "number_of_shards" :   1,
+        "number_of_replicas" : 0
+    }
+}</pre>
+</div>
+<div class="sense_widget" data-snippet="snippets/070_Index_Mgmt/10_Settings.json"></div>
+<p>Later, we can change the number of replica shards dynamically using the
+<code class="literal">update-index-settings</code> API as follows:</p>
+<div class="pre_wrapper lang-sense">
+<pre class="programlisting prettyprint lang-sense">PUT /my_temp_index/_settings
+{
+    "number_of_replicas": 1
+}</pre>
+</div>
+<div class="sense_widget" data-snippet="snippets/070_Index_Mgmt/10_Settings.json"></div>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="_deleting_an_index.html">« Deleting an Index</a>
+</span>
+<span class="next">
+<a href="configuring-analyzers.html">Configuring Analyzers »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

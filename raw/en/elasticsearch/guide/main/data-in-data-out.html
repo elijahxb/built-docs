@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Data In, Data Out | Elasticsearch: The Definitive Guide [main] | Elastic</title>
+<meta class="elastic" name="content" content="Data In, Data Out | Elasticsearch: The Definitive Guide [main]">
+
+<link rel="home" href="index.html" title="Elasticsearch: The Definitive Guide [main]"/>
+<link rel="up" href="getting-started.html" title="Getting Started"/>
+<link rel="prev" href="_coping_with_failure.html" title="Coping with Failure"/>
+<link rel="next" href="document.html" title="What Is a Document?"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="Elasticsearch"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Legacy/Elasticsearch/Definitive Guide/main"/>
+<meta name="DC.subject" content="Elasticsearch"/>
+<meta name="DC.identifier" content="main"/>
+<meta name="robots" content="noindex,nofollow"/>
+</head>
+<body><div class="page_header">
+<p>
+  <strong>WARNING</strong>: This documentation covers Elasticsearch 2.x. The 2.x
+  versions of Elasticsearch have passed their
+  <a href="https://www.elastic.co/support/eol">EOL dates</a>. If you are running
+  a 2.x version, we strongly advise you to upgrade.
+</p>
+<p>
+  This documentation is no longer maintained and may be removed. For the latest
+  information, see the <a
+  href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">current
+  Elasticsearch documentation</a>.
+</p>
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch: The Definitive Guide [main]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="getting-started.html">Getting Started</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="_coping_with_failure.html">« Coping with Failure</a>
+</span>
+<span class="next">
+<a href="document.html">What Is a Document? »</a>
+</span>
+</div>
+<div class="chapter">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="data-in-data-out"></a>Data In, Data Out<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/030_Data/00_Intro.asciidoc">edit</a></h2>
+</div></div></div>
+<p>Whatever program we write, the intention is the same: to organize data in a
+way that serves our purposes.  But data doesn&#8217;t consist of just random bits
+and bytes.  We build relationships between data elements in order to represent
+entities, or <em>things</em> that exist in the real world.  A name and an email
+address have more meaning if we know that they belong to the same person.</p>
+<p>In the real world, though, not all entities of the same type look the same.
+One person might have a home telephone number, while another person has only a
+cell-phone number, and another might have both.  One person might have three
+email addresses, while another has none. A Spanish person will probably have
+two last names, while an English person will probably have only one.</p>
+<p>One of the reasons that object-oriented programming languages are so popular
+is that objects help us represent and manipulate real-world entities with
+potentially complex data structures. So far, so good.</p>
+<p>The problem comes when we need to store these entities. Traditionally, we have
+stored our data in columns and rows in a relational database, the equivalent
+of using a spreadsheet.  All the flexibility gained from using objects is lost
+because of the inflexibility of our storage medium.</p>
+<p>But what if we could store our objects as objects?  Instead of modeling our
+application around the limitations of spreadsheets, we can instead focus on <em>using</em> the data. The flexibility of objects is returned to us.</p>
+<p>An <em>object</em> is a language-specific, in-memory data structure. To send it across
+the network or store it, we need to be able to represent it in some standard
+format. <a href="http://en.wikipedia.org/wiki/Json" class="ulink" target="_top">JSON</a>
+is a way of representing objects in human-readable text.  It has become the
+de facto standard for exchanging data in the NoSQL world. When an object has
+been serialized into JSON, it is known as a <em>JSON document</em>.</p>
+<p>Elasticsearch is a distributed <em>document</em> store. It can store and retrieve
+complex data structures&#8212;&#8203;serialized as JSON documents&#8212;&#8203;in <em>real time</em>. In
+other words, as soon as a document has been stored in Elasticsearch, it can be
+retrieved from any node in the cluster.</p>
+<p>Of course, we don&#8217;t need to only store data; we must also query it, en masse
+and at speed. While NoSQL solutions exist that allow us to store
+objects as documents, they still require us to think about how we want to
+query our data, and which fields require an index in order to make data
+retrieval fast.</p>
+<p>In Elasticsearch, <em>all data in every field</em> is <em>indexed by default</em>. That is,
+every field has a dedicated inverted index for fast retrieval. And, unlike
+most other databases, it can use all of those inverted indices <em>in the same
+query</em>, to return results at breathtaking speed.</p>
+<p>In this chapter, we present the APIs that we use to create, retrieve,
+update, and delete documents. For the moment, we don&#8217;t care about the data
+inside our documents or how to query them. All we care about is how to store our
+documents safely in Elasticsearch and how to get them back again.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="_coping_with_failure.html">« Coping with Failure</a>
+</span>
+<span class="next">
+<a href="document.html">What Is a Document? »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

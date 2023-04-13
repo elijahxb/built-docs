@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Distributed Document Store | Elasticsearch: The Definitive Guide [main] | Elastic</title>
+<meta class="elastic" name="content" content="Distributed Document Store | Elasticsearch: The Definitive Guide [main]">
+
+<link rel="home" href="index.html" title="Elasticsearch: The Definitive Guide [main]"/>
+<link rel="up" href="getting-started.html" title="Getting Started"/>
+<link rel="prev" href="bulk.html" title="Cheaper in Bulk"/>
+<link rel="next" href="routing-value.html" title="Routing a Document to a Shard"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="Elasticsearch"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Legacy/Elasticsearch/Definitive Guide/main"/>
+<meta name="DC.subject" content="Elasticsearch"/>
+<meta name="DC.identifier" content="main"/>
+<meta name="robots" content="noindex,nofollow"/>
+</head>
+<body><div class="page_header">
+<p>
+  <strong>WARNING</strong>: This documentation covers Elasticsearch 2.x. The 2.x
+  versions of Elasticsearch have passed their
+  <a href="https://www.elastic.co/support/eol">EOL dates</a>. If you are running
+  a 2.x version, we strongly advise you to upgrade.
+</p>
+<p>
+  This documentation is no longer maintained and may be removed. For the latest
+  information, see the <a
+  href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">current
+  Elasticsearch documentation</a>.
+</p>
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch: The Definitive Guide [main]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="getting-started.html">Getting Started</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="bulk.html">« Cheaper in Bulk</a>
+</span>
+<span class="next">
+<a href="routing-value.html">Routing a Document to a Shard »</a>
+</span>
+</div>
+<div class="chapter">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="distributed-docs"></a>Distributed Document Store<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/040_Distributed_CRUD/00_Intro.asciidoc">edit</a></h2>
+</div></div></div>
+<p>In the preceding chapter, we looked at all the ways to put data into your index and
+then retrieve it.  But we glossed over many technical details surrounding how
+the data is distributed and fetched from the cluster.  This separation is done
+on purpose; you don&#8217;t really need to know how data is distributed to work
+with Elasticsearch.  It just works.</p>
+<p>In this chapter, we dive into those internal, technical details
+to help you understand how your data is stored in a distributed system.</p>
+<div class="sidebar">
+<div class="titlepage"><div><div>
+<p class="title"><strong>Content Warning</strong></p>
+</div></div></div>
+<p>The information presented in this chapter is for your interest. You are not required to
+understand and remember all the detail in order to use Elasticsearch. The
+options that are discussed are for advanced users only.</p>
+<p>Read the section to gain a taste for how things work, and to know where the
+information is in case you need to refer to it in the future, but don&#8217;t be
+overwhelmed by the details.</p>
+</div>
+
+
+
+
+
+
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="bulk.html">« Cheaper in Bulk</a>
+</span>
+<span class="next">
+<a href="routing-value.html">Routing a Document to a Shard »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

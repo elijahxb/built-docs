@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Configuration on ASP.NET | APM .NET Agent Reference [main] | Elastic</title>
+<meta class="elastic" name="content" content="Configuration on ASP.NET | APM .NET Agent Reference [main]">
+
+<link rel="home" href="index.html" title="APM .NET Agent Reference [main]"/>
+<link rel="up" href="configuration.html" title="Configuration"/>
+<link rel="prev" href="configuration-for-windows-services.html" title="Configuration for Windows Services"/>
+<link rel="next" href="config-core.html" title="Core configuration options"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="APM"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/APM .NET Agent/Reference/main"/>
+<meta name="DC.subject" content="APM"/>
+<meta name="DC.identifier" content="main"/>
+</head>
+<body><div class="page_header">
+You are looking at preliminary documentation for a future release.
+Not what you want? See the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link">
+  <div id="related-products" class="dropdown">
+    <div class="related-products-title">APM:</div>
+    <div class="dropdown-anchor" tabindex="0">.NET Agent Reference<span class="dropdown-icon"></span></div>
+    <div class="dropdown-content">
+      <ul>
+        <li class="dropdown-category">APM</li>
+        <ul>
+          <li><a href="/guide/en/apm/guide/current/apm-overview.html">User Guide</a></li>
+        </ul>
+        <li class="dropdown-category">APM agents</li>
+        <ul>
+          <li><a href="/guide/en/apm/agent/android/current/intro.html">Android Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/go/current/introduction.html">Go Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/swift/current/intro.html">iOS Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/java/current/intro.html">Java Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/dotnet/current/intro.html">.NET Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/nodejs/current/intro.html">Node.js Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/php/current/intro.html">PHP Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/python/current/getting-started.html">Python Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/ruby/current/introduction.html">Ruby Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/rum-js/current/intro.html">Real User Monitoring JavaScript Agent Reference</a></li>
+        </ul>
+        <li class="dropdown-category">APM extensions</li>
+        <ul>
+          <li><a href="/guide/en/apm/lambda/current/aws-lambda-arch.html">Monitoring AWS Lambda Functions</a></li>
+          <li><a href="/guide/en/apm/attacher/current/apm-attacher.html">Attacher</a></li>
+        </ul>
+      </ul>
+    </div>
+  </div>
+</span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="configuration.html">Configuration</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="configuration-for-windows-services.html">« Configuration for Windows Services</a>
+</span>
+<span class="next">
+<a href="config-core.html">Core configuration options »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="configuration-on-asp-net"></a>Configuration on ASP.NET<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-dotnet/edit/main/docs/configuration.asciidoc">edit</a></h2>
+</div></div></div>
+<p>When monitoring ASP.NET applications the agent uses two sources of configuration:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Web.config <code class="literal">&lt;appSettings&gt;</code> section
+</li>
+<li class="listitem">
+Environment variables
+</li>
+</ul>
+</div>
+<p>Web.config takes precedence over environment variables which means that
+the agent tries first to find a configuration option value by its key in Web.config.
+If it&#8217;s not present, then the agent tries to look for it among environment variables.
+If it&#8217;s not present, the agent falls back to the options default value.</p>
+<p>You can find the key of each configuration option
+in the <code class="literal">IConfiguration or Web.config key</code> column of the corresponding option&#8217;s description.</p>
+<h4><a id="asp-net-sample-config"></a>Sample configuration file<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-dotnet/edit/main/docs/configuration.asciidoc">edit</a></h4>
+<p>Below is a sample <code class="literal">Web.config</code> configuration file for a ASP.NET application.</p>
+<div class="pre_wrapper lang-xml">
+<pre class="programlisting prettyprint lang-xml">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;!-- ... --&gt;
+&lt;configuration&gt;
+    &lt;!-- ... --&gt;
+    &lt;appSettings&gt;
+        &lt;!-- ... --&gt;
+        &lt;add key="ElasticApm:ServerUrl" value="https://my-apm-server:8200" /&gt;
+        &lt;add key="ElasticApm:SecretToken" value="apm-server-secret-token" /&gt;
+        &lt;!-- ... --&gt;
+    &lt;/appSettings&gt;
+    &lt;!-- ... --&gt;
+&lt;/configuration&gt;</pre>
+</div>
+<p>Additionally, on ASP.NET, you can implement your own configuration reader. To do this, implement the <code class="literal">IConfigurationReader</code> interface from the <code class="literal">Elastic.Apm.Config</code> namespace.
+Once implemented, you can use the <a class="xref" href="configuration-on-asp-net.html#config-full-framework-configuration-reader-type" title="FullFrameworkConfigurationReaderType"><code class="literal">FullFrameworkConfigurationReaderType</code></a> setting.</p>
+<h4><a id="config-full-framework-configuration-reader-type"></a><code class="literal">FullFrameworkConfigurationReaderType</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-dotnet/edit/main/docs/configuration.asciidoc">edit</a></h4>
+<p>This setting is .NET Full Framework only.</p>
+<p>This setting can point an agent to a custom <code class="literal">IConfigurationReader</code> implementation and the agent will read configuration from your <code class="literal">IConfigurationReader</code> implementation.</p>
+<p>Use type name in  <a href="https://docs.microsoft.com/en-us/dotnet/api/system.type.assemblyqualifiedname?view=netcore-3.1#System_Type_AssemblyQualifiedName" class="ulink" target="_top">AssemblyQualifiedName</a> format (e.g: <code class="literal">MyClass, MyNamespace</code>).</p>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Environment variable name</th>
+<th align="left" valign="top">Web.config key</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">ELASTIC_APM_FULL_FRAMEWORK_CONFIGURATION_READER_TYPE</code></p></td>
+<td align="left" valign="top"><p><code class="literal">ElasticApm:FullFrameworkConfigurationReaderType</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Default</th>
+<th align="left" valign="top">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p>None</p></td>
+<td align="left" valign="top"><p>String</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>If this setting is set in both the web.config file and as an environment variable, then the web.config file has precedence.</p>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="configuration-for-windows-services.html">« Configuration for Windows Services</a>
+</span>
+<span class="next">
+<a href="config-core.html">Core configuration options »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

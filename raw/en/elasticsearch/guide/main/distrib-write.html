@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Creating, Indexing, and Deleting a Document | Elasticsearch: The Definitive Guide [main] | Elastic</title>
+<meta class="elastic" name="content" content="Creating, Indexing, and Deleting a Document | Elasticsearch: The Definitive Guide [main]">
+
+<link rel="home" href="index.html" title="Elasticsearch: The Definitive Guide [main]"/>
+<link rel="up" href="distributed-docs.html" title="Distributed Document Store"/>
+<link rel="prev" href="_how_primary_and_replica_shards_interact.html" title="How Primary and Replica Shards Interact"/>
+<link rel="next" href="distrib-read.html" title="Retrieving a Document"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="Elasticsearch"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Legacy/Elasticsearch/Definitive Guide/main"/>
+<meta name="DC.subject" content="Elasticsearch"/>
+<meta name="DC.identifier" content="main"/>
+<meta name="robots" content="noindex,nofollow"/>
+</head>
+<body><div class="page_header">
+<p>
+  <strong>WARNING</strong>: This documentation covers Elasticsearch 2.x. The 2.x
+  versions of Elasticsearch have passed their
+  <a href="https://www.elastic.co/support/eol">EOL dates</a>. If you are running
+  a 2.x version, we strongly advise you to upgrade.
+</p>
+<p>
+  This documentation is no longer maintained and may be removed. For the latest
+  information, see the <a
+  href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">current
+  Elasticsearch documentation</a>.
+</p>
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch: The Definitive Guide [main]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="getting-started.html">Getting Started</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="distributed-docs.html">Distributed Document Store</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="_how_primary_and_replica_shards_interact.html">« How Primary and Replica Shards Interact</a>
+</span>
+<span class="next">
+<a href="distrib-read.html">Retrieving a Document »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="distrib-write"></a>Creating, Indexing, and Deleting a Document<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/040_Distributed_CRUD/15_Create_index_delete.asciidoc">edit</a></h2>
+</div></div></div>
+<p>Create, index, and delete requests are <em>write</em> operations, which must be
+successfully completed on the primary shard before they can be copied to any
+associated replica shards, as shown in <a class="xref" href="distrib-write.html#img-distrib-write" title="Creating, indexing, or deleting a single document">Figure 9, &#8220;Creating, indexing, or deleting a single document&#8221;</a>.</p>
+<div id="img-distrib-write" class="imageblock">
+<div class="content">
+<img src="images/elas_0402.png" alt="Creating, indexing or deleting a single document">
+</div>
+<div class="title">Figure 9. Creating, indexing, or deleting a single document</div>
+</div>
+<p>Here is the sequence of steps necessary to successfully create, index, or
+delete a document on both the primary and any replica shards:</p>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+The client sends a create, index, or delete request to <code class="literal">Node 1</code>.
+</li>
+<li class="listitem">
+The node uses the document&#8217;s <code class="literal">_id</code> to determine that the document
+belongs to shard <code class="literal">0</code>. It forwards the request to <code class="literal">Node 3</code>,
+where the primary copy of shard <code class="literal">0</code> is currently allocated.
+</li>
+<li class="listitem">
+<code class="literal">Node 3</code> executes the request on the primary shard. If it is successful,
+it forwards the request in parallel to the replica shards on <code class="literal">Node 1</code> and
+<code class="literal">Node 2</code>. Once all of the replica shards report success, <code class="literal">Node 3</code> reports
+success to the coordinating node, which reports success to the client.
+</li>
+</ol>
+</div>
+<p>By the time the client receives a successful response, the document change has
+been executed on the primary shard and on all replica shards. Your change is
+safe.</p>
+<p>There are a number of optional request parameters that allow you to influence
+this process, possibly increasing performance at the cost of data security.
+These options are seldom used because Elasticsearch is already fast, but they
+are explained here for the sake of completeness:</p>
+<div class="variablelist">
+<dl class="variablelist">
+<dt>
+<span class="term">
+<code class="literal">consistency</code>
+</span>
+</dt>
+<dd>
+<p>By default, the primary shard requires a <em>quorum</em>, or majority, of shard copies
+(where a shard copy can be a primary or a replica shard) to be available
+before even attempting a write operation. This is to prevent writing data to the
+&#8220;wrong side&#8221; of a network partition.  A quorum is defined as follows:</p>
+<pre class="literallayout">int( (primary + number_of_replicas) / 2 ) + 1</pre>
+
+<p>The allowed values for <code class="literal">consistency</code> are <code class="literal">one</code> (just the primary shard), <code class="literal">all</code>
+(the primary and all replicas), or the default <code class="literal">quorum</code>, or majority, of shard
+copies.</p>
+<p>Note that the <code class="literal">number_of_replicas</code> is the number of replicas <em>specified</em> in
+the index settings, not the number of replicas that are currently active.  If
+you have specified that an index should have three replicas, a quorum would
+be as follows:</p>
+<pre class="literallayout">int( (primary + 3 replicas) / 2 ) + 1 = 3</pre>
+
+<p>But if you start only two nodes, there will be insufficient active shard
+copies to satisfy the quorum, and you will be unable to index or delete any
+documents.</p>
+</dd>
+<dt>
+<span class="term">
+<code class="literal">timeout</code>
+</span>
+</dt>
+<dd>
+<p>What happens if insufficient shard copies are available? Elasticsearch waits,
+in the hope that more shards will appear.  By default, it will wait up to 1
+minute. If you need to, you can use the <code class="literal">timeout</code> parameter to make it abort
+sooner: <code class="literal">100</code> is 100 milliseconds, and <code class="literal">30s</code> is 30 seconds.</p>
+</dd>
+</dl>
+</div>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>A new index has <code class="literal">1</code> replica by default, which means that two active shard
+copies <em>should</em> be required in order to satisfy the need for a <code class="literal">quorum</code>.
+However, these default settings would prevent us from doing anything useful
+with a single-node cluster.  To avoid this problem, the requirement for
+a quorum is enforced only when <code class="literal">number_of_replicas</code> is greater than <code class="literal">1</code>.</p>
+</div>
+</div>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="_how_primary_and_replica_shards_interact.html">« How Primary and Replica Shards Interact</a>
+</span>
+<span class="next">
+<a href="distrib-read.html">Retrieving a Document »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

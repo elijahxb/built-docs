@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Python Agent version 4.x | APM Python Agent Reference [main] | Elastic</title>
+<meta class="elastic" name="content" content="Python Agent version 4.x | APM Python Agent Reference [main]">
+
+<link rel="home" href="index.html" title="APM Python Agent Reference [main]"/>
+<link rel="up" href="release-notes.html" title="Release notes"/>
+<link rel="prev" href="release-notes-5.x.html" title="Python Agent version 5.x"/>
+<link rel="next" href="release-notes-3.x.html" title="Python Agent version 3.x"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="APM"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/APM Python Agent/Reference/main"/>
+<meta name="DC.subject" content="APM"/>
+<meta name="DC.identifier" content="main"/>
+</head>
+<body><div class="page_header">
+You are looking at preliminary documentation for a future release.
+Not what you want? See the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link">
+  <div id="related-products" class="dropdown">
+    <div class="related-products-title">APM:</div>
+    <div class="dropdown-anchor" tabindex="0">Python Agent Reference<span class="dropdown-icon"></span></div>
+    <div class="dropdown-content">
+      <ul>
+        <li class="dropdown-category">APM</li>
+        <ul>
+          <li><a href="/guide/en/apm/guide/current/apm-overview.html">User Guide</a></li>
+        </ul>
+        <li class="dropdown-category">APM agents</li>
+        <ul>
+          <li><a href="/guide/en/apm/agent/android/current/intro.html">Android Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/go/current/introduction.html">Go Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/swift/current/intro.html">iOS Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/java/current/intro.html">Java Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/dotnet/current/intro.html">.NET Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/nodejs/current/intro.html">Node.js Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/php/current/intro.html">PHP Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/python/current/getting-started.html">Python Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/ruby/current/introduction.html">Ruby Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/rum-js/current/intro.html">Real User Monitoring JavaScript Agent Reference</a></li>
+        </ul>
+        <li class="dropdown-category">APM extensions</li>
+        <ul>
+          <li><a href="/guide/en/apm/lambda/current/aws-lambda-arch.html">Monitoring AWS Lambda Functions</a></li>
+          <li><a href="/guide/en/apm/attacher/current/apm-attacher.html">Attacher</a></li>
+        </ul>
+      </ul>
+    </div>
+  </div>
+</span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="release-notes.html">Release notes</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="release-notes-5.x.html">« Python Agent version 5.x</a>
+</span>
+<span class="next">
+<a href="release-notes-3.x.html">Python Agent version 3.x »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="release-notes-4.x"></a>Python Agent version 4.x<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h2>
+</div></div></div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="release-notes-4.2.2"></a>v4.2.2 - 2019/04/10<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h3>
+</div></div></div>
+<p><a href="https://github.com/elastic/apm-agent-python/compare/v4.2.1...v4.2.2" class="ulink" target="_top">Check the diff</a></p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Fixed an issue with Celery and the prefork worker pool <a href="https://github.com/elastic/apm-agent-python/pull/444" class="ulink" target="_top">#444</a>
+</li>
+<li class="listitem">
+Fixed an issue when running uwsgi without a master process <a href="https://github.com/elastic/apm-agent-python/pull/446" class="ulink" target="_top">#446</a>
+</li>
+<li class="listitem">
+Fixed an issue with gevent/eventlet on Python 3.7 <a href="https://github.com/elastic/apm-agent-python/pull/451" class="ulink" target="_top">#451</a>, <a href="https://github.com/elastic/apm-agent-python/pull/454" class="ulink" target="_top">#454</a>
+</li>
+<li class="listitem">
+Introduced <code class="literal">IntervalTimer</code> and use it instead of <code class="literal">threading.Timer</code> <a href="https://github.com/elastic/apm-agent-python/pull/452" class="ulink" target="_top">#452</a>
+</li>
+<li class="listitem">
+Added license header check as pre-commit hook <a href="https://github.com/elastic/apm-agent-python/pull/456" class="ulink" target="_top">#456</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="release-notes-4.2.1"></a>v4.2.1 - 2019/03/22<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h3>
+</div></div></div>
+<p><a href="https://github.com/elastic/apm-agent-python/compare/v4.2.0...v4.2.1" class="ulink" target="_top">Check the diff</a></p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Fixed an issue with the certificate pinning feature introduced in 4.2.0 <a href="https://github.com/elastic/apm-agent-python/pull/433" class="ulink" target="_top">#433</a>, <a href="https://github.com/elastic/apm-agent-python/pull/434" class="ulink" target="_top">#434</a>
+</li>
+<li class="listitem">
+Fixed incompatibility with eventlet introduced in 4.2.0 <a href="https://github.com/elastic/apm-agent-python/pull/435" class="ulink" target="_top">#435</a>, <a href="https://github.com/elastic/apm-agent-python/pull/436" class="ulink" target="_top">#436</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="release-notes-4.2.0"></a>v4.2.0 - 2019/03/20<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h3>
+</div></div></div>
+<p><a href="https://github.com/elastic/apm-agent-python/compare/v4.1.0...v4.2.0" class="ulink" target="_top">Check the diff</a></p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Implemented a new transport queue, which should avoid certain deadlock scenarios <a href="https://github.com/elastic/apm-agent-python/pull/411" class="ulink" target="_top">#411</a>
+</li>
+<li class="listitem">
+Implemented server certificate pinning <a href="https://github.com/elastic/apm-agent-python/pull/405" class="ulink" target="_top">#405</a>
+</li>
+<li class="listitem">
+Moved context.url to context.http.url for requests/urllib3 spans <a href="https://github.com/elastic/apm-agent-python/pull/393" class="ulink" target="_top">#393</a>, <a href="https://github.com/elastic/apm-agent-python/pull/394" class="ulink" target="_top">#394</a>
+</li>
+<li class="listitem">
+Added support for using route as transaction name in Django 2.2+ <a href="https://github.com/elastic/apm-agent-python/pull/86" class="ulink" target="_top">#86</a>, <a href="https://github.com/elastic/apm-agent-python/pull/396" class="ulink" target="_top">#396</a>
+</li>
+<li class="listitem">
+Added some randomness to time between requests to APM Server <a href="https://github.com/elastic/apm-agent-python/pull/426" class="ulink" target="_top">#426</a>
+</li>
+<li class="listitem">
+Fixed an issue with custom user models in Django using non-string usernames <a href="https://github.com/elastic/apm-agent-python/pull/397" class="ulink" target="_top">#397</a>, <a href="https://github.com/elastic/apm-agent-python/pull/398" class="ulink" target="_top">#398</a>
+</li>
+<li class="listitem">
+Fixed an issue with sending kubernetes metadata to the API <a href="https://github.com/elastic/apm-agent-python/pull/401" class="ulink" target="_top">#401</a>, <a href="https://github.com/elastic/apm-agent-python/pull/402" class="ulink" target="_top">#402</a>
+</li>
+<li class="listitem">
+Fixed an issue with parsing /proc/stat in RHEL/centos 6 <a href="https://github.com/elastic/apm-agent-python/pull/406" class="ulink" target="_top">#406</a>, <a href="https://github.com/elastic/apm-agent-python/pull/407" class="ulink" target="_top">#407</a>
+</li>
+<li class="listitem">
+Added copyright header to all files, and a CI check <a href="https://github.com/elastic/apm-agent-python/pull/429" class="ulink" target="_top">#429</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="release-notes-4.1.0"></a>v4.1.0 - 2019/01/29<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h3>
+</div></div></div>
+<p><a href="https://github.com/elastic/apm-agent-python/compare/v4.0.3...v4.1.0" class="ulink" target="_top">Check the diff</a></p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Added support for collecting system and process metrics <a href="https://github.com/elastic/apm-agent-python/pull/361" class="ulink" target="_top">#361</a>
+</li>
+<li class="listitem">
+Added an OpenTracing bridge <a href="https://github.com/elastic/apm-agent-python/pull/388" class="ulink" target="_top">#388</a>
+</li>
+<li class="listitem">
+Added <code class="literal">transaction.sampled</code> to errors <a href="https://github.com/elastic/apm-agent-python/pull/371" class="ulink" target="_top">#371</a>
+</li>
+<li class="listitem">
+Added <code class="literal">transaction.type</code> to errors <a href="https://github.com/elastic/apm-agent-python/pull/391" class="ulink" target="_top">#391</a>
+</li>
+<li class="listitem">
+Added parsing of <code class="literal">/proc/self/cgroup</code> to capture container meta data <a href="https://github.com/elastic/apm-agent-python/pull/352" class="ulink" target="_top">#352</a>
+</li>
+<li class="listitem">
+Added option to configure logging for Flask using a log level <a href="https://github.com/elastic/apm-agent-python/pull/344" class="ulink" target="_top">#344</a>
+</li>
+<li class="listitem">
+Added <code class="literal">capture_headers</code> config option <a href="https://github.com/elastic/apm-agent-python/pull/392" class="ulink" target="_top">#392</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="release-notes-4.0.3"></a>v4.0.3 - 2018/12/24<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h3>
+</div></div></div>
+<p><a href="https://github.com/elastic/apm-agent-python/compare/v4.0.2...v4.0.3" class="ulink" target="_top">Check the diff</a></p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Implemented de-dotting of tag names and context keys <a href="https://github.com/elastic/apm-agent-python/pull/353" class="ulink" target="_top">#353</a>
+</li>
+<li class="listitem">
+wrote a quickfix for the boto3/botocore instrumentation <a href="https://github.com/elastic/apm-agent-python/pull/367" class="ulink" target="_top">#367</a>
+</li>
+<li class="listitem">
+Fixed an issue with psycopg2 and encoded strings <a href="https://github.com/elastic/apm-agent-python/pull/366" class="ulink" target="_top">#366</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="release-notes-4.0.2"></a>v4.0.2 - 2018/12/05<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h3>
+</div></div></div>
+<p><a href="https://github.com/elastic/apm-agent-python/compare/v4.0.1...v4.0.2" class="ulink" target="_top">Check the diff</a></p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Fixed another issue in the new v2 transport <a href="https://github.com/elastic/apm-agent-python/pull/351" class="ulink" target="_top">#351</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="release-notes-4.0.1"></a>v4.0.1 - 2018/11/16<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h3>
+</div></div></div>
+<p><a href="https://github.com/elastic/apm-agent-python/compare/v4.0.0...v4.0.1" class="ulink" target="_top">Check the diff</a></p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Fixed an issue with instrumenting redis-py 3.0+
+</li>
+<li class="listitem">
+Fixed a multithreading issue that occurs when using threaded workers <a href="https://github.com/elastic/apm-agent-python/pull/335" class="ulink" target="_top">#335</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="release-notes-4.0.0"></a>v4.0.0 - 2018/11/14<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h3>
+</div></div></div>
+<p><a href="https://github.com/elastic/apm-agent-python/compare/v3.0.2...v4.0.0" class="ulink" target="_top">Check the diff</a></p>
+<p><span class="strong strong"><strong>BREAKING</strong></span> Version 4 of the agent implements a new wire protocol for communicating with
+the APM Server. This format is only supported in <span class="strong strong"><strong>APM Server 6.5+</strong></span>.</p>
+<p>Further breaking changes:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+The undocumented <code class="literal">AsyncioHTTPTransport</code> has been removed.
+</li>
+<li class="listitem">
+The <code class="literal">flush_interval</code> and <code class="literal">max_queue_size</code> settings have been removed.
+</li>
+<li class="listitem">
+new settings introduced: <code class="literal">api_request_time</code> and <code class="literal">api_request_size</code>.
+</li>
+<li class="listitem">
+Some settings now require a unit for duration or size. See documentation on
+configuration for more information.
+</li>
+<li class="listitem">
+The option to provide a custom date for exceptions and messages has been removed.
+</li>
+</ul>
+</div>
+<p>Other changes:
+* on Python 3.7, use <a href="https://docs.python.org/3/library/contextvars.html" class="ulink" target="_top">contextvars</a> instead of threadlocals for storing
+current transaction and span. This is a necessary precursor for full asyncio support. <a href="https://github.com/elastic/apm-agent-python/pull/291" class="ulink" target="_top">#291</a></p>
+</div>
+
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="release-notes-5.x.html">« Python Agent version 5.x</a>
+</span>
+<span class="next">
+<a href="release-notes-3.x.html">Python Agent version 3.x »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

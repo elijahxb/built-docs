@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ecctl deployment update | Elastic Cloud Control Documentation [main] | Elastic</title>
+<meta class="elastic" name="content" content="ecctl deployment update | Elastic Cloud Control Documentation [main]">
+
+<link rel="home" href="index.html" title="Elastic Cloud Control Documentation [main]"/>
+<link rel="up" href="ecctl-command-reference.html" title="Command reference"/>
+<link rel="prev" href="ecctl_deployment_traffic-filter_update.html" title="ecctl deployment traffic-filter update"/>
+<link rel="next" href="ecctl_generate.html" title="ecctl generate"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="ECCTL"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/CloudControl/Reference/main"/>
+<meta name="DC.subject" content="ECCTL"/>
+<meta name="DC.identifier" content="main"/>
+</head>
+<body><div class="page_header">
+You are looking at preliminary documentation for a future release.
+Not what you want? See the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elastic Cloud Control Documentation [main]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="ecctl-command-reference.html">Command reference</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="ecctl_deployment_traffic-filter_update.html">« ecctl deployment traffic-filter update</a>
+</span>
+<span class="next">
+<a href="ecctl_generate.html">ecctl generate »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="ecctl_deployment_update"></a>ecctl deployment update<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/ecctl/edit/master/docs/ecctl_deployment_update.adoc">edit</a></h2>
+</div></div></div>
+<p>Updates a deployment from a file definition, allowing certain flag overrides</p>
+<h4><a id="_synopsis_7"></a>Synopsis<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/ecctl/edit/master/docs/ecctl_deployment_update.adoc">edit</a></h4>
+<p>updates a deployment from a file definition: Defaulting prune_orphans=false, making the default
+update action safe for partial updates. To override this behavior, toggle --prune-orphans.
+To track the changes toggle the --track flag.</p>
+<p>It is possible to use "--generate-update-payload" as: "ecctl deployment show --generate-update-payload &#8230;&#8203;"
+to obtain a valid update payload from an existing deployment which can be manually edited in
+before it is sent as a "--file" flag argument. See "ecctl deployment show --help" for a valid example.</p>
+<p>Read more about the deployment definition in <a href="/guide/en/cloud-enterprise/current/Deployment_-_CRUD.html" class="ulink" target="_top">https://www.elastic.co/guide/en/cloud-enterprise/current/Deployment_-_CRUD.html</a></p>
+<pre class="screen">ecctl deployment update -f &lt;file definition.json&gt; [flags]</pre>
+<h4><a id="_examples_8"></a>Examples<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/ecctl/edit/master/docs/ecctl_deployment_update.adoc">edit</a></h4>
+<pre class="screen">#### Same base deployment as the create example, changing cluster_topology[0].zone_count to 3.
+$ cat deployment_example_update.json
+{
+    "resources": {
+        "elasticsearch": [
+            {
+                "display_name": "my elasticsearch cluster",
+                "ref_id": "my-es-cluster",
+                "plan": {
+                    "deployment_template": {
+                        "id": "default"
+                    },
+                    "elasticsearch": {
+                        "version": "6.8.4"
+                    },
+                    "cluster_topology": [
+                        {
+                            "instance_configuration_id": "data.default",
+                            "memory_per_node": 1024,
+                            "node_count_per_zone": 1,
+                            "node_type": {
+                                "data": true,
+                                "ingest": true,
+                                "master": true,
+                                "ml": false
+                            },
+                            "zone_count": 3
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}
+$ ecctl deployment update f44c06c3af6f85dac05023cf243f4ab1 -f deployment_example_update.json
+...
+#### Setting --prune-orphans, will cause any non-specified resources to be shut down.
+$ ecctl deployment update f44c06c3af6f85dac05023cf243f4ab1 -f deployment_example_update.json --prune-orphans
+setting --prune-orphans to "true" will cause any resources not specified in the update request to be removed from the deployment, do you want to continue? [y/n]: y
+...</pre>
+<h4><a id="_options_64"></a>Options<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/ecctl/edit/master/docs/ecctl_deployment_update.adoc">edit</a></h4>
+<pre class="screen">  -f, --file string           Partial (default) or full JSON file deployment update payload
+  -h, --help                  help for update
+      --hide-pruned-orphans   Hides orphaned resources that were shut down (only relevant if --prune-orphans=true)
+      --prune-orphans         When set to true, it will remove any resources not specified in the update request, treating the json file contents as the authoritative deployment definition
+      --skip-snapshot         Skips taking an Elasticsearch snapshot prior to shutting down the deployment
+  -t, --track                 Tracks the progress of the performed task</pre>
+<h4><a id="_options_inherited_from_parent_commands_63"></a>Options inherited from parent commands<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/ecctl/edit/master/docs/ecctl_deployment_update.adoc">edit</a></h4>
+<pre class="screen">      --api-key string        API key to use to authenticate (If empty will look for EC_API_KEY environment variable)
+      --config string         Config name, used to have multiple configs in $HOME/.ecctl/&lt;env&gt; (default "config")
+      --force                 Do not ask for confirmation
+      --format string         Formats the output using a Go template
+      --host string           Base URL to use
+      --insecure              Skips all TLS validation
+      --message string        A message to set on cluster operation
+      --output string         Output format [text|json] (default "text")
+      --pass string           Password to use to authenticate (If empty will look for EC_PASS environment variable)
+      --pprof                 Enables pprofing and saves the profile to pprof-20060102150405
+  -q, --quiet                 Suppresses the configuration file used for the run, if any
+      --region string         Elasticsearch Service region
+      --timeout duration      Timeout to use on all HTTP calls (default 30s)
+      --trace                 Enables tracing saves the trace to trace-20060102150405
+      --user string           Username to use to authenticate (If empty will look for EC_USER environment variable)
+      --verbose               Enable verbose mode
+      --verbose-credentials   When set, Authorization headers on the request/response trail will be displayed as plain text
+      --verbose-file string   When set, the verbose request/response trail will be written to the defined file</pre>
+<h4><a id="_see_also_64"></a>SEE ALSO<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/ecctl/edit/master/docs/ecctl_deployment_update.adoc">edit</a></h4>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<a class="xref" href="ecctl_deployment.html" title="ecctl deployment">ecctl deployment</a>	 - Manages deployments
+</li>
+</ul>
+</div>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="ecctl_deployment_traffic-filter_update.html">« ecctl deployment traffic-filter update</a>
+</span>
+<span class="next">
+<a href="ecctl_generate.html">ecctl generate »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

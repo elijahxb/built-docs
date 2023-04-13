@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>standard Tokenizer | Elasticsearch: The Definitive Guide [main] | Elastic</title>
+<meta class="elastic" name="content" content="standard Tokenizer | Elasticsearch: The Definitive Guide [main]">
+
+<link rel="home" href="index.html" title="Elasticsearch: The Definitive Guide [main]"/>
+<link rel="up" href="identifying-words.html" title="Identifying Words"/>
+<link rel="prev" href="standard-analyzer.html" title="standard Analyzer"/>
+<link rel="next" href="icu-plugin.html" title="Installing the ICU Plug-in"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="Elasticsearch"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Legacy/Elasticsearch/Definitive Guide/main"/>
+<meta name="DC.subject" content="Elasticsearch"/>
+<meta name="DC.identifier" content="main"/>
+<meta name="robots" content="noindex,nofollow"/>
+</head>
+<body><div class="page_header">
+<p>
+  <strong>WARNING</strong>: This documentation covers Elasticsearch 2.x. The 2.x
+  versions of Elasticsearch have passed their
+  <a href="https://www.elastic.co/support/eol">EOL dates</a>. If you are running
+  a 2.x version, we strongly advise you to upgrade.
+</p>
+<p>
+  This documentation is no longer maintained and may be removed. For the latest
+  information, see the <a
+  href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">current
+  Elasticsearch documentation</a>.
+</p>
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch: The Definitive Guide [main]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="languages.html">Dealing with Human Language</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="identifying-words.html">Identifying Words</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="standard-analyzer.html">« standard Analyzer</a>
+</span>
+<span class="next">
+<a href="icu-plugin.html">Installing the ICU Plug-in »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="standard-tokenizer"></a>standard Tokenizer<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/210_Identifying_words/20_Standard_tokenizer.asciidoc">edit</a></h2>
+</div></div></div>
+<p>A <em>tokenizer</em> accepts a string as input, processes the string to break it
+into individual words, or <em>tokens</em> (perhaps discarding some characters like
+punctuation), and emits a <em>token stream</em> as output.</p>
+<p>What is interesting is the algorithm that is used to <em>identify</em> words. The
+<code class="literal">whitespace</code> tokenizer simply breaks on whitespace&#8212;&#8203;spaces, tabs, line
+feeds, and so forth&#8212;&#8203;and assumes that contiguous nonwhitespace characters form a
+single token. For instance:</p>
+<div class="pre_wrapper lang-js">
+<pre class="programlisting prettyprint lang-js">GET /_analyze?tokenizer=whitespace
+You're the 1st runner home!</pre>
+</div>
+<p>This request would return the following terms:
+<code class="literal">You're</code>, <code class="literal">the</code>, <code class="literal">1st</code>, <code class="literal">runner</code>, <code class="literal">home!</code></p>
+<p>The <code class="literal">letter</code> tokenizer, on the other hand, breaks on any character that is
+not a letter, and so would return the following terms: <code class="literal">You</code>, <code class="literal">re</code>, <code class="literal">the</code>,
+<code class="literal">st</code>, <code class="literal">runner</code>, <code class="literal">home</code>.</p>
+<p>The <code class="literal">standard</code> tokenizer uses the Unicode Text Segmentation algorithm (as
+defined in <a href="http://unicode.org/reports/tr29/" class="ulink" target="_top">Unicode Standard Annex #29</a>) to
+find the boundaries <em>between</em> words, and emits everything in-between. Its
+knowledge of Unicode allows it to successfully tokenize text containing a
+mixture of languages.</p>
+<p>Punctuation may or may not be considered part of a word, depending on
+where it appears:</p>
+<div class="pre_wrapper lang-js">
+<pre class="programlisting prettyprint lang-js">GET /_analyze?tokenizer=standard
+You're my 'favorite'.</pre>
+</div>
+<p>In this example, the apostrophe in <code class="literal">You're</code> is treated as part of the
+word, while the single quotes in <code class="literal">'favorite'</code> are not, resulting in the
+following terms: <code class="literal">You're</code>, <code class="literal">my</code>, <code class="literal">favorite</code>.</p>
+<div class="tip admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>The <code class="literal">uax_url_email</code> tokenizer works in exactly the same way as the <code class="literal">standard</code>
+tokenizer, except that it recognizes email addresses and URLs and emits them as
+single tokens. The <code class="literal">standard</code> tokenizer, on the other hand, would try to
+break them into individual words. For instance, the email address
+<code class="literal">joe-bloggs@foo-bar.com</code> would result in the tokens <code class="literal">joe</code>, <code class="literal">bloggs</code>, <code class="literal">foo</code>,
+<code class="literal">bar.com</code>.</p>
+</div>
+</div>
+<p>The <code class="literal">standard</code> tokenizer is a reasonable starting point for tokenizing most
+languages, especially Western languages.  In fact, it forms the basis of most
+of the language-specific analyzers like the <code class="literal">english</code>, <code class="literal">french</code>, and <code class="literal">spanish</code>
+analyzers. Its support for Asian languages, however, is limited, and you should consider
+using the <code class="literal">icu_tokenizer</code> instead, which is available in the ICU plug-in.</p>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="standard-analyzer.html">« standard Analyzer</a>
+</span>
+<span class="next">
+<a href="icu-plugin.html">Installing the ICU Plug-in »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Configuration Management | Elasticsearch: The Definitive Guide [main] | Elastic</title>
+<meta class="elastic" name="content" content="Configuration Management | Elasticsearch: The Definitive Guide [main]">
+
+<link rel="home" href="index.html" title="Elasticsearch: The Definitive Guide [main]"/>
+<link rel="up" href="deploy.html" title="Production Deployment"/>
+<link rel="prev" href="_transport_client_versus_node_client.html" title="Transport Client Versus Node Client"/>
+<link rel="next" href="important-configuration-changes.html" title="Important Configuration Changes"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="Elasticsearch"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Legacy/Elasticsearch/Definitive Guide/main"/>
+<meta name="DC.subject" content="Elasticsearch"/>
+<meta name="DC.identifier" content="main"/>
+<meta name="robots" content="noindex,nofollow"/>
+</head>
+<body><div class="page_header">
+<p>
+  <strong>WARNING</strong>: This documentation covers Elasticsearch 2.x. The 2.x
+  versions of Elasticsearch have passed their
+  <a href="https://www.elastic.co/support/eol">EOL dates</a>. If you are running
+  a 2.x version, we strongly advise you to upgrade.
+</p>
+<p>
+  This documentation is no longer maintained and may be removed. For the latest
+  information, see the <a
+  href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">current
+  Elasticsearch documentation</a>.
+</p>
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch: The Definitive Guide [main]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="administration.html">Administration, Monitoring, and Deployment</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="deploy.html">Production Deployment</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="_transport_client_versus_node_client.html">« Transport Client Versus Node Client</a>
+</span>
+<span class="next">
+<a href="important-configuration-changes.html">Important Configuration Changes »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="_configuration_management"></a>Configuration Management<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/510_Deployment/30_other.asciidoc">edit</a></h2>
+</div></div></div>
+<p>If you use configuration management already (Puppet, Chef, Ansible), you can
+skip this tip.</p>
+<p>If you don&#8217;t use configuration management tools yet, you should! Managing a
+handful of servers by <code class="literal">parallel-ssh</code> may work now, but it will become a
+nightmare as you grow your cluster. It is almost impossible to edit 30
+configuration files by hand without making a mistake.</p>
+<p>Configuration management tools help make your cluster consistent by automating
+the process of config changes. It may take a little time to set up and learn,
+but it will pay itself off handsomely over time.</p>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="_transport_client_versus_node_client.html">« Transport Client Versus Node Client</a>
+</span>
+<span class="next">
+<a href="important-configuration-changes.html">Important Configuration Changes »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

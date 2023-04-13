@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Metrics | APM Node.js Agent Reference [main] | Elastic</title>
+<meta class="elastic" name="content" content="Metrics | APM Node.js Agent Reference [main]">
+
+<link rel="home" href="index.html" title="APM Node.js Agent Reference [main]"/>
+<link rel="up" href="index.html" title="APM Node.js Agent Reference [main]"/>
+<link rel="prev" href="span-api.html" title="Span API"/>
+<link rel="next" href="opentelemetry-bridge.html" title="OpenTelemetry bridge"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="APM"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/APM Node.js Agent/Reference/main"/>
+<meta name="DC.subject" content="APM"/>
+<meta name="DC.identifier" content="main"/>
+</head>
+<body><div class="page_header">
+You are looking at preliminary documentation for a future release.
+Not what you want? See the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link">
+  <div id="related-products" class="dropdown">
+    <div class="related-products-title">APM:</div>
+    <div class="dropdown-anchor" tabindex="0">Node.js Agent Reference<span class="dropdown-icon"></span></div>
+    <div class="dropdown-content">
+      <ul>
+        <li class="dropdown-category">APM</li>
+        <ul>
+          <li><a href="/guide/en/apm/guide/current/apm-overview.html">User Guide</a></li>
+        </ul>
+        <li class="dropdown-category">APM agents</li>
+        <ul>
+          <li><a href="/guide/en/apm/agent/android/current/intro.html">Android Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/go/current/introduction.html">Go Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/swift/current/intro.html">iOS Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/java/current/intro.html">Java Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/dotnet/current/intro.html">.NET Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/nodejs/current/intro.html">Node.js Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/php/current/intro.html">PHP Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/python/current/getting-started.html">Python Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/ruby/current/introduction.html">Ruby Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/rum-js/current/intro.html">Real User Monitoring JavaScript Agent Reference</a></li>
+        </ul>
+        <li class="dropdown-category">APM extensions</li>
+        <ul>
+          <li><a href="/guide/en/apm/lambda/current/aws-lambda-arch.html">Monitoring AWS Lambda Functions</a></li>
+          <li><a href="/guide/en/apm/attacher/current/apm-attacher.html">Attacher</a></li>
+        </ul>
+      </ul>
+    </div>
+  </div>
+</span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="span-api.html">« <code class="literal">Span</code> API</a>
+</span>
+<span class="next">
+<a href="opentelemetry-bridge.html">OpenTelemetry bridge »</a>
+</span>
+</div>
+<div class="chapter">
+<div class="titlepage"><div><div>
+<h1 class="title"><a id="metrics"></a>Metrics<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-nodejs/edit/main/docs/metrics.asciidoc">edit</a></h1>
+</div></div></div>
+<p>The Node.js agent tracks various system and application metrics.
+These metrics will be sent regularly to the APM Server and from there to Elasticsearch.
+You can adjust the interval by setting <a class="xref" href="configuration.html#metrics-interval" title="metricsInterval"><code class="literal">metricsInterval</code></a>.</p>
+<p>The metrics will be stored in the <code class="literal">apm-*</code> index and have the <code class="literal">processor.event</code> property set to <code class="literal">metric</code>.</p>
+<h3><a id="metric-system.cpu.total.norm.pct"></a><code class="literal">system.cpu.total.norm.pct</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-nodejs/edit/main/docs/metrics.asciidoc">edit</a></h3>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<span class="strong strong"><strong>Type:</strong></span> Float
+</li>
+<li class="listitem">
+<span class="strong strong"><strong>Format:</strong></span> Percent
+</li>
+</ul>
+</div>
+<p>The percentage of CPU time in states other than Idle and IOWait,
+normalized by the number of cores.</p>
+<h3><a id="metric-system.memory.total"></a><code class="literal">system.memory.total</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-nodejs/edit/main/docs/metrics.asciidoc">edit</a></h3>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<span class="strong strong"><strong>Type:</strong></span> Long
+</li>
+<li class="listitem">
+<span class="strong strong"><strong>Format:</strong></span> Bytes
+</li>
+</ul>
+</div>
+<p>The total memory of the system in bytes.</p>
+<h3><a id="metric-system.memory.actual.free"></a><code class="literal">system.memory.actual.free</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-nodejs/edit/main/docs/metrics.asciidoc">edit</a></h3>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<span class="strong strong"><strong>Type:</strong></span> Long
+</li>
+<li class="listitem">
+<span class="strong strong"><strong>Format:</strong></span> Bytes
+</li>
+</ul>
+</div>
+<p>Free memory of the system in bytes.</p>
+<h3><a id="metric-system.process.cpu.total.norm.pct"></a><code class="literal">system.process.cpu.total.norm.pct</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-nodejs/edit/main/docs/metrics.asciidoc">edit</a></h3>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<span class="strong strong"><strong>Type:</strong></span> Float
+</li>
+<li class="listitem">
+<span class="strong strong"><strong>Format:</strong></span> Percent
+</li>
+</ul>
+</div>
+<p>The percentage of CPU time spent by the process since the last event.
+This value is normalized by the number of CPU cores and it ranges from 0 to 100%.</p>
+<h3><a id="metric-system.process.memory.rss.bytes"></a><code class="literal">system.process.memory.rss.bytes</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-nodejs/edit/main/docs/metrics.asciidoc">edit</a></h3>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<span class="strong strong"><strong>Type:</strong></span> Long
+</li>
+<li class="listitem">
+<span class="strong strong"><strong>Format:</strong></span> Bytes
+</li>
+</ul>
+</div>
+<p>The Resident Set Size,
+the amount of memory the process occupies in main memory (RAM).</p>
+<h3><a id="metric-nodejs.handles.active"></a><code class="literal">nodejs.handles.active</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-nodejs/edit/main/docs/metrics.asciidoc">edit</a></h3>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<span class="strong strong"><strong>Type:</strong></span> Long
+</li>
+<li class="listitem">
+<span class="strong strong"><strong>Format:</strong></span> Counter
+</li>
+</ul>
+</div>
+<p>The number of active libuv handles,
+likely held open by currently running I/O operations.</p>
+<h3><a id="metric-nodejs.requests.active"></a><code class="literal">nodejs.requests.active</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-nodejs/edit/main/docs/metrics.asciidoc">edit</a></h3>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<span class="strong strong"><strong>Type:</strong></span> Long
+</li>
+<li class="listitem">
+<span class="strong strong"><strong>Format:</strong></span> Counter
+</li>
+</ul>
+</div>
+<p>The number of active libuv requests,
+likely waiting for a response to an I/O operation.</p>
+<h3><a id="metric-system.process.cpu.user.norm.pct"></a><code class="literal">system.process.cpu.user.norm.pct</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-nodejs/edit/main/docs/metrics.asciidoc">edit</a></h3>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<span class="strong strong"><strong>Type:</strong></span> Long
+</li>
+<li class="listitem">
+<span class="strong strong"><strong>Format:</strong></span> Counter
+</li>
+</ul>
+</div>
+<p>The number of CPU cycles spent executing application code.</p>
+<h3><a id="metric-system.process.cpu.system.norm.pct"></a><code class="literal">system.process.cpu.system.norm.pct</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-nodejs/edit/main/docs/metrics.asciidoc">edit</a></h3>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<span class="strong strong"><strong>Type:</strong></span> Long
+</li>
+<li class="listitem">
+<span class="strong strong"><strong>Format:</strong></span> Counter
+</li>
+</ul>
+</div>
+<p>The number of CPU cycles spent executing kernel code as a result of application activity.</p>
+<h3><a id="metric-nodejs.eventloop.delay.avg.ms"></a><code class="literal">nodejs.eventloop.delay.avg.ms</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-nodejs/edit/main/docs/metrics.asciidoc">edit</a></h3>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<span class="strong strong"><strong>Type:</strong></span> Float
+</li>
+<li class="listitem">
+<span class="strong strong"><strong>Format:</strong></span> Milliseconds
+</li>
+</ul>
+</div>
+<p>The number of milliseconds of event loop delay.
+Event loop delay is sampled every 10 milliseconds.
+Delays shorter than 10ms may not be observed,
+for example if a blocking operation starts and ends within the same sampling period.</p>
+<h3><a id="metric-nodejs.memory.heap.allocated.bytes"></a><code class="literal">nodejs.memory.heap.allocated.bytes</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-nodejs/edit/main/docs/metrics.asciidoc">edit</a></h3>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<span class="strong strong"><strong>Type:</strong></span> Long
+</li>
+<li class="listitem">
+<span class="strong strong"><strong>Format:</strong></span> Bytes
+</li>
+</ul>
+</div>
+<p>The current allocated heap size in bytes.</p>
+<h3><a id="metric-nodejs.memory.heap.used.bytes"></a><code class="literal">nodejs.memory.heap.used.bytes</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-nodejs/edit/main/docs/metrics.asciidoc">edit</a></h3>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<span class="strong strong"><strong>Type:</strong></span> Long
+</li>
+<li class="listitem">
+<span class="strong strong"><strong>Format:</strong></span> Bytes
+</li>
+</ul>
+</div>
+<p>The currently used heap size in bytes.</p>
+<h3><a id="metric-nodejs.memory.external.bytes"></a><code class="literal">nodejs.memory.external.bytes</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-nodejs/edit/main/docs/metrics.asciidoc">edit</a></h3>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<span class="strong strong"><strong>Type:</strong></span> Long
+</li>
+<li class="listitem">
+<span class="strong strong"><strong>Format:</strong></span> Bytes
+</li>
+</ul>
+</div>
+<p>Memory usage of C++ objects bound to JavaScript objects managed by V8.</p>
+<h3><a id="metric-nodejs.memory.arrayBuffers.bytes"></a><code class="literal">nodejs.memory.arrayBuffers.bytes</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-nodejs/edit/main/docs/metrics.asciidoc">edit</a></h3>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<span class="strong strong"><strong>Type:</strong></span> Long
+</li>
+<li class="listitem">
+<span class="strong strong"><strong>Format:</strong></span> Bytes
+</li>
+</ul>
+</div>
+<p>Memory allocated for ArrayBuffers and SharedArrayBuffers, including all Node.js Buffers.
+This is also included in the <code class="literal">nodejs.memory.external.bytes</code> value.</p>
+<h3><a id="metrics-span.self_time.sum"></a><code class="literal">span.self_time.sum</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-nodejs/edit/main/docs/metrics.asciidoc">edit</a></h3>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<span class="strong strong"><strong>Type:</strong></span> Long
+</li>
+<li class="listitem">
+<span class="strong strong"><strong>Format:</strong></span> Milliseconds
+</li>
+</ul>
+</div>
+<p>The sum of all span self-times in milliseconds since the last report (the delta).
+The <code class="literal">span.self_time.*</code> metrics are referred to as "breakdown metrics".</p>
+<p>You can filter and group by these dimensions:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<code class="literal">transaction.name</code>: The name of the transaction
+</li>
+<li class="listitem">
+<code class="literal">transaction.type</code>: The type of the transaction, for example <code class="literal">request</code>
+</li>
+<li class="listitem">
+<code class="literal">span.type</code>: The type of the span, for example <code class="literal">app</code>, <code class="literal">template</code> or <code class="literal">db</code>
+</li>
+<li class="listitem">
+<code class="literal">span.subtype</code>: The sub-type of the span, for example <code class="literal">mysql</code> (optional)
+</li>
+</ul>
+</div>
+<h3><a id="metrics-span.self_time.count"></a><code class="literal">span.self_time.count</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-nodejs/edit/main/docs/metrics.asciidoc">edit</a></h3>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<span class="strong strong"><strong>Type:</strong></span> Long
+</li>
+<li class="listitem">
+<span class="strong strong"><strong>Format:</strong></span> Counter
+</li>
+</ul>
+</div>
+<p>You can filter and group by these dimensions:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<code class="literal">transaction.name</code>: The name of the transaction
+</li>
+<li class="listitem">
+<code class="literal">transaction.type</code>: The type of the transaction, for example <code class="literal">request</code>
+</li>
+<li class="listitem">
+<code class="literal">span.type</code>: The type of the span, for example <code class="literal">app</code>, <code class="literal">template</code> or <code class="literal">db</code>
+</li>
+<li class="listitem">
+<code class="literal">span.subtype</code>: The sub-type of the span, for example <code class="literal">mysql</code> (optional)
+</li>
+</ul>
+</div>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="span-api.html">« <code class="literal">Span</code> API</a>
+</span>
+<span class="next">
+<a href="opentelemetry-bridge.html">OpenTelemetry bridge »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

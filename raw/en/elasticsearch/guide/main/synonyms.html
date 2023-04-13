@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Synonyms | Elasticsearch: The Definitive Guide [main] | Elastic</title>
+<meta class="elastic" name="content" content="Synonyms | Elasticsearch: The Definitive Guide [main]">
+
+<link rel="home" href="index.html" title="Elasticsearch: The Definitive Guide [main]"/>
+<link rel="up" href="languages.html" title="Dealing with Human Language"/>
+<link rel="prev" href="stopwords-relavance.html" title="Stopwords and Relevance"/>
+<link rel="next" href="using-synonyms.html" title="Using Synonyms"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="Elasticsearch"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Legacy/Elasticsearch/Definitive Guide/main"/>
+<meta name="DC.subject" content="Elasticsearch"/>
+<meta name="DC.identifier" content="main"/>
+<meta name="robots" content="noindex,nofollow"/>
+</head>
+<body><div class="page_header">
+<p>
+  <strong>WARNING</strong>: This documentation covers Elasticsearch 2.x. The 2.x
+  versions of Elasticsearch have passed their
+  <a href="https://www.elastic.co/support/eol">EOL dates</a>. If you are running
+  a 2.x version, we strongly advise you to upgrade.
+</p>
+<p>
+  This documentation is no longer maintained and may be removed. For the latest
+  information, see the <a
+  href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">current
+  Elasticsearch documentation</a>.
+</p>
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch: The Definitive Guide [main]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="languages.html">Dealing with Human Language</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="stopwords-relavance.html">« Stopwords and Relevance</a>
+</span>
+<span class="next">
+<a href="using-synonyms.html">Using Synonyms »</a>
+</span>
+</div>
+<div class="chapter">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="synonyms"></a>Synonyms<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/260_Synonyms/10_Intro.asciidoc">edit</a></h2>
+</div></div></div>
+<p>While stemming helps to broaden the scope of search by simplifying inflected
+words to their root form, synonyms broaden the scope by relating concepts and
+ideas. Perhaps no documents match a query for &#8220;English queen,&#8221; but documents
+that contain &#8220;British monarch&#8221; would probably be considered a good match.</p>
+<p>A user might search for &#8220;the US&#8221; and expect to find documents that contain
+<em>United States</em>, <em>USA</em>, <em>U.S.A.</em>, <em>America</em>, or <em>the States</em>.
+However, they wouldn&#8217;t expect to see results about <code class="literal">the states of matter</code> or
+<code class="literal">state machines</code>.</p>
+<p>This example provides a valuable lesson. It demonstrates how simple it is for
+a human to distinguish between separate concepts, and how tricky it can be for
+mere machines. The natural tendency is to try to provide synonyms for every
+word in the language, to ensure that any document is findable with even the
+most remotely related terms.</p>
+<p>This is a mistake.  In the same way that we prefer light or minimal stemming
+to aggressive stemming, synonyms should be used only where necessary. Users
+understand why their results are limited to the words in their search query.
+They are less understanding when their results seems almost random.</p>
+<p>Synonyms can be used to conflate words that have pretty much the same meaning,
+such as <code class="literal">jump</code>, <code class="literal">leap</code>, and <code class="literal">hop</code>, or <code class="literal">pamphlet</code>, <code class="literal">leaflet</code>, and <code class="literal">brochure</code>.
+Alternatively, they can be used to make a word more generic.  For instance,
+<code class="literal">bird</code> could be used as a more general synonym for <code class="literal">owl</code> or <code class="literal">pigeon</code>, and <code class="literal">adult</code>
+could be used for <code class="literal">man</code> or <code class="literal">woman</code>.</p>
+<p>Synonyms appear to be a simple concept but they are quite tricky to get right.
+In this chapter, we explain the mechanics of using synonyms and discuss
+the limitations and gotchas.</p>
+<div class="tip admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>Synonyms are used to broaden the scope of what is considered a
+matching document.  Just as with <a class="xref" href="stemming.html" title="Reducing Words to Their Root Form">stemming</a> or
+<a class="xref" href="partial-matching.html" title="Partial Matching">partial matching</a>, synonym fields should not be used
+alone but should be combined with a query on a main field that contains
+the original text in unadulterated form.  See <a class="xref" href="most-fields.html" title="Most Fields">Most Fields</a> for an
+explanation of how to maintain relevance when using synonyms.</p>
+</div>
+</div>
+
+
+
+
+
+
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="stopwords-relavance.html">« Stopwords and Relevance</a>
+</span>
+<span class="next">
+<a href="using-synonyms.html">Using Synonyms »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

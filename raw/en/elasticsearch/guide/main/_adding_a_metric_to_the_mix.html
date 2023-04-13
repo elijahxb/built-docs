@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Adding a Metric to the Mix | Elasticsearch: The Definitive Guide [main] | Elastic</title>
+<meta class="elastic" name="content" content="Adding a Metric to the Mix | Elasticsearch: The Definitive Guide [main]">
+
+<link rel="home" href="index.html" title="Elasticsearch: The Definitive Guide [main]"/>
+<link rel="up" href="_aggregation_test_drive.html" title="Aggregation Test-Drive"/>
+<link rel="prev" href="_aggregation_test_drive.html" title="Aggregation Test-Drive"/>
+<link rel="next" href="_buckets_inside_buckets.html" title="Buckets Inside Buckets"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="Elasticsearch"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Legacy/Elasticsearch/Definitive Guide/main"/>
+<meta name="DC.subject" content="Elasticsearch"/>
+<meta name="DC.identifier" content="main"/>
+<meta name="robots" content="noindex,nofollow"/>
+</head>
+<body><div class="page_header">
+<p>
+  <strong>WARNING</strong>: This documentation covers Elasticsearch 2.x. The 2.x
+  versions of Elasticsearch have passed their
+  <a href="https://www.elastic.co/support/eol">EOL dates</a>. If you are running
+  a 2.x version, we strongly advise you to upgrade.
+</p>
+<p>
+  This documentation is no longer maintained and may be removed. For the latest
+  information, see the <a
+  href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">current
+  Elasticsearch documentation</a>.
+</p>
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch: The Definitive Guide [main]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="aggregations.html">Aggregations</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="_aggregation_test_drive.html">Aggregation Test-Drive</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="_aggregation_test_drive.html">« Aggregation Test-Drive</a>
+</span>
+<span class="next">
+<a href="_buckets_inside_buckets.html">Buckets Inside Buckets »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="_adding_a_metric_to_the_mix"></a>Adding a Metric to the Mix<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/300_Aggregations/21_add_metric.asciidoc">edit</a></h2>
+</div></div></div>
+<p>The previous example told us the number of documents in each bucket, which is
+useful.  But often, our applications require more-sophisticated metrics about
+the documents. For example, what is the average price of cars in each bucket?</p>
+<p>To get this information, we need to tell Elasticsearch which metrics to calculate,
+and on which fields.  This requires <em>nesting</em> metrics inside the buckets.
+Metrics will calculate mathematical statistics based on the values of documents
+within a bucket.</p>
+<p>Let&#8217;s go ahead and add an <code class="literal">average</code> metric to our car example:</p>
+<div class="pre_wrapper lang-sense">
+<pre class="programlisting prettyprint lang-sense">GET /cars/transactions/_search
+{
+   "size" : 0,
+   "aggs": {
+      "colors": {
+         "terms": {
+            "field": "color.keyword"
+         },
+         "aggs": { <a id="CO187-1"></a><i class="conum" data-value="1"></i>
+            "avg_price": { <a id="CO187-2"></a><i class="conum" data-value="2"></i>
+               "avg": {
+                  "field": "price" <a id="CO187-3"></a><i class="conum" data-value="3"></i>
+               }
+            }
+         }
+      }
+   }
+}</pre>
+</div>
+<div class="sense_widget" data-snippet="snippets/300_Aggregations/20_basic_example.json"></div>
+<div class="calloutlist">
+<table border="0" summary="Callout list">
+<tr>
+<td align="left" valign="top" width="5%">
+<p><a href="#CO187-1"><i class="conum" data-value="1"></i></a></p>
+</td>
+<td align="left" valign="top">
+<p>We add a new <code class="literal">aggs</code> level to hold the metric.</p>
+</td>
+</tr>
+<tr>
+<td align="left" valign="top" width="5%">
+<p><a href="#CO187-2"><i class="conum" data-value="2"></i></a></p>
+</td>
+<td align="left" valign="top">
+<p>We then give the metric a name: <code class="literal">avg_price</code>.</p>
+</td>
+</tr>
+<tr>
+<td align="left" valign="top" width="5%">
+<p><a href="#CO187-3"><i class="conum" data-value="3"></i></a></p>
+</td>
+<td align="left" valign="top">
+<p>And finally, we define it as an <code class="literal">avg</code> metric over the <code class="literal">price</code> field.</p>
+</td>
+</tr>
+</table>
+</div>
+<p>As you can see, we took the previous example and tacked on a new <code class="literal">aggs</code> level.
+This new aggregation level allows us to nest the <code class="literal">avg</code> metric inside the
+<code class="literal">terms</code> bucket.  Effectively, this means we will generate an average for each
+color.</p>
+<p>Just like the <code class="literal">colors</code> example, we need to name our metric (<code class="literal">avg_price</code>) so we
+can retrieve the values later.  Finally, we specify the metric itself (<code class="literal">avg</code>)
+and what field we want the average to be calculated on (<code class="literal">price</code>):</p>
+<div class="pre_wrapper lang-js">
+<pre class="programlisting prettyprint lang-js">{
+...
+   "aggregations": {
+      "colors": {
+         ...
+         "buckets": [
+            {
+               "key": "red",
+               "doc_count": 4,
+               "avg_price": { <a id="CO188-1"></a><i class="conum" data-value="1"></i>
+                  "value": 32500
+               }
+            },
+            {
+               "key": "blue",
+               "doc_count": 2,
+               "avg_price": {
+                  "value": 20000
+               }
+            },
+            {
+               "key": "green",
+               "doc_count": 2,
+               "avg_price": {
+                  "value": 21000
+               }
+            }
+         ]
+      }
+   }
+...
+}</pre>
+</div>
+<div class="calloutlist">
+<table border="0" summary="Callout list">
+<tr>
+<td align="left" valign="top" width="5%">
+<p><a href="#CO188-1"><i class="conum" data-value="1"></i></a></p>
+</td>
+<td align="left" valign="top">
+<p>New <code class="literal">avg_price</code> element in response</p>
+</td>
+</tr>
+</table>
+</div>
+<p>Although the response has changed minimally, the data we get out of it has grown
+substantially.  Before, we knew there were four red cars.  Now we know that the
+average price of red cars is $32,500.  This is something that you can plug directly
+into reports or graphs.</p>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="_aggregation_test_drive.html">« Aggregation Test-Drive</a>
+</span>
+<span class="next">
+<a href="_buckets_inside_buckets.html">Buckets Inside Buckets »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ASP.NET Core | APM .NET Agent Reference [main] | Elastic</title>
+<meta class="elastic" name="content" content="ASP.NET Core | APM .NET Agent Reference [main]">
+
+<link rel="home" href="index.html" title="APM .NET Agent Reference [main]"/>
+<link rel="up" href="setup.html" title="Set up the Agent"/>
+<link rel="prev" href="setup-auto-instrumentation.html" title="Profiler Auto instrumentation"/>
+<link rel="next" href="setup-dotnet-net-core.html" title=".NET Core"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="APM"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/APM .NET Agent/Reference/main"/>
+<meta name="DC.subject" content="APM"/>
+<meta name="DC.identifier" content="main"/>
+</head>
+<body><div class="page_header">
+You are looking at preliminary documentation for a future release.
+Not what you want? See the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link">
+  <div id="related-products" class="dropdown">
+    <div class="related-products-title">APM:</div>
+    <div class="dropdown-anchor" tabindex="0">.NET Agent Reference<span class="dropdown-icon"></span></div>
+    <div class="dropdown-content">
+      <ul>
+        <li class="dropdown-category">APM</li>
+        <ul>
+          <li><a href="/guide/en/apm/guide/current/apm-overview.html">User Guide</a></li>
+        </ul>
+        <li class="dropdown-category">APM agents</li>
+        <ul>
+          <li><a href="/guide/en/apm/agent/android/current/intro.html">Android Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/go/current/introduction.html">Go Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/swift/current/intro.html">iOS Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/java/current/intro.html">Java Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/dotnet/current/intro.html">.NET Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/nodejs/current/intro.html">Node.js Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/php/current/intro.html">PHP Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/python/current/getting-started.html">Python Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/ruby/current/introduction.html">Ruby Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/rum-js/current/intro.html">Real User Monitoring JavaScript Agent Reference</a></li>
+        </ul>
+        <li class="dropdown-category">APM extensions</li>
+        <ul>
+          <li><a href="/guide/en/apm/lambda/current/aws-lambda-arch.html">Monitoring AWS Lambda Functions</a></li>
+          <li><a href="/guide/en/apm/attacher/current/apm-attacher.html">Attacher</a></li>
+        </ul>
+      </ul>
+    </div>
+  </div>
+</span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="setup.html">Set up the Agent</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="setup-auto-instrumentation.html">« Profiler Auto instrumentation</a>
+</span>
+<span class="next">
+<a href="setup-dotnet-net-core.html">.NET Core »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="setup-asp-net-core"></a>ASP.NET Core<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-dotnet/edit/main/docs/setup-asp-net-core.asciidoc">edit</a></h2>
+</div></div></div>
+<h4><a id="_quick_start_2"></a>Quick start<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-dotnet/edit/main/docs/setup-asp-net-core.asciidoc">edit</a></h4>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>We suggest using the approach described in the <a class="xref" href="setup-dotnet-net-core.html" title=".NET Core">.NET Core setup instructions</a>,
+to register the agent on <code class="literal">IHostBuilder</code>, as opposed to using <code class="literal">IApplicationBuilder</code> as described below.</p>
+<p>We keep the <code class="literal">IApplicationBuilder</code> introduced here only for backwards compatibility.</p>
+</div>
+</div>
+<p>For ASP.NET Core, once you reference the <a href="https://www.nuget.org/packages/Elastic.Apm.NetCoreAll" class="ulink" target="_top"><code class="literal">Elastic.Apm.NetCoreAll</code></a> package, you can enable auto instrumentation by calling the <code class="literal">UseAllElasticApm()</code> extension method:</p>
+<div class="pre_wrapper lang-csharp">
+<pre class="programlisting prettyprint lang-csharp">using Elastic.Apm.NetCoreAll;
+
+public class Startup
+{
+  public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+  {
+    app.UseAllElasticApm(Configuration);
+    //…rest of the method
+  }
+  //…rest of the class
+}</pre>
+</div>
+<p>The <code class="literal">app.UseAllElasticApm(...)</code> line <span class="strong strong"><strong>must</strong></span> be the first line in the <code class="literal">Configure</code> method, otherwise the agent won&#8217;t be able to properly measure the timing of your requests, and complete requests may potentially be missed by the agent.</p>
+<p>With this you enable every agent component including ASP.NET Core tracing, monitoring of outgoing HTTP request, Entity Framework Core database tracing, etc.</p>
+<p>In case you only reference the <a href="https://www.nuget.org/packages/Elastic.Apm.AspNetCore" class="ulink" target="_top"><code class="literal">Elastic.Apm.AspNetCore</code></a> package, you won&#8217;t find the <code class="literal">UseAllElasticApm</code>. Instead you need to use the <code class="literal">UseElasticApm()</code> method from the <code class="literal">Elastic.Apm.AspNetCore</code> namespace. This method turns on ASP.NET Core tracing, and gives you the opportunity to manually turn on other components. By default it will only trace ASP.NET Core requests - No HTTP request tracing, database call tracing or any other tracing component will be turned on.</p>
+<p>In case you would like to turn on specific tracing components you can pass those to the <code class="literal">UseElasticApm</code> method.</p>
+<p>For example:</p>
+<div class="pre_wrapper lang-csharp">
+<pre class="programlisting prettyprint lang-csharp">app.UseElasticApm(Configuration,
+	new HttpDiagnosticsSubscriber(),  /* Enable tracing of outgoing HTTP requests */
+	new EfCoreDiagnosticsSubscriber()); /* Enable tracing of database calls through EF Core*/</pre>
+</div>
+<p>In case you only want to use the <a class="xref" href="public-api.html" title="Public API"><em>Public API</em></a>, you don&#8217;t need to do any initialization, you can simply start using the API and the agent will send the data to the APM Server.</p>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="setup-auto-instrumentation.html">« Profiler Auto instrumentation</a>
+</span>
+<span class="next">
+<a href="setup-dotnet-net-core.html">.NET Core »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

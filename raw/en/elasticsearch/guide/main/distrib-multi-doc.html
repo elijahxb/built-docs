@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Multidocument Patterns | Elasticsearch: The Definitive Guide [main] | Elastic</title>
+<meta class="elastic" name="content" content="Multidocument Patterns | Elasticsearch: The Definitive Guide [main]">
+
+<link rel="home" href="index.html" title="Elasticsearch: The Definitive Guide [main]"/>
+<link rel="up" href="distributed-docs.html" title="Distributed Document Store"/>
+<link rel="prev" href="_partial_updates_to_a_document.html" title="Partial Updates to a Document"/>
+<link rel="next" href="search.html" title="Searching&#8212;&#8203;The Basic Tools"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="Elasticsearch"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Legacy/Elasticsearch/Definitive Guide/main"/>
+<meta name="DC.subject" content="Elasticsearch"/>
+<meta name="DC.identifier" content="main"/>
+<meta name="robots" content="noindex,nofollow"/>
+</head>
+<body><div class="page_header">
+<p>
+  <strong>WARNING</strong>: This documentation covers Elasticsearch 2.x. The 2.x
+  versions of Elasticsearch have passed their
+  <a href="https://www.elastic.co/support/eol">EOL dates</a>. If you are running
+  a 2.x version, we strongly advise you to upgrade.
+</p>
+<p>
+  This documentation is no longer maintained and may be removed. For the latest
+  information, see the <a
+  href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">current
+  Elasticsearch documentation</a>.
+</p>
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch: The Definitive Guide [main]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="getting-started.html">Getting Started</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="distributed-docs.html">Distributed Document Store</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="_partial_updates_to_a_document.html">« Partial Updates to a Document</a>
+</span>
+<span class="next">
+<a href="search.html">Searching&#8212;&#8203;The Basic Tools »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="distrib-multi-doc"></a>Multidocument Patterns<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/040_Distributed_CRUD/30_Bulk_requests.asciidoc">edit</a></h2>
+</div></div></div>
+<p>The patterns for the <code class="literal">mget</code> and <code class="literal">bulk</code> APIs are similar to those for
+individual documents. The difference is that the coordinating node knows in
+which shard each document lives. It breaks up the multidocument request into
+a multidocument request <em>per shard</em>, and forwards these in parallel to each
+participating node.</p>
+<p>Once it receives answers from each node, it collates their responses
+into a single response, which it returns to the client, as shown in <a class="xref" href="distrib-multi-doc.html#img-distrib-mget" title="Retrieving multiple documents with mget">Figure 12, &#8220;Retrieving multiple documents with <code class="literal">mget</code>&#8221;</a>.</p>
+<div id="img-distrib-mget" class="imageblock">
+<div class="content">
+<img src="images/elas_0405.png" alt="Retrieving multiple documents with mget">
+</div>
+<div class="title">Figure 12. Retrieving multiple documents with <code class="literal">mget</code></div>
+</div>
+<p>Here is the sequence of steps necessary to retrieve multiple documents
+with a single <code class="literal">mget</code> request:</p>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+The client sends an <code class="literal">mget</code> request to <code class="literal">Node 1</code>.
+</li>
+<li class="listitem">
+<code class="literal">Node 1</code> builds a multi-get request per shard, and forwards these
+requests in parallel to the nodes hosting each required primary or replica
+shard. Once all replies have been received, <code class="literal">Node 1</code> builds the response
+and returns it to the client.
+</li>
+</ol>
+</div>
+<p>A <code class="literal">routing</code> parameter can be set for each document in the <code class="literal">docs</code> array.</p>
+<p>The bulk API, as depicted in <a class="xref" href="distrib-multi-doc.html#img-distrib-bulk" title="Multiple document changes with bulk">Figure 13, &#8220;Multiple document changes with <code class="literal">bulk</code>&#8221;</a>, allows the execution of multiple create, index, delete, and update requests within a single bulk request.</p>
+<div id="img-distrib-bulk" class="imageblock">
+<div class="content">
+<img src="images/elas_0406.png" alt="Multiple document changes with bulk">
+</div>
+<div class="title">Figure 13. Multiple document changes with <code class="literal">bulk</code></div>
+</div>
+<p>The sequence of steps followed by the
+<code class="literal">bulk</code> API are as follows:</p>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+The client sends a <code class="literal">bulk</code> request to <code class="literal">Node 1</code>.
+</li>
+<li class="listitem">
+<code class="literal">Node 1</code> builds a bulk request per shard, and forwards these requests in
+parallel to the nodes hosting each involved primary shard.
+</li>
+<li class="listitem">
+The primary shard executes each action serially, one after another. As each
+action succeeds, the primary forwards the new document (or deletion) to its
+replica shards in parallel, and then moves on to the next action. Once all
+replica shards report success for all actions, the node reports success to
+the coordinating node, which collates the responses and returns them to the
+client.
+</li>
+</ol>
+</div>
+<p>The <code class="literal">bulk</code> API also accepts  the <code class="literal">consistency</code> parameter
+at the top level for the whole <code class="literal">bulk</code> request, and the <code class="literal">routing</code> parameter
+in the metadata for each request.</p>
+<div class="section pagebreak-before">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="bulk-format"></a>Why the Funny Format?<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/040_Distributed_CRUD/35_Bulk_format.asciidoc">edit</a></h3>
+</div></div></div>
+<p>When we learned about bulk requests earlier in <a class="xref" href="bulk.html" title="Cheaper in Bulk">Cheaper in Bulk</a>, you may have asked
+yourself, &#8220;Why does the <code class="literal">bulk</code> API require the funny format with the newline
+characters, instead of just sending the requests wrapped in a JSON array, like
+the <code class="literal">mget</code> API?&#8221;</p>
+<p>To answer this, we need to explain a little background: Each document referenced in a bulk request may belong to a different primary
+shard, each of which may be allocated to any of the nodes in the cluster. This
+means that every <em>action</em> inside a <code class="literal">bulk</code> request needs to be forwarded to the
+correct shard on the correct node.</p>
+<p>If the individual requests were wrapped up in a JSON array, that would mean
+that we would need to do the following:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Parse the JSON into an array (including the document data, which
+can be very large)
+</li>
+<li class="listitem">
+Look at each request to determine which shard it should go to
+</li>
+<li class="listitem">
+Create an array of requests for each shard
+</li>
+<li class="listitem">
+Serialize these arrays into the internal transport format
+</li>
+<li class="listitem">
+Send the requests to each shard
+</li>
+</ul>
+</div>
+<p>It would work, but would need a lot of RAM to hold copies of essentially
+the same data, and would create many more data structures that the Java Virtual Machine (JVM) would have to spend time garbage collecting.</p>
+<p>Instead, Elasticsearch reaches up into the networking buffer, where the raw
+request has been received, and reads the data directly. It uses the newline
+characters to identify and parse just the small <code class="literal">action/metadata</code> lines in
+order to decide which shard should handle each request.</p>
+<p>These raw requests are forwarded directly to the correct shard. There
+is no redundant copying of data, no wasted data structures. The entire
+request process is handled in the smallest amount of memory possible.</p>
+</div>
+
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="_partial_updates_to_a_document.html">« Partial Updates to a Document</a>
+</span>
+<span class="next">
+<a href="search.html">Searching&#8212;&#8203;The Basic Tools »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

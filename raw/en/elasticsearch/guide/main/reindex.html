@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Reindexing Your Data | Elasticsearch: The Definitive Guide [main] | Elastic</title>
+<meta class="elastic" name="content" content="Reindexing Your Data | Elasticsearch: The Definitive Guide [main]">
+
+<link rel="home" href="index.html" title="Elasticsearch: The Definitive Guide [main]"/>
+<link rel="up" href="index-management.html" title="Index Management"/>
+<link rel="prev" href="default-mapping.html" title="Default Mapping"/>
+<link rel="next" href="index-aliases.html" title="Index Aliases and Zero Downtime"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="Elasticsearch"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Legacy/Elasticsearch/Definitive Guide/main"/>
+<meta name="DC.subject" content="Elasticsearch"/>
+<meta name="DC.identifier" content="main"/>
+<meta name="robots" content="noindex,nofollow"/>
+</head>
+<body><div class="page_header">
+<p>
+  <strong>WARNING</strong>: This documentation covers Elasticsearch 2.x. The 2.x
+  versions of Elasticsearch have passed their
+  <a href="https://www.elastic.co/support/eol">EOL dates</a>. If you are running
+  a 2.x version, we strongly advise you to upgrade.
+</p>
+<p>
+  This documentation is no longer maintained and may be removed. For the latest
+  information, see the <a
+  href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">current
+  Elasticsearch documentation</a>.
+</p>
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch: The Definitive Guide [main]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="getting-started.html">Getting Started</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index-management.html">Index Management</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="default-mapping.html">« Default Mapping</a>
+</span>
+<span class="next">
+<a href="index-aliases.html">Index Aliases and Zero Downtime »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="reindex"></a>Reindexing Your Data<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/070_Index_Mgmt/50_Reindexing.asciidoc">edit</a></h2>
+</div></div></div>
+<p>Although you can add new types to an index, or add new fields to a type, you
+can&#8217;t add new analyzers or make changes to existing fields.  If you were to do
+so, the data that had already been indexed would be incorrect and your
+searches would no longer work as expected.</p>
+<p>The simplest way to apply these changes to your existing data is to
+reindex:  create a new index with the new settings and copy all of your
+documents from the old index to the new index.</p>
+<p>One of the advantages of the <code class="literal">_source</code> field is that you already have the
+whole document available to you in Elasticsearch itself. You don&#8217;t have to
+rebuild your index from the database, which is usually much slower.</p>
+<p>To reindex all of the documents from the old index efficiently,  use
+<a class="xref" href="scroll.html" title="Scroll"><em>scroll</em></a> to retrieve batches of documents from the old index,
+and the <a class="xref" href="bulk.html" title="Cheaper in Bulk"><code class="literal">bulk</code> API</a> to push them into the new index.</p>
+<p>Beginning with Elasticsearch v2.3.0, a <a href="/guide/en/elasticsearch/reference/2.4/docs-reindex.html" class="ulink" target="_top">Reindex API</a> has been introduced. It enables you
+to reindex your documents without requiring any plugin nor external tool.</p>
+<div class="sidebar">
+<div class="titlepage"><div><div>
+<p class="title"><strong>Reindexing in Batches</strong></p>
+</div></div></div>
+<p>You can run multiple reindexing jobs at the same time, but you obviously don&#8217;t
+want their results to overlap.  Instead, break a big reindex down into smaller
+jobs by filtering on a date or timestamp field:</p>
+<div class="pre_wrapper lang-js">
+<pre class="programlisting prettyprint lang-js">GET /old_index/_search?scroll=1m
+{
+    "query": {
+        "range": {
+            "date": {
+                "gte":  "2014-01-01",
+                "lt":   "2014-02-01"
+            }
+        }
+    },
+    "sort": ["_doc"],
+    "size":  1000
+}</pre>
+</div>
+<p>If you continue making changes to the old index, you will want to make
+sure that you include the newly added documents in your new index as well.
+This can be done by rerunning the reindex process, but again filtering
+on a date field to match only documents that have been added since the
+last reindex process started.</p>
+</div>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="default-mapping.html">« Default Mapping</a>
+</span>
+<span class="next">
+<a href="index-aliases.html">Index Aliases and Zero Downtime »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

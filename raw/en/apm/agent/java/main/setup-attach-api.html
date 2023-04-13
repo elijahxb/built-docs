@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Programmatic API setup to self-attach | APM Java Agent Reference [main] | Elastic</title>
+<meta class="elastic" name="content" content="Programmatic API setup to self-attach | APM Java Agent Reference [main]">
+
+<link rel="home" href="index.html" title="APM Java Agent Reference [main]"/>
+<link rel="up" href="setup.html" title="Set up the Agent"/>
+<link rel="prev" href="setup-attach-cli.html" title="Automatic setup with apm-agent-attach-cli.jar"/>
+<link rel="next" href="ssl-configuration.html" title="SSL/TLS communication with APM Server"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="APM"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/APM Java Agent/Reference/main"/>
+<meta name="DC.subject" content="APM"/>
+<meta name="DC.identifier" content="main"/>
+</head>
+<body><div class="page_header">
+You are looking at preliminary documentation for a future release.
+Not what you want? See the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link">
+  <div id="related-products" class="dropdown">
+    <div class="related-products-title">APM:</div>
+    <div class="dropdown-anchor" tabindex="0">Java Agent Reference<span class="dropdown-icon"></span></div>
+    <div class="dropdown-content">
+      <ul>
+        <li class="dropdown-category">APM</li>
+        <ul>
+          <li><a href="/guide/en/apm/guide/current/apm-overview.html">User Guide</a></li>
+        </ul>
+        <li class="dropdown-category">APM agents</li>
+        <ul>
+          <li><a href="/guide/en/apm/agent/android/current/intro.html">Android Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/go/current/introduction.html">Go Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/swift/current/intro.html">iOS Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/java/current/intro.html">Java Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/dotnet/current/intro.html">.NET Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/nodejs/current/intro.html">Node.js Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/php/current/intro.html">PHP Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/python/current/getting-started.html">Python Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/ruby/current/introduction.html">Ruby Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/rum-js/current/intro.html">Real User Monitoring JavaScript Agent Reference</a></li>
+        </ul>
+        <li class="dropdown-category">APM extensions</li>
+        <ul>
+          <li><a href="/guide/en/apm/lambda/current/aws-lambda-arch.html">Monitoring AWS Lambda Functions</a></li>
+          <li><a href="/guide/en/apm/attacher/current/apm-attacher.html">Attacher</a></li>
+        </ul>
+      </ul>
+    </div>
+  </div>
+</span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="setup.html">Set up the Agent</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="setup-attach-cli.html">« Automatic setup with <code class="literal">apm-agent-attach-cli.jar</code></a>
+</span>
+<span class="next">
+<a href="ssl-configuration.html">SSL/TLS communication with APM Server »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="setup-attach-api"></a>Programmatic API setup to self-attach<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-java/edit/main/docs/setup-attach-api.asciidoc">edit</a></h2>
+</div></div></div>
+<p>The <code class="literal">apm-agent-attach</code> setup allows to attach the agent through code, it has the following properties</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+A one-line code modification in the application is required to start the agent.
+</li>
+<li class="listitem">
+Does not require to change JVM options.
+</li>
+<li class="listitem">
+The agent is managed as a maven or gradle dependency. This ensures that you have control over which agent version is used for each of your applications.
+</li>
+<li class="listitem">
+Allows programmatic configuration of the agent.
+</li>
+</ul>
+</div>
+<h4><a id="setup-attach-api-supported-environments"></a>Supported environments<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-java/edit/main/docs/setup-attach-api.asciidoc">edit</a></h4>
+<p>The attachment is supported on Windows,
+Unix and Solaris operating systems on HotSpot-based JVMs (like OpenJDK and Oracle JDK) and OpenJ9.</p>
+<h4><a id="setup-attach-api-caveats"></a>Caveats<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-java/edit/main/docs/setup-attach-api.asciidoc">edit</a></h4>
+<p>There can only be one agent instance with one configuration per JVM.
+So if you deploy multiple web applications to the same application server and call <code class="literal">ElasticApmAttacher.attach()</code> in each application,
+the first <code class="literal">attach()</code> wins and the second one will be ignored.
+That also means that if you are configuring the agent with <code class="literal">elasticapm.properties</code>,
+the application which attaches first gets to decide the configuration.
+See the default value description of the <a class="xref" href="config-core.html#config-service-name" title="service_name"><code class="literal">service_name</code></a> configuration option for ways to have different `service.name`s for each deployment.</p>
+<p>The <code class="literal">apm-agent-attach</code> artifact has a transitive dependency on JNA which can be excluded most of the time when running
+the application with a JDK. However, it will be required in the following cases:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+When attaching to a JRE and no other copy of JNA is present on the application classpath
+</li>
+<li class="listitem">
+When attaching to a JDK fails and using JRE attach strategy as fallback.
+</li>
+</ul>
+</div>
+<h4><a id="setup-attach-api-usage"></a>Usage<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-java/edit/main/docs/setup-attach-api.asciidoc">edit</a></h4>
+<p>Declare a dependency to the <a href="https://mvnrepository.com/artifact/co.elastic.apm/apm-agent-attach/latest" class="ulink" target="_top"><code class="literal">apm-agent-attach</code></a> artifact.</p>
+<p><strong>pom.xml.</strong></p>
+<div class="pre_wrapper lang-xml">
+<pre class="programlisting prettyprint lang-xml">&lt;dependency&gt;
+    &lt;groupId&gt;co.elastic.apm&lt;/groupId&gt;
+    &lt;artifactId&gt;apm-agent-attach&lt;/artifactId&gt;
+    &lt;version&gt;${elastic-apm.version}&lt;/version&gt;
+&lt;/dependency&gt;</pre>
+</div>
+<p><strong>build.gradle.</strong></p>
+<div class="pre_wrapper lang-groovy">
+<pre class="programlisting prettyprint lang-groovy">compile "co.elastic.apm:apm-agent-attach:$elasticApmVersion"</pre>
+</div>
+<p>Call <code class="literal">ElasticApmAttacher.attach()</code> in the first line of your <code class="literal">public static void main(String[] args)</code> method.</p>
+<p>This example demonstrates the the usage of the <code class="literal">attach</code> API with a simple Spring Boot application:</p>
+<p><strong>MyApplication.java.</strong></p>
+<div class="pre_wrapper lang-java">
+<pre class="programlisting prettyprint lang-java">import co.elastic.apm.attach.ElasticApmAttacher;
+import org.springframework.boot.SpringApplication;
+
+@SpringBootApplication
+public class MyApplication {
+    public static void main(String[] args) {
+        ElasticApmAttacher.attach();
+        SpringApplication.run(MyApplication.class, args);
+    }
+}</pre>
+</div>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>The API is not limited to Spring Boot and does not require Spring Boot, it is just used for demonstration purposes.</p>
+</div>
+</div>
+<h4><a id="setup-attach-api-configuration"></a>Configuration<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-java/edit/main/docs/setup-attach-api.asciidoc">edit</a></h4>
+<p>The recommended way of configuring the agent when using the attach API is to add the configuration to <code class="literal">src/main/resources/elasticapm.properties</code>.</p>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="setup-attach-cli.html">« Automatic setup with <code class="literal">apm-agent-attach-cli.jar</code></a>
+</span>
+<span class="next">
+<a href="ssl-configuration.html">SSL/TLS communication with APM Server »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

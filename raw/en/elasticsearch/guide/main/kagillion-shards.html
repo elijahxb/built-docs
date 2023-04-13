@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Kagillion Shards | Elasticsearch: The Definitive Guide [main] | Elastic</title>
+<meta class="elastic" name="content" content="Kagillion Shards | Elasticsearch: The Definitive Guide [main]">
+
+<link rel="home" href="index.html" title="Elasticsearch: The Definitive Guide [main]"/>
+<link rel="up" href="scale.html" title="Designing for Scale"/>
+<link rel="prev" href="overallocation.html" title="Shard Overallocation"/>
+<link rel="next" href="capacity-planning.html" title="Capacity Planning"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="Elasticsearch"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Legacy/Elasticsearch/Definitive Guide/main"/>
+<meta name="DC.subject" content="Elasticsearch"/>
+<meta name="DC.identifier" content="main"/>
+<meta name="robots" content="noindex,nofollow"/>
+</head>
+<body><div class="page_header">
+<p>
+  <strong>WARNING</strong>: This documentation covers Elasticsearch 2.x. The 2.x
+  versions of Elasticsearch have passed their
+  <a href="https://www.elastic.co/support/eol">EOL dates</a>. If you are running
+  a 2.x version, we strongly advise you to upgrade.
+</p>
+<p>
+  This documentation is no longer maintained and may be removed. For the latest
+  information, see the <a
+  href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">current
+  Elasticsearch documentation</a>.
+</p>
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch: The Definitive Guide [main]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="modeling-your-data.html">Modeling Your Data</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="scale.html">Designing for Scale</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="overallocation.html">« Shard Overallocation</a>
+</span>
+<span class="next">
+<a href="capacity-planning.html">Capacity Planning »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="kagillion-shards"></a>Kagillion Shards<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/410_Scaling/25_Kagillion_shards.asciidoc">edit</a></h2>
+</div></div></div>
+<p>The first thing that new users do when they learn about
+<a class="xref" href="overallocation.html" title="Shard Overallocation">shard overallocation</a> is to say to themselves:</p>
+<div class="blockquote">
+<table border="0" class="blockquote" summary="Block quote">
+<tr>
+<td valign="top" width="10%"></td>
+<td valign="top" width="80%">
+<p class="alignmeright">I don&#8217;t know how big this is going to be, and I can&#8217;t change the index size
+later on, so to be on the safe side, I&#8217;ll just give this index 1,000 shards&#8230;&#8203;</p>
+</td>
+<td valign="top" width="10%"></td>
+</tr>
+<tr>
+<td valign="top" width="10%"></td>
+<td align="right" colspan="2" valign="top">
+-- <span class="attribution">A new user</span>
+</td>
+</tr>
+</table>
+</div>
+<p>One thousand shards&#8212;&#8203;really? And you don&#8217;t think that, perhaps, between now
+and the time you need to buy <em>one thousand nodes</em>, that you may need to
+rethink your data model once or twice and have to reindex?</p>
+<p>A shard is not free.  Remember:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+A shard is a Lucene index under the covers, which uses file handles,
+memory, and CPU cycles.
+</li>
+<li class="listitem">
+Every search request needs to hit a copy of every shard in the index.
+That&#8217;s fine if every shard is sitting on a different node, but not if many
+shards have to compete for the same resources.
+</li>
+<li class="listitem">
+Term statistics, used to calculate relevance, are per shard.  Having a small
+amount of data in many shards leads to poor relevance.
+</li>
+</ul>
+</div>
+<div class="tip admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>A little overallocation is good. A kagillion shards is bad. It is difficult to
+define what constitutes too many shards, as it depends on their size and how
+they are being used. A hundred shards that are seldom used may be fine, while
+two shards experiencing very heavy usage could be too many. Monitor your nodes
+to ensure that they have enough spare capacity to deal with exceptional
+conditions.</p>
+</div>
+</div>
+<p>Scaling out should be done in phases.  Build in enough capacity to get to the
+next phase. Once you get to the next phase, you have time to think about the
+changes you need to make to reach the phase after that.</p>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="overallocation.html">« Shard Overallocation</a>
+</span>
+<span class="next">
+<a href="capacity-planning.html">Capacity Planning »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

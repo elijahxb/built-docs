@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Handling Relationships | Elasticsearch: The Definitive Guide [main] | Elastic</title>
+<meta class="elastic" name="content" content="Handling Relationships | Elasticsearch: The Definitive Guide [main]">
+
+<link rel="home" href="index.html" title="Elasticsearch: The Definitive Guide [main]"/>
+<link rel="up" href="modeling-your-data.html" title="Modeling Your Data"/>
+<link rel="prev" href="modeling-your-data.html" title="Modeling Your Data"/>
+<link rel="next" href="application-joins.html" title="Application-side Joins"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="Elasticsearch"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Legacy/Elasticsearch/Definitive Guide/main"/>
+<meta name="DC.subject" content="Elasticsearch"/>
+<meta name="DC.identifier" content="main"/>
+<meta name="robots" content="noindex,nofollow"/>
+</head>
+<body><div class="page_header">
+<p>
+  <strong>WARNING</strong>: This documentation covers Elasticsearch 2.x. The 2.x
+  versions of Elasticsearch have passed their
+  <a href="https://www.elastic.co/support/eol">EOL dates</a>. If you are running
+  a 2.x version, we strongly advise you to upgrade.
+</p>
+<p>
+  This documentation is no longer maintained and may be removed. For the latest
+  information, see the <a
+  href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">current
+  Elasticsearch documentation</a>.
+</p>
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch: The Definitive Guide [main]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="modeling-your-data.html">Modeling Your Data</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="modeling-your-data.html">« Modeling Your Data</a>
+</span>
+<span class="next">
+<a href="application-joins.html">Application-side Joins »</a>
+</span>
+</div>
+<div class="chapter">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="relations"></a>Handling Relationships<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/400_Relationships/10_Intro.asciidoc">edit</a></h2>
+</div></div></div>
+<p>In the real world, relationships matter: blog posts have comments, bank
+accounts have transactions, customers have bank accounts, orders have order
+lines, and directories have files and subdirectories.</p>
+<p>Relational databases are specifically designed&#8212;&#8203;and this will not come as a
+surprise to you&#8212;&#8203;to manage relationships:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Each entity (or <em>row</em>, in the relational world) can be uniquely identified
+by a <em>primary key</em>.
+</li>
+<li class="listitem">
+Entities are <em>normalized</em>. The data for a unique entity is stored only
+once, and related entities store just its primary key. Changing the data of
+an entity has to happen in only one place.
+</li>
+<li class="listitem">
+Entities can be joined at query time, allowing for cross-entity search.
+</li>
+<li class="listitem">
+Changes to a single entity are <em>atomic</em>, <em>consistent</em>, <em>isolated</em>, and
+<em>durable</em>.  (See <a href="http://en.wikipedia.org/wiki/ACID_transactions" class="ulink" target="_top"><em>ACID Transactions</em></a>
+for more on this subject.)
+</li>
+<li class="listitem">
+Most relational databases support ACID transactions across multiple
+entities.
+</li>
+</ul>
+</div>
+<p>But relational databases do have their limitations, besides their poor support
+for full-text search. Joining entities at query time is expensive&#8212;&#8203;the more
+joins that are required, the more expensive the query.  Performing joins
+between entities that live on different hardware is so expensive that it is
+just not practical. This places a limit on the amount of data that can be
+stored on a single server.</p>
+<p>Elasticsearch, like most NoSQL databases, treats the world as though it were
+flat. An index is a flat collection of independent documents. A single
+document should contain all of the information that is required to decide
+whether it matches a search request.</p>
+<p>While changing the data of a single document in Elasticsearch is
+<a href="http://en.wikipedia.org/wiki/ACID_transactions" class="ulink" target="_top">ACIDic</a>, transactions
+involving multiple documents are not.  There is no way to roll back the index
+to its previous state if part of a transaction fails.</p>
+<p>This FlatWorld has its advantages:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Indexing is fast and lock-free.
+</li>
+<li class="listitem">
+Searching is fast and lock-free.
+</li>
+<li class="listitem">
+Massive amounts of data can be spread across multiple nodes, because each
+document is independent of the others.
+</li>
+</ul>
+</div>
+<p>But relationships matter.  Somehow, we need to bridge the gap between
+FlatWorld and the real world. Four common techniques are used to manage
+relational data in Elasticsearch:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<a class="xref" href="application-joins.html" title="Application-side Joins">Application-side joins</a>
+</li>
+<li class="listitem">
+<a class="xref" href="denormalization.html" title="Denormalizing Your Data">Data denormalization</a>
+</li>
+<li class="listitem">
+<a class="xref" href="nested-objects.html" title="Nested Objects">Nested objects</a>
+</li>
+<li class="listitem">
+<a class="xref" href="parent-child.html" title="Parent-Child Relationship">Parent/child relationships</a>
+</li>
+</ul>
+</div>
+<p>Often the final solution will require a mixture of a few of these techniques.</p>
+
+
+
+
+
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="modeling-your-data.html">« Modeling Your Data</a>
+</span>
+<span class="next">
+<a href="application-joins.html">Application-side Joins »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

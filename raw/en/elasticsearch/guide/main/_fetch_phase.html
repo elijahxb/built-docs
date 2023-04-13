@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Fetch Phase | Elasticsearch: The Definitive Guide [main] | Elastic</title>
+<meta class="elastic" name="content" content="Fetch Phase | Elasticsearch: The Definitive Guide [main]">
+
+<link rel="home" href="index.html" title="Elasticsearch: The Definitive Guide [main]"/>
+<link rel="up" href="distributed-search.html" title="Distributed Search Execution"/>
+<link rel="prev" href="_query_phase.html" title="Query Phase"/>
+<link rel="next" href="_search_options.html" title="Search Options"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="Elasticsearch"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Legacy/Elasticsearch/Definitive Guide/main"/>
+<meta name="DC.subject" content="Elasticsearch"/>
+<meta name="DC.identifier" content="main"/>
+<meta name="robots" content="noindex,nofollow"/>
+</head>
+<body><div class="page_header">
+<p>
+  <strong>WARNING</strong>: This documentation covers Elasticsearch 2.x. The 2.x
+  versions of Elasticsearch have passed their
+  <a href="https://www.elastic.co/support/eol">EOL dates</a>. If you are running
+  a 2.x version, we strongly advise you to upgrade.
+</p>
+<p>
+  This documentation is no longer maintained and may be removed. For the latest
+  information, see the <a
+  href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">current
+  Elasticsearch documentation</a>.
+</p>
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch: The Definitive Guide [main]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="getting-started.html">Getting Started</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="distributed-search.html">Distributed Search Execution</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="_query_phase.html">« Query Phase</a>
+</span>
+<span class="next">
+<a href="_search_options.html">Search Options »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="_fetch_phase"></a>Fetch Phase<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/060_Distributed_Search/10_Fetch_phase.asciidoc">edit</a></h2>
+</div></div></div>
+<p>The query phase identifies which documents satisfy the search request, but we
+still need to retrieve the documents themselves. This is the job of the fetch
+phase, shown in <a class="xref" href="_fetch_phase.html#img-distrib-fetch" title="Fetch phase of distributed search">Figure 15, &#8220;Fetch phase of distributed search&#8221;</a>.</p>
+<div id="img-distrib-fetch" class="imageblock">
+<div class="content">
+<img src="images/elas_0902.png" alt="Fetch Phase of distributed search">
+</div>
+<div class="title">Figure 15. Fetch phase of distributed search</div>
+</div>
+<p>The distributed phase consists of the following steps:</p>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+The coordinating node identifies which documents need to be fetched and
+issues a multi <code class="literal">GET</code> request to the relevant shards.
+</li>
+<li class="listitem">
+Each shard loads the documents and <em>enriches</em> them, if required, and then
+returns the documents to the coordinating node.
+</li>
+<li class="listitem">
+Once all documents have been fetched, the coordinating node returns the
+results to the client.
+</li>
+</ol>
+</div>
+<p>The coordinating node first decides which documents <em>actually</em> need to be
+fetched. For instance, if our query specified <code class="literal">{ "from": 90, "size": 10 }</code>,
+the first 90 results would be discarded and only the next 10 results would
+need to be retrieved. These documents may come from one, some, or all of the
+shards involved in the original search request.</p>
+<p>The coordinating node builds a <a class="xref" href="distrib-multi-doc.html" title="Multidocument Patterns">multi-get request</a> for
+each shard that holds a pertinent document and sends the request to the same
+shard copy that handled the query phase.</p>
+<p>The shard loads the document bodies&#8212;&#8203;the <code class="literal">_source</code> field&#8212;&#8203;and, if
+requested, enriches the results with metadata and
+<a class="xref" href="highlighting-intro.html" title="Highlighting Our Searches">search snippet highlighting</a>.
+Once the coordinating node receives all results, it assembles them into a
+single response that it returns to the client.</p>
+<div class="sidebar">
+<div class="titlepage"><div><div>
+<p class="title"><strong>Deep Pagination</strong></p>
+</div></div></div>
+<p>The query-then-fetch process supports pagination with the <code class="literal">from</code> and <code class="literal">size</code>
+parameters, but <em>within limits</em>.  Remember that each shard must build a priority
+queue of length <code class="literal">from + size</code>, all of which need to be passed back to
+the coordinating node. And the coordinating node needs to sort through
+<code class="literal">number_of_shards * (from + size)</code> documents in order to find the correct
+<code class="literal">size</code> documents.</p>
+<p>Depending on the size of your documents, the number of shards, and the
+hardware you are using, paging 10,000 to 50,000 results (1,000 to 5,000 pages)
+deep should be perfectly doable. But with big-enough <code class="literal">from</code> values, the
+sorting process can become very heavy indeed, using vast amounts of CPU,
+memory, and bandwidth.  For this reason, we strongly advise against deep paging.</p>
+<p>In practice, &#8220;deep pagers&#8221; are seldom human anyway.  A human will stop
+paging after two  or three pages and will change the search criteria. The
+culprits are usually bots or web spiders that tirelessly keep fetching page
+after page until your servers crumble at the knees.</p>
+<p>If you <em>do</em> need to fetch large numbers of docs from your cluster, you can
+do so efficiently by disabling sorting with the <code class="literal">scroll</code> query,
+which we discuss <a class="xref" href="scroll.html" title="Scroll">later in this chapter</a>.</p>
+</div>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="_query_phase.html">« Query Phase</a>
+</span>
+<span class="next">
+<a href="_search_options.html">Search Options »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

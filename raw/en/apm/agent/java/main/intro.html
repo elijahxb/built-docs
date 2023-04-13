@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Introduction | APM Java Agent Reference [main] | Elastic</title>
+<meta class="elastic" name="content" content="Introduction | APM Java Agent Reference [main]">
+
+<link rel="home" href="index.html" title="APM Java Agent Reference [main]"/>
+<link rel="up" href="index.html" title="APM Java Agent Reference [main]"/>
+<link rel="prev" href="index.html" title="APM Java Agent Reference [main]"/>
+<link rel="next" href="setup.html" title="Set up the Agent"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="APM"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/APM Java Agent/Reference/main"/>
+<meta name="DC.subject" content="APM"/>
+<meta name="DC.identifier" content="main"/>
+</head>
+<body><div class="page_header">
+You are looking at preliminary documentation for a future release.
+Not what you want? See the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link">
+  <div id="related-products" class="dropdown">
+    <div class="related-products-title">APM:</div>
+    <div class="dropdown-anchor" tabindex="0">Java Agent Reference<span class="dropdown-icon"></span></div>
+    <div class="dropdown-content">
+      <ul>
+        <li class="dropdown-category">APM</li>
+        <ul>
+          <li><a href="/guide/en/apm/guide/current/apm-overview.html">User Guide</a></li>
+        </ul>
+        <li class="dropdown-category">APM agents</li>
+        <ul>
+          <li><a href="/guide/en/apm/agent/android/current/intro.html">Android Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/go/current/introduction.html">Go Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/swift/current/intro.html">iOS Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/java/current/intro.html">Java Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/dotnet/current/intro.html">.NET Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/nodejs/current/intro.html">Node.js Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/php/current/intro.html">PHP Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/python/current/getting-started.html">Python Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/ruby/current/introduction.html">Ruby Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/rum-js/current/intro.html">Real User Monitoring JavaScript Agent Reference</a></li>
+        </ul>
+        <li class="dropdown-category">APM extensions</li>
+        <ul>
+          <li><a href="/guide/en/apm/lambda/current/aws-lambda-arch.html">Monitoring AWS Lambda Functions</a></li>
+          <li><a href="/guide/en/apm/attacher/current/apm-attacher.html">Attacher</a></li>
+        </ul>
+      </ul>
+    </div>
+  </div>
+</span>
+</div>
+<div class="navheader">
+<span class="prev">
+</span>
+<span class="next">
+<a href="setup.html">Set up the Agent »</a>
+</span>
+</div>
+<div class="chapter">
+<div class="titlepage"><div><div>
+<h1 class="title"><a id="intro"></a>Introduction<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-java/edit/main/docs/intro.asciidoc">edit</a></h1>
+</div></div></div>
+<p>The Elastic APM Java Agent automatically measures the performance of your application and tracks errors.
+It has built-in support for popular frameworks and technologies,
+as well as a simple <a class="xref" href="public-api.html" title="Public API">API</a> which allows you to instrument any application, and
+a <a class="xref" href="plugin-api.html" title="Plugin API">Plugin API</a> that allows you to add custom instrumentation.</p>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>The minimum required version of the APM Server is 6.5.0</p>
+</div>
+</div>
+<h3><a id="how-it-works"></a>How does the Agent work?<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-java/edit/main/docs/intro.asciidoc">edit</a></h3>
+<p>The Agent auto-instruments <a class="xref" href="setup.html#supported-technologies" title="Supported technologies">Supported technologies</a> and records interesting events,
+like spans for database queries and transactions for incoming HTTP requests.
+To do this, it leverages the capability of the JVM to instrument the bytecode of classes.
+This means that for the supported technologies, there are no code changes required.</p>
+<p>Spans are grouped in transactions&#8201;&#8212;&#8201;by default, one for each incoming HTTP request.
+But it&#8217;s possible to create custom transactions not associated with an HTTP request.
+Transactions and Spans are sent to the APM Server, where they&#8217;re converted to a format suitable for Elasticsearch.
+You can then use the APM app in Kibana to gain insight into latency issues and error culprits within your application.</p>
+<p>More detailed information on how the Agent works can be found in the <a class="xref" href="faq.html#faq-how-does-it-work" title="How does the agent work?">FAQ</a>.</p>
+<h3><a id="additional-components"></a>Additional components<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-java/edit/main/docs/intro.asciidoc">edit</a></h3>
+<p>APM Agents work in conjunction with the <a href="/guide/en/apm/guide/8.7/index.html" class="ulink" target="_top">APM Server</a>, <a href="/guide/en/elasticsearch/reference/8.7/index.html" class="ulink" target="_top">Elasticsearch</a>, and <a href="/guide/en/kibana/8.7/index.html" class="ulink" target="_top">Kibana</a>.
+The <a href="/guide/en/apm/guide/8.7/index.html" class="ulink" target="_top">APM Guide</a> provides details on how these components work together,
+and provides a matrix outlining <a href="/guide/en/apm/guide/8.7/agent-server-compatibility.html" class="ulink" target="_top">Agent and Server compatibility</a>.</p>
+</div>
+<div class="navfooter">
+<span class="prev">
+</span>
+<span class="next">
+<a href="setup.html">Set up the Agent »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

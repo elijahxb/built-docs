@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Entity Framework 6 | APM .NET Agent Reference [main] | Elastic</title>
+<meta class="elastic" name="content" content="Entity Framework 6 | APM .NET Agent Reference [main]">
+
+<link rel="home" href="index.html" title="APM .NET Agent Reference [main]"/>
+<link rel="up" href="packages.html" title="NuGet packages"/>
+<link rel="prev" href="setup-ef-core.html" title="Entity Framework Core"/>
+<link rel="next" href="setup-elasticsearch.html" title="Elasticsearch"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="APM"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/APM .NET Agent/Reference/main"/>
+<meta name="DC.subject" content="APM"/>
+<meta name="DC.identifier" content="main"/>
+</head>
+<body><div class="page_header">
+You are looking at preliminary documentation for a future release.
+Not what you want? See the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link">
+  <div id="related-products" class="dropdown">
+    <div class="related-products-title">APM:</div>
+    <div class="dropdown-anchor" tabindex="0">.NET Agent Reference<span class="dropdown-icon"></span></div>
+    <div class="dropdown-content">
+      <ul>
+        <li class="dropdown-category">APM</li>
+        <ul>
+          <li><a href="/guide/en/apm/guide/current/apm-overview.html">User Guide</a></li>
+        </ul>
+        <li class="dropdown-category">APM agents</li>
+        <ul>
+          <li><a href="/guide/en/apm/agent/android/current/intro.html">Android Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/go/current/introduction.html">Go Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/swift/current/intro.html">iOS Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/java/current/intro.html">Java Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/dotnet/current/intro.html">.NET Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/nodejs/current/intro.html">Node.js Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/php/current/intro.html">PHP Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/python/current/getting-started.html">Python Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/ruby/current/introduction.html">Ruby Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/rum-js/current/intro.html">Real User Monitoring JavaScript Agent Reference</a></li>
+        </ul>
+        <li class="dropdown-category">APM extensions</li>
+        <ul>
+          <li><a href="/guide/en/apm/lambda/current/aws-lambda-arch.html">Monitoring AWS Lambda Functions</a></li>
+          <li><a href="/guide/en/apm/attacher/current/apm-attacher.html">Attacher</a></li>
+        </ul>
+      </ul>
+    </div>
+  </div>
+</span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="packages.html">NuGet packages</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="setup-ef-core.html">« Entity Framework Core</a>
+</span>
+<span class="next">
+<a href="setup-elasticsearch.html">Elasticsearch »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="setup-ef6"></a>Entity Framework 6<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-dotnet/edit/main/docs/packages.asciidoc">edit</a></h2>
+</div></div></div>
+<h4><a id="_quick_start_6"></a>Quick start<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-dotnet/edit/main/docs/packages.asciidoc">edit</a></h4>
+<p>You can enable auto instrumentation for Entity Framework 6 by referencing the <a href="https://www.nuget.org/packages/Elastic.Apm.EntityFramework6" class="ulink" target="_top"><code class="literal">Elastic.Apm.EntityFramework6</code></a> package
+and including the <code class="literal">Ef6Interceptor</code> interceptor in your application&#8217;s <code class="literal">web.config</code>:</p>
+<div class="pre_wrapper lang-xml">
+<pre class="programlisting prettyprint lang-xml">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;configuration&gt;
+    &lt;entityFramework&gt;
+        &lt;interceptors&gt;
+            &lt;interceptor type="Elastic.Apm.EntityFramework6.Ef6Interceptor, Elastic.Apm.EntityFramework6" /&gt;
+        &lt;/interceptors&gt;
+    &lt;/entityFramework&gt;
+&lt;/configuration&gt;</pre>
+</div>
+<p>As an alternative to registering the interceptor via the configuration, you can register it in the application code:</p>
+<div class="pre_wrapper lang-csharp">
+<pre class="programlisting prettyprint lang-csharp">DbInterception.Add(new Elastic.Apm.EntityFramework6.Ef6Interceptor());</pre>
+</div>
+<p>For example, in an ASP.NET application, you can place the above call in the <code class="literal">Application_Start</code> method.</p>
+<p>Instrumentation works with EntityFramework 6.2+ NuGet packages.</p>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>Be careful not to execute <code class="literal">DbInterception.Add</code> for the same interceptor type more than once,
+as this will register multiple instances, causing multiple database spans to be captured for every SQL command.</p>
+</div>
+</div>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="setup-ef-core.html">« Entity Framework Core</a>
+</span>
+<span class="next">
+<a href="setup-elasticsearch.html">Elasticsearch »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

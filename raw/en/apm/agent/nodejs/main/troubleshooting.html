@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Troubleshooting | APM Node.js Agent Reference [main] | Elastic</title>
+<meta class="elastic" name="content" content="Troubleshooting | APM Node.js Agent Reference [main]">
+
+<link rel="home" href="index.html" title="APM Node.js Agent Reference [main]"/>
+<link rel="up" href="index.html" title="APM Node.js Agent Reference [main]"/>
+<link rel="prev" href="performance-tuning.html" title="Performance Tuning"/>
+<link rel="next" href="upgrading.html" title="Upgrading"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="APM"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/APM Node.js Agent/Reference/main"/>
+<meta name="DC.subject" content="APM"/>
+<meta name="DC.identifier" content="main"/>
+</head>
+<body><div class="page_header">
+You are looking at preliminary documentation for a future release.
+Not what you want? See the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link">
+  <div id="related-products" class="dropdown">
+    <div class="related-products-title">APM:</div>
+    <div class="dropdown-anchor" tabindex="0">Node.js Agent Reference<span class="dropdown-icon"></span></div>
+    <div class="dropdown-content">
+      <ul>
+        <li class="dropdown-category">APM</li>
+        <ul>
+          <li><a href="/guide/en/apm/guide/current/apm-overview.html">User Guide</a></li>
+        </ul>
+        <li class="dropdown-category">APM agents</li>
+        <ul>
+          <li><a href="/guide/en/apm/agent/android/current/intro.html">Android Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/go/current/introduction.html">Go Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/swift/current/intro.html">iOS Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/java/current/intro.html">Java Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/dotnet/current/intro.html">.NET Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/nodejs/current/intro.html">Node.js Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/php/current/intro.html">PHP Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/python/current/getting-started.html">Python Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/ruby/current/introduction.html">Ruby Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/rum-js/current/intro.html">Real User Monitoring JavaScript Agent Reference</a></li>
+        </ul>
+        <li class="dropdown-category">APM extensions</li>
+        <ul>
+          <li><a href="/guide/en/apm/lambda/current/aws-lambda-arch.html">Monitoring AWS Lambda Functions</a></li>
+          <li><a href="/guide/en/apm/attacher/current/apm-attacher.html">Attacher</a></li>
+        </ul>
+      </ul>
+    </div>
+  </div>
+</span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="performance-tuning.html">« Performance Tuning</a>
+</span>
+<span class="next">
+<a href="upgrading.html">Upgrading »</a>
+</span>
+</div>
+<div class="chapter">
+<div class="titlepage"><div><div>
+<h1 class="title"><a id="troubleshooting"></a>Troubleshooting<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-nodejs/edit/main/docs/troubleshooting.asciidoc">edit</a></h1>
+</div></div></div>
+<p>Is something not working as expected?
+Don&#8217;t worry if you can&#8217;t figure out what the problem is; we’re here to help!
+As a first step, ensure your app is compatible with the agent&#8217;s <a class="xref" href="supported-technologies.html" title="Supported technologies">supported technologies</a>.</p>
+<p>If you&#8217;re an existing Elastic customer with a support contract, please create a ticket in the
+<a href="https://support.elastic.co/customers/s/login/" class="ulink" target="_top">Elastic Support portal</a>.
+Other users can post in the <a href="https://discuss.elastic.co/c/apm" class="ulink" target="_top">APM discuss forum</a>.</p>
+<div class="important admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p><span class="strong strong"><strong>Please upload your complete debug logs</strong></span> to a service like <a href="https://gist.github.com" class="ulink" target="_top">GitHub Gist</a>
+so that we can analyze the problem.
+Logs should include everything from when the application starts up until the first request executes.
+See <a class="xref" href="troubleshooting.html#debug-mode" title="Debug mode">Debug mode</a> for more information.</p>
+</div>
+</div>
+<h3><a id="use-latest-agent"></a>Updating to latest agent version<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-nodejs/edit/main/docs/troubleshooting.asciidoc">edit</a></h3>
+<p>The Elastic Node.js APM Agent is updated frequently and releases are not
+strongly tied to other components in the Elastic Stack.  Therefore,
+updating to the most recently released agent version is often the recommended
+first troubleshooting step.</p>
+<p>See <a class="xref" href="upgrading.html" title="Upgrading">upgrading documentation</a> for more details.</p>
+<h3><a id="debug-mode"></a>Debug mode<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-nodejs/edit/main/docs/troubleshooting.asciidoc">edit</a></h3>
+<p>To capture enough information for troubleshooting, perform these steps:</p>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+Start your app with "trace"-level logging. This can be done by setting the
+environment variable <code class="literal">ELASTIC_APM_LOG_LEVEL=trace</code> or adding <code class="literal">logLevel: 'trace'</code>
+to the <code class="literal">apm.start(options)</code> call (see <a class="xref" href="configuration.html#log-level" title="logLevel"><code class="literal">logLevel</code></a> for details).
+</li>
+<li class="listitem">
+Disable a possible custom <code class="literal">logger</code> config, because a custom logger can
+result in structured log data being lost. This can be done by setting the
+environment variable <code class="literal">ELASTIC_APM_LOGGER=false</code>.
+</li>
+<li class="listitem">
+Send a few HTTP requests to some of the app endpoints and/or reproduce the
+issue you are seeing.
+</li>
+<li class="listitem">
+Wait at least 10 seconds to allow the agent to try and connect to the APM
+Server (controlled by <a class="xref" href="configuration.html#api-request-time" title="apiRequestTime"><code class="literal">apiRequestTime</code></a>).
+</li>
+</ol>
+</div>
+<p>For example:</p>
+<div class="pre_wrapper lang-bash">
+<pre class="programlisting prettyprint lang-bash">ELASTIC_APM_LOG_LEVEL=trace ELASTIC_APM_LOGGER=false node app.js | tee -a apm-debug.log</pre>
+</div>
+<p>If you are capturing debugging output for Elastic support, for help on the
+Elastic forums, or for a GitHub issue, <span class="strong strong"><strong>please upload the complete debug
+output</strong></span> to a service like <a href="https://gist.github.com" class="ulink" target="_top">GitHub Gist</a> so that
+we can analyze the problem.</p>
+<h3><a id="common-problems"></a>Common problems<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-nodejs/edit/main/docs/troubleshooting.asciidoc">edit</a></h3>
+<h4><a id="no-data-sent"></a>No data is sent to the APM Server<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-nodejs/edit/main/docs/troubleshooting.asciidoc">edit</a></h4>
+<p>If there is no data for your service in the Kibana APM app, check the log output
+for messages like the following.</p>
+<p>The most common source of problems are connection issues between the agent and
+the APM server. Look for a log message of the form <code class="literal">APM Server transport error ...</code>.
+For example:</p>
+<div class="pre_wrapper lang-text">
+<pre class="programlisting prettyprint lang-text">APM Server transport error (ECONNREFUSED): connect ECONNREFUSED 127.0.0.1:8200</pre>
+</div>
+<p>These may indicate an issue with the agent configuration (see <a class="xref" href="configuration.html#server-url" title="serverUrl"><code class="literal">serverUrl</code></a>,
+<a class="xref" href="configuration.html#secret-token" title="secretToken"><code class="literal">secretToken</code></a> or <a class="xref" href="configuration.html#api-key" title="apiKey"><code class="literal">apiKey</code></a>), a network problem between agent and server, or
+that the APM server is down or misconfigured (see
+<a href="/guide/en/apm/guide/8.7/troubleshooting.html" class="ulink" target="_top">the APM server troubleshooting docs</a>).</p>
+<p>Also look for error messages starting with <code class="literal">Elastic APM ...</code>. Some examples:</p>
+<div class="pre_wrapper lang-text">
+<pre class="programlisting prettyprint lang-text">Elastic APM agent disabled (`active` is false)</pre>
+</div>
+<p>This indicates that you have likely set the <code class="literal">active</code> option or the <code class="literal">ELASTIC_APM_ACTIVE</code> environment variable to <code class="literal">false</code>. See <a class="xref" href="configuration.html#active" title="active">the <code class="literal">active</code> configuration variable docs</a>.</p>
+<div class="pre_wrapper lang-text">
+<pre class="programlisting prettyprint lang-text">Elastic APM is incorrectly configured: serverUrl "..." contains an invalid port! (allowed: 1-65535)</pre>
+</div>
+<h4><a id="missing-performance-metrics"></a>No metrics or trace data is sent to APM Server<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-nodejs/edit/main/docs/troubleshooting.asciidoc">edit</a></h4>
+<p>Errors get tracked just fine, but you don&#8217;t see any performance metrics or
+trace data.</p>
+<p>Make sure that the agent is <span class="strong strong"><strong>both required and started at the very top of your main app file</strong></span> (usually the <code class="literal">index.js</code>, <code class="literal">server.js</code> or <code class="literal">app.js</code> file).
+It&#8217;s important that the agent is started before any other modules are
+`require`d.  If not, the agent will not be able to hook into any modules and
+will not be able to measure the performance of your application.
+See <a class="xref" href="starting-the-agent.html#start-gotchas" title="Start gotchas">Start gotchas</a> for a number of possible surprises in correctly starting the APM agent when used with some compilers or bundlers.</p>
+<h3><a id="disable-agent"></a>Disable the Agent<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-nodejs/edit/main/docs/troubleshooting.asciidoc">edit</a></h3>
+<p>In the unlikely event the agent causes disruptions to a production application,
+you can disable the agent while you troubleshoot.</p>
+<p>To disable the agent, set <a class="xref" href="configuration.html#active" title="active"><code class="literal">active</code></a> to <code class="literal">false</code>.
+You&#8217;ll need to restart your application for the changes to apply.</p>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="performance-tuning.html">« Performance Tuning</a>
+</span>
+<span class="next">
+<a href="upgrading.html">Upgrading »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

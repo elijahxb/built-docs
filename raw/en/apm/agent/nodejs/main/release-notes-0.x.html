@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Node.js Agent version 0.x | APM Node.js Agent Reference [main] | Elastic</title>
+<meta class="elastic" name="content" content="Node.js Agent version 0.x | APM Node.js Agent Reference [main]">
+
+<link rel="home" href="index.html" title="APM Node.js Agent Reference [main]"/>
+<link rel="up" href="release-notes.html" title="Release notes"/>
+<link rel="prev" href="release-notes-1.x.html" title="Node.js Agent version 1.x"/>
+<link rel="next" href="redirects.html" title="Appendix A: Deleted pages"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="APM"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/APM Node.js Agent/Reference/main"/>
+<meta name="DC.subject" content="APM"/>
+<meta name="DC.identifier" content="main"/>
+</head>
+<body><div class="page_header">
+You are looking at preliminary documentation for a future release.
+Not what you want? See the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link">
+  <div id="related-products" class="dropdown">
+    <div class="related-products-title">APM:</div>
+    <div class="dropdown-anchor" tabindex="0">Node.js Agent Reference<span class="dropdown-icon"></span></div>
+    <div class="dropdown-content">
+      <ul>
+        <li class="dropdown-category">APM</li>
+        <ul>
+          <li><a href="/guide/en/apm/guide/current/apm-overview.html">User Guide</a></li>
+        </ul>
+        <li class="dropdown-category">APM agents</li>
+        <ul>
+          <li><a href="/guide/en/apm/agent/android/current/intro.html">Android Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/go/current/introduction.html">Go Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/swift/current/intro.html">iOS Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/java/current/intro.html">Java Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/dotnet/current/intro.html">.NET Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/nodejs/current/intro.html">Node.js Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/php/current/intro.html">PHP Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/python/current/getting-started.html">Python Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/ruby/current/introduction.html">Ruby Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/rum-js/current/intro.html">Real User Monitoring JavaScript Agent Reference</a></li>
+        </ul>
+        <li class="dropdown-category">APM extensions</li>
+        <ul>
+          <li><a href="/guide/en/apm/lambda/current/aws-lambda-arch.html">Monitoring AWS Lambda Functions</a></li>
+          <li><a href="/guide/en/apm/attacher/current/apm-attacher.html">Attacher</a></li>
+        </ul>
+      </ul>
+    </div>
+  </div>
+</span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="release-notes.html">Release notes</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="release-notes-1.x.html">« Node.js Agent version 1.x</a>
+</span>
+<span class="next">
+<a href="redirects.html">Appendix A: Deleted pages »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="release-notes-0.x"></a>Node.js Agent version 0.x<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-nodejs/edit/main/CHANGELOG.asciidoc">edit</a></h2>
+</div></div></div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="release-notes-0.12.0"></a>0.12.0 - 2018/1/24<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-nodejs/edit/main/CHANGELOG.asciidoc">edit</a></h3>
+</div></div></div>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+feat(*): control amount of source context lines collected using new config options <a href="https://github.com/elastic/apm-agent-nodejs/pull/196" class="ulink" target="_top">#196</a>
+</li>
+<li class="listitem">
+feat(agent): add public flush function to force flush of transaction queue: agent.flush([callback]) <a href="https://github.com/elastic/apm-agent-nodejs/pull/187" class="ulink" target="_top">#187</a>
+</li>
+<li class="listitem">
+feat(mongodb): add support for mongodb-core 3.x <a href="https://github.com/elastic/apm-agent-nodejs/pull/190" class="ulink" target="_top">#190</a>
+</li>
+<li class="listitem">
+refactor(config): update default flushInterval to 10 seconds (lower memory usage) <a href="https://github.com/elastic/apm-agent-nodejs/pull/186" class="ulink" target="_top">#186</a>
+</li>
+<li class="listitem">
+chore(*): drop support for Node.js 5 and 7 <a href="https://github.com/elastic/apm-agent-nodejs/pull/169" class="ulink" target="_top">#169</a>
+</li>
+<li class="listitem">
+refactor(instrumentation): encode transactions as they are added to the queue (lower memory usage) <a href="https://github.com/elastic/apm-agent-nodejs/pull/184" class="ulink" target="_top">#184</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="release-notes-0.11.0"></a>0.11.0 - 2018/1/11<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-nodejs/edit/main/CHANGELOG.asciidoc">edit</a></h3>
+</div></div></div>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+feat(*): Set default stack trace limit to 50 frames <a href="https://github.com/elastic/apm-agent-nodejs/pull/171" class="ulink" target="_top">#171</a>
+</li>
+<li class="listitem">
+feat(ws): add support for ws@4.x <a href="https://github.com/elastic/apm-agent-nodejs/pull/164" class="ulink" target="_top">#164</a>
+</li>
+<li class="listitem">
+feat(errors): associate errors with active transaction
+</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="release-notes-0.10.0"></a>0.10.0 - 2018/1/3<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-nodejs/edit/main/CHANGELOG.asciidoc">edit</a></h3>
+</div></div></div>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+feat(express): auto-track errors (BREAKING CHANGE: removed express middleware) <a href="https://github.com/elastic/apm-agent-nodejs/pull/127" class="ulink" target="_top">#127</a>
+</li>
+<li class="listitem">
+feat(hapi): add hapi 17 support <a href="https://github.com/elastic/apm-agent-nodejs/pull/146" class="ulink" target="_top">#146</a>
+</li>
+<li class="listitem">
+fix(*): fix Node.js 8 support using async_hooks <a href="https://github.com/elastic/apm-agent-nodejs/pull/77" class="ulink" target="_top">#77</a>
+</li>
+<li class="listitem">
+fix(graphql): support sync execute <a href="https://github.com/elastic/apm-agent-nodejs/pull/139" class="ulink" target="_top">#139</a>
+</li>
+<li class="listitem">
+refactor(agent): make all config properties private (BREAKING CHANGE) <a href="https://github.com/elastic/apm-agent-nodejs/pull/107" class="ulink" target="_top">#107</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="release-notes-0.9.0"></a>0.9.0 - 2017/12/15<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-nodejs/edit/main/CHANGELOG.asciidoc">edit</a></h3>
+</div></div></div>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+feat(conf): allow serverUrl to contain a sub-path <a href="https://github.com/elastic/apm-agent-nodejs/pull/116" class="ulink" target="_top">#116</a>
+</li>
+<li class="listitem">
+refactor(*): better format of error messages from the APM Server <a href="https://github.com/elastic/apm-agent-nodejs/pull/108" class="ulink" target="_top">#108</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="release-notes-0.8.1"></a>0.8.1 - 2017/12/13<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-nodejs/edit/main/CHANGELOG.asciidoc">edit</a></h3>
+</div></div></div>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+docs(*): we&#8217;re now in beta! <a href="https://github.com/elastic/apm-agent-nodejs/pull/103" class="ulink" target="_top">#103</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="release-notes-0.8.0"></a>0.8.0 - 2017/12/13<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-nodejs/edit/main/CHANGELOG.asciidoc">edit</a></h3>
+</div></div></div>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+feat(handlebars): instrument handlebars <a href="https://github.com/elastic/apm-agent-nodejs/pull/98" class="ulink" target="_top">#98</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="release-notes-0.7.0"></a>0.7.0 - 2017/12/6<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-nodejs/edit/main/CHANGELOG.asciidoc">edit</a></h3>
+</div></div></div>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+feat(parser): add sourceContext config option to control if code snippets are sent to the APM Server <a href="https://github.com/elastic/apm-agent-nodejs/pull/87" class="ulink" target="_top">#87</a>
+</li>
+<li class="listitem">
+fix(*): move https-pem to list of devDependencies
+</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="release-notes-0.6.0"></a>0.6.0 - 2017/11/17<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-nodejs/edit/main/CHANGELOG.asciidoc">edit</a></h3>
+</div></div></div>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+feat(queue): add maxQueueSize config option <a href="https://github.com/elastic/apm-agent-nodejs/pull/56" class="ulink" target="_top">#56</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="release-notes-0.5.0"></a>0.5.0 - 2017/11/17<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-nodejs/edit/main/CHANGELOG.asciidoc">edit</a></h3>
+</div></div></div>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+refactor(*): drop support for Node.js &lt;4 <a href="https://github.com/elastic/apm-agent-nodejs/pull/65" class="ulink" target="_top">#65</a>
+</li>
+<li class="listitem">
+refactor(*): rename module to elastic-apm-node <a href="https://github.com/elastic/apm-agent-nodejs/pull/71" class="ulink" target="_top">#71</a>
+</li>
+<li class="listitem">
+feat(queue): add fuzziness to flushInterval <a href="https://github.com/elastic/apm-agent-nodejs/pull/63" class="ulink" target="_top">#63</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="release-notes-0.4.0"></a>0.4.0 - 2017/11/15<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-nodejs/edit/main/CHANGELOG.asciidoc">edit</a></h3>
+</div></div></div>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+fix(https): instrument https.request in Node.js v9
+</li>
+<li class="listitem">
+refactor(http): log HTTP results in groups of 100 <a href="https://github.com/elastic/apm-agent-nodejs/pull/68" class="ulink" target="_top">#68</a>
+</li>
+<li class="listitem">
+fix(api): add language to APM Server requests <a href="https://github.com/elastic/apm-agent-nodejs/pull/64" class="ulink" target="_top">#64</a>
+</li>
+<li class="listitem">
+refactor(trans): set default transaction.result to success <a href="https://github.com/elastic/apm-agent-nodejs/pull/67" class="ulink" target="_top">#67</a>
+</li>
+<li class="listitem">
+refactor(config): rename timeout config options <a href="https://github.com/elastic/apm-agent-nodejs/pull/59" class="ulink" target="_top">#59</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="release-notes-0.3.1"></a>0.3.1 - 2017/10/3<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-nodejs/edit/main/CHANGELOG.asciidoc">edit</a></h3>
+</div></div></div>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+fix(parsers): don&#8217;t log context.request.url.search as null <a href="https://github.com/elastic/apm-agent-nodejs/pull/48" class="ulink" target="_top">#48</a>
+</li>
+<li class="listitem">
+fix(parsers): separate hostname and port when parsing Host header <a href="https://github.com/elastic/apm-agent-nodejs/pull/47" class="ulink" target="_top">#47</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="release-notes-0.3.0"></a>0.3.0 - 2017/9/20<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-nodejs/edit/main/CHANGELOG.asciidoc">edit</a></h3>
+</div></div></div>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+fix(instrumentation): don&#8217;t sample transactions <a href="https://github.com/elastic/apm-agent-nodejs/pull/40" class="ulink" target="_top">#40</a>
+</li>
+<li class="listitem">
+feat(graphql): include GraphQL operation name in trace and transaction names <a href="https://github.com/elastic/apm-agent-nodejs/pull/27" class="ulink" target="_top">#27</a>
+</li>
+<li class="listitem">
+feat(tls): add validateServerCert config option <a href="https://github.com/elastic/apm-agent-nodejs/pull/32" class="ulink" target="_top">#32</a>
+</li>
+<li class="listitem">
+feat(parser): support http requests with full URI&#8217;s <a href="https://github.com/elastic/apm-agent-nodejs/pull/26" class="ulink" target="_top">#26</a>
+</li>
+<li class="listitem">
+refactor(*): remove appGitRef config option
+</li>
+<li class="listitem">
+fix(instrumentation): fix setting of custom flushInterval
+</li>
+<li class="listitem">
+feat(elasticsearch): add simple Elasticsearch instrumentation
+</li>
+<li class="listitem">
+fix(*): don&#8217;t start agent if appName is invalid
+</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="release-notes-0.2.0"></a>0.2.0 - 2017/8/28<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-nodejs/edit/main/CHANGELOG.asciidoc">edit</a></h3>
+</div></div></div>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+refactor(*): support new default port 8200 in APM Server
+</li>
+<li class="listitem">
+refactor(*): support new context.response status code format
+</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="release-notes-0.1.1"></a>0.1.1 - 2017/8/17<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-nodejs/edit/main/CHANGELOG.asciidoc">edit</a></h3>
+</div></div></div>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+fix(instrumentation): don&#8217;t fail when sending transactions to APM Server
+</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="release-notes-0.1.0"></a>0.1.0 - 2017/8/17<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-nodejs/edit/main/CHANGELOG.asciidoc">edit</a></h3>
+</div></div></div>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Initial release
+</li>
+</ul>
+</div>
+</div>
+
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="release-notes-1.x.html">« Node.js Agent version 1.x</a>
+</span>
+<span class="next">
+<a href="redirects.html">Appendix A: Deleted pages »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

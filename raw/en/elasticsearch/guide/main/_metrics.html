@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Metrics | Elasticsearch: The Definitive Guide [main] | Elastic</title>
+<meta class="elastic" name="content" content="Metrics | Elasticsearch: The Definitive Guide [main]">
+
+<link rel="home" href="index.html" title="Elasticsearch: The Definitive Guide [main]"/>
+<link rel="up" href="aggs-high-level.html" title="High-Level Concepts"/>
+<link rel="prev" href="_buckets.html" title="Buckets"/>
+<link rel="next" href="_combining_the_two.html" title="Combining the Two"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="Elasticsearch"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Legacy/Elasticsearch/Definitive Guide/main"/>
+<meta name="DC.subject" content="Elasticsearch"/>
+<meta name="DC.identifier" content="main"/>
+<meta name="robots" content="noindex,nofollow"/>
+</head>
+<body><div class="page_header">
+<p>
+  <strong>WARNING</strong>: This documentation covers Elasticsearch 2.x. The 2.x
+  versions of Elasticsearch have passed their
+  <a href="https://www.elastic.co/support/eol">EOL dates</a>. If you are running
+  a 2.x version, we strongly advise you to upgrade.
+</p>
+<p>
+  This documentation is no longer maintained and may be removed. For the latest
+  information, see the <a
+  href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">current
+  Elasticsearch documentation</a>.
+</p>
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch: The Definitive Guide [main]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="aggregations.html">Aggregations</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="aggs-high-level.html">High-Level Concepts</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="_buckets.html">« Buckets</a>
+</span>
+<span class="next">
+<a href="_combining_the_two.html">Combining the Two »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="_metrics"></a>Metrics<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/301_Aggregation_Overview.asciidoc">edit</a></h2>
+</div></div></div>
+<p>Buckets allow us to partition documents into useful subsets, but ultimately what
+we want is some kind of metric calculated on those documents in each bucket.
+Bucketing is the means to an end: it provides a way to group documents in a way
+that you can calculate interesting metrics.</p>
+<p>Most <em>metrics</em> are simple mathematical operations (for example, min, mean, max, and sum)
+that are calculated using the document values.  In practical terms, metrics allow
+you to calculate quantities such as the average salary, or the maximum sale price,
+or the 95th percentile for query latency.</p>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="_buckets.html">« Buckets</a>
+</span>
+<span class="next">
+<a href="_combining_the_two.html">Combining the Two »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

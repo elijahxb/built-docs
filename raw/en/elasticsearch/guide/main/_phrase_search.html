@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Phrase Search | Elasticsearch: The Definitive Guide [main] | Elastic</title>
+<meta class="elastic" name="content" content="Phrase Search | Elasticsearch: The Definitive Guide [main]">
+
+<link rel="home" href="index.html" title="Elasticsearch: The Definitive Guide [main]"/>
+<link rel="up" href="intro.html" title="You Know, for Search&#8230;&#8203;"/>
+<link rel="prev" href="_full_text_search.html" title="Full-Text Search"/>
+<link rel="next" href="highlighting-intro.html" title="Highlighting Our Searches"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="Elasticsearch"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Legacy/Elasticsearch/Definitive Guide/main"/>
+<meta name="DC.subject" content="Elasticsearch"/>
+<meta name="DC.identifier" content="main"/>
+<meta name="robots" content="noindex,nofollow"/>
+</head>
+<body><div class="page_header">
+<p>
+  <strong>WARNING</strong>: This documentation covers Elasticsearch 2.x. The 2.x
+  versions of Elasticsearch have passed their
+  <a href="https://www.elastic.co/support/eol">EOL dates</a>. If you are running
+  a 2.x version, we strongly advise you to upgrade.
+</p>
+<p>
+  This documentation is no longer maintained and may be removed. For the latest
+  information, see the <a
+  href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">current
+  Elasticsearch documentation</a>.
+</p>
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch: The Definitive Guide [main]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="getting-started.html">Getting Started</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="intro.html">You Know, for Search&#8230;&#8203;</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="_full_text_search.html">« Full-Text Search</a>
+</span>
+<span class="next">
+<a href="highlighting-intro.html">Highlighting Our Searches »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="_phrase_search"></a>Phrase Search<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/010_Intro/30_Tutorial_Search.asciidoc">edit</a></h2>
+</div></div></div>
+<p>Finding individual words in a field is all well and good, but sometimes you
+want to match exact sequences of words or <em>phrases</em>. For instance, we could
+perform a query that will match only employee records that contain both  &#8220;rock&#8221;
+<em>and</em> &#8220;climbing&#8221; <em>and</em> that display the words next to each other in the phrase
+&#8220;rock climbing.&#8221;</p>
+<p>To do this, we use a slight variation of the <code class="literal">match</code> query called the
+<code class="literal">match_phrase</code> query:</p>
+<div class="pre_wrapper lang-sense">
+<pre class="programlisting prettyprint lang-sense">GET /megacorp/employee/_search
+{
+    "query" : {
+        "match_phrase" : {
+            "about" : "rock climbing"
+        }
+    }
+}</pre>
+</div>
+<div class="sense_widget" data-snippet="snippets/010_Intro/30_Query_DSL.json"></div>
+<p>This, to no surprise, returns only John Smith&#8217;s document:</p>
+<div class="pre_wrapper lang-js">
+<pre class="programlisting prettyprint lang-js">{
+   ...
+   "hits": {
+      "total":      1,
+      "max_score":  0.23013961,
+      "hits": [
+         {
+            ...
+            "_score":         0.23013961,
+            "_source": {
+               "first_name":  "John",
+               "last_name":   "Smith",
+               "age":         25,
+               "about":       "I love to go rock climbing",
+               "interests": [ "sports", "music" ]
+            }
+         }
+      ]
+   }
+}</pre>
+</div>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="_full_text_search.html">« Full-Text Search</a>
+</span>
+<span class="next">
+<a href="highlighting-intro.html">Highlighting Our Searches »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

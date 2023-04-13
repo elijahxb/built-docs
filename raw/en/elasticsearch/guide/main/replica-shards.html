@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Replica Shards | Elasticsearch: The Definitive Guide [main] | Elastic</title>
+<meta class="elastic" name="content" content="Replica Shards | Elasticsearch: The Definitive Guide [main]">
+
+<link rel="home" href="index.html" title="Elasticsearch: The Definitive Guide [main]"/>
+<link rel="up" href="scale.html" title="Designing for Scale"/>
+<link rel="prev" href="capacity-planning.html" title="Capacity Planning"/>
+<link rel="next" href="multiple-indices.html" title="Multiple Indices"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="Elasticsearch"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Legacy/Elasticsearch/Definitive Guide/main"/>
+<meta name="DC.subject" content="Elasticsearch"/>
+<meta name="DC.identifier" content="main"/>
+<meta name="robots" content="noindex,nofollow"/>
+</head>
+<body><div class="page_header">
+<p>
+  <strong>WARNING</strong>: This documentation covers Elasticsearch 2.x. The 2.x
+  versions of Elasticsearch have passed their
+  <a href="https://www.elastic.co/support/eol">EOL dates</a>. If you are running
+  a 2.x version, we strongly advise you to upgrade.
+</p>
+<p>
+  This documentation is no longer maintained and may be removed. For the latest
+  information, see the <a
+  href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">current
+  Elasticsearch documentation</a>.
+</p>
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch: The Definitive Guide [main]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="modeling-your-data.html">Modeling Your Data</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="scale.html">Designing for Scale</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="capacity-planning.html">« Capacity Planning</a>
+</span>
+<span class="next">
+<a href="multiple-indices.html">Multiple Indices »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="replica-shards"></a>Replica Shards<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/410_Scaling/35_Replica_shards.asciidoc">edit</a></h2>
+</div></div></div>
+<p>Up until now we have spoken only about primary shards, but we have another
+tool in our belt: replica shards.  The main purpose of replicas is for
+failover, as discussed in <a class="xref" href="distributed-cluster.html" title="Life Inside a Cluster"><em>Life Inside a Cluster</em></a>: if the node holding a
+primary shard dies, a replica is promoted to the role of primary.</p>
+<p>At index time, a replica shard does the same amount of work as the primary
+shard.  New documents are first indexed on the primary and then on any
+replicas.  Increasing the number of replicas does not change the capacity of
+the index.</p>
+<p>However, replica shards can serve read requests.  If, as is often the case,
+your index is search heavy, you can increase search performance by increasing
+the number of replicas, but only if you also <em>add extra hardware</em>.</p>
+<p>Let&#8217;s return to our example of an index with two primary shards.  We increased
+capacity of the index by adding a second node. Adding more nodes would not
+help us to add indexing capacity, but we could take advantage of the extra
+hardware at search time by increasing the number of replicas:</p>
+<div class="pre_wrapper lang-json">
+<pre class="programlisting prettyprint lang-json">PUT /my_index/_settings
+{
+  "number_of_replicas": 1
+}</pre>
+</div>
+<p>Having two primary shards, plus a replica of each primary, would give us a
+total of four shards: one for each node, as shown in <a class="xref" href="replica-shards.html#img-four-nodes" title="An index with two primary shards and one replica can scale out across four nodes">Figure 51, &#8220;An index with two primary shards and one replica can scale out across four nodes&#8221;</a>.</p>
+<div id="img-four-nodes" class="imageblock">
+<div class="content">
+<img src="images/elas_4403.png" alt="An index with two primary shards and one replica can scale out across four nodes">
+</div>
+<div class="title">Figure 51. An index with two primary shards and one replica can scale out across four nodes</div>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="_balancing_load_with_replicas"></a>Balancing Load with Replicas<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/410_Scaling/35_Replica_shards.asciidoc">edit</a></h3>
+</div></div></div>
+<p>Search performance depends on the response times of the slowest node, so it is a good idea to try to balance out the load across all nodes. If we
+added just one extra node instead of two, we would end up with two nodes having one shard each, and one node doing double the work with two shards.</p>
+<p>We can even things out by adjusting the number of replicas.  By allocating two
+replicas instead of one, we end up with a total of six shards, which can be
+evenly divided between three nodes, as shown in <a class="xref" href="replica-shards.html#img-three-nodes" title="Adjust the number of replicas to balance the load between nodes">Figure 52, &#8220;Adjust the number of replicas to balance the load between nodes&#8221;</a>:</p>
+<div class="pre_wrapper lang-json">
+<pre class="programlisting prettyprint lang-json">PUT /my_index/_settings
+{
+  "number_of_replicas": 2
+}</pre>
+</div>
+<p>As a bonus, we have also increased our availability.  We can now afford to
+lose two nodes and still have a copy of all our data.</p>
+<div id="img-three-nodes" class="imageblock">
+<div class="content">
+<img src="images/elas_4404.png" alt="Adjust the number of replicas to balance the load between nodes">
+</div>
+<div class="title">Figure 52. Adjust the number of replicas to balance the load between nodes</div>
+</div>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>The fact that node 3 holds two replicas and no primaries is not
+important.  Replicas and primaries do the same amount of work; they just play
+slightly different roles.  There is no need to ensure that primaries are
+distributed evenly across all nodes.</p>
+</div>
+</div>
+</div>
+
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="capacity-planning.html">« Capacity Planning</a>
+</span>
+<span class="next">
+<a href="multiple-indices.html">Multiple Indices »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

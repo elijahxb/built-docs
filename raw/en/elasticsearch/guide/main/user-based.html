@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>User-Based Data | Elasticsearch: The Definitive Guide [main] | Elastic</title>
+<meta class="elastic" name="content" content="User-Based Data | Elasticsearch: The Definitive Guide [main]">
+
+<link rel="home" href="index.html" title="Elasticsearch: The Definitive Guide [main]"/>
+<link rel="up" href="scale.html" title="Designing for Scale"/>
+<link rel="prev" href="retiring-data.html" title="Retiring Data"/>
+<link rel="next" href="shared-index.html" title="Shared Index"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="Elasticsearch"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Legacy/Elasticsearch/Definitive Guide/main"/>
+<meta name="DC.subject" content="Elasticsearch"/>
+<meta name="DC.identifier" content="main"/>
+<meta name="robots" content="noindex,nofollow"/>
+</head>
+<body><div class="page_header">
+<p>
+  <strong>WARNING</strong>: This documentation covers Elasticsearch 2.x. The 2.x
+  versions of Elasticsearch have passed their
+  <a href="https://www.elastic.co/support/eol">EOL dates</a>. If you are running
+  a 2.x version, we strongly advise you to upgrade.
+</p>
+<p>
+  This documentation is no longer maintained and may be removed. For the latest
+  information, see the <a
+  href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">current
+  Elasticsearch documentation</a>.
+</p>
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch: The Definitive Guide [main]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="modeling-your-data.html">Modeling Your Data</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="scale.html">Designing for Scale</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="retiring-data.html">« Retiring Data</a>
+</span>
+<span class="next">
+<a href="shared-index.html">Shared Index »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="user-based"></a>User-Based Data<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/410_Scaling/60_Index_per_user.asciidoc">edit</a></h2>
+</div></div></div>
+<p>Often, users start using Elasticsearch because they need to add full-text
+search or analytics to an existing application.  They create a single index
+that holds all of their documents.  Gradually, others in the company realize
+how much benefit Elasticsearch brings, and they want to add their data to
+Elasticsearch as well.</p>
+<p>Fortunately, Elasticsearch supports
+<a href="http://en.wikipedia.org/wiki/Multitenancy" class="ulink" target="_top">multitenancy</a> so each new user can
+have her own index in the same cluster.  Occasionally, somebody will want to
+search across the documents for all users, which they can do by searching
+across all indices, but most of the time, users are interested in only their
+own documents.</p>
+<p>Some users have more documents than others, and some users will have heavier
+search loads than others, so the ability to specify the number of primary shards
+and replica shards that each index should have fits well with the index-per-user
+model. Similarly, busier indices can be allocated to stronger boxes with shard
+allocation filtering. (See <a class="xref" href="retiring-data.html#migrate-indices" title="Migrate Old Indices">Migrate Old Indices</a>.)</p>
+<div class="tip admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>Don&#8217;t just use the default number of primary shards for every index.
+Think about how much data that index needs to hold.  It may be that all you
+need is one shard&#8212;&#8203;any more is a waste of resources.</p>
+</div>
+</div>
+<p>Most users of Elasticsearch can stop here.  A simple index-per-user approach
+is sufficient for the majority of cases.</p>
+<p>In exceptional cases, you may find that you need to support a large number of
+users, all with similar needs.  An example might be hosting a search engine
+for thousands of email forums.  Some forums may have a huge amount of traffic,
+but the majority of forums are quite small.  Dedicating an index with a single
+shard to a small forum is overkill&#8212;&#8203;a single shard could hold the data for
+many forums.</p>
+<p>What we need is a way to share resources across users, to give the impression
+that each user has his own index without wasting resources on small users.</p>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="retiring-data.html">« Retiring Data</a>
+</span>
+<span class="next">
+<a href="shared-index.html">Shared Index »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

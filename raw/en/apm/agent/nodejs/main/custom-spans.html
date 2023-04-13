@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Custom spans | APM Node.js Agent Reference [main] | Elastic</title>
+<meta class="elastic" name="content" content="Custom spans | APM Node.js Agent Reference [main]">
+
+<link rel="home" href="index.html" title="APM Node.js Agent Reference [main]"/>
+<link rel="up" href="advanced-setup.html" title="Configuration"/>
+<link rel="prev" href="custom-transactions.html" title="Custom transactions"/>
+<link rel="next" href="api.html" title="API Reference"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="APM"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/APM Node.js Agent/Reference/main"/>
+<meta name="DC.subject" content="APM"/>
+<meta name="DC.identifier" content="main"/>
+</head>
+<body><div class="page_header">
+You are looking at preliminary documentation for a future release.
+Not what you want? See the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link">
+  <div id="related-products" class="dropdown">
+    <div class="related-products-title">APM:</div>
+    <div class="dropdown-anchor" tabindex="0">Node.js Agent Reference<span class="dropdown-icon"></span></div>
+    <div class="dropdown-content">
+      <ul>
+        <li class="dropdown-category">APM</li>
+        <ul>
+          <li><a href="/guide/en/apm/guide/current/apm-overview.html">User Guide</a></li>
+        </ul>
+        <li class="dropdown-category">APM agents</li>
+        <ul>
+          <li><a href="/guide/en/apm/agent/android/current/intro.html">Android Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/go/current/introduction.html">Go Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/swift/current/intro.html">iOS Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/java/current/intro.html">Java Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/dotnet/current/intro.html">.NET Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/nodejs/current/intro.html">Node.js Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/php/current/intro.html">PHP Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/python/current/getting-started.html">Python Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/ruby/current/introduction.html">Ruby Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/rum-js/current/intro.html">Real User Monitoring JavaScript Agent Reference</a></li>
+        </ul>
+        <li class="dropdown-category">APM extensions</li>
+        <ul>
+          <li><a href="/guide/en/apm/lambda/current/aws-lambda-arch.html">Monitoring AWS Lambda Functions</a></li>
+          <li><a href="/guide/en/apm/attacher/current/apm-attacher.html">Attacher</a></li>
+        </ul>
+      </ul>
+    </div>
+  </div>
+</span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="advanced-setup.html">Configuration</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="custom-transactions.html">« Custom transactions</a>
+</span>
+<span class="next">
+<a href="api.html">API Reference »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="custom-spans"></a>Custom spans<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-nodejs/edit/main/docs/custom-spans.asciidoc">edit</a></h2>
+</div></div></div>
+<p>This is an example of how to use custom spans.
+For general information about the Elastic APM Node.js Span API,
+see the <a class="xref" href="span-api.html" title="Span API">Span API documentation</a>.</p>
+<p>If you want to track and time a custom event that happens in your application during a transaction,
+you can add a new span to an existing transaction.</p>
+<p>In the example below, we create an Express app that times how long it takes to:</p>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+Receive the body of an HTTP POST or PUT request
+</li>
+<li class="listitem">
+Parse JSON sent by the client
+</li>
+</ol>
+</div>
+<div class="pre_wrapper lang-js">
+<pre class="programlisting prettyprint lang-js">var apm = require('elastic-apm-node').start()
+var app = require('express')()
+
+// body reader middleware
+app.use(function (req, res, next) {
+  if (req.method !== 'POST' &amp;&amp; req.method !== 'PUT') {
+    return next()
+  }
+
+  // `startSpan` will only return a span if there's an
+  // active transaction
+  var span = apm.startSpan('receiving body')
+
+  var buffers = []
+  req.on('data', function (chunk) {
+    buffers.push(chunk)
+  })
+  req.on('end', function () {
+    req.body = Buffer.concat(buffers).toString()
+
+    // end the span after we're done loading data from the
+    // client
+    if (span) span.end()
+
+    next()
+  })
+})
+
+// JSON parser middleware
+app.use(function (req, res, next) {
+  if (req.headers['content-type'] !== 'application/json') {
+    return next()
+  }
+
+  // start a span to measure the time it takes to parse
+  // the JSON
+  var span = apm.startSpan('parse json')
+
+  try {
+    req.json = JSON.parse(req.body)
+  } catch (e) {}
+
+  // when we've processed the json, stop the custom span
+  if (span) span.end()
+
+  next()
+})
+
+// ...your route handler goes here...
+
+app.listen(3000)</pre>
+</div>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="custom-transactions.html">« Custom transactions</a>
+</span>
+<span class="next">
+<a href="api.html">API Reference »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

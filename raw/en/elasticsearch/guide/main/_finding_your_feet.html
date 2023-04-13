@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Finding Your Feet | Elasticsearch: The Definitive Guide [main] | Elastic</title>
+<meta class="elastic" name="content" content="Finding Your Feet | Elasticsearch: The Definitive Guide [main]">
+
+<link rel="home" href="index.html" title="Elasticsearch: The Definitive Guide [main]"/>
+<link rel="up" href="intro.html" title="You Know, for Search&#8230;&#8203;"/>
+<link rel="prev" href="_document_oriented.html" title="Document Oriented"/>
+<link rel="next" href="_indexing_employee_documents.html" title="Indexing Employee Documents"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="Elasticsearch"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Legacy/Elasticsearch/Definitive Guide/main"/>
+<meta name="DC.subject" content="Elasticsearch"/>
+<meta name="DC.identifier" content="main"/>
+<meta name="robots" content="noindex,nofollow"/>
+</head>
+<body><div class="page_header">
+<p>
+  <strong>WARNING</strong>: This documentation covers Elasticsearch 2.x. The 2.x
+  versions of Elasticsearch have passed their
+  <a href="https://www.elastic.co/support/eol">EOL dates</a>. If you are running
+  a 2.x version, we strongly advise you to upgrade.
+</p>
+<p>
+  This documentation is no longer maintained and may be removed. For the latest
+  information, see the <a
+  href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">current
+  Elasticsearch documentation</a>.
+</p>
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch: The Definitive Guide [main]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="getting-started.html">Getting Started</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="intro.html">You Know, for Search&#8230;&#8203;</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="_document_oriented.html">« Document Oriented</a>
+</span>
+<span class="next">
+<a href="_indexing_employee_documents.html">Indexing Employee Documents »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="_finding_your_feet"></a>Finding Your Feet<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/010_Intro/25_Tutorial_Indexing.asciidoc">edit</a></h2>
+</div></div></div>
+<p>To give you a feel for what is possible in Elasticsearch and how easy
+it is to use, let&#8217;s start by walking through a simple tutorial that covers
+basic concepts such as indexing, search, and aggregations.</p>
+<p>We&#8217;ll introduce some new terminology and basic concepts along the way, but it
+is OK if you don&#8217;t understand everything immediately.  We&#8217;ll cover all the
+concepts introduced here in <em>much</em> greater depth throughout the rest of the
+book.</p>
+<p>So, sit back and enjoy a whirlwind tour of what Elasticsearch is capable of.</p>
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="_lets_build_an_employee_directory"></a>Let&#8217;s Build an Employee Directory<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/010_Intro/25_Tutorial_Indexing.asciidoc">edit</a></h3>
+</div></div></div>
+<p>We happen to work for <em>Megacorp</em>, and as part of HR&#8217;s new <em>"We love our
+drones!"</em> initiative, we have been tasked with creating an employee directory.
+The directory is supposed to foster employer empathy and
+real-time, synergistic, dynamic collaboration, so it has a few
+business requirements:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Enable data to contain multi value tags, numbers, and full text.
+</li>
+<li class="listitem">
+Retrieve the full details of any employee.
+</li>
+<li class="listitem">
+Allow structured search, such as finding employees over the age of 30.
+</li>
+<li class="listitem">
+Allow simple full-text search and more-complex <em>phrase</em> searches.
+</li>
+<li class="listitem">
+Return highlighted search <em>snippets</em> from the text in the
+matching documents.
+</li>
+<li class="listitem">
+Enable management to build analytic dashboards over the data.
+</li>
+</ul>
+</div>
+</div>
+
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="_document_oriented.html">« Document Oriented</a>
+</span>
+<span class="next">
+<a href="_indexing_employee_documents.html">Indexing Employee Documents »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

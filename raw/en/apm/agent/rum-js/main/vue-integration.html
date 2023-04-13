@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Vue integration | APM Real User Monitoring JavaScript Agent Reference [main] | Elastic</title>
+<meta class="elastic" name="content" content="Vue integration | APM Real User Monitoring JavaScript Agent Reference [main]">
+
+<link rel="home" href="index.html" title="APM Real User Monitoring JavaScript Agent Reference [main]"/>
+<link rel="up" href="framework-integrations.html" title="Framework-specific integrations"/>
+<link rel="prev" href="angular-integration.html" title="Angular integration"/>
+<link rel="next" href="distributed-tracing-guide.html" title="Distributed Tracing"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="APM"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/APM Real User Monitoring JavaScript Agent/Reference/main"/>
+<meta name="DC.subject" content="APM"/>
+<meta name="DC.identifier" content="main"/>
+</head>
+<body><div class="page_header">
+You are looking at preliminary documentation for a future release.
+Not what you want? See the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link">
+  <div id="related-products" class="dropdown">
+    <div class="related-products-title">APM:</div>
+    <div class="dropdown-anchor" tabindex="0">Real User Monitoring JavaScript Agent Reference<span class="dropdown-icon"></span></div>
+    <div class="dropdown-content">
+      <ul>
+        <li class="dropdown-category">APM</li>
+        <ul>
+          <li><a href="/guide/en/apm/guide/current/apm-overview.html">User Guide</a></li>
+        </ul>
+        <li class="dropdown-category">APM agents</li>
+        <ul>
+          <li><a href="/guide/en/apm/agent/android/current/intro.html">Android Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/go/current/introduction.html">Go Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/swift/current/intro.html">iOS Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/java/current/intro.html">Java Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/dotnet/current/intro.html">.NET Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/nodejs/current/intro.html">Node.js Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/php/current/intro.html">PHP Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/python/current/getting-started.html">Python Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/ruby/current/introduction.html">Ruby Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/rum-js/current/intro.html">Real User Monitoring JavaScript Agent Reference</a></li>
+        </ul>
+        <li class="dropdown-category">APM extensions</li>
+        <ul>
+          <li><a href="/guide/en/apm/lambda/current/aws-lambda-arch.html">Monitoring AWS Lambda Functions</a></li>
+          <li><a href="/guide/en/apm/attacher/current/apm-attacher.html">Attacher</a></li>
+        </ul>
+      </ul>
+    </div>
+  </div>
+</span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="framework-integrations.html">Framework-specific integrations</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="angular-integration.html">« Angular integration</a>
+</span>
+<span class="next">
+<a href="distributed-tracing-guide.html">Distributed Tracing »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="vue-integration"></a>Vue integration<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-rum-js/edit/main/docs/vue-integration.asciidoc">edit</a></h2>
+</div></div></div>
+<p>This document covers how to use Real User Monitoring JavaScript agent with Vue applications.</p>
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="vue-supported-versions"></a>Supported versions<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-rum-js/edit/main/docs/vue-integration.asciidoc">edit</a></h3>
+</div></div></div>
+<p>This integration supports Vue.js versions ≥ 3.0</p>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>If you are using an Vuejs version &lt; 3.0, use @elastic/apm-rum-vue 1.x to instrument your application. Details are available in a <a href="/guide/en/apm/agent/rum-js/4.x/vue-integration.html" class="ulink" target="_top">prior release</a>.</p>
+</div>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="installing-vue-integration"></a>Installing Elastic APM Vue package<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-rum-js/edit/main/docs/vue-integration.asciidoc">edit</a></h3>
+</div></div></div>
+<p>Install the <code class="literal">@elastic/apm-rum-vue</code> package as a dependency to your application:</p>
+<div class="pre_wrapper lang-bash">
+<pre class="programlisting prettyprint lang-bash">npm install --save @elastic/apm-rum-vue</pre>
+</div>
+<h4><a id="_using_apm_plugin"></a>Using APM Plugin<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-rum-js/edit/main/docs/vue-integration.asciidoc">edit</a></h4>
+<div class="pre_wrapper lang-js">
+<pre class="programlisting prettyprint lang-js">app.use(ApmVuePlugin, options)</pre>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h4 class="title"><a id="_options"></a>Options<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-rum-js/edit/main/docs/vue-integration.asciidoc">edit</a></h4>
+</div></div></div>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<code class="literal">config</code> (required) - RUM agent <a class="xref" href="configuration.html" title="Configuration">configuration options</a>.
+</li>
+<li class="listitem">
+<code class="literal">router</code> (optional) - Instance of Vue Router. If provided, will start capturing both page load and SPA navigation events as transactions with path of the route as its name.
+</li>
+<li class="listitem">
+<code class="literal">captureErrors</code> (optional) - If enabled, will install a global Vue error handler to capture render errors inside the components. Defaults to <code class="literal">true</code>.
+The plugin captures the component name, lifecycle hook and file name (if it&#8217;s available) as part of the error context.
+</li>
+</ul>
+</div>
+<h4><a id="_instrumenting_your_vue_application"></a>Instrumenting your Vue application<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-rum-js/edit/main/docs/vue-integration.asciidoc">edit</a></h4>
+<p>The package exposes <code class="literal">ApmVuePlugin</code> which is a Vue Plugin and can be installed in your application using <code class="literal">Vue.use</code> method.</p>
+<div class="pre_wrapper lang-js">
+<pre class="programlisting prettyprint lang-js">import { createApp, defineComponent, h } from 'vue'
+import { createRouter, createWebHashHistory } from 'vue-router'
+import { ApmVuePlugin } from '@elastic/apm-rum-vue'
+import App from './App.vue'
+
+const Home = defineComponent({
+  render: () =&gt; h("div", {}, "home")
+})
+
+const router = createRouter({
+  history: createWebHashHistory(),
+  routes: [
+    { path: '/', component: Home }
+  ]
+})
+
+createApp(App)
+  .use(router)
+  .use(ApmVuePlugin, {
+    router,
+    config: {
+      serviceName: 'app-name',
+      // agent configuration
+    }
+  })
+  // app specific code
+  .mount('#app')</pre>
+</div>
+<h4><a id="_accessing_agent_instance_inside_components"></a>Accessing agent instance inside components<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-rum-js/edit/main/docs/vue-integration.asciidoc">edit</a></h4>
+<p>Instance of the agent can be accessed inside all the components using <code class="literal">this.$apm</code></p>
+<div class="pre_wrapper lang-html">
+<pre class="programlisting prettyprint lang-html">&lt;template&gt;
+  &lt;div&gt;Component timings as span&lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+  data() {
+    return {
+      span: null
+    }
+  },
+  created() {
+    this.span = this.$apm.startSpan('create-mount-duration', 'custom')
+  },
+  mounted() {
+    this.span &amp;&amp; this.span.end()
+  }
+}
+&lt;/script&gt;</pre>
+</div>
+<p>In case of both SFC and Composition API usage via the recommended <code class="literal">&lt;script setup&gt;</code> syntax the access of the instance is supported by the vue <a href="https://vuejs.org/guide/components/provide-inject.html#inject" class="ulink" target="_top">plugin injection</a></p>
+<div class="pre_wrapper lang-html">
+<pre class="programlisting prettyprint lang-html">&lt;template&gt;
+  &lt;div&gt;Component timings as span&lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script setup&gt;
+import { inject, onMounted, onUnmounted, ref } from 'vue'
+
+const $apm = inject('$apm')
+const span = ref(null)
+
+onMounted(() =&gt;
+  span.value = $apm.startSpan('mount-unmount-duration', 'custom')
+)
+
+onUnmounted(() =&gt;
+  span.value.end()
+)
+&lt;/script&gt;</pre>
+</div>
+<p><code class="literal">ApmVuePlugin</code> expects the router option to be an instance of VueRouter since it uses the
+<a href="https://next.router.vuejs.org/guide/advanced/navigation-guards.html" class="ulink" target="_top">navigation guards</a> functionality.</p>
+<p>Once the plugin is initialized, both page load and SPA navigation events will be captured
+as transactions with the <code class="literal">path</code> of the route as its name and <code class="literal">page-load</code> or <code class="literal">route-change</code> as type.</p>
+</div>
+
+</div>
+
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="angular-integration.html">« Angular integration</a>
+</span>
+<span class="next">
+<a href="distributed-tracing-guide.html">Distributed Tracing »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

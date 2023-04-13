@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Queries and Filters | Elasticsearch: The Definitive Guide [main] | Elastic</title>
+<meta class="elastic" name="content" content="Queries and Filters | Elasticsearch: The Definitive Guide [main]">
+
+<link rel="home" href="index.html" title="Elasticsearch: The Definitive Guide [main]"/>
+<link rel="up" href="full-body-search.html" title="Full-Body Search"/>
+<link rel="prev" href="query-dsl-intro.html" title="Query DSL"/>
+<link rel="next" href="_most_important_queries.html" title="Most Important Queries"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="Elasticsearch"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Legacy/Elasticsearch/Definitive Guide/main"/>
+<meta name="DC.subject" content="Elasticsearch"/>
+<meta name="DC.identifier" content="main"/>
+<meta name="robots" content="noindex,nofollow"/>
+</head>
+<body><div class="page_header">
+<p>
+  <strong>WARNING</strong>: This documentation covers Elasticsearch 2.x. The 2.x
+  versions of Elasticsearch have passed their
+  <a href="https://www.elastic.co/support/eol">EOL dates</a>. If you are running
+  a 2.x version, we strongly advise you to upgrade.
+</p>
+<p>
+  This documentation is no longer maintained and may be removed. For the latest
+  information, see the <a
+  href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">current
+  Elasticsearch documentation</a>.
+</p>
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch: The Definitive Guide [main]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="getting-started.html">Getting Started</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="full-body-search.html">Full-Body Search</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="query-dsl-intro.html">« Query DSL</a>
+</span>
+<span class="next">
+<a href="_most_important_queries.html">Most Important Queries »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="_queries_and_filters"></a>Queries and Filters<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/054_Query_DSL/65_Queries_vs_filters.asciidoc">edit</a></h2>
+</div></div></div>
+<p>The  DSL used by
+Elasticsearch has a single set of components called queries, which can be mixed
+and matched in endless combinations.  This single set of components can be used
+in two contexts: filtering context and query context.</p>
+<p>When used in <em>filtering context</em>, the query is said to be a "non-scoring" or "filtering"
+query.  That is, the query simply asks the question: "Does this document match?".
+The answer is always a simple, binary yes|no.</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Is the <code class="literal">created</code> date in the range <code class="literal">2013</code> - <code class="literal">2014</code>?
+</li>
+<li class="listitem">
+Does the <code class="literal">status</code> field contain the term <code class="literal">published</code>?
+</li>
+<li class="listitem">
+Is the <code class="literal">lat_lon</code> field within <code class="literal">10km</code> of a specified point?
+</li>
+</ul>
+</div>
+<p>When used in a <em>querying context</em>, the query becomes a "scoring" query.  Similar to
+its non-scoring sibling, this determines if a document matches.  But it also determines
+how <em>well</em> does the document matches.</p>
+<p>A typical use for a query is to find documents:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Best matching the words <code class="literal">full text search</code>
+</li>
+<li class="listitem">
+Containing the word <code class="literal">run</code>, but maybe also matching <code class="literal">runs</code>, <code class="literal">running</code>,
+<code class="literal">jog</code>, or <code class="literal">sprint</code>
+</li>
+<li class="listitem">
+Containing the words <code class="literal">quick</code>, <code class="literal">brown</code>, and <code class="literal">fox</code>&#x2014;the closer together they
+are, the more relevant the document
+</li>
+<li class="listitem">
+Tagged with <code class="literal">lucene</code>,  <code class="literal">search</code>, or <code class="literal">java</code>&#x2014;the more tags, the more
+relevant the document
+</li>
+</ul>
+</div>
+<p>A scoring query calculates how <em>relevant</em> each document is to the
+query, and assigns it a relevance <code class="literal">_score</code>, which is later used to
+sort matching documents by relevance. This concept of relevance is
+well suited to full-text search, where there is seldom a completely
+&#8220;correct&#8221; answer.</p>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>Historically, queries and filters were separate components in Elasticsearch.  Starting
+in Elasticsearch 2.0, filters were technically eliminated, and all queries gained
+the ability to become non-scoring.</p>
+<p>However, for clarity and simplicity, we will use the term "filter" to mean a query which
+is used in a non-scoring, filtering context.  You can think of the terms "filter",
+"filtering query" and "non-scoring query" as being identical.</p>
+<p>Similarly, if the term "query" is used in isolation without a qualifier, we are
+referring to a "scoring query".</p>
+</div>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="_performance_differences"></a>Performance Differences<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/054_Query_DSL/65_Queries_vs_filters.asciidoc">edit</a></h3>
+</div></div></div>
+<p>Filtering queries are simple checks for set inclusion/exclusion, which make them
+very fast to compute.  There are various optimizations that can be leveraged
+when at least one of your filtering query is "sparse" (few matching documents),
+and frequently used non-scoring queries can be cached in memory for faster access.</p>
+<p>In contrast, scoring queries have to not only find
+matching documents, but also calculate how relevant each document is, which typically makes
+them heavier than their non-scoring counterparts.  Also, query results are not cacheable.</p>
+<p>Thanks to the inverted index, a simple scoring query that matches just a few documents
+may perform as well or better than a filter that spans millions
+of documents.  In general, however, a filter will outperform a
+scoring query.  And it will do so consistently.</p>
+<p>The goal of filtering is to <em>reduce the number of documents that have to
+be examined by the scoring queries</em>.</p>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="_when_to_use_which"></a>When to Use Which<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/054_Query_DSL/65_Queries_vs_filters.asciidoc">edit</a></h3>
+</div></div></div>
+<p>As a general rule, use
+query clauses for <em>full-text</em> search or for any condition that should affect the
+<em>relevance score</em>, and use filters for everything else.</p>
+</div>
+
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="query-dsl-intro.html">« Query DSL</a>
+</span>
+<span class="next">
+<a href="_most_important_queries.html">Most Important Queries »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Designing for Scale | Elasticsearch: The Definitive Guide [main] | Elastic</title>
+<meta class="elastic" name="content" content="Designing for Scale | Elasticsearch: The Definitive Guide [main]">
+
+<link rel="home" href="index.html" title="Elasticsearch: The Definitive Guide [main]"/>
+<link rel="up" href="modeling-your-data.html" title="Modeling Your Data"/>
+<link rel="prev" href="parent-child-performance.html" title="Practical Considerations"/>
+<link rel="next" href="shard-scale.html" title="The Unit of Scale"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="Elasticsearch"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Legacy/Elasticsearch/Definitive Guide/main"/>
+<meta name="DC.subject" content="Elasticsearch"/>
+<meta name="DC.identifier" content="main"/>
+<meta name="robots" content="noindex,nofollow"/>
+</head>
+<body><div class="page_header">
+<p>
+  <strong>WARNING</strong>: This documentation covers Elasticsearch 2.x. The 2.x
+  versions of Elasticsearch have passed their
+  <a href="https://www.elastic.co/support/eol">EOL dates</a>. If you are running
+  a 2.x version, we strongly advise you to upgrade.
+</p>
+<p>
+  This documentation is no longer maintained and may be removed. For the latest
+  information, see the <a
+  href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">current
+  Elasticsearch documentation</a>.
+</p>
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch: The Definitive Guide [main]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="modeling-your-data.html">Modeling Your Data</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="parent-child-performance.html">« Practical Considerations</a>
+</span>
+<span class="next">
+<a href="shard-scale.html">The Unit of Scale »</a>
+</span>
+</div>
+<div class="chapter">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="scale"></a>Designing for Scale<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/410_Scaling/10_Intro.asciidoc">edit</a></h2>
+</div></div></div>
+<p>Elasticsearch is used by some companies to index and search petabytes of data
+every day, but most of us start out with something a little more humble in
+size. Even if we aspire to be the next Facebook, it is unlikely that our bank
+balance matches our aspirations.  We need to build for what we have today, but
+in a way that will allow us to scale out flexibly and rapidly.</p>
+<p>Elasticsearch is built to scale.  It will run very happily on your laptop or
+in a cluster containing hundreds of nodes, and the experience is almost
+identical. Growing from a small cluster to a large cluster is almost entirely
+automatic and painless. Growing from a large cluster to a very large cluster
+requires a bit more planning and design, but it is still relatively painless.</p>
+<p>Of course, it is not magic.  Elasticsearch has its limitations too.  If you
+are aware of those limitations and work with them, the growing process will be
+pleasant.  If you treat Elasticsearch badly, you could be in for a world of
+pain.</p>
+<p>The default settings in Elasticsearch will take you a long way, but to get the
+most bang for your buck, you need to think about how data flows through your
+system.  We will talk about two common data flows: time-based data (such as log
+events or social network streams, where relevance is driven by recency), and
+user-based data (where a large document collection can be subdivided by user or
+customer).</p>
+<p>This chapter will help you make the right decisions up front, to avoid
+nasty surprises later.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="parent-child-performance.html">« Practical Considerations</a>
+</span>
+<span class="next">
+<a href="shard-scale.html">The Unit of Scale »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

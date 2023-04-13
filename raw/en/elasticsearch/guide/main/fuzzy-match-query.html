@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Fuzzy match Query | Elasticsearch: The Definitive Guide [main] | Elastic</title>
+<meta class="elastic" name="content" content="Fuzzy match Query | Elasticsearch: The Definitive Guide [main]">
+
+<link rel="home" href="index.html" title="Elasticsearch: The Definitive Guide [main]"/>
+<link rel="up" href="fuzzy-matching.html" title="Typoes and Mispelings"/>
+<link rel="prev" href="fuzzy-query.html" title="Fuzzy Query"/>
+<link rel="next" href="fuzzy-scoring.html" title="Scoring Fuzziness"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="Elasticsearch"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Legacy/Elasticsearch/Definitive Guide/main"/>
+<meta name="DC.subject" content="Elasticsearch"/>
+<meta name="DC.identifier" content="main"/>
+<meta name="robots" content="noindex,nofollow"/>
+</head>
+<body><div class="page_header">
+<p>
+  <strong>WARNING</strong>: This documentation covers Elasticsearch 2.x. The 2.x
+  versions of Elasticsearch have passed their
+  <a href="https://www.elastic.co/support/eol">EOL dates</a>. If you are running
+  a 2.x version, we strongly advise you to upgrade.
+</p>
+<p>
+  This documentation is no longer maintained and may be removed. For the latest
+  information, see the <a
+  href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">current
+  Elasticsearch documentation</a>.
+</p>
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch: The Definitive Guide [main]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="languages.html">Dealing with Human Language</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="fuzzy-matching.html">Typoes and Mispelings</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="fuzzy-query.html">« Fuzzy Query</a>
+</span>
+<span class="next">
+<a href="fuzzy-scoring.html">Scoring Fuzziness »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="fuzzy-match-query"></a>Fuzzy match Query<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/270_Fuzzy_matching/40_Fuzzy_match_query.asciidoc">edit</a></h2>
+</div></div></div>
+<p>The <code class="literal">match</code> query supports fuzzy matching out of the box:</p>
+<div class="pre_wrapper lang-json">
+<pre class="programlisting prettyprint lang-json">GET /my_index/my_type/_search
+{
+  "query": {
+    "match": {
+      "text": {
+        "query":     "SURPRIZE ME!",
+        "fuzziness": "AUTO",
+        "operator":  "and"
+      }
+    }
+  }
+}</pre>
+</div>
+<p>The query string is first analyzed, to produce the terms <code class="literal">[surprize, me]</code>, and
+then each term is fuzzified using the specified <code class="literal">fuzziness</code>.</p>
+<p>Similarly, the <code class="literal">multi_match</code> query also supports <code class="literal">fuzziness</code>, but only when
+executing with type <code class="literal">best_fields</code> or <code class="literal">most_fields</code>:</p>
+<div class="pre_wrapper lang-json">
+<pre class="programlisting prettyprint lang-json">GET /my_index/my_type/_search
+{
+  "query": {
+    "multi_match": {
+      "fields":  [ "text", "title" ],
+      "query":     "SURPRIZE ME!",
+      "fuzziness": "AUTO"
+    }
+  }
+}</pre>
+</div>
+<p>Both the <code class="literal">match</code> and <code class="literal">multi_match</code> queries  also support the <code class="literal">prefix_length</code>
+and <code class="literal">max_expansions</code> parameters.</p>
+<div class="tip admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>Fuzziness works only with the basic <code class="literal">match</code> and <code class="literal">multi_match</code> queries. It
+doesn&#8217;t work with phrase matching, common terms, or <code class="literal">cross_fields</code> matches.</p>
+</div>
+</div>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="fuzzy-query.html">« Fuzzy Query</a>
+</span>
+<span class="next">
+<a href="fuzzy-scoring.html">Scoring Fuzziness »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

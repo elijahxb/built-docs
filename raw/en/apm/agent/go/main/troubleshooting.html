@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Troubleshooting | APM Go Agent Reference [main] | Elastic</title>
+<meta class="elastic" name="content" content="Troubleshooting | APM Go Agent Reference [main]">
+
+<link rel="home" href="index.html" title="APM Go Agent Reference [main]"/>
+<link rel="up" href="index.html" title="APM Go Agent Reference [main]"/>
+<link rel="prev" href="contributing.html" title="Contributing"/>
+<link rel="next" href="upgrading.html" title="Upgrading"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="APM"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/APM Go Agent/Reference/main"/>
+<meta name="DC.subject" content="APM"/>
+<meta name="DC.identifier" content="main"/>
+</head>
+<body><div class="page_header">
+You are looking at preliminary documentation for a future release.
+Not what you want? See the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link">
+  <div id="related-products" class="dropdown">
+    <div class="related-products-title">APM:</div>
+    <div class="dropdown-anchor" tabindex="0">Go Agent Reference<span class="dropdown-icon"></span></div>
+    <div class="dropdown-content">
+      <ul>
+        <li class="dropdown-category">APM</li>
+        <ul>
+          <li><a href="/guide/en/apm/guide/current/apm-overview.html">User Guide</a></li>
+        </ul>
+        <li class="dropdown-category">APM agents</li>
+        <ul>
+          <li><a href="/guide/en/apm/agent/android/current/intro.html">Android Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/go/current/introduction.html">Go Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/swift/current/intro.html">iOS Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/java/current/intro.html">Java Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/dotnet/current/intro.html">.NET Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/nodejs/current/intro.html">Node.js Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/php/current/intro.html">PHP Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/python/current/getting-started.html">Python Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/ruby/current/introduction.html">Ruby Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/rum-js/current/intro.html">Real User Monitoring JavaScript Agent Reference</a></li>
+        </ul>
+        <li class="dropdown-category">APM extensions</li>
+        <ul>
+          <li><a href="/guide/en/apm/lambda/current/aws-lambda-arch.html">Monitoring AWS Lambda Functions</a></li>
+          <li><a href="/guide/en/apm/attacher/current/apm-attacher.html">Attacher</a></li>
+        </ul>
+      </ul>
+    </div>
+  </div>
+</span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="contributing.html">« Contributing</a>
+</span>
+<span class="next">
+<a href="upgrading.html">Upgrading »</a>
+</span>
+</div>
+<div class="chapter">
+<div class="titlepage"><div><div>
+<h1 class="title"><a id="troubleshooting"></a>Troubleshooting<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-go/edit/main/docs/troubleshooting.asciidoc">edit</a></h1>
+</div></div></div>
+<p>Is something not working as expected?
+Don&#8217;t worry if you can&#8217;t figure out what the problem is; we’re here to help!
+First, ensure your app is compatible with the agent&#8217;s <a class="xref" href="supported-tech.html" title="Supported Technologies">supported technologies</a>.</p>
+<p>If you&#8217;re an existing Elastic customer with a support contract, please create a ticket in the
+<a href="https://support.elastic.co/customers/s/login/" class="ulink" target="_top">Elastic Support portal</a>.
+Other users can post in the <a href="https://discuss.elastic.co/c/apm" class="ulink" target="_top">APM discuss forum</a>.</p>
+<div class="important admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p><span class="strong strong"><strong>Please upload your complete debug logs</strong></span> to a service like <a href="https://gist.github.com" class="ulink" target="_top">GitHub Gist</a>
+so that we can analyze the problem.
+Logs should include everything from when the application starts up until the first request executes.
+Instructions for enabling logging are below.</p>
+</div>
+</div>
+<h3><a id="agent-logging"></a>Logging<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-go/edit/main/docs/troubleshooting.asciidoc">edit</a></h3>
+<p>Agent logs are critical to the debugging process.
+By default, this logging is disabled. To enable it, set a log output file with <a class="xref" href="configuration.html#config-log-file" title="ELASTIC_APM_LOG_FILE"><code class="literal">ELASTIC_APM_LOG_FILE</code></a>.
+Alternatively, if you&#8217;re using Docker or Kubernetes and are okay with mixing agent and application logs,
+you can set <code class="literal">ELASTIC_APM_LOG_FILE=stderr</code>.</p>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>The agent does not rotate log files. Log rotation must be handled externally.</p>
+</div>
+</div>
+<p>With logging enabled, use <a class="xref" href="configuration.html#config-log-level" title="ELASTIC_APM_LOG_LEVEL"><code class="literal">ELASTIC_APM_LOG_LEVEL</code></a> to increase the granularity of the agent&#8217;s logging.
+For example: <code class="literal">ELASTIC_APM_LOG_LEVEL=debug</code>.</p>
+<p>Be sure to execute a few requests to your application before posting your log files.
+Each request should add lines similar to these in the logs:</p>
+<div class="pre_wrapper lang-log">
+<pre class="programlisting prettyprint lang-log">{"level":"debug","time":"2020-07-23T11:46:32+08:00","message":"sent request with 100 transactions, 0 spans, 0 errors, 0 metricsets"}</pre>
+</div>
+<p>If you don&#8217;t see lines like these, it&#8217;s likely that you haven&#8217;t instrumented your application correctly.</p>
+<h3><a id="disable-agent"></a>Disable the Agent<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-go/edit/main/docs/troubleshooting.asciidoc">edit</a></h3>
+<p>In the unlikely event the agent causes disruptions to a production application,
+you can disable the agent while you troubleshoot.</p>
+<p>If you have access to <a class="xref" href="configuration.html#dynamic-configuration" title="Dynamic configuration">dynamic configuration</a>,
+you can disable the recording of events by setting <a class="xref" href="configuration.html#config-recording" title="ELASTIC_APM_RECORDING"><code class="literal">ELASTIC_APM_RECORDING</code></a> to <code class="literal">false</code>.
+When changed at runtime from a supported source, there&#8217;s no need to restart your application.</p>
+<p>If that doesn&#8217;t work, or you don&#8217;t have access to dynamic configuration, you can disable the agent by setting
+<a class="xref" href="configuration.html#config-active" title="ELASTIC_APM_ACTIVE"><code class="literal">ELASTIC_APM_ACTIVE</code></a> to <code class="literal">false</code>.
+Restart your application for the changes to apply.</p>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="contributing.html">« Contributing</a>
+</span>
+<span class="next">
+<a href="upgrading.html">Upgrading »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

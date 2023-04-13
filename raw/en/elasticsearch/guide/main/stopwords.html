@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Stopwords: Performance Versus Precision | Elasticsearch: The Definitive Guide [main] | Elastic</title>
+<meta class="elastic" name="content" content="Stopwords: Performance Versus Precision | Elasticsearch: The Definitive Guide [main]">
+
+<link rel="home" href="index.html" title="Elasticsearch: The Definitive Guide [main]"/>
+<link rel="up" href="languages.html" title="Dealing with Human Language"/>
+<link rel="prev" href="stemming-in-situ.html" title="Stemming in situ"/>
+<link rel="next" href="pros-cons-stopwords.html" title="Pros and Cons of Stopwords"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="Elasticsearch"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Legacy/Elasticsearch/Definitive Guide/main"/>
+<meta name="DC.subject" content="Elasticsearch"/>
+<meta name="DC.identifier" content="main"/>
+<meta name="robots" content="noindex,nofollow"/>
+</head>
+<body><div class="page_header">
+<p>
+  <strong>WARNING</strong>: This documentation covers Elasticsearch 2.x. The 2.x
+  versions of Elasticsearch have passed their
+  <a href="https://www.elastic.co/support/eol">EOL dates</a>. If you are running
+  a 2.x version, we strongly advise you to upgrade.
+</p>
+<p>
+  This documentation is no longer maintained and may be removed. For the latest
+  information, see the <a
+  href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">current
+  Elasticsearch documentation</a>.
+</p>
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch: The Definitive Guide [main]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="languages.html">Dealing with Human Language</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="stemming-in-situ.html">« Stemming in situ</a>
+</span>
+<span class="next">
+<a href="pros-cons-stopwords.html">Pros and Cons of Stopwords »</a>
+</span>
+</div>
+<div class="chapter">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="stopwords"></a>Stopwords: Performance Versus Precision<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/240_Stopwords/10_Intro.asciidoc">edit</a></h2>
+</div></div></div>
+<p>Back in the early days of information retrieval,  disk space and memory were
+limited to a tiny fraction of what we are accustomed to today. It was
+essential to make your index as small as possible.  Every kilobyte saved meant
+a significant improvement in performance. Stemming (see <a class="xref" href="stemming.html" title="Reducing Words to Their Root Form"><em>Reducing Words to Their Root Form</em></a>) was
+important, not just for making searches broader and increasing retrieval in
+the same way that we use it today, but also as a tool for compressing index
+size.</p>
+<p>Another way to reduce index size is simply to <em>index fewer words</em>.  For search
+purposes, some words are more important than others. A significant reduction
+in index size can be achieved by indexing only the more important terms.</p>
+<p>So which terms can be left out?  We can divide terms roughly into two groups:</p>
+<div class="variablelist">
+<dl class="variablelist">
+<dt>
+<span class="term">
+Low-frequency terms
+</span>
+</dt>
+<dd>
+Words that appear in relatively few documents in the collection.  Because of their
+rarity, they have a high value, or <em>weight</em>.
+</dd>
+<dt>
+<span class="term">
+High-frequency terms
+</span>
+</dt>
+<dd>
+Common words that appear in many documents in the index, such as <code class="literal">the</code>, <code class="literal">and</code>, and
+<code class="literal">is</code>. These words  have a low weight and contribute little to the relevance
+score.
+</dd>
+</dl>
+</div>
+<div class="tip admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>Of course, frequency is really a scale rather than just two points labeled
+<em>low</em> and <em>high</em>. We just draw a line at some arbitrary point and say that any
+terms below that line are low frequency and above the line are high frequency.</p>
+</div>
+</div>
+<p>Which terms are low or high frequency depend on the documents themselves.  The
+word <code class="literal">and</code> may be a low-frequency term if all the documents are in Chinese.
+In a collection of documents about databases, the word <code class="literal">database</code> may be a
+high-frequency term with little value as a search term for that particular
+collection.</p>
+<p>That said, for any language there are words that occur very
+commonly and that seldom add value to a search.  The default English
+stopwords used in Elasticsearch are as follows:</p>
+<pre class="literallayout">a, an, and, are, as, at, be, but, by, for, if, in, into, is, it,
+no, not, of, on, or, such, that, the, their, then, there, these,
+they, this, to, was, will, with</pre>
+
+<p>These <em>stopwords</em> can usually be filtered out before indexing with little
+negative impact on retrieval. But is it a good idea to do so?</p>
+
+
+
+
+
+
+
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="stemming-in-situ.html">« Stemming in situ</a>
+</span>
+<span class="next">
+<a href="pros-cons-stopwords.html">Pros and Cons of Stopwords »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

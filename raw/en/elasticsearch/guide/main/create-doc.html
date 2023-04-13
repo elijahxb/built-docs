@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Creating a New Document | Elasticsearch: The Definitive Guide [main] | Elastic</title>
+<meta class="elastic" name="content" content="Creating a New Document | Elasticsearch: The Definitive Guide [main]">
+
+<link rel="home" href="index.html" title="Elasticsearch: The Definitive Guide [main]"/>
+<link rel="up" href="data-in-data-out.html" title="Data In, Data Out"/>
+<link rel="prev" href="update-doc.html" title="Updating a Whole Document"/>
+<link rel="next" href="delete-doc.html" title="Deleting a Document"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="Elasticsearch"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Legacy/Elasticsearch/Definitive Guide/main"/>
+<meta name="DC.subject" content="Elasticsearch"/>
+<meta name="DC.identifier" content="main"/>
+<meta name="robots" content="noindex,nofollow"/>
+</head>
+<body><div class="page_header">
+<p>
+  <strong>WARNING</strong>: This documentation covers Elasticsearch 2.x. The 2.x
+  versions of Elasticsearch have passed their
+  <a href="https://www.elastic.co/support/eol">EOL dates</a>. If you are running
+  a 2.x version, we strongly advise you to upgrade.
+</p>
+<p>
+  This documentation is no longer maintained and may be removed. For the latest
+  information, see the <a
+  href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">current
+  Elasticsearch documentation</a>.
+</p>
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch: The Definitive Guide [main]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="getting-started.html">Getting Started</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="data-in-data-out.html">Data In, Data Out</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="update-doc.html">« Updating a Whole Document</a>
+</span>
+<span class="next">
+<a href="delete-doc.html">Deleting a Document »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="create-doc"></a>Creating a New Document<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/030_Data/30_Create.asciidoc">edit</a></h2>
+</div></div></div>
+<p>How can we be sure, when we index a document, that we are creating an entirely
+new document and not overwriting an existing one?</p>
+<p>Remember that the combination of <code class="literal">_index</code>, <code class="literal">_type</code>, and <code class="literal">_id</code> uniquely
+identifies a document.  So the easiest way to ensure that our document is new
+is by letting Elasticsearch autogenerate a new unique <code class="literal">_id</code>, using the <code class="literal">POST</code>
+version of the index request:</p>
+<div class="pre_wrapper lang-js">
+<pre class="programlisting prettyprint lang-js">POST /website/blog/
+{ ... }</pre>
+</div>
+<p>However, if we already have an <code class="literal">_id</code> that we want to use, then we have to tell
+Elasticsearch that it should accept our index request only if a document with
+the same <code class="literal">_index</code>, <code class="literal">_type</code>, and <code class="literal">_id</code> doesn&#8217;t exist already. There are two ways
+of doing this, both of which amount to the same thing. Use whichever method is
+more convenient for you.</p>
+<p>The first method uses the <code class="literal">op_type</code> query-string parameter:</p>
+<div class="pre_wrapper lang-js">
+<pre class="programlisting prettyprint lang-js">PUT /website/blog/123?op_type=create
+{ ... }</pre>
+</div>
+<p>And the second uses the <code class="literal">/_create</code> endpoint in the URL:</p>
+<div class="pre_wrapper lang-js">
+<pre class="programlisting prettyprint lang-js">PUT /website/blog/123/_create
+{ ... }</pre>
+</div>
+<p>If the request succeeds in creating a new document, Elasticsearch will
+return the usual metadata and an HTTP response code of <code class="literal">201 Created</code>.</p>
+<p>On the other hand, if a document with the same <code class="literal">_index</code>, <code class="literal">_type</code>, and <code class="literal">_id</code>
+already exists, Elasticsearch will respond with a <code class="literal">409 Conflict</code> response
+code, and an error message like the following:</p>
+<div class="pre_wrapper lang-sense">
+<pre class="programlisting prettyprint lang-sense">{
+   "error": {
+      "root_cause": [
+         {
+            "type": "document_already_exists_exception",
+            "reason": "[blog][123]: document already exists",
+            "shard": "0",
+            "index": "website"
+         }
+      ],
+      "type": "document_already_exists_exception",
+      "reason": "[blog][123]: document already exists",
+      "shard": "0",
+      "index": "website"
+   },
+   "status": 409
+}</pre>
+</div>
+<div class="sense_widget" data-snippet="snippets/030_Data/30_Create_doc.json"></div>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="update-doc.html">« Updating a Whole Document</a>
+</span>
+<span class="next">
+<a href="delete-doc.html">Deleting a Document »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

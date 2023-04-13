@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Delete a deployment | Elastic Cloud Control Documentation [main] | Elastic</title>
+<meta class="elastic" name="content" content="Delete a deployment | Elastic Cloud Control Documentation [main]">
+
+<link rel="home" href="index.html" title="Elastic Cloud Control Documentation [main]"/>
+<link rel="up" href="ecctl-examples.html" title="Usage examples"/>
+<link rel="prev" href="ecctl-example-update-deployment.html" title="Update a deployment"/>
+<link rel="next" href="ecctl-command-reference.html" title="Command reference"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="ECCTL"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/CloudControl/Reference/main"/>
+<meta name="DC.subject" content="ECCTL"/>
+<meta name="DC.identifier" content="main"/>
+</head>
+<body><div class="page_header">
+You are looking at preliminary documentation for a future release.
+Not what you want? See the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elastic Cloud Control Documentation [main]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="ecctl-examples.html">Usage examples</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="ecctl-example-update-deployment.html">« Update a deployment</a>
+</span>
+<span class="next">
+<a href="ecctl-command-reference.html">Command reference »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="ecctl-example-delete-deployment"></a>Delete a deployment<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/ecctl/edit/master/docs/ecctl-getting-started.asciidoc">edit</a></h2>
+</div></div></div>
+<p>In this last example, you can use the <a class="xref" href="ecctl_deployment_shutdown.html" title="ecctl deployment shutdown">ecctl deployment shutdown</a> command to delete the deployment that you created.</p>
+<div class="pre_wrapper lang-sh">
+<pre class="programlisting prettyprint lang-sh">ecctl deployment shutdown [--track] $DEPLOYMENT_ID</pre>
+</div>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<code class="literal">$DEPLOYMENT_ID</code> is the ID for the deployment that was created in the previous <a class="xref" href="ecctl-example-create-deployment.html" title="Create a deployment">create a deployment</a> example.
+</li>
+</ul>
+</div>
+<p>On running this and other destructive commands, ecctl prompts you with a confirmation message. Use the <code class="literal">--force</code> option to skip the confirmation step, if you are using ecctl for automation.</p>
+<p>To monitor the progress, use the <code class="literal">--track</code> flag.</p>
+<p>To see the different options that ecctl supports, run <code class="literal">ecctl &lt;command&gt; &lt;help&gt;</code>.</p>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="ecctl-example-update-deployment.html">« Update a deployment</a>
+</span>
+<span class="next">
+<a href="ecctl-command-reference.html">Command reference »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

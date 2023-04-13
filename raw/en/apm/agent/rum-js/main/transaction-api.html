@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Transaction API | APM Real User Monitoring JavaScript Agent Reference [main] | Elastic</title>
+<meta class="elastic" name="content" content="Transaction API | APM Real User Monitoring JavaScript Agent Reference [main]">
+
+<link rel="home" href="index.html" title="APM Real User Monitoring JavaScript Agent Reference [main]"/>
+<link rel="up" href="api.html" title="API Reference"/>
+<link rel="prev" href="agent-api.html" title="Agent API"/>
+<link rel="next" href="span-api.html" title="Span API"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="APM"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/APM Real User Monitoring JavaScript Agent/Reference/main"/>
+<meta name="DC.subject" content="APM"/>
+<meta name="DC.identifier" content="main"/>
+</head>
+<body><div class="page_header">
+You are looking at preliminary documentation for a future release.
+Not what you want? See the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link">
+  <div id="related-products" class="dropdown">
+    <div class="related-products-title">APM:</div>
+    <div class="dropdown-anchor" tabindex="0">Real User Monitoring JavaScript Agent Reference<span class="dropdown-icon"></span></div>
+    <div class="dropdown-content">
+      <ul>
+        <li class="dropdown-category">APM</li>
+        <ul>
+          <li><a href="/guide/en/apm/guide/current/apm-overview.html">User Guide</a></li>
+        </ul>
+        <li class="dropdown-category">APM agents</li>
+        <ul>
+          <li><a href="/guide/en/apm/agent/android/current/intro.html">Android Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/go/current/introduction.html">Go Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/swift/current/intro.html">iOS Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/java/current/intro.html">Java Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/dotnet/current/intro.html">.NET Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/nodejs/current/intro.html">Node.js Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/php/current/intro.html">PHP Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/python/current/getting-started.html">Python Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/ruby/current/introduction.html">Ruby Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/rum-js/current/intro.html">Real User Monitoring JavaScript Agent Reference</a></li>
+        </ul>
+        <li class="dropdown-category">APM extensions</li>
+        <ul>
+          <li><a href="/guide/en/apm/lambda/current/aws-lambda-arch.html">Monitoring AWS Lambda Functions</a></li>
+          <li><a href="/guide/en/apm/attacher/current/apm-attacher.html">Attacher</a></li>
+        </ul>
+      </ul>
+    </div>
+  </div>
+</span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="api.html">API Reference</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="agent-api.html">« <code class="literal">Agent</code> API</a>
+</span>
+<span class="next">
+<a href="span-api.html"><code class="literal">Span</code> API »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="transaction-api"></a><code class="literal">Transaction</code> API<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-rum-js/edit/main/docs/transaction-api.asciidoc">edit</a></h2>
+</div></div></div>
+<p>A transaction groups multiple spans in a logical group.</p>
+<p>To start a transaction,
+you need to call <a class="xref" href="agent-api.html#apm-start-transaction" title="apm.startTransaction()"><code class="literal">apm.startTransaction()</code></a>.</p>
+<p>To see an example of using custom transactions,
+see the <a class="xref" href="custom-transactions.html" title="Custom Transactions">Custom Transactions</a> article.</p>
+<h4><a id="transaction-name"></a><code class="literal">transaction.name</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-rum-js/edit/main/docs/transaction-api.asciidoc">edit</a></h4>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<span class="strong strong"><strong>Type:</strong></span> String
+</li>
+<li class="listitem">
+<span class="strong strong"><strong>Default:</strong></span> <code class="literal">Unknown</code>
+</li>
+</ul>
+</div>
+<p>The name of the transaction.</p>
+<p>Can be used to set or overwrite the name of the transaction (visible in the performance monitoring breakdown).</p>
+<h4><a id="transaction-type"></a><code class="literal">transaction.type</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-rum-js/edit/main/docs/transaction-api.asciidoc">edit</a></h4>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<span class="strong strong"><strong>Type:</strong></span> String
+</li>
+<li class="listitem">
+<span class="strong strong"><strong>Default:</strong></span> <code class="literal">custom</code>
+</li>
+</ul>
+</div>
+<p>The type of the transaction.</p>
+<h4><a id="transaction-timestamp"></a><code class="literal">transaction.timestamp</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-rum-js/edit/main/docs/transaction-api.asciidoc">edit</a></h4>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<span class="strong strong"><strong>Type:</strong></span> String
+</li>
+<li class="listitem">
+<span class="strong strong"><strong>Default:</strong></span> <code class="literal">undefined</code>
+</li>
+</ul>
+</div>
+<p>The timestamp of the transaction.
+If the transaction timestamp is not provided (the default behaviour), it will be set by the apm-server (v6.3+).
+You can, however, set the timestamp on the client (using <code class="literal">new Date().toISOString()</code>), but you should be aware that the timestamp will reflect the client&#8217;s local time
+which might not always be accurate.</p>
+<h4><a id="transaction-start-span"></a><code class="literal">transaction.startSpan([name][, type][, options])</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-rum-js/edit/main/docs/transaction-api.asciidoc">edit</a></h4>
+<div class="pre_wrapper lang-js">
+<pre class="programlisting prettyprint lang-js">const span = transaction.startSpan('My custom span')</pre>
+</div>
+<p>Start and return a new custom span associated with this transaction.</p>
+<p>Arguments:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<code class="literal">name</code> - The name of the span (string). Defaults to <code class="literal">unnamed</code>
+</li>
+<li class="listitem">
+<code class="literal">type</code> - The type of span (string). Defaults to <code class="literal">custom</code>
+</li>
+<li class="listitem">
+<p><code class="literal">options</code> - The following options are supported:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<code class="literal">blocking</code> - Blocks the associated transaction from ending until this span is ended. Blocked spans
+automatically create an internal task. Defaults to false.
+</li>
+<li class="listitem">
+<code class="literal">parentId</code> - Parent id associated with the new span. Defaults to current transaction id
+</li>
+<li class="listitem">
+<code class="literal">sync</code> - Denotes if the span is synchronous or asynchronous.
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<p>When a span is started it will measure the time until <a class="xref" href="span-api.html#span-end" title="span.end()"><code class="literal">span.end()</code></a> is called. Blocked
+spans allow users to control the early closing of <a class="xref" href="custom-transactions.html#custom-managed-transactions" title="Creating a Managed transaction">managed transactions</a> in some cases.</p>
+<p>See also the <a class="xref" href="span-api.html" title="Span API">Span API</a> docs for details on how to use custom spans.</p>
+<h4><a id="transaction-block"></a><code class="literal">transaction.block(flag)</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-rum-js/edit/main/docs/transaction-api.asciidoc">edit</a></h4>
+<div class="pre_wrapper lang-js">
+<pre class="programlisting prettyprint lang-js">transaction.block(true)</pre>
+</div>
+<p>Blocks the currently running auto-instrumented or custom transactions from getting automatically closed once the associated spans are ended.</p>
+<p>Arguments:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<code class="literal">flag</code> - Boolean. Defaults to false.
+</li>
+</ul>
+</div>
+<p>Most of the time, users shouldn&#8217;t need to block the running transaction as the agent tries to account for all of the async network activity and capture
+the required information. The block API is useful when you think auto instrumented code misses important activity and prematurely ends a transaction.
+An example of this might be a page that contains lots of asynchronous tasks that cannot be automatically instrumented, like web workers.</p>
+<div class="pre_wrapper lang-js">
+<pre class="programlisting prettyprint lang-js">// get the current active autoinstrumented transaction (page-load, route-change, etc.)
+const activeTransaction = apm.getCurrentTransaction()
+
+if (activeTransaction) {
+  activeTransaction.block(true)
+}
+
+// Perform some more async tasks and unblock it
+activeTransaction.block(false)</pre>
+</div>
+<p>One can also achieve a similar action by creating blocked spans. Check the <a class="xref" href="custom-transactions.html#custom-managed-transactions" title="Creating a Managed transaction">managed transactions</a> guide to learn more.</p>
+<h4><a id="transaction-add-labels"></a><code class="literal">transaction.addLabels()</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-rum-js/edit/main/docs/transaction-api.asciidoc">edit</a></h4>
+<div class="pre_wrapper lang-js">
+<pre class="programlisting prettyprint lang-js">transaction.addLabels({ [name]: value })</pre>
+</div>
+<p>Add several labels on the transaction. If an error happens during the transaction,
+it will also get tagged with the same labels.</p>
+<p>Labels are key/value pairs that are indexed by Elasticsearch and therefore searchable (as opposed to data set via <a class="xref" href="agent-api.html#apm-set-custom-context" title="apm.setCustomContext()"><code class="literal">apm.setCustomContext()</code></a>).</p>
+<div class="tip admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>Before using custom labels, ensure you understand the different types of
+<a href="/guide/en/apm/guide/8.7/metadata.html" class="ulink" target="_top">metadata</a> that are available.</p>
+</div>
+</div>
+<p>Arguments:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<code class="literal">name</code> - Any string. All periods (.), asterisks (*), and double quotation marks (") will be replaced by underscores (_), as those characters have special meaning in Elasticsearch
+</li>
+<li class="listitem">
+<code class="literal">value</code> - Any string, boolean, or number. All other data types will be converted to a string
+before being sent to the APM Server.
+</li>
+</ul>
+</div>
+<div class="warning admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>Avoid defining too many user-specified tags.
+Defining too many unique fields in an index is a condition that can lead to a
+<a href="/guide/en/elasticsearch/reference/8.7/mapping.html#mapping-limit-settings" class="ulink" target="_top">mapping explosion</a>.</p>
+</div>
+</div>
+<h4><a id="transaction-end"></a><code class="literal">transaction.end()</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-rum-js/edit/main/docs/transaction-api.asciidoc">edit</a></h4>
+<div class="pre_wrapper lang-js">
+<pre class="programlisting prettyprint lang-js">transaction.end()</pre>
+</div>
+<p>Ends the transaction. Calling <code class="literal">transaction.end</code> on an active transaction ends all of the underlying spans and marks them as <code class="literal">truncated</code>.
+If the transaction has already ended, nothing happens.</p>
+<h4><a id="transaction-mark"></a><code class="literal">transaction.mark(key)</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-rum-js/edit/main/docs/transaction-api.asciidoc">edit</a></h4>
+<div class="pre_wrapper lang-js">
+<pre class="programlisting prettyprint lang-js">transaction.mark(key)</pre>
+</div>
+<p>Marks the current point in time relative to the start of the transaction.
+Use this method to mark significant events that happen while the transaction is active.</p>
+<p>Arguments:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<code class="literal">key</code> -  Any string. All periods (.), asterisks (*), and double quotation marks (") will be replaced by underscores (_), as those characters have special meaning in Elasticsearch
+</li>
+</ul>
+</div>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="agent-api.html">« <code class="literal">Agent</code> API</a>
+</span>
+<span class="next">
+<a href="span-api.html"><code class="literal">Span</code> API »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

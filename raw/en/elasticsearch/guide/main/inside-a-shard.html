@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Inside a Shard | Elasticsearch: The Definitive Guide [main] | Elastic</title>
+<meta class="elastic" name="content" content="Inside a Shard | Elasticsearch: The Definitive Guide [main]">
+
+<link rel="home" href="index.html" title="Elasticsearch: The Definitive Guide [main]"/>
+<link rel="up" href="getting-started.html" title="Getting Started"/>
+<link rel="prev" href="index-aliases.html" title="Index Aliases and Zero Downtime"/>
+<link rel="next" href="making-text-searchable.html" title="Making Text Searchable"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="Elasticsearch"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Legacy/Elasticsearch/Definitive Guide/main"/>
+<meta name="DC.subject" content="Elasticsearch"/>
+<meta name="DC.identifier" content="main"/>
+<meta name="robots" content="noindex,nofollow"/>
+</head>
+<body><div class="page_header">
+<p>
+  <strong>WARNING</strong>: This documentation covers Elasticsearch 2.x. The 2.x
+  versions of Elasticsearch have passed their
+  <a href="https://www.elastic.co/support/eol">EOL dates</a>. If you are running
+  a 2.x version, we strongly advise you to upgrade.
+</p>
+<p>
+  This documentation is no longer maintained and may be removed. For the latest
+  information, see the <a
+  href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">current
+  Elasticsearch documentation</a>.
+</p>
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch: The Definitive Guide [main]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="getting-started.html">Getting Started</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="index-aliases.html">« Index Aliases and Zero Downtime</a>
+</span>
+<span class="next">
+<a href="making-text-searchable.html">Making Text Searchable »</a>
+</span>
+</div>
+<div class="chapter">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="inside-a-shard"></a>Inside a Shard<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/075_Inside_a_shard/10_Intro.asciidoc">edit</a></h2>
+</div></div></div>
+<p>In <a class="xref" href="distributed-cluster.html" title="Life Inside a Cluster"><em>Life Inside a Cluster</em></a>, we introduced the <em>shard</em>, and described it as a
+low-level <em>worker unit</em>. But what exactly <em>is</em> a shard and how does it work?
+In this chapter, we answer these questions:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Why is search <em>near</em> real-time?
+</li>
+<li class="listitem">
+Why are document CRUD (create-read-update-delete) operations <em>real-time</em>?
+</li>
+<li class="listitem">
+How does Elasticsearch ensure that the changes you make are durable, that
+they won&#8217;t be lost if there is a power failure?
+</li>
+<li class="listitem">
+Why does deleting documents not free up space immediately?
+</li>
+<li class="listitem">
+What do the <code class="literal">refresh</code>, <code class="literal">flush</code>, and <code class="literal">optimize</code> APIs do, and when should
+you use them?
+</li>
+</ul>
+</div>
+<p>The easiest way to understand how a shard functions today is to start with a
+history lesson. We will look at the problems that needed to be solved in order
+to provide a distributed durable data store with near real-time search and
+analytics.</p>
+<div class="sidebar">
+<div class="titlepage"><div><div>
+<p class="title"><strong>Content Warning</strong></p>
+</div></div></div>
+<p>The information presented in this chapter is for your interest. You are not required to
+understand and remember all the detail in order to use Elasticsearch. Read
+this chapter to gain a taste for how things work, and to know where the
+information is in case you need to refer to it in the future, but don&#8217;t be
+overwhelmed by the detail.</p>
+</div>
+
+
+
+
+
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="index-aliases.html">« Index Aliases and Zero Downtime</a>
+</span>
+<span class="next">
+<a href="making-text-searchable.html">Making Text Searchable »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

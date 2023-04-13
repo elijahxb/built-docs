@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ecctl deployment create | Elastic Cloud Control Documentation [main] | Elastic</title>
+<meta class="elastic" name="content" content="ecctl deployment create | Elastic Cloud Control Documentation [main]">
+
+<link rel="home" href="index.html" title="Elastic Cloud Control Documentation [main]"/>
+<link rel="up" href="ecctl-command-reference.html" title="Command reference"/>
+<link rel="prev" href="ecctl_deployment.html" title="ecctl deployment"/>
+<link rel="next" href="ecctl_deployment_delete.html" title="ecctl deployment delete"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="ECCTL"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/CloudControl/Reference/main"/>
+<meta name="DC.subject" content="ECCTL"/>
+<meta name="DC.identifier" content="main"/>
+</head>
+<body><div class="page_header">
+You are looking at preliminary documentation for a future release.
+Not what you want? See the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elastic Cloud Control Documentation [main]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="ecctl-command-reference.html">Command reference</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="ecctl_deployment.html">« ecctl deployment</a>
+</span>
+<span class="next">
+<a href="ecctl_deployment_delete.html">ecctl deployment delete »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="ecctl_deployment_create"></a>ecctl deployment create<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/ecctl/edit/master/docs/ecctl_deployment_create.adoc">edit</a></h2>
+</div></div></div>
+<p>Creates a deployment</p>
+<h4><a id="_synopsis"></a>Synopsis<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/ecctl/edit/master/docs/ecctl_deployment_create.adoc">edit</a></h4>
+<p>Creates a deployment from a file definition or using the defaults from the deployment template.
+Default values are provided by the deployment template, simplifying the getting started experience.
+When version is not specified, the latest available stack version will automatically be used.
+These are the available options:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Using the deployment template defaults with --deployment-template=<deployment template="" id=""></deployment>
+</li>
+<li class="listitem">
+Using the deployment template defaults with --deployment-template=<deployment template="" id="">and --generate-payload to use the deployment template, modify certain fields of the definition and use the --file flag to create the deployment.</deployment>
+</li>
+<li class="listitem">
+File definition: --file=<file path="">(shorthand: -f). You can create a definition by using the sample JSON seen here: <a href="https://elastic.co/guide/en/cloud/current/ec-api-deployment-crud.html#ec_create_a_deployment</file>" class="ulink" target="_top">https://elastic.co/guide/en/cloud/current/ec-api-deployment-crud.html#ec_create_a_deployment</file></a>
+</li>
+</ul>
+</div>
+<p>As an option "--generate-payload" can be used in order to obtain the generated payload that would be sent as a request.
+Save it, update or extend the topology and create a deployment using the saved payload with the "--file" flag.</p>
+<pre class="screen">ecctl deployment create {--file | --es-size &lt;int&gt; --es-zones &lt;int&gt; | --es-node-topology &lt;obj&gt;} [flags]</pre>
+<h4><a id="_examples"></a>Examples<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/ecctl/edit/master/docs/ecctl_deployment_create.adoc">edit</a></h4>
+<pre class="screen">## Create a deployment with the default values
+$ ecctl deployment create --name my-deployment --deployment-template=aws-io-optimized-v2 --region=us-east-1
+
+## To make the command wait until the resources have been created use the "--track" flag, which will output
+the current stage on which the deployment resources are in.
+$ ecctl deployment create --name my-deployment --deployment-template=aws-io-optimized-v2 --region=us-east-1 --track
+[...]
+Deployment [b6ecbea3d5c84124b7dca457f2892086] - [Elasticsearch][b6ecbea3d5c84124b7dca457f2892086]: finished running all the plan steps (Total plan duration: 5m11.s)
+Deployment [91c4d60acb804ba0a27651fac02780ec] - [Kibana][8a9d9916cd6e46a7bb0912211d76e2af]: finished running all the plan steps (Total plan duration: 4m29.58s)
+
+## In order to use the "--deployment-template" flag, you'll need to know which deployment templates ara available to you.
+You'll need to run the following command to view your deployment templates:
+$ ecctl platform deployment-template list
+
+## Use the "--generate-payload" flag to save the definition to a file for later use.
+$ ecctl deployment create --name my-deployment --version=7.11.2 --generate-payload &gt; create_example.json
+
+## Create a deployment through the file definition.
+$ ecctl deployment create --file create_example.json --track
+
+## To retry a deployment when the previous deployment creation failed, use the request ID provided in the error response of the previous command:
+$ ecctl deployment create --request-id=GMZPMRrcMYqHdmxjIQkHbdjnhPIeBElcwrHwzVlhGUSMXrEIzVXoBykSVRsKncNb</pre>
+<h4><a id="_options_15"></a>Options<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/ecctl/edit/master/docs/ecctl_deployment_create.adoc">edit</a></h4>
+<pre class="screen">      --deployment-template string   Deployment template ID on which to base the deployment from
+  -f, --file string                  DeploymentCreateRequest file definition. See help for more information
+      --generate-payload             Returns the deployment payload without actually creating the deployment resources
+  -h, --help                         help for create
+      --name string                  Optional name for the deployment
+      --request-id string            Optional request ID - Can be found in the Stderr device when a previous deployment creation failed. For more information see the examples in the help command page
+  -t, --track                        Tracks the progress of the performed task
+      --version string               Version to use, if not specified, the latest available stack version will be used</pre>
+<h4><a id="_options_inherited_from_parent_commands_14"></a>Options inherited from parent commands<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/ecctl/edit/master/docs/ecctl_deployment_create.adoc">edit</a></h4>
+<pre class="screen">      --api-key string        API key to use to authenticate (If empty will look for EC_API_KEY environment variable)
+      --config string         Config name, used to have multiple configs in $HOME/.ecctl/&lt;env&gt; (default "config")
+      --force                 Do not ask for confirmation
+      --format string         Formats the output using a Go template
+      --host string           Base URL to use
+      --insecure              Skips all TLS validation
+      --message string        A message to set on cluster operation
+      --output string         Output format [text|json] (default "text")
+      --pass string           Password to use to authenticate (If empty will look for EC_PASS environment variable)
+      --pprof                 Enables pprofing and saves the profile to pprof-20060102150405
+  -q, --quiet                 Suppresses the configuration file used for the run, if any
+      --region string         Elasticsearch Service region
+      --timeout duration      Timeout to use on all HTTP calls (default 30s)
+      --trace                 Enables tracing saves the trace to trace-20060102150405
+      --user string           Username to use to authenticate (If empty will look for EC_USER environment variable)
+      --verbose               Enable verbose mode
+      --verbose-credentials   When set, Authorization headers on the request/response trail will be displayed as plain text
+      --verbose-file string   When set, the verbose request/response trail will be written to the defined file</pre>
+<h4><a id="_see_also_15"></a>SEE ALSO<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/ecctl/edit/master/docs/ecctl_deployment_create.adoc">edit</a></h4>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<a class="xref" href="ecctl_deployment.html" title="ecctl deployment">ecctl deployment</a>	 - Manages deployments
+</li>
+</ul>
+</div>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="ecctl_deployment.html">« ecctl deployment</a>
+</span>
+<span class="next">
+<a href="ecctl_deployment_delete.html">ecctl deployment delete »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

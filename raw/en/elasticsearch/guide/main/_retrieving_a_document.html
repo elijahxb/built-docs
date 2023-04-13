@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Retrieving a Document | Elasticsearch: The Definitive Guide [main] | Elastic</title>
+<meta class="elastic" name="content" content="Retrieving a Document | Elasticsearch: The Definitive Guide [main]">
+
+<link rel="home" href="index.html" title="Elasticsearch: The Definitive Guide [main]"/>
+<link rel="up" href="intro.html" title="You Know, for Search&#8230;&#8203;"/>
+<link rel="prev" href="_indexing_employee_documents.html" title="Indexing Employee Documents"/>
+<link rel="next" href="_search_lite.html" title="Search Lite"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="Elasticsearch"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Legacy/Elasticsearch/Definitive Guide/main"/>
+<meta name="DC.subject" content="Elasticsearch"/>
+<meta name="DC.identifier" content="main"/>
+<meta name="robots" content="noindex,nofollow"/>
+</head>
+<body><div class="page_header">
+<p>
+  <strong>WARNING</strong>: This documentation covers Elasticsearch 2.x. The 2.x
+  versions of Elasticsearch have passed their
+  <a href="https://www.elastic.co/support/eol">EOL dates</a>. If you are running
+  a 2.x version, we strongly advise you to upgrade.
+</p>
+<p>
+  This documentation is no longer maintained and may be removed. For the latest
+  information, see the <a
+  href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">current
+  Elasticsearch documentation</a>.
+</p>
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch: The Definitive Guide [main]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="getting-started.html">Getting Started</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="intro.html">You Know, for Search&#8230;&#8203;</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="_indexing_employee_documents.html">« Indexing Employee Documents</a>
+</span>
+<span class="next">
+<a href="_search_lite.html">Search Lite »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="_retrieving_a_document"></a>Retrieving a Document<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/010_Intro/30_Tutorial_Search.asciidoc">edit</a></h2>
+</div></div></div>
+<p>Now that we have some data stored in Elasticsearch, we can get to work on the
+business requirements for this application.  The first requirement is the
+ability to retrieve individual employee data.</p>
+<p>This is easy in Elasticsearch.  We simply execute an HTTP <code class="literal">GET</code> request and
+specify the <em>address</em> of the document&#8212;&#8203;the index, type, and ID.  Using
+those three pieces of information, we can return the original JSON document:</p>
+<div class="pre_wrapper lang-sense">
+<pre class="programlisting prettyprint lang-sense">GET /megacorp/employee/1</pre>
+</div>
+<div class="sense_widget" data-snippet="snippets/010_Intro/30_Get.json"></div>
+<p>And the response contains some metadata about the document, and John Smith&#8217;s
+original JSON document as the <code class="literal">_source</code> field:</p>
+<div class="pre_wrapper lang-js">
+<pre class="programlisting prettyprint lang-js">{
+  "_index" :   "megacorp",
+  "_type" :    "employee",
+  "_id" :      "1",
+  "_version" : 1,
+  "found" :    true,
+  "_source" :  {
+      "first_name" :  "John",
+      "last_name" :   "Smith",
+      "age" :         25,
+      "about" :       "I love to go rock climbing",
+      "interests":  [ "sports", "music" ]
+  }
+}</pre>
+</div>
+<div class="tip admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>In the same way that we changed the HTTP verb from <code class="literal">PUT</code> to <code class="literal">GET</code> in order to
+retrieve the document, we could use the <code class="literal">DELETE</code> verb to delete the  document,
+and the <code class="literal">HEAD</code> verb to check whether the document exists. To replace an
+existing document with an updated version, we just <code class="literal">PUT</code> it again.</p>
+</div>
+</div>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="_indexing_employee_documents.html">« Indexing Employee Documents</a>
+</span>
+<span class="next">
+<a href="_search_lite.html">Search Lite »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

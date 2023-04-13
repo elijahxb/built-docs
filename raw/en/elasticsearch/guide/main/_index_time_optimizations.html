@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Index-Time Optimizations | Elasticsearch: The Definitive Guide [main] | Elastic</title>
+<meta class="elastic" name="content" content="Index-Time Optimizations | Elasticsearch: The Definitive Guide [main]">
+
+<link rel="home" href="index.html" title="Elasticsearch: The Definitive Guide [main]"/>
+<link rel="up" href="partial-matching.html" title="Partial Matching"/>
+<link rel="prev" href="_query_time_search_as_you_type.html" title="Query-Time Search-as-You-Type"/>
+<link rel="next" href="_ngrams_for_partial_matching.html" title="Ngrams for Partial Matching"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="Elasticsearch"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Legacy/Elasticsearch/Definitive Guide/main"/>
+<meta name="DC.subject" content="Elasticsearch"/>
+<meta name="DC.identifier" content="main"/>
+<meta name="robots" content="noindex,nofollow"/>
+</head>
+<body><div class="page_header">
+<p>
+  <strong>WARNING</strong>: This documentation covers Elasticsearch 2.x. The 2.x
+  versions of Elasticsearch have passed their
+  <a href="https://www.elastic.co/support/eol">EOL dates</a>. If you are running
+  a 2.x version, we strongly advise you to upgrade.
+</p>
+<p>
+  This documentation is no longer maintained and may be removed. For the latest
+  information, see the <a
+  href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">current
+  Elasticsearch documentation</a>.
+</p>
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch: The Definitive Guide [main]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="search-in-depth.html">Search in Depth</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="partial-matching.html">Partial Matching</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="_query_time_search_as_you_type.html">« Query-Time Search-as-You-Type</a>
+</span>
+<span class="next">
+<a href="_ngrams_for_partial_matching.html">Ngrams for Partial Matching »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="_index_time_optimizations"></a>Index-Time Optimizations<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/130_Partial_Matching/25_Index_time.asciidoc">edit</a></h2>
+</div></div></div>
+<p>All of the solutions we&#8217;ve talked about so far are implemented at
+<em>query time</em>. They don&#8217;t require any special mappings or indexing patterns;
+they simply work with the data that you&#8217;ve already indexed.</p>
+<p>The flexibility of query-time operations comes at a cost: search performance.
+Sometimes it may make sense to move the cost away from the query.  In a real-
+time web application, an additional 100ms may be too much latency to tolerate.</p>
+<p>By preparing your data at index time, you can make your searches more flexible
+and improve performance. You still pay a price: increased index size and
+slightly slower indexing throughput, but it is a price you pay once at index
+time, instead of paying it on every query.</p>
+<p>Your users will thank you.</p>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="_query_time_search_as_you_type.html">« Query-Time Search-as-You-Type</a>
+</span>
+<span class="next">
+<a href="_ngrams_for_partial_matching.html">Ngrams for Partial Matching »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

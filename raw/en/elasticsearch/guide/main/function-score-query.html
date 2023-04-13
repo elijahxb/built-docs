@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>function_score Query | Elasticsearch: The Definitive Guide [main] | Elastic</title>
+<meta class="elastic" name="content" content="function_score Query | Elasticsearch: The Definitive Guide [main]">
+
+<link rel="home" href="index.html" title="Elasticsearch: The Definitive Guide [main]"/>
+<link rel="up" href="controlling-relevance.html" title="Controlling Relevance"/>
+<link rel="prev" href="ignoring-tfidf.html" title="Ignoring TF/IDF"/>
+<link rel="next" href="boosting-by-popularity.html" title="Boosting by Popularity"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="Elasticsearch"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Legacy/Elasticsearch/Definitive Guide/main"/>
+<meta name="DC.subject" content="Elasticsearch"/>
+<meta name="DC.identifier" content="main"/>
+<meta name="robots" content="noindex,nofollow"/>
+</head>
+<body><div class="page_header">
+<p>
+  <strong>WARNING</strong>: This documentation covers Elasticsearch 2.x. The 2.x
+  versions of Elasticsearch have passed their
+  <a href="https://www.elastic.co/support/eol">EOL dates</a>. If you are running
+  a 2.x version, we strongly advise you to upgrade.
+</p>
+<p>
+  This documentation is no longer maintained and may be removed. For the latest
+  information, see the <a
+  href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">current
+  Elasticsearch documentation</a>.
+</p>
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch: The Definitive Guide [main]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="search-in-depth.html">Search in Depth</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="controlling-relevance.html">Controlling Relevance</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="ignoring-tfidf.html">« Ignoring TF/IDF</a>
+</span>
+<span class="next">
+<a href="boosting-by-popularity.html">Boosting by Popularity »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="function-score-query"></a>function_score Query<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/170_Relevance/40_Function_score_query.asciidoc">edit</a></h2>
+</div></div></div>
+<p>The <a href="/guide/en/elasticsearch/reference/2.4/query-dsl-function-score-query.html" class="ulink" target="_top"><code class="literal">function_score</code> query</a> is the
+ultimate tool for taking control of the scoring process.  It allows you to
+apply a function to each document that matches the main query in order to
+alter or completely replace the original query <code class="literal">_score</code>.</p>
+<p>In fact, you can apply different functions to <em>subsets</em> of the main result set by
+using filters, which gives you the best of both worlds: efficient scoring with
+cacheable filters.</p>
+<p>It supports several predefined functions out of the box:</p>
+<div class="variablelist">
+<dl class="variablelist">
+<dt>
+<span class="term">
+<code class="literal">weight</code>
+</span>
+</dt>
+<dd>
+Apply a simple boost to each document without the boost being
+normalized: a <code class="literal">weight</code> of <code class="literal">2</code> results in <code class="literal">2 * _score</code>.
+</dd>
+<dt>
+<span class="term">
+<code class="literal">field_value_factor</code>
+</span>
+</dt>
+<dd>
+Use the value of a field in the document to alter the <code class="literal">_score</code>,  such as
+factoring in a <code class="literal">popularity</code> count or number of <code class="literal">votes</code>.
+</dd>
+<dt>
+<span class="term">
+<code class="literal">random_score</code>
+</span>
+</dt>
+<dd>
+Use consistently random scoring to sort results differently for every user,
+while maintaining the same sort order for a single user.
+</dd>
+<dt>
+<span class="term">
+<em>Decay functions</em>&#x2014;<code class="literal">linear</code>, <code class="literal">exp</code>, <code class="literal">gauss</code>
+</span>
+</dt>
+<dd>
+Incorporate sliding-scale values like <code class="literal">publish_date</code>, <code class="literal">geo_location</code>, or
+<code class="literal">price</code> into the <code class="literal">_score</code> to prefer recently published documents, documents
+near a latitude/longitude (lat/lon) point, or documents near a specified price point.
+</dd>
+<dt>
+<span class="term">
+<code class="literal">script_score</code>
+</span>
+</dt>
+<dd>
+Use a custom script to take complete control of the scoring logic. If your
+needs extend beyond those of the functions in this list, write a custom
+script to implement the logic that you need.
+</dd>
+</dl>
+</div>
+<p>Without the <code class="literal">function_score</code> query, we would not be able to combine the score
+from a full-text query with a factor like recency. We would have to sort
+either by <code class="literal">_score</code> or by <code class="literal">date</code>; the effect of one would obliterate the
+effect of the other. This query allows you to blend the two together: to still
+sort by full-text relevance, but giving extra weight to recently published
+documents, or popular documents, or products that are near the user&#8217;s price
+point. As you can imagine, a query that supports all of this can look fairly
+complex.  We&#8217;ll start with a simple use case and work our way up the
+complexity ladder.</p>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="ignoring-tfidf.html">« Ignoring TF/IDF</a>
+</span>
+<span class="next">
+<a href="boosting-by-popularity.html">Boosting by Popularity »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

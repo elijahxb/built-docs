@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Supportability configuration options | APM .NET Agent Reference [main] | Elastic</title>
+<meta class="elastic" name="content" content="Supportability configuration options | APM .NET Agent Reference [main]">
+
+<link rel="home" href="index.html" title="APM .NET Agent Reference [main]"/>
+<link rel="up" href="configuration.html" title="Configuration"/>
+<link rel="prev" href="config-stacktrace.html" title="Stacktrace configuration options"/>
+<link rel="next" href="config-all-options-summary.html" title="All options summary"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="APM"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/APM .NET Agent/Reference/main"/>
+<meta name="DC.subject" content="APM"/>
+<meta name="DC.identifier" content="main"/>
+</head>
+<body><div class="page_header">
+You are looking at preliminary documentation for a future release.
+Not what you want? See the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link">
+  <div id="related-products" class="dropdown">
+    <div class="related-products-title">APM:</div>
+    <div class="dropdown-anchor" tabindex="0">.NET Agent Reference<span class="dropdown-icon"></span></div>
+    <div class="dropdown-content">
+      <ul>
+        <li class="dropdown-category">APM</li>
+        <ul>
+          <li><a href="/guide/en/apm/guide/current/apm-overview.html">User Guide</a></li>
+        </ul>
+        <li class="dropdown-category">APM agents</li>
+        <ul>
+          <li><a href="/guide/en/apm/agent/android/current/intro.html">Android Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/go/current/introduction.html">Go Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/swift/current/intro.html">iOS Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/java/current/intro.html">Java Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/dotnet/current/intro.html">.NET Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/nodejs/current/intro.html">Node.js Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/php/current/intro.html">PHP Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/python/current/getting-started.html">Python Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/ruby/current/introduction.html">Ruby Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/rum-js/current/intro.html">Real User Monitoring JavaScript Agent Reference</a></li>
+        </ul>
+        <li class="dropdown-category">APM extensions</li>
+        <ul>
+          <li><a href="/guide/en/apm/lambda/current/aws-lambda-arch.html">Monitoring AWS Lambda Functions</a></li>
+          <li><a href="/guide/en/apm/attacher/current/apm-attacher.html">Attacher</a></li>
+        </ul>
+      </ul>
+    </div>
+  </div>
+</span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="configuration.html">Configuration</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="config-stacktrace.html">« Stacktrace configuration options</a>
+</span>
+<span class="next">
+<a href="config-all-options-summary.html">All options summary »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="config-supportability"></a>Supportability configuration options<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-dotnet/edit/main/docs/configuration.asciidoc">edit</a></h2>
+</div></div></div>
+<h4><a id="config-log-level"></a><code class="literal">LogLevel</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-dotnet/edit/main/docs/configuration.asciidoc">edit</a></h4>
+<p><a class="xref" href="configuration.html#dynamic-configuration" title="Dynamic configuration"><span class="image"><img src="./images/dynamic-config.svg" alt="dynamic config"></span> </a></p>
+<p>Sets the logging level for the agent.</p>
+<p>Valid options: <code class="literal">Critical</code>, <code class="literal">Error</code>, <code class="literal">Warning</code>, <code class="literal">Info</code>, <code class="literal">Debug</code>, <code class="literal">Trace</code> and <code class="literal">None</code> (<code class="literal">None</code> disables the logging).</p>
+<div class="important admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>The <code class="literal">UseElasticApm()</code> extension offers an overload to pass an <code class="literal">IConfiguration</code> instance to the agent.
+When configuring your agent in this way, as is typical in an ASP.NET Core application,
+you must instead set the <code class="literal">LogLevel</code> for the internal APM logger under the <code class="literal">Logging</code> section of <code class="literal">appsettings.json</code>. More details, including a <a class="xref" href="configuration-on-asp-net-core.html#sample-config" title="Sample configuration file">sample configuration file</a> are available in <a class="xref" href="configuration-on-asp-net-core.html" title="Configuration on ASP.NET Core">Configuration on ASP.NET Core</a>.</p>
+</div>
+</div>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Environment variable name</th>
+<th align="left" valign="top">IConfiguration or Web.config key</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">ELASTIC_APM_LOG_LEVEL</code></p></td>
+<td align="left" valign="top"><p><code class="literal">ElasticApm:LogLevel</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Default</th>
+<th align="left" valign="top">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">Error</code></p></td>
+<td align="left" valign="top"><p>String</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="config-stacktrace.html">« Stacktrace configuration options</a>
+</span>
+<span class="next">
+<a href="config-all-options-summary.html">All options summary »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

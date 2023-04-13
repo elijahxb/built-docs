@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Sorting | Elasticsearch: The Definitive Guide [main] | Elastic</title>
+<meta class="elastic" name="content" content="Sorting | Elasticsearch: The Definitive Guide [main]">
+
+<link rel="home" href="index.html" title="Elasticsearch: The Definitive Guide [main]"/>
+<link rel="up" href="sorting.html" title="Sorting and Relevance"/>
+<link rel="prev" href="sorting.html" title="Sorting and Relevance"/>
+<link rel="next" href="multi-fields.html" title="String Sorting and Multifields"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="Elasticsearch"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Legacy/Elasticsearch/Definitive Guide/main"/>
+<meta name="DC.subject" content="Elasticsearch"/>
+<meta name="DC.identifier" content="main"/>
+<meta name="robots" content="noindex,nofollow"/>
+</head>
+<body><div class="page_header">
+<p>
+  <strong>WARNING</strong>: This documentation covers Elasticsearch 2.x. The 2.x
+  versions of Elasticsearch have passed their
+  <a href="https://www.elastic.co/support/eol">EOL dates</a>. If you are running
+  a 2.x version, we strongly advise you to upgrade.
+</p>
+<p>
+  This documentation is no longer maintained and may be removed. For the latest
+  information, see the <a
+  href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">current
+  Elasticsearch documentation</a>.
+</p>
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch: The Definitive Guide [main]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="getting-started.html">Getting Started</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="sorting.html">Sorting and Relevance</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="sorting.html">« Sorting and Relevance</a>
+</span>
+<span class="next">
+<a href="multi-fields.html">String Sorting and Multifields »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="_sorting"></a>Sorting<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/056_Sorting/85_Sorting.asciidoc">edit</a></h2>
+</div></div></div>
+<p>In order to sort by relevance, we need to represent relevance as a value. In
+Elasticsearch,  the <em>relevance score</em> is represented by the floating-point
+number returned in the search results as the <code class="literal">_score</code>, so the default sort
+order is <code class="literal">_score</code> descending.</p>
+<p>Sometimes, though, you don&#8217;t have a meaningful relevance score. For instance,
+the following query just returns all tweets whose <code class="literal">user_id</code> field has the
+value <code class="literal">1</code>:</p>
+<div class="pre_wrapper lang-js">
+<pre class="programlisting prettyprint lang-js">GET /_search
+{
+    "query" : {
+        "bool" : {
+            "filter" : {
+                "term" : {
+                    "user_id" : 1
+                }
+            }
+        }
+    }
+}</pre>
+</div>
+<p>There isn&#8217;t a meaningful score here: because we are using a filter, we are indicating
+that we just want the documents that match <code class="literal">user_id: 1</code> with no attempt to determine
+relevance.  Documents will be returned in effectively random order, and each document
+will have a score of zero.</p>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>If a score of zero makes your life difficult for logistical reasons, you can use
+a <code class="literal">constant_score</code> query instead:</p>
+<div class="pre_wrapper lang-js">
+<pre class="programlisting prettyprint lang-js">GET /_search
+{
+    "query" : {
+        "constant_score" : {
+            "filter" : {
+                "term" : {
+                    "user_id" : 1
+                }
+            }
+        }
+    }
+}</pre>
+</div>
+<p>This will apply a constant score (default of <code class="literal">1</code>) to all documents.  It will
+perform the same as the above query, and all documents will be returned randomly
+like before, they&#8217;ll just have a score of one instead of zero.</p>
+</div>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="_sorting_by_field_values"></a>Sorting by Field Values<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/056_Sorting/85_Sorting.asciidoc">edit</a></h3>
+</div></div></div>
+<p>In this case, it probably makes sense to sort tweets by recency, with the most
+recent tweets first.  We can do this with the <code class="literal">sort</code> parameter:</p>
+<div class="pre_wrapper lang-sense">
+<pre class="programlisting prettyprint lang-sense">GET /_search
+{
+    "query" : {
+        "bool" : {
+            "filter" : { "term" : { "user_id" : 1 }}
+        }
+    },
+    "sort": { "date": { "order": "desc" }}
+}</pre>
+</div>
+<div class="sense_widget" data-snippet="snippets/056_Sorting/85_Sort_by_date.json"></div>
+<p>You will notice two differences in the results:</p>
+<div class="pre_wrapper lang-js">
+<pre class="programlisting prettyprint lang-js">"hits" : {
+    "total" :           6,
+    "max_score" :       null, <a id="CO27-1"></a><i class="conum" data-value="1"></i>
+    "hits" : [ {
+        "_index" :      "us",
+        "_type" :       "tweet",
+        "_id" :         "14",
+        "_score" :      null, <a id="CO27-2"></a><i class="conum" data-value="1"></i>
+        "_source" :     {
+             "date":    "2014-09-24",
+             ...
+        },
+        "sort" :        [ 1411516800000 ] <a id="CO27-3"></a><i class="conum" data-value="2"></i>
+    },
+    ...
+}</pre>
+</div>
+<div class="calloutlist">
+<table border="0" summary="Callout list">
+<tr>
+<td align="left" valign="top" width="5%">
+<p><a href="#CO27-1"><i class="conum" data-value="1"></i></a><a href="#CO27-2"></a></p>
+</td>
+<td align="left" valign="top">
+<p>The <code class="literal">_score</code> is not calculated, because it is not being used for sorting.</p>
+</td>
+</tr>
+<tr>
+<td align="left" valign="top" width="5%">
+<p><a href="#CO27-3"><i class="conum" data-value="2"></i></a></p>
+</td>
+<td align="left" valign="top">
+<p>The value of the <code class="literal">date</code> field, expressed as milliseconds since the epoch,
+is returned in the <code class="literal">sort</code> values.</p>
+</td>
+</tr>
+</table>
+</div>
+<p>The first is that we have a new element in each result called <code class="literal">sort</code>, which
+contains the value(s) that was used for sorting.  In this case, we sorted on
+<code class="literal">date</code>, which internally is indexed as <em>milliseconds since the epoch</em>. The long
+number <code class="literal">1411516800000</code> is equivalent to the date string <code class="literal">2014-09-24 00:00:00
+UTC</code>.</p>
+<p>The second is that the <code class="literal">_score</code> and <code class="literal">max_score</code> are both <code class="literal">null</code>.  Calculating
+the <code class="literal">_score</code> can be quite expensive, and usually its only purpose is for
+sorting; we&#8217;re not sorting by relevance, so it doesn&#8217;t make sense to keep
+track of the <code class="literal">_score</code>.  If you want the <code class="literal">_score</code> to be calculated regardless,
+you can set the <code class="literal">track_scores</code> parameter to <code class="literal">true</code>.</p>
+<div class="tip admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>As a shortcut, you can specify just the name of the field to sort on:</p>
+<div class="pre_wrapper lang-js">
+<pre class="programlisting prettyprint lang-js">    "sort": "number_of_children"</pre>
+</div>
+<p>Fields will be sorted in ascending order by default, and
+the <code class="literal">_score</code> value in descending order.</p>
+</div>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="_multilevel_sorting"></a>Multilevel Sorting<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/056_Sorting/85_Sorting.asciidoc">edit</a></h3>
+</div></div></div>
+<p>Perhaps we want to combine the <code class="literal">_score</code> from a query with the <code class="literal">date</code>, and
+show all matching results sorted first by date, then by relevance:</p>
+<div class="pre_wrapper lang-sense">
+<pre class="programlisting prettyprint lang-sense">GET /_search
+{
+    "query" : {
+        "bool" : {
+            "must":   { "match": { "tweet": "manage text search" }},
+            "filter" : { "term" : { "user_id" : 2 }}
+        }
+    },
+    "sort": [
+        { "date":   { "order": "desc" }},
+        { "_score": { "order": "desc" }}
+    ]
+}</pre>
+</div>
+<div class="sense_widget" data-snippet="snippets/056_Sorting/85_Multilevel_sort.json"></div>
+<p>Order is important.  Results are sorted by the first criterion first. Only
+results whose first <code class="literal">sort</code> value is identical will then be sorted by the
+second criterion, and so on.</p>
+<p>Multilevel sorting doesn&#8217;t have to involve the <code class="literal">_score</code>. You could sort
+by using several different fields, on geo-distance or on a custom value
+calculated in a script.</p>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>Query-string search also supports custom sorting, using the <code class="literal">sort</code> parameter
+in the query string:</p>
+<div class="pre_wrapper lang-js">
+<pre class="programlisting prettyprint lang-js">GET /_search?sort=date:desc&amp;sort=_score&amp;q=search</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="_sorting_on_multivalue_fields"></a>Sorting on Multivalue Fields<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/056_Sorting/85_Sorting.asciidoc">edit</a></h3>
+</div></div></div>
+<p>When sorting on fields with more than one value, remember that the values do
+not have any intrinsic order; a multivalue field is just a bag of values.
+Which one do you choose to sort on?</p>
+<p>For numbers and dates, you can reduce a multivalue field to a single value
+by using the <code class="literal">min</code>, <code class="literal">max</code>, <code class="literal">avg</code>, or <code class="literal">sum</code> <em>sort modes</em>. For instance, you
+could sort on the earliest date in each <code class="literal">dates</code> field by using the following:</p>
+<div class="pre_wrapper lang-js pagebreak-before">
+<pre class="programlisting prettyprint lang-js pagebreak-before">"sort": {
+    "dates": {
+        "order": "asc",
+        "mode":  "min"
+    }
+}</pre>
+</div>
+</div>
+
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="sorting.html">« Sorting and Relevance</a>
+</span>
+<span class="next">
+<a href="multi-fields.html">String Sorting and Multifields »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Retrieving a Document | Elasticsearch: The Definitive Guide [main] | Elastic</title>
+<meta class="elastic" name="content" content="Retrieving a Document | Elasticsearch: The Definitive Guide [main]">
+
+<link rel="home" href="index.html" title="Elasticsearch: The Definitive Guide [main]"/>
+<link rel="up" href="distributed-docs.html" title="Distributed Document Store"/>
+<link rel="prev" href="distrib-write.html" title="Creating, Indexing, and Deleting a Document"/>
+<link rel="next" href="_partial_updates_to_a_document.html" title="Partial Updates to a Document"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="Elasticsearch"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Legacy/Elasticsearch/Definitive Guide/main"/>
+<meta name="DC.subject" content="Elasticsearch"/>
+<meta name="DC.identifier" content="main"/>
+<meta name="robots" content="noindex,nofollow"/>
+</head>
+<body><div class="page_header">
+<p>
+  <strong>WARNING</strong>: This documentation covers Elasticsearch 2.x. The 2.x
+  versions of Elasticsearch have passed their
+  <a href="https://www.elastic.co/support/eol">EOL dates</a>. If you are running
+  a 2.x version, we strongly advise you to upgrade.
+</p>
+<p>
+  This documentation is no longer maintained and may be removed. For the latest
+  information, see the <a
+  href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">current
+  Elasticsearch documentation</a>.
+</p>
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch: The Definitive Guide [main]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="getting-started.html">Getting Started</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="distributed-docs.html">Distributed Document Store</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="distrib-write.html">« Creating, Indexing, and Deleting a Document</a>
+</span>
+<span class="next">
+<a href="_partial_updates_to_a_document.html">Partial Updates to a Document »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="distrib-read"></a>Retrieving a Document<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/040_Distributed_CRUD/20_Retrieving.asciidoc">edit</a></h2>
+</div></div></div>
+<p>A document can be retrieved from a primary shard or from any of its replicas, as shown in <a class="xref" href="distrib-read.html#img-distrib-read" title="Retrieving a single document">Figure 10, &#8220;Retrieving a single document&#8221;</a>.</p>
+<div id="img-distrib-read" class="imageblock">
+<div class="content">
+<img src="images/elas_0403.png" alt="Retrieving a single document">
+</div>
+<div class="title">Figure 10. Retrieving a single document</div>
+</div>
+<p>Here is the sequence of steps to retrieve a document from either a
+primary or replica shard:</p>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+The client sends a get request to <code class="literal">Node 1</code>.
+</li>
+<li class="listitem">
+The node uses the document&#8217;s <code class="literal">_id</code> to determine that the document
+belongs to shard <code class="literal">0</code>. Copies of shard <code class="literal">0</code> exist on all three nodes.
+On this occasion, it forwards the request to <code class="literal">Node 2</code>.
+</li>
+<li class="listitem">
+<code class="literal">Node 2</code> returns the document to <code class="literal">Node 1</code>, which returns the document
+to the client.
+</li>
+</ol>
+</div>
+<p>For read requests, the coordinating node will choose a different shard copy on
+every request in order to balance the load; it round-robins through all
+shard copies.</p>
+<p>It is possible that, while a document is being indexed, the document will
+already be present on the primary shard but not yet copied to the replica
+shards. In this case, a replica might report that the document doesn&#8217;t exist,
+while the primary would have returned the document successfully. Once the
+indexing request has returned success to the user, the document will be
+available on the primary and all replica shards.</p>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="distrib-write.html">« Creating, Indexing, and Deleting a Document</a>
+</span>
+<span class="next">
+<a href="_partial_updates_to_a_document.html">Partial Updates to a Document »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

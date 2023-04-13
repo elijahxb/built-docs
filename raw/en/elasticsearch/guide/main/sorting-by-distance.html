@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Sorting by Distance | Elasticsearch: The Definitive Guide [main] | Elastic</title>
+<meta class="elastic" name="content" content="Sorting by Distance | Elasticsearch: The Definitive Guide [main]">
+
+<link rel="home" href="index.html" title="Elasticsearch: The Definitive Guide [main]"/>
+<link rel="up" href="geopoints.html" title="Geo Points"/>
+<link rel="prev" href="geo-distance.html" title="Geo Distance Filter"/>
+<link rel="next" href="geohashes.html" title="Geohashes"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="Elasticsearch"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Legacy/Elasticsearch/Definitive Guide/main"/>
+<meta name="DC.subject" content="Elasticsearch"/>
+<meta name="DC.identifier" content="main"/>
+<meta name="robots" content="noindex,nofollow"/>
+</head>
+<body><div class="page_header">
+<p>
+  <strong>WARNING</strong>: This documentation covers Elasticsearch 2.x. The 2.x
+  versions of Elasticsearch have passed their
+  <a href="https://www.elastic.co/support/eol">EOL dates</a>. If you are running
+  a 2.x version, we strongly advise you to upgrade.
+</p>
+<p>
+  This documentation is no longer maintained and may be removed. For the latest
+  information, see the <a
+  href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">current
+  Elasticsearch documentation</a>.
+</p>
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch: The Definitive Guide [main]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="geoloc.html">Geolocation</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="geopoints.html">Geo Points</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="geo-distance.html">« Geo Distance Filter</a>
+</span>
+<span class="next">
+<a href="geohashes.html">Geohashes »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="sorting-by-distance"></a>Sorting by Distance<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/310_Geopoints/50_Sorting_by_distance.asciidoc">edit</a></h2>
+</div></div></div>
+<p>Search results can be sorted by distance from a point:</p>
+<div class="tip admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>While you <em>can</em> sort by distance, <a class="xref" href="sorting-by-distance.html#scoring-by-distance" title="Scoring by Distance">Scoring by Distance</a> is usually a
+better solution.</p>
+</div>
+</div>
+<div class="pre_wrapper lang-json">
+<pre class="programlisting prettyprint lang-json">GET /attractions/restaurant/_search
+{
+  "query": {
+    "filtered": {
+      "filter": {
+        "geo_bounding_box": {
+          "type":       "indexed",
+          "location": {
+            "top_left": {
+              "lat":  40.8,
+              "lon": -74.0
+            },
+            "bottom_right": {
+              "lat":  40.4,
+              "lon": -73.0
+            }
+          }
+        }
+      }
+    }
+  },
+  "sort": [
+    {
+      "_geo_distance": {
+        "location": { <a id="CO234-1"></a><i class="conum" data-value="1"></i>
+          "lat":  40.715,
+          "lon": -73.998
+        },
+        "order":         "asc",
+        "unit":          "km", <a id="CO234-2"></a><i class="conum" data-value="2"></i>
+        "distance_type": "plane" <a id="CO234-3"></a><i class="conum" data-value="3"></i>
+      }
+    }
+  ]
+}</pre>
+</div>
+<div class="calloutlist">
+<table border="0" summary="Callout list">
+<tr>
+<td align="left" valign="top" width="5%">
+<p><a href="#CO234-1"><i class="conum" data-value="1"></i></a></p>
+</td>
+<td align="left" valign="top">
+<p>Calculate the distance between the specified <code class="literal">lat/lon</code> point and the
+geo-point in the <code class="literal">location</code> field of each document.</p>
+</td>
+</tr>
+<tr>
+<td align="left" valign="top" width="5%">
+<p><a href="#CO234-2"><i class="conum" data-value="2"></i></a></p>
+</td>
+<td align="left" valign="top">
+<p>Return the distance in <code class="literal">km</code> in the <code class="literal">sort</code> keys for each result.</p>
+</td>
+</tr>
+<tr>
+<td align="left" valign="top" width="5%">
+<p><a href="#CO234-3"><i class="conum" data-value="3"></i></a></p>
+</td>
+<td align="left" valign="top">
+<p>Use the faster but less accurate <code class="literal">plane</code> calculation.</p>
+</td>
+</tr>
+</table>
+</div>
+<p>You may ask yourself: why do we specify the distance <code class="literal">unit</code>? For sorting, it
+doesn&#8217;t matter whether we compare distances in miles, kilometers, or light
+years.  The reason is that the actual value used for sorting is returned with
+each result, in the <code class="literal">sort</code> element:</p>
+<div class="pre_wrapper lang-json">
+<pre class="programlisting prettyprint lang-json">...
+  "hits": [
+     {
+        "_index": "attractions",
+        "_type": "restaurant",
+        "_id": "2",
+        "_score": null,
+        "_source": {
+           "name": "New Malaysia",
+           "location": {
+              "lat": 40.715,
+              "lon": -73.997
+           }
+        },
+        "sort": [
+           0.08425653647614346 <a id="CO235-1"></a><i class="conum" data-value="1"></i>
+        ]
+     },
+...</pre>
+</div>
+<div class="calloutlist">
+<table border="0" summary="Callout list">
+<tr>
+<td align="left" valign="top" width="5%">
+<p><a href="#CO235-1"><i class="conum" data-value="1"></i></a></p>
+</td>
+<td align="left" valign="top">
+<p>This restaurant is 0.084km from the location we specified.</p>
+</td>
+</tr>
+</table>
+</div>
+<p>You can set the <code class="literal">unit</code> to return these values in whatever form makes sense for
+your application.</p>
+<div class="tip admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>Geo-distance sorting can also handle multiple geo-points, both in the document
+and in the sort parameters.  Use the <code class="literal">sort_mode</code> to specify whether it should
+use the <code class="literal">min</code>, <code class="literal">max</code>, or <code class="literal">avg</code> distance between each combination of locations.
+This can be used to return &#8220;friends nearest to my work and home locations.&#8221;</p>
+</div>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="scoring-by-distance"></a>Scoring by Distance<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/310_Geopoints/50_Sorting_by_distance.asciidoc">edit</a></h3>
+</div></div></div>
+<p>It may be that distance is the only important factor in deciding the order in
+which results are returned, but more frequently we need to combine distance
+with other factors, such as full-text relevance, popularity, and price.</p>
+<p>In these situations, we should reach for the
+<a class="xref" href="function-score-query.html" title="function_score Query"><code class="literal">function_score</code> query</a> that allows us to blend all
+of these factors into an overall score.  See <a class="xref" href="decay-functions.html" title="The Closer, The Better">The Closer, The Better</a> for an
+example that uses geo-distance to influence scoring.</p>
+<p>The other drawback of sorting by distance is performance: the distance has to
+be calculated for all matching documents.  The <code class="literal">function_score</code> query, on the
+other hand, can be executed during the <a class="xref" href="_improving_performance.html#rescore-api" title="Rescoring Results"><code class="literal">rescore</code> phase</a>,
+limiting the number of calculations to just the top <em>n</em> results.</p>
+</div>
+
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="geo-distance.html">« Geo Distance Filter</a>
+</span>
+<span class="next">
+<a href="geohashes.html">Geohashes »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

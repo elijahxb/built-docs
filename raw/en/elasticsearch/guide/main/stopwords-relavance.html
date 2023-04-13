@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Stopwords and Relevance | Elasticsearch: The Definitive Guide [main] | Elastic</title>
+<meta class="elastic" name="content" content="Stopwords and Relevance | Elasticsearch: The Definitive Guide [main]">
+
+<link rel="home" href="index.html" title="Elasticsearch: The Definitive Guide [main]"/>
+<link rel="up" href="stopwords.html" title="Stopwords: Performance Versus Precision"/>
+<link rel="prev" href="common-grams.html" title="common_grams Token Filter"/>
+<link rel="next" href="synonyms.html" title="Synonyms"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="Elasticsearch"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Legacy/Elasticsearch/Definitive Guide/main"/>
+<meta name="DC.subject" content="Elasticsearch"/>
+<meta name="DC.identifier" content="main"/>
+<meta name="robots" content="noindex,nofollow"/>
+</head>
+<body><div class="page_header">
+<p>
+  <strong>WARNING</strong>: This documentation covers Elasticsearch 2.x. The 2.x
+  versions of Elasticsearch have passed their
+  <a href="https://www.elastic.co/support/eol">EOL dates</a>. If you are running
+  a 2.x version, we strongly advise you to upgrade.
+</p>
+<p>
+  This documentation is no longer maintained and may be removed. For the latest
+  information, see the <a
+  href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">current
+  Elasticsearch documentation</a>.
+</p>
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch: The Definitive Guide [main]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="languages.html">Dealing with Human Language</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="stopwords.html">Stopwords: Performance Versus Precision</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="common-grams.html">« common_grams Token Filter</a>
+</span>
+<span class="next">
+<a href="synonyms.html">Synonyms »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="stopwords-relavance"></a>Stopwords and Relevance<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/240_Stopwords/70_Relevance.asciidoc">edit</a></h2>
+</div></div></div>
+<p>The last topic to cover before moving on from stopwords is that of relevance.
+Leaving stopwords in your index could make the relevance calculation
+less accurate, especially if your documents are very long.</p>
+<p>As we have already discussed in <a class="xref" href="pluggable-similarites.html#bm25-saturation" title="Term-frequency saturation">Term-frequency saturation</a>, the reason for this is
+that <a class="xref" href="scoring-theory.html#tfidf" title="Term Frequency/Inverse Document Frequency (TF/IDF)">term-frequency/inverse document frequency</a> doesn&#8217;t impose an
+upper limit on the impact of term frequency.  Very common words may have a low
+weight because of inverse document frequency but, in long documents, the sheer
+number of occurrences of stopwords in a single document may lead to their
+weight being artificially boosted.</p>
+<p>You may want to consider using the <a class="xref" href="pluggable-similarites.html#bm25" title="Okapi BM25">Okapi BM25</a> similarity on long
+fields that include stopwords instead of the default Lucene similarity.</p>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="common-grams.html">« common_grams Token Filter</a>
+</span>
+<span class="next">
+<a href="synonyms.html">Synonyms »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

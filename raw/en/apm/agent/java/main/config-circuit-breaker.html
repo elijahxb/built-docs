@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Circuit-Breaker configuration options | APM Java Agent Reference [main] | Elastic</title>
+<meta class="elastic" name="content" content="Circuit-Breaker configuration options | APM Java Agent Reference [main]">
+
+<link rel="home" href="index.html" title="APM Java Agent Reference [main]"/>
+<link rel="up" href="configuration.html" title="Configuration"/>
+<link rel="prev" href="configuration.html" title="Configuration"/>
+<link rel="next" href="config-core.html" title="Core configuration options"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="APM"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/APM Java Agent/Reference/main"/>
+<meta name="DC.subject" content="APM"/>
+<meta name="DC.identifier" content="main"/>
+</head>
+<body><div class="page_header">
+You are looking at preliminary documentation for a future release.
+Not what you want? See the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link">
+  <div id="related-products" class="dropdown">
+    <div class="related-products-title">APM:</div>
+    <div class="dropdown-anchor" tabindex="0">Java Agent Reference<span class="dropdown-icon"></span></div>
+    <div class="dropdown-content">
+      <ul>
+        <li class="dropdown-category">APM</li>
+        <ul>
+          <li><a href="/guide/en/apm/guide/current/apm-overview.html">User Guide</a></li>
+        </ul>
+        <li class="dropdown-category">APM agents</li>
+        <ul>
+          <li><a href="/guide/en/apm/agent/android/current/intro.html">Android Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/go/current/introduction.html">Go Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/swift/current/intro.html">iOS Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/java/current/intro.html">Java Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/dotnet/current/intro.html">.NET Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/nodejs/current/intro.html">Node.js Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/php/current/intro.html">PHP Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/python/current/getting-started.html">Python Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/ruby/current/introduction.html">Ruby Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/rum-js/current/intro.html">Real User Monitoring JavaScript Agent Reference</a></li>
+        </ul>
+        <li class="dropdown-category">APM extensions</li>
+        <ul>
+          <li><a href="/guide/en/apm/lambda/current/aws-lambda-arch.html">Monitoring AWS Lambda Functions</a></li>
+          <li><a href="/guide/en/apm/attacher/current/apm-attacher.html">Attacher</a></li>
+        </ul>
+      </ul>
+    </div>
+  </div>
+</span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="configuration.html">Configuration</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="configuration.html">« Configuration</a>
+</span>
+<span class="next">
+<a href="config-core.html">Core configuration options »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="config-circuit-breaker"></a>Circuit-Breaker configuration options<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-java/edit/main/docs/configuration.asciidoc">edit</a></h2>
+</div></div></div>
+
+<h4><a id="config-circuit-breaker-enabled"></a><code class="literal">circuit_breaker_enabled</code> (<span class="Admonishment Admonishment--change">
+[<span class="Admonishment-version u-mono">1.14.0</span>]
+<span class="Admonishment-detail">
+Added in 1.14.0.
+</span>
+</span> performance)<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-java/edit/main/docs/configuration.asciidoc">edit</a></h4>
+<p>A boolean specifying whether the circuit breaker should be enabled or not.
+When enabled, the agent periodically polls stress monitors to detect system/process/JVM stress state.
+If ANY of the monitors detects a stress indication, the agent will become inactive, as if the
+<a class="xref" href="config-core.html#config-recording" title="recording ()"><code class="literal">recording</code></a> configuration option has been set to <code class="literal">false</code>, thus reducing resource consumption to a minimum.
+When inactive, the agent continues polling the same monitors in order to detect whether the stress state
+has been relieved. If ALL monitors approve that the system/process/JVM is not under stress anymore, the
+agent will resume and become fully functional.</p>
+<p><a class="xref" href="configuration.html#configuration-dynamic" title="Dynamic configuration"><span class="image"><img src="./images/dynamic-config.svg" alt="dynamic config"></span> </a></p>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+<col class="col_3"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Default</th>
+<th align="left" valign="top">Type</th>
+<th align="left" valign="top">Dynamic</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">false</code></p></td>
+<td align="left" valign="top"><p>Boolean</p></td>
+<td align="left" valign="top"><p>true</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+<col class="col_3"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Java System Properties</th>
+<th align="left" valign="top">Property file</th>
+<th align="left" valign="top">Environment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">elastic.apm.circuit_breaker_enabled</code></p></td>
+<td align="left" valign="top"><p><code class="literal">circuit_breaker_enabled</code></p></td>
+<td align="left" valign="top"><p><code class="literal">ELASTIC_APM_CIRCUIT_BREAKER_ENABLED</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4><a id="config-stress-monitoring-interval"></a><code class="literal">stress_monitoring_interval</code> (performance)<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-java/edit/main/docs/configuration.asciidoc">edit</a></h4>
+<p>The interval at which the agent polls the stress monitors. Must be at least <code class="literal">1s</code>.</p>
+<p>Supports the duration suffixes <code class="literal">ms</code>, <code class="literal">s</code> and <code class="literal">m</code>.
+Example: <code class="literal">5s</code>.</p>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+<col class="col_3"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Default</th>
+<th align="left" valign="top">Type</th>
+<th align="left" valign="top">Dynamic</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">5s</code></p></td>
+<td align="left" valign="top"><p>TimeDuration</p></td>
+<td align="left" valign="top"><p>false</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+<col class="col_3"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Java System Properties</th>
+<th align="left" valign="top">Property file</th>
+<th align="left" valign="top">Environment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">elastic.apm.stress_monitoring_interval</code></p></td>
+<td align="left" valign="top"><p><code class="literal">stress_monitoring_interval</code></p></td>
+<td align="left" valign="top"><p><code class="literal">ELASTIC_APM_STRESS_MONITORING_INTERVAL</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4><a id="config-stress-monitor-gc-stress-threshold"></a><code class="literal">stress_monitor_gc_stress_threshold</code> (performance)<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-java/edit/main/docs/configuration.asciidoc">edit</a></h4>
+<p>The threshold used by the GC monitor to rely on for identifying heap stress.
+The same threshold will be used for all heap pools, so that if ANY has a usage percentage that crosses it,
+the agent will consider it as a heap stress. The GC monitor relies only on memory consumption measured
+after a recent GC.</p>
+<p><a class="xref" href="configuration.html#configuration-dynamic" title="Dynamic configuration"><span class="image"><img src="./images/dynamic-config.svg" alt="dynamic config"></span> </a></p>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+<col class="col_3"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Default</th>
+<th align="left" valign="top">Type</th>
+<th align="left" valign="top">Dynamic</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">0.95</code></p></td>
+<td align="left" valign="top"><p>Double</p></td>
+<td align="left" valign="top"><p>true</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+<col class="col_3"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Java System Properties</th>
+<th align="left" valign="top">Property file</th>
+<th align="left" valign="top">Environment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">elastic.apm.stress_monitor_gc_stress_threshold</code></p></td>
+<td align="left" valign="top"><p><code class="literal">stress_monitor_gc_stress_threshold</code></p></td>
+<td align="left" valign="top"><p><code class="literal">ELASTIC_APM_STRESS_MONITOR_GC_STRESS_THRESHOLD</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4><a id="config-stress-monitor-gc-relief-threshold"></a><code class="literal">stress_monitor_gc_relief_threshold</code> (performance)<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-java/edit/main/docs/configuration.asciidoc">edit</a></h4>
+<p>The threshold used by the GC monitor to rely on for identifying when the heap is not under stress .
+If <code class="literal">stress_monitor_gc_stress_threshold</code> has been crossed, the agent will consider it a heap-stress state.
+In order to determine that the stress state is over, percentage of occupied memory in ALL heap pools should
+be lower than this threshold. The GC monitor relies only on memory consumption measured after a recent GC.</p>
+<p><a class="xref" href="configuration.html#configuration-dynamic" title="Dynamic configuration"><span class="image"><img src="./images/dynamic-config.svg" alt="dynamic config"></span> </a></p>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+<col class="col_3"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Default</th>
+<th align="left" valign="top">Type</th>
+<th align="left" valign="top">Dynamic</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">0.75</code></p></td>
+<td align="left" valign="top"><p>Double</p></td>
+<td align="left" valign="top"><p>true</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+<col class="col_3"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Java System Properties</th>
+<th align="left" valign="top">Property file</th>
+<th align="left" valign="top">Environment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">elastic.apm.stress_monitor_gc_relief_threshold</code></p></td>
+<td align="left" valign="top"><p><code class="literal">stress_monitor_gc_relief_threshold</code></p></td>
+<td align="left" valign="top"><p><code class="literal">ELASTIC_APM_STRESS_MONITOR_GC_RELIEF_THRESHOLD</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4><a id="config-stress-monitor-cpu-duration-threshold"></a><code class="literal">stress_monitor_cpu_duration_threshold</code> (performance)<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-java/edit/main/docs/configuration.asciidoc">edit</a></h4>
+<p>The minimal time required in order to determine whether the system is
+either currently under stress, or that the stress detected previously has been relieved.
+All measurements during this time must be consistent in comparison to the relevant threshold in
+order to detect a change of stress state. Must be at least <code class="literal">1m</code>.</p>
+<p><a class="xref" href="configuration.html#configuration-dynamic" title="Dynamic configuration"><span class="image"><img src="./images/dynamic-config.svg" alt="dynamic config"></span> </a></p>
+<p>Supports the duration suffixes <code class="literal">ms</code>, <code class="literal">s</code> and <code class="literal">m</code>.
+Example: <code class="literal">1m</code>.</p>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+<col class="col_3"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Default</th>
+<th align="left" valign="top">Type</th>
+<th align="left" valign="top">Dynamic</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">1m</code></p></td>
+<td align="left" valign="top"><p>TimeDuration</p></td>
+<td align="left" valign="top"><p>true</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+<col class="col_3"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Java System Properties</th>
+<th align="left" valign="top">Property file</th>
+<th align="left" valign="top">Environment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">elastic.apm.stress_monitor_cpu_duration_threshold</code></p></td>
+<td align="left" valign="top"><p><code class="literal">stress_monitor_cpu_duration_threshold</code></p></td>
+<td align="left" valign="top"><p><code class="literal">ELASTIC_APM_STRESS_MONITOR_CPU_DURATION_THRESHOLD</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4><a id="config-stress-monitor-system-cpu-stress-threshold"></a><code class="literal">stress_monitor_system_cpu_stress_threshold</code> (performance)<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-java/edit/main/docs/configuration.asciidoc">edit</a></h4>
+<p>The threshold used by the system CPU monitor to detect system CPU stress.
+If the system CPU crosses this threshold for a duration of at least <code class="literal">stress_monitor_cpu_duration_threshold</code>,
+the monitor considers this as a stress state.</p>
+<p><a class="xref" href="configuration.html#configuration-dynamic" title="Dynamic configuration"><span class="image"><img src="./images/dynamic-config.svg" alt="dynamic config"></span> </a></p>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+<col class="col_3"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Default</th>
+<th align="left" valign="top">Type</th>
+<th align="left" valign="top">Dynamic</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">0.95</code></p></td>
+<td align="left" valign="top"><p>Double</p></td>
+<td align="left" valign="top"><p>true</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+<col class="col_3"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Java System Properties</th>
+<th align="left" valign="top">Property file</th>
+<th align="left" valign="top">Environment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">elastic.apm.stress_monitor_system_cpu_stress_threshold</code></p></td>
+<td align="left" valign="top"><p><code class="literal">stress_monitor_system_cpu_stress_threshold</code></p></td>
+<td align="left" valign="top"><p><code class="literal">ELASTIC_APM_STRESS_MONITOR_SYSTEM_CPU_STRESS_THRESHOLD</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4><a id="config-stress-monitor-system-cpu-relief-threshold"></a><code class="literal">stress_monitor_system_cpu_relief_threshold</code> (performance)<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-java/edit/main/docs/configuration.asciidoc">edit</a></h4>
+<p>The threshold used by the system CPU monitor to determine that the system is
+not under CPU stress. If the monitor detected a CPU stress, the measured system CPU needs to be below
+this threshold for a duration of at least <code class="literal">stress_monitor_cpu_duration_threshold</code> in order for the
+monitor to decide that the CPU stress has been relieved.</p>
+<p><a class="xref" href="configuration.html#configuration-dynamic" title="Dynamic configuration"><span class="image"><img src="./images/dynamic-config.svg" alt="dynamic config"></span> </a></p>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+<col class="col_3"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Default</th>
+<th align="left" valign="top">Type</th>
+<th align="left" valign="top">Dynamic</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">0.8</code></p></td>
+<td align="left" valign="top"><p>Double</p></td>
+<td align="left" valign="top"><p>true</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+<col class="col_3"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Java System Properties</th>
+<th align="left" valign="top">Property file</th>
+<th align="left" valign="top">Environment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><code class="literal">elastic.apm.stress_monitor_system_cpu_relief_threshold</code></p></td>
+<td align="left" valign="top"><p><code class="literal">stress_monitor_system_cpu_relief_threshold</code></p></td>
+<td align="left" valign="top"><p><code class="literal">ELASTIC_APM_STRESS_MONITOR_SYSTEM_CPU_RELIEF_THRESHOLD</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="configuration.html">« Configuration</a>
+</span>
+<span class="next">
+<a href="config-core.html">Core configuration options »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

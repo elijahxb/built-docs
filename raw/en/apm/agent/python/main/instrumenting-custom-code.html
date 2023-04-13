@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Instrumenting custom code | APM Python Agent Reference [main] | Elastic</title>
+<meta class="elastic" name="content" content="Instrumenting custom code | APM Python Agent Reference [main]">
+
+<link rel="home" href="index.html" title="APM Python Agent Reference [main]"/>
+<link rel="up" href="advanced-topics.html" title="Advanced Topics"/>
+<link rel="prev" href="advanced-topics.html" title="Advanced Topics"/>
+<link rel="next" href="sanitizing-data.html" title="Sanitizing data"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="APM"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/APM Python Agent/Reference/main"/>
+<meta name="DC.subject" content="APM"/>
+<meta name="DC.identifier" content="main"/>
+</head>
+<body><div class="page_header">
+You are looking at preliminary documentation for a future release.
+Not what you want? See the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link">
+  <div id="related-products" class="dropdown">
+    <div class="related-products-title">APM:</div>
+    <div class="dropdown-anchor" tabindex="0">Python Agent Reference<span class="dropdown-icon"></span></div>
+    <div class="dropdown-content">
+      <ul>
+        <li class="dropdown-category">APM</li>
+        <ul>
+          <li><a href="/guide/en/apm/guide/current/apm-overview.html">User Guide</a></li>
+        </ul>
+        <li class="dropdown-category">APM agents</li>
+        <ul>
+          <li><a href="/guide/en/apm/agent/android/current/intro.html">Android Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/go/current/introduction.html">Go Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/swift/current/intro.html">iOS Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/java/current/intro.html">Java Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/dotnet/current/intro.html">.NET Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/nodejs/current/intro.html">Node.js Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/php/current/intro.html">PHP Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/python/current/getting-started.html">Python Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/ruby/current/introduction.html">Ruby Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/rum-js/current/intro.html">Real User Monitoring JavaScript Agent Reference</a></li>
+        </ul>
+        <li class="dropdown-category">APM extensions</li>
+        <ul>
+          <li><a href="/guide/en/apm/lambda/current/aws-lambda-arch.html">Monitoring AWS Lambda Functions</a></li>
+          <li><a href="/guide/en/apm/attacher/current/apm-attacher.html">Attacher</a></li>
+        </ul>
+      </ul>
+    </div>
+  </div>
+</span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="advanced-topics.html">Advanced Topics</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="advanced-topics.html">« Advanced Topics</a>
+</span>
+<span class="next">
+<a href="sanitizing-data.html">Sanitizing data »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="instrumenting-custom-code"></a>Instrumenting custom code<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/docs/custom-instrumentation.asciidoc">edit</a></h2>
+</div></div></div>
+<h4><a id="instrumenting-custom-code-spans"></a>Creating Additional Spans in a Transaction<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/docs/custom-instrumentation.asciidoc">edit</a></h4>
+<p>Elastic APM instruments a variety of libraries out of the box, but sometimes you
+need to know how long a specific function took or how often it gets
+called.</p>
+<p>Assuming you&#8217;re using one of our <a class="xref" href="set-up.html" title="Set up the Agent">supported frameworks</a>, you can
+apply the <code class="literal">@elasticapm.capture_span()</code> decorator to achieve exactly that. If
+you&#8217;re not using a supported framework, see
+<a class="xref" href="instrumenting-custom-code.html#instrumenting-custom-code-transactions" title="Creating New Transactions">Creating New Transactions</a>.</p>
+<p><code class="literal">elasticapm.capture_span</code> can be used either as a decorator or as a context
+manager. The following example uses it both ways:</p>
+<div class="pre_wrapper lang-python">
+<pre class="programlisting prettyprint lang-python">import elasticapm
+
+@elasticapm.capture_span()
+def coffee_maker(strength):
+    fetch_water()
+
+    with elasticapm.capture_span('near-to-machine'):
+        insert_filter()
+        for i in range(strength):
+            pour_coffee()
+
+        start_drip()
+
+    fresh_pots()</pre>
+</div>
+<p>Similarly, you can use <code class="literal">elasticapm.async_capture_span</code> for instrumenting <code class="literal">async</code> workloads:</p>
+<div class="pre_wrapper lang-python">
+<pre class="programlisting prettyprint lang-python">import elasticapm
+
+@elasticapm.async_capture_span()
+async def coffee_maker(strength):
+    await fetch_water()
+
+    async with elasticapm.async_capture_span('near-to-machine'):
+        await insert_filter()
+        async for i in range(strength):
+            await pour_coffee()
+
+        start_drip()
+
+    fresh_pots()</pre>
+</div>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p><code class="literal">asyncio</code> support is only available in Python 3.7+.</p>
+</div>
+</div>
+<p>See <a class="xref" href="api.html#api-capture-span" title="elasticapm.capture_span">the API docs</a> for more information on <code class="literal">capture_span</code>.</p>
+<h4><a id="instrumenting-custom-code-transactions"></a>Creating New Transactions<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/docs/custom-instrumentation.asciidoc">edit</a></h4>
+<p>It&#8217;s important to note that <code class="literal">elasticapm.capture_span</code> only works if there is
+an existing transaction. If you&#8217;re not using one of our <a class="xref" href="set-up.html" title="Set up the Agent">supported
+frameworks</a>, you need to create a <code class="literal">Client</code> object and begin and end the
+transactions yourself. You can even utilize the agent&#8217;s
+<a class="xref" href="supported-technologies.html#automatic-instrumentation" title="Automatic Instrumentation">automatic instrumentation</a>!</p>
+<p>To collect the spans generated by the supported libraries, you need
+to invoke <code class="literal">elasticapm.instrument()</code> (just once, at the initialization stage of
+your application) and create at least one transaction. It is up to you to
+determine what you consider a transaction within your application&#8201;&#8212;&#8201;it can
+be the whole execution of the script or a part of it.</p>
+<p>The example below will consider the whole execution as a single transaction
+with two HTTP request spans in it. The config for <code class="literal">elasticapm.Client</code> can be
+passed in programmatically, and it will also utilize any config environment
+variables available to it automatically.</p>
+<div class="pre_wrapper lang-python">
+<pre class="programlisting prettyprint lang-python">import requests
+import time
+import elasticapm
+
+def main():
+    sess = requests.Session()
+    for url in [ 'https://www.elastic.co', 'https://benchmarks.elastic.co' ]:
+        resp = sess.get(url)
+        time.sleep(1)
+
+if __name__ == '__main__':
+    client = elasticapm.Client(service_name="foo", server_url="https://example.com:8200")
+    elasticapm.instrument()  # Only call this once, as early as possible.
+    client.begin_transaction(transaction_type="script")
+    main()
+    client.end_transaction(name=__name__, result="success")</pre>
+</div>
+<p>Note that you don&#8217;t need to do anything to send the data&#8201;&#8212;&#8201;the <code class="literal">Client</code> object
+will handle that before the script exits. Additionally, the <code class="literal">Client</code> object should
+be treated as a singleton&#8201;&#8212;&#8201;you should only create one instance and store/pass
+around that instance for all transaction handling.</p>
+<h4><a id="instrumenting-custom-code-distributed-tracing"></a>Distributed Tracing<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/docs/custom-instrumentation.asciidoc">edit</a></h4>
+<p>When instrumenting custom code across multiple services, you should propagate
+the TraceParent where possible. This allows Elastic APM to bundle the various
+transactions into a single distributed trace. The Python Agent will
+automatically add TraceParent information to the headers of outgoing HTTP
+requests, which can then be used on the receiving end to add that TraceParent
+information to new manually-created transactions.</p>
+<p>Additionally, the Python Agent provides utilities for propagating the
+TraceParent in string format.</p>
+<div class="pre_wrapper lang-python">
+<pre class="programlisting prettyprint lang-python">import elasticapm
+
+client = elasticapm.Client(service_name="foo", server_url="https://example.com:8200")
+
+# Retrieve the current TraceParent as a string, requires active transaction
+traceparent_string = elasticapm.get_trace_parent_header()
+
+# Create a TraceParent object from a string and use it for a new transaction
+parent = elasticapm.trace_parent_from_string(traceparent_string)
+client.begin_transaction(transaction_type="script", trace_parent=parent)
+# Do some work
+client.end_transaction(name=__name__, result="success")
+
+# Create a TraceParent object from a dictionary of headers, provided
+# automatically by the sending service if it is using an Elastic APM Agent.
+parent = elasticapm.trace_parent_from_headers(headers_dict)
+client.begin_transaction(transaction_type="script", trace_parent=parent)
+# Do some work
+client.end_transaction(name=__name__, result="success")</pre>
+</div>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="advanced-topics.html">« Advanced Topics</a>
+</span>
+<span class="next">
+<a href="sanitizing-data.html">Sanitizing data »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Full-Text Search | Elasticsearch: The Definitive Guide [main] | Elastic</title>
+<meta class="elastic" name="content" content="Full-Text Search | Elasticsearch: The Definitive Guide [main]">
+
+<link rel="home" href="index.html" title="Elasticsearch: The Definitive Guide [main]"/>
+<link rel="up" href="search-in-depth.html" title="Search in Depth"/>
+<link rel="prev" href="filter-caching.html" title="All About Caching"/>
+<link rel="next" href="term-vs-full-text.html" title="Term-Based Versus Full-Text"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="Elasticsearch"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Legacy/Elasticsearch/Definitive Guide/main"/>
+<meta name="DC.subject" content="Elasticsearch"/>
+<meta name="DC.identifier" content="main"/>
+<meta name="robots" content="noindex,nofollow"/>
+</head>
+<body><div class="page_header">
+<p>
+  <strong>WARNING</strong>: This documentation covers Elasticsearch 2.x. The 2.x
+  versions of Elasticsearch have passed their
+  <a href="https://www.elastic.co/support/eol">EOL dates</a>. If you are running
+  a 2.x version, we strongly advise you to upgrade.
+</p>
+<p>
+  This documentation is no longer maintained and may be removed. For the latest
+  information, see the <a
+  href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">current
+  Elasticsearch documentation</a>.
+</p>
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch: The Definitive Guide [main]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="search-in-depth.html">Search in Depth</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="filter-caching.html">« All About Caching</a>
+</span>
+<span class="next">
+<a href="term-vs-full-text.html">Term-Based Versus Full-Text »</a>
+</span>
+</div>
+<div class="chapter">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="full-text-search"></a>Full-Text Search<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/100_Full_Text_Search/00_Intro.asciidoc">edit</a></h2>
+</div></div></div>
+<p>Now that we have covered the simple case of searching for structured data,
+it is time to explore <em>full-text search</em>: how to search within full-text fields in order to find the most relevant documents.</p>
+<p>The two most important aspects of full-text search are as follows:</p>
+<div class="variablelist">
+<dl class="variablelist">
+<dt>
+<span class="term">
+Relevance
+</span>
+</dt>
+<dd>
+The ability to rank results by how relevant they are to
+the given query, whether relevance is calculated using
+TF/IDF (see <a class="xref" href="relevance-intro.html" title="What Is Relevance?">What Is Relevance?</a>), proximity to a geolocation,
+fuzzy similarity, or some other algorithm.
+</dd>
+<dt>
+<span class="term">
+Analysis
+</span>
+</dt>
+<dd>
+The process of converting a block of text into distinct, normalized tokens
+(see <a class="xref" href="analysis-intro.html" title="Analysis and Analyzers">Analysis and Analyzers</a>) in order to (a) create an inverted index and
+(b) query the inverted index.
+</dd>
+</dl>
+</div>
+<p>As soon as we talk about either relevance or analysis, we are in the territory
+of queries, rather than filters.</p>
+
+
+
+
+
+
+
+
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="filter-caching.html">« All About Caching</a>
+</span>
+<span class="next">
+<a href="term-vs-full-text.html">Term-Based Versus Full-Text »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

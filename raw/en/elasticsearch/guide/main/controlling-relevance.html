@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Controlling Relevance | Elasticsearch: The Definitive Guide [main] | Elastic</title>
+<meta class="elastic" name="content" content="Controlling Relevance | Elasticsearch: The Definitive Guide [main]">
+
+<link rel="home" href="index.html" title="Elasticsearch: The Definitive Guide [main]"/>
+<link rel="up" href="search-in-depth.html" title="Search in Depth"/>
+<link rel="prev" href="ngrams-compound-words.html" title="Ngrams for Compound Words"/>
+<link rel="next" href="scoring-theory.html" title="Theory Behind Relevance Scoring"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="Elasticsearch"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Legacy/Elasticsearch/Definitive Guide/main"/>
+<meta name="DC.subject" content="Elasticsearch"/>
+<meta name="DC.identifier" content="main"/>
+<meta name="robots" content="noindex,nofollow"/>
+</head>
+<body><div class="page_header">
+<p>
+  <strong>WARNING</strong>: This documentation covers Elasticsearch 2.x. The 2.x
+  versions of Elasticsearch have passed their
+  <a href="https://www.elastic.co/support/eol">EOL dates</a>. If you are running
+  a 2.x version, we strongly advise you to upgrade.
+</p>
+<p>
+  This documentation is no longer maintained and may be removed. For the latest
+  information, see the <a
+  href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">current
+  Elasticsearch documentation</a>.
+</p>
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch: The Definitive Guide [main]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="search-in-depth.html">Search in Depth</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="ngrams-compound-words.html">« Ngrams for Compound Words</a>
+</span>
+<span class="next">
+<a href="scoring-theory.html">Theory Behind Relevance Scoring »</a>
+</span>
+</div>
+<div class="chapter">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="controlling-relevance"></a>Controlling Relevance<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/170_Relevance/05_Intro.asciidoc">edit</a></h2>
+</div></div></div>
+<p>Databases that deal purely in structured data (such as dates, numbers, and
+string enums) have it easy: they just have to check whether a document (or a
+row, in a relational database) matches the query.</p>
+<p>While Boolean yes/no matches are an essential part of full-text search, they
+are not enough by themselves. Instead, we also  need to know how relevant each
+document is to the query.  Full-text search engines have to not only find the
+matching documents, but also sort them by relevance.</p>
+<p>Full-text relevance formulae, or <em>similarity algorithms</em>,  combine several
+factors to produce a single relevance <code class="literal">_score</code> for each document.  In this
+chapter, we examine the various moving parts and discuss how they can be
+controlled.</p>
+<p>Of course, relevance is not just about full-text queries; it may need to
+take structured data into account as well. Perhaps we are looking for a
+vacation home with particular features (air-conditioning, sea view, free
+WiFi).  The more features that a property has, the more relevant it is. Or
+perhaps we want to factor in sliding scales like recency, price, popularity, or
+distance, while still taking the relevance of a full-text query into account.</p>
+<p>All of this is possible thanks to the powerful scoring infrastructure
+available in Elasticsearch.</p>
+<p>We will start by looking at the theoretical side of how Lucene calculates
+relevance, and then move on to practical examples of how you can control the
+process.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="ngrams-compound-words.html">« Ngrams for Compound Words</a>
+</span>
+<span class="next">
+<a href="scoring-theory.html">Theory Behind Relevance Scoring »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

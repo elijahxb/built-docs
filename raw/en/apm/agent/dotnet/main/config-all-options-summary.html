@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>All options summary | APM .NET Agent Reference [main] | Elastic</title>
+<meta class="elastic" name="content" content="All options summary | APM .NET Agent Reference [main]">
+
+<link rel="home" href="index.html" title="APM .NET Agent Reference [main]"/>
+<link rel="up" href="configuration.html" title="Configuration"/>
+<link rel="prev" href="config-supportability.html" title="Supportability configuration options"/>
+<link rel="next" href="public-api.html" title="Public API"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="APM"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/APM .NET Agent/Reference/main"/>
+<meta name="DC.subject" content="APM"/>
+<meta name="DC.identifier" content="main"/>
+</head>
+<body><div class="page_header">
+You are looking at preliminary documentation for a future release.
+Not what you want? See the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link">
+  <div id="related-products" class="dropdown">
+    <div class="related-products-title">APM:</div>
+    <div class="dropdown-anchor" tabindex="0">.NET Agent Reference<span class="dropdown-icon"></span></div>
+    <div class="dropdown-content">
+      <ul>
+        <li class="dropdown-category">APM</li>
+        <ul>
+          <li><a href="/guide/en/apm/guide/current/apm-overview.html">User Guide</a></li>
+        </ul>
+        <li class="dropdown-category">APM agents</li>
+        <ul>
+          <li><a href="/guide/en/apm/agent/android/current/intro.html">Android Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/go/current/introduction.html">Go Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/swift/current/intro.html">iOS Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/java/current/intro.html">Java Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/dotnet/current/intro.html">.NET Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/nodejs/current/intro.html">Node.js Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/php/current/intro.html">PHP Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/python/current/getting-started.html">Python Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/ruby/current/introduction.html">Ruby Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/rum-js/current/intro.html">Real User Monitoring JavaScript Agent Reference</a></li>
+        </ul>
+        <li class="dropdown-category">APM extensions</li>
+        <ul>
+          <li><a href="/guide/en/apm/lambda/current/aws-lambda-arch.html">Monitoring AWS Lambda Functions</a></li>
+          <li><a href="/guide/en/apm/attacher/current/apm-attacher.html">Attacher</a></li>
+        </ul>
+      </ul>
+    </div>
+  </div>
+</span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="configuration.html">Configuration</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="config-supportability.html">« Supportability configuration options</a>
+</span>
+<span class="next">
+<a href="public-api.html">Public API »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="config-all-options-summary"></a>All options summary<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-dotnet/edit/main/docs/configuration.asciidoc">edit</a></h2>
+</div></div></div>
+<div class="informaltable">
+<table border="1" cellpadding="4px">
+<colgroup>
+<col class="col_1"/>
+<col class="col_2"/>
+<col class="col_3"/>
+</colgroup>
+<thead>
+<tr>
+<th align="left" valign="top">Option name</th>
+<th align="left" valign="top"><a class="xref" href="configuration.html#dynamic-configuration" title="Dynamic configuration"><span class="image"><img src="./images/dynamic-config.svg" alt="dynamic config"></span> </a></th>
+<th align="left" valign="top">Keywords</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p><a class="xref" href="config-reporter.html#config-api-key" title="ApiKey ()"><code class="literal">ApiKey</code></a></p></td>
+<td align="left" valign="top"><p>No</p></td>
+<td align="left" valign="top"><p>Reporter</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><a class="xref" href="config-stacktrace.html#config-application-namespaces" title="ApplicationNamespaces ()"><code class="literal">ApplicationNamespaces</code></a></p></td>
+<td align="left" valign="top"><p>No</p></td>
+<td align="left" valign="top"><p>Stacktrace</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><a class="xref" href="config-http.html#config-capture-body" title="CaptureBody (performance) ()"><code class="literal">CaptureBody</code></a></p></td>
+<td align="left" valign="top"><p>Yes</p></td>
+<td align="left" valign="top"><p>HTTP, Performance</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><a class="xref" href="config-http.html#config-capture-body-content-types" title="CaptureBodyContentTypes (performance) ()"><code class="literal">CaptureBodyContentTypes</code></a></p></td>
+<td align="left" valign="top"><p>Yes</p></td>
+<td align="left" valign="top"><p>HTTP, Performance</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><a class="xref" href="config-http.html#config-capture-headers" title="CaptureHeaders (performance)"><code class="literal">CaptureHeaders</code></a></p></td>
+<td align="left" valign="top"><p>Yes</p></td>
+<td align="left" valign="top"><p>HTTP, Performance</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><a class="xref" href="config-core.html#config-central-config" title="CentralConfig ()"><code class="literal">CentralConfig</code></a></p></td>
+<td align="left" valign="top"><p>No</p></td>
+<td align="left" valign="top"><p>Core</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><a class="xref" href="config-reporter.html#config-cloud-provider" title="CloudProvider ()"><code class="literal">CloudProvider</code></a></p></td>
+<td align="left" valign="top"><p>No</p></td>
+<td align="left" valign="top"><p>Reporter</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><a class="xref" href="config-reporter.html#config-disable-metrics" title="DisableMetrics ()"><code class="literal">DisableMetrics</code></a></p></td>
+<td align="left" valign="top"><p>No</p></td>
+<td align="left" valign="top"><p>Reporter</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><a class="xref" href="config-core.html#config-enabled" title="Enabled ()"><code class="literal">Enabled</code></a></p></td>
+<td align="left" valign="top"><p>No</p></td>
+<td align="left" valign="top"><p>Core</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><a class="xref" href="config-core.html#config-opentelemetry-bridge-enabled" title="OpentelemetryBridgeEnabled ()"><code class="literal">OpentelemetryBridgeEnabled</code></a></p></td>
+<td align="left" valign="top"><p>No</p></td>
+<td align="left" valign="top"><p>Core</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><a class="xref" href="config-core.html#config-environment" title="Environment ()"><code class="literal">Environment</code></a></p></td>
+<td align="left" valign="top"><p>No</p></td>
+<td align="left" valign="top"><p>Core</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><a class="xref" href="config-stacktrace.html#config-excluded-namespaces" title="ExcludedNamespaces ()"><code class="literal">ExcludedNamespaces</code></a></p></td>
+<td align="left" valign="top"><p>No</p></td>
+<td align="left" valign="top"><p>Stacktrace</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><a class="xref" href="config-core.html#config-exit-span-min-duration" title="ExitSpanMinDuration ()"><code class="literal">ExitSpanMinDuration</code></a></p></td>
+<td align="left" valign="top"><p>Yes</p></td>
+<td align="left" valign="top"><p>Core, Performance</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><a class="xref" href="config-reporter.html#config-flush-interval" title="FlushInterval ()"><code class="literal">FlushInterval</code></a></p></td>
+<td align="left" valign="top"><p>No</p></td>
+<td align="left" valign="top"><p>Reporter</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><a class="xref" href="config-core.html#config-global-labels" title="GlobalLabels ()"><code class="literal">GlobalLabels</code></a></p></td>
+<td align="left" valign="top"><p>No</p></td>
+<td align="left" valign="top"><p>Core</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><a class="xref" href="config-messaging.html#config-ignore-message-queues" title="IgnoreMessageQueues ()"><code class="literal">IgnoreMessageQueues</code></a></p></td>
+<td align="left" valign="top"><p>Yes</p></td>
+<td align="left" valign="top"><p>Messaging, Performance</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><a class="xref" href="config-core.html#config-hostname" title="HostName ()"><code class="literal">HostName</code></a></p></td>
+<td align="left" valign="top"><p>No</p></td>
+<td align="left" valign="top"><p>Core</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><a class="xref" href="config-supportability.html#config-log-level" title="LogLevel"><code class="literal">LogLevel</code></a></p></td>
+<td align="left" valign="top"><p>Yes</p></td>
+<td align="left" valign="top"><p>Supportability</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><a class="xref" href="config-reporter.html#config-max-batch-event-count" title="MaxBatchEventCount ()"><code class="literal">MaxBatchEventCount</code></a></p></td>
+<td align="left" valign="top"><p>No</p></td>
+<td align="left" valign="top"><p>Reporter</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><a class="xref" href="config-reporter.html#config-max-queue-event-count" title="MaxQueueEventCount ()"><code class="literal">MaxQueueEventCount</code></a></p></td>
+<td align="left" valign="top"><p>No</p></td>
+<td align="left" valign="top"><p>Reporter</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><a class="xref" href="config-reporter.html#config-metrics-interval" title="MetricsInterval ()"><code class="literal">MetricsInterval</code></a></p></td>
+<td align="left" valign="top"><p>No</p></td>
+<td align="left" valign="top"><p>Reporter</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><a class="xref" href="config-core.html#config-recording" title="Recording ()"><code class="literal">Recording</code></a></p></td>
+<td align="left" valign="top"><p>Yes</p></td>
+<td align="left" valign="top"><p>Core</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><a class="xref" href="config-core.html#config-sanitize-field-names" title="SanitizeFieldNames ()"><code class="literal">SanitizeFieldNames</code></a></p></td>
+<td align="left" valign="top"><p>Yes</p></td>
+<td align="left" valign="top"><p>Core</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><a class="xref" href="config-reporter.html#config-secret-token" title="SecretToken"><code class="literal">SecretToken</code></a></p></td>
+<td align="left" valign="top"><p>No</p></td>
+<td align="left" valign="top"><p>Reporter</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><a class="xref" href="config-reporter.html#config-server-cert" title="ServerCert ()"><code class="literal">ServerCert</code></a></p></td>
+<td align="left" valign="top"><p>No</p></td>
+<td align="left" valign="top"><p>Reporter</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><a class="xref" href="config-reporter.html#config-server-url" title="ServerUrl"><code class="literal">ServerUrl</code></a></p></td>
+<td align="left" valign="top"><p>No</p></td>
+<td align="left" valign="top"><p>Reporter</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><a class="xref" href="config-core.html#config-service-name" title="ServiceName"><code class="literal">ServiceName</code></a></p></td>
+<td align="left" valign="top"><p>No</p></td>
+<td align="left" valign="top"><p>Core</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><a class="xref" href="config-core.html#config-service-node-name" title="ServiceNodeName ()"><code class="literal">ServiceNodeName</code></a></p></td>
+<td align="left" valign="top"><p>No</p></td>
+<td align="left" valign="top"><p>Core</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><a class="xref" href="config-core.html#config-service-version" title="ServiceVersion"><code class="literal">ServiceVersion</code></a></p></td>
+<td align="left" valign="top"><p>No</p></td>
+<td align="left" valign="top"><p>Core</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><a class="xref" href="config-core.html#config-span-compression-enabled" title="SpanCompressionEnabled ()"><code class="literal">SpanCompressionEnabled</code></a></p></td>
+<td align="left" valign="top"><p>Yes</p></td>
+<td align="left" valign="top"><p>Core, Performance</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><a class="xref" href="config-core.html#config-span-compression-exact-match-max-duration" title="SpanCompressionExactMatchMaxDuration ()"><code class="literal">SpanCompressionExactMatchMaxDuration</code></a></p></td>
+<td align="left" valign="top"><p>Yes</p></td>
+<td align="left" valign="top"><p>Core, Performance</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><a class="xref" href="config-core.html#config-span-compression-same-kind-max-duration" title="SpanCompressionSameKindMaxDuration ()"><code class="literal">SpanCompressionSameKindMaxDuration</code></a></p></td>
+<td align="left" valign="top"><p>Yes</p></td>
+<td align="left" valign="top"><p>Core, Performance</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><a class="xref" href="config-stacktrace.html#config-span-stack-trace-min-duration" title="SpanStackTraceMinDuration (performance)"><code class="literal">SpanStackTraceMinDuration</code></a></p></td>
+<td align="left" valign="top"><p>Yes</p></td>
+<td align="left" valign="top"><p>Stacktrace, Performance</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><a class="xref" href="config-stacktrace.html#config-stack-trace-limit" title="StackTraceLimit (performance)"><code class="literal">StackTraceLimit</code></a></p></td>
+<td align="left" valign="top"><p>Yes</p></td>
+<td align="left" valign="top"><p>Stacktrace, Performance</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><a class="xref" href="config-http.html#config-trace-context-ignore-sampled-false" title="TraceContextIgnoreSampledFalse"><code class="literal">TraceContextIgnoreSampledFalse</code></a></p></td>
+<td align="left" valign="top"><p>No</p></td>
+<td align="left" valign="top"><p>Core</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><a class="xref" href="config-http.html#config-transaction-ignore-urls" title="TransactionIgnoreUrls (performance)"><code class="literal">TransactionIgnoreUrls</code></a></p></td>
+<td align="left" valign="top"><p>Yes</p></td>
+<td align="left" valign="top"><p>HTTP, Performance</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><a class="xref" href="config-core.html#config-transaction-max-spans" title="TransactionMaxSpans (performance) ()"><code class="literal">TransactionMaxSpans</code></a></p></td>
+<td align="left" valign="top"><p>Yes</p></td>
+<td align="left" valign="top"><p>Core, Performance</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><a class="xref" href="config-core.html#config-transaction-sample-rate" title="TransactionSampleRate"><code class="literal">TransactionSampleRate</code></a></p></td>
+<td align="left" valign="top"><p>Yes</p></td>
+<td align="left" valign="top"><p>Core, Performance</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><a class="xref" href="config-http.html#config-trace-continuation-strategy" title="TraceContinuationStrategy (performance) ()"><code class="literal">TraceContinuationStrategy</code></a></p></td>
+<td align="left" valign="top"><p>Yes</p></td>
+<td align="left" valign="top"><p>HTTP, Performance</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><a class="xref" href="config-http.html#config-use-elastic-apm-traceparent-header" title="UseElasticTraceparentHeader ()"><code class="literal">UseElasticTraceparentHeader</code></a></p></td>
+<td align="left" valign="top"><p>No</p></td>
+<td align="left" valign="top"><p>HTTP</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><a class="xref" href="config-http.html#config-use-windows-credentials" title="UseWindowsCredentials"><code class="literal">UseWindowsCredentials</code></a></p></td>
+<td align="left" valign="top"><p>No</p></td>
+<td align="left" valign="top"><p>Reporter</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p><a class="xref" href="config-reporter.html#config-verify-server-cert" title="VerifyServerCert ()"><code class="literal">VerifyServerCert</code></a></p></td>
+<td align="left" valign="top"><p>No</p></td>
+<td align="left" valign="top"><p>Reporter</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="config-supportability.html">« Supportability configuration options</a>
+</span>
+<span class="next">
+<a href="public-api.html">Public API »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Single Query String | Elasticsearch: The Definitive Guide [main] | Elastic</title>
+<meta class="elastic" name="content" content="Single Query String | Elasticsearch: The Definitive Guide [main]">
+
+<link rel="home" href="index.html" title="Elasticsearch: The Definitive Guide [main]"/>
+<link rel="up" href="multi-field-search.html" title="Multifield Search"/>
+<link rel="prev" href="multi-query-strings.html" title="Multiple Query Strings"/>
+<link rel="next" href="_best_fields.html" title="Best Fields"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="Elasticsearch"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Legacy/Elasticsearch/Definitive Guide/main"/>
+<meta name="DC.subject" content="Elasticsearch"/>
+<meta name="DC.identifier" content="main"/>
+<meta name="robots" content="noindex,nofollow"/>
+</head>
+<body><div class="page_header">
+<p>
+  <strong>WARNING</strong>: This documentation covers Elasticsearch 2.x. The 2.x
+  versions of Elasticsearch have passed their
+  <a href="https://www.elastic.co/support/eol">EOL dates</a>. If you are running
+  a 2.x version, we strongly advise you to upgrade.
+</p>
+<p>
+  This documentation is no longer maintained and may be removed. For the latest
+  information, see the <a
+  href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">current
+  Elasticsearch documentation</a>.
+</p>
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch: The Definitive Guide [main]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="search-in-depth.html">Search in Depth</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="multi-field-search.html">Multifield Search</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="multi-query-strings.html">« Multiple Query Strings</a>
+</span>
+<span class="next">
+<a href="_best_fields.html">Best Fields »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="_single_query_string"></a>Single Query String<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/110_Multi_Field_Search/10_Single_query_string.asciidoc">edit</a></h2>
+</div></div></div>
+<p>The <code class="literal">bool</code> query is the mainstay of multiclause queries. It works well
+for many cases, especially when you are able to map different query strings to
+individual fields.</p>
+<p>The problem is that, these days, users expect to be able to type all of their
+search terms into a single field, and expect that the application will figure out how
+to give them the right results.  It is ironic that the multifield search form
+is known as <em>Advanced Search</em>&#x2014;it may appear advanced to the user, but it is
+much simpler to implement.</p>
+<p>There is no simple <em>one-size-fits-all</em> approach to multiword, multifield
+queries.  To get the best results, you have to <em>know your data</em> and know how
+to use the appropriate tools.</p>
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="know-your-data"></a>Know Your Data<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/110_Multi_Field_Search/10_Single_query_string.asciidoc">edit</a></h3>
+</div></div></div>
+<p>When your only user input is a single query string, you will encounter three scenarios frequently:</p>
+<div class="variablelist">
+<dl class="variablelist">
+<dt>
+<span class="term">
+Best fields
+</span>
+</dt>
+<dd>
+When searching for words that represent a concept, such as &#8220;brown fox,&#8221; the
+words mean more together than they do individually. Fields like the <code class="literal">title</code>
+and <code class="literal">body</code>, while related, can be considered to be in competition with each
+other. Documents should have as many words as possible in <em>the same field</em>,
+and the score should come from the <em>best-matching field</em>.
+</dd>
+<dt>
+<span class="term">
+Most fields
+</span>
+</dt>
+<dd>
+<p>A common technique for fine-tuning relevance is to index the same data into
+multiple fields, each with its own analysis chain.</p>
+<p>The main field may contain words in their stemmed form, synonyms, and words
+stripped of their <em>diacritics</em>, or accents. It is used to match as many
+documents as possible.</p>
+<p>The same text could then be indexed in other fields to provide more-precise
+matching.  One field may contain the unstemmed version, another the original
+word with accents, and a third might use <em>shingles</em> to provide information
+about <a class="xref" href="proximity-matching.html" title="Proximity Matching">word proximity</a>.</p>
+<p>These other fields act as <em>signals</em> to increase the relevance score of each
+matching document. The <em>more fields that match</em>, the better.</p>
+</dd>
+<dt>
+<span class="term">
+Cross fields
+</span>
+</dt>
+<dd>
+<p>For some entities, the identifying information is spread across multiple
+fields, each of which contains just a part of the whole:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Person: <code class="literal">first_name</code> and <code class="literal">last_name</code>
+</li>
+<li class="listitem">
+Book: <code class="literal">title</code>, <code class="literal">author</code>, and <code class="literal">description</code>
+</li>
+<li class="listitem">
+Address:  <code class="literal">street</code>, <code class="literal">city</code>, <code class="literal">country</code>, and <code class="literal">postcode</code>
+</li>
+</ul>
+</div>
+<p>In this case, we want to find as many words as possible in <em>any</em> of the listed
+fields. We need to search across multiple fields as if they were one big
+field.</p>
+</dd>
+</dl>
+</div>
+<p>All of these are multiword, multifield queries, but each requires a
+different strategy. We will examine each strategy in turn in the rest of this
+chapter.</p>
+</div>
+
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="multi-query-strings.html">« Multiple Query Strings</a>
+</span>
+<span class="next">
+<a href="_best_fields.html">Best Fields »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Python Agent version 6.x | APM Python Agent Reference [main] | Elastic</title>
+<meta class="elastic" name="content" content="Python Agent version 6.x | APM Python Agent Reference [main]">
+
+<link rel="home" href="index.html" title="APM Python Agent Reference [main]"/>
+<link rel="up" href="release-notes.html" title="Release notes"/>
+<link rel="prev" href="_unreleased.html" title="Unreleased"/>
+<link rel="next" href="release-notes-5.x.html" title="Python Agent version 5.x"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="APM"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/APM Python Agent/Reference/main"/>
+<meta name="DC.subject" content="APM"/>
+<meta name="DC.identifier" content="main"/>
+</head>
+<body><div class="page_header">
+You are looking at preliminary documentation for a future release.
+Not what you want? See the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link">
+  <div id="related-products" class="dropdown">
+    <div class="related-products-title">APM:</div>
+    <div class="dropdown-anchor" tabindex="0">Python Agent Reference<span class="dropdown-icon"></span></div>
+    <div class="dropdown-content">
+      <ul>
+        <li class="dropdown-category">APM</li>
+        <ul>
+          <li><a href="/guide/en/apm/guide/current/apm-overview.html">User Guide</a></li>
+        </ul>
+        <li class="dropdown-category">APM agents</li>
+        <ul>
+          <li><a href="/guide/en/apm/agent/android/current/intro.html">Android Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/go/current/introduction.html">Go Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/swift/current/intro.html">iOS Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/java/current/intro.html">Java Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/dotnet/current/intro.html">.NET Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/nodejs/current/intro.html">Node.js Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/php/current/intro.html">PHP Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/python/current/getting-started.html">Python Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/ruby/current/introduction.html">Ruby Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/rum-js/current/intro.html">Real User Monitoring JavaScript Agent Reference</a></li>
+        </ul>
+        <li class="dropdown-category">APM extensions</li>
+        <ul>
+          <li><a href="/guide/en/apm/lambda/current/aws-lambda-arch.html">Monitoring AWS Lambda Functions</a></li>
+          <li><a href="/guide/en/apm/attacher/current/apm-attacher.html">Attacher</a></li>
+        </ul>
+      </ul>
+    </div>
+  </div>
+</span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="release-notes.html">Release notes</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="_unreleased.html">« Unreleased</a>
+</span>
+<span class="next">
+<a href="release-notes-5.x.html">Python Agent version 5.x »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="release-notes-6.x"></a>Python Agent version 6.x<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h2>
+</div></div></div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="release-notes-6.15.1"></a>6.15.1 - 2023-03-06<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h3>
+</div></div></div>
+<h5><a id="_bug_fixes_2"></a>Bug fixes<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h5>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Fix issue with botocore instrumentation creating spans with an incorrect <code class="literal">service.name</code> <a href="https://github.com/elastic/apm-agent-python/pull/1765" class="ulink" target="_top">#1765</a>
+</li>
+<li class="listitem">
+Fix a bug in the GRPC instrumentation when the agent is disabled or not recording <a href="https://github.com/elastic/apm-agent-python/pull/1761" class="ulink" target="_top">#1761</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="release-notes-6.15.0"></a>6.15.0 - 2023-02-16<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h3>
+</div></div></div>
+<h5><a id="_features_2"></a>Features<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h5>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Add <code class="literal">service.agent.activation_method</code> to the metadata <a href="https://github.com/elastic/apm-agent-python/pull/1743" class="ulink" target="_top">#1743</a>
+</li>
+</ul>
+</div>
+<h5><a id="_bug_fixes_3"></a>Bug fixes<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h5>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Small fix to underlying Starlette logic to prevent duplicate Client objects <a href="https://github.com/elastic/apm-agent-python/pull/1735" class="ulink" target="_top">#1735</a>
+</li>
+<li class="listitem">
+Change <code class="literal">server_url</code> default to <code class="literal">http://127.0.0.1:8200</code> to avoid ipv6 ambiguity <a href="https://github.com/elastic/apm-agent-python/pull/1744" class="ulink" target="_top">#1744</a>
+</li>
+<li class="listitem">
+Fix an issue in GRPC instrumentation with unsampled transactions <a href="https://github.com/elastic/apm-agent-python/pull/1740" class="ulink" target="_top">#1740</a>
+</li>
+<li class="listitem">
+Fix error in async Elasticsearch instrumentation when spans are dropped <a href="https://github.com/elastic/apm-agent-python/pull/1758" class="ulink" target="_top">#1758</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="release-notes-6.14.0"></a>6.14.0 - 2023-01-30<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h3>
+</div></div></div>
+<h5><a id="_features_3"></a>Features<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h5>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+GRPC support <a href="https://github.com/elastic/apm-agent-python/pull/1703" class="ulink" target="_top">#1703</a>
+</li>
+<li class="listitem">
+Wrapper script Flask support (experimental) <a href="https://github.com/elastic/apm-agent-python/pull/1709" class="ulink" target="_top">#1709</a>
+</li>
+</ul>
+</div>
+<h5><a id="_bug_fixes_4"></a>Bug fixes<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h5>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Fix an async issue with long elasticsearch queries <a href="https://github.com/elastic/apm-agent-python/pull/1725" class="ulink" target="_top">#1725</a>
+</li>
+<li class="listitem">
+Fix a minor inconsistency with the W3C tracestate spec <a href="https://github.com/elastic/apm-agent-python/pull/1728" class="ulink" target="_top">#1728</a>
+</li>
+<li class="listitem">
+Fix a cold start performance issue with our AWS Lambda integration <a href="https://github.com/elastic/apm-agent-python/pull/1727" class="ulink" target="_top">#1727</a>
+</li>
+<li class="listitem">
+Mark <code class="literal">**kwargs</code> config usage in our AWS Lambda integration as deprecated <a href="https://github.com/elastic/apm-agent-python/pull/1727" class="ulink" target="_top">#1727</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="release-notes-6.13.2"></a>6.13.2 - 2022-11-17<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h3>
+</div></div></div>
+<h5><a id="_bug_fixes_5"></a>Bug fixes<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h5>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Fix error in Elasticsearch instrumentation when spans are dropped <a href="https://github.com/elastic/apm-agent-python/pull/1690" class="ulink" target="_top">#1690</a>
+</li>
+<li class="listitem">
+Lower log level for errors in APM Server version fetching <a href="https://github.com/elastic/apm-agent-python/pull/1692" class="ulink" target="_top">#1692</a>
+</li>
+<li class="listitem">
+Fix for missing parent.id when logging from a DroppedSpan under a leaf span <a href="https://github.com/elastic/apm-agent-python/pull/1695" class="ulink" target="_top">#1695</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="release-notes-6.13.1"></a>6.13.1 - 2022-11-03<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h3>
+</div></div></div>
+<h5><a id="_bug_fixes_6"></a>Bug fixes<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h5>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Fix elasticsearch instrumentation for track_total_hits=False <a href="https://github.com/elastic/apm-agent-python/pull/1687" class="ulink" target="_top">#1687</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="release-notes-6.13.0"></a>6.13.0 - 2022-10-26<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h3>
+</div></div></div>
+<h5><a id="_features_4"></a>Features<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h5>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Add support for Python 3.11
+</li>
+<li class="listitem">
+Add backend granularity data to SQL backends as well as Cassandra and pymongo <a href="https://github.com/elastic/apm-agent-python/pull/1585" class="ulink" target="_top">#1585</a>, <a href="https://github.com/elastic/apm-agent-python/pull/1639" class="ulink" target="_top">#1639</a>
+</li>
+<li class="listitem">
+Add support for instrumenting the Elasticsearch 8 Python client <a href="https://github.com/elastic/apm-agent-python/pull/1642" class="ulink" target="_top">#1642</a>
+</li>
+<li class="listitem">
+Add <code class="literal">*principal*</code> to default <code class="literal">sanitize_field_names</code> configuration <a href="https://github.com/elastic/apm-agent-python/pull/1664" class="ulink" target="_top">#1664</a>
+</li>
+<li class="listitem">
+Add docs and better support for custom metrics, including in AWS Lambda <a href="https://github.com/elastic/apm-agent-python/pull/1643" class="ulink" target="_top">#1643</a>
+</li>
+<li class="listitem">
+Add support for capturing span links from AWS SQS in AWS Lambda <a href="https://github.com/elastic/apm-agent-python/pull/1662" class="ulink" target="_top">#1662</a>
+</li>
+</ul>
+</div>
+<h5><a id="_bug_fixes_7"></a>Bug fixes<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h5>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Fix Django&#8217;s <code class="literal">manage.py check</code> when agent is disabled <a href="https://github.com/elastic/apm-agent-python/pull/1632" class="ulink" target="_top">#1632</a>
+</li>
+<li class="listitem">
+Fix an issue with long body truncation for Starlette <a href="https://github.com/elastic/apm-agent-python/pull/1635" class="ulink" target="_top">#1635</a>
+</li>
+<li class="listitem">
+Fix an issue with transaction outcomes in Flask for uncaught exceptions <a href="https://github.com/elastic/apm-agent-python/pull/1637" class="ulink" target="_top">#1637</a>
+</li>
+<li class="listitem">
+Fix Starlette instrumentation to make sure transaction information is still present during exception handling <a href="https://github.com/elastic/apm-agent-python/pull/1674" class="ulink" target="_top">#1674</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="release-notes-6.12.0"></a>6.12.0 - 2022-09-07<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h3>
+</div></div></div>
+<h5><a id="_features_5"></a>Features<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h5>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Add redis query to context data for redis instrumentation <a href="https://github.com/elastic/apm-agent-python/pull/1406" class="ulink" target="_top">#1406</a>
+</li>
+<li class="listitem">
+Add AWS request ID to all botocore spans (at <code class="literal">span.context.http.request.id</code>) <a href="https://github.com/elastic/apm-agent-python/pull/1625" class="ulink" target="_top">#1625</a>
+</li>
+</ul>
+</div>
+<h5><a id="_bug_fixes_8"></a>Bug fixes<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h5>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Differentiate Lambda URLs from API Gateway in AWS Lambda integration <a href="https://github.com/elastic/apm-agent-python/pull/1609" class="ulink" target="_top">#1609</a>
+</li>
+<li class="listitem">
+Restrict the size of Django request bodies to prevent APM Server rejection <a href="https://github.com/elastic/apm-agent-python/pull/1610" class="ulink" target="_top">#1610</a>
+</li>
+<li class="listitem">
+Restrict length of <code class="literal">exception.message</code> for exceptions captured by the agent <a href="https://github.com/elastic/apm-agent-python/pull/1619" class="ulink" target="_top">#1619</a>
+</li>
+<li class="listitem">
+Restrict length of Starlette request bodies <a href="https://github.com/elastic/apm-agent-python/pull/1549" class="ulink" target="_top">#1549</a>
+</li>
+<li class="listitem">
+Fix error when using elasticsearch(sniff_on_start=True) <a href="https://github.com/elastic/apm-agent-python/pull/1618" class="ulink" target="_top">#1618</a>
+</li>
+<li class="listitem">
+Improve handling of ignored URLs and capture_body=off for Starlette <a href="https://github.com/elastic/apm-agent-python/pull/1549" class="ulink" target="_top">#1549</a>
+</li>
+<li class="listitem">
+Fix possible error in the transport flush for Lambda functions <a href="https://github.com/elastic/apm-agent-python/pull/1628" class="ulink" target="_top">#1628</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="release-notes-6.11.0"></a>6.11.0 - 2022-08-09<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h3>
+</div></div></div>
+<h5><a id="_features_6"></a>Features<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h5>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Added lambda support for ELB triggers <a href="https://github.com/elastic/apm-agent-python/pull/1605" class="ulink" target="_top">#1605</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="release-notes-6.10.2"></a>6.10.2 - 2022-08-04<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h3>
+</div></div></div>
+<h5><a id="_bug_fixes_9"></a>Bug fixes<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h5>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Fixed an issue with non-integer ports in Django <a href="https://github.com/elastic/apm-agent-python/pull/1590" class="ulink" target="_top">#1590</a>
+</li>
+<li class="listitem">
+Fixed an issue with non-integer ports in Redis <a href="https://github.com/elastic/apm-agent-python/pull/1591" class="ulink" target="_top">#1591</a>
+</li>
+<li class="listitem">
+Fixed a performance issue for local variable shortening via <code class="literal">varmap()</code> <a href="https://github.com/elastic/apm-agent-python/pull/1593" class="ulink" target="_top">#1593</a>
+</li>
+<li class="listitem">
+Fixed <code class="literal">elasticapm.label()</code> when a Client object is not available <a href="https://github.com/elastic/apm-agent-python/pull/1596" class="ulink" target="_top">#1596</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="release-notes-6.10.1"></a>6.10.1 - 2022-06-30<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h3>
+</div></div></div>
+<h5><a id="_bug_fixes_10"></a>Bug fixes<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h5>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Fix an issue with Kafka instrumentation and unsampled transactions <a href="https://github.com/elastic/apm-agent-python/pull/1579" class="ulink" target="_top">#1579</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="release-notes-6.10.0"></a>6.10.0 - 2022-06-22<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h3>
+</div></div></div>
+<h5><a id="_features_7"></a>Features<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h5>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Add instrumentation for <a href="https://github.com/aio-libs/aiobotocore" class="ulink" target="_top"><code class="literal">aiobotocore</code></a> <a href="https://github.com/elastic/apm-agent-python/pull/1520" class="ulink" target="_top">#1520</a>
+</li>
+<li class="listitem">
+Add instrumentation for <a href="https://kafka-python.readthedocs.io/en/master/" class="ulink" target="_top"><code class="literal">kafka-python</code></a> <a href="https://github.com/elastic/apm-agent-python/pull/1555" class="ulink" target="_top">#1555</a>
+</li>
+<li class="listitem">
+Add API for span links, and implement span link support for OpenTelemetry bridge <a href="https://github.com/elastic/apm-agent-python/pull/1562" class="ulink" target="_top">#1562</a>
+</li>
+<li class="listitem">
+Add span links to SQS ReceiveMessage call <a href="https://github.com/elastic/apm-agent-python/pull/1575" class="ulink" target="_top">#1575</a>
+</li>
+<li class="listitem">
+Add specific instrumentation for SQS delete/batch-delete <a href="https://github.com/elastic/apm-agent-python/pull/1567" class="ulink" target="_top">#1567</a>
+</li>
+<li class="listitem">
+Add <code class="literal">trace_continuation_strategy</code> setting <a href="https://github.com/elastic/apm-agent-python/pull/1564" class="ulink" target="_top">#1564</a>
+</li>
+</ul>
+</div>
+<h5><a id="_bug_fixes_11"></a>Bug fixes<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h5>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Fix return for <code class="literal">opentelemetry.Span.is_recording()</code> <a href="https://github.com/elastic/apm-agent-python/pull/1530" class="ulink" target="_top">#1530</a>
+</li>
+<li class="listitem">
+Fix error logging for bad SERVICE_NAME config <a href="https://github.com/elastic/apm-agent-python/pull/1546" class="ulink" target="_top">#1546</a>
+</li>
+<li class="listitem">
+Do not instrument old versions of Tornado &gt; 6.0 due to incompatibility <a href="https://github.com/elastic/apm-agent-python/pull/1566" class="ulink" target="_top">#1566</a>
+</li>
+<li class="listitem">
+Fix transaction names for class based views in Django 4.0+ <a href="https://github.com/elastic/apm-agent-python/pull/1571" class="ulink" target="_top">#1571</a>
+</li>
+<li class="listitem">
+Fix a problem with our logging handler failing to report internal errors in its emitter <a href="https://github.com/elastic/apm-agent-python/pull/1568" class="ulink" target="_top">#1568</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="release-notes-6.9.1"></a>6.9.1 - 2022-03-30<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h3>
+</div></div></div>
+<h5><a id="_bug_fixes_12"></a>Bug fixes<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h5>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Fix <code class="literal">otel_attributes</code>-related regression with older versions of APM Server (&lt;7.16) <a href="https://github.com/elastic/apm-agent-python/pull/1510" class="ulink" target="_top">#1510</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="release-notes-6.9.0"></a>6.9.0 - 2022-03-29<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h3>
+</div></div></div>
+<h5><a id="_features_8"></a>Features<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h5>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Add OpenTelemetry API bridge <a href="https://github.com/elastic/apm-agent-python/pull/1411" class="ulink" target="_top">#1411</a>
+</li>
+<li class="listitem">
+Change default for <code class="literal">sanitize_field_names</code> to sanitize <code class="literal">*auth*</code> instead of <code class="literal">authorization</code> <a href="https://github.com/elastic/apm-agent-python/pull/1494" class="ulink" target="_top">#1494</a>
+</li>
+<li class="listitem">
+Add <code class="literal">span_stack_trace_min_duration</code> to replace deprecated <code class="literal">span_frames_min_duration</code> <a href="https://github.com/elastic/apm-agent-python/pull/1498" class="ulink" target="_top">#1498</a>
+</li>
+<li class="listitem">
+Enable exact_match span compression by default <a href="https://github.com/elastic/apm-agent-python/pull/1504" class="ulink" target="_top">#1504</a>
+</li>
+<li class="listitem">
+Allow parent celery tasks to specify the downstream <code class="literal">parent_span_id</code> in celery headers <a href="https://github.com/elastic/apm-agent-python/pull/1500" class="ulink" target="_top">#1500</a>
+</li>
+</ul>
+</div>
+<h5><a id="_bug_fixes_13"></a>Bug fixes<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h5>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Fix Sanic integration to properly respect the <code class="literal">capture_body</code> config <a href="https://github.com/elastic/apm-agent-python/pull/1485" class="ulink" target="_top">#1485</a>
+</li>
+<li class="listitem">
+Lambda fixes to align with the cross-agent spec <a href="https://github.com/elastic/apm-agent-python/pull/1489" class="ulink" target="_top">#1489</a>
+</li>
+<li class="listitem">
+Lambda fix for custom <code class="literal">service_name</code> <a href="https://github.com/elastic/apm-agent-python/pull/1493" class="ulink" target="_top">#1493</a>
+</li>
+<li class="listitem">
+Change default for <code class="literal">stack_trace_limit</code> from 500 to 50 <a href="https://github.com/elastic/apm-agent-python/pull/1492" class="ulink" target="_top">#1492</a>
+</li>
+<li class="listitem">
+Switch all duration handling to use <code class="literal">datetime.timedelta</code> objects <a href="https://github.com/elastic/apm-agent-python/pull/1488" class="ulink" target="_top">#1488</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="release-notes-6.8.1"></a>6.8.1 - 2022-03-09<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h3>
+</div></div></div>
+<h5><a id="_bug_fixes_14"></a>Bug fixes<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h5>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Fix <code class="literal">exit_span_min_duration</code> and disable by default <a href="https://github.com/elastic/apm-agent-python/pull/1483" class="ulink" target="_top">#1483</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="release-notes-6.8.0"></a>6.8.0 - 2022-02-22<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h3>
+</div></div></div>
+<h5><a id="_features_9"></a>Features<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h5>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+use "unknown-python-service" as default service name if no service name is configured <a href="https://github.com/elastic/apm-agent-python/pull/1438" class="ulink" target="_top">#1438</a>
+</li>
+<li class="listitem">
+add transaction name to error objects <a href="https://github.com/elastic/apm-agent-python/pull/1441" class="ulink" target="_top">#1441</a>
+</li>
+<li class="listitem">
+don&#8217;t send unsampled transactions to APM Server 8.0+ <a href="https://github.com/elastic/apm-agent-python/pull/1442" class="ulink" target="_top">#1442</a>
+</li>
+<li class="listitem">
+implement snapshotting of certain configuration during transaction lifetime <a href="https://github.com/elastic/apm-agent-python/pull/1431" class="ulink" target="_top">#1431</a>
+</li>
+<li class="listitem">
+propagate traceparent IDs via Celery <a href="https://github.com/elastic/apm-agent-python/pull/1371" class="ulink" target="_top">#1371</a>
+</li>
+<li class="listitem">
+<p>removed Python 2 compatibility shims <a href="https://github.com/elastic/apm-agent-python/pull/1463" class="ulink" target="_top">#1463</a></p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Note: Python 2 support was already removed with version 6.0 of the agent, this now removes unused compatibilit shims.
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h5><a id="_bug_fixes_15"></a>Bug fixes<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h5>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+fix span compression for redis, mongodb, cassandra and memcached <a href="https://github.com/elastic/apm-agent-python/pull/1444" class="ulink" target="_top">#1444</a>
+</li>
+<li class="listitem">
+fix recording of status_code for starlette <a href="https://github.com/elastic/apm-agent-python/pull/1466" class="ulink" target="_top">#1466</a>
+</li>
+<li class="listitem">
+fix aioredis span context handling <a href="https://github.com/elastic/apm-agent-python/pull/1462" class="ulink" target="_top">#1462</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="release-notes-6.7.2"></a>6.7.2 - 2021-12-07<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h3>
+</div></div></div>
+<h5><a id="_bug_fixes_16"></a>Bug fixes<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h5>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+fix AttributeError in sync instrumentation of httpx <a href="https://github.com/elastic/apm-agent-python/pull/1423" class="ulink" target="_top">#1423</a>
+</li>
+<li class="listitem">
+add setting to disable span compression, default to disabled <a href="https://github.com/elastic/apm-agent-python/pull/1429" class="ulink" target="_top">#1429</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="release-notes-6.7.1"></a>6.7.1 - 2021-11-29<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h3>
+</div></div></div>
+<h5><a id="_bug_fixes_17"></a>Bug fixes<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h5>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+fix an issue with Sanic exception tracking <a href="https://github.com/elastic/apm-agent-python/pull/1414" class="ulink" target="_top">#1414</a>
+</li>
+<li class="listitem">
+asyncpg: Limit SQL queries in context data to 10000 characters <a href="https://github.com/elastic/apm-agent-python/pull/1416" class="ulink" target="_top">#1416</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="release-notes-6.7.0"></a>6.7.0 - 2021-11-17<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h3>
+</div></div></div>
+<h5><a id="_features_10"></a>Features<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h5>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Add support for Sanic framework <a href="https://github.com/elastic/apm-agent-python/pull/1390" class="ulink" target="_top">#1390</a>
+</li>
+</ul>
+</div>
+<h5><a id="_bug_fixes_18"></a>Bug fixes<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h5>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+fix compatibility issues with httpx 0.21 <a href="https://github.com/elastic/apm-agent-python/pull/1403" class="ulink" target="_top">#1403</a>
+</li>
+<li class="listitem">
+fix <code class="literal">span_compression_exact_match_max_duration</code> default value <a href="https://github.com/elastic/apm-agent-python/pull/1407" class="ulink" target="_top">#1407</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="release-notes-6.6.3"></a>6.6.3 - 2021-11-15<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h3>
+</div></div></div>
+<h5><a id="_bug_fixes_19"></a>Bug fixes<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h5>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+fix an issue with <code class="literal">metrics_sets</code> configuration referencing the <code class="literal">TransactionMetricSet</code> removed in 6.6.2 <a href="https://github.com/elastic/apm-agent-python/pull/1397" class="ulink" target="_top">#1397</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="release-notes-6.6.2"></a>6.6.2 - 2021-11-10<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h3>
+</div></div></div>
+<h5><a id="_bug_fixes_20"></a>Bug fixes<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h5>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Fix an issue where compressed spans would count against <code class="literal">transaction_max_spans</code> <a href="https://github.com/elastic/apm-agent-python/pull/1377" class="ulink" target="_top">#1377</a>
+</li>
+<li class="listitem">
+Make sure HTTP connections are not re-used after a process fork <a href="https://github.com/elastic/apm-agent-python/pull/1374" class="ulink" target="_top">#1374</a>
+</li>
+<li class="listitem">
+Fix an issue with psycopg2 instrumentation when multiple hosts are defined <a href="https://github.com/elastic/apm-agent-python/pull/1386" class="ulink" target="_top">#1386</a>
+</li>
+<li class="listitem">
+Update the <code class="literal">User-Agent</code> header to the new <a href="https://github.com/elastic/apm/pull/514" class="ulink" target="_top">spec</a> <a href="https://github.com/elastic/apm-agent-python/pull/1378" class="ulink" target="_top">#1378</a>
+</li>
+<li class="listitem">
+Improve status_code handling in AWS Lambda integration <a href="https://github.com/elastic/apm-agent-python/pull/1382" class="ulink" target="_top">#1382</a>
+</li>
+<li class="listitem">
+Fix <code class="literal">aiohttp</code> exception handling to allow for non-500 responses including <code class="literal">HTTPOk</code> <a href="https://github.com/elastic/apm-agent-python/pull/1384" class="ulink" target="_top">#1384</a>
+</li>
+<li class="listitem">
+Force transaction names to strings <a href="https://github.com/elastic/apm-agent-python/pull/1389" class="ulink" target="_top">#1389</a>
+</li>
+</ul>
+</div>
+<h5><a id="_other"></a>Other<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h5>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Remove unused <code class="literal">http.request.socket.encrypted</code> context field <a href="https://github.com/elastic/apm-agent-python/pull/1332" class="ulink" target="_top">#1332</a>
+</li>
+<li class="listitem">
+Remove unused transaction metrics (APM Server handles these metrics instead) <a href="https://github.com/elastic/apm-agent-python/pull/1388" class="ulink" target="_top">#1388</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="release-notes-6.6.1"></a>6.6.1 - 2021-11-02<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h3>
+</div></div></div>
+<h5><a id="_bug_fixes_21"></a>Bug fixes<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h5>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Fix some context fields and metadata handling in AWS Lambda support <a href="https://github.com/elastic/apm-agent-python/pull/1368" class="ulink" target="_top">#1368</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="release-notes-6.6.0"></a>6.6.0 - 2021-10-18<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h3>
+</div></div></div>
+<h5><a id="_features_11"></a>Features<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h5>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Add experimental support for AWS lambda instrumentation <a href="https://github.com/elastic/apm-agent-python/pull/1193" class="ulink" target="_top">#1193</a>
+</li>
+<li class="listitem">
+Add support for span compression <a href="https://github.com/elastic/apm-agent-python/pull/1321" class="ulink" target="_top">#1321</a>
+</li>
+<li class="listitem">
+Auto-infer destination resources for easier instrumentation of new resources <a href="https://github.com/elastic/apm-agent-python/pull/1359" class="ulink" target="_top">#1359</a>
+</li>
+<li class="listitem">
+Add support for dropped span statistics <a href="https://github.com/elastic/apm-agent-python/pull/1327" class="ulink" target="_top">#1327</a>
+</li>
+</ul>
+</div>
+<h5><a id="_bug_fixes_22"></a>Bug fixes<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h5>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Ensure that Prometheus histograms are encoded correctly for APM Server <a href="https://github.com/elastic/apm-agent-python/pull/1354" class="ulink" target="_top">#1354</a>
+</li>
+<li class="listitem">
+Remove problematic (and duplicate) <code class="literal">event.dataset</code> from logging integrations <a href="https://github.com/elastic/apm-agent-python/pull/1365" class="ulink" target="_top">#1365</a>
+</li>
+<li class="listitem">
+Fix for memcache instrumentation when configured with a unix socket <a href="https://github.com/elastic/apm-agent-python/pull/1357" class="ulink" target="_top">#1357</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="release-notes-6.5.0"></a>6.5.0 - 2021-10-04<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h3>
+</div></div></div>
+<h5><a id="_features_12"></a>Features<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h5>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Add instrumentation for Azure Storage (blob/table/fileshare) and Azure Queue <a href="https://github.com/elastic/apm-agent-python/pull/1316" class="ulink" target="_top">#1316</a>
+</li>
+</ul>
+</div>
+<h5><a id="_bug_fixes_23"></a>Bug fixes<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h5>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Improve span coverage for <code class="literal">asyncpg</code> <a href="https://github.com/elastic/apm-agent-python/pull/1328" class="ulink" target="_top">#1328</a>
+</li>
+<li class="listitem">
+aiohttp: Correctly pass custom client to tracing middleware <a href="https://github.com/elastic/apm-agent-python/pull/1345" class="ulink" target="_top">#1345</a>
+</li>
+<li class="listitem">
+Fixed an issue with httpx instrumentation <a href="https://github.com/elastic/apm-agent-python/pull/1337" class="ulink" target="_top">#1337</a>
+</li>
+<li class="listitem">
+Fixed an issue with Django 4.0 removing a private method <a href="https://github.com/elastic/apm-agent-python/pull/1347" class="ulink" target="_top">#1347</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="release-notes-6.4.0"></a>6.4.0 - 2021-08-31<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h3>
+</div></div></div>
+<h5><a id="_features_13"></a>Features<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h5>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Rename the experimental <code class="literal">log_ecs_formatting</code> config to <code class="literal">log_ecs_reformatting</code> <a href="https://github.com/elastic/apm-agent-python/pull/1300" class="ulink" target="_top">#1300</a>
+</li>
+<li class="listitem">
+Add support for Prometheus histograms <a href="https://github.com/elastic/apm-agent-python/pull/1165" class="ulink" target="_top">#1165</a>
+</li>
+</ul>
+</div>
+<h5><a id="_bug_fixes_24"></a>Bug fixes<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h5>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Fixed cookie sanitization when Cookie is capitalized <a href="https://github.com/elastic/apm-agent-python/pull/1301" class="ulink" target="_top">#1301</a>
+</li>
+<li class="listitem">
+Fix a bug with exception capturing for bad UUIDs <a href="https://github.com/elastic/apm-agent-python/pull/1304" class="ulink" target="_top">#1304</a>
+</li>
+<li class="listitem">
+Fix potential errors in json serialization <a href="https://github.com/elastic/apm-agent-python/pull/1203" class="ulink" target="_top">#1203</a>
+</li>
+<li class="listitem">
+Fix an issue with certain aioredis commands <a href="https://github.com/elastic/apm-agent-python/pull/1308" class="ulink" target="_top">#1308</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="release-notes-6.3.3"></a>6.3.3 - 2021-07-14<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h3>
+</div></div></div>
+<h5><a id="_bug_fixes_25"></a>Bug fixes<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h5>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+ensure that the elasticsearch instrumentation handles DroppedSpans correctly <a href="https://github.com/elastic/apm-agent-python/pull/1190" class="ulink" target="_top">#1190</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="release-notes-6.3.2"></a>6.3.2 - 2021-07-07<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h3>
+</div></div></div>
+<h5><a id="_bug_fixes_26"></a>Bug fixes<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h5>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Fix handling of non-http scopes in Starlette/FastAPI middleware <a href="https://github.com/elastic/apm-agent-python/pull/1187" class="ulink" target="_top">#1187</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="release-notes-6.3.1"></a>6.3.1 - 2021/07/07<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h3>
+</div></div></div>
+<h5><a id="_bug_fixes_27"></a>Bug fixes<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h5>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Fix issue with Starlette/FastAPI hanging on startup <a href="https://github.com/elastic/apm-agent-python/pull/1185" class="ulink" target="_top">#1185</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="release-notes-6.3.0"></a>6.3.0 - 2021/07/06<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h3>
+</div></div></div>
+<h5><a id="_features_14"></a>Features<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h5>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Add additional context information about elasticsearch client requests <a href="https://github.com/elastic/apm-agent-python/pull/1108" class="ulink" target="_top">#1108</a>
+</li>
+<li class="listitem">
+Add <code class="literal">use_certifi</code> config option to allow users to disable <code class="literal">certifi</code> <a href="https://github.com/elastic/apm-agent-python/pull/1163" class="ulink" target="_top">#1163</a>
+</li>
+</ul>
+</div>
+<h5><a id="_bug_fixes_28"></a>Bug fixes<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h5>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Fix for Starlette 0.15.0 error collection <a href="https://github.com/elastic/apm-agent-python/pull/1174" class="ulink" target="_top">#1174</a>
+</li>
+<li class="listitem">
+Fix for Starlette static files <a href="https://github.com/elastic/apm-agent-python/pull/1137" class="ulink" target="_top">#1137</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="release-notes-6.2.3"></a>6.2.3 - 2021/06/28<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h3>
+</div></div></div>
+<h5><a id="_bug_fixes_29"></a>Bug fixes<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h5>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+suppress the default_app_config attribute in Django 3.2+ <a href="https://github.com/elastic/apm-agent-python/pull/1155" class="ulink" target="_top">#1155</a>
+</li>
+<li class="listitem">
+bump log level for multiple set_client calls to WARNING <a href="https://github.com/elastic/apm-agent-python/pull/1164" class="ulink" target="_top">#1164</a>
+</li>
+<li class="listitem">
+fix issue with adding disttracing to SQS messages when dropping spans <a href="https://github.com/elastic/apm-agent-python/pull/1170" class="ulink" target="_top">#1170</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="release-notes-6.2.2"></a>6.2.2 - 2021/06/07<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h3>
+</div></div></div>
+<h5><a id="_bug_fixes_30"></a>Bug fixes<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h5>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Fix an attribute access bug introduced in 6.2.0 <a href="https://github.com/elastic/apm-agent-python/pull/1149" class="ulink" target="_top">#1149</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="release-notes-6.2.1"></a>6.2.1 - 2021/06/03<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h3>
+</div></div></div>
+<h5><a id="_bug_fixes_31"></a>Bug fixes<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h5>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+catch and log exceptions in interval timer threads <a href="https://github.com/elastic/apm-agent-python/pull/1145" class="ulink" target="_top">#1145</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="release-notes-6.2.0"></a>6.2.0 - 2021/05/31<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h3>
+</div></div></div>
+<h5><a id="_features_15"></a>Features<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h5>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Added support for aioredis 1.x <a href="https://github.com/elastic/apm-agent-python/pull/1082" class="ulink" target="_top">#2526</a>
+</li>
+<li class="listitem">
+Added support for aiomysql <a href="https://github.com/elastic/apm-agent-python/pull/1107" class="ulink" target="_top">#1107</a>
+</li>
+<li class="listitem">
+Added Redis pub/sub instrumentation <a href="https://github.com/elastic/apm-agent-python/pull/1129" class="ulink" target="_top">#1129</a>
+</li>
+<li class="listitem">
+Added specific instrumentation for AWS SQS <a href="https://github.com/elastic/apm-agent-python/pull/1123" class="ulink" target="_top">#1123</a>
+</li>
+</ul>
+</div>
+<h5><a id="_bug_fixes_32"></a>Bug fixes<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h5>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+ensure metrics are flushed before agent shutdown <a href="https://github.com/elastic/apm-agent-python/pull/1139" class="ulink" target="_top">#1139</a>
+</li>
+<li class="listitem">
+added safeguard for exceptions in processors <a href="https://github.com/elastic/apm-agent-python/pull/1138" class="ulink" target="_top">#1138</a>
+</li>
+<li class="listitem">
+ensure sockets are closed which were opened for cloud environment detection <a href="https://github.com/elastic/apm-agent-python/pull/1134" class="ulink" target="_top">#1134</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="release-notes-6.1.3"></a>6.1.3 - 2021/04/28<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h3>
+</div></div></div>
+<h5><a id="_bug_fixes_33"></a>Bug fixes<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h5>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+added destination information to asyncpg instrumentation <a href="https://github.com/elastic/apm-agent-python/pull/1115" class="ulink" target="_top">#1115</a>
+</li>
+<li class="listitem">
+fixed issue with collecting request meta data with Django REST Framework <a href="https://github.com/elastic/apm-agent-python/pull/1117" class="ulink" target="_top">#1117</a>
+</li>
+<li class="listitem">
+fixed httpx instrumentation for newly released httpx 0.18.0 <a href="https://github.com/elastic/apm-agent-python/pull/1118" class="ulink" target="_top">#1118</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="release-notes-6.1.2"></a>6.1.2 - 2021/04/14<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h3>
+</div></div></div>
+<h5><a id="_bug_fixes_34"></a>Bug fixes<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h5>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+fixed issue with empty transaction name for the root route with Django <a href="https://github.com/elastic/apm-agent-python/pull/1095" class="ulink" target="_top">#1095</a>
+</li>
+<li class="listitem">
+fixed on-the-fly initialisation of Flask apps <a href="https://github.com/elastic/apm-agent-python/pull/1099" class="ulink" target="_top">#1099</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="release-notes-6.1.1"></a>v6.1.1 - 2021/04/08<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h3>
+</div></div></div>
+<h5><a id="_bug_fixes_35"></a>Bug fixes<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h5>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+fixed a validation issue with the newly introduced instrumentation for S3, SNS and DynamoDB <a href="https://github.com/elastic/apm-agent-python/pull/1090" class="ulink" target="_top">#1090</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="release-notes-6.1.0"></a>v6.1.0 - 2021/03/31<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h3>
+</div></div></div>
+<h5><a id="_features_16"></a>Features<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h5>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Add global access to Client singleton object at <code class="literal">elasticapm.get_client()</code> <a href="https://github.com/elastic/apm-agent-python/pull/1043" class="ulink" target="_top">#1043</a>
+</li>
+<li class="listitem">
+Add <code class="literal">log_ecs_formatting</code> config option <a href="https://github.com/elastic/apm-agent-python/pull/1058" class="ulink" target="_top">#1058</a> <a href="https://github.com/elastic/apm-agent-python/pull/1063" class="ulink" target="_top">#1063</a>
+</li>
+<li class="listitem">
+Add instrumentation for httplib2 <a href="https://github.com/elastic/apm-agent-python/pull/1031" class="ulink" target="_top">#1031</a>
+</li>
+<li class="listitem">
+Add better instrumentation for some AWS services (S3, SNS, DynamoDB) <a href="https://github.com/elastic/apm-agent-python/pull/1054" class="ulink" target="_top">#1054</a>
+</li>
+<li class="listitem">
+Added beta support for collecting metrics from prometheus_client <a href="https://github.com/elastic/apm-agent-python/pull/1083" class="ulink" target="_top">#1083</a>
+</li>
+</ul>
+</div>
+<h5><a id="_bug_fixes_36"></a>Bug fixes<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h5>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Fix for potential <code class="literal">capture_body: error</code> hang in Starlette/FastAPI <a href="https://github.com/elastic/apm-agent-python/pull/1038" class="ulink" target="_top">#1038</a>
+</li>
+<li class="listitem">
+Fix a rare error around processing stack frames <a href="https://github.com/elastic/apm-agent-python/pull/1012" class="ulink" target="_top">#1012</a>
+</li>
+<li class="listitem">
+Fix for Starlette/FastAPI to correctly capture request bodies as strings <a href="https://github.com/elastic/apm-agent-python/pull/1042" class="ulink" target="_top">#1041</a>
+</li>
+<li class="listitem">
+Fix transaction names for Starlette Mount routes <a href="https://github.com/elastic/apm-agent-python/pull/1037" class="ulink" target="_top">#1037</a>
+</li>
+<li class="listitem">
+Fix for elastic excepthook arguments <a href="https://github.com/elastic/apm-agent-python/pull/1050" class="ulink" target="_top">#1050</a>
+</li>
+<li class="listitem">
+Fix issue with remote configuration when resetting config values <a href="https://github.com/elastic/apm-agent-python/pull/1068" class="ulink" target="_top">#1068</a>
+</li>
+<li class="listitem">
+Use a label for the elasticapm Django app that is compatible with Django 3.2 validation <a href="https://github.com/elastic/apm-agent-python/pull/1064" class="ulink" target="_top">#1064</a>
+</li>
+<li class="listitem">
+Fix an issue with undefined routes in Starlette <a href="https://github.com/elastic/apm-agent-python/pull/1076" class="ulink" target="_top">#1076</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="release-notes-6.0.0"></a>v6.0.0 - 2021/02/01<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h3>
+</div></div></div>
+<h5><a id="_breaking_changes"></a>Breaking changes<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h5>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Python 2.7 and 3.5 support has been deprecated. The Python agent now requires Python 3.6+ <a href="https://github.com/elastic/apm-agent-python/pull/1021" class="ulink" target="_top">#1021</a>
+</li>
+<li class="listitem">
+No longer collecting body for <code class="literal">elasticsearch-py</code> <code class="literal">update</code> and <code class="literal">delete_by_query</code> <a href="https://github.com/elastic/apm-agent-python/pull/1013" class="ulink" target="_top">#1013</a>
+</li>
+<li class="listitem">
+Align <code class="literal">sanitize_field_names</code> config with the
+<a href="https://github.com/elastic/apm/blob/3fa78e2a1eeea81c73c2e16e96dbf6b2e79f3c64/specs/agents/sanitization.md" class="ulink" target="_top">cross-agent spec</a>.
+If you are using a non-default <code class="literal">sanitize_field_names</code>, surrounding each of your entries with stars (e.g.
+<code class="literal">*secret*</code>) will retain the old behavior. <a href="https://github.com/elastic/apm-agent-python/pull/982" class="ulink" target="_top">#982</a>
+</li>
+<li class="listitem">
+Remove credit card sanitization for field values. This improves performance, and the security value of this check was
+dubious anyway. <a href="https://github.com/elastic/apm-agent-python/pull/982" class="ulink" target="_top">#982</a>
+</li>
+<li class="listitem">
+Remove HTTP querystring sanitization. This improves performance, and is meant to standardize behavior across the
+agents, as defined in <a href="https://github.com/elastic/apm/pull/334" class="ulink" target="_top">https://github.com/elastic/apm/pull/334</a>. <a href="https://github.com/elastic/apm-agent-python/pull/982" class="ulink" target="_top">#982</a>
+</li>
+<li class="listitem">
+Remove <code class="literal">elasticapm.tag()</code> (deprecated since 5.0.0) <a href="https://github.com/elastic/apm-agent-python/pull/1034" class="ulink" target="_top">#1034</a>
+</li>
+</ul>
+</div>
+<h5><a id="_bug_fixes_37"></a>Bug fixes<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/CHANGELOG.asciidoc">edit</a></h5>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Fix for GraphQL span spamming from scalar fields with required flag <a href="https://github.com/elastic/apm-agent-python/pull/1015" class="ulink" target="_top">#1015</a>
+</li>
+</ul>
+</div>
+</div>
+
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="_unreleased.html">« Unreleased</a>
+</span>
+<span class="next">
+<a href="release-notes-5.x.html">Python Agent version 5.x »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Upgrading to version 5 of the agent | APM Python Agent Reference [main] | Elastic</title>
+<meta class="elastic" name="content" content="Upgrading to version 5 of the agent | APM Python Agent Reference [main]">
+
+<link rel="home" href="index.html" title="APM Python Agent Reference [main]"/>
+<link rel="up" href="upgrading.html" title="Upgrading"/>
+<link rel="prev" href="upgrading-6.x.html" title="Upgrading to version 6 of the agent"/>
+<link rel="next" href="upgrading-4.x.html" title="Upgrading to version 4 of the agent"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="APM"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/APM Python Agent/Reference/main"/>
+<meta name="DC.subject" content="APM"/>
+<meta name="DC.identifier" content="main"/>
+</head>
+<body><div class="page_header">
+You are looking at preliminary documentation for a future release.
+Not what you want? See the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link">
+  <div id="related-products" class="dropdown">
+    <div class="related-products-title">APM:</div>
+    <div class="dropdown-anchor" tabindex="0">Python Agent Reference<span class="dropdown-icon"></span></div>
+    <div class="dropdown-content">
+      <ul>
+        <li class="dropdown-category">APM</li>
+        <ul>
+          <li><a href="/guide/en/apm/guide/current/apm-overview.html">User Guide</a></li>
+        </ul>
+        <li class="dropdown-category">APM agents</li>
+        <ul>
+          <li><a href="/guide/en/apm/agent/android/current/intro.html">Android Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/go/current/introduction.html">Go Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/swift/current/intro.html">iOS Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/java/current/intro.html">Java Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/dotnet/current/intro.html">.NET Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/nodejs/current/intro.html">Node.js Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/php/current/intro.html">PHP Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/python/current/getting-started.html">Python Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/ruby/current/introduction.html">Ruby Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/rum-js/current/intro.html">Real User Monitoring JavaScript Agent Reference</a></li>
+        </ul>
+        <li class="dropdown-category">APM extensions</li>
+        <ul>
+          <li><a href="/guide/en/apm/lambda/current/aws-lambda-arch.html">Monitoring AWS Lambda Functions</a></li>
+          <li><a href="/guide/en/apm/attacher/current/apm-attacher.html">Attacher</a></li>
+        </ul>
+      </ul>
+    </div>
+  </div>
+</span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="upgrading.html">Upgrading</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="upgrading-6.x.html">« Upgrading to version 6 of the agent</a>
+</span>
+<span class="next">
+<a href="upgrading-4.x.html">Upgrading to version 4 of the agent »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="upgrading-5.x"></a>Upgrading to version 5 of the agent<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/docs/upgrading.asciidoc">edit</a></h2>
+</div></div></div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="_apm_server_7_3_required_for_some_features"></a>APM Server 7.3 required for some features<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/docs/upgrading.asciidoc">edit</a></h3>
+</div></div></div>
+<p>APM Server and Kibana 7.3 introduced support for collecting breakdown metrics, and central configuration of APM agents.
+To use these features, please update the Python agent to 5.0+ and APM Server / Kibana to 7.3+</p>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="_tags_renamed_to_labels"></a>Tags renamed to Labels<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-python/edit/main/docs/upgrading.asciidoc">edit</a></h3>
+</div></div></div>
+<p>To better align with other parts of the Elastic Stack and the <a href="/guide/en/ecs/8.7/index.html" class="ulink" target="_top">Elastic Common Schema</a>,
+we renamed "tags" to "labels", and introduced limited support for typed labels.
+While tag values were only allowed to be strings, label values can be strings, booleans, or numerical.</p>
+<p>To benefit from this change, ensure that you run at least <span class="strong strong"><strong>APM Server 6.7</strong></span>, and use <code class="literal">elasticapm.label()</code> instead of <code class="literal">elasticapm.tag()</code>.
+The <code class="literal">tag()</code> API will continue to work as before, but emit a <code class="literal">DeprecationWarning</code>. It will be removed in 6.0 of the agent.</p>
+</div>
+
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="upgrading-6.x.html">« Upgrading to version 6 of the agent</a>
+</span>
+<span class="next">
+<a href="upgrading-4.x.html">Upgrading to version 4 of the agent »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

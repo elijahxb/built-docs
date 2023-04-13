@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Filtering Queries | Elasticsearch: The Definitive Guide [main] | Elastic</title>
+<meta class="elastic" name="content" content="Filtering Queries | Elasticsearch: The Definitive Guide [main]">
+
+<link rel="home" href="index.html" title="Elasticsearch: The Definitive Guide [main]"/>
+<link rel="up" href="_filtering_queries_and_aggregations.html" title="Filtering Queries and Aggregations"/>
+<link rel="prev" href="_filtering_queries_and_aggregations.html" title="Filtering Queries and Aggregations"/>
+<link rel="next" href="_filter_bucket.html" title="Filter Bucket"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="Elasticsearch"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Legacy/Elasticsearch/Definitive Guide/main"/>
+<meta name="DC.subject" content="Elasticsearch"/>
+<meta name="DC.identifier" content="main"/>
+<meta name="robots" content="noindex,nofollow"/>
+</head>
+<body><div class="page_header">
+<p>
+  <strong>WARNING</strong>: This documentation covers Elasticsearch 2.x. The 2.x
+  versions of Elasticsearch have passed their
+  <a href="https://www.elastic.co/support/eol">EOL dates</a>. If you are running
+  a 2.x version, we strongly advise you to upgrade.
+</p>
+<p>
+  This documentation is no longer maintained and may be removed. For the latest
+  information, see the <a
+  href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">current
+  Elasticsearch documentation</a>.
+</p>
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch: The Definitive Guide [main]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="aggregations.html">Aggregations</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="_filtering_queries_and_aggregations.html">Filtering Queries and Aggregations</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="_filtering_queries_and_aggregations.html">« Filtering Queries and Aggregations</a>
+</span>
+<span class="next">
+<a href="_filter_bucket.html">Filter Bucket »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="_filtering_queries"></a>Filtering Queries<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/300_Aggregations/45_filtering.asciidoc">edit</a></h2>
+</div></div></div>
+<p>If we want to find all cars over $10,000 and also calculate the average price
+for those cars,
+ we can use a <code class="literal">constant_score</code> query and its <code class="literal">filter</code> clause:</p>
+<div class="pre_wrapper lang-sense">
+<pre class="programlisting prettyprint lang-sense">GET /cars/transactions/_search
+{
+    "size" : 0,
+    "query" : {
+        "constant_score": {
+            "filter": {
+                "range": {
+                    "price": {
+                        "gte": 10000
+                    }
+                }
+            }
+        }
+    },
+    "aggs" : {
+        "single_avg_price": {
+            "avg" : { "field" : "price" }
+        }
+    }
+}</pre>
+</div>
+<div class="sense_widget" data-snippet="snippets/300_Aggregations/45_filtering.json"></div>
+<p>Fundamentally, using a non-scoring query is no different from using a <code class="literal">match</code>
+query, as we discussed in the previous chapter.  The query returns a certain
+subset of documents, and the aggregation operates on those documents.  It just happens
+to omit scoring and may proactively cache bitsets, etc.</p>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="_filtering_queries_and_aggregations.html">« Filtering Queries and Aggregations</a>
+</span>
+<span class="next">
+<a href="_filter_bucket.html">Filter Bucket »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>OpenTracing | APM Real User Monitoring JavaScript Agent Reference [main] | Elastic</title>
+<meta class="elastic" name="content" content="OpenTracing | APM Real User Monitoring JavaScript Agent Reference [main]">
+
+<link rel="home" href="index.html" title="APM Real User Monitoring JavaScript Agent Reference [main]"/>
+<link rel="up" href="index.html" title="APM Real User Monitoring JavaScript Agent Reference [main]"/>
+<link rel="prev" href="breakdown-metrics-docs.html" title="Breakdown Metrics"/>
+<link rel="next" href="advanced-topics.html" title="Advanced Topics"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="APM"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/APM Real User Monitoring JavaScript Agent/Reference/main"/>
+<meta name="DC.subject" content="APM"/>
+<meta name="DC.identifier" content="main"/>
+</head>
+<body><div class="page_header">
+You are looking at preliminary documentation for a future release.
+Not what you want? See the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link">
+  <div id="related-products" class="dropdown">
+    <div class="related-products-title">APM:</div>
+    <div class="dropdown-anchor" tabindex="0">Real User Monitoring JavaScript Agent Reference<span class="dropdown-icon"></span></div>
+    <div class="dropdown-content">
+      <ul>
+        <li class="dropdown-category">APM</li>
+        <ul>
+          <li><a href="/guide/en/apm/guide/current/apm-overview.html">User Guide</a></li>
+        </ul>
+        <li class="dropdown-category">APM agents</li>
+        <ul>
+          <li><a href="/guide/en/apm/agent/android/current/intro.html">Android Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/go/current/introduction.html">Go Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/swift/current/intro.html">iOS Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/java/current/intro.html">Java Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/dotnet/current/intro.html">.NET Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/nodejs/current/intro.html">Node.js Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/php/current/intro.html">PHP Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/python/current/getting-started.html">Python Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/ruby/current/introduction.html">Ruby Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/rum-js/current/intro.html">Real User Monitoring JavaScript Agent Reference</a></li>
+        </ul>
+        <li class="dropdown-category">APM extensions</li>
+        <ul>
+          <li><a href="/guide/en/apm/lambda/current/aws-lambda-arch.html">Monitoring AWS Lambda Functions</a></li>
+          <li><a href="/guide/en/apm/attacher/current/apm-attacher.html">Attacher</a></li>
+        </ul>
+      </ul>
+    </div>
+  </div>
+</span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="breakdown-metrics-docs.html">« Breakdown Metrics</a>
+</span>
+<span class="next">
+<a href="advanced-topics.html">Advanced Topics »</a>
+</span>
+</div>
+<div class="chapter">
+<div class="titlepage"><div><div>
+<h1 class="title"><a id="opentracing"></a>OpenTracing<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-rum-js/edit/main/docs/opentracing.asciidoc">edit</a></h1>
+</div></div></div>
+<p>Elastic APM RUM agent provides an implementation for the <a href="https://opentracing.io/" class="ulink" target="_top">OpenTracing API</a>.
+The <code class="literal">ElasticApmTracer</code> translates OpenTracing API calls to Elastic APM, which allows the reuse of existing instrumentation.</p>
+<p>The first span of a service will be converted to an Elastic APM <code class="literal">Transaction</code>,
+and subsequent spans are mapped to Elastic APM <code class="literal">Span</code>.</p>
+<h3><a id="opentracing-getting-started"></a>Getting started<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-rum-js/edit/main/docs/opentracing.asciidoc">edit</a></h3>
+<p>In order to use OpenTracing API with Elastic APM, you need to first create a Tracer:</p>
+<div class="pre_wrapper lang-js">
+<pre class="programlisting prettyprint lang-js">const { init: initApm, createTracer } = require('@elastic/apm-rum/dist/bundles/elastic-apm-opentracing.umd.js')
+const elasticApm = initApm({
+    // ...
+})
+const elasticTracer = createTracer(elasticApm)</pre>
+</div>
+<p>At this point you can either use <code class="literal">elasticTracer</code> directly, or register it as a global tracer:</p>
+<div class="pre_wrapper lang-js">
+<pre class="programlisting prettyprint lang-js">const opentracing = require('opentracing-javascript')
+opentracing.initGlobalTracer(elasticTracer);
+
+// ...
+
+const tracer = opentracing.globalTracer();</pre>
+</div>
+<p>Please refer to <a href="https://github.com/opentracing/opentracing-javascript/" class="ulink" target="_top">opentracing-javascript</a> documentation for more detail
+on OpenTracing API.</p>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>If you are loading the RUM agent using a script tag, please make sure to use our OpenTracing bundle
+(<code class="literal">@elastic/apm-rum/dist/bundles/elastic-apm-opentracing.umd.js</code>) in your scripts instead, then you can create a tracer
+using <code class="literal">window.elasticApm.createTracer()</code>.</p>
+</div>
+</div>
+<h3><a id="opentracing-apm-tags"></a>Elastic APM specific tags<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-rum-js/edit/main/docs/opentracing.asciidoc">edit</a></h3>
+<p>Elastic APM defines some tags which are not included in the OpenTracing specification,
+but are relevant in the context of Elastic APM.</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<code class="literal">type</code> - sets the type of the transaction or span, e.g. "page-load", or "ext.http".
+If <code class="literal">type</code> is not specified, <code class="literal">custom</code> would be set instead.
+</li>
+</ul>
+</div>
+<p>The following tags are relevant only to the root spans, which are
+translated to Elastic APM transactions.
+These tags appear in the "User" tab on the transaction details page in the Elastic APM app.</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<code class="literal">user.id</code> - sets the user id
+</li>
+<li class="listitem">
+<code class="literal">user.email</code> - sets the user email
+</li>
+<li class="listitem">
+<code class="literal">user.username</code> - sets the user name
+</li>
+</ul>
+</div>
+<h3><a id="opentracing-caveats"></a>Caveats<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-rum-js/edit/main/docs/opentracing.asciidoc">edit</a></h3>
+<p>Some of the OpenTracing features are not fully supported by Elastic APM RUM agent.</p>
+<h4><a id="opentracing-propagation"></a>Context propagation<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-rum-js/edit/main/docs/opentracing.asciidoc">edit</a></h4>
+<p>Currently, the only carrier formats supported are <code class="literal">FORMAT_HTTP_HEADERS</code> and <code class="literal">FORMAT_TEXT_MAP</code>.
+<code class="literal">FORMAT_BINARY</code> is not supported.</p>
+<h4><a id="opentracing-references"></a>Span References<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-rum-js/edit/main/docs/opentracing.asciidoc">edit</a></h4>
+<p>Currently, the Elastic APM Tracer supports <code class="literal">REFERENCE_CHILD_OF</code> references.
+However, only the first <code class="literal">REFERENCE_CHILD_OF</code> reference is recorded and the rest are ignored.
+Other references, e.g. <code class="literal">follows_from</code>, are currently not supported.</p>
+<h4><a id="opentracing-baggage"></a>Baggage<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-rum-js/edit/main/docs/opentracing.asciidoc">edit</a></h4>
+<p>The <code class="literal">Span.setBaggageItem</code> method is not supported.
+Baggage items are silently dropped.</p>
+<h4><a id="opentracing-logs"></a>Logs<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-rum-js/edit/main/docs/opentracing.asciidoc">edit</a></h4>
+<p>Only Error logging is supported.
+Logging an Error on the OpenTracing span will create an Elastic APM Error.</p>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="breakdown-metrics-docs.html">« Breakdown Metrics</a>
+</span>
+<span class="next">
+<a href="advanced-topics.html">Advanced Topics »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

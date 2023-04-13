@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ASP.NET | APM .NET Agent Reference [main] | Elastic</title>
+<meta class="elastic" name="content" content="ASP.NET | APM .NET Agent Reference [main]">
+
+<link rel="home" href="index.html" title="APM .NET Agent Reference [main]"/>
+<link rel="up" href="setup.html" title="Set up the Agent"/>
+<link rel="prev" href="setup-dotnet-net-core.html" title=".NET Core"/>
+<link rel="next" href="setup-azure-functions.html" title="Azure Functions"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="APM"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/APM .NET Agent/Reference/main"/>
+<meta name="DC.subject" content="APM"/>
+<meta name="DC.identifier" content="main"/>
+</head>
+<body><div class="page_header">
+You are looking at preliminary documentation for a future release.
+Not what you want? See the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link">
+  <div id="related-products" class="dropdown">
+    <div class="related-products-title">APM:</div>
+    <div class="dropdown-anchor" tabindex="0">.NET Agent Reference<span class="dropdown-icon"></span></div>
+    <div class="dropdown-content">
+      <ul>
+        <li class="dropdown-category">APM</li>
+        <ul>
+          <li><a href="/guide/en/apm/guide/current/apm-overview.html">User Guide</a></li>
+        </ul>
+        <li class="dropdown-category">APM agents</li>
+        <ul>
+          <li><a href="/guide/en/apm/agent/android/current/intro.html">Android Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/go/current/introduction.html">Go Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/swift/current/intro.html">iOS Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/java/current/intro.html">Java Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/dotnet/current/intro.html">.NET Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/nodejs/current/intro.html">Node.js Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/php/current/intro.html">PHP Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/python/current/getting-started.html">Python Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/ruby/current/introduction.html">Ruby Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/rum-js/current/intro.html">Real User Monitoring JavaScript Agent Reference</a></li>
+        </ul>
+        <li class="dropdown-category">APM extensions</li>
+        <ul>
+          <li><a href="/guide/en/apm/lambda/current/aws-lambda-arch.html">Monitoring AWS Lambda Functions</a></li>
+          <li><a href="/guide/en/apm/attacher/current/apm-attacher.html">Attacher</a></li>
+        </ul>
+      </ul>
+    </div>
+  </div>
+</span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="setup.html">Set up the Agent</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="setup-dotnet-net-core.html">« .NET Core</a>
+</span>
+<span class="next">
+<a href="setup-azure-functions.html">Azure Functions »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="setup-asp-dot-net"></a>ASP.NET<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-dotnet/edit/main/docs/setup-asp-dot-net.asciidoc">edit</a></h2>
+</div></div></div>
+<h4><a id="_quick_start_4"></a>Quick start<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-dotnet/edit/main/docs/setup-asp-dot-net.asciidoc">edit</a></h4>
+<p>To enable auto instrumentation for ASP.NET (Full .NET Framework), you need to install the <code class="literal">Elastic.Apm.AspNetFullFramework</code> package, add a reference
+to the package in your <code class="literal">web.config</code> file, and then compile and deploy your application.</p>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+Ensure you have access to the application source code and install the <a href="https://www.nuget.org/packages/Elastic.Apm.AspNetFullFramework" class="ulink" target="_top"><code class="literal">Elastic.Apm.AspNetFullFramework</code></a>
+package.
+</li>
+<li class="listitem">
+<p>Reference the <code class="literal">Elastic.Apm.AspNetFullFramework</code> in your application&#8217;s <code class="literal">web.config</code> file by adding the <code class="literal">ElasticApmModule</code> IIS module:</p>
+<div class="pre_wrapper lang-xml">
+<pre class="programlisting prettyprint lang-xml">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;configuration&gt;
+    &lt;system.webServer&gt;
+        &lt;modules&gt;
+            &lt;add name="ElasticApmModule" type="Elastic.Apm.AspNetFullFramework.ElasticApmModule, Elastic.Apm.AspNetFullFramework" /&gt;
+        &lt;/modules&gt;
+    &lt;/system.webServer&gt;
+&lt;/configuration&gt;</pre>
+</div>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>There are two available configuration sources. To learn more, see <a class="xref" href="configuration-on-asp-net.html" title="Configuration on ASP.NET">Configuration on ASP.NET</a>.</p>
+</div>
+</div>
+<p>By default, the agent creates transactions for all HTTP requests, including static content:
+.html pages, images, etc.</p>
+<p>To create transactions only for HTTP requests with dynamic content,
+such as <code class="literal">.aspx</code> pages, add the <code class="literal">managedHandler</code> preCondition to your <code class="literal">web.config</code> file:</p>
+<div class="pre_wrapper lang-xml">
+<pre class="programlisting prettyprint lang-xml">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;configuration&gt;
+    &lt;system.webServer&gt;
+        &lt;modules&gt;
+            &lt;add name="ElasticApmModule" type="Elastic.Apm.AspNetFullFramework.ElasticApmModule, Elastic.Apm.AspNetFullFramework" preCondition="managedHandler" /&gt;
+        &lt;/modules&gt;
+    &lt;/system.webServer&gt;
+&lt;/configuration&gt;</pre>
+</div>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>To learn more about adding modules, see the <a href="https://docs.microsoft.com/en-us/iis/configuration/system.webserver/modules/add" class="ulink" target="_top">Microsoft docs</a>.</p>
+</div>
+</div>
+</li>
+<li class="listitem">
+<p>Recompile your application and deploy it.</p>
+<p>The <code class="literal">ElasticApmModule</code> instantiates the APM agent on the first initialization. However, there may be some scenarios where
+you want to control the agent instantiation, such as configuring filters in the application start.</p>
+<p>To do so, the <code class="literal">ElasticApmModule</code> exposes a <code class="literal">CreateAgentComponents()</code> method that returns agent components configured to work with
+ASP.NET Full Framework, which can then instantiate the agent.</p>
+<p>For example, you can add transaction filters to the agent in the application start:</p>
+<div class="pre_wrapper lang-c#">
+<pre class="programlisting prettyprint lang-c#">public class MvcApplication : HttpApplication
+{
+    protected void Application_Start()
+    {
+        // other application startup e.g. RouteConfig, etc.
+
+        // set up agent with components
+        var agentComponents = ElasticApmModule.CreateAgentComponents();
+        Agent.Setup(agentComponents);
+
+        // add transaction filter
+        Agent.AddFilter((ITransaction t) =&gt;
+        {
+            t.SetLabel("foo", "bar");
+            return t;
+        });
+    }
+}</pre>
+</div>
+<p>Now, the <code class="literal">ElasticApmModule</code> will use the instantiated instance of the APM agent upon initialization.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="setup-dotnet-net-core.html">« .NET Core</a>
+</span>
+<span class="next">
+<a href="setup-azure-functions.html">Azure Functions »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

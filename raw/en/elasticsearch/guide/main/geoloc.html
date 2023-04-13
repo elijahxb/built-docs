@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Geolocation | Elasticsearch: The Definitive Guide [main] | Elastic</title>
+<meta class="elastic" name="content" content="Geolocation | Elasticsearch: The Definitive Guide [main]">
+
+<link rel="home" href="index.html" title="Elasticsearch: The Definitive Guide [main]"/>
+<link rel="up" href="index.html" title="Elasticsearch: The Definitive Guide [main]"/>
+<link rel="prev" href="_closing_thoughts.html" title="Closing Thoughts"/>
+<link rel="next" href="geopoints.html" title="Geo Points"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="Elasticsearch"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Legacy/Elasticsearch/Definitive Guide/main"/>
+<meta name="DC.subject" content="Elasticsearch"/>
+<meta name="DC.identifier" content="main"/>
+<meta name="robots" content="noindex,nofollow"/>
+</head>
+<body><div class="page_header">
+<p>
+  <strong>WARNING</strong>: This documentation covers Elasticsearch 2.x. The 2.x
+  versions of Elasticsearch have passed their
+  <a href="https://www.elastic.co/support/eol">EOL dates</a>. If you are running
+  a 2.x version, we strongly advise you to upgrade.
+</p>
+<p>
+  This documentation is no longer maintained and may be removed. For the latest
+  information, see the <a
+  href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">current
+  Elasticsearch documentation</a>.
+</p>
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch: The Definitive Guide [main]</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="_closing_thoughts.html">« Closing Thoughts</a>
+</span>
+<span class="next">
+<a href="geopoints.html">Geo Points »</a>
+</span>
+</div>
+<div class="part">
+<div class="titlepage"><div><div>
+<h1 class="title"><a id="geoloc"></a>Geolocation<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/04_Geolocation.asciidoc">edit</a></h1>
+</div></div></div>
+<div class="openblock partintro">
+<div class="content">
+<p>Gone are the days when we wander around a city with paper maps. Thanks to
+smartphones, we now know exactly where we are all the time, and we expect
+websites to use that information.  I&#8217;m not interested in restaurants in
+Greater London&#8212;&#8203;I want to know about restaurants within a 5-minute walk of my
+current location.</p>
+<p>But geolocation is only one part of the puzzle.  The beauty of Elasticsearch
+is that it allows you to combine geolocation with full-text search, structured
+search, and analytics.</p>
+<p>For instance: show me restaurants that mention <em>vitello tonnato</em>, are within a 5-minute walk, and are open at 11 p.m., and then rank them by a combination of user
+rating, distance, and price. Another example: show me a map of vacation rental
+properties available in August throughout the city, and calculate the average
+price per zone.</p>
+<p>Elasticsearch offers two ways of representing geolocations: latitude-longitude
+points using the <code class="literal">geo_point</code> field type, and complex shapes defined in
+<a href="http://en.wikipedia.org/wiki/GeoJSON" class="ulink" target="_top">GeoJSON</a>, using the <code class="literal">geo_shape</code> field
+type.</p>
+<p><em>Geo-points</em> allow you to find points within a certain distance of another
+point, to calculate distances between two points for sorting or relevance
+scoring, or to aggregate into a grid to display on a map.  <em>Geo-shapes</em>, on the
+other hand, are used purely for filtering.  They can be used to decide whether
+two shapes overlap, or whether one shape completely contains other
+shapes.</p>
+</div>
+</div>
+
+
+
+
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="_closing_thoughts.html">« Closing Thoughts</a>
+</span>
+<span class="next">
+<a href="geopoints.html">Geo Points »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

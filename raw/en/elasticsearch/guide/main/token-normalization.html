@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Normalizing Tokens | Elasticsearch: The Definitive Guide [main] | Elastic</title>
+<meta class="elastic" name="content" content="Normalizing Tokens | Elasticsearch: The Definitive Guide [main]">
+
+<link rel="home" href="index.html" title="Elasticsearch: The Definitive Guide [main]"/>
+<link rel="up" href="languages.html" title="Dealing with Human Language"/>
+<link rel="prev" href="char-filters.html" title="Tidying Up Input Text"/>
+<link rel="next" href="lowercase-token-filter.html" title="In That Case"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="Elasticsearch"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Legacy/Elasticsearch/Definitive Guide/main"/>
+<meta name="DC.subject" content="Elasticsearch"/>
+<meta name="DC.identifier" content="main"/>
+<meta name="robots" content="noindex,nofollow"/>
+</head>
+<body><div class="page_header">
+<p>
+  <strong>WARNING</strong>: This documentation covers Elasticsearch 2.x. The 2.x
+  versions of Elasticsearch have passed their
+  <a href="https://www.elastic.co/support/eol">EOL dates</a>. If you are running
+  a 2.x version, we strongly advise you to upgrade.
+</p>
+<p>
+  This documentation is no longer maintained and may be removed. For the latest
+  information, see the <a
+  href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">current
+  Elasticsearch documentation</a>.
+</p>
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch: The Definitive Guide [main]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="languages.html">Dealing with Human Language</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="char-filters.html">« Tidying Up Input Text</a>
+</span>
+<span class="next">
+<a href="lowercase-token-filter.html">In That Case »</a>
+</span>
+</div>
+<div class="chapter">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="token-normalization"></a>Normalizing Tokens<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/220_Token_normalization/00_Intro.asciidoc">edit</a></h2>
+</div></div></div>
+<p>Breaking text into tokens is only half the job. To make those
+tokens more easily searchable, they need to go through a <em>normalization</em>
+process to remove insignificant differences between otherwise identical words,
+such as uppercase versus lowercase.  Perhaps we also need to remove significant
+differences, to make <code class="literal">esta</code>, <code class="literal">ésta</code>, and <code class="literal">está</code> all searchable as the same
+word.  Would you search for <code class="literal">déjà vu</code>, or just for <code class="literal">deja vu</code>?</p>
+<p>This is the job of the token filters, which receive a stream of tokens from
+the tokenizer.  You can have multiple token filters, each doing its particular
+job.  Each receives the new token stream as output by the token filter before
+it.</p>
+
+
+
+
+
+
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="char-filters.html">« Tidying Up Input Text</a>
+</span>
+<span class="next">
+<a href="lowercase-token-filter.html">In That Case »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

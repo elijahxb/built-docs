@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Search with Query DSL | Elasticsearch: The Definitive Guide [main] | Elastic</title>
+<meta class="elastic" name="content" content="Search with Query DSL | Elasticsearch: The Definitive Guide [main]">
+
+<link rel="home" href="index.html" title="Elasticsearch: The Definitive Guide [main]"/>
+<link rel="up" href="intro.html" title="You Know, for Search&#8230;&#8203;"/>
+<link rel="prev" href="_search_lite.html" title="Search Lite"/>
+<link rel="next" href="_more_complicated_searches.html" title="More-Complicated Searches"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="Elasticsearch"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Legacy/Elasticsearch/Definitive Guide/main"/>
+<meta name="DC.subject" content="Elasticsearch"/>
+<meta name="DC.identifier" content="main"/>
+<meta name="robots" content="noindex,nofollow"/>
+</head>
+<body><div class="page_header">
+<p>
+  <strong>WARNING</strong>: This documentation covers Elasticsearch 2.x. The 2.x
+  versions of Elasticsearch have passed their
+  <a href="https://www.elastic.co/support/eol">EOL dates</a>. If you are running
+  a 2.x version, we strongly advise you to upgrade.
+</p>
+<p>
+  This documentation is no longer maintained and may be removed. For the latest
+  information, see the <a
+  href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">current
+  Elasticsearch documentation</a>.
+</p>
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch: The Definitive Guide [main]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="getting-started.html">Getting Started</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="intro.html">You Know, for Search&#8230;&#8203;</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="_search_lite.html">« Search Lite</a>
+</span>
+<span class="next">
+<a href="_more_complicated_searches.html">More-Complicated Searches »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="_search_with_query_dsl"></a>Search with Query DSL<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/010_Intro/30_Tutorial_Search.asciidoc">edit</a></h2>
+</div></div></div>
+<p>Query-string search is handy for ad hoc searches from the command line, but
+it has its limitations (see <a class="xref" href="search-lite.html" title="Search Lite">Search <em>Lite</em></a>). Elasticsearch provides a rich,
+flexible, query language called the <em>query DSL</em>, which allows us to build
+much more complicated, robust queries.</p>
+<p>The <em>domain-specific language</em> (DSL) is specified using a JSON request body.
+We can represent the previous search for all Smiths like so:</p>
+<div class="pre_wrapper lang-sense">
+<pre class="programlisting prettyprint lang-sense">GET /megacorp/employee/_search
+{
+    "query" : {
+        "match" : {
+            "last_name" : "Smith"
+        }
+    }
+}</pre>
+</div>
+<div class="sense_widget" data-snippet="snippets/010_Intro/30_Simple_search.json"></div>
+<p>This will return the same results as the previous query.  You can see that a
+number of things have changed.  For one, we are no longer using <em>query-string</em>
+parameters, but instead a request body.  This request body is built with JSON,
+and uses a <code class="literal">match</code> query (one of several types of queries, which we will learn
+about later).</p>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="_search_lite.html">« Search Lite</a>
+</span>
+<span class="next">
+<a href="_more_complicated_searches.html">More-Complicated Searches »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

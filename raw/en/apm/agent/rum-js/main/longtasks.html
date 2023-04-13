@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>How to interpret long task spans in the UI | APM Real User Monitoring JavaScript Agent Reference [main] | Elastic</title>
+<meta class="elastic" name="content" content="How to interpret long task spans in the UI | APM Real User Monitoring JavaScript Agent Reference [main]">
+
+<link rel="home" href="index.html" title="APM Real User Monitoring JavaScript Agent Reference [main]"/>
+<link rel="up" href="advanced-topics.html" title="Advanced Topics"/>
+<link rel="prev" href="advanced-topics.html" title="Advanced Topics"/>
+<link rel="next" href="typescript.html" title="Using with TypeScript"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="APM"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/APM Real User Monitoring JavaScript Agent/Reference/main"/>
+<meta name="DC.subject" content="APM"/>
+<meta name="DC.identifier" content="main"/>
+</head>
+<body><div class="page_header">
+You are looking at preliminary documentation for a future release.
+Not what you want? See the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link">
+  <div id="related-products" class="dropdown">
+    <div class="related-products-title">APM:</div>
+    <div class="dropdown-anchor" tabindex="0">Real User Monitoring JavaScript Agent Reference<span class="dropdown-icon"></span></div>
+    <div class="dropdown-content">
+      <ul>
+        <li class="dropdown-category">APM</li>
+        <ul>
+          <li><a href="/guide/en/apm/guide/current/apm-overview.html">User Guide</a></li>
+        </ul>
+        <li class="dropdown-category">APM agents</li>
+        <ul>
+          <li><a href="/guide/en/apm/agent/android/current/intro.html">Android Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/go/current/introduction.html">Go Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/swift/current/intro.html">iOS Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/java/current/intro.html">Java Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/dotnet/current/intro.html">.NET Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/nodejs/current/intro.html">Node.js Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/php/current/intro.html">PHP Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/python/current/getting-started.html">Python Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/ruby/current/introduction.html">Ruby Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/rum-js/current/intro.html">Real User Monitoring JavaScript Agent Reference</a></li>
+        </ul>
+        <li class="dropdown-category">APM extensions</li>
+        <ul>
+          <li><a href="/guide/en/apm/lambda/current/aws-lambda-arch.html">Monitoring AWS Lambda Functions</a></li>
+          <li><a href="/guide/en/apm/attacher/current/apm-attacher.html">Attacher</a></li>
+        </ul>
+      </ul>
+    </div>
+  </div>
+</span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="advanced-topics.html">Advanced Topics</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="advanced-topics.html">« Advanced Topics</a>
+</span>
+<span class="next">
+<a href="typescript.html">Using with TypeScript »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="longtasks"></a>How to interpret long task spans in the UI<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-rum-js/edit/main/docs/advanced-topics.asciidoc">edit</a></h2>
+</div></div></div>
+<p>Long tasks is a new performance metric that can be used for measuring the
+responsiveness of an application and helps developers to understand the bad user
+experience. It enables detecting tasks that monopolize the UI thread for
+extended periods (greater than 50 milliseconds) and block other
+critical tasks from being executed as stated in the <a href="https://github.com/w3c/longtasks" class="ulink" target="_top">official spec</a>.</p>
+<p>RUM agent automatically captures these Long tasks and include them as spans as
+part of the transaction. Since long tasks currently does not have the full information on
+which part of code cause slowness, it would be hard to interpret these spans.
+Below you can find some tips to help with interpreting long task spans:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+The name of the long task span, e.g.: <code class="literal">self</code>, <code class="literal">same-origin</code>, etc., implies the
+origin of the task. It could be the current browsing context or inside iframes.
+</li>
+<li class="listitem">
+Context of the span is enriched with useful information like <code class="literal">attribution</code>
+(the type of work, such as script, layout, etc), <code class="literal">type</code>, <code class="literal">id</code> and <code class="literal">name</code>, which
+determines the culprit container (such as window, iframe, embed or object)
+responsible for the long task.
+</li>
+</ul>
+</div>
+<p>With the help of the transaction timeline and span timings,
+one could dig deeper by marking slow application code with the
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/Performance/mark" class="ulink" target="_top">User Timing API</a>.
+When these spans are then captured by the agent again, you could combine them
+with long tasks to reveal the true source code location.</p>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="advanced-topics.html">« Advanced Topics</a>
+</span>
+<span class="next">
+<a href="typescript.html">Using with TypeScript »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

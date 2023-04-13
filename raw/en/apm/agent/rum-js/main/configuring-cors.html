@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Configure CORS | APM Real User Monitoring JavaScript Agent Reference [main] | Elastic</title>
+<meta class="elastic" name="content" content="Configure CORS | APM Real User Monitoring JavaScript Agent Reference [main]">
+
+<link rel="home" href="index.html" title="APM Real User Monitoring JavaScript Agent Reference [main]"/>
+<link rel="up" href="getting-started.html" title="Set up the Agent"/>
+<link rel="prev" href="install-the-agent.html" title="Install the Agent"/>
+<link rel="next" href="supported-technologies.html" title="Supported Technologies"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="APM"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/APM Real User Monitoring JavaScript Agent/Reference/main"/>
+<meta name="DC.subject" content="APM"/>
+<meta name="DC.identifier" content="main"/>
+</head>
+<body><div class="page_header">
+You are looking at preliminary documentation for a future release.
+Not what you want? See the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link">
+  <div id="related-products" class="dropdown">
+    <div class="related-products-title">APM:</div>
+    <div class="dropdown-anchor" tabindex="0">Real User Monitoring JavaScript Agent Reference<span class="dropdown-icon"></span></div>
+    <div class="dropdown-content">
+      <ul>
+        <li class="dropdown-category">APM</li>
+        <ul>
+          <li><a href="/guide/en/apm/guide/current/apm-overview.html">User Guide</a></li>
+        </ul>
+        <li class="dropdown-category">APM agents</li>
+        <ul>
+          <li><a href="/guide/en/apm/agent/android/current/intro.html">Android Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/go/current/introduction.html">Go Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/swift/current/intro.html">iOS Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/java/current/intro.html">Java Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/dotnet/current/intro.html">.NET Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/nodejs/current/intro.html">Node.js Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/php/current/intro.html">PHP Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/python/current/getting-started.html">Python Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/ruby/current/introduction.html">Ruby Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/rum-js/current/intro.html">Real User Monitoring JavaScript Agent Reference</a></li>
+        </ul>
+        <li class="dropdown-category">APM extensions</li>
+        <ul>
+          <li><a href="/guide/en/apm/lambda/current/aws-lambda-arch.html">Monitoring AWS Lambda Functions</a></li>
+          <li><a href="/guide/en/apm/attacher/current/apm-attacher.html">Attacher</a></li>
+        </ul>
+      </ul>
+    </div>
+  </div>
+</span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="getting-started.html">Set up the Agent</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="install-the-agent.html">« Install the Agent</a>
+</span>
+<span class="next">
+<a href="supported-technologies.html">Supported Technologies »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="configuring-cors"></a>Configure CORS<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-rum-js/edit/main/docs/set-up.asciidoc">edit</a></h2>
+</div></div></div>
+<p>If APM Server is deployed in an origin different than the page&#8217;s origin,
+you will need to configure Cross-Origin Resource Sharing (CORS).</p>
+<p>A list of permitted origins can be supplied to the
+<a href="/guide/en/apm/guide/8.7/configuration-rum.html#rum-allow-origins" class="ulink" target="_top"><code class="literal">apm-server.rum.allow_origins</code></a>
+configuration option.
+By default, APM Server allows all origins.</p>
+<h4><a id="_how_cors_works"></a>How CORS works<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-rum-js/edit/main/docs/set-up.asciidoc">edit</a></h4>
+<p>When the RUM agent makes its initial <code class="literal">POST</code> request, the browser will check to see if it is a cross-origin request.
+If it is, the browser automatically makes a preflight <code class="literal">OPTIONS</code> request to the server to ensure the original <code class="literal">POST</code> request is allowed.
+If this <code class="literal">OPTIONS</code> check passes, then the original <code class="literal">POST</code> request is allowed.
+This request will fail if RUM support is not configured in the APM Server.</p>
+<p>If you use a proxy, the preflight request headers may be necessary for your configuration:</p>
+<div class="pre_wrapper lang-js">
+<pre class="programlisting prettyprint lang-js">Access-Control-Request-Headers: Content-Type
+Access-Control-Request-Method: POST
+Origin: [request-origin]</pre>
+</div>
+<p>The response should include these headers:</p>
+<div class="pre_wrapper lang-js">
+<pre class="programlisting prettyprint lang-js">Access-Control-Allow-Headers: Content-Type
+Access-Control-Allow-Methods: POST, OPTIONS
+Access-Control-Allow-Origin: [request-origin]</pre>
+</div>
+<p>If you enable the <a class="xref" href="configuration.html#send-credentials" title="sendCredentials"><code class="literal">sendCredentials</code></a> configuration option, your proxy&#8217;s response must include the header <code class="literal">Access-Control-Allow-Origin</code> with the page&#8217;s origin as a value, and the following header:</p>
+<div class="pre_wrapper lang-js">
+<pre class="programlisting prettyprint lang-js">Access-Control-Allow-Credentials: true</pre>
+</div>
+<div class="tip admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>To learn more about CORS, see the MDN page on
+<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS" class="ulink" target="_top">Cross-Origin Resource Sharing</a>.</p>
+</div>
+</div>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="install-the-agent.html">« Install the Agent</a>
+</span>
+<span class="next">
+<a href="supported-technologies.html">Supported Technologies »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

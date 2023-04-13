@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Manipulating Relevance with Query Structure | Elasticsearch: The Definitive Guide [main] | Elastic</title>
+<meta class="elastic" name="content" content="Manipulating Relevance with Query Structure | Elasticsearch: The Definitive Guide [main]">
+
+<link rel="home" href="index.html" title="Elasticsearch: The Definitive Guide [main]"/>
+<link rel="up" href="controlling-relevance.html" title="Controlling Relevance"/>
+<link rel="prev" href="query-time-boosting.html" title="Query-Time Boosting"/>
+<link rel="next" href="not-quite-not.html" title="Not Quite Not"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="Elasticsearch"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Legacy/Elasticsearch/Definitive Guide/main"/>
+<meta name="DC.subject" content="Elasticsearch"/>
+<meta name="DC.identifier" content="main"/>
+<meta name="robots" content="noindex,nofollow"/>
+</head>
+<body><div class="page_header">
+<p>
+  <strong>WARNING</strong>: This documentation covers Elasticsearch 2.x. The 2.x
+  versions of Elasticsearch have passed their
+  <a href="https://www.elastic.co/support/eol">EOL dates</a>. If you are running
+  a 2.x version, we strongly advise you to upgrade.
+</p>
+<p>
+  This documentation is no longer maintained and may be removed. For the latest
+  information, see the <a
+  href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">current
+  Elasticsearch documentation</a>.
+</p>
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch: The Definitive Guide [main]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="search-in-depth.html">Search in Depth</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="controlling-relevance.html">Controlling Relevance</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="query-time-boosting.html">« Query-Time Boosting</a>
+</span>
+<span class="next">
+<a href="not-quite-not.html">Not Quite Not »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="query-scoring"></a>Manipulating Relevance with Query Structure<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/170_Relevance/25_Query_scoring.asciidoc">edit</a></h2>
+</div></div></div>
+<p>The Elasticsearch query DSL is immensely flexible.  You can move individual
+query clauses up and down the query hierarchy to make a clause more or less
+important.  For instance, imagine the following query:</p>
+<pre class="literallayout">quick OR brown OR red OR fox</pre>
+
+<p>We could write this as a <code class="literal">bool</code> query with all terms at the same level:</p>
+<div class="pre_wrapper lang-json">
+<pre class="programlisting prettyprint lang-json">GET /_search
+{
+  "query": {
+    "bool": {
+      "should": [
+        { "term": { "text": "quick" }},
+        { "term": { "text": "brown" }},
+        { "term": { "text": "red"   }},
+        { "term": { "text": "fox"   }}
+      ]
+    }
+  }
+}</pre>
+</div>
+<p>But this query might score a document that contains <code class="literal">quick</code>, <code class="literal">red</code>, and
+<code class="literal">brown</code> the same as another document that contains <code class="literal">quick</code>, <code class="literal">red</code>, and <code class="literal">fox</code>.
+<em>Red</em> and <em>brown</em> are synonyms and we probably only need one of them to match.
+Perhaps we really want to express the query as follows:</p>
+<pre class="literallayout">quick OR (brown OR red) OR fox</pre>
+
+<p>According to standard Boolean logic, this is exactly the same as the original
+query, but as we have already seen in <a class="xref" href="bool-query.html" title="Combining Queries">Combining Queries</a>, a <code class="literal">bool</code> query does not concern itself only with whether a document matches, but also with how
+<em>well</em> it matches.</p>
+<p>A better way to write this query is as follows:</p>
+<div class="pre_wrapper lang-json">
+<pre class="programlisting prettyprint lang-json">GET /_search
+{
+  "query": {
+    "bool": {
+      "should": [
+        { "term": { "text": "quick" }},
+        { "term": { "text": "fox"   }},
+        {
+          "bool": {
+            "should": [
+              { "term": { "text": "brown" }},
+              { "term": { "text": "red"   }}
+            ]
+          }
+        }
+      ]
+    }
+  }
+}</pre>
+</div>
+<p>Now, <code class="literal">red</code> and <code class="literal">brown</code> compete with each other at their own level, and <code class="literal">quick</code>,
+<code class="literal">fox</code>, and <code class="literal">red OR brown</code> are the top-level competitive terms.</p>
+<p>We have already discussed how the <a class="xref" href="match-query.html" title="The match Query"><code class="literal">match</code></a>,
+<a class="xref" href="multi-match-query.html" title="multi_match Query"><code class="literal">multi_match</code></a>, <a class="xref" href="term-vs-full-text.html" title="Term-Based Versus Full-Text"><code class="literal">term</code></a>,
+<a class="xref" href="bool-query.html" title="Combining Queries"><code class="literal">bool</code></a>, and  <a class="xref" href="_best_fields.html#dis-max-query" title="dis_max Query"><code class="literal">dis_max</code></a> queries can be used
+to manipulate scoring. In the rest of this chapter, we present
+three other scoring-related queries: the <code class="literal">boosting</code> query, the
+<code class="literal">constant_score</code> query, and the <code class="literal">function_score</code> query.</p>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="query-time-boosting.html">« Query-Time Boosting</a>
+</span>
+<span class="next">
+<a href="not-quite-not.html">Not Quite Not »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

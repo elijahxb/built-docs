@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>standard Analyzer | Elasticsearch: The Definitive Guide [main] | Elastic</title>
+<meta class="elastic" name="content" content="standard Analyzer | Elasticsearch: The Definitive Guide [main]">
+
+<link rel="home" href="index.html" title="Elasticsearch: The Definitive Guide [main]"/>
+<link rel="up" href="identifying-words.html" title="Identifying Words"/>
+<link rel="prev" href="identifying-words.html" title="Identifying Words"/>
+<link rel="next" href="standard-tokenizer.html" title="standard Tokenizer"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="Elasticsearch"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Legacy/Elasticsearch/Definitive Guide/main"/>
+<meta name="DC.subject" content="Elasticsearch"/>
+<meta name="DC.identifier" content="main"/>
+<meta name="robots" content="noindex,nofollow"/>
+</head>
+<body><div class="page_header">
+<p>
+  <strong>WARNING</strong>: This documentation covers Elasticsearch 2.x. The 2.x
+  versions of Elasticsearch have passed their
+  <a href="https://www.elastic.co/support/eol">EOL dates</a>. If you are running
+  a 2.x version, we strongly advise you to upgrade.
+</p>
+<p>
+  This documentation is no longer maintained and may be removed. For the latest
+  information, see the <a
+  href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">current
+  Elasticsearch documentation</a>.
+</p>
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch: The Definitive Guide [main]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="languages.html">Dealing with Human Language</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="identifying-words.html">Identifying Words</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="identifying-words.html">« Identifying Words</a>
+</span>
+<span class="next">
+<a href="standard-tokenizer.html">standard Tokenizer »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="standard-analyzer"></a>standard Analyzer<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/210_Identifying_words/10_Standard_analyzer.asciidoc">edit</a></h2>
+</div></div></div>
+<p>The <code class="literal">standard</code> analyzer is used by default for any full-text <code class="literal">analyzed</code> string
+field.  If we were to reimplement the  <code class="literal">standard</code> analyzer as a
+<a class="xref" href="custom-analyzers.html" title="Custom Analyzers"><code class="literal">custom</code> analyzer</a>, it would be defined as follows:</p>
+<div class="pre_wrapper lang-js pagebreak-before">
+<pre class="programlisting prettyprint lang-js pagebreak-before">{
+    "type":      "custom",
+    "tokenizer": "standard",
+    "filter":  [ "lowercase", "stop" ]
+}</pre>
+</div>
+<p>In <a class="xref" href="token-normalization.html" title="Normalizing Tokens"><em>Normalizing Tokens</em></a> and <a class="xref" href="stopwords.html" title="Stopwords: Performance Versus Precision"><em>Stopwords: Performance Versus Precision</em></a>, we talk about the
+<code class="literal">lowercase</code>, and <code class="literal">stop</code> <em>token filters</em>, but for the moment, let&#8217;s focus on
+the <code class="literal">standard</code> <em>tokenizer</em>.</p>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="identifying-words.html">« Identifying Words</a>
+</span>
+<span class="next">
+<a href="standard-tokenizer.html">standard Tokenizer »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

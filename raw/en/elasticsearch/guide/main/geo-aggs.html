@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Geo Aggregations | Elasticsearch: The Definitive Guide [main] | Elastic</title>
+<meta class="elastic" name="content" content="Geo Aggregations | Elasticsearch: The Definitive Guide [main]">
+
+<link rel="home" href="index.html" title="Elasticsearch: The Definitive Guide [main]"/>
+<link rel="up" href="geoloc.html" title="Geolocation"/>
+<link rel="prev" href="geohash-cell-query.html" title="Geohash Cell Query"/>
+<link rel="next" href="geo-distance-agg.html" title="Geo Distance Aggregation"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="Elasticsearch"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Legacy/Elasticsearch/Definitive Guide/main"/>
+<meta name="DC.subject" content="Elasticsearch"/>
+<meta name="DC.identifier" content="main"/>
+<meta name="robots" content="noindex,nofollow"/>
+</head>
+<body><div class="page_header">
+<p>
+  <strong>WARNING</strong>: This documentation covers Elasticsearch 2.x. The 2.x
+  versions of Elasticsearch have passed their
+  <a href="https://www.elastic.co/support/eol">EOL dates</a>. If you are running
+  a 2.x version, we strongly advise you to upgrade.
+</p>
+<p>
+  This documentation is no longer maintained and may be removed. For the latest
+  information, see the <a
+  href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">current
+  Elasticsearch documentation</a>.
+</p>
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch: The Definitive Guide [main]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="geoloc.html">Geolocation</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="geohash-cell-query.html">« Geohash Cell Query</a>
+</span>
+<span class="next">
+<a href="geo-distance-agg.html">Geo Distance Aggregation »</a>
+</span>
+</div>
+<div class="chapter">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="geo-aggs"></a>Geo Aggregations<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/330_Geo_aggs/60_Geo_aggs.asciidoc">edit</a></h2>
+</div></div></div>
+<p>Although filtering or scoring results by geolocation is useful, it is often more
+useful to be able to present information to the user on a map. A search may
+return way too many results to be able to display each geo-point individually,
+but geo-aggregations can be used to cluster geo-points into more manageable
+buckets.</p>
+<p>Three aggregations work with fields of type <code class="literal">geo_point</code>:</p>
+<div class="variablelist">
+<dl class="variablelist">
+<dt>
+<span class="term">
+<a class="xref" href="geo-distance-agg.html" title="Geo Distance Aggregation"><code class="literal">geo_distance</code></a>
+</span>
+</dt>
+<dd>
+Groups documents into concentric circles around a central point.
+</dd>
+<dt>
+<span class="term">
+<a class="xref" href="geohash-grid-agg.html" title="Geohash Grid Aggregation"><code class="literal">geohash_grid</code></a>
+</span>
+</dt>
+<dd>
+Groups documents by geohash cell, for display on a map.
+</dd>
+<dt>
+<span class="term">
+<a class="xref" href="geo-bounds-agg.html" title="Geo Bounds Aggregation"><code class="literal">geo_bounds</code></a>
+</span>
+</dt>
+<dd>
+Returns the <code class="literal">lat/lon</code> coordinates of a bounding box that would
+encompass all of the geo-points. This is useful for choosing
+the correct zoom level when displaying a map.
+</dd>
+</dl>
+</div>
+
+
+
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="geohash-cell-query.html">« Geohash Cell Query</a>
+</span>
+<span class="next">
+<a href="geo-distance-agg.html">Geo Distance Aggregation »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

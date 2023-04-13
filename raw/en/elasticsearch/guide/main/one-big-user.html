@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>One Big User | Elasticsearch: The Definitive Guide [main] | Elastic</title>
+<meta class="elastic" name="content" content="One Big User | Elasticsearch: The Definitive Guide [main]">
+
+<link rel="home" href="index.html" title="Elasticsearch: The Definitive Guide [main]"/>
+<link rel="up" href="scale.html" title="Designing for Scale"/>
+<link rel="prev" href="faking-it.html" title="Faking Index per User with Aliases"/>
+<link rel="next" href="finite-scale.html" title="Scale Is Not Infinite"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="Elasticsearch"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Legacy/Elasticsearch/Definitive Guide/main"/>
+<meta name="DC.subject" content="Elasticsearch"/>
+<meta name="DC.identifier" content="main"/>
+<meta name="robots" content="noindex,nofollow"/>
+</head>
+<body><div class="page_header">
+<p>
+  <strong>WARNING</strong>: This documentation covers Elasticsearch 2.x. The 2.x
+  versions of Elasticsearch have passed their
+  <a href="https://www.elastic.co/support/eol">EOL dates</a>. If you are running
+  a 2.x version, we strongly advise you to upgrade.
+</p>
+<p>
+  This documentation is no longer maintained and may be removed. For the latest
+  information, see the <a
+  href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">current
+  Elasticsearch documentation</a>.
+</p>
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch: The Definitive Guide [main]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="modeling-your-data.html">Modeling Your Data</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="scale.html">Designing for Scale</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="faking-it.html">« Faking Index per User with Aliases</a>
+</span>
+<span class="next">
+<a href="finite-scale.html">Scale Is Not Infinite »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="one-big-user"></a>One Big User<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/410_Scaling/75_One_big_user.asciidoc">edit</a></h2>
+</div></div></div>
+<p>Big, popular forums start out as small forums.  One day we will find that one
+shard in our shared index is doing a lot more work than the other shards,
+because it holds the documents for a forum that has become very popular. That
+forum now needs its own index.</p>
+<p>The index aliases that we&#8217;re using to fake an index per user give us a clean
+migration path for the big forum.</p>
+<p>The first step is to create a new index dedicated to the forum, and with the
+appropriate number of shards to allow for expected growth:</p>
+<div class="pre_wrapper lang-json">
+<pre class="programlisting prettyprint lang-json">PUT /baking_v1
+{
+  "settings": {
+    "number_of_shards": 3
+  }
+}</pre>
+</div>
+<p>The next step is to migrate the data from the shared index into the dedicated
+index, which can be done using a <a class="xref" href="scroll.html" title="Scroll"><code class="literal">scroll</code></a> query and the
+<a class="xref" href="bulk.html" title="Cheaper in Bulk"><code class="literal">bulk</code> API</a>.  As soon as the migration is finished, the index alias
+can be updated to point to the new index:</p>
+<div class="pre_wrapper lang-json">
+<pre class="programlisting prettyprint lang-json">POST /_aliases
+{
+  "actions": [
+    { "remove": { "alias": "baking", "index": "forums"    }},
+    { "add":    { "alias": "baking", "index": "baking_v1" }}
+  ]
+}</pre>
+</div>
+<p>Updating the alias is atomic; it&#8217;s like throwing a switch.  Your application
+continues talking to the <code class="literal">baking</code> API and is completely unaware that it now
+points to a new dedicated index.</p>
+<p>The dedicated index no longer needs the filter or the routing values. We can
+just rely on the default sharding that Elasticsearch does using each
+document&#8217;s <code class="literal">_id</code> field.</p>
+<p>The last step is to remove the old documents from the shared index, which can
+be done by searching using the original routing value and forum ID and performing
+a bulk delete.</p>
+<p>The beauty of this index-per-user model is that it allows you to reduce
+resources, keeping costs low, while still giving you the flexibility to scale
+out when necessary, and with zero downtime.</p>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="faking-it.html">« Faking Index per User with Aliases</a>
+</span>
+<span class="next">
+<a href="finite-scale.html">Scale Is Not Infinite »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

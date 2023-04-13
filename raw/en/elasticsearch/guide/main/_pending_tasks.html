@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Pending Tasks | Elasticsearch: The Definitive Guide [main] | Elastic</title>
+<meta class="elastic" name="content" content="Pending Tasks | Elasticsearch: The Definitive Guide [main]">
+
+<link rel="home" href="index.html" title="Elasticsearch: The Definitive Guide [main]"/>
+<link rel="up" href="cluster-admin.html" title="Monitoring"/>
+<link rel="prev" href="_index_stats.html" title="Index Stats"/>
+<link rel="next" href="_cat_api.html" title="cat API"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="Elasticsearch"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Legacy/Elasticsearch/Definitive Guide/main"/>
+<meta name="DC.subject" content="Elasticsearch"/>
+<meta name="DC.identifier" content="main"/>
+<meta name="robots" content="noindex,nofollow"/>
+</head>
+<body><div class="page_header">
+<p>
+  <strong>WARNING</strong>: This documentation covers Elasticsearch 2.x. The 2.x
+  versions of Elasticsearch have passed their
+  <a href="https://www.elastic.co/support/eol">EOL dates</a>. If you are running
+  a 2.x version, we strongly advise you to upgrade.
+</p>
+<p>
+  This documentation is no longer maintained and may be removed. For the latest
+  information, see the <a
+  href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">current
+  Elasticsearch documentation</a>.
+</p>
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch: The Definitive Guide [main]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="administration.html">Administration, Monitoring, and Deployment</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="cluster-admin.html">Monitoring</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="_index_stats.html">« Index Stats</a>
+</span>
+<span class="next">
+<a href="_cat_api.html">cat API »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="_pending_tasks"></a>Pending Tasks<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/500_Cluster_Admin/40_other_stats.asciidoc">edit</a></h2>
+</div></div></div>
+<p>There are certain tasks that only the master can perform, such as creating a new
+index or moving shards around the cluster. Since a cluster can have only one
+master, only one node can ever process cluster-level metadata changes. For
+99.9999% of the time, this is never a problem. The queue of metadata changes
+remains essentially zero.</p>
+<p>In some <em>rare</em> clusters, the number of metadata changes occurs faster than the
+master can process them. This leads to a buildup of pending actions that are
+queued.</p>
+<p>The <code class="literal">pending-tasks</code> API will show you what (if any) cluster-level metadata
+changes are pending in the queue:</p>
+<div class="pre_wrapper lang-js">
+<pre class="programlisting prettyprint lang-js">GET _cluster/pending_tasks</pre>
+</div>
+<p>Usually, the response will look like this:</p>
+<div class="pre_wrapper lang-js">
+<pre class="programlisting prettyprint lang-js">{
+   "tasks": []
+}</pre>
+</div>
+<p>This means there are no pending tasks. If you have one of the rare clusters that
+bottlenecks on the master node, your pending task list may look like this:</p>
+<div class="pre_wrapper lang-js">
+<pre class="programlisting prettyprint lang-js">{
+   "tasks": [
+      {
+         "insert_order": 101,
+         "priority": "URGENT",
+         "source": "create-index [foo_9], cause [api]",
+         "time_in_queue_millis": 86,
+         "time_in_queue": "86ms"
+      },
+      {
+         "insert_order": 46,
+         "priority": "HIGH",
+         "source": "shard-started ([foo_2][1], node[tMTocMvQQgGCkj7QDHl3OA], [P],
+         s[INITIALIZING]), reason [after recovery from gateway]",
+         "time_in_queue_millis": 842,
+         "time_in_queue": "842ms"
+      },
+      {
+         "insert_order": 45,
+         "priority": "HIGH",
+         "source": "shard-started ([foo_2][0], node[tMTocMvQQgGCkj7QDHl3OA], [P],
+         s[INITIALIZING]), reason [after recovery from gateway]",
+         "time_in_queue_millis": 858,
+         "time_in_queue": "858ms"
+      }
+  ]
+}</pre>
+</div>
+<p>You can see that tasks are assigned a priority (<code class="literal">URGENT</code> is processed before
+<code class="literal">HIGH</code>, for example), the order it was inserted, how long the action has been
+queued and what the action is trying to perform. In the preceding list, there is
+a <code class="literal">create-index</code> action and two <code class="literal">shard-started</code> actions pending.</p>
+<div class="sidebar">
+<div class="titlepage"><div><div>
+<p class="title"><strong>When Should I Worry About Pending Tasks?</strong></p>
+</div></div></div>
+<p>As mentioned, the master node is rarely the bottleneck for clusters. The only
+time it could bottleneck is if the cluster state is both very large <em>and</em>
+updated frequently.</p>
+<p>For example, if you allow customers to create as many dynamic fields as they
+wish, and have a unique index for each customer every day, your cluster state
+will grow very large. The cluster state includes (among other things) a list of
+all indices, their types, and the fields for each index.</p>
+<p>So if you have 100,000 customers, and each customer averages 1,000 fields and 90
+days of retention&#8212;&#8203;that&#8217;s nine billion fields to keep in the cluster state.
+Whenever this changes, the nodes must be notified.</p>
+<p>The master must process these changes, which requires nontrivial CPU overhead,
+plus the network overhead of pushing the updated cluster state to all nodes.</p>
+<p>It is these clusters that may begin to see cluster-state actions queuing up.
+There is no easy solution to this problem, however. You have three options:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Obtain a beefier master node.  Vertical scaling just delays the inevitable,
+unfortunately.
+</li>
+<li class="listitem">
+Restrict the dynamic nature of the documents in some way, so as to limit the
+cluster-state size.
+</li>
+<li class="listitem">
+Spin up another cluster after a certain threshold has been crossed.
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="_index_stats.html">« Index Stats</a>
+</span>
+<span class="next">
+<a href="_cat_api.html">cat API »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

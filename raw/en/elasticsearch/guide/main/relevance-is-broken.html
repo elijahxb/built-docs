@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Relevance Is Broken! | Elasticsearch: The Definitive Guide [main] | Elastic</title>
+<meta class="elastic" name="content" content="Relevance Is Broken! | Elasticsearch: The Definitive Guide [main]">
+
+<link rel="home" href="index.html" title="Elasticsearch: The Definitive Guide [main]"/>
+<link rel="up" href="full-text-search.html" title="Full-Text Search"/>
+<link rel="prev" href="_controlling_analysis.html" title="Controlling Analysis"/>
+<link rel="next" href="multi-field-search.html" title="Multifield Search"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="Elasticsearch"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Legacy/Elasticsearch/Definitive Guide/main"/>
+<meta name="DC.subject" content="Elasticsearch"/>
+<meta name="DC.identifier" content="main"/>
+<meta name="robots" content="noindex,nofollow"/>
+</head>
+<body><div class="page_header">
+<p>
+  <strong>WARNING</strong>: This documentation covers Elasticsearch 2.x. The 2.x
+  versions of Elasticsearch have passed their
+  <a href="https://www.elastic.co/support/eol">EOL dates</a>. If you are running
+  a 2.x version, we strongly advise you to upgrade.
+</p>
+<p>
+  This documentation is no longer maintained and may be removed. For the latest
+  information, see the <a
+  href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">current
+  Elasticsearch documentation</a>.
+</p>
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch: The Definitive Guide [main]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="search-in-depth.html">Search in Depth</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="full-text-search.html">Full-Text Search</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="_controlling_analysis.html">« Controlling Analysis</a>
+</span>
+<span class="next">
+<a href="multi-field-search.html">Multifield Search »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="relevance-is-broken"></a>Relevance Is Broken!<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/100_Full_Text_Search/35_Relevance_is_broken.asciidoc">edit</a></h2>
+</div></div></div>
+<p>Before we move on to discussing more-complex queries in
+<a class="xref" href="multi-field-search.html" title="Multifield Search"><em>Multifield Search</em></a>, let&#8217;s make a quick detour to explain why we
+<a class="xref" href="match-query.html#match-test-data" title="Index Some Data">created our test index</a> with just one primary shard.</p>
+<p>Every now and again a new user opens an issue claiming that sorting by
+relevance is broken and offering a short reproduction: the user indexes a few
+documents, runs a simple query, and finds apparently less-relevant results
+appearing above more-relevant results.</p>
+<p>To understand why this happens, let&#8217;s imagine that we create an index with two
+primary shards and we index ten documents, six of which contain the word <code class="literal">foo</code>.
+It may happen that shard 1 contains three of the <code class="literal">foo</code> documents and shard
+2 contains the other three.  In other words, our documents are well distributed.</p>
+<p>In <a class="xref" href="relevance-intro.html" title="What Is Relevance?">What Is Relevance?</a>, we described the default similarity algorithm used in
+Elasticsearch, called <em>term frequency / inverse document frequency</em> or TF/IDF.
+Term frequency counts the number of times a term appears within the field we are
+querying in the current document.  The more times it appears, the more
+relevant is this document. The <em>inverse document frequency</em> takes into account
+how often a term appears as a percentage of <em>all the documents in the index</em>.
+The more frequently the term appears, the less weight it has.</p>
+<p>However, for performance reasons, Elasticsearch doesn&#8217;t calculate the IDF
+across all documents in the index. Instead, each shard calculates a local IDF
+for the documents contained <em>in that shard</em>.</p>
+<p>Because our documents are well distributed, the IDF for both shards will be
+the same.  Now imagine instead that five of the <code class="literal">foo</code> documents are on shard 1,
+and the sixth document is on shard 2.  In this scenario, the term <code class="literal">foo</code> is
+very common on one shard (and so of little importance), but rare on the other
+shard (and so much more important). These differences in IDF can produce
+incorrect results.</p>
+<p>In practice, this is not a problem. The differences between local and  global
+IDF diminish the more documents that you add to the index. With real-world
+volumes of data, the local IDFs soon even out. The problem is not that
+relevance is broken but that there is too little data.</p>
+<p>For testing purposes, there are two ways we can work around this issue. The
+first is to create an index with one primary shard, as we did in the section
+introducing the <a class="xref" href="match-query.html" title="The match Query"><code class="literal">match</code> query</a>. If you have only one shard, then
+the local IDF <em>is</em> the global IDF.</p>
+<p>The second workaround is to add <code class="literal">?search_type=dfs_query_then_fetch</code> to your
+search requests. The <code class="literal">dfs</code> stands for <em>Distributed Frequency Search</em>, and it
+tells Elasticsearch to first retrieve the local IDF from each shard in order
+to calculate the global IDF across the whole index.</p>
+<div class="tip admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>Don&#8217;t use <code class="literal">dfs_query_then_fetch</code> in production.  It really isn&#8217;t
+required. Just having enough data will ensure that your term frequencies are
+well distributed. There is no reason to add this extra DFS step to every query
+that you run.</p>
+</div>
+</div>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="_controlling_analysis.html">« Controlling Analysis</a>
+</span>
+<span class="next">
+<a href="multi-field-search.html">Multifield Search »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

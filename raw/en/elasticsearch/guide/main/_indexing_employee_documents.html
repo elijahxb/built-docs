@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Indexing Employee Documents | Elasticsearch: The Definitive Guide [main] | Elastic</title>
+<meta class="elastic" name="content" content="Indexing Employee Documents | Elasticsearch: The Definitive Guide [main]">
+
+<link rel="home" href="index.html" title="Elasticsearch: The Definitive Guide [main]"/>
+<link rel="up" href="intro.html" title="You Know, for Search&#8230;&#8203;"/>
+<link rel="prev" href="_finding_your_feet.html" title="Finding Your Feet"/>
+<link rel="next" href="_retrieving_a_document.html" title="Retrieving a Document"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="Elasticsearch"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Legacy/Elasticsearch/Definitive Guide/main"/>
+<meta name="DC.subject" content="Elasticsearch"/>
+<meta name="DC.identifier" content="main"/>
+<meta name="robots" content="noindex,nofollow"/>
+</head>
+<body><div class="page_header">
+<p>
+  <strong>WARNING</strong>: This documentation covers Elasticsearch 2.x. The 2.x
+  versions of Elasticsearch have passed their
+  <a href="https://www.elastic.co/support/eol">EOL dates</a>. If you are running
+  a 2.x version, we strongly advise you to upgrade.
+</p>
+<p>
+  This documentation is no longer maintained and may be removed. For the latest
+  information, see the <a
+  href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html">current
+  Elasticsearch documentation</a>.
+</p>
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch: The Definitive Guide [main]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="getting-started.html">Getting Started</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="intro.html">You Know, for Search&#8230;&#8203;</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="_finding_your_feet.html">« Finding Your Feet</a>
+</span>
+<span class="next">
+<a href="_retrieving_a_document.html">Retrieving a Document »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="_indexing_employee_documents"></a>Indexing Employee Documents<a class="edit_me edit_me_private" rel="nofollow" title="Editing on GitHub is available to Elastic" href="https://github.com/elastic/elasticsearch-definitive-guide/edit/master/010_Intro/25_Tutorial_Indexing.asciidoc">edit</a></h2>
+</div></div></div>
+<p>The first order of business is storing employee data.  This will take the form
+of an <em>employee document</em>: a single document represents a single
+employee.  The act of storing data in Elasticsearch is called <em>indexing</em>, but
+before we can index a document, we need to decide <em>where</em> to store it.</p>
+<p>An Elasticsearch cluster can contain multiple <em>indices</em>, which in
+turn contain multiple <em>types</em>. These types hold multiple <em>documents</em>,
+and each document has multiple <em>fields</em>.</p>
+<div class="sidebar">
+<div class="titlepage"><div><div>
+<p class="title"><strong>Index Versus Index Versus Index</strong></p>
+</div></div></div>
+<p>You may already have noticed that the word <em>index</em> is overloaded with
+several meanings in the context of Elasticsearch. A little
+clarification is necessary:</p>
+<div class="variablelist">
+<dl class="variablelist">
+<dt>
+<span class="term">
+Index (noun)
+</span>
+</dt>
+<dd>
+As explained previously, an <em>index</em> is like a <em>database</em> in a traditional
+relational database. It is the place to store related documents. The plural of
+<em>index</em> is <em>indices</em> or <em>indexes</em>.
+</dd>
+<dt>
+<span class="term">
+Index (verb)
+</span>
+</dt>
+<dd>
+<em>To index a document</em> is to store a document in an <em>index (noun)</em> so
+that it can be retrieved and queried. It is much like the <code class="literal">INSERT</code> keyword in
+SQL except that, if the document already exists, the new document would
+replace the old.
+</dd>
+<dt>
+<span class="term">
+Inverted index
+</span>
+</dt>
+<dd>
+<p>
+Relational databases add an <em>index</em>, such as a B-tree index, to specific
+columns in order to improve the speed of data retrieval.  Elasticsearch and
+Lucene use a structure called an <em>inverted index</em> for exactly the same
+purpose.
+</p>
+<p>By default, every field in a document is <em>indexed</em> (has an inverted index)
+and thus is searchable. A field without an inverted index is not searchable.
+We discuss inverted indexes in more detail in <a class="xref" href="inverted-index.html" title="Inverted Index">Inverted Index</a>.</p>
+</dd>
+</dl>
+</div>
+</div>
+<p>So for our employee directory, we are going to do the following:</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Index a <em>document</em> per employee, which contains all the details of a single
+employee.
+</li>
+<li class="listitem">
+Each document will be of <em>type</em> <code class="literal">employee</code>.
+</li>
+<li class="listitem">
+That type will live in the <code class="literal">megacorp</code> <em>index</em>.
+</li>
+<li class="listitem">
+That index will reside within our Elasticsearch cluster.
+</li>
+</ul>
+</div>
+<p>In practice, this is easy (even though it looks like a lot of steps).  We
+can perform all of those actions in a single command:</p>
+<div class="pre_wrapper lang-sense">
+<pre class="programlisting prettyprint lang-sense">PUT /megacorp/employee/1
+{
+    "first_name" : "John",
+    "last_name" :  "Smith",
+    "age" :        25,
+    "about" :      "I love to go rock climbing",
+    "interests": [ "sports", "music" ]
+}</pre>
+</div>
+<div class="sense_widget" data-snippet="snippets/010_Intro/25_Index.json"></div>
+<p>Notice that the path <code class="literal">/megacorp/employee/1</code> contains three pieces of
+information:</p>
+<div class="variablelist">
+<dl class="variablelist">
+<dt>
+<span class="term">
+<code class="literal">megacorp</code>
+</span>
+</dt>
+<dd>
+The index name
+</dd>
+<dt>
+<span class="term">
+<code class="literal">employee</code>
+</span>
+</dt>
+<dd>
+The type name
+</dd>
+<dt>
+<span class="term">
+<code class="literal">1</code>
+</span>
+</dt>
+<dd>
+The ID of this particular employee
+</dd>
+</dl>
+</div>
+<p>The request body&#8212;&#8203;the JSON document&#8212;&#8203;contains all the information about
+this employee.  His name is John Smith, he&#8217;s 25, and enjoys rock climbing.</p>
+<p>Simple!  There was no need to perform any administrative tasks first, like
+creating an index or specifying the type of data that each field contains. We
+could just index a document directly.  Elasticsearch ships with defaults for
+everything, so all the necessary administration tasks were taken care of in
+the background, using default values.</p>
+<p>Before moving on, let&#8217;s add a few more employees to the directory:</p>
+<div class="pre_wrapper lang-sense">
+<pre class="programlisting prettyprint lang-sense">PUT /megacorp/employee/2
+{
+    "first_name" :  "Jane",
+    "last_name" :   "Smith",
+    "age" :         32,
+    "about" :       "I like to collect rock albums",
+    "interests":  [ "music" ]
+}
+
+PUT /megacorp/employee/3
+{
+    "first_name" :  "Douglas",
+    "last_name" :   "Fir",
+    "age" :         35,
+    "about":        "I like to build cabinets",
+    "interests":  [ "forestry" ]
+}</pre>
+</div>
+<div class="sense_widget" data-snippet="snippets/010_Intro/25_Index.json"></div>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="_finding_your_feet.html">« Finding Your Feet</a>
+</span>
+<span class="next">
+<a href="_retrieving_a_document.html">Retrieving a Document »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

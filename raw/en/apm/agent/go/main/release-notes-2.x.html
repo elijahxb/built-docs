@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Go Agent version 2.x | APM Go Agent Reference [main] | Elastic</title>
+<meta class="elastic" name="content" content="Go Agent version 2.x | APM Go Agent Reference [main]">
+
+<link rel="home" href="index.html" title="APM Go Agent Reference [main]"/>
+<link rel="up" href="release-notes.html" title="Release notes"/>
+<link rel="prev" href="unreleased.html" title="Unreleased"/>
+<link rel="next" href="release-notes-1.x.html" title="Go Agent version 1.x"/>
+<meta class="elastic" name="product_version" content="main"/>
+<meta class="elastic" name="product_name" content="APM"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/APM Go Agent/Reference/main"/>
+<meta name="DC.subject" content="APM"/>
+<meta name="DC.identifier" content="main"/>
+</head>
+<body><div class="page_header">
+You are looking at preliminary documentation for a future release.
+Not what you want? See the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link">
+  <div id="related-products" class="dropdown">
+    <div class="related-products-title">APM:</div>
+    <div class="dropdown-anchor" tabindex="0">Go Agent Reference<span class="dropdown-icon"></span></div>
+    <div class="dropdown-content">
+      <ul>
+        <li class="dropdown-category">APM</li>
+        <ul>
+          <li><a href="/guide/en/apm/guide/current/apm-overview.html">User Guide</a></li>
+        </ul>
+        <li class="dropdown-category">APM agents</li>
+        <ul>
+          <li><a href="/guide/en/apm/agent/android/current/intro.html">Android Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/go/current/introduction.html">Go Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/swift/current/intro.html">iOS Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/java/current/intro.html">Java Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/dotnet/current/intro.html">.NET Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/nodejs/current/intro.html">Node.js Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/php/current/intro.html">PHP Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/python/current/getting-started.html">Python Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/ruby/current/introduction.html">Ruby Agent Reference</a></li>
+          <li><a href="/guide/en/apm/agent/rum-js/current/intro.html">Real User Monitoring JavaScript Agent Reference</a></li>
+        </ul>
+        <li class="dropdown-category">APM extensions</li>
+        <ul>
+          <li><a href="/guide/en/apm/lambda/current/aws-lambda-arch.html">Monitoring AWS Lambda Functions</a></li>
+          <li><a href="/guide/en/apm/attacher/current/apm-attacher.html">Attacher</a></li>
+        </ul>
+      </ul>
+    </div>
+  </div>
+</span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="release-notes.html">Release notes</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="unreleased.html">« Unreleased</a>
+</span>
+<span class="next">
+<a href="release-notes-1.x.html">Go Agent version 1.x »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="release-notes-2.x"></a>Go Agent version 2.x<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-go/edit/main/CHANGELOG.asciidoc">edit</a></h2>
+</div></div></div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="release-notes-2.3.0"></a>2.3.0 - 2023/03/30<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-go/edit/main/CHANGELOG.asciidoc">edit</a></h3>
+</div></div></div>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Ensure minimum retry interval of 5 seconds for fetching central configuration <a href="https://github.com/elastic/apm-agent-go/pull/1337" class="ulink" target="_top">#1337</a>
+</li>
+<li class="listitem">
+Update span compression logic to handle <code class="literal">service.target.*</code> fields <a href="https://github.com/elastic/apm-agent-go/pull/1339" class="ulink" target="_top">#1339</a>
+</li>
+<li class="listitem">
+module/apmchiv5: Add panic propogation option <a href="https://github.com/elastic/apm-agent-go/pull/1359" class="ulink" target="_top">#1359</a>
+</li>
+<li class="listitem">
+module/apmgormv2: Add sqlserver support <a href="https://github.com/elastic/apm-agent-go/pull/1356" class="ulink" target="_top">#1356</a>
+</li>
+<li class="listitem">
+module/apmsql: Add sqlserver support <a href="https://github.com/elastic/apm-agent-go/pull/1356" class="ulink" target="_top">#1356</a>
+</li>
+<li class="listitem">
+Update compressed spans to use <code class="literal">service.target.*</code> fields to derive its name <a href="https://github.com/elastic/apm-agent-go/pull/1336" class="ulink" target="_top">#1336</a>
+</li>
+<li class="listitem">
+module/apmpgxv5: new instrumentation module for jackc/pgx v5 with enhanced support e.g. detailed <code class="literal">BATCH</code> and <code class="literal">CONNECT</code> traces <a href="https://github.com/elastic/apm-agent-go/pull/1364" class="ulink" target="_top">#1364</a>
+</li>
+<li class="listitem">
+Add support for <code class="literal">Unwrap []error</code> <a href="https://github.com/elastic/apm-agent-go/pull/1400" class="ulink" target="_top">#1400</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="release-notes-2.2.0"></a>2.2.0 - 2022/10/31<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-go/edit/main/CHANGELOG.asciidoc">edit</a></h3>
+</div></div></div>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Global labels are now parsed when the tracer is constructed, instead of parsing only once on package initialization <a href="https://github.com/elastic/apm-agent-go/pull/1290" class="ulink" target="_top">#1290</a>
+</li>
+<li class="listitem">
+Rename span_frames_min_duration to span_stack_trace_min_duration <a href="https://github.com/elastic/apm-agent-go/pull/1285" class="ulink" target="_top">#1285</a>
+</li>
+<li class="listitem">
+Ignore <code class="literal">\*principal\*</code> headers by default <a href="https://github.com/elastic/apm-agent-go/pull/1332" class="ulink" target="_top">#1332</a>
+</li>
+<li class="listitem">
+Add <code class="literal">apmpgx</code> module for postgres tracing with jackc/pgx driver enhanced support e.g. Copy and Batch statements <a href="https://github.com/elastic/apm-agent-go/pull/1301" class="ulink" target="_top">#1301</a>
+</li>
+<li class="listitem">
+Disable same-kind and enable exact-match compression by default <a href="https://github.com/elastic/apm-agent-go/pull/1256" class="ulink" target="_top">#1256</a>
+</li>
+<li class="listitem">
+module/apmechov4: add <code class="literal">WithRequestName</code> option <a href="https://github.com/elastic/apm-agent-go/pull/1268" class="ulink" target="_top">#1268</a>
+</li>
+<li class="listitem">
+Added support for adding span links when starting transactions and spans <a href="https://github.com/elastic/apm-agent-go/pull/1269" class="ulink" target="_top">#1269</a>
+</li>
+<li class="listitem">
+module/apmawssdkgo: fixed a panic related to drop spans <a href="https://github.com/elastic/apm-agent-go/pull/1273" class="ulink" target="_top">#1273</a>
+</li>
+<li class="listitem">
+Added support for the <code class="literal">trace_continuation_strategy</code> <a href="https://github.com/elastic/apm-agent-go/pull/1270" class="ulink" target="_top">#1270</a>
+</li>
+<li class="listitem">
+<code class="literal">transaction.type</code> and <code class="literal">span.type</code> are now set to "custom" if an empty string is specified <a href="https://github.com/elastic/apm-agent-go/pull/1272" class="ulink" target="_top">#1272</a>
+</li>
+<li class="listitem">
+We now capture the database instance name in <code class="literal">service.target.*</code>, for improved backend granularity <a href="https://github.com/elastic/apm-agent-go/pull/1279" class="ulink" target="_top">#1279</a>
+</li>
+<li class="listitem">
+Improved Kubernetes pod UID and container ID discovery coverage <a href="https://github.com/elastic/apm-agent-go/pull/1288" class="ulink" target="_top">#1288</a>
+</li>
+<li class="listitem">
+Fixed <code class="literal">span.name</code> for AWS SNS spans to match the spec <a href="https://github.com/elastic/apm-agent-go/pull/1286" class="ulink" target="_top">#1286</a>
+</li>
+<li class="listitem">
+module/apmgin: add <code class="literal">WithPanicPropagation</code> option <a href="https://github.com/elastic/apm-agent-go/pull/1314" class="ulink" target="_top">#1314</a>
+</li>
+<li class="listitem">
+Exit spans may now have non-exit child spans if they have the same type and subtype <a href="https://github.com/elastic/apm-agent-go/pull/1320" class="ulink" target="_top">#1320</a>
+</li>
+<li class="listitem">
+Updated instrumentation modules to mark spans as exit spans where possible <a href="https://github.com/elastic/apm-agent-go/pull/1317" class="ulink" target="_top">#1317</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="release-notes-2.1.0"></a>2.1.0 - 2022/05/20<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-go/edit/main/CHANGELOG.asciidoc">edit</a></h3>
+</div></div></div>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Replace <code class="literal">authorization</code> with <code class="literal">*auth*</code> pattern for sanitizing field names <a href="https://github.com/elastic/apm-agent-go/pull/1230" class="ulink" target="_top">#1230</a>
+</li>
+<li class="listitem">
+Fetch initial server version async to prevent blocking NewTracer for 10 seconds <a href="https://github.com/elastic/apm-agent-go/pull/1239" class="ulink" target="_top">#1239</a>
+</li>
+<li class="listitem">
+Fix race in <code class="literal">apm.DefaultTracer</code> which could lead to multiple tracers being created <a href="https://github.com/elastic/apm-agent-go/pull/1248" class="ulink" target="_top">#1248</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<div class="titlepage"><div><div>
+<h3 class="title"><a id="release-notes-2.0.0"></a>2.0.0 - 2022/03/17<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/apm-agent-go/edit/main/CHANGELOG.asciidoc">edit</a></h3>
+</div></div></div>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+Record <code class="literal">transaction.name</code> on errors <a href="https://github.com/elastic/apm-agent-go/pull/1177" class="ulink" target="_top">#1177</a>
+</li>
+<li class="listitem">
+Fix panic in apmgocql <a href="https://github.com/elastic/apm-agent-go/pull/1180" class="ulink" target="_top">#1180</a>
+</li>
+<li class="listitem">
+Stop recording unused <code class="literal">transaction.duration.*</code> and <code class="literal">transaction.breakdown.count</code> metrics <a href="https://github.com/elastic/apm-agent-go/pull/1167" class="ulink" target="_top">#1167</a>
+</li>
+<li class="listitem">
+Make tracestate parsing more lenient, according to W3c spec, allowing duplicate vendor keys <a href="https://github.com/elastic/apm-agent-go/pull/1183" class="ulink" target="_top">#1183</a>
+</li>
+<li class="listitem">
+Introduced <code class="literal">transport.NewHTTPTransportOptions</code> <a href="https://github.com/elastic/apm-agent-go/pull/1168" class="ulink" target="_top">#1168</a>
+</li>
+<li class="listitem">
+Change <code class="literal">ELASTIC_APM_SPAN_FRAMES_MIN_DURATION</code> special cases to match agent spec <a href="https://github.com/elastic/apm-agent-go/pull/1188" class="ulink" target="_top">#1188</a>
+</li>
+<li class="listitem">
+Remove stacktrace.ContextSetter <a href="https://github.com/elastic/apm-agent-go/pull/1187" class="ulink" target="_top">#1187</a>
+</li>
+<li class="listitem">
+Drop support for versions of Go prior to 1.15.0 <a href="https://github.com/elastic/apm-agent-go/pull/1190" class="ulink" target="_top">#1190</a>
+</li>
+<li class="listitem">
+Replace apm.DefaultTracer with an initialization function <a href="https://github.com/elastic/apm-agent-go/pull/1189" class="ulink" target="_top">#1189</a>
+</li>
+<li class="listitem">
+Remove transport.Default, construct a new Transport in each new tracer <a href="https://github.com/elastic/apm-agent-go/pull/1195" class="ulink" target="_top">#1195</a>
+</li>
+<li class="listitem">
+Add service name and version to User-Agent header <a href="https://github.com/elastic/apm-agent-go/pull/1196" class="ulink" target="_top">#1196</a>
+</li>
+<li class="listitem">
+Remove WarningLogger, add Warningf methe to Logger <a href="https://github.com/elastic/apm-agent-go/pull/1205" class="ulink" target="_top">#1205</a>
+</li>
+<li class="listitem">
+Replace Sampler with ExtendedSampler <a href="https://github.com/elastic/apm-agent-go/pull/1206" class="ulink" target="_top">#1206</a>
+</li>
+<li class="listitem">
+Drop unsampled txs when connected to an APM Server &gt;= 8.0 <a href="https://github.com/elastic/apm-agent-go/pull/1208" class="ulink" target="_top">#1208</a>
+</li>
+<li class="listitem">
+Removed SetTag <a href="https://github.com/elastic/apm-agent-go/pull/1218" class="ulink" target="_top">#1218</a>
+</li>
+<li class="listitem">
+Unexport Tracer&#8217;s fields&#8201;&#8212;&#8201;TracerOptions must be used instead <a href="https://github.com/elastic/apm-agent-go/pull/1219" class="ulink" target="_top">#1219</a>
+</li>
+</ul>
+</div>
+</div>
+
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="unreleased.html">« Unreleased</a>
+</span>
+<span class="next">
+<a href="release-notes-1.x.html">Go Agent version 1.x »</a>
+</span>
+</div>
+</div>
+</body>
+</html>
