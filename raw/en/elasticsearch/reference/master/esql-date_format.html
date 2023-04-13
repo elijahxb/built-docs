@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="ELSER is a learned sparse ranking model trained by Elastic.">
+<meta name="keywords" content="ML, Elastic Stack, natural language processing, ELSER">
+<title>DATE_FORMAT | Elasticsearch Guide [master] | Elastic</title>
+<meta class="elastic" name="content" content="DATE_FORMAT | Elasticsearch Guide [master]">
+
+<link rel="home" href="index.html" title="Elasticsearch Guide [master]"/>
+<link rel="up" href="esql-functions.html" title="Functions"/>
+<link rel="prev" href="esql-concat.html" title="CONCAT"/>
+<link rel="next" href="esql-date_trunc.html" title="DATE_TRUNC"/>
+<meta class="elastic" name="product_version" content="master"/>
+<meta class="elastic" name="product_name" content="Elasticsearch"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Elasticsearch/Reference/master"/>
+<meta name="DC.subject" content="Elasticsearch"/>
+<meta name="DC.identifier" content="master"/>
+</head>
+<body><div class="page_header">
+You are looking at preliminary documentation for a future release.
+Not what you want? See the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="esql.html">ESQL</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="esql-functions.html">Functions</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="esql-concat.html">« <code class="literal">CONCAT</code></a>
+</span>
+<span class="next">
+<a href="esql-date_trunc.html"><code class="literal">DATE_TRUNC</code> »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="esql-date_format"></a><code class="literal">DATE_FORMAT</code><a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/esql/esql-functions.asciidoc">edit</a></h2>
+</div></div></div>
+<p>Returns a string representation of a date in the provided format. If no format
+is specified, the <code class="literal">yyyy-MM-dd'T'HH:mm:ss.SSSZ</code> format is used.</p>
+<div class="pre_wrapper lang-esql">
+<pre class="programlisting prettyprint lang-esql">FROM employees
+| PROJECT first_name, last_name, hire_date
+| EVAL hired = DATE_FORMAT(hire_date, "YYYY-MM-dd")</pre>
+</div>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="esql-concat.html">« <code class="literal">CONCAT</code></a>
+</span>
+<span class="next">
+<a href="esql-date_trunc.html"><code class="literal">DATE_TRUNC</code> »</a>
+</span>
+</div>
+</div>
+</body>
+</html>
