@@ -96,7 +96,7 @@ apm-server:
   APM Guide/CHANGELOG.asciidoc/8.4: a6a81cd47478ea5a36ac881da33d68e27a155d79
   APM Guide/CHANGELOG.asciidoc/8.5: bf6c28955f23af718406fc9d86ac288a747e8ad6
   APM Guide/CHANGELOG.asciidoc/8.6: 40e3b5da13d134fea3c1fe30dccfc400112a1412
-  APM Guide/CHANGELOG.asciidoc/8.7: 3ead70fbef5a56d33b343796d2393573ac04bea9
+  APM Guide/CHANGELOG.asciidoc/8.7: local
   APM Guide/CHANGELOG.asciidoc/main: c18e432adc314e33f24cd97e076ac9541320d010
   APM Guide/changelogs/7.16: 28d9e919ecfbcc262cace3720101688295b27aff
   APM Guide/changelogs/7.17: afcef4b93aa5a8dc7d80b6370b02ca1265493dd7
@@ -107,7 +107,7 @@ apm-server:
   APM Guide/changelogs/8.4: a6a81cd47478ea5a36ac881da33d68e27a155d79
   APM Guide/changelogs/8.5: bf6c28955f23af718406fc9d86ac288a747e8ad6
   APM Guide/changelogs/8.6: 40e3b5da13d134fea3c1fe30dccfc400112a1412
-  APM Guide/changelogs/8.7: 3ead70fbef5a56d33b343796d2393573ac04bea9
+  APM Guide/changelogs/8.7: local
   APM Guide/changelogs/main: c18e432adc314e33f24cd97e076ac9541320d010
   APM Guide/docs/7.16: 28d9e919ecfbcc262cace3720101688295b27aff
   APM Guide/docs/7.17: afcef4b93aa5a8dc7d80b6370b02ca1265493dd7
@@ -118,7 +118,7 @@ apm-server:
   APM Guide/docs/8.4: a6a81cd47478ea5a36ac881da33d68e27a155d79
   APM Guide/docs/8.5: bf6c28955f23af718406fc9d86ac288a747e8ad6
   APM Guide/docs/8.6: 40e3b5da13d134fea3c1fe30dccfc400112a1412
-  APM Guide/docs/8.7: 3ead70fbef5a56d33b343796d2393573ac04bea9
+  APM Guide/docs/8.7: local
   APM Guide/docs/main: c18e432adc314e33f24cd97e076ac9541320d010
   Fleet and Elastic Agent Guide/docs/7.12: 51abf1c8d33be3aa030233341fee28fa4c7acbe2
   Fleet and Elastic Agent Guide/docs/7.13: cff29a0e9e251c685adc396a94ba1d903c0c78ec
@@ -133,7 +133,7 @@ apm-server:
   Fleet and Elastic Agent Guide/docs/8.4: a6a81cd47478ea5a36ac881da33d68e27a155d79
   Fleet and Elastic Agent Guide/docs/8.5: bf6c28955f23af718406fc9d86ac288a747e8ad6
   Fleet and Elastic Agent Guide/docs/8.6: 40e3b5da13d134fea3c1fe30dccfc400112a1412
-  Fleet and Elastic Agent Guide/docs/8.7: 3ead70fbef5a56d33b343796d2393573ac04bea9
+  Fleet and Elastic Agent Guide/docs/8.7: local
   Fleet and Elastic Agent Guide/docs/main: c18e432adc314e33f24cd97e076ac9541320d010
   Installation and Upgrade Guide/docs/7.0: 52be7fe64897131117148fa9f5e4b7757c76814f
   Installation and Upgrade Guide/docs/7.1: 3c8032e7bd5bbeb809f734ecfaa8a7cd620febaf
@@ -160,7 +160,7 @@ apm-server:
   Installation and Upgrade Guide/docs/8.4: a6a81cd47478ea5a36ac881da33d68e27a155d79
   Installation and Upgrade Guide/docs/8.5: bf6c28955f23af718406fc9d86ac288a747e8ad6
   Installation and Upgrade Guide/docs/8.6: 40e3b5da13d134fea3c1fe30dccfc400112a1412
-  Installation and Upgrade Guide/docs/8.7: 3ead70fbef5a56d33b343796d2393573ac04bea9
+  Installation and Upgrade Guide/docs/8.7: local
   Installation and Upgrade Guide/docs/main: edac7cd3edff4d2b4e82ae54023592bff94888c4
   Legacy APM Overview/docs/6.0: ae191ba5dd9c07cd567cf3f55e7e1433902fb9fc
   Legacy APM Overview/docs/6.1: e5bfd57830cfe07435a1ad057fc61116e6357a06
@@ -302,7 +302,7 @@ apm-server:
   Observability/docs/8.4: a6a81cd47478ea5a36ac881da33d68e27a155d79
   Observability/docs/8.5: bf6c28955f23af718406fc9d86ac288a747e8ad6
   Observability/docs/8.6: 40e3b5da13d134fea3c1fe30dccfc400112a1412
-  Observability/docs/8.7: 3ead70fbef5a56d33b343796d2393573ac04bea9
+  Observability/docs/8.7: local
   Observability/docs/main: c18e432adc314e33f24cd97e076ac9541320d010
 azure-marketplace:
   Azure Marketplace and Resource Manager (ARM) template/docs/6.3: 633c9f5044df0acd25bc42b1a2d8acef126bba39
