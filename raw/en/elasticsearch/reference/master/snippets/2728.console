@@ -1,9 +1,5 @@
-POST /_snapshot/my_repository/my_snapshot/_mount?wait_for_completion=true
+PUT _application/search_application/my-app?create
 {
-  "index": "my_docs",
-  "renamed_index": "docs",
-  "index_settings": {
-    "index.number_of_replicas": 0
-  },
-  "ignore_index_settings": [ "index.refresh_interval" ]
+  "indices": [ "index1", "index2" ],
+  "analytics_collection_name": "my-analytics-collection"
 }

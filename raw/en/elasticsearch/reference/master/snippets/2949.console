@@ -1,11 +1,6 @@
-PUT my-index-000002
+PUT _data_stream/my-data-stream/_lifecycle
 {
-  "mappings": {
-    "properties": {
-      "datetime": {
-        "type": "date",
-        "format": "uuuu/MM/dd HH:mm:ss||uuuu/MM/dd||epoch_millis"
-      }
-    }
+  "lifecycle": {
+    "data_retention": "7d"
   }
 }

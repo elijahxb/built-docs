@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="ELSER is a learned sparse ranking model trained by Elastic.">
+<meta name="keywords" content="Elasticsearch, high watermark, low watermark, full disk">
+<title>Troubleshoot shards capacity health issues | Elasticsearch Guide [master] | Elastic</title>
+<meta class="elastic" name="content" content="Troubleshoot shards capacity health issues | Elasticsearch Guide [master]">
+
+<link rel="home" href="index.html" title="Elasticsearch Guide [master]"/>
+<link rel="up" href="troubleshooting.html" title="Troubleshooting"/>
+<link rel="prev" href="troubleshooting-searches.html" title="Troubleshooting searches"/>
+<link rel="next" href="rest-apis.html" title="REST APIs"/>
+<meta class="elastic" name="product_version" content="master"/>
+<meta class="elastic" name="product_name" content="Elasticsearch"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Elasticsearch/Reference/master"/>
+<meta name="DC.subject" content="Elasticsearch"/>
+<meta name="DC.identifier" content="master"/>
+</head>
+<body><div class="page_header">
+You are looking at preliminary documentation for a future release.
+Not what you want? See the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elasticsearch Guide [master]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="troubleshooting.html">Troubleshooting</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="troubleshooting-searches.html">« Troubleshooting searches</a>
+</span>
+<span class="next">
+<a href="rest-apis.html">REST APIs »</a>
+</span>
+</div>
+<div class="chapter">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="troubleshoot-shards-capacity-issues"></a>Troubleshoot shards capacity health issues<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/troubleshooting/troubleshooting-shards-capacity.asciidoc">edit</a></h2>
+</div></div></div>
+<p>Elastic limits the maximum number of shards to be held per node using the
+<a class="xref" href="misc-cluster-settings.html#cluster-max-shards-per-node"><code class="literal">cluster.max_shards_per_node</code></a> and
+<a class="xref" href="misc-cluster-settings.html#cluster-max-shards-per-node-frozen"><code class="literal">cluster.max_shards_per_node.frozen</code></a> settings.
+The current shards capacity of the cluster is available in the
+<a class="xref" href="health-api.html#health-api-response-details-shards-capacity" title="shards_capacity">health API shards capacity section</a>.</p>
+<h3><a id="_cluster_is_close_to_reaching_the_configured_maximum_number_of_shards_for_data_nodes"></a>Cluster is close to reaching the configured maximum number of shards for data nodes.<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/troubleshooting/troubleshooting-shards-capacity.asciidoc">edit</a></h3>
+<p>The <a class="xref" href="misc-cluster-settings.html#cluster-max-shards-per-node"><code class="literal">cluster.max_shards_per_node</code></a> cluster
+setting limits the maximum number of open shards for a cluster, only counting over data nodes
+that do not belong to the frozen tier.</p>
+<p>This symptom indicates that an action should be taken, otherwise, either the creation of new
+indices or the upgrading of the cluster could be blocked.</p>
+<p>If you&#8217;re confident your changes won&#8217;t destabilize the cluster, you can
+temporarily increase the limit using the <a class="xref" href="cluster-update-settings.html" title="Cluster update settings API">cluster update settings API</a>:</p>
+<div class="pre_wrapper lang-ruby alternative">
+<pre class="programlisting prettyprint lang-ruby alternative">response = client.cluster.put_settings(
+  body: {
+    persistent: {
+      "cluster.max_shards_per_node": 1200
+    }
+  }
+)
+puts response</pre>
+</div>
+<a id="96b9289c3c4c6b135ab3386562c4ee8d"></a>
+<div class="pre_wrapper lang-console default has-ruby">
+<pre class="programlisting prettyprint lang-console default has-ruby">PUT _cluster/settings
+{
+  "persistent" : {
+    "cluster.max_shards_per_node": 1200
+  }
+}</pre>
+</div>
+<div class="console_widget has-ruby" data-snippet="snippets/1988.console"></div>
+<p>This increase should only be temporary. As a long-term solution, we recommend
+you add nodes to the oversharded data tier or
+<a class="xref" href="size-your-shards.html#reduce-cluster-shard-count" title="Reduce a cluster&#8217;s shard count">reduce your cluster&#8217;s shard count</a> in nodes that do not belong
+to the frozen tier. To verify that the change has fixed the issue, you can get the current
+status of the <code class="literal">shards_capacity</code> indicator by checking the <code class="literal">data</code> section of the
+<a class="xref" href="health-api.html#health-api-example" title="Examples">health API</a>:</p>
+<a id="5797df4b8e71d821a1488cbb63481104"></a>
+<div class="pre_wrapper lang-console">
+<pre class="programlisting prettyprint lang-console">GET _health_report/shards_capacity</pre>
+</div>
+<div class="console_widget" data-snippet="snippets/1989.console"></div>
+<p>When a long-term solution is in place, we recommend you reset the
+<code class="literal">cluster.max_shards_per_node</code> limit.</p>
+<div class="pre_wrapper lang-ruby alternative">
+<pre class="programlisting prettyprint lang-ruby alternative">response = client.cluster.put_settings(
+  body: {
+    persistent: {
+      "cluster.max_shards_per_node": nil
+    }
+  }
+)
+puts response</pre>
+</div>
+<a id="3af10fde8138d9d95df127d39d9a0ed2"></a>
+<div class="pre_wrapper lang-console default has-ruby">
+<pre class="programlisting prettyprint lang-console default has-ruby">PUT _cluster/settings
+{
+  "persistent" : {
+    "cluster.max_shards_per_node": null
+  }
+}</pre>
+</div>
+<div class="console_widget has-ruby" data-snippet="snippets/1990.console"></div>
+<h3><a id="_cluster_is_close_to_reaching_the_configured_maximum_number_of_shards_for_frozen_nodes"></a>Cluster is close to reaching the configured maximum number of shards for frozen nodes.<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/elasticsearch/edit/main/docs/reference/troubleshooting/troubleshooting-shards-capacity.asciidoc">edit</a></h3>
+<p>The <a class="xref" href="misc-cluster-settings.html#cluster-max-shards-per-node-frozen"><code class="literal">cluster.max_shards_per_node.frozen</code></a> cluster
+setting limits the maximum number of open shards for a cluster, only counting over data nodes
+that belong to the frozen tier.</p>
+<p>This symptom indicates that an action should be taken, otherwise, either the creation of new
+indices in the frozen tier or the upgrading of the cluster could be blocked.</p>
+<p>If you&#8217;re confident your changes won&#8217;t destabilize the cluster, you can
+temporarily increase the limit using the <a class="xref" href="cluster-update-settings.html" title="Cluster update settings API">cluster update settings API</a>:</p>
+<a id="fccc8107cdde9988a99cdfbb4437efca"></a>
+<div class="pre_wrapper lang-console">
+<pre class="programlisting prettyprint lang-console">PUT _cluster/settings
+{
+  "persistent" : {
+    "cluster.max_shards_per_node.frozen": 4200
+  }
+}</pre>
+</div>
+<div class="console_widget" data-snippet="snippets/1991.console"></div>
+<p>This increase should only be temporary. As a long-term solution, we recommend you add nodes to
+the oversharded frozen data tier or
+<a class="xref" href="size-your-shards.html#reduce-cluster-shard-count" title="Reduce a cluster&#8217;s shard count">reduce your cluster&#8217;s shard count</a> for nodes that do belong
+to the frozen tier. To verify that the change has fixed the issue, you can get the current
+status of the <code class="literal">shards_capacity</code> indicator by checking the <code class="literal">frozen</code> section of the
+<a class="xref" href="health-api.html#health-api-example" title="Examples">health API</a>:</p>
+<a id="5797df4b8e71d821a1488cbb63481104"></a>
+<div class="pre_wrapper lang-console">
+<pre class="programlisting prettyprint lang-console">GET _health_report/shards_capacity</pre>
+</div>
+<div class="console_widget" data-snippet="snippets/1992.console"></div>
+<p>When a long-term solution is in place, we recommend you reset the
+<code class="literal">cluster.max_shards_per_node.frozen</code> limit.</p>
+<a id="b638e11d6a8a084290f8934d224abd52"></a>
+<div class="pre_wrapper lang-console">
+<pre class="programlisting prettyprint lang-console">PUT _cluster/settings
+{
+  "persistent" : {
+    "cluster.max_shards_per_node.frozen": null
+  }
+}</pre>
+</div>
+<div class="console_widget" data-snippet="snippets/1993.console"></div>
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="troubleshooting-searches.html">« Troubleshooting searches</a>
+</span>
+<span class="next">
+<a href="rest-apis.html">REST APIs »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

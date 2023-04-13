@@ -1,1 +1,1 @@
-GET _cluster/settings?flat_settings=true&filter_path=transient
+GET .ds-metrics-2023.03.22-000001/_lifecycle/explain
