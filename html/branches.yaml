@@ -5987,7 +5987,7 @@ enterprise-search-pubs:
   App Search Guide/app-search-docs/8.5: 41321af690368211f98ff2cc2b37f683184e466a
   App Search Guide/app-search-docs/8.6: 988818616e077bc2457eab5dc564d411277ac215
   App Search Guide/app-search-docs/8.7: 63494e10f5ed1a7997dae61c73def1def5584abe
-  App Search Guide/app-search-docs/main: e7baec0afb95d74c8976aa2a638837cae7818ea7
+  App Search Guide/app-search-docs/main: local
   App Search JavaScript client/client-docs/app-search-javascript/7.16: 71b7fd4de31e3a875274a2bf355f88249c9b3b57
   App Search JavaScript client/client-docs/app-search-javascript/7.17: 5106fe75556187683ab4183906d00e04ad5c964e
   App Search JavaScript client/client-docs/app-search-javascript/8.0: c072b10f8b91b68fa1f331cb17802e0efd9663b9
@@ -5998,7 +5998,7 @@ enterprise-search-pubs:
   App Search JavaScript client/client-docs/app-search-javascript/8.5: 41321af690368211f98ff2cc2b37f683184e466a
   App Search JavaScript client/client-docs/app-search-javascript/8.6: 21fb72e7d443f7e14b10d9c567feca9368c4b0ba
   App Search JavaScript client/client-docs/app-search-javascript/8.7: 936a2673e4ba2fc06046e84313ac7292d60238a1
-  App Search JavaScript client/client-docs/app-search-javascript/main: c4d211194d412a289a86e3c47abe744042095971
+  App Search JavaScript client/client-docs/app-search-javascript/main: local
   App Search Node.js client/client-docs/app-search-node/7.16: 71b7fd4de31e3a875274a2bf355f88249c9b3b57
   App Search Node.js client/client-docs/app-search-node/7.17: 5106fe75556187683ab4183906d00e04ad5c964e
   App Search Node.js client/client-docs/app-search-node/8.0: c072b10f8b91b68fa1f331cb17802e0efd9663b9
@@ -6009,7 +6009,7 @@ enterprise-search-pubs:
   App Search Node.js client/client-docs/app-search-node/8.5: 41321af690368211f98ff2cc2b37f683184e466a
   App Search Node.js client/client-docs/app-search-node/8.6: 21fb72e7d443f7e14b10d9c567feca9368c4b0ba
   App Search Node.js client/client-docs/app-search-node/8.7: 936a2673e4ba2fc06046e84313ac7292d60238a1
-  App Search Node.js client/client-docs/app-search-node/main: c4d211194d412a289a86e3c47abe744042095971
+  App Search Node.js client/client-docs/app-search-node/main: local
   Enterprise Search Guide/enterprise-search-docs/7.10: 848c0f2fc483d93a37ded3dc2efe8945f9ac6354
   Enterprise Search Guide/enterprise-search-docs/7.11: 90d319980ddcf1acac852214012f10e025976525
   Enterprise Search Guide/enterprise-search-docs/7.12: c55dbc2bcc7001bfdaa3c9054f72240a0aac92bb
@@ -6029,7 +6029,7 @@ enterprise-search-pubs:
   Enterprise Search Guide/enterprise-search-docs/8.5: ad1b3b17c36f449e81fe286e18d477cef2d2f1a0
   Enterprise Search Guide/enterprise-search-docs/8.6: 988818616e077bc2457eab5dc564d411277ac215
   Enterprise Search Guide/enterprise-search-docs/8.7: d73fc3f138c3a04fff8e50564dbefd1111d5184c
-  Enterprise Search Guide/enterprise-search-docs/main: f5af37edd2ce0ed8ab01763331f7fc5092048531
+  Enterprise Search Guide/enterprise-search-docs/main: local
   Workplace Search Guide/workplace-search-docs/7.10: 848c0f2fc483d93a37ded3dc2efe8945f9ac6354
   Workplace Search Guide/workplace-search-docs/7.11: 90d319980ddcf1acac852214012f10e025976525
   Workplace Search Guide/workplace-search-docs/7.12: c55dbc2bcc7001bfdaa3c9054f72240a0aac92bb
@@ -6050,7 +6050,7 @@ enterprise-search-pubs:
   Workplace Search Guide/workplace-search-docs/8.5: 41321af690368211f98ff2cc2b37f683184e466a
   Workplace Search Guide/workplace-search-docs/8.6: 21fb72e7d443f7e14b10d9c567feca9368c4b0ba
   Workplace Search Guide/workplace-search-docs/8.7: 63494e10f5ed1a7997dae61c73def1def5584abe
-  Workplace Search Guide/workplace-search-docs/main: e7baec0afb95d74c8976aa2a638837cae7818ea7
+  Workplace Search Guide/workplace-search-docs/main: local
   Workplace Search Node.js client/client-docs/workplace-search-node/7.16: 71b7fd4de31e3a875274a2bf355f88249c9b3b57
   Workplace Search Node.js client/client-docs/workplace-search-node/7.17: 5106fe75556187683ab4183906d00e04ad5c964e
   Workplace Search Node.js client/client-docs/workplace-search-node/8.0: c072b10f8b91b68fa1f331cb17802e0efd9663b9
@@ -6061,7 +6061,7 @@ enterprise-search-pubs:
   Workplace Search Node.js client/client-docs/workplace-search-node/8.5: 41321af690368211f98ff2cc2b37f683184e466a
   Workplace Search Node.js client/client-docs/workplace-search-node/8.6: 21fb72e7d443f7e14b10d9c567feca9368c4b0ba
   Workplace Search Node.js client/client-docs/workplace-search-node/8.7: 936a2673e4ba2fc06046e84313ac7292d60238a1
-  Workplace Search Node.js client/client-docs/workplace-search-node/main: c4d211194d412a289a86e3c47abe744042095971
+  Workplace Search Node.js client/client-docs/workplace-search-node/main: local
 enterprise-search-python:
   Enterprise Search Python client/docs/guide/7.11: b00d992d48081feb4e4efe5b35d84efdfd9cb8e0
   Enterprise Search Python client/docs/guide/7.12: 3edb3753ec9a83d2a3486417a94478d1cbdfb23a
