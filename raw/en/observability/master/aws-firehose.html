@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="Learn configuration options for Elastic Serverless Forwarder and how to transform your AWS data as it is collected from Amazon Web Services (AWS).">
+<meta name="keywords" content="serverless">
+<title>Amazon Kinesis Data Firehose | Observability Guide [master] | Elastic</title>
+<meta class="elastic" name="content" content="Amazon Kinesis Data Firehose | Observability Guide [master]">
+
+<link rel="home" href="index.html" title="Observability Guide [master]"/>
+<link rel="up" href="add-observability-data.html" title="Send data to Elasticsearch"/>
+<link rel="prev" href="aws-serverless-troubleshooting.html" title="Troubleshooting and error handling"/>
+<link rel="next" href="aws-firehose-setup-guide.html" title="Amazon Kinesis Data Firehose setup guide"/>
+<meta class="elastic" name="product_version" content="master"/>
+<meta class="elastic" name="product_name" content="Observability"/>
+<meta class="elastic" name="website_area" content="documentation"/>
+<meta name="DC.type" content="Learn/Docs/Observability/Guide/master"/>
+<meta name="DC.subject" content="Observability"/>
+<meta name="DC.identifier" content="master"/>
+</head>
+<body><div class="page_header">
+You are looking at preliminary documentation for a future release.
+Not what you want? See the
+<a href="../current/index.html">current release documentation</a>.
+</div>
+<div id="content">
+<div class="breadcrumbs">
+<span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Observability Guide [master]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="add-observability-data.html">Send data to Elasticsearch</a></span>
+</div>
+<div class="navheader">
+<span class="prev">
+<a href="aws-serverless-troubleshooting.html">« Troubleshooting and error handling</a>
+</span>
+<span class="next">
+<a href="aws-firehose-setup-guide.html">Amazon Kinesis Data Firehose setup guide »</a>
+</span>
+</div>
+<div class="section">
+<div class="titlepage"><div><div>
+<h2 class="title"><a id="aws-firehose"></a>Amazon Kinesis Data Firehose<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/observability-docs/edit/main/docs/en/observability/aws-firehose/aws-firehose.asciidoc">edit</a></h2>
+</div></div></div>
+<div class="warning admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>This functionality is in technical preview and may be changed or removed in a future release. Elastic will apply best effort to fix any issues, but features in technical preview are not subject to the support SLA of official GA features.</p>
+</div>
+</div>
+<p>Elastic Cloud users can ingest logs directly from AWS Kinesis Data Firehose.</p>
+<p>AWS Kinesis Data Firehose works with Elastic Stack version 7.17 or greater.</p>
+<div class="ulist itemizedlist">
+<ul class="itemizedlist">
+<li class="listitem">
+<a class="xref" href="aws-firehose-setup-guide.html" title="Amazon Kinesis Data Firehose setup guide">Amazon Kinesis Data Firehose setup guide</a>
+</li>
+<li class="listitem">
+<a class="xref" href="aws-firehose-troubleshooting.html" title="Amazon Kinesis Data Firehose troubleshooting">Amazon Kinesis Data Firehose troubleshooting</a>
+</li>
+</ul>
+</div>
+<h4><a id="aws-firehose-what-is-it"></a>What is Amazon Kinesis Data Firehose?<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/observability-docs/edit/main/docs/en/observability/aws-firehose/aws-firehose.asciidoc">edit</a></h4>
+<p>Amazon Kinesis Data Firehose is an extract, transform, and load (ETL) service that reliably captures, transforms, and delivers streaming data to data lakes, data stores, and analytics services.</p>
+<p>Using Firehose to send your data to Elastic means you have no agents to deploy, lambdas to configure, or Beats to manage. Pricing is simple, predictable, and typically more cost-effective than other data ingest solutions. Additionally, auto-scaling capability is built in, and the service is designed to handle high-volume use cases.</p>
+<p>The overall architecture is shown below.</p>
+<div class="imageblock">
+<div class="content">
+<img src="./images/firehose-architecture.png" alt="Diagram showing Amazon Kinesis Data Firehose connected to Elastic Cloud with examples of input data sources" width="such as Amazon Kinesis Data Streams and Amazon Route 53 logs.">
+</div>
+</div>
+
+
+</div>
+<div class="navfooter">
+<span class="prev">
+<a href="aws-serverless-troubleshooting.html">« Troubleshooting and error handling</a>
+</span>
+<span class="next">
+<a href="aws-firehose-setup-guide.html">Amazon Kinesis Data Firehose setup guide »</a>
+</span>
+</div>
+</div>
+</body>
+</html>

@@ -5,13 +5,13 @@
 <meta charset="UTF-8">
 <meta name="description" content="Learn configuration options for Elastic Serverless Forwarder and how to transform your AWS data as it is collected from Amazon Web Services (AWS).">
 <meta name="keywords" content="serverless">
-<title>Send data to Elasticsearch | Observability Guide [master] | Elastic</title>
-<meta class="elastic" name="content" content="Send data to Elasticsearch | Observability Guide [master]">
+<title>Amazon Kinesis Data Firehose troubleshooting | Observability Guide [master] | Elastic</title>
+<meta class="elastic" name="content" content="Amazon Kinesis Data Firehose troubleshooting | Observability Guide [master]">
 
 <link rel="home" href="index.html" title="Observability Guide [master]"/>
-<link rel="up" href="index.html" title="Observability Guide [master]"/>
-<link rel="prev" href="whats-new.html" title="What&#8217;s new in 8.7"/>
-<link rel="next" href="spin-up-stack.html" title="Spin up the Elastic Stack"/>
+<link rel="up" href="aws-firehose.html" title="Amazon Kinesis Data Firehose"/>
+<link rel="prev" href="aws-firehose-setup-guide.html" title="Amazon Kinesis Data Firehose setup guide"/>
+<link rel="next" href="observability-ui.html" title="Observability overview page"/>
 <meta class="elastic" name="product_version" content="master"/>
 <meta class="elastic" name="product_name" content="Observability"/>
 <meta class="elastic" name="website_area" content="documentation"/>
@@ -123,60 +123,29 @@ Not what you want? See the
 <div class="breadcrumbs">
 <span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
 <span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Observability Guide [master]</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="add-observability-data.html">Send data to Elasticsearch</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="aws-firehose.html">Amazon Kinesis Data Firehose</a></span>
 </div>
 <div class="navheader">
 <span class="prev">
-<a href="whats-new.html">« What&#8217;s new in 8.7</a>
+<a href="aws-firehose-setup-guide.html">« Amazon Kinesis Data Firehose setup guide</a>
 </span>
 <span class="next">
-<a href="spin-up-stack.html">Spin up the Elastic Stack »</a>
+<a href="observability-ui.html">Observability overview page »</a>
 </span>
 </div>
-<div class="chapter">
+<div class="section">
 <div class="titlepage"><div><div>
-<h1 class="title"><a id="add-observability-data"></a>Send data to Elasticsearch<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/observability-docs/edit/main/docs/en/observability/add-observability-data.asciidoc">edit</a></h1>
+<h3 class="title"><a id="aws-firehose-troubleshooting"></a>Amazon Kinesis Data Firehose troubleshooting<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/observability-docs/edit/main/docs/en/observability/aws-firehose/aws-firehose-troubleshooting.asciidoc">edit</a></h3>
 </div></div></div>
-<p>Elastic provides two main ways to send data to Elasticsearch:</p>
-<div class="ulist itemizedlist">
-<ul class="itemizedlist">
-<li class="listitem">
-<span class="strong strong"><strong>Elastic Agent</strong></span>, a single agent for logs, metrics, uptime, security data, and threat
-prevention.
-</li>
-<li class="listitem">
-<span class="strong strong"><strong>Legacy Beats</strong></span>, lightweight data shippers that send operational data to
-Elasticsearch. Elastic provides separate Beats for different types of data, such as
-logs, metrics, and uptime.
-</li>
-</ul>
-</div>
-<p>The method you use depends on your use case, which features you need, and
-whether you want to centrally manage your agents. Not sure whether to use
-Beats or Elastic Agent? Refer to <a href="/guide/en/fleet/master/beats-agent-comparison.html" class="ulink" target="_top">Beats
-and Elastic Agent capabilities</a>.</p>
-<p>To get started, refer to:</p>
-<div class="ulist itemizedlist">
-<ul class="itemizedlist">
-<li class="listitem">
-<a class="xref" href="deploy-agent-to-send-data.html" title="Deploy Elastic Agent to send data">Deploy Elastic Agent to send data</a>
-</li>
-<li class="listitem">
-<a class="xref" href="deploy-beats-to-send-data.html" title="Deploy Beats to send data">Deploy Beats to send data</a>
-</li>
-</ul>
-</div>
-
-
-
-
 
 </div>
 <div class="navfooter">
 <span class="prev">
-<a href="whats-new.html">« What&#8217;s new in 8.7</a>
+<a href="aws-firehose-setup-guide.html">« Amazon Kinesis Data Firehose setup guide</a>
 </span>
 <span class="next">
-<a href="spin-up-stack.html">Spin up the Elastic Stack »</a>
+<a href="observability-ui.html">Observability overview page »</a>
 </span>
 </div>
 </div>
