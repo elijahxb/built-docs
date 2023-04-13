@@ -6617,7 +6617,7 @@ security-docs:
   Elastic Security/docs/8.4: c0ebe6db46ff95207013671f71a72924814839d5
   Elastic Security/docs/8.5: 920a4f74044c5ea6349388b6a61bcc5f62e8e80f
   Elastic Security/docs/8.6: a1e0af4aa659ba578d33eb826c99dfad3d733505
-  Elastic Security/docs/8.7: b1ed7c0be6bee8f7ff7d7b06b09441d2c0b7d1ab
+  Elastic Security/docs/8.7: local
   Elastic Security/docs/main: aa369f741a1c37fc28bda6a6bfb26656ea88e220
   Installation and Upgrade Guide/docs/8.0: 6e99fba793420674093b93f2c56f9f7d88628f37
   Installation and Upgrade Guide/docs/8.1: 2dcfbf00cf2f798535c682a73aa5145ab17c5783
@@ -6626,7 +6626,7 @@ security-docs:
   Installation and Upgrade Guide/docs/8.4: c0ebe6db46ff95207013671f71a72924814839d5
   Installation and Upgrade Guide/docs/8.5: 920a4f74044c5ea6349388b6a61bcc5f62e8e80f
   Installation and Upgrade Guide/docs/8.6: a1e0af4aa659ba578d33eb826c99dfad3d733505
-  Installation and Upgrade Guide/docs/8.7: b1ed7c0be6bee8f7ff7d7b06b09441d2c0b7d1ab
+  Installation and Upgrade Guide/docs/8.7: local
   Installation and Upgrade Guide/docs/main: aa369f741a1c37fc28bda6a6bfb26656ea88e220
 sense:
   Sense Editor for 4.x/docs/master: e4b27640c79c102d1e09941c4430092522338cff
