@@ -5908,7 +5908,7 @@ elasticsearch-py:
   Elasticsearch Guide/docs/examples/8.5: 1bd9bba0b163b8245393f66d319c89c0771344ad
   Elasticsearch Guide/docs/examples/8.6: 81b3611d0fa075a6154ad8e5532ad6f4edf8cbc7
   Elasticsearch Guide/docs/examples/8.7: 870fb86b2bd06b8a67249c5e9c792377198ea4b3
-  Elasticsearch Guide/docs/examples/main: f9df3af3db99e6ac4db5cfed22f819469c4b41fb
+  Elasticsearch Guide/docs/examples/main: local
   Python Client/docs/guide/7.16: e5142c640b0e8243bef295fb5b5611f484612e3b
   Python Client/docs/guide/7.17: 16f58a715a679ce7900bb9fa09f54bcd3ecab4be
   Python Client/docs/guide/8.0: 0d1c630f56cc33104c52c297d065b9d6f254613d
@@ -5919,7 +5919,7 @@ elasticsearch-py:
   Python Client/docs/guide/8.5: 1bd9bba0b163b8245393f66d319c89c0771344ad
   Python Client/docs/guide/8.6: 81b3611d0fa075a6154ad8e5532ad6f4edf8cbc7
   Python Client/docs/guide/8.7: d9f5b631738df4e579109bdb5003d2ae165b86dd
-  Python Client/docs/guide/main: f9df3af3db99e6ac4db5cfed22f819469c4b41fb
+  Python Client/docs/guide/main: local
 elasticsearch-rs:
   Rust Client/docs/8.0: d52932e7b31346e2e6048c8c926bafba11d30b48
   Rust Client/docs/8.1: d52932e7b31346e2e6048c8c926bafba11d30b48
