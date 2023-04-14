@@ -3,13 +3,13 @@
   <head>
     
 <meta charset="UTF-8">
-<title>Cloud workload protection | Elastic Security Solution [master] | Elastic</title>
-<meta class="elastic" name="content" content="Cloud workload protection | Elastic Security Solution [master]">
+<title>Cloud Native Vulnerability Management | Elastic Security Solution [master] | Elastic</title>
+<meta class="elastic" name="content" content="Cloud Native Vulnerability Management | Elastic Security Solution [master]">
 
 <link rel="home" href="index.html" title="Elastic Security Solution [master]"/>
 <link rel="up" href="cloud-native-security-overview.html" title="Cloud native security"/>
-<link rel="prev" href="vuln-management-findings.html" title="Findings"/>
-<link rel="next" href="session-view.html" title="Session View"/>
+<link rel="prev" href="security-posture-faq.html" title="Frequently asked questions (FAQ)"/>
+<link rel="next" href="vuln-management-get-started.html" title="Get started with CNVM"/>
 <meta class="elastic" name="product_version" content="master"/>
 <meta class="elastic" name="product_name" content="Security"/>
 <meta class="elastic" name="website_area" content="documentation"/>
@@ -125,59 +125,58 @@ Not what you want? See the
 </div>
 <div class="navheader">
 <span class="prev">
-<a href="vuln-management-findings.html">« Findings</a>
+<a href="security-posture-faq.html">« Frequently asked questions (FAQ)</a>
 </span>
 <span class="next">
-<a href="session-view.html">Session View »</a>
+<a href="vuln-management-get-started.html">Get started with CNVM »</a>
 </span>
 </div>
 <div class="chapter">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="cloud-workload-protection"></a>Cloud workload protection<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/main/docs/cloud-native-security/cloud-workload-protection.asciidoc">edit</a></h2>
+<h2 class="title"><a id="vuln-management-overview"></a>Cloud Native Vulnerability Management<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/main/docs/cloud-native-security/vuln-management-overview.asciidoc">edit</a></h2>
 </div></div></div>
-<p>Cloud workload protection helps you monitor and protect your Linux hosts and Kubernetes runtimes. It uses the <a class="xref" href="install-endpoint.html" title="Configure and install the Elastic Defend integration">Elastic Defend</a> integration to capture cloud workload telemetry containing process, file, and network activity. In Kubernetes environments, this telemetry is further enriched with metadata that enables you to isolate events in your cloud topography.</p>
-<p>This telemetry also enables the automated identification of cloud threats with out-of-the-box detection rules and machine learning models. Alerts based on these detections can reduce the time to identify and remediate threats.</p>
-<h3><a id="_use_cases"></a>Use cases<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/main/docs/cloud-native-security/cloud-workload-protection.asciidoc">edit</a></h3>
+<p>Elastic&#8217;s Cloud Native Vulnerability Management (CNVM) feature helps you identify known vulnerabilities in your cloud workloads.</p>
+<p>Setup is quick and easy, using infrastructure as code. For setup instructions, refer to <a class="xref" href="vuln-management-get-started.html" title="Get started with CNVM">Get started with Cloud Native Vulnerability Management</a>.</p>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>CNVM currently supports only AWS EC2 Linux workloads.</p>
+</div>
+</div>
+<div class="sidebar">
+<div class="titlepage"><div><div>
+<p class="title"><strong>Requirements</strong></p>
+</div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
 <li class="listitem">
-<span class="strong strong"><strong>Runtime monitoring of cloud workloads:</strong></span> Provides visibility into cloud workloads, context for detected threats, and the historical data needed for retroactive threat investigations.
+CNVM is available to all Elastic Cloud users. On-premise deployments require an <a href="/pricing" class="ulink" target="_top">Enterprise subscription</a>.
 </li>
 <li class="listitem">
-<span class="strong strong"><strong>Cloud-native threat detection and prevention:</strong></span> Provides security coverage for Linux, containers, Kubernetes, and serverless applications. Protects from known and unknown threats using on-host detections and protections against malicious behavior, memory threats, and malware.
-</li>
-<li class="listitem">
-<span class="strong strong"><strong>Reducing the time to detect and remediate runtime threats:</strong></span> Helps you resolve potential threats by showing alerts in context, making the data necessary for further investigations readily available, and providing remediation options.
+Elastic Stack version 8.8 or greater.
 </li>
 </ul>
 </div>
-<p>To continue setting up your cloud workload protection, learn more about:</p>
-<div class="ulist itemizedlist">
-<ul class="itemizedlist">
-<li class="listitem">
-<a class="xref" href="install-endpoint.html" title="Configure and install the Elastic Defend integration"><span class="strong strong"><strong>Getting started with Elastic Defend</strong></span></a>: configure Elastic Defend to protect your hosts. Be sure to select one of the "Cloud workloads" presets if you want to collect session data by default, including process, file, and network telemetry.
-</li>
-<li class="listitem">
-<a class="xref" href="session-view.html" title="Session View"><span class="strong strong"><strong>Session view</strong></span></a>: examine Linux process data organized in a tree-like structure according to the Linux logical event model, with processes organized by parentage and time of execution. Use it to monitor and investigate session activity, and to understand user and service behavior on your Linux infrastructure.
-</li>
-<li class="listitem">
-<a class="xref" href="cloud-nat-sec-kubernetes-dashboard.html" title="Kubernetes dashboard"><span class="strong strong"><strong>The Kubernetes dashboard</strong></span></a>: Explore an overview of your protected Kubernetes clusters, and drill down into individual sessions within your Kubernetes infrastructure.
-</li>
-<li class="listitem">
-<a class="xref" href="environment-variable-capture.html" title="Capture environment variables"><span class="strong strong"><strong>Environment variable capture</strong></span></a>: Capture the environment variables associated with process events, such as <code class="literal">PATH</code>, <code class="literal">LD_PRELOAD</code>, or <code class="literal">USER</code>.
-</li>
-</ul>
 </div>
-
+<h3><a id="vuln-management-overview-how-it-works"></a>How vulnerability management works<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/main/docs/cloud-native-security/vuln-management-overview.asciidoc">edit</a></h3>
+<p>During setup, you will use an infrastructure as code provisioning template to orchestrate the creation of a new virtual machine (VM) in the cloud region you wish to scan. This VM installs the Elastic Agent and the Elastic Vulnerability Management for Cloud (EVMC) integration, and conducts all vulnerability scanning.</p>
+<p>Under the hood, the EVMC integration uses <a href="https://github.com/aquasecurity/trivy" class="ulink" target="_top">Trivy</a>, a comprehensive open-source security scanner, to scan cloud workloads and identify security vulnerabilities. During each scan, the VM running the integration takes a snapshot of all cloud workloads in its region using the snapshot APIs of the cloud service provider, and analyzes them for vulnerabilities using Trivy. Therefore, scanning occurs at zero resource utilization on workloads — all resource usage occurs on the VM installed during EVMC setup.</p>
+<p>The scanning process begins immediately upon deployment, then repeats every twenty-four hours. After each scan, the integration sends the discovered vulnerabilities to Elasticsearch, where they appear in the vulnerabilities tab of the <a class="xref" href="vuln-management-findings.html" title="Findings">Findings page</a>.</p>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>Environments with more cloud workloads take longer to scan.</p>
+</div>
+</div>
 
 
 </div>
 <div class="navfooter">
 <span class="prev">
-<a href="vuln-management-findings.html">« Findings</a>
+<a href="security-posture-faq.html">« Frequently asked questions (FAQ)</a>
 </span>
 <span class="next">
-<a href="session-view.html">Session View »</a>
+<a href="vuln-management-get-started.html">Get started with CNVM »</a>
 </span>
 </div>
 </div>

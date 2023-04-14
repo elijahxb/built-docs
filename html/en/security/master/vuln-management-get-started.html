@@ -3,13 +3,13 @@
   <head>
     
 <meta charset="UTF-8">
-<title>Cloud workload protection | Elastic Security Solution [master] | Elastic</title>
-<meta class="elastic" name="content" content="Cloud workload protection | Elastic Security Solution [master]">
+<title>Get started with CNVM | Elastic Security Solution [master] | Elastic</title>
+<meta class="elastic" name="content" content="Get started with CNVM | Elastic Security Solution [master]">
 
 <link rel="home" href="index.html" title="Elastic Security Solution [master]"/>
-<link rel="up" href="cloud-native-security-overview.html" title="Cloud native security"/>
-<link rel="prev" href="vuln-management-findings.html" title="Findings"/>
-<link rel="next" href="session-view.html" title="Session View"/>
+<link rel="up" href="vuln-management-overview.html" title="Cloud Native Vulnerability Management"/>
+<link rel="prev" href="vuln-management-overview.html" title="Cloud Native Vulnerability Management"/>
+<link rel="next" href="vuln-management-findings.html" title="Findings"/>
 <meta class="elastic" name="product_version" content="master"/>
 <meta class="elastic" name="product_name" content="Security"/>
 <meta class="elastic" name="website_area" content="documentation"/>
@@ -122,62 +122,118 @@ Not what you want? See the
 <span class="breadcrumb-link"><a href="/guide/">Elastic Docs</a></span>
 <span class="chevron-right">›</span><span class="breadcrumb-link"><a href="index.html">Elastic Security Solution [master]</a></span>
 <span class="chevron-right">›</span><span class="breadcrumb-link"><a href="cloud-native-security-overview.html">Cloud native security</a></span>
+<span class="chevron-right">›</span><span class="breadcrumb-link"><a href="vuln-management-overview.html">Cloud Native Vulnerability Management</a></span>
 </div>
 <div class="navheader">
 <span class="prev">
-<a href="vuln-management-findings.html">« Findings</a>
+<a href="vuln-management-overview.html">« Cloud Native Vulnerability Management</a>
 </span>
 <span class="next">
-<a href="session-view.html">Session View »</a>
+<a href="vuln-management-findings.html">Findings »</a>
 </span>
 </div>
-<div class="chapter">
+<div class="section">
 <div class="titlepage"><div><div>
-<h2 class="title"><a id="cloud-workload-protection"></a>Cloud workload protection<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/main/docs/cloud-native-security/cloud-workload-protection.asciidoc">edit</a></h2>
+<h2 class="title"><a id="vuln-management-get-started"></a>Get started with CNVM<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/main/docs/cloud-native-security/vuln-management-get-started.asciidoc">edit</a></h2>
 </div></div></div>
-<p>Cloud workload protection helps you monitor and protect your Linux hosts and Kubernetes runtimes. It uses the <a class="xref" href="install-endpoint.html" title="Configure and install the Elastic Defend integration">Elastic Defend</a> integration to capture cloud workload telemetry containing process, file, and network activity. In Kubernetes environments, this telemetry is further enriched with metadata that enables you to isolate events in your cloud topography.</p>
-<p>This telemetry also enables the automated identification of cloud threats with out-of-the-box detection rules and machine learning models. Alerts based on these detections can reduce the time to identify and remediate threats.</p>
-<h3><a id="_use_cases"></a>Use cases<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/main/docs/cloud-native-security/cloud-workload-protection.asciidoc">edit</a></h3>
+<p>This page explains how to implement Cloud Native Vulnerability Management (CNVM) by configuring the Elastic Vulnerability Management for Cloud (EVMC) integration.</p>
+<div class="sidebar">
+<div class="titlepage"><div><div>
+<p class="title"><strong>Requirements</strong></p>
+</div></div></div>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
 <li class="listitem">
-<span class="strong strong"><strong>Runtime monitoring of cloud workloads:</strong></span> Provides visibility into cloud workloads, context for detected threats, and the historical data needed for retroactive threat investigations.
+CNVM is available to all Elastic Cloud users. On-premise deployments require an <a href="/pricing" class="ulink" target="_top">Enterprise subscription</a>.
 </li>
 <li class="listitem">
-<span class="strong strong"><strong>Cloud-native threat detection and prevention:</strong></span> Provides security coverage for Linux, containers, Kubernetes, and serverless applications. Protects from known and unknown threats using on-host detections and protections against malicious behavior, memory threats, and malware.
+Elastic Stack version 8.8 or greater.
 </li>
 <li class="listitem">
-<span class="strong strong"><strong>Reducing the time to detect and remediate runtime threats:</strong></span> Helps you resolve potential threats by showing alerts in context, making the data necessary for further investigations readily available, and providing remediation options.
-</li>
-</ul>
-</div>
-<p>To continue setting up your cloud workload protection, learn more about:</p>
+<p>To view vulnerability scan findings, you need access to the following indices:</p>
 <div class="ulist itemizedlist">
 <ul class="itemizedlist">
 <li class="listitem">
-<a class="xref" href="install-endpoint.html" title="Configure and install the Elastic Defend integration"><span class="strong strong"><strong>Getting started with Elastic Defend</strong></span></a>: configure Elastic Defend to protect your hosts. Be sure to select one of the "Cloud workloads" presets if you want to collect session data by default, including process, file, and network telemetry.
-</li>
-<li class="listitem">
-<a class="xref" href="session-view.html" title="Session View"><span class="strong strong"><strong>Session view</strong></span></a>: examine Linux process data organized in a tree-like structure according to the Linux logical event model, with processes organized by parentage and time of execution. Use it to monitor and investigate session activity, and to understand user and service behavior on your Linux infrastructure.
-</li>
-<li class="listitem">
-<a class="xref" href="cloud-nat-sec-kubernetes-dashboard.html" title="Kubernetes dashboard"><span class="strong strong"><strong>The Kubernetes dashboard</strong></span></a>: Explore an overview of your protected Kubernetes clusters, and drill down into individual sessions within your Kubernetes infrastructure.
-</li>
-<li class="listitem">
-<a class="xref" href="environment-variable-capture.html" title="Capture environment variables"><span class="strong strong"><strong>Environment variable capture</strong></span></a>: Capture the environment variables associated with process events, such as <code class="literal">PATH</code>, <code class="literal">LD_PRELOAD</code>, or <code class="literal">USER</code>.
+[TBD]
 </li>
 </ul>
 </div>
-
-
-
+</li>
+</ul>
+</div>
+</div>
+<div class="note admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>EVMC currently supports only AWS EC2 Linux workloads.</p>
+</div>
+</div>
+<h4><a id="vuln-management-setup"></a>Set up EVMC for AWS<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/main/docs/cloud-native-security/vuln-management-get-started.asciidoc">edit</a></h4>
+<p>To set up the EVMC integration for AWS, install the integration on a new Elastic Agent policy, sign into the AWS account you want to scan, and run the CloudFormation template.</p>
+<h5><a id="vuln-management-setup-step-1"></a>Add the EVMC integration<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/main/docs/cloud-native-security/vuln-management-get-started.asciidoc">edit</a></h5>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+Go to the Elastic Security Get started page, and click <span class="strong strong"><strong>Add security integrations</strong></span>.
+</li>
+<li class="listitem">
+Search for <code class="literal">Elastic Vulnerability Management for Cloud</code>, then click on the result.
+</li>
+<li class="listitem">
+Click on "Add Elastic Vulnerability Management for Cloud".
+</li>
+<li class="listitem">
+Give your integration a name that matches its purpose or the region of the AWS account you want to scan for vulnerabilities, for example, <code class="literal">uswest2-aws-account</code>.
+</li>
+<li class="listitem">
+Click <span class="strong strong"><strong>Save integration</strong></span>. This integration will create a new elastic agent policy.
+</li>
+<li class="listitem">
+Click <span class="strong strong"><strong>Add Elastic Agent to your hosts</strong></span>.
+</li>
+</ol>
+</div>
+<div class="important admon">
+<div class="icon"></div>
+<div class="admon_content">
+<p>Do not attempt to add the integration to an existing Elastic Agent policy. It should always be installed to a new policy, since it should not run on your VMs with existing workloads. For more information refer to <a class="xref" href="vuln-management-overview.html#vuln-management-overview-how-it-works" title="How vulnerability management works">Vulnerability Management Overview</a>.</p>
+</div>
+</div>
+<h5><a id="vuln-management-setup-step-2"></a>Sign in to the AWS management console<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/main/docs/cloud-native-security/vuln-management-get-started.asciidoc">edit</a></h5>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+Sign into your AWS management console in a new browser tab.
+</li>
+<li class="listitem">
+Switch to the cloud region with the workloads which you want to scan for vulnerabilities.
+</li>
+</ol>
+</div>
+<h5><a id="vuln-management-setup-step-3"></a>Run the CloudFormation template<a class="edit_me" rel="nofollow" title="Edit this page on GitHub" href="https://github.com/elastic/security-docs/edit/main/docs/cloud-native-security/vuln-management-get-started.asciidoc">edit</a></h5>
+<div class="olist orderedlist">
+<ol class="orderedlist">
+<li class="listitem">
+Switch back to the tab where you have Kibana open.
+</li>
+<li class="listitem">
+Click <span class="strong strong"><strong>Launch CloudFormation</strong></span>.
+</li>
+<li class="listitem">
+Wait for the confirmation of Elastic Agent enrollment.
+</li>
+<li class="listitem">
+Your data will start to appear on the Vulnerabilities tab of the <a class="xref" href="vuln-management-findings.html" title="Findings">Findings page</a>.
+</li>
+</ol>
+</div>
 </div>
 <div class="navfooter">
 <span class="prev">
-<a href="vuln-management-findings.html">« Findings</a>
+<a href="vuln-management-overview.html">« Cloud Native Vulnerability Management</a>
 </span>
 <span class="next">
-<a href="session-view.html">Session View »</a>
+<a href="vuln-management-findings.html">Findings »</a>
 </span>
 </div>
 </div>
