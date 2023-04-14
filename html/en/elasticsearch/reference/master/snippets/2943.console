@@ -1,4 +1,7 @@
-PUT _data_stream/my-data-stream/_lifecycle
+POST _watcher/watch/my_watch/_execute
 {
-  "data_retention": "7d"
+  "action_modes" : {
+    "action1" : "force_simulate",
+    "action2" : "skip"
+  }
 }

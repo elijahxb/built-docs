@@ -1,1 +1,5 @@
-GET /_count?filter_path=-_shards
+GET /my-index-000001/_analyze
+{
+  "field" : "my-field",
+  "text" : "this is a test"
+}
