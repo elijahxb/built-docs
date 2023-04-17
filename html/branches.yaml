@@ -24,11 +24,11 @@ apm-agent-ios:
   APM iOS Agent/docs/main: b5e30ca260fb5722185d03835a0f235bbd7dab98
 apm-agent-java:
   APM Java Agent/CHANGELOG.asciidoc/1.x: 4d026b667053f39ac348143f853c39b5cf9d9e56
-  APM Java Agent/CHANGELOG.asciidoc/main: e9daddf977a1223a30c049a7cbfffabc07d45607
+  APM Java Agent/CHANGELOG.asciidoc/main: local
   APM Java Agent/docs/0.6: 34da1ec2b6a9f7f4015ab20572ee881a57df11d7
   APM Java Agent/docs/0.7: c438868916ba242b40fcf4ec61d384f9d4055bf8
   APM Java Agent/docs/1.x: 4d026b667053f39ac348143f853c39b5cf9d9e56
-  APM Java Agent/docs/main: e9daddf977a1223a30c049a7cbfffabc07d45607
+  APM Java Agent/docs/main: local
 apm-agent-nodejs:
   APM Node.js Agent/CHANGELOG.asciidoc/2.x: 2c2ac6aa49477fa5e32cb5182f1049a92983b63b
   APM Node.js Agent/CHANGELOG.asciidoc/3.x: 3d4545f719e88fb82ae533ee910382cc4e4f2695
